@@ -30,14 +30,14 @@ In diesem Leitfaden erstellen wir eine Erdkiste mit einem 3x3-Container, auf den
 
 Zunächst möchten wir einen Block und eine Block-Entität erstellen; weitere Informationen findest du im Leitfaden [Blockcontainer](./block-containers#creating-the-block).
 
-@[code transcludeWith=:::block](@/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java#block
 
-@[code transcludeWith=:::be](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#be
 
 Zusätzlich zu den Methoden der normalen Block-Entität müssen wir die Methode `stillValid` überschreiben. Diese Methode wird bei jedem Tick aufgerufen, um zu prüfen, ob der Spieler aus dem Menü geworfen werden soll.
 Wir verwenden die Standardimplementierung dieser Methode aus `ContainerHelper`, die prüft, ob unsere Block-Entität noch existiert und ob sich der Spieler innerhalb des Interaktionsbereichs befindet.
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container-still-valid
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container_still_valid
 
 Sobald unser Menü implementiert ist, wird es automatisch geschlossen, sobald der Spieler weggeschoben wird.
 
@@ -47,13 +47,13 @@ Sobald unser Menü implementiert ist, wird es automatisch geschlossen, sobald de
 
 Wir möchten das Menü irgendwie öffnen können, daher werden wir das innerhalb der Methode `useWithoutItem` umsetzen:
 
-@[code transcludeWith=:::use](@/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java#use
 
 ### Den MenuProvider implementieren {#implementing-menuprovider}
 
 Um die Menü-Funktionalität hinzuzufügen, müssen wir nun `MenuProvider` in der Block-Entität implementieren:
 
-@[code transcludeWith=:::menu](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#menu
 
 Die Methode `getDisplayName` gibt den Namen des Blocks zurück, der oben auf der Oberfläche angezeigt wird.
 
@@ -61,7 +61,7 @@ Die Methode `getDisplayName` gibt den Namen des Blocks zurück, der oben auf der
 
 `createMenu` erwartet, dass wir ein Menü zurückgeben, aber wir haben noch keines für unseren Block erstellt. Um dies zu tun, werden wir eine Klasse `DirtChestMenu` erstellen, welche von `AbstractContainerMenu` erbt:
 
-@[code transcludeWith=:::menu](@/reference/latest/src/main/java/com/example/docs/menu/custom/DirtChestMenu.java)
+<<< @/reference/latest/src/main/java/com/example/docs/menu/custom/DirtChestMenu.java#menu
 
 Der clientseitige Konstruktor wird auf dem Client aufgerufen, wenn der Server möchte, dass dort ein Menü geöffnet wird. Es erstellt einen leeren Container, der dann automatisch mit dem tatsächlichen Container auf dem Server synchronisiert wird.
 
@@ -71,11 +71,11 @@ Der serverseitige Konstruktor wird auf dem Server aufgerufen, und da er den Inha
 
 Zuerst müssen wir das Menü in einer neuen Klasse `ModMenuType` registrieren:
 
-@[code transcludeWith=:::registerMenu](@/reference/latest/src/main/java/com/example/docs/menu/ModMenuType.java)
+<<< @/reference/latest/src/main/java/com/example/docs/menu/ModMenuType.java#register_menu
 
 Wir können jetzt den Rückgabewert von `createMenu` in der Block-Entität setzen, um unser Menü zu verwenden:
 
-@[code transcludeWith=:::providerImplemented](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#provider_implemented
 
 ::: info
 
@@ -88,13 +88,13 @@ Die Methode `createMenu` wird nur auf dem Server aufgerufen, daher rufen wir den
 Um tatsächlich den Inhalt des Containers auf dem Client anzuzeigen, müssen wir außerdem eine Oberfläche für unser Menü erstellen.
 Wir werden eine neue Klasse erstellen, welche von `AbstractContainerScreen` erbt:
 
-@[code transcludeWith=:::screen](@/reference/latest/src/client/java/com/example/docs/rendering/screens/inventory/DirtChestScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/inventory/DirtChestScreen.java#screen
 
 Als Hintergrund für diese Oberfläche verwenden wir einfach die Standardtextur der Werfer-Oberfläche, da unsere Erdkiste dasselbe Slot-Layout verwendet. Du könntest alternativ deine eigene Textur für `CONTAINER_TEXTURE` bereitstellen.
 
 Da es sich hierbei um eine Oberfläche für ein Menü handelt, müssen wir es außerdem auf dem Client mit der Methode `MenuScreens#register()` registrieren:
 
-@[code transcludeWith=:::registerScreens](@/reference/latest/src/client/java/com/example/docs/ExampleModScreens.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModScreens.java#register_screens
 
 Wenn du dein Spiel geladen hast, solltest du nun eine Erdkiste haben, die du mit einem Rechtsklick öffnen kannst, um ein Menü aufzurufen und Items darin zu verstauen.
 

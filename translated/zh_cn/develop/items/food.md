@@ -35,11 +35,11 @@ new Item.Properties().food(new FoodProperties.Builder().build())
 
 如果你想在玩家食用食物时添加生物效果，则需要添加一个 `Consumable` 组件以及 `FoodProperties` 组件，如下例所示：
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_food
 
 与 [创建你的第一个物品](./first-item) 类似，该示例将使用上述的组件：
 
-@[code transcludeWith=:::poisonous_apple](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#poisonous_apple
 
 这会让物品：
 

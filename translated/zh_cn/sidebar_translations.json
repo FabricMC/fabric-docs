@@ -78,6 +78,7 @@
   "develop.loom.classpath_groups": "类路径组",
   "develop.loom.tasks": "其他任务",
   "develop.misc.custom_recipe_types": "自定义配方类型",
+  "develop.misc.resource_conditions": "资源条件",
   "develop.misc": "杂项",
   "develop.misc.automatic_testing": "自动化测试",
   "develop.misc.codecs": "Codecs",

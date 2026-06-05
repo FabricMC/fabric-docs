@@ -31,27 +31,27 @@ authors:
 
 Спершу вам потрібно буде визначити власне джерело відтінку предмета. Це робиться шляхом реалізації інтерфейсу ItemTintSource для класу або запису.
 
-@[code lang=java transcludeWith=:::tint_source](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#tint_source_class
 
 Оскільки це частина визначення клієнтського предмета, значення відтінку можна змінити за допомогою пакета ресурсів. Тож вам потрібно визначити [мапу кодеків(../codecs#mapcodec), який здатний читати ваше визначення відтінку. У цьому випадку джерело відтінку матиме значення `int`, що описує колір, який він матиме під час дощу. Ми можемо використовувати вбудований `ExtraCodecs.RGB_COLOR_CODEC`, щоб створити наш кодек.
 
-@[code lang=java transclude={17-20}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#map_codec
 
 Потім ми можемо повернути цей кодек у `type()`.
 
-@[code lang=java transclude={35-38}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#return_codec
 
 Нарешті, ми можемо надати реалізацію для `calculate`, яка вирішить, яким буде колір відтінку. Значення `color` — це значення, яке надходить із пакета ресурсів.
 
-@[code lang=java transclude={26-33}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#calculate
 
 Потім нам потрібно зареєструвати наше джерело відтінку предмета. Це робиться в **ініціалізаторі клієнта** за допомогою `ID_MAPPER`, оголошеного в `ItemTintSources`.
 
-@[code lang=java transcludeWith=:::item_tint_source](@/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#register_item_tint_source
 
 Коли це буде зроблено, ми можемо використовувати наше джерело відтінку предмета у визначенні клієнтського предмета.
 
-@[code lang=json transclude](@/reference/latest/src/main/generated/assets/example-mod/items/waxcap.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/waxcap.json
 
 Ви можете спостерігати за зміною кольору предмета в грі.
 

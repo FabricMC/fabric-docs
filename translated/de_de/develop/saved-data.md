@@ -41,25 +41,25 @@ Nennen wir unsere Datenklasse `SavedBlockData` und lassen wir sie `SavedData` er
 
 Diese Klasse enthält ein Feld, um die Anzahl der abgebauten Blöcke zu verfolgen, sowie eine Methode zum Abrufen und eine Methode zum Erhöhen dieser Anzahl.
 
-@[code lang=java transcludeWith=:::basic_structure](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#basic_structure
 
 Um diese Daten zu serialisieren und zu deserialisieren, müssen wir einen Codec definieren. Wir können einen Codec aus verschiedenen primitiven Codecs zusammenstellen, die von Minecraft bereitgestellt werden.
 
 Du benötigst einen Konstruktor mit einem `int`-Argument, um die Klasse zu initialisieren.
 
-@[code lang=java transcludeWith=:::ctor](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#ctor
 
 Dann können wir einen Codec bauen.
 
-@[code lang=java transcludeWith=:::codec](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#codec
 
 Wir sollten `setDirty()` aufrufen, wenn Daten tatsächlich geändert werden, damit Minecraft weiß, dass sie auf der Festplatte gespeichert werden müssen.
 
-@[code lang=java transcludeWith=:::set_dirty](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#set_dirty
 
 Schließlich benötigen wir einen `SavedDataType`, der unsere gespeicherten Daten beschreibt. Das erste Argument entspricht dem Namen der Datei, die im Verzeichnis `data` der Welt erstellt wird.
 
-@[code lang=java transcludeWith=:::type](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#type
 
 ### Auf gespeicherte Daten zugreifen {#accessing-saved-data}
 
@@ -67,7 +67,7 @@ Wie bereits erwähnt, können gespeicherte Daten mit einem Geltungsbereich wie d
 
 Wir werden diese Logik in eine Hilfsmethode einbauen.
 
-@[code lang=java transcludeWith=:::method](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#method
 
 ### Gespeicherte Daten verwenden {#using-saved-data}
 
@@ -75,7 +75,7 @@ Nachdem wir jetzt alles eingerichtet haben, speichern wir einige Daten.
 
 Wir können das erste Szenario wiederverwenden und anstatt das Feld zu erhöhen, können wir unsere Funktion `incrementBlocksBroken` aus unseren `SavedBlockData` aufrufen.
 
-@[code lang=java transcludeWith=:::event_registration](@/reference/latest/src/main/java/com/example/docs/saveddata/ExampleModSavedData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/ExampleModSavedData.java#event_registration
 
 Dies sollte den Wert erhöhen und ihn auf dem Datenträger speichern.
 

@@ -42,7 +42,7 @@ In pratica, dovresti solo usare `gameTimeDeltaPartialTick` quando le tue animazi
 
 In questo esempio, useremo `Util.getMillis()` per interpolare linearmente il colore di un quadrato che viene renderizzato nel HUD.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java#hud
 
 ![Interpolare un colore nel tempo](/assets/develop/rendering/hud-rendering-deltatick.webp)
 

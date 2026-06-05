@@ -131,11 +131,11 @@ Lies für weitere Informationen die wichtige Aktualisierung oben.
 
 **Registrierung des Elements:**
 
-@[code lang=java transcludeWith=:::registration](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#registration
 
 **Implementation von `hudLayer()`:**
 
-@[code lang=java transcludeWith=:::hudLayer](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#hud_layer
 
 Dies führt dazu, dass auf dem HUD folgendes gezeichnet wird:
 
@@ -182,7 +182,7 @@ Stelle sicher, dass du den Matrixstapel verschiebst, bevor du eine Transformatio
 
 :::
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#scaling_square
 
 ![Ein Video, das die Vergrößerung und Verkleinerung eines Diamanten zeigt](/assets/develop/rendering/concepts-matrix-stack.webp)
 
@@ -204,7 +204,7 @@ Es ist sehr unwahrscheinlich, dass du jemals eine Quaternion-Klasse direkt verwe
 
 Nehmen wir an, wir wollen unseren Quader um die Z-Achse drehen. Wir können dies tun, indem wir den `PoseStack` und die Methode `rotateAround(quaternionfc, x, y, z)` verwenden.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#rotating_square
 
 Daraus ergibt sich Folgendes:
 

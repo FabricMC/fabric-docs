@@ -78,6 +78,7 @@
   "develop.loom.classpath_groups": "Групи шляху класів",
   "develop.loom.tasks": "Інші завдання",
   "develop.misc.custom_recipe_types": "Власні типи рецептів",
+  "develop.misc.resource_conditions": "Умови ресурсів",
   "develop.misc": "Інші сторінки",
   "develop.misc.automatic_testing": "Автотестування",
   "develop.misc.codecs": "Кодеки",

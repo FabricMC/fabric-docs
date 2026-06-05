@@ -79,7 +79,7 @@ Command<CommandSourceStack> command = context -> {
 
 В ініціалізаторі мода ми просто реєструємо просту команду:
 
-@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#test_command
 
 У методі `sendSuccess()` першим параметром є текст, який потрібно надіслати, тобто `Supplier<Component>`, щоб уникнути створення екземплярів об’єктів `Component`, коли вони не потрібні.
 
@@ -101,17 +101,17 @@ Command<CommandSourceStack> command = context -> {
 
 Якщо потрібно, ви також можете переконатися, що команда зареєстрована лише за певних обставин, наприклад, лише в виділене середовище:
 
-@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#dedicated_command{2}
 
-@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_dedicated_command
 
 ### Вимоги до команд {#command-requirements}
 
 Припустімо, у вас є команда, яку ви хочете, щоб її могли виконувати лише модератори. Тут знаходиться метод `requires()` вступає в гру. Метод `requires()` має один аргумент `Predicate<S>`, який забезпечить `CommandSourceStack` для перевірки та визначення, чи може `CommandSource` виконати команду.
 
-@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#required_command{3}
 
-@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_required_command
 
 Ця команда виконуватиметься, лише якщо джерелом команди є принаймні модератор, включаючи командні блоки. Інакше команда не реєструється.
 
@@ -121,21 +121,21 @@ Command<CommandSourceStack> command = context -> {
 
 Щоб додати підкоманду, ви зазвичай реєструєте перший нод літералу команди. Щоб мати підкоманду, вам потрібно додати наступний нод літералу до наявного нода.
 
-@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#sub_command_one{3}
 
-@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_sub_command_one
 
 Подібно до аргументів, ноди підкоманд також можна встановити необов’язковими. У наступному випадку обидва `/command_two` і `/command_two sub_command_two` буде дійсним.
 
-@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#sub_command_two{2,8}
 
-@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_sub_command_two
 
 ## Клієнтські команди {#client-commands}
 
 Подібним чином Fabric API надає подію `ClientCommandRegistrationCallback` у пакеті `net.fabricmc.fabric.api.client.command.v2`, який можна використовувати для реєстрації команд на стороні клієнта, замінюючи стандартний клас `Commands` еквівалентним `ClientCommands`. Код має існувати лише в коді на стороні клієнта.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
+<<< @/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java#register_command
 
 ## Перенаправлення команд {#command-redirects}
 
@@ -147,9 +147,9 @@ Brigadier [перенаправлятиме лише ноди команди з 
 
 :::
 
-@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#redirect_command
 
-@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_redirected_by
 
 ## Часті питання {#faq}
 

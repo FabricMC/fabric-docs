@@ -27,11 +27,11 @@ Beginne zunächst mit einer einfachen Hilfsmethode, um die Attribute deines Mods
 - Ein `double`, welcher der höchste Wert sein wird, den dein Attribut erreichen wird
 - Ein `boolean`, der angibt, ob das Attribut mit Clients synchronisiert wird
 
-@[code lang=java transcludeWith=:::register](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java#register
 
 Anschließend registrieren wir ein Attribut namens `AGGRO_RANGE` mit dem Namen `aggro_range`, einem Standardwert von `8.0`, einem minimalen Wert von `0` und einem maximalen Wert, der so hoch wie möglich eingestellt ist. Dieses Attribut wird nicht mit den Spielern synchronisiert.
 
-@[code lang=java transcludeWith=:::attributes](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java#attributes
 
 ### Benutzerdefinierte Attribute übersetzen {#attribute-translation}
 
@@ -47,9 +47,9 @@ Um den Attributnamen in einem für Menschen lesbaren Format anzuzeigen, musst du
 
 Um sicherzustellen, dass das Attribut ordnungsgemäß registriert wird, musst du sicherstellen, dass es beim Start des Mods initialisiert wird. Dies kann erreicht werden, indem du zu deiner Klasse eine öffentliche statische Initialisierungsmethode hinzufügst und diese aus deiner [Mod-Initialisierungsklasse](../getting-started/project-structure#entrypoints) aufrufst. Derzeit benötigt diese Methode keine Inhalte.
 
-@[code lang=java transcludeWith=:::initialize](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java#initialize
 
-@[code lang=java transcludeWith=:::init](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ExampleModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ExampleModAttributes.java#init
 
 Der Aufruf einer Methode einer Klasse initialisiert diese statisch, wenn sie nicht vorher geladen wurde - das bedeutet, dass alle `static` Felder ausgewertet werden. Dafür ist diese Dummy-Methode `initialize` gedacht.
 

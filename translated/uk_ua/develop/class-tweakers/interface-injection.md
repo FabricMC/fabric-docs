@@ -26,7 +26,7 @@ authors:
 
 У пакеті, який не є вашим пакетом міксина, створіть інтерфейс, який ви хочете додати:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface-injection-example-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface_injection_example_interface
 
 У нашому випадку ми викидаємо усталено, оскільки ми плануємо реалізувати метод через міксин.
 
@@ -48,7 +48,7 @@ authors:
 
 Щоб створити перевизначення методів інтерфейсу в цільовому класі, вам слід використовувати міксин, який реалізує інтерфейс і націлений на клас, у який ви хочете впровадити інтерфейс.
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface-injection-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface_injection_example_mixin
 
 Перевизначення буде додано до цільового класу під час виконання, але не буде видно в декомпільованому джерелі, навіть якщо ви використовуєте твікер класу, щоб зробити реалізацію інтерфейсу видимою.
 
@@ -64,7 +64,7 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 Для нашого прикладу інтерфейсу запис буде таким:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_example_entry{classtweaker:no-line-numbers}
 
 ### Загальні інтерфейси {#generic-interfaces}
 
@@ -85,13 +85,13 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 Отже, щоб додати інтерфейс:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface-injection-generic-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface_injection_generic_interface
 
 із загальним `<? extends String, Boolean[]>`
 
 Запис твікера класу буде таким:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_generic_interface_entry{classtweaker:no-line-numbers}
 
 ## Застосування змін {#applying-changes}
 
@@ -100,6 +100,6 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 Додані методи тепер можна використовувати в екземплярах класу, в який було впроваджено інтерфейс:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface-injection-using-added-method
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface_injection_using_added_method
 
 Ви також можете перевизначити методи в підкласах цільового впровадження інтерфейсу, якщо це необхідно.

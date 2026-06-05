@@ -29,15 +29,15 @@ authors:
 
 Сначала необходимо создать наш провайдер. Создайте класс, который расширяет `FabricDynamicRegistryProvider`, внутри основного пакета (`main`) и заполните базовые методы:
 
-@[code lang=java transcludeWith=:::datagen-world:provider](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#datagen_world_provider
 
 В методе `configure` мы вызовем `addAll`, чтобы гарантировать генерацию всех файлов для наших структур.
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#worldgen-add-entries
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#worldgen_add_entries
 
 Затем добавьте этот провайдер в ваш класс `DataGeneratorEntrypoint` внутри метода `onInitializeDataGenerator`:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add-worldgen-provider
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add_worldgen_provider
 
 Далее создайте класс для конфигурируемых структур и класс для правил размещения. Им не нужно ничего расширять.
 
@@ -45,7 +45,7 @@ authors:
 
 В вашем классе `DataGeneratorEntrypoint` добавьте приведенные ниже строки в метод `buildRegistry`, заменив имя метода на выбранное вами:
 
-@[code lang=java transcludeWith=:::datagen-world:registries](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_world_registries
 
 Если у вас еще нет метода `buildRegistry`, создайте его и добавьте аннотацию `@Override`.
 
@@ -55,11 +55,11 @@ authors:
 
 Прежде чем что-либо делать, давайте создадим класс конфигурируемых структур внутри основного пакета и объявим метод `configure`:
 
-@[code lang=java transcludeWith=:::datagen-world:ConfigureFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configure_features_class
 
 Теперь давайте добавим кастомную конфигурируемую структуру для алмазной жилы. Сначала зарегистрируйте ключ для `ConfiguredFeature` в вашем классе конфигурируемых структур:
 
-@[code lang=java transcludeWith=:::datagen-world:configured-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configured_key
 
 ::: tip
 
@@ -71,25 +71,25 @@ authors:
 
 Затем внутри метода `configure` мы создадим `RuleTest`, который определяет, какие блоки может заменять ваша структура. Например, этот `RuleTest` разрешает замену каждого блока с тегом `DEEPSLATE_ORE_REPLACEABLES`:
 
-@[code lang=java transcludeWith=:::datagen-world:ruletest](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ruletest
 
 Далее, также внутри метода `configure`, нам нужно создать `OreConfiguration`, который указывает игре, на что именно заменять блоки.
 
-@[code lang=java transcludeWith=:::datagen-world:ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ore_feature_config
 
 Вы можете указать несколько вариантов в списке для разных типов поверхностей. Например, давайте настроим разные варианты для камня и глубинного сланца:
 
-@[code lang=java transcludeWith=:::datagen-world:multi-ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_multi_ore_feature_config
 
 Наконец, нам нужно зарегистрировать нашу конфигурируемую структуру в игре внутри метода `configure`!
 
-@[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_conf_feature_register
 
 ### Деревья {#trees}
 
 Чтобы создать дерево, вам сначала нужно создать `TreeConfiguration` внутри метода configure:
 
-@[code lang=java transcludeWith=:::datagen-world:tree-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_feature_config
 
 Вот за что отвечает каждый аргумент:
 
@@ -109,7 +109,7 @@ authors:
 
 Затем нам нужно зарегистрировать наше дерево, добавив следующую строку в метод `configure` класса `ExampleModWorldConfiguredFeatures`.
 
-@[code lang=java transcludeWith=:::datagen-world:tree-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_register
 
 ## Правила размещения структур {#placement-features}
 
@@ -117,21 +117,21 @@ authors:
 
 Давайте создадим класс для размещения структур внутри основного пакета и добавим в него метод `configure`, как мы делали ранее:
 
-@[code lang=java transcludeWith=:::datagen-world:PlacedFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_placed_features_class
 
 В методе `configure` вашего класса размещения структур создайте переменную, аналогичную приведенной ниже:
 
-@[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_conf_feature_register
 
 В вашем классе размещения структур определите ключ для вашей структуры:
 
-@[code lang=java transcludeWith=:::datagen-world:placed-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_placed_key
 
 ### Модификаторы размещения {#placement-modifiers}
 
 Далее внутри метода configure нам нужно определить модификаторы размещения (Placement Modifiers). Это параметры, которые вы задаете для настройки генерации структуры. Они могут быть какими угодно: от частоты появления до начальной высоты по координате Y. Вы можете использовать столько модификаторов, сколько вам необходимо.
 
-@[code lang=java transcludeWith=:::datagen-world:placement-modifier](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_placement_modifiers
 
 Функции каждого из перечисленных модификаторов заключаются в следующем:
 
@@ -155,13 +155,13 @@ authors:
 
 Теперь, когда у нас есть модификаторы, мы можем зарегистрировать наше правило размещения структуры в методе `configure`:
 
-@[code lang=java transcludeWith=:::datagen-world:register-placed-feature](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_register_placed_feature
 
 ## Модификации биомов {#biome-modifications}
 
 Ну и напоследок, нужно добавить наше правило размещения структуры в `BiomeModifications` во время инициализации мода. Мы можем сделать это, добавив следующий код в наш [инициализатор мода](../getting-started/project-structure#entrypoints):
 
-@[code lang=java transcludeWith=:::datagen-world:biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#datagen_world_biome_modifications
 
 ::: tip
 
@@ -173,7 +173,7 @@ authors:
 
 Изменяя аргумент `BiomeSelectors`, мы можем сделать так, чтобы наша структура появлялась только в определенном типе биома:
 
-@[code lang=java transcludeWith=:::datagen-world:selective-biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#datagen_world_selective_biome_modifications
 
 В это примере генерация будет происходить только в биомах, отмеченных тегом `minecraft:is_forest`.
 
@@ -183,13 +183,13 @@ authors:
 
 :::details Сгенерированный файл конфигурируемой структуры
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/worldgen/configured_feature/diamond_block_vein.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/worldgen/configured_feature/diamond_block_vein.json
 
 :::
 
 :::details Сгенерированный файл размещения структуры
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/worldgen/placed_feature/diamond_block_ore_placed.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/worldgen/placed_feature/diamond_block_ore_placed.json
 
 :::
 

@@ -35,11 +35,11 @@ new Item.Properties().food(new FoodProperties.Builder().build())
 
 Якщо ви хочете додати ефекти моба для гравця, коли він їсть вашу їжу, вам потрібно буде додати компонент `Consumable` поряд з компонентом `FoodProperties`, як показано в наступному прикладі:
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_food
 
 Подібно до прикладу на сторінці [створення вашого першого предмета](./first-item), ви будете використовувати наведений нижче компонент:
 
-@[code transcludeWith=:::poisonous_apple](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#poisonous_apple
 
 Це робить предмет:
 

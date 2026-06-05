@@ -30,7 +30,7 @@ authors:
 
 举个例子，我们可以创建一个简单的屏幕，这个屏幕有一个按钮和一个按钮的标签。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#screen
 
 ![自定义屏幕 1](/assets/develop/rendering/gui/custom-1-example.png)
 
@@ -54,7 +54,7 @@ Minecraft.getInstance().setScreen(null);
 
 如果你 希望在关闭屏幕时返回到上一个屏幕，你 可以将当前屏幕对象传入自定义的 `CustomScreen` 构造函数，把它保存为字段，然后重写 `close` 方法，将实现修改为 `this.client.setScreen(/* 你 保存的上一个屏幕 */)` 即可。
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#return_to_previous_screen
 
 现在，当你 按照上面的步骤打开屏幕时，你 可以给构造函数的第二个参数传入当前屏幕对象，这样当你 调用 `CustomScreen#close` 的时候，游戏就会回到上一个屏幕。
 

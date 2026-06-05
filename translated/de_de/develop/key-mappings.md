@@ -21,12 +21,12 @@ Eine Tastenbelegung besteht aus zwei Teilen: der Belegung einer Taste und der Ka
 
 Lasst uns mit der Erstellung einer Kategorie beginnen. Eine Kategorie definiert eine Gruppe von Tastenbelegungen, die zusammen im Einstellungsmenü angezeigt werden.
 
-@[code lang=java transcludeWith=:::category](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#category
 
 Als Nächstes können wir eine Tastenbelegung erstellen. Wir werden Fabric APIs `KeyMappingHelper` verwenden, um
 gleichzeitig unsere Tastenbelegung zu registrieren.
 
-@[code lang=java transcludeWith=:::key_mapping](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#key_mapping
 
 ::: info
 
@@ -64,7 +64,7 @@ Der Übersetzungscode für den Kategorienamen hat die Form `key.category.<namesp
 
 Jetzt, da wir eine Tastenbelegung haben, können wir mit einem Client-Tick-Ereignis darauf reagieren.
 
-@[code lang=java transcludeWith=:::client_tick_event](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#client_tick_event
 
 Dadurch wird jedes Mal, wenn die zugewiesene Taste gedrückt wird, "Key Pressed!" im Chat des Spiels angezeigt. Beachte, dass durch Gedrückthalten der Taste die Nachricht wiederholt im Chat angezeigt wird. Daher solltest du möglicherweise Schutzmaßnahmen implementieren, wenn diese Logik nur einmal ausgelöst werden soll.
 

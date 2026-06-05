@@ -22,7 +22,7 @@ Du solltest diese Methode in eine Klasse mit dem Namen `ModBlocks` (oder wie auc
 
 Mojang macht etwas sehr ähnliches mit Vanilleblöcken; Sie können sich die Klasse `Blocks` ansehen, um zu sehen, wie sie es machen.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block
 
 Genau wie bei den Items musst du sicherstellen, dass die Klasse geladen ist, damit alle statischen Felder, die Ihre Blockinstanzen enthalten, initialisiert werden.
 
@@ -34,15 +34,9 @@ Wenn du nicht weißt, was statische Initialisierung ist, ist es der Prozess der 
 
 :::
 
-```java
-public class ModBlocks {
-    // ...
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#static_initialization
 
-    public static void initialize() {}
-}
-```
-
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java#initialize
 
 ## Erstellen und Registrieren deines Blocks {#creating-and-registering-your-block}
 
@@ -61,7 +55,7 @@ Du kannst auch `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)` verw
 
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_dirt
 
 Um das Blockitem automatisch zu erstellen, können wir dem Parameter `shouldRegisterItem` der Methode `register`, die wir im vorherigen Schritt erstellt haben, `true` übergeben.
 
@@ -71,7 +65,7 @@ Da das `BlockItem` automatisch erstellt und registriert wird, musst du, um es zu
 
 Für dieses Beispiel werden wir den Block zu dem Tab `BUILDING_BLOCKS` hinzufügen. Um den Block stattdessen zu einem benutzerdefinierten Kreativtab hinzuzufügen, siehe [benuterdefinierte Kreativtabs](../items/custom-creative-tabs).
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#add_to_creative_tab
 
 Du solltest dies innerhalb deiner `initialize()`-Funktion deiner Klasse hinzufügen.
 
@@ -103,11 +97,11 @@ Alle Blocktexturen befinden sich im Ordner `assets/example-mod/textures/block` -
 
 Damit die Textur im Spiel angezeigt wird, musst du ein Blockmodell erstellen, das in der Datei `assets/example-mod/models/block/condensed_dirt.json` für den "Condensed Dirt"-Block gefunden werden kann. Für diesen Block werden wir den Modelltyp `block/cube_all` verwenden.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json
 
 Damit der Block in deinem Inventar angezeigt wird, musst du ein [Client Item](../items/first-item#creating-the-client-item) erstellen, das auf dein Blockmodell verweist. Für dieses Beispiel kann das Client Item für den "Condensed Dirt" Block unter `assets/example-mod/items/condensed_dirt.json` gefunden werden.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json
 
 ::: tip
 
@@ -125,7 +119,7 @@ Für den Beispielblock, der keinen komplexen Blockzustand hat, ist nur ein Eintr
 
 Diese Datei sollte sich im Ordner `assets/example-mod/blockstates` befinden, und ihr Name sollte mit der Block-ID übereinstimmen, die bei der Registrierung des Blocks in der Klasse `ModBlocks` verwendet wurde. Wenn die Block-ID beispielsweise `condensed_dirt` lautet, sollte die Datei `condensed_dirt.json` heißen.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json
 
 ::: tip
 
@@ -147,7 +141,7 @@ Für ein besseres Verständnis der Beutetabellen kannst du dir die Seite [Minecr
 
 :::
 
-@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
+<<< @/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json
 
 Diese Beutetabelle enthält einen einzelnen Gegenstand, der fallen gelassen wird, wenn der Block abgebaut wird und wenn er durch eine Explosion gesprengt wird.
 
@@ -166,7 +160,7 @@ Der Inhalt der Datei ist recht einfach - es handelt sich um eine Liste von Eleme
 
 In diesem Beispiel wird der Block "Condensed Dirt" zum Tag `shovel` hinzugefügt.
 
-@[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+<<< @/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json
 
 Wenn du möchtest, dass ein Tool zum Abbau des Blocks erforderlich ist, musst du die Blockeinstellungen um den Zusatz `.requiresCorrectToolForDrops()` erweitern und das entsprechende Mining-Tag hinzufügen.
 

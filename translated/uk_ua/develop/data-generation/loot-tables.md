@@ -23,7 +23,7 @@ authors-nogithub:
 
 Вам знадобляться різні постачальники (класи) для блоків, скринь і сутностей. Не забувайте додати їх усі до свого пакета у вашій `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_loot_tables_register
 
 ## Пояснення таблиць здобичі {#loot-tables-explained}
 
@@ -35,7 +35,7 @@ authors-nogithub:
 
 Щоб з блоків випадали предмети, включаючи себе, нам потрібно створити таблицю здобичі. Створіть клас, який розширює `FabricBlockLootTableProvider`:
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_provider
 
 Обов’язково додайте цього постачальника до свого пакета!
 
@@ -43,18 +43,24 @@ authors-nogithub:
 
 Нумо додаймо якусь здобич у метод `generate`:
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:block-drops](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_drops
 
 ## Скрині {#chests}
 
 Скриня здобичі трохи хитріша, ніж здобич блоків. Створіть клас, який розширює `SimpleFabricLootTableProvider`, подібно до прикладу нижче, **і додайте його до свого пакета**.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_provider
 
 Нам знадобиться `ResourceKey<LootTable>` для нашої таблиці здобичі. Помістімо це в новий клас під назвою `ModLootTables`. Якщо ви використовуєте розділені джерела, переконайтеся, що це джерело є у вашому `main` наборі джерел.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/latest/src/main/java/com/example/docs/ModLootTables.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ModLootTables.java#datagen_loot_tables_mod_loot_tables
 
 Потім ми можемо створити таблицю здобичі всередині методу `generate` вашого постачальника.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:chest-loot](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_loot
+
+## Умови ресурсів {#resource-conditions}
+
+Щоб застосувати [умову ресурсів](../resource-conditions) до згенерованої таблиці здобичі, викличте `withConditions` і вкажіть будь-які умови ресурсів, які ви хочете застосувати, а потім викликайте метод із постачальника таблиці здобичі, наприклад `dropSelf`. Тоді буде створено таблицю здобичі із застосованими умовами ресурсів:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_conditions

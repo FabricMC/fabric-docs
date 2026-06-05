@@ -6,9 +6,9 @@ description: Lerne, wie man Befehle mit komplexen Parametern erstellt.
 Parameter werden in den meisten Befehlen verwendet. Manchmal sind sie optional, das heißt, wenn du diesen Parameter nicht angibst, wird der Befehl dennoch ausgeführt. Ein Knoten kann mehrere Parametertypen haben, aber es ist zu beachten, dass die Möglichkeit einer
 Mehrdeutigkeit besteht, die vermieden werden sollte.
 
-@[code lang=java highlight={3} transcludeWith=:::command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_arg{3}
 
-@[code lang=java transcludeWith=:::execute_command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_arg
 
 In diesem Fall musst du nach dem Befehlstext `/command_with_arg` eine ganze Zahl eingeben. Wenn du zum Beispiel `/command_with_arg 3` ausführst, erhältst du eine Rückmeldungsnachricht:
 
@@ -18,17 +18,17 @@ Wenn du `/command_with_arg` ohne Argumente eingibst, kann der Befehl nicht korre
 
 Dann fügen wir ein optionales zweites Argument hinzu:
 
-@[code lang=java highlight={3,5} transcludeWith=:::command_with_two_args](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_two_args{3,5}
 
-@[code lang=java transcludeWith=:::execute_command_with_two_args](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_two_args
 
 Jetzt kannst du eine oder zwei ganze Zahlen eingeben. Wenn du eine ganze Zahl eingibst, wird ein Feedback-Text mit einem einzigen Wert ausgegeben. Wenn du zwei Ganzzahlen angibst, wird ein Feedback-Text mit zwei Werten ausgegeben.
 
 Du kannst es unnötig finden, ähnliche Ausführungen zweimal anzugeben. Daher können wir eine Methode erstellen, die in beiden Ausführungen verwendet wird.
 
-@[code lang=java highlight={4,6} transcludeWith=:::command_with_common_exec](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_common_exec{4,6}
 
-@[code lang=java transcludeWith=:::execute_common](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_common
 
 ## Benutzerdefinierte Argumenttypen {#custom-argument-types}
 
@@ -38,7 +38,7 @@ Du musst die Methode "parse" implementieren, die die Eingabezeichenfolge zu dem 
 
 Du kannst zum Beispiel einen Argumenttyp erstellen, der eine `BlockPos` aus einer Zeichenkette mit dem folgenden Format parst: `{x, y, z}`
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/BlockPosArgumentType.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/BlockPosArgumentType.java#custom_argument_types
 
 ### Benutzerdefinierte Argumenttypen registrieren {#registering-custom-argument-types}
 
@@ -50,15 +50,15 @@ Du musst den benutzerdefinierten Argumenttyp sowohl im Server als auch im Client
 
 Du kannst deinen benutzerdefinierten Argumenttyp in der Methode `onInitialize` deines [Mod-Initialisierers](../getting-started/project-structure#entrypoints) mit der Klasse `ArgumentTypeRegistry` registrieren:
 
-@[code lang=java transcludeWith=:::register_custom_arg](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#register_custom_arg
 
 ### Benutzerdefinierte Argumenttypen verwenden {#using-custom-argument-types}
 
 Wir können unseren benutzerdefinierten Argumenttyp in einem Befehl verwenden, indem wir eine Instanz davon an die Methode `.argument` im Builder des Befehls übergeben.
 
-@[code lang=java highlight={3} transcludeWith=:::custom_arg_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#custom_arg_command{3}
 
-@[code lang=java highlight={2} transcludeWith=:::execute_custom_arg_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_custom_arg_command{2}
 
 Durch das Ausführen des Befehls, können wir testen, ob der Argumenttyp funktioniert oder nicht:
 

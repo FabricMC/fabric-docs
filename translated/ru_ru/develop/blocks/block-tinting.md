@@ -12,7 +12,7 @@ authors:
 
 Для этого примера давайте зарегистрируем блок. Если вы не знакомы с этим процессом, сначала прочитайте о [регистрации блока](./first-block).
 
-@[code lang=java transcludeWith=:::waxcap-tinting](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#waxcap_tinting
 
 Обязательно добавьте:
 
@@ -34,7 +34,7 @@ Fabric API предоставляет `BlockColorRegistry` для регистр
 
 В вашем **клиентском инициализаторе** зарегистрируйте блок в `ColorProviderRegistry` вместе с соответствующей логикой.
 
-@[code lang=java transcludeWith=:::color_provider](@/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#color_provider
 
 Теперь блок будет окрашиваться в зависимости от того, где он размещён.
 

@@ -131,11 +131,11 @@ authors:
 
 **Реєстрація елемента:**
 
-@[code lang=java transcludeWith=:::registration](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#registration
 
 **Реалізація `hudLayer()`:**
 
-@[code lang=java transcludeWith=:::hudLayer](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#hud_layer
 
 Це призводить до того, що на HUD малюється наступне:
 
@@ -182,7 +182,7 @@ authors:
 
 :::
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#scaling_square
 
 ![Відео, на якому показано масштабування ромба](/assets/develop/rendering/concepts-matrix-stack.webp)
 
@@ -204,7 +204,7 @@ authors:
 
 Скажімо, ми хочемо повернути наш квадрат навколо осі z. Ми можемо зробити це за допомогою методів `PoseStack` і `rotateAround(quaternionfc, x, y, z)`.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#rotating_square
 
 Результатом цього є наступне:
 

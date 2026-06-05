@@ -63,7 +63,7 @@ Jede Blockmodell-Datei hat eine festgelegte Struktur, die eingehalten werden mus
 }
 ```
 
-<!--@include: ../items/item-models.md#parent-->
+<!-- @include: ../items/item-models.md#parent -->
 
 Setze dieses Tag auf `builtin/generated`, um ein aus dem angegebenen Icon erstelltes Modell zu verwenden. Rotation kann durch [Blockzustände](./blockstates) erreicht werden.
 
@@ -77,7 +77,7 @@ Setze dieses Tag auf `builtin/generated`, um ein aus dem angegebenen Icon erstel
 
 Dieses Tag gibt an, ob [Umgebungsokklusion](https://en.wikipedia.org/wiki/Ambient_occlusion) verwendet werden soll. Der Standardwert ist `true`.
 
-<!--@include: ../items/item-models.md#display-->
+<!-- @include: ../items/item-models.md#display -->
 
 ### Texturen {#textures}
 
@@ -95,14 +95,14 @@ Das Tag `textures` enthält die Texturen des Modells in Form einer Bezeichnung o
 1. `particle`: _String_. Definiert die Textur, aus der Partikel geladen werden sollen. Diese Textur wird auch als Überlagerung verwendet, wenn du dich in einem Netherportal befindest, und für die Standbilder von Wasser und Lava. Wird auch als Texturvariable betrachtet, auf die als `#particle` verwiesen werden kann.
 2. `<texture_variable>`: _String_. Erstellt eine Variable und weist eine Textur zu. Kann später mit dem Präfix `#` referenziert werden (z.B., `"top": "namespace:path"` ⇒ `#top`)
 
-<!--@include: ../items/item-models.md#elements-->
+<!-- @include: ../items/item-models.md#elements -->
 
-<!--@include: ../items/item-models.md#from-->
+<!-- @include: ../items/item-models.md#from -->
 
 `from` gibt den Startpunkt des Quaders gemäß dem Schema `[x, y, z]` relativ zu der unteren linken Ecke an. `to` gibt den Endpunkt an. Ein Quader, der so groß wie ein Standardblock ist, würde bei `[0, 0, 0]` beginnen und bei `[16, 16, 16]` enden.
 Die Werte von beiden müssen zwischen **-16** und **32** liegen, was bedeutet das jedes Blockmodell 3×3 Blöcke groß sein kann.
 
-<!--@include: ../items/item-models.md#rotation-->
+<!-- @include: ../items/item-models.md#rotation -->
 
 `rotation` definiert die Rotation von Elementen. Es beinhaltet vier weitere Werte:
 
@@ -111,7 +111,7 @@ Die Werte von beiden müssen zwischen **-16** und **32** liegen, was bedeutet da
 3. `angle`: _Fließkommazahl_. Legt den Winkel der Rotation fest. Reicht von **-45** zu **45**.
 4. `rescale`: _Boolean_. Legt fest, ob die Flächen über den gesamten Block skaliert werden sollen. Der Standardwert ist `false`.
 
-<!--@include: ../items/item-models.md#shade-to-faces-->
+<!-- @include: ../items/item-models.md#shade_to_faces -->
 
 1. `uv`: _Vier Ganzzahlen_. Definiert den Bereich der zu verwendenden Textur gemäß dem Schema `[x1, y1, x2, y2]`. Wenn nicht festgelegt, wird standardmäßig ein Wert verwendet, der der xyz-Position des Elements entspricht.
    Tauschen der Werte von `x1` und `x2` (zum Beispiel von `0, 0, 16, 16` zu `16, 0, 0, 16`) dreht die Textur um. UV ist optional und wird, wenn nicht angegeben, automatisch anhand der Position des Elements generiert.

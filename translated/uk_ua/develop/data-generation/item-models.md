@@ -36,11 +36,11 @@ resources:
 Створіть клас, який розширює `FabricModelProvider`, і реалізуйте обидва абстрактні методи: `generateBlockStateModels` і `generateItemModels`.
 Тепер, створімо конструктор, що відповідає `super`.
 
-@[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#provider
 
 Зареєструйте цей клас у своїй `DataGeneratorEntrypoint` в рамках методу `onInitializeDataGenerator`.
 
-@[code transcludeWith=:::datagen-models:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_models_register
 
 ## Убудовані моделі предметів {#built-in}
 
@@ -56,19 +56,19 @@ resources:
 
 == Початковий код
 
-@[code transcludeWith=:::generated](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#generated
 
 == Клієнтський предмет
 
 `generated/assets/example-mod/items/ruby.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/ruby.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/ruby.json
 
 == Модель предмета
 
 `generated/assets/example-mod/models/item/ruby.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/ruby.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/ruby.json
 
 Ви можете знайти точні усталені значення для обертання, масштабування та позиціювання моделі у файлі [`generated.json` з ресурсів Minecraft](https://mcasset.cloud/1.21.11/assets/minecraft/models/item/generated.json).
 
@@ -86,19 +86,19 @@ resources:
 
 == Початковий код
 
-@[code transcludeWith=:::handheld](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#handheld
 
 == Клієнтський предмет
 
 `generated/assets/example-mod/items/guidite_axe.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/guidite_axe.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/guidite_axe.json
 
 == Модель предмета
 
 `generated/assets/example-mod/models/item/guidite_axe.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_axe.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_axe.json
 
 Ви можете знайти точні усталені значення для обертання, масштабування та позиціювання моделі у файлі [`handheld.json` з ресурсів Minecraft](https://mcasset.cloud/1.21.11/assets/minecraft/models/item/handheld.json).
 
@@ -116,11 +116,11 @@ resources:
 
 == Початковий код
 
-@[code transcludeWith=:::dyeable](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#dyeable
 
 :::warning ВАЖЛИВО
 
-Ви повинні додати свій предмет до теґу `ItemTags.DYEABLE`, щоб мати можливість фарбувати його у своєму інвентарі!
+Ви повинні створити [`DyeRecipe`](./recipes#dye-recipes) для свого предмета, щоб мати можливість забарвити його у своєму інвентарі!
 
 :::
 
@@ -128,13 +128,13 @@ resources:
 
 `generated/assets/example-mod/items/leather_gloves.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/leather_gloves.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/leather_gloves.json
 
 == Модель предмета
 
 `generated/assets/example-mod/models/item/leather_gloves.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/leather_gloves.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/leather_gloves.json
 
 == Текстура
 
@@ -163,7 +163,7 @@ resources:
 
 == Початковий код
 
-@[code transcludeWith=:::condition](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#condition
 
 :::warning ВАЖЛИВО
 
@@ -175,17 +175,17 @@ resources:
 
 `generated/assets/example-mod/items/flashlight.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/flashlight.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/flashlight.json
 
 == Моделі предмета
 
 `generated/assets/example-mod/models/item/flashlight.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/flashlight.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/flashlight.json
 
 `generated/assets/example-mod/models/item/flashlight_lit.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/flashlight_lit.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/flashlight_lit.json
 
 == Текстури
 
@@ -205,23 +205,23 @@ resources:
 
 == Початковий код
 
-@[code transcludeWith=:::composite](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#composite
 
 == Клієнтський предмет
 
 `generated/assets/example-mod/items/enhanced_hoe.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/enhanced_hoe.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/enhanced_hoe.json
 
 == Моделі предмета
 
 `generated/assets/example-mod/models/item/enhanced_hoe.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/enhanced_hoe.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/enhanced_hoe.json
 
 `generated/assets/example-mod/models/item/enhanced_hoe_plus.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/enhanced_hoe_plus.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/enhanced_hoe_plus.json
 
 == Текстури
 
@@ -246,27 +246,27 @@ resources:
 
 == Початковий код
 
-@[code transcludeWith=:::select](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#select
 
 == Клієнтський предмет
 
 `generated/assets/example-mod/items/dimensional_crystal.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/dimensional_crystal.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/dimensional_crystal.json
 
 == Моделі предмета
 
 `generated/assets/example-mod/models/item/dimensional_crystal_overworld.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_overworld.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_overworld.json
 
 `generated/assets/example-mod/models/item/dimensional_crystal_nether.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_nether.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_nether.json
 
 `generated/assets/example-mod/models/item/dimensional_crystal_end.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_end.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_end.json
 
 == Текстури
 
@@ -297,27 +297,27 @@ resources:
 
 == Початковий код
 
-@[code transcludeWith=:::range-dispatch](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#range_dispatch
 
 == Клієнтський предмет
 
 `generated/assets/example-mod/items/throwing_knives.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/throwing_knives.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/throwing_knives.json
 
 == Моделі предмета
 
 `generated/assets/example-mod/models/item/throwing_knives_one.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_one.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_one.json
 
 `generated/assets/example-mod/models/item/throwing_knives_two.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_two.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_two.json
 
 `generated/assets/example-mod/models/item/throwing_knives_three.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_three.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_three.json
 
 == Текстури
 
@@ -337,7 +337,7 @@ resources:
 
 :::details Показ `CustomItemModelGenerator`
 
-@[code transcludeWith=:::custom-item-model-generator:::](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_item_model_generator
 
 :::
 
@@ -347,7 +347,7 @@ resources:
 
 Для цього ми створимо `resources/assets/example-mod/models/item/scaled2x.json`, встановимо батьківською модель `item/generated`, а потім перевизначимо масштабування.
 
-@[code](@/reference/latest/src/main/resources/assets/example-mod/models/item/scaled2x.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/models/item/scaled2x.json
 
 Це зробить модель візуально у два рази більше простих.
 
@@ -355,7 +355,7 @@ resources:
 
 Далі нам потрібно створити екземпляр класу `ModelTemplate`. Він представлятиме фактичну [модель батьківського предмета] (#custom-parent) у нашому моді.
 
-@[code transcludeWith=:::custom-item-model:::](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_item_model
 
 Метод `item()` створює новий екземпляр `ModelTemplate`, вказуючи на файл `scaled2x.json`, який ми створили раніше.
 
@@ -365,7 +365,7 @@ TextureSlot `LAYER0` представляє змінну текстури `#laye
 
 Останнім кроком є ​​створення спеціального методу, який буде викликаний у методі `generateItemModels()` і відповідатиме за створення наших моделей предметів.
 
-@[code transcludeWith=:::custom-item-datagen-method](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_item_datagen_method
 
 Розберімося, для чого потрібні параметри:
 
@@ -380,7 +380,7 @@ TextureSlot `LAYER0` представляє змінну текстури `#laye
 
 Тепер нам потрібно лише викликати наш метод у методі `generateItemModels()`.
 
-@[code transcludeWith=:::custom-balloon](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_balloon
 
 Не забудьте додати файл текстури!
 

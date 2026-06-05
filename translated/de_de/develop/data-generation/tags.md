@@ -28,7 +28,7 @@ Du kannst deine eigene Klasse erstellen, die von `FabricTagsProvider<T>` erbt, w
 
 Lass deiner IDE den erforderlichen Code ausfüllen und ersetze dann den Konstruktorparameter `resourceKey` durch den `ResourceKey` für deinen Typ:
 
-@[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_provider
 
 ::: tip
 
@@ -38,13 +38,13 @@ Du wirst für jeden Tag-Typ einen anderen Provider benötigen (z. B. einen `Fabr
 
 Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEntrypoint` in der `onInitializeDataGenerator` Methode hinzu.
 
-@[code lang=java transcludeWith=:::datagen-tags:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_tags_register
 
 ## Erstellen eines Tags {#creating-a-tag}
 
 Jetzt, nachdem du den Provider erstellt hast, lasst uns ein Tag zu diesem hinzufpgen. Zuerst, erstelle ein `TagKey<T>`:
 
-@[code lang=java transcludeWith=:::datagen-tags:tag-key](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_tag_key
 
 Als nächstes, rufe `valueLookupBuilder` innerhalb der `configure`-Methode deines Providers auf. Von dort aus kannst du einzelne Items oder andere Tags hinzufügen oder diese Tags bereits vorhandene Tags ersetzen lassen.
 
@@ -52,4 +52,4 @@ Wenn du ein Tag hinzufügen willst, verwende `addOptionalTag`, da der Inhalt des
 
 Um zwangsweise ein Tag hinzuzufügen und das defekte Format zu ignorieren, verwende `forceAddTag`.
 
-@[code lang=java transcludeWith=:::datagen-tags:build](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_build

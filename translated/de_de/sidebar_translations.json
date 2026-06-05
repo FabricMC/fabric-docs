@@ -78,6 +78,7 @@
   "develop.loom.classpath_groups": "Klassenpfadgruppen",
   "develop.loom.tasks": "Andere Aufgaben",
   "develop.misc.custom_recipe_types": "Benutzerdefinierte Rezepttypen",
+  "develop.misc.resource_conditions": "Ressourcenbedingungen",
   "develop.misc": "Diverse Seiten",
   "develop.misc.automatic_testing": "Automatisiertes Testen",
   "develop.misc.codecs": "Codecs",

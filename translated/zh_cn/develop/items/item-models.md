@@ -232,7 +232,7 @@ resources:
 3. `angle`：_浮点数_。 指定旋转角度。 范围为 **-45** 到 **45**，增量为 22.5 度。
 4. `rescale`：_布尔值_。 指定是否在整个方块上缩放面。 默认为 `false`。
 
-<!-- #region shade-to-faces -->
+<!-- #region shade_to_faces -->
 
 ```json
 {
@@ -266,7 +266,7 @@ resources:
 
 `faces` 保存长方体的所有面。 如果某个面未设置，则不会被渲染。 它的键（`<key>`）可以是以下之一：`down`、`up`、`north`、`south`、`west` 或 `east`。 每个键包含该面的属性：
 
-<!-- #endregion shade-to-faces -->
+<!-- #endregion shade_to_faces -->
 
 1. `uv`：_四个整数_。 根据 `[x1, y1, x2, y2]` 格式定义要使用的纹理区域。 如果未设置，则默认为元素 xyz 位置的值。
    翻转 `x1` 和 `x2` 的值（例如从 `0, 0, 16, 16` 到 `16, 0, 0, 16`）会翻转纹理。 UV 是可选的，如果未提供，则根据元素的位置自动生成。

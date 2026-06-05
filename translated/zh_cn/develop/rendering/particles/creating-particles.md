@@ -13,7 +13,7 @@ authors:
 
 首先，需要在你的[模组初始化器](../../getting-started/project-structure#entrypoints)中，使用你的模组 ID，注册 `ParticleType`。
 
-@[code lang=java transcludeWith=#particle_register_main](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#particle_register_main
 
 小写字母“sparkle_particle”是粒子纹理的 JSON 路径。 稍后就会以这个名字，创建新的 JSON 文件。
 
@@ -21,7 +21,7 @@ authors:
 
 在模组的初始化器中注册粒子后，还需要在客户端的初始化器中注册粒子。
 
-@[code lang=java transcludeWith=#particle_register_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#particle_register_client
 
 在这个例子中，我们在客户端注册我们的粒子。 使用末地烛粒子的 factory，给予粒子一些移动。 这意味着，我们的粒子就会像末地烛那样移动。
 
@@ -47,7 +47,7 @@ authors:
 
 然后，在 `particles` 中创建新的 JSON 文件，名称与用于创建你的 ParticleType 的 JSON 路径相同。 例如，我们需要创建 `sparkle_particle.json`。 这个文件很重要，因为让 Minecraft 知道我们的粒子应该使用哪个纹理。
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/particles/sparkle_particle.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/particles/sparkle_particle.json
 
 ::: tip
 
