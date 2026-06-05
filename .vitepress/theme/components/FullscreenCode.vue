@@ -181,10 +181,8 @@ div:has(.vp-doc).is-open {
 }
 
 :deep(.vp-doc:has(*)) {
-  min-height: min(95vh, 10rlh);
-  min-width: min(95vw, 80ch);
+  width: 95vw;
   max-height: 95vh;
-  max-width: 95vw;
   border-radius: 12px;
   border: 1px solid var(--vp-c-divider);
   display: flex;
