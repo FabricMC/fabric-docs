@@ -4,6 +4,8 @@ description: Learn how to create and use custom player statistics.
 authors:
   - bemoty
   - cassiancc
+  - CelDaemon
+  - its-miroma
   - jummit
   - Tenneb22
 ---
