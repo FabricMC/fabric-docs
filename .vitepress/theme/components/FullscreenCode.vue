@@ -13,14 +13,12 @@ const clonedBlock = ref<HTMLElement>();
 const originalCopyButton = ref<HTMLButtonElement>();
 const isFullscreen = ref(false);
 const isWrapped = ref(false);
-const isRotated = ref(false);
 
 const icons = [
   "material-symbols:close-fullscreen-rounded",
   "material-symbols:open-in-full-rounded",
   "material-symbols:wrap-text-rounded",
   "material-symbols:format-text-overflow-rounded",
-  "material-symbols:mobile-rotate-outline-rounded",
 ] as const;
 
 const getSvgIcon = (name: (typeof icons)[number]) => {
@@ -53,7 +51,6 @@ const openFullscreen = async (codeBlock: HTMLElement) => {
   fullscreenDialog.value!.showModal();
   isFullscreen.value = true;
   isWrapped.value = false;
-  isRotated.value = false;
   await nextTick();
 
   clonedBlock.value = codeBlock.cloneNode(true) as HTMLElement;
@@ -127,15 +124,6 @@ const setupFullscreen = async () => {
     closeFullscreen();
   });
 
-  const rotateButton = fullscreenDialog.value.querySelector("button.rotate") as HTMLButtonElement;
-  rotateButton.title = options.value.rotate;
-  rotateButton.setAttribute("aria-label", options.value.rotate);
-  rotateButton.innerHTML = getSvgIcon("material-symbols:mobile-rotate-outline-rounded");
-  rotateButton.addEventListener("click", () => {
-    isRotated.value = !isRotated.value;
-    fullscreenDialog.value?.classList?.toggle("rotated", isRotated.value);
-  });
-
   const wrapButton = fullscreenDialog.value.querySelector("button.wrap") as HTMLButtonElement;
   wrapButton.title = options.value.wrap;
   wrapButton.setAttribute("aria-label", options.value.wrap);
@@ -194,7 +182,6 @@ onContentUpdated(() => setupFullscreen());
         <span class="lang" />
         <button class="copy" />
         <button class="wrap" />
-        <button class="rotate" />
         <button class="fullscreen" />
       </div>
       <div ref="fullscreenSlot" class="vp-doc" />
@@ -274,10 +261,6 @@ div.container {
       }
     }
 
-    &.rotate {
-      display: none;
-    }
-
     &:deep(button):hover {
       border-color: var(--vp-code-copy-code-hover-border-color);
       background-color: var(--vp-code-copy-code-hover-bg);
@@ -288,8 +271,6 @@ div.container {
 dialog:has(.vp-doc) {
   --speed: 0.3s;
 
-  top: 0;
-  left: 0;
   max-height: none;
   max-width: none;
   width: 100vw;
@@ -303,21 +284,6 @@ dialog:has(.vp-doc) {
   opacity: 0;
   animation: fadeIn var(--speed) forwards;
   overflow: hidden;
-  transition:
-    transform var(--speed) ease,
-    width var(--speed) ease,
-    height var(--speed) ease;
-
-  &.rotated {
-    width: 100vh;
-    height: 100vw;
-    transform-origin: 50vw;
-    transform: rotate(90deg);
-
-    &:deep(button.rotate) {
-      transform: scaleX(-1);
-    }
-  }
 
   &::backdrop {
     opacity: 0;
@@ -328,12 +294,6 @@ dialog:has(.vp-doc) {
   &:open {
     display: flex;
     flex-direction: column;
-  }
-}
-
-@media (min-width: 640px) {
-  :deep(button.rotate) {
-    display: none !important;
   }
 }
 
