@@ -25,17 +25,17 @@ public class StatisticsBlock extends Block {
 	public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity by, ItemStack itemStack) {
 		super.setPlacedBy(level, pos, state, by, itemStack);
 
-		if (by instanceof Player player) {
-			int neighborCount = 0;
+		if (!(by instanceof Player player)) return;
 
-			for (Direction dir : Direction.values()) {
-				if (!level.isEmptyBlock(pos.relative(dir))) {
-					neighborCount++;
-				}
+		int neighborCount = 0;
+
+		for (Direction dir : Direction.values()) {
+			if (!level.isEmptyBlock(pos.relative(dir))) {
+				neighborCount++;
 			}
-
-			player.awardStat(ModStats.FRIENDSHIPS_MADE, neighborCount);
 		}
+
+		player.awardStat(ModStats.FRIENDSHIPS_MADE, neighborCount);
 	}
 }
 // #endregion statistics_block
