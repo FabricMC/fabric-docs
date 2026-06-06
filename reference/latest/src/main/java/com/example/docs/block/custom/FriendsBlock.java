@@ -49,7 +49,6 @@ public class FriendsBlock extends Block {
 	}
 	// #endregion break_friendships
 
-
 	// #region friends_block
 }
 // #endregion friends_block
