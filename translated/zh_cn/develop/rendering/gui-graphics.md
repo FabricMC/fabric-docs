@@ -17,7 +17,7 @@ authors:
 
 可以使用 `GuiGraphicsExtractor.fill(...)` 方法绘制填充矩形。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_rectangle
 
 ![矩形](/assets/develop/rendering/draw-context-rectangle.png)
 
@@ -25,7 +25,7 @@ authors:
 
 假设我们想勾勒出刚刚绘制的矩形的轮廓。 我们可以使用 `GuiGraphicsExtractor.outline(...)` 方法来绘制轮廓。
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_outline
 
 ![带边框的矩形](/assets/develop/rendering/draw-context-rectangle-border.png)
 
@@ -33,7 +33,7 @@ authors:
 
 我们可以使用 `GuiGraphicsExtractor.horizontalLine(...)` 和 `GuiGraphicsExtractor.verticalLine(...)` 方法来绘制线条。
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_line
 
 ![线条](/assets/develop/rendering/draw-context-lines.png)
 
@@ -51,7 +51,7 @@ authors:
 
 要启用裁剪管理器，只需使用 `GuiGraphicsExtractor.enableScissor(...)` 方法。 同样地，要禁用裁剪管理器，则使用 `GuiGraphicsExtractor.disableScissor()` 方法。
 
-@[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#scissor
 
 ![裁剪区域](/assets/develop/rendering/draw-context-scissor.png)
 
@@ -67,7 +67,7 @@ authors:
 
 你还需要指定纹理将使用的渲染管线。 对于基本纹理，这通常始终是 `RenderPipelines.GUI_TEXTURED`。
 
-@[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_entire_texture
 
 ![绘制整个纹理](/assets/develop/rendering/draw-context-whole-texture.png)
 
@@ -81,7 +81,7 @@ authors:
 
 如果我们只希望绘制包含放大镜的区域，我们可以使用如下 `u`、`v`、`regionWidth`、`regionHeight` 值：
 
-@[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_portion_of_texture
 
 ![区域纹理](/assets/develop/rendering/draw-context-region-texture.png)
 
@@ -97,6 +97,6 @@ Minecraft 1.21.6 及以上版本将文本颜色从 RGB 更改为 ARGB。 传递 
 
 :::
 
-@[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_text
 
 ![绘制文字](/assets/develop/rendering/draw-context-text.png)

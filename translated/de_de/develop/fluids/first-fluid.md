@@ -46,23 +46,23 @@ Achte besonders auf die folgenden Methoden:
 
 Wenn wir all das zusammenfassen, erhalten wir folgende Klasse:
 
-@[code transcludeWith=:::abstractFluid](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#abstract_fluid
 
 Innerhalb von `AcidFluid` werden wir zwei Unterklassen für die Flüssigkeiten `Source` und `Flowing` erstellen.
 
-@[code transcludeWith=:::fluidSubclasses](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#fluid_subclasses
 
 ### Flüssigkeiten registrieren {#registering-fluids}
 
 Als Nächstes erstellen wir eine Klasse, um alle Flüssigkeits-Instanzen zu registrieren. Wir nennen sie `ModFluids`.
 
-@[code transcludeWith=:::register](@/reference/latest/src/main/java/com/example/docs/fluid/ModFluids.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluids.java#register
 
 Genau wie bei Blöcken musst du sicherstellen, dass die Klasse geladen ist, damit alle statischen Felder, die deine Flüssigkeits-Instanzen enthalten, initialisiert werden. Du kannst dies tun, indem du eine Dummy-Methode `initialize` erstellst, die in deinem [Mod-Initialisierer](../getting-started/project-structure#entrypoints) aufgerufen werden kann, um die statische Initialisierung auszulösen.
 
 Kehren nun zur Klasse `AcidFluid` zurück und füge diese Methoden hinzu, um die registrierten Flüssigkeits-Instanzen mit dieser Flüssigkeit zu verknüpfen:
 
-@[code transcludeWith=:::sources](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#sources
 
 Bisher haben wir den Ausgangszustand der Flüssigkeit und ihren Strömungszustand erfasst. Als Nächstes müssen wir einen Eimer und einen `LiquidBlock` dafür registrieren.
 
@@ -72,11 +72,11 @@ Fügen wir nun einen Flüssigkeitsblock für unsere Flüssigkeit hinzu. Dies wir
 
 Öffne deine Klasse `ModBlocks` und registriere den folgenden `LiquidBlock`:
 
-@[code transcludeWith=:::acid](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#acid
 
 Überschreibe dann diese Methode in `AcidFluid`, um deinen Block mit der Flüssigkeit zu verknüpfen:
 
-@[code transcludeWith=:::legacyBlock](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#legacy_block
 
 ### Eimer registrieren {#buckets}
 
@@ -84,11 +84,11 @@ Flüssigkeiten werden in Minecraft normalerweise in Eimern aufbewahrt. Schauen w
 
 Öffne deine Klasse `ModItems` und registriere das folgende `BucketItem`:
 
-@[code transcludeWith=:::acid_bucket](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#acid_bucket
 
 Überschreibe dann diese Methode in `AcidFluid`, um deinen Eimer mit der Flüssigkeit zu verknüpfen:
 
-@[code transcludeWith=:::bucket](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#bucket
 
 Denke daran, dass Items eine Übersetzung, eine [Textur](../items/first-item#adding-a-texture), ein [Modell](../items/first-item#adding-a-model) und ein [Client-Item](../items/first-item#creating-the-client-item) mit dem Namen `acid_bucket` benötigen, damit sie korrekt dargestellt werden. Eine Beispiel-Textur ist unten aufgeführt.
 
@@ -134,7 +134,7 @@ Der Einfachheit halber verwendet diese Demo `BlockTintSources.constant`, um der 
 
 Füge die folgenden Zeilen zu deinem `ClientModInitializer` hinzu, um ein `FluidModel.Unbaked` zu erstellen, das zwei `Material` für die Texturen – eines für die ruhende Quelle und eines für die fließende Flüssigkeit – sowie eine Blockfärbungs-Quelle für die Farbe, mit der es eingefärbt werden soll, verwendet.
 
-@[code transcludeWith=:::fluid_texture](@/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid_texture
 
 Jetzt haben wir alles, was wir brauchen, um die Säure im Spiel zu sehen! Du kannst `setblock` oder das Item Säureeimer verwenden, um Säure in der Welt zu platzieren.
 

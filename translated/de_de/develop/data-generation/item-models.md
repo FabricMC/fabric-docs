@@ -36,11 +36,11 @@ Du kannst den `FabricModelProvider` wiederverwenden, der in [Generation von Bloc
 Erstellen eine Klasse, die von `FabricModelProvider` erbt, und implementiere die beiden abstrakten Methoden: `generateBlockStateModels` und `generateItemModels`.
 Dann erstelle einen Konstruktor, der mit `super` übereinstimmt.
 
-@[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#provider
 
 Registriere diese Klasse in deinem `DataGeneratorEntrypoint` innerhalb der Methode `onInitializeDataGenerator`.
 
-@[code transcludeWith=:::datagen-models:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_models_register
 
 ## Eingebaute Itemmodelle {#built-in}
 
@@ -56,19 +56,19 @@ Einfache Itemmodelle sind der Standard und werden von den meisten Minecraft Item
 
 == Quellcode
 
-@[code transcludeWith=:::generated](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#generated
 
 == Client Item
 
 `generated/assets/example-mod/items/ruby.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/ruby.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/ruby.json
 
 == Itemmodell
 
 `generated/assets/example-mod/models/item/ruby.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/ruby.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/ruby.json
 
 Die genauen Standardwerte für Rotation, Skalierung und Positionierung des Modells findest du in der Datei [`generated.json` aus den Minecraft-Assets](https://mcasset.cloud/1.21.11/assets/minecraft/models/item/generated.json).
 
@@ -86,19 +86,19 @@ Handgehaltene Itemmodelle werden in der Regel für Werkzeuge und Waffen (Äxte, 
 
 == Quellcode
 
-@[code transcludeWith=:::handheld](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#handheld
 
 == Client Item
 
 `generated/assets/example-mod/items/guidite_axe.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/guidite_axe.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/guidite_axe.json
 
 == Itemmodell
 
 `generated/assets/example-mod/models/item/guidite_axe.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_axe.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_axe.json
 
 Die genauen Standardwerte für Rotation, Skalierung und Positionierung des Modells findest du in der Datei [`handheld.json` aus den Minecraft-Assets](https://mcasset.cloud/1.21.11/assets/minecraft/models/item/handheld.json).
 
@@ -116,11 +116,11 @@ Die Methode für färbbare Items generiert ein einfaches Itemmodell und ein Clie
 
 == Quellcode
 
-@[code transcludeWith=:::dyeable](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#dyeable
 
 :::warning WICHTIG
 
-Du musst dein Item zu dem Tag `temTags.DYEABLE` hinzufügen, um es in deinem Inventar färben zu können!
+Du musst ein [`DyeRecipe`](./recipes#dye-recipes) für dein Item erstellen, um es in deinem Inventar färben zu können!
 
 :::
 
@@ -128,13 +128,13 @@ Du musst dein Item zu dem Tag `temTags.DYEABLE` hinzufügen, um es in deinem Inv
 
 `generated/assets/example-mod/items/leather_gloves.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/leather_gloves.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/leather_gloves.json
 
 == Itemmodell
 
 `generated/assets/example-mod/models/item/leather_gloves.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/leather_gloves.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/leather_gloves.json
 
 == Textur
 
@@ -163,7 +163,7 @@ Der dritte und vierte Parameter sind die Modelle, die verwendet werden sollen, w
 
 == Quellcode
 
-@[code transcludeWith=:::condition](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#condition
 
 :::warning WICHTIG
 
@@ -175,17 +175,17 @@ Um den in `ItemModelUtils.plainModel()` übergebenen `Identifier` zu erhalten, v
 
 `generated/assets/example-mod/items/flashlight.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/flashlight.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/flashlight.json
 
 == Itemmodelle
 
 `generated/assets/example-mod/models/item/flashlight.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/flashlight.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/flashlight.json
 
 `generated/assets/example-mod/models/item/flashlight_lit.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/flashlight_lit.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/flashlight_lit.json
 
 == Texturen
 
@@ -205,23 +205,23 @@ Zusammengesetzte Itemmodelle bestehen aus einer oder mehreren Texturen, die übe
 
 == Quellcode
 
-@[code transcludeWith=:::composite](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#composite
 
 == Client Item
 
 `generated/assets/example-mod/items/enhanced_hoe.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/enhanced_hoe.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/enhanced_hoe.json
 
 == Itemmodelle
 
 `generated/assets/example-mod/models/item/enhanced_hoe.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/enhanced_hoe.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/enhanced_hoe.json
 
 `generated/assets/example-mod/models/item/enhanced_hoe_plus.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/enhanced_hoe_plus.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/enhanced_hoe_plus.json
 
 == Texturen
 
@@ -246,27 +246,27 @@ In diesem Beispiel ändert das Item seine Textur beim Wechsel zwischen den Dimen
 
 == Quellcode
 
-@[code transcludeWith=:::select](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#select
 
 == Client Item
 
 `generated/assets/example-mod/items/dimensional_crystal.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/dimensional_crystal.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/dimensional_crystal.json
 
 == Itemmodelle
 
 `generated/assets/example-mod/models/item/dimensional_crystal_overworld.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_overworld.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_overworld.json
 
 `generated/assets/example-mod/models/item/dimensional_crystal_nether.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_nether.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_nether.json
 
 `generated/assets/example-mod/models/item/dimensional_crystal_end.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_end.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/dimensional_crystal_end.json
 
 == Texturen
 
@@ -297,27 +297,27 @@ In diesem Beispiel wird `Count` verwendet, um die Textur je nach Stackgröße vo
 
 == Quellcode
 
-@[code transcludeWith=:::range-dispatch](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#range_dispatch
 
 == Client Item
 
 `generated/assets/example-mod/items/throwing_knives.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/throwing_knives.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/throwing_knives.json
 
 == Itemmodelle
 
 `generated/assets/example-mod/models/item/throwing_knives_one.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_one.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_one.json
 
 `generated/assets/example-mod/models/item/throwing_knives_two.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_two.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_two.json
 
 `generated/assets/example-mod/models/item/throwing_knives_three.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_three.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/throwing_knives_three.json
 
 == Texturen
 
@@ -337,7 +337,7 @@ Alle Felder und Methoden für diesen Teil des Tutorials werden in einer statisch
 
 :::details Zeige `CustomItemModelGenerator`
 
-@[code transcludeWith=:::custom-item-model-generator:::](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_item_model_generator
 
 :::
 
@@ -347,7 +347,7 @@ Zunächst erstellen wir ein übergeordnetes Itemmodell, das definiert, wie das I
 
 Dazu erstellen wir die Datei `resources/assets/example-mod/models/item/scaled2x.json`, legen als übergeordnetes Modell `item/generated` fest und überschreiben dann die Skalierung.
 
-@[code](@/reference/latest/src/main/resources/assets/example-mod/models/item/scaled2x.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/models/item/scaled2x.json
 
 Dadurch wird das Modell visuell doppelt so groß wie die einfachen Modelle.
 
@@ -355,7 +355,7 @@ Dadurch wird das Modell visuell doppelt so groß wie die einfachen Modelle.
 
 Als Nächstes müssen wir eine Instanz der Klasse `ModelTemplate` erstellen. Sie wird das tatsächliche [übergeordnete Itemmodell](#custom-parent) in unserem Mod repräsentieren.
 
-@[code transcludeWith=:::custom-item-model:::](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_item_model
 
 Die Methode `item()` erstellt eine neue Instanz von `ModelTemplate`, die auf die zuvor erstellte Datei `scaled2x.json` verweist.
 
@@ -365,7 +365,7 @@ Textur-Slot `LAYER0` repräsentiert die Texturvariable `#layer0`, welche dann du
 
 Der letzte Schritt besteht darin, eine benutzerdefinierte Methode zu erstellen, die in der Methode `generateItemModels()` aufgerufen wird und für die Generierung unserer Itemmodelle zuständig ist.
 
-@[code transcludeWith=:::custom-item-datagen-method](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_item_datagen_method
 
 Lasst uns durchgehen, wofür die Parameter stehen:
 
@@ -380,7 +380,7 @@ Dann verwenden wir ein weiteres Feld, den `itemModelOutput` (das im Wesentlichen
 
 Jetzt müssen wir nur noch unsere Methode in der Methode `generateItemModels()` aufrufen.
 
-@[code transcludeWith=:::custom-balloon](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_balloon
 
 Vergiss nicht, eine Texturdatei hinzuzufügen!
 

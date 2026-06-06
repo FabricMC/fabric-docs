@@ -19,26 +19,26 @@ Beim Erstellen eines `BlockEntityRenderer` für die `CounterBlockEntity` ist es 
 
 Zunächst müssen wir einen `BlockEntityRenderState` für unsere `CounterBlockEntity` erstellen, um die Daten zu speichern, die für das Rendern verwendet werden. In diesem Fall müssen die `clicks` während des Renderns verfügbar sein.
 
-@[code transcludeWith=::render-state](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java#render_state
 
 Dann erstellen wir einen `BlockEntityRenderer` für unsere `CounterBlockEntity`.
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#renderer_structure
 
 Die neue Klasse hat einen Konstruktor mit einem `BlockEntityRendererProvider.Context` als Parameter. Der `Context` hat einige nützliche Rendering-Hilfsmittel, wie den `ItemRenderer` oder `Font`.
 Durch die Aufnahme eines derartigen Konstruktors, wird es außerdem möglich den Konstuktor als funktionales Interface der `BlockEntityRendererProvider` selbst zu verwenden:
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java#register_block_entity_renderer
 
 Wir werden einige Methoden überschreiben, um den Renderzustand zusammen mit der Methode `submit` einzurichten, in der die Rendering-Logik eingerichtet wird.
 
 `createRenderState` kann verwendet werden, um den Renderzustand zu initialisieren.
 
-@[code transclude={31-34}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#create_render_state
 
 `extractRenderState` kan verwendet werden, um den Renderzustand mit Daten von einer Entität zu aktuaisieren.
 
-@[code transclude={36-42}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#extract_render_state
 
 Du solltest Renderer für Blockentitäten in deiner Klasse `ClientModInitializer` registrieren.
 
@@ -71,9 +71,7 @@ Zunächst müssen wir den Text auf der X- und Z-Achse in die Mitte und ihn dann 
 
 Died wird durch einen einzelnen `translate` Aufruf gemacht:
 
-```java
-matrices.translate(0.5, 1, 0.5);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#translate
 
 Somit ist die _Verschiebung_ erledigt, _Drehung_ und _Skalierung_ bleiben.
 
@@ -83,19 +81,15 @@ Standardmäßig wird der Text auf der XY-Ebene gezeichnet, also müssen wir ihn 
 
 Der `PoseStack` hat keine `rotate` Methode, stattdessen müssen wir `mulPose` und `Axis.XP` verwenden:
 
-```java
-matrices.mulPose(Axis.XP.rotationDegrees(90));
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#rotate
 
 Jetzt ist der Text an der korrekten Position, aber ist zu groß. Der `BlockEntityRenderer` ordnet den ganzen Block zu einem `[-0.5, 0.5]` Würfel zu, während die `Font` Y-Koordinaten von `[0, 9]` verwendet. Somit müssen wir es um den Faktor 18 herunter skalieren:
 
-```java
-matrices.scale(1/18f, 1/18f, 1/18f);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#scale
 
 Jetzt sieht die ganze Transformation wie folgt aus:
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#transformations
 
 ### Zeichnen von Text {#drawing-text}
 
@@ -103,7 +97,7 @@ Wie bereits früher erwähnt, hat der an den Konstruktor unseres Renderers über
 
 Um den Text zu zeichnen, übermitteln wir die erforderlichen Daten an die Render-Warteschlange. Da wir Text zeichnen, können wir die Methode `submitText` verwenden, die über die Instanz `SubmitNodeCollector` bereitgestellt wird, die an die Methode `submit` übergeben wird.
 
-@[code transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#drawing_text
 
 Die Methode `submitText` nimmt einige Paramter, aber die Wichtigsten sind:
 

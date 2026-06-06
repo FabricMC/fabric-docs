@@ -7,6 +7,7 @@ authors:
   - jamieswhiteshirt
   - liach
   - Llamalad7
+  - Maganoos
   - SolidBlock-cn
 resources:
   https://maven.fabricmc.net/docs/fabric-loader-0.19.2/: Javadocs Завантажувача Fabric 0.19.2
@@ -14,7 +15,7 @@ resources:
   https://github.com/FabricMC/fabric-loader: Завантажувач Fabric на GitHub
 ---
 
-Завантажувач Fabric — це легкий завантажувач модів від Fabric. Він надає необхідні інструменти для створення на будь-якій версії Minecraft. З іншого боку, хуки, що стосуються гри та версії, належать до Fabric API.
+Завантажувач Fabric — це легкий завантажувач модів від Fabric. Він надає необхідні інструменти для модифікації будь-якої програми Java. З іншого боку, хуки, що стосуються гри та версії, належать до Fabric API.
 
 ::: info
 

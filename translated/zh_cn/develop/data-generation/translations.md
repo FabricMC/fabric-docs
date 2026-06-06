@@ -25,7 +25,7 @@ authors-nogithub:
 
 首先，我们要创建**提供程序**。 请记住，提供程序才是为我们生成数据的。 创建一个继承 `FabricLanguageProvider` 的类，填入基本方法：
 
-@[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_provider
 
 ::: tip
 
@@ -35,13 +35,13 @@ authors-nogithub:
 
 接着在 `DataGeneratorEntrypoint` 入口点的 `onInitializeDataGenerator` 方法里注册这个类。
 
-@[code lang=java transcludeWith=:::datagen-translations:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_translations_register
 
 ## 创建翻译 {#creating-translations}
 
 除了创建原始翻译、来自 `Identifier` 的翻译以及从现有的文件复制（通过传递 `Path`）之外，还有用于翻译物品、方块、标签、统计信息、实体、生物效果、创造模式标签页、实体属性和魔咒的辅助方法。 只需在 `translationBuilder` 上调用 `add`，添加你想要翻译的内容以及应该翻译成的内容：
 
-@[code lang=java transcludeWith=:::datagen-translations:build](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
 
 ## 使用翻译 {#using-translations}
 

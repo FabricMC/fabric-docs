@@ -78,7 +78,7 @@ Command<CommandSourceStack> command = context -> {
 
 В инициализаторе мода мы просто регистрируем простую команду:
 
-@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#test_command
 
 В методе`sendSuccess()` первый аргумент — это текст для отправки, который является `Supplier<Component>` во избежание создания экземпляров `Component` вне необходимости.
 
@@ -100,17 +100,17 @@ Command<CommandSourceStack> command = context -> {
 
 При желании вы также можете сделать так, чтобы команда регистрировалась только при определённых условиях, например, только в среде выделенного сервера:
 
-@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#dedicated_command{2}
 
-@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_dedicated_command
 
 ### Требования к команде {#command-requirements}
 
 Допустим, что у вас есть команда и вы хотите, чтобы её могли выполнять только модераторы. В этом случае можно использовать метод `requires()`. Метод `requires()` имеет один аргумент `Predicate<S>`, который будет предоставлять `CommandSourceStack` для проверки возможности `CommandSource` выполнить команду.
 
-@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#required_command{3}
 
-@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_required_command
 
 Эта команда выполнится только в том случае, если источник команды является как минимум модератором, что также включает командные блоки. В противном случае команда не зарегистрируется.
 
@@ -120,21 +120,21 @@ Command<CommandSourceStack> command = context -> {
 
 Чтобы добавить подкоманду, первый литеральный узел команды регистрируется как обычно. Чтобы получить подкоманду, вы должны добавить следующий литеральный узел к уже существующему узлу.
 
-@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#sub_command_one{3}
 
-@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_sub_command_one
 
 Подобно аргументам, узлы подкоманд могут также быть необязательными. В следующем случае будут допустимы как `/command_two`, так и `/command_two sub_command_two`.
 
-@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#sub_command_two{2,8}
 
-@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_sub_command_two
 
 ## Клиентские команды {#client-commands}
 
 Аналогично, Fabric API предоставляет событие `ClientCommandRegistrationCallback` в пакете `net.fabricmc.fabric.api.cient.command.v2`, которое может быть использовано для регистрации клиентских команд, заменяя ванильный класс `Commands` на эквивалентный ему `ClientCommands`. Этот код должен существовать только на стороне клиента.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
+<<< @/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java#register_command
 
 ## Перенаправления команд {#command-redirects}
 
@@ -146,9 +146,9 @@ Brigadier [будет перенаправлять только командны
 
 :::
 
-@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#redirect_command
 
-@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_redirected_by
 
 ## ЧАВО {#faq}
 

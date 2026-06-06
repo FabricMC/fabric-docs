@@ -57,6 +57,10 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
       dest: "1.21.11",
     },
     {
+      from: /develop[/](codecs|data-attachments|saved-data)(?=[/]|$)/,
+      dest: "develop/serialization/$1",
+    },
+    {
       from: new RegExp(`^${context.latestVersion.replaceAll(".", "[.]")}(?=[/]|$)`),
       dest: "",
     },

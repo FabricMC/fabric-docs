@@ -11,7 +11,7 @@ Werkzeuge sind für das Überleben und das Vorankommen unerlässlich, denn sie e
 
 Du kannst ein Werkzeugmaterial erstellen, indem du ein neues `ToolMaterial`-Objekt instanziierst und es in einem Feld speicherst, das später verwendet werden kann, um die Werkzeugelemente zu erstellen, die das Material verwenden.
 
-@[code transcludeWith=:::guidite_tool_material](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_tool_material
 
 Der `ToolMaterial`-Konstruktor akzeptiert die folgenden Parameter, in dieser spezifischen Reihenfolge:
 
@@ -26,7 +26,7 @@ Der `ToolMaterial`-Konstruktor akzeptiert die folgenden Parameter, in dieser spe
 
 Für dieses Beispiel verwenden wir denselben Gegenstand zur Reparatur, den wir auch für Rüstungen verwenden werden. Wir definieren die Tag-Referenz wie folgt:
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
 Wenn du Schwierigkeiten hast, ausgewogene Werte für einen der numerischen Parameter zu bestimmen, solltest du dir die Vanilla-Werkzeugmaterialkonstanten ansehen, wie zum Beispiel `ToolMaterial.STONE` oder `ToolMaterial.DIAMOND`.
 
@@ -34,19 +34,19 @@ Wenn du Schwierigkeiten hast, ausgewogene Werte für einen der numerischen Param
 
 Mit der gleichen Hilfsfunktion wie in der Anleitung [Erstelle dein ersten Item](./first-item) kannst du deine Werkzeugitems erstellen:
 
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
 Die beiden Float-Werte (1f, 1f) beziehen sich auf den Angriffsschaden des Werkzeugs bzw. die Angriffsgeschwindigkeit des Werkzeugs.
 
 Vergiss nicht, sie zu einem Kreativtab hinzuzufügen, wenn du vom Kreativinventar aus auf sie zugreifen willst!
 
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_guidite_sword_to_create_tab
 
 Du musst auch eine Textur, eine Itemübersetzung und ein Itemmodell hinzufügen. Für das Itemmodell solltest du jedoch anstelle von dem üblichen `item/generated` das Modell `item/handheld` als übergeordnetes Modell verwenden.
 
 In diesem Beispiel verwende ich das folgende Modell und die folgende Textur für den Gegenstand "Guidite Sword":
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Textur</DownloadEntry>
 

@@ -78,7 +78,7 @@ Command<CommandSourceStack> command = context -> {
 
 在模组的入口点中，我们只注册两个简单的命令：
 
-@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#test_command
 
 在 `sendSuccess()` 方法之中，第一个参数是要发送的文本，即 `Supplier<Component>`，以避免在不必要时实例化 `Component` 对象。
 
@@ -100,17 +100,17 @@ Command<CommandSourceStack> command = context -> {
 
 如有需要，你可以确保命令仅在一些特定情况下注册，例如仅在专用的环境中：
 
-@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#dedicated_command{2}
 
-@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_dedicated_command
 
 ### 命令要求{#command-requirements}
 
 假如说你希望命令只有管理员可以执行， 这时就要用到 `requires()` 方法。 `requires()` 方法有一个 `Predicate<S>` 参数，提供一个 `CommandSourceStack` 以检测并确定 `CommandSource` 能否执行命令。
 
-@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#required_command{3}
 
-@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_required_command
 
 这个命令只会在命令源至少为 2 级管理员（包括命令方块）时才会执行， 否则，命令不会被注册。
 
@@ -120,21 +120,21 @@ Command<CommandSourceStack> command = context -> {
 
 要添加子命令，你需要先照常注册第一个字面节点。 为拥有子命令，需要把下一个节点追加到已经存在的节点后面。
 
-@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#sub_command_one{3}
 
-@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_sub_command_one
 
 类似于参数，子命令节点也可以设置为可选的。 在下面这个例子中，`/command_two` 和 `/command_two sub_command_two` 都是有效的。
 
-@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#sub_command_two{2,8}
 
-@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_sub_command_two
 
 ## 客户端命令{#client-commands}
 
 类似地，Fabric API 在 `net.fabricmc.fabric.api.client.command.v2` 包中提供了 `ClientCommandRegistrationCallback` 事件，可用于注册客户端命令，并将原始的 `Commands` 类替换为等效的 `ClientCommands` 类。 代码应该仅存在于客户端的代码中。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
+<<< @/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java#register_command
 
 ## 命令重定向 {#command-redirects}
 
@@ -146,9 +146,9 @@ Brigadier [只会重定向有参数的命令节点](https://github.com/Mojang/br
 
 :::
 
-@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#redirect_command
 
-@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_redirected_by
 
 ## 常见问题{#faq}
 

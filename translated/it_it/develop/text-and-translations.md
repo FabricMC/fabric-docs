@@ -86,7 +86,7 @@ Se vuoi fare riferimento a ciò che, nel nostro caso, è l'attaccante, useresti 
 
 Come già accennato prima, puoi serializzare testo a JSON con il codec di testo. Per maggiori informazioni, vedi la pagina sui [Codec](./codecs).
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#component_to_string
 
 Questo produce JSON che può essere usato in datapack, comandi e altri posti che accettano il formato JSON di testo invece che il formato letterale o traducibile.
 
@@ -94,7 +94,7 @@ Questo produce JSON che può essere usato in datapack, comandi e altri posti che
 
 Inoltre, per deserializzare un oggetto testo da JSON a un oggetto della classe `Component`, di nuovo, usa il codec.
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#string_to_component
 
 ## Formattare Testo {#formatting-text}
 

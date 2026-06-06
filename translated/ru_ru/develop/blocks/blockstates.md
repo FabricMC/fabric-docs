@@ -26,7 +26,7 @@ Minecraft уже имеет несколько пользовательских 
 
 Стандартный класс `RotatedPillarBlock` позволяет размещать блоки вдоль осей X, Y или Z.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_oak_log
 
 Блоки колонн имеют две текстуры: верхнюю и боковую. Они используют модель `block/cube_column`.
 
@@ -41,7 +41,7 @@ Minecraft уже имеет несколько пользовательских 
 
 Пример файла `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json
 
 ::: info
 
@@ -57,7 +57,7 @@ Minecraft уже имеет несколько пользовательских 
 - `axis=y` - Когда блок помещён вдоль оси Y, мы будем использовать нормальную вертикальную модель.
 - `axis=z` — когда блок размещён вдоль оси Z, мы поворачиваем модель так, чтобы она была направлена в положительном направлении Z.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json
 
 Как всегда, вам нужно создать перевод для вашего блока и модель предмета, которая будет наследовать одну из двух моделей.
 
@@ -73,21 +73,21 @@ Minecraft уже имеет несколько пользовательских 
 
 Сначала вам нужно создать свойство — так как это булево значение, мы будем использовать метод `BooleanProperty.create`.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#block
 
 Далее, мы должны добавить свойство к менеджеру состояния блока в методе `createBlockStateDefinition`. Вам необходимо переопределить метод для доступа к конструктору:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#block_state_definition
 
 Вам также придется установить состояние по умолчанию для свойства `activated` в конструкторе вашего пользовательского блока.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#constructor
 
 ### Использование свойства {#using-the-property}
 
 В этом примере булево свойство `activated` инвертируется, когда игрок взаимодействует с блоком. Для этого мы можем переопределить метод `useWithoutItem`:
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#on_use
 
 ### Визуализация недвижимости {#visualizing-the-property}
 
@@ -103,7 +103,7 @@ Minecraft уже имеет несколько пользовательских 
 
 Поскольку этот блок имеет только два возможных варианта, поскольку у него есть только одно свойство (`activated`), JSON-код состояния блока будет выглядеть примерно так:
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json
 
 ::: tip
 
@@ -115,9 +115,9 @@ Minecraft уже имеет несколько пользовательских 
 
 Вы можете использовать метод `lightLevel` для установки уровня освещенности, излучаемого блоком. Мы можем создать статический метод в классе `PrismarineLampBlock`, который будет возвращать уровень освещенности на основе свойства `activated`, и передать его в качестве ссылки на метод в метод `lightLevel`:
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#get_luminance
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#prismarine_lamp
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

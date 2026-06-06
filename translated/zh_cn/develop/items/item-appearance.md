@@ -31,27 +31,27 @@ authors:
 
 首先，你需要定义一个自定义物品着色源。 这可以通过在类或记录上实现 `ItemTintSource` 接口来实现。
 
-@[code lang=java transcludeWith=:::tint_source](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#tint_source_class
 
 由于这是客户端物品定义的一部分，因此可以通过资源包更改色调值。 所以你需要定义一个能够读取色调定义的 [Map Codec](../codecs#mapcodec)。 在本例中，色调源将包含一个 `int` 值，用于描述下雨时的颜色。 我们可以使用内置的 `ExtraCodecs.RGB_COLOR_CODEC` 来构建我们的 Codec。
 
-@[code lang=java transclude={17-20}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#map_codec
 
 然后我们可以在 `type()` 中返回这个 Codec。
 
-@[code lang=java transclude={35-38}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#return_codec
 
 最后，我们可以提供一个 `calculate` 的实现，用于决定色调颜色。 `color` 的值来自资源包。
 
-@[code lang=java transclude={26-33}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#calculate
 
 接下来，我们需要注册我们的物品着色源。 这是在**客户端初始化器**中使用在 `ItemTintSources` 中声明的 `ID_MAPPER` 完成的。
 
-@[code lang=java transcludeWith=:::item_tint_source](@/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#register_item_tint_source
 
 完成此操作后，我们就可以在客户端物品定义中使用我们的物品着色源。
 
-@[code lang=json transclude](@/reference/latest/src/main/generated/assets/example-mod/items/waxcap.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/waxcap.json
 
 你可以在游戏中观察到物品颜色的变化。
 

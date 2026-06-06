@@ -27,13 +27,13 @@ In diesem Tutorial fügen wir einen neuen benutzerdefinierten Effekt namens _Tat
 
 Lasst uns eine benutzerdefinierte Effektklasse erstellen, indem wir `MobEffect` erweitern, die die Basisklasse für alle Effekte ist.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java)
+<<< @/reference/latest/src/main/java/com/example/docs/effect/TaterEffect.java#effect
 
 ### Deinen benutzerdefinierten Effekt registrieren {#registering-your-custom-effect}
 
 Ähnlich wie bei der Registrierung von Blöcken und Items verwenden wir `Registry.register`, um unseren benutzerdefinierten Effekt in der `MOB_EFFECT`-Registry zu registrieren. Dies kann in unserem Initialisierer geschehen.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java)
+<<< @/reference/latest/src/main/java/com/example/docs/effect/ExampleModEffects.java#register_effect
 
 ### Texturen {#texture}
 
@@ -71,7 +71,7 @@ effect give @p example-mod:tater
 
 Um einen Effekt intern anzuwenden, solltest du die Methode `LivingEntity#addEffect` verwenden, die eine `MobEffectInstance` entgegennimmt und einen boolean zurückgibt, der angibt, ob der Effekt erfolgreich angewendet wurde.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#apply_effect
 
 | Argument    | Typ                 | Beschreibung                                                                                                                                                                                                                                                                                                                                                  |
 | ----------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

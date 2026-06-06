@@ -1,0 +1,82 @@
+---
+title: Datenanhänge
+description: Ein Leitfaden, der die grundlegende Verwendung der neuen Data Attachment API von Fabric abbildet.
+authors:
+  - cassiancc
+  - DennisOchulor
+---
+
+Die von der Fabric API bereitgestellte Data Attachment API ermöglicht es Entwicklern, beliebige Daten auf einfache Weise an Entitäten, Blockentitäten, Levels und Chunks anzuhängen. Die angehängten Daten können über [Codecs](./codecs) und [Stream-Codecs](https://docs.neoforged.net/docs/networking/streamcodecs/) gespeichert und synchronisiert werden. Du solltest sich daher vor der Verwendung mit diesen vertraut machen.
+
+::: info
+
+Für serverweite Daten, die nicht an ein bestimmtes Level gebunden sind, stellt Fabric `GlobalAttachments` bereit, die über `Level.globalAttachments()` oder `MinecraftServer.globalAttachments()` abgerufen werden können.
+
+:::
+
+## Einen Datenanhang erstellen {#creating-attachments}
+
+Du beginnst mit einem Aufruf von `AttachmentRegistry.create`. Das folgende Beispiel erstellt einen einfachen Datenanhang, der nicht über Neustarts hinweg synchronisiert und persistent bleibt.
+
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#string
+
+`AttachmentRegistry` enthält einige Methoden zum Erstellen grundlegender Datenanhänge, darunter:
+
+- `AttachmentRegistry.create()`: Erstellt einen Datenanhang. Durch einen Neustart des Spiels wird der Anhang gelöscht.
+- `AttachmentRegistry.createPersistent()`: Erstellt einen Datenanhang, der zwischen Neustarts des Spiels persistent bleibt.
+- `AttachmentRegistry.createDefaulted()`: Erstellt einen Datenanhang mit einem Standardwert, den du mit `getAttachedOrCreate` lesen kannst. Durch einen Neustart des Spiels wird der Anhang gelöscht.
+
+Das Verhalten jeder Methode kann auch mit dem Parameter `builder` von `create` nachgebildet und weiter angepasst werden, indem das [Muster der Verkettung von Methoden](https://en.wikipedia.org/wiki/Method_chaining) angewendet wird.
+
+### Einen Datenanhang synchronisieren {#syncing-attachments}
+
+Wenn du möchtest, dass ein Datenanhang sowohl persistent ist als auch zwischen Server und Clients synchronisiert wird, kannst du dieses Verhalten mit der Methode `create` festlegen, die die Konfiguration über eine `builder`-Kette ermöglicht. Zum Beispiel:
+
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#pos
+
+Das obige Beispiel synchronisiert mit jedem Spieler, aber das passt möglicherweise nicht zu deinem Anwendungsfall. Hier sind einige weitere Standardprädikate, aber du kannst auch eigene bauen, indem du auf die Klasse `AttachmentSyncPredicate` verweist.
+
+- `AttachmentSyncPredicate.all()`: Synchronisiert die Anhänge mit allen Clients.
+- `AttachmentSyncPredicate.targetOnly()`: Synchronisiert den Anhang nur mit dem Ziel, an das er angehängt ist. Beachte, dass die Synchronisierung nur erfolgen kann, wenn das Ziel ein Spieler ist.
+- `AttachmentSyncPredicate.allButTarget()`: Synchronisiert den Anhang mit allen Clients außer mit dem Ziel, an das er angehängt ist. Beachte, dass die Ausnahme nur gelten kann, wenn das Ziel ein Spieler ist.
+
+### Datenanhänge persistieren {#persisting-attachments}
+
+Datenanhänge können auch so eingestellt werden, dass sie über Neustarts des Spiel hinweg bestehen bleiben, indem die Methode `persistent` in der Builder-Kette aufgerufen wird. Es nimmt einen `Codec` entgegen, damit das Spiel weiß, wie die Daten serialisiert werden müssen.
+
+Mit der Methode `copyOnDeath` können sie so eingestellt werden, dass sie auch nach dem Tod oder der [Konvertierung](https://minecraft.wiki/w/Mob_conversion) des Ziels bestehen bleiben.
+
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#persistent
+
+## Lesen von einem Datenanhang {#reading-attachments}
+
+Methoden zum Lesen aus einem Datenanhang wurden in die Klassen `Entity`, `BlockEntity`, `ServerLevel` und `ChunkAccess` eingefügt. Die Verwendung ist so einfach wie der Aufruf einer der Methoden, die den Wert der angehängten Daten zurückgeben.
+
+<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#reading_entity_attachments
+
+## Schreiben zu einem Datenanhang {#writing-attachments}
+
+Methoden zum Schreiben in einen Datenanhang wurden in die Klassen `Entity`, `BlockEntity`, `ServerLevel` und `ChunkAccess` eingefügt. Durch den Aufruf einer der folgenden Methoden wird der Wert der angehängten Daten aktualisiert und der vorherige Wert zurückgegeben (oder `null`, wenn kein Wert vorhanden war).
+
+<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#writing_entity_attachments
+
+::: warning
+
+Du solltest für Datenanhänge immer Werte mit unveränderlichen Typen verwenden und diese auch nur mit API-Methoden aktualisieren. Andernfalls kann es dazu kommen, dass die Datenanhänge nicht dauerhaft gespeichert oder nicht ordnungsgemäß synchronisiert werden.
+
+:::
+
+## Größere Anhänge {#larger-attachments}
+
+Obwohl Datenanhänge jede Art von Daten speichern können, für die ein Codec geschrieben werden kann, glänzen sie besonders bei der Synchronisierung einzelner Werte. Der Grund dafür ist, dass ein Datenanhang unveränderlich ist: Die Änderung eines Teils seines Werts (z. B. eines einzelnen Feldes eines Objekts) bedeutet, dass er vollständig ersetzt werden muss, was eine vollständige Synchronisierung mit jedem Client auslöst, der ihn verfolgt.
+
+Stattdessen kannst du komplexere Anhänge erstellen, indem du sie in mehrere Felder aufteilst und mit einer Hilfsklasse organisierst. Wenn du beispielsweise zwei Felder benötigst, die sich auf die Kondition eines Spielers beziehen, kannst du etwa Folgendes erstellen:
+
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/Stamina.java#stamina
+
+Diese Hilfsklasse kann dann wie folgt verwendet werden:
+
+```java
+Player player = getPlayer();
+Stamina.get(player).getCurrentStamina();
+```

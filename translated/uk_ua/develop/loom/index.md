@@ -61,7 +61,7 @@ dependencies {
 
 Minecraft 1.18 (рекомендовано 1.19), Завантажувач 0.14 і Loom 1.0 або новішої версії потрібні для розділення клієнтського та загального коду.
 
-<<< @/reference/build.gradle#split-sources
+<<< @/reference/build.gradle#split_sources
 
 ## Розв'язування проблем {#issues}
 

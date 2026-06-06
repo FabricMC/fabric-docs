@@ -17,31 +17,31 @@ authors:
 
 Перед реализацией генератора данных создайте пакет `enchantment` в основном наборе исходных кодов (main source set) и добавьте в него класс `ModEnchantments`. Затем добавьте метод `key` в этот новый класс.
 
-@[code transcludeWith=:::key-helper](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java#key_helper
 
 Используйте этот метод для создания `ResourceKey` для вашего зачарования.
 
-@[code transcludeWith=:::register-enchantment](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java#register_enchantment
 
 Теперь все готово к добавлению генератора данных. В пакете datagen создайте класс, который расширяет (extends) `FabricDynamicRegistryProvider`.  В созданном классе добавьте конструктор, соответствующий суперклассу (super), а также реализуйте методы `configure` и `getName`.
 
-@[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#provider
 
 Затем добавьте вспомогательный метод `register` в этот созданный класс.
 
-@[code transcludeWith=:::register-helper](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#register_helper
 
 Теперь добавьте метод `bootstrap`. Здесь мы будем регистрировать зачарования, которые хотим добавить в игру.
 
-@[code transcludeWith=:::bootstrap](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#bootstrap
 
 В вашем классе `DataGeneratorEntrypoint` переопределите (override) метод `buildRegistry` и зарегистрируйте наш метод bootstrap.
 
-@[code transcludeWith=:::datagen-enchantments:bootstrap](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_enchantments_bootstrap
 
 Наконец, убедитесь, что ваш новый генератор зарегистрирован внутри метода `onInitializeDataGenerator`.
 
-@[code transcludeWith=:::datagen-enchantments:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_enchantments_register
 
 ## Создание зачарования {#creating-the-enchantment}
 
@@ -51,7 +51,7 @@ authors:
 
 В данном примере мы будем использовать эффект зачарования, созданный в разделе ["Пользовательские эффекты чар"](../items/custom-enchantment-effects), но вы также можете использовать [ванильные эффекты зачарований](https://minecraft.wiki/w/Enchantment_definition#Effect_components).
 
-@[code transcludeWith=:::register-enchantment](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#register_enchantment
 
 Теперь просто запустите генерацию данных, и ваше новое зачарование появится в игре!
 
@@ -65,7 +65,7 @@ authors:
 
 :::
 
-@[code transcludeWith=:::effect-conditions](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#effect_conditions
 
 ## Множественные эффекты {#multiple-effects}
 
@@ -73,7 +73,7 @@ authors:
 
 Чтобы использовать общие условия и цели для нескольких эффектов, можно объединить их в один эффект с помощью `AllOf`.
 
-@[code transcludeWith=:::multiple-effects](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#multiple_effects
 
 Обратите внимание, что выбор метода зависит от типа добавляемого эффекта. Например, для `EnchantmentValueEffect` вместо этого требуется использовать `AnyOf.valueEffects`. Для эффектов разных типов все равно понадобятся отдельные вызовы `withEffect`.
 
@@ -83,11 +83,11 @@ authors:
 
 Для этого мы можем создать провайдер тегов. В пакете datagen создайте класс, который расширяет `FabricTagProvider<Enchantment>`. Затем реализуйте конструктор, передав `Registries.ENCHANTMENT` в качестве параметра `registryKey` в конструктор суперкласса (`super`), и создайте метод `addTags`.
 
-@[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java#provider
 
 Теперь мы можем добавить наше зачарование в тег `EnchantmentTags.NON_TREASURE`, вызвав строитель (builder) внутри метода `addTags`.
 
-@[code transcludeWith=:::non-treasure-tag](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java#non_treasure_tag
 
 ## Проклятия {#curses}
 
@@ -95,4 +95,4 @@ authors:
 
 В методе `addTags` просто добавьте ваше зачарование в тег `CURSE`, чтобы пометить его как проклятие.
 
-@[code transcludeWith=:::curse-tag](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java#curse_tag

@@ -38,11 +38,11 @@ authors-nogithub:
 
 По-перше, нам потрібно ввімкнути генерацію даних у файлі `build.gradle`.
 
-@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+<<< @/reference/build.gradle#datagen_setup_configure
 
 Далі нам потрібен клас точки входу. Ось де починається наша генерація даних. Розмістіть це десь у пакеті `client` — у цьому прикладі це розміщено в `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
 
-@[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_setup_generator
 
 Нарешті, нам потрібно повідомити Fabric про точку входу в нашому `fabric.mod.json`:
 
@@ -75,7 +75,7 @@ authors-nogithub:
 
 Усередині методу `onInitializeDataGenerator` вашої точки входу даних нам потрібно створити `Pack`. Пізніше ви додасте **постачальників**, які додадуть згенеровані дані в цей `Pack`.
 
-@[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_setup_pack
 
 ## Запуск генерації даних {#running-data-generation}
 

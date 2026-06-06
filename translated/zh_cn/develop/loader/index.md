@@ -7,6 +7,7 @@ authors:
   - jamieswhiteshirt
   - liach
   - Llamalad7
+  - Maganoos
   - SolidBlock-cn
 resources:
   https://maven.fabricmc.net/docs/fabric-loader-0.19.2/: Fabric Loader 0.19.2 Javadoc
@@ -14,7 +15,7 @@ resources:
   https://github.com/FabricMC/fabric-loader: GitHub 上的 Fabric Loader
 ---
 
-Fabric Loader 是 Fabric 的轻量模组加载器。 它提供了构建任何版本 Minecraft 所需的必要工具。 另一方面，特定于游戏和版本的钩子则属于 Fabric API 的范畴。
+Fabric Loader 是 Fabric 的轻量模组加载器。 它提供了修改任何 Java 应用程序所需的必要工具。 另一方面，特定于游戏和版本的钩子则属于 Fabric API 的范畴。
 
 ::: info
 

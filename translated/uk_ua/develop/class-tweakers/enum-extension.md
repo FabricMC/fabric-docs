@@ -40,7 +40,7 @@ authors:
 
 Щоб створити розширення переліку, створіть `enum` у своєму пакеті міксинів, додайте до нього анотацію `@Mixin` і додайте до нього свої константи, ніби вони були частиною цільового класу переліку. Наприклад, додаймо новий запис до `RecipeBookType`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeBookTypeMixin.java#enum-extension-no-impls-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeBookTypeMixin.java#enum_extension_no_impls_example_mixin
 
 :::warning ВАЖЛИВО
 
@@ -54,13 +54,13 @@ authors:
 
 Наприклад, додаймо новий запис `RecipeCategory`. Створіть конструктор, який відповідає бажаному в цільовому класі, і додайте до нього анотацію `@Shadow`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeCategoryMixin.java#enum-extension-ctor-impls-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeCategoryMixin.java#enum_extension_ctor_impls_example_mixin
 
 ### Реалізація абстрактних методів {#implementing-abstract-methods}
 
 Щоб реалізувати абстрактні методи цільового переліку, затініть абстрактний метод, а потім перевизначте та реалізуйте його у своєму доданому записі. Наприклад, додаймо новий запис `ConversionType`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum-extension-abstract-method-impls-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum_extension_abstract_method_impls_example_mixin
 
 ## Створення запису твікера класу {#making-the-class-tweaker-entry}
 
@@ -78,7 +78,7 @@ extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 
 Наприклад, запис твікера класу для константи `RecipeBookType`, яку ми додали в [розділ міксина](#creating-the-mixin), буде таким:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum-extension-no-impls-example-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum_extension_no_impls_example_entry{classtweaker:no-line-numbers}
 
 ## Застосування змін {#applying-changes}
 
@@ -94,15 +94,15 @@ extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 
 Тепер ви можете використовувати константу переліку у своєму коді:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-usage-example
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_added_constant_usage_example
 
 Якщо ви додаєте його лише за допомогою міксина і його немає в декомпільованому джерелі, ви можете перевірити його, порівнявши назви:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example-check
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_added_constant_no_ct_usage_example_check
 
 Якщо вам потрібно використовувати константу в кількох областях, отримайте її, викликавши `valueOf` і збережіть результат у полі:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example-store
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_added_constant_no_ct_usage_example_store
 
 ## Підводні камені {#pitfalls}
 
@@ -116,7 +116,7 @@ extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 
 Інструкції перемикання часто використовуються для обробки констант переліку. Через це може статися збій, якщо вираз перемикання не обробляє записи, додані іншими модами. Наприклад, скажімо, ми маємо такий вираз перемикання:
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-problematic-switch-expr-example
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_problematic_switch_expr_example
 
 Зверніть увагу, що немає пункту `default`. Попри те, що ми обробили всі значення в стандартному переліку та наші власні, це виникне, якщо інший мод додасть інший запис.
 

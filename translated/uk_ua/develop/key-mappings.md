@@ -21,11 +21,11 @@ Minecraft обробляє введення користувачами з пер
 
 Почнімо зі створення категорії. Категорія визначає групу призначень клавіш, які видно в меню налаштувань.
 
-@[code lang=java transcludeWith=:::category](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#category
 
 Далі, ми маємо створити призначення клавіші. Ми будемо використовувати API Fabric `KeyMappingHelper`, щоб одночасно зареєструвати наше призначення клавіш.
 
-@[code lang=java transcludeWith=:::key_mapping](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#key_mapping
 
 ::: info
 
@@ -63,7 +63,7 @@ Minecraft обробляє введення користувачами з пер
 
 Тепер, коли у нас є призначення клавіші ми можемо реагувати на нього за допомогою події клієнта.
 
-@[code lang=java transcludeWith=:::client_tick_event](@/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#client_tick_event
 
 Це надрукує «Key Pressed!» до чату в грі кожного разу, коли натискається відповідна клавіша. Майте на увазі, що утримування клавіші призведе до повторного друку повідомлення в чаті, тому ви можете застосувати запобіжники, якщо ця логіка має спрацювати лише один раз.
 

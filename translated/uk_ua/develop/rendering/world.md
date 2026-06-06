@@ -38,13 +38,13 @@ authors:
 
 Ми визначаємо власний конвеєр рендера в класі:
 
-@[code lang=java transcludeWith=:::custom-pipelines:define-pipeline](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_define_pipeline
 
 ### Фаза вилучення {#extraction-phase}
 
 Спочатку ми реалізуємо фазу «вилучення». Ми можемо викликати цей метод під час фази «вилучення», щоб додати маршрутну точку для рендера.
 
-@[code lang=java transcludeWith=:::custom-pipelines:extraction-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_extraction_phase
 
 Якщо ви хочете рендерити кілька маршрутних точок, змініть `waypointState` на список і додайте кілька станів рендера маршрутних точок. Переконайтеся, що ви робите це під час фази «вилучення», ПЕРЕД початком фази «малювання», на якій будується конструктор буферів.
 
@@ -56,7 +56,7 @@ authors:
 
 Тепер ми реалізуємо етап «малювання». Це слід викликати після того, як усі маршрутні точки, які ви хочете рендерити, були додані до `waypointState` під час фази «вилучення».
 
-@[code lang=java transcludeWith=:::custom-pipelines:drawing-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_drawing_phase
 
 Зауважте, що розмір, який використовується в конструкторі `ByteBufferBuilder`, залежить від конвеєра рендера, який ви використовуєте. У нашому випадку це `RenderType.SMALL_BUFFER_SIZE`.
 
@@ -64,15 +64,15 @@ authors:
 
 Нарешті, нам потрібно очистити ресурси, коли ігровий рендер закінчено. `GameRenderer#close` має викликати цей метод, і для цього вам наразі потрібно вставити в `GameRenderer#close` за допомогою міксина.
 
-@[code lang=java transcludeWith=:::custom-pipelines:clean-up](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_clean_up
 
-@[code lang=java](@/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java)
+<<< @/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java
 
 ### Остаточний код {#final-code}
 
 Об'єднавши всі описані вище кроки, ми отримаємо простий клас, який рендерить маршрутну точку на `(0, 100, 0)` через стіни.
 
-@[code lang=java](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java
 
 Не забудьте також про `GameRendererMixin`! Ось результат:
 

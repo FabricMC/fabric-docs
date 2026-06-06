@@ -23,11 +23,11 @@ authors-nogithub:
 
 Для начала нам нужно создать провайдера. Создайте класс, который расширяет `FabricAdvancementProvider` и заполните базовые методы:
 
-@[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_provider_start
 
 Чтобы завершить настройку, добавьте этот провайдер к вашей `DataGeneratorEntrypoint` в методе `onInitializeDataGenerator`.
 
-@[code lang=java transcludeWith=:::datagen-advancements:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_advancements_register
 
 ## Структура достижений {#advancement-structure}
 
@@ -43,7 +43,7 @@ authors-nogithub:
 
 Вот пример простого достижения за получение блока земли:
 
-@[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_simple_advancement
 
 :::details Вывод JSON
 
@@ -55,11 +55,11 @@ authors-nogithub:
 
 Чтобы создать или расширить дерево достижений, мы можем указать родителя для нашего достижения. Для этого вызовите метод `Advancement.Builder#parent(...)` и передайте ссылку на родительское достижение:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reference-parent
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reference_parent
 
 Если прямой ссылки на родительское достижения нет (например, в качестве родителя используется ванильное достижение), можно создать плейсхолдер с помощью static метода класса `Identifier`.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#placeholder-parent
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#placeholder_parent
 
 Теперь ваши достижения будут отображаться в виде древовидной структуры в меню достижений.
 
@@ -69,21 +69,21 @@ authors-nogithub:
 
 Чтобы использовать более сложные условия в наших достижениях, мы можем вызывать метод `Advancement.Builder#addCriteria(...)` несколько раз, добавляя дополнительные критерии:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#multiple-criteria
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#multiple_criteria
 
 По умолчанию для выполнения достижения должны быть выполнены все указанные критерии. Мы можем изменить это поведение, задав другую стратегию требований (`AdvancementRequirements.Strategy`):
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#requirements-strategy
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#requirements_strategy
 
 ## Награды (Rewards) {#rewards}
 
 Мы можем привязывать награды к нашим достижениям, которые будут выдаваться игроку сразу после их выполнения. Для этого нужно вызвать метод `Advancement.Builder#rewards(...)` и передать туда награды, которые мы хотим добавить:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#experience-reward
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#experience_reward
 
 Также доступны и другие типы наград:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward-types
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward_types
 
 ## Пользовательские критерии (Custom Criteria) {#custom-criteria}
 
@@ -105,13 +105,13 @@ authors-nogithub:
 
 Во-первых, нам понадобится новая механика. Давайте сообщать игроку, какой инструмент он использовал, каждый раз, когда он разбивает блок.
 
-@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements_entrypoint
 
 Обратите внимание, что этот код очень плохой. Так как `HashMap` не хранится в постоянном месте, она будет сбрасываться при каждом перезапуске игры. Это сделано исключительно для демонстрации критериев (`Criterions`). Начните игру и попробуйте!
 
 Далее создадим наш пользовательский критерий `UseToolCriterion`. Для него понадобится собственный класс `Conditions`, поэтому мы создадим их оба сразу:
 
-@[code lang=java transcludeWith=:::datagen-advancements:criterion-base](@/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_criterion_base
 
 Ух, как много всего! Давайте во всём разберёмся.
 
@@ -127,31 +127,31 @@ authors-nogithub:
 
 Нам понадобится способ проверить, выполнены ли условия. Давайте добавим вспомогательный метод в `Conditions`:
 
-@[code lang=java transcludeWith=:::datagen-advancements:conditions-test](@/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_conditions_test
 
 Теперь, когда у нас есть критерий и его условия, нам нужно найти способ запустить его. Добавьте метод триггера к `UseToolCriterion`:
 
-@[code lang=java transcludeWith=:::datagen-advancements:criterion-trigger](@/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_criterion_trigger
 
 Почти готово! Далее нам нужен экземпляр нашего критерия для работы. Давайте поместим его в новый класс, названный `ModCriteria`.
 
-@[code lang=java transcludeWith=:::datagen-advancements:mod-criteria](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_mod_criteria
 
 Чтобы убедиться, что наши критерии инициализируются в нужное время, добавьте пустой метод `init`:
 
-@[code lang=java transcludeWith=:::datagen-advancements:mod-criteria-init](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_mod_criteria_init
 
 И вызовите его в инициализаторе вашего мода:
 
-@[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements_call_init
 
 Наконец, нам нужно запустить наши критерии. Добавьте это туда, где мы отправили сообщение игроку в основном классе мода.
 
-@[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements_trigger_criterion
 
 Теперь ваш новый блестящий критерий готов к использованию! Давайте добавим его в наш провайдер:
 
-@[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_custom_criteria_advancement
 
 Запустите задачу datagen снова — ваше новое достижение готово к использованию!
 
@@ -161,30 +161,36 @@ authors-nogithub:
 
 Давайте работать снизу вверх. Нам нужно проверить, выполнены ли требования, поэтому давайте отредактируем наш метод `Conditions#requirementsMet`:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-requirements-met](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements_new_requirements_met
 
 `requiredTimes` не существует, поэтому сделайте его параметром `Conditions`:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-parameter](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements_new_parameter
 
 Теперь наш кодек выдает ошибку. Давайте напишем новый кодек для новых изменений:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-codec](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements_new_codec
 
 Двигаемся дальше, теперь нам нужно исправить наш метод `trigger`:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-trigger](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements_new_trigger
 
 Если вы создали новый критерий, нам нужно добавить его в `ModCriteria`
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-mod-criteria](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_new_mod_criteria
 
 И вызываем его в нашем основном классе, прямо там, где был старый вариант:
 
-@[code lang=java transcludeWith=:::datagen-advancements:trigger-new-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements_trigger_new_criterion
 
 Добавьте достижение в ваш `provider`:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_new_custom_criteria_advancement
 
 Запустите datagen еще раз, и вы наконец-то закончили!
+
+## Условная загрузка ресурсов {#resource-conditions}
+
+Чтобы применить [условную загрузку ресурсов](../resource-conditions) к динамически генерируемому достижению, оберните объект-потребитель (consumer) методом `withConditions` и укажите любые условия ресурсов, которые вы хотите применить. В результате будет создано достижение с примененными условиями ресурсов:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_conditions

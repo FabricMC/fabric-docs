@@ -28,9 +28,9 @@ codec 的基本用法是将对象与特定格式之间进行序列化和反序�
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#encode-blockpos [Java]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#encode_blockpos[Java]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/serialize_blockpos.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/serialize_blockpos.json[Output]
 
 :::
 
@@ -38,7 +38,7 @@ codec 的基本用法是将对象与特定格式之间进行序列化和反序�
 
 现在，让我们提取序列化数据，并将其反序列化为 `BlockPos` 对象：
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#parse-blockpos
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#parse_blockpos
 
 ### 内置的 codec {#built-in-codecs}
 
@@ -50,7 +50,7 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 现在我们已经知道如何使用 codec，让我们看看我们如何构建自己的 codec。 假设我们有以下类，希望从 JSON 文件中反序列化其实例：
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean-class
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean_class
 
 相应的 JSON 文件可能如下所示：
 
@@ -70,11 +70,11 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list_codec[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list_codec_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/list_codec.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/list_codec.json[Output]
 
 :::
 
@@ -88,11 +88,11 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 ::: code-group
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean-codec [Codec]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean_codec[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#bean-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#bean_codec_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/cool_beans.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/cool_beans.json[Output]
 
 :::
 
@@ -121,11 +121,11 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional-field [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional_field[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional-field-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional_field_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/optional_field.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/optional_field.json[Output]
 
 :::
 
@@ -133,11 +133,11 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default-field [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default_field[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default-field-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default_field_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/default_field.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/default_field.json[Output]
 
 :::
 
@@ -151,9 +151,9 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#unit-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#unit_codec[Codec]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/unit.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/unit.json[Output]
 
 :::
 
@@ -163,11 +163,11 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric-range [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric_range[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric-range-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric_range_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/numeric_range.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/numeric_range.json[Output]
 
 :::
 
@@ -179,11 +179,11 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair_codec[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair_codec_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/pair.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/pair.json[Output]
 
 :::
 
@@ -200,11 +200,11 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map_codec[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map_codec_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map.json[Output]
 
 :::
 
@@ -220,11 +220,11 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert-xmap [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert_xmap[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert-xmap-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert_xmap_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/xmap.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/xmap.json[Output]
 
 :::
 
@@ -235,7 +235,7 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 以原版的 `Identifier` 为例。 虽然所有 Identifier 都能转换为字符串，但并非所有字符串都是有效的 Identifier，因此使用 xmap 意味着在转换失败时会抛出难以处理的异常。
 正因如此，其内置 codec 实际上是对 `Codec.STRING` 应用了 `comapFlatMap`，很好地展示了如何使用它：
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/Identifier.java#identifier-flatmap
+<<< @/reference/latest/src/main/java/com/example/docs/codec/Identifier.java#identifier_flatmap
 
 虽然这些方法非常有用，但方法名称有点让人困惑，所以这里有一个表格帮助你记住应该使用哪一个：
 
@@ -262,17 +262,17 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#registry-dispatch [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#registry_dispatch[Codec]
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/Bean.java#bean-interface [Bean]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/Bean.java#bean_interface[Bean]
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanType.java#bean-type-record [BeanType]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanType.java#bean_type_record[BeanType]
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java#stringy-bean-class [StringyBean]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java#stringy_bean_class[StringyBean]
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java#counting-bean-class [CountingBean]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java#counting_bean_class[CountingBean]
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java#bean-types-class [BeanTypes]
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java#bean_types_class[BeanTypes]
 
 :::
 
@@ -288,17 +288,17 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 例如，让我们尝试序列化单链列表。 列表是由一组节点的表示的，这些节点既包含一个值，也包含对列表中下一个节点的引用。 然后列表由其第一个节点表示，遍历列表是通过跟随下一个节点来完成的，直到没有剩余节点。 以下是存储整数的节点的简单实现。
 
-<<< @/reference/latest/src/main/java/com/example/docs/codec/ListNode.java#node-record
+<<< @/reference/latest/src/main/java/com/example/docs/codec/ListNode.java#node_record
 
 我们无法通过普通方法为此构建 codec，因为对 `next` 字段要使用什么 codec？ 我们需要一个 `Codec<ListNode>`，这就是我们还在构建的！ `Codec#recursive` 能让我们使用看上去像魔法的 lambda 来达到这点。
 
 ::: code-group
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive-codec [Codec]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive_codec[Codec]
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive-codec-data [Input]
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive_codec_data[Input]
 
-<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/recursive.json [Output]
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/recursive.json[Output]
 
 :::
 

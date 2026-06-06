@@ -25,37 +25,37 @@ authors-nogithub:
 
 要创建自定义游戏规则，首先要创建一个 `GameRules` 类；我们将在这里声明我们的游戏规则。 在这个类中，声明两个常量：游戏规则标识符和规则本身。
 
-@[code lang=java transcludeWith=:::gameruleClass](@/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java)
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#gamerule_class
 
 类别参数（`.category(GameRuleCategory.MISC)`）决定游戏规则在创建世界屏幕中属于哪个类别。 本例使用原版提供的“杂项”类别，但可以通过 `GameRuleCategory.register` 添加其他类别。 在这个示例中，我们创建了一个布尔游戏规则，默认值为 `false`，ID 为 `bad_vision`。 游戏规则中存储的值不仅限于布尔值，其他有效的类型包括 `Double`、`Integer` 和 `Enum`。
 
 游戏规则中存储双精度浮点数的示例：
 
-@[code lang=java transcludeWith=:::double](@/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java)
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#double
 
 ## 访问游戏规则 {#accessing-a-game-rule}
 
 现在我们有了游戏规则及其 `Identifier` 标识符，你可以使用 `serverLevel.getGameRules().get(GAMERULE)` 方法在任何地方访问它，其中 `.get()` 的参数是你的游戏规则常量，而不是游戏规则 ID。
 
-@[code lang=java transclude={44-44}](@/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java)
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#badvision_get
 
 你还可以使用这个访问原版游戏规则的值：
 
-@[code lang=java transcludeWith=:::vanilla](@/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java)
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#vanilla
 
 例如，对于一条游戏规则：当为 true 时对所有玩家施加失明效果，其实现方式如下：
 
-@[code lang=java transcludeWith=:::badvision](@/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java)
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#badvision_implement
 
 ## 翻译 {#translations}
 
 现在，我们需要给游戏规则添加一个显示名，以便在“游戏规则”屏幕中能够轻松理解。 要通过数据生成来实现这一点，将以下代码添加到你的语言提供程序中：
 
-@[code lang=java transcludeWith=:::gamerule-name](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#gamerule_name
 
 最后，我们需要给游戏规则添加描述。 要通过数据生成来实现这一点，将以下代码添加到你的语言提供程序中：
 
-@[code lang=java transcludeWith=:::gamerule-description](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#gamerule_description
 
 ::: info
 

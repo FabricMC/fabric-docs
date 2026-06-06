@@ -86,7 +86,7 @@ Component translatable = Component.translatable("example-mod.text.whack.item", v
 
 Як згадувалося раніше, ви можете серіалізувати текст у JSON за допомогою текстового кодека. Додаткову інформацію про кодеки див. сторінку [кодеків](./codecs).
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#component_to_string
 
 Це створює JSON, який можна використовувати в пакетах даних, командах та інших місцях, які приймають формат тексту JSON замість літерального або перекладаного тексту.
 
@@ -94,7 +94,7 @@ Component translatable = Component.translatable("example-mod.text.whack.item", v
 
 Крім того, щоб десеріалізувати текстовий об’єкт JSON у справжній клас `Component`, знову скористайтеся кодеком.
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#string_to_component
 
 ## Форматування тексту {#formatting-text}
 

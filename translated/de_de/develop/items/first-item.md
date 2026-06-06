@@ -22,7 +22,7 @@ Diese Methode kann in eine Klasse namens „ModItems“ (oder einen beliebigen a
 
 Mojang macht das auch mit ihren Gegenständen! Als Inspiration dient die Klasse „Items“.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
 
 Beachte, dass wir `T` verwenden, einen [generischen Typ](https://docs.oracle.com/javase/tutorial/java/generics/types.html), der `Item` erweitert. Dadurch können wir dieselbe Methode `register` zum Registrieren aller Arten von Elementen verwenden, die `Item` erweitern. Wir verwenden außerdem eine [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) für die Factory, mit der wir festlegen können, wie unser Element unter Berücksichtigung der Elementeigenschaften erstellt werden soll.
 
@@ -40,7 +40,7 @@ Dies funktioniert nicht, wenn du das Item als beschädigungsfähig markiert hast
 
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#suspicious_substance
 
 `Item::new` weist die Funktion register an, eine Instanz von Item aus einer Instanz von `Item.Properties` zu erzeugen, indem sie den Item-Konstruktor (`new Item(...)`) aufruft, der eine Instanz von `Item.Properties` als Parameter entgegennimmt.
 
@@ -48,9 +48,9 @@ Wenn du nun jedoch versuchst, den modifizierten Client auszuführen, kannst du s
 
 Um dies zu tun, kannst du eine öffentliche, statische Methode zur initialisierung deiner Klasse hinzufügen und diese in deiner [Mod-Initialisierer](./getting-started/project-structure#entrypoints) Klasse aufrufen. Derzeit benötigt diese Methode keine Inhalte.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#initialize
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java#initialize
 
 Der Aufruf einer Methode einer Klasse initialisiert diese statisch, wenn sie nicht vorher geladen wurde - das bedeutet, dass alle `static` Felder ausgewertet werden. Dafür ist diese Dummy-Methode `initialize` gedacht.
 
@@ -66,7 +66,7 @@ Für ein Beispiel, in dem wir dieses Item zu dem Zutaten `CreativeModeTab` hinzu
 
 Dies kann in der Methode `initialize` deiner Itemklasse geschehen.
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_to_creative_tab
 
 Wenn du das Spiel lädst, kannst du sehen, dass unser Item registriert wurde und sich in der Gruppe der Zutaten im Kreativtab befindet:
 
@@ -122,7 +122,7 @@ Wenn du das Spiel neu startest/ladest, solltest du sehen, dass das Item immer no
 
 Erzeuge das Modell JSON im Ordner `assets/example-mod/models/item`, mit dem gleichen Namen wie das Element; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json
 
 #### Das Modell JSON niederbrechen {#breaking-down-the-model-json}
 
@@ -139,7 +139,7 @@ Minecraft weiß nicht automatisch, wo die Dateien deiner Item-Modelle zu finden 
 
 Erstelle das JSON für das Client Item im Verzeichnis `assets/example-mod/items`, mit demselben Dateinamen wie der Bezeichner des Items: `suspicious_substance.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json
 
 #### Das Client Item JSON aufschlüsseln {#breaking-down-the-client-item-json}
 
@@ -157,11 +157,11 @@ Die Fabric API bietet verschiedene Register, die verwendet werden können, um zu
 
 Wenn du zum Beispiel dein Item kompostierbar machen willst, kannst du die `CompostableRegistry` verwenden:
 
-@[code transcludeWith=:::\_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
 
 Alternativ, wenn du dein Item zu einem Brennstoff machen willst, kannst du das Event `FuelValueEvents.BUILD` verwenden:
 
-@[code transcludeWith=:::\_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
 
 ## Hinzufügen eines einfachen Craftingrezepts {#adding-a-basic-crafting-recipe}
 
@@ -184,7 +184,7 @@ In diesem Beispiel wird die Klasse `LightningStick` verwendet, die auf der Seite
 
 :::
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#custom_tooltip
 
 Jeder Aufruf von `accept()` fügt dem Tooltip eine Zeile hinzu.
 

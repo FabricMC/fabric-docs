@@ -20,7 +20,7 @@ resources:
 
 Виберіть розумний клас, щоб розмістити це. Для цього прикладу ми створимо новий пакет під назвою `component` і клас, який буде містити всі наші типи компонентів під назвою `ModComponents`. Переконайтеся, що ви викликаєте `ModComponents.initialize()` у своєму [ініціалізаторі мода](../getting-started/project-structure#entrypoints).
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#mod_components
 
 Це базовий шаблон для реєстрації типу компонента:
 
@@ -44,7 +44,7 @@ public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 Як приклад, створімо значення `Integer`, яке відстежуватиме, скільки разів гравець натискає ПКМ, тримаючи наш предмет. Оновімо реєстрацію нашого компонента до такого:
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#integer_component
 
 Ви бачите, що тепер ми передаємо `<Integer>` як наш загальний тип, вказуючи, що цей компонент зберігатиметься як одне значення `int`. Для нашого кодека ми використовуємо наданий кодек `ExtraCodecs.POSITIVE_INT`. Ми можемо обійтися використанням звичайних кодеків для таких простих компонентів, як цей, але для складніших сценаріїв може знадобитися спеціальний кодек (про це коротко розглянемо пізніше).
 
@@ -58,7 +58,7 @@ public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 Додаймо новий предмет, який буде збільшувати лічильник щоразу, коли ним натиснули ПКМ. Вам слід прочитати сторінку [власні інтерактивні предмети](./custom-item-interactions), на якій описано методи, які ми використовуватимемо в цьому посібнику.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java#item
 
 Не забудьте зареєструвати предмет у своєму класі `ModItems`.
 
@@ -89,15 +89,15 @@ public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisp
 
 Починаючи з версії 1.21.5, `appendHoverText` застаріло. Тепер рекомендовано реалізувати `TooltipProvider` як такий. Для цього знадобиться [створення спеціального класу компонентів](#advanced-data-components).
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java#component_with_tooltip
 
 Потім ви можете зареєструвати `TooltipProvider` через `ItemComponentTooltipProviderRegistry`. Це викликається в `onInitialize` в `ModInitializer`.
 
-@[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#tooltip_provider
 
 Крім того, ви можете використовувати `ItemTooltipCallback`, щоб замінити `appendHoverText`. Це викликається в `onInitializeClient` в `ClientModInitializer`.
 
-@[code lang=java transcludeWith=#tooltip_provider_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#tooltip_provider_client
 
 :::
 
@@ -136,7 +136,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" bec
 
 Коли ви реєструєте свій предмет і передаєте об’єкт `Item.Properties` своєму конструктору предмета, ви також можете надати список компонентів усталено, які застосовуються до всіх нових предметів. Якщо ми повернемося до нашого класу `ModItems`, де ми реєструємо `CounterItem`, ми зможемо додати усталене значення для нашого спеціального компонента. Додайте це, щоб нові предмети показували кількість `0`.
 
-@[code transcludeWith=::\_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#counter
 
 Коли створюється новий предмет, до нього автоматично застосовуватиметься наш спеціальний компонент із заданим значенням.
 
@@ -168,7 +168,7 @@ boolean exists = stack.has(ModComponents.CLICK_COUNT_COMPONENT);
 
 Ми підемо до третього варіанту. Тож разом із додаванням усталеного значення компонента також перевіримо, чи присутній компонент у стосі, і покажемо лише підказку, якщо вона є.
 
-@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java#fixed_append_hover_text
 
 Запустіть гру ще раз і наведіть вказівник мишки на предмет без компонента, ви повинні побачити, що він показує «Used 0 times» і більше не завершує роботу гри.
 
@@ -200,7 +200,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 Налаштуймо новий метод `use()`, щоб зчитувати стару кількість натискань, збільшити її на один, а потім встановити оновлену кількість натискань.
 
-@[code transcludeWith=::use](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java#use
 
 Тепер спробуйте запустити гру та натиснути ПКМ з предметом лічильника в руці. Якщо ви відкриєте свій інвентар і подивіться на предмет знову, ви побачите, що число використання зросло на кількість разів, які ви натискали на нього.
 
@@ -240,7 +240,7 @@ public record AdvancedCustomComponent(float temperature, boolean burnt) {
 
 Оскільки ми визначаємо спеціальну структуру даних, для нашого випадку використання не буде попередньо наявного `Codec`, як у випадку з [базовим компонентом](#basic-data-components). Це означає, що нам доведеться створити власний кодек. Визначмо один у нашому класі записів за допомогою `RecordCodecBuilder`, на який ми зможемо посилатися після реєстрації компонента. Щоб отримати докладніші відомості про використання `RecordCodecBuilder`, ви можете звернутися до [цього розділу сторінки кодеків](../codecs#merging-codecs-for-record-like-classes).
 
-@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#codec
 
 Ви бачите, що ми визначаємо список настроюваних полів на основі примітивних типів `Codec`. Однак ми також повідомляємо їй, як називаються наші поля, використовуючи `fieldOf()`, а потім використовуючи `forGetter()`, щоб повідомити грі, який атрибут нашого запису заповнити.
 
@@ -250,7 +250,7 @@ public record AdvancedCustomComponent(float temperature, boolean burnt) {
 
 Реєстрація складеного компонента аналогічна попередній. Ми просто передаємо наш клас запису як загальний тип, а наш настроюваний `Codec` — методу `codec()`.
 
-@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#custom_component
 
 Тепер запустіть гру. Використовуючи команду `/give`, спробуйте застосувати компонент. Значення складених компонентів передаються як об’єкт, укладений у `{}`. Якщо ви поставите порожні фігурні дужки, ви побачите повідомлення про помилку про те, що необхідний ключ `temperature` відсутній.
 
@@ -300,8 +300,8 @@ public static final Item COUNTER = register(
 
 Оскільки у нас є спеціальний клас компонентів, ми можемо реалізувати `TooltipProvider` як такий і уникнути використання застарілого методу `appendHoverText`.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#advanced_custom_component
 
 Потім ви можете зареєструвати `TooltipProvider` через `ItemComponentTooltipProviderRegistry`. Це викликається в `onInitialize` в `ModInitializer`.
 
-@[code lang=java transcludeWith=#advanced_tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#advanced_tooltip_provider

@@ -35,11 +35,11 @@ Quando avrai modificato il costruttore come preferisci, puoi chiamare il metodo 
 
 Se vuoi aggiungere effetti ai giocatori quando mangiano il tuo cibo, devi aggiungere una componente `Consumable` assieme alla componente `FoodProperties`, come noti nell'esempio seguente:
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_food
 
 Come nell'esempio della pagina [Creare il Tuo Primo Oggetto](./first-item), useremo la componente sopra:
 
-@[code transcludeWith=:::poisonous_apple](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#poisonous_apple
 
 Questo rende l'oggetto:
 

@@ -15,9 +15,9 @@ Minecraft 有個強大的命令建議系統，用在很多地方，例如 `/give
 
 要使用建議提供器，你需要在 argument builder 中調用 `suggests` 方法。 此方法接收一個 `SuggestionProvider`，返回一個附加了新的建議提供器的 argument builder。
 
-@[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_suggestions{4}
 
-@[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_suggestions
 
 ## 內置的建議提供器{#built-in-suggestion-providers}
 
@@ -36,13 +36,13 @@ Minecraft 有個強大的命令建議系統，用在很多地方，例如 `/give
 
 對此示例，我們需要製作一個建議提供器，建議所有在服務器上的玩家的名稱。
 
-@[code java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java#suggestion_provider
 
 要使用這個建議提供器，只需將一個實例傳遞到參數構造器的 `.suggests` 方法。
 
-@[code java highlight={4} transcludeWith=:::command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_custom_suggestions{4}
 
-@[code java transcludeWith=:::execute_command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_custom_suggestions
 
 顯然，建議提供器能夠更複雜，因為還可以讀取命令上下文以根據命令的狀態（例如已經提供的參數）提供建議。
 

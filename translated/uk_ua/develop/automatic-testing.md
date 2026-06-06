@@ -17,11 +17,11 @@ authors:
 
 По-перше, нам потрібно додати Fabric Loader JUnit до середовища розробки. Додайте наступне до блока залежностей у вашому `build.gradle`:
 
-@[code transcludeWith=:::automatic-testing:1](@/reference/build.gradle)
+<<< @/reference/build.gradle#automatic_testing_1
 
 Потім нам потрібно сказати Gradle використовувати Fabric Loader JUnit для тестування. Ви можете зробити це, додавши наступний код до свого `build.gradle`:
 
-@[code transcludeWith=:::automatic-testing:2](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#automatic_testing_2
 
 ### Писання тестів {#writing-tests}
 
@@ -49,7 +49,7 @@ authors:
 
 Тепер настав час написати ваш справжній тестовий код. Ви можете стверджувати умови за допомогою `org.junit.jupiter.api.Assertions`. Перегляньте наступний тест:
 
-@[code lang=java transcludeWith=:::automatic-testing:4](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+<<< @/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java#automatic_testing_4
 
 Щоб отримати пояснення того, що насправді робить цей код, перегляньте [кодеки](./codecs#registry-dispatch).
 
@@ -61,7 +61,7 @@ authors:
 
 Це тому, що ми намагаємося отримати доступ до реєстру або класу, який залежить від реєстру (або, у рідкісних випадках, залежить від інших класів Minecraft, таких як `SharedConstants`), але Minecraft не має. Нам просто потрібно трохи його ініціалізувати, щоб реєстри працювали. Просто додайте наступний код на початок вашого методу `beforeAll`.
 
-@[code lang=java transcludeWith=:::automatic-testing:7](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+<<< @/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java#automatic_testing_7
 
 ### Налаштування GitHub Actions {#setting-up-github-actions}
 
@@ -96,7 +96,7 @@ Minecraft надає ігрову тестувальну структуру дл
 
 Щоб додати ігрові тестування до свого мода, додайте наступне до свого `build.gradle`:
 
-@[code transcludeWith=:::automatic-testing:game-test:1](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#automatic_testing_game_test_1
 
 Щоб переглянути всі доступні параметри, перегляньте [документацію Loom щодо тестувань](./loom/fabric-api#tests).
 
@@ -120,9 +120,9 @@ Minecraft надає ігрову тестувальну структуру дл
 
 ::: code-group
 
-<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModGameTest.java [Server]
+<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModGameTest.java[Server]
 
-<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModClientGameTest.java [Client]
+<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModClientGameTest.java[Client]
 
 :::
 
@@ -142,6 +142,6 @@ Minecraft надає ігрову тестувальну структуру дл
 
 :::
 
-@[code transcludeWith=:::automatic-testing:game-test:2](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#automatic_testing_game_test_2
 
-@[code transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yaml)
+<<< @/.github/workflows/build.yaml#automatic_testing_game_test_3

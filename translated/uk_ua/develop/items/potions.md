@@ -19,11 +19,11 @@ authors:
 
 Почнімо з оголошення поля для тримання вашого екземпляра `Potion`. Ми будемо безпосередньо використовувати клас, що реалізує `ModInitializer` тримай це. Зверніть увагу на використання `Registry.registerForHolder`, оскільки, як і ефекти моба, більшість стандартних методів, які використовують зілля, віддають перевагу їм як голдерам.
 
-@[code lang=java transclude={18-27}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
+<<< @/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java#register_potion
 
 Ми передаємо екземпляр `MobEffectInstance`, який приймає 3 параметри:
 
-- `Holder<MobEffect> type` — ефект, представлений як голдер. Тут ми використовуємо наш спеціальний ефект. Крім того, ви можете отримати доступ до усталених ефектів через стандартний клас `MobEffects`.
+- `Holder<MobEffect> effect` — ефект, представлений як голдер. Тут ми використовуємо наш спеціальний ефект. Крім того, ви можете отримати доступ до усталених ефектів через стандартний клас `MobEffects`.
 - `int duration` — тривалість ефекту в ігрових тактах.
 - `int amplifier` — підсилювач для ефекту. Наприклад, квапливість II мав би підсилювач 1.
 
@@ -37,13 +37,13 @@ authors:
 
 У нашому ініціалізаторі ми будемо використовувати подію `FabricBrewingRecipeRegistryBuilder.BUILD`, щоб зареєструвати наше зілля за допомогою методу `BrewingRecipeRegistry.registerPotionRecipe`.
 
-@[code lang=java transclude={29-40}](@/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java)
+<<< @/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java#register_recipes
 
-`registerPotionRecipe` приймає 3 параметри:
+`addMix` приймає 3 параметри:
 
-- `Holder<Potion> input` — початкове зілля, представлене голдером. Зазвичай це може бути пляшка з водою або незграбне зілля.
+- `Holder<Potion> from` — початкове зілля, представлене голдером. Зазвичай це може бути пляшка з водою або незграбне зілля.
 - `Item item` — предмет, який є основним інгредієнтом зілля.
-- `Holder<Potion> output` — отримане зілля, представлене голдером.
+- `Holder<Potion> to` — отримане зілля, представлене голдером.
 
 Після реєстрації ви можете варити зілля Tater з картоплі.
 

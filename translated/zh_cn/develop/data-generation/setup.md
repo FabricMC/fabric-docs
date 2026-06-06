@@ -38,11 +38,11 @@ authors-nogithub:
 
 首先，我们需要在 `build.gradle` 文件中启用 datagen。
 
-@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+<<< @/reference/build.gradle#datagen_setup_configure
 
 接下来，我们需要一个入口点类。 这是我们的数据生成的起点。 将其放在 `client` 包中的某个位置——本示例将其放在 `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`。
 
-@[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_setup_generator
 
 最后，我们需要告诉 Fabric 我们的 `fabric.mod.json` 中的入口点：
 
@@ -75,7 +75,7 @@ authors-nogithub:
 
 在数据生成入口点的 `onInitializeDataGenerator` 方法中，我们需要创建一个 `Pack`。 稍后，你将添加**提供程序**（provider），将生成的数据放入此 `Pack` 中。
 
-@[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_setup_pack
 
 ## 运行数据生成 {#running-data-generation}
 
