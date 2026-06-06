@@ -251,7 +251,7 @@ illustrating how to use it:
 While these methods are really helpful, their names are a bit confusing, so here's a table to help you remember which one to use:
 
 | Method         | Decoding always valid? | Encoding always valid? |
-|----------------|------------------------|------------------------|
+| -------------- | ---------------------- | ---------------------- |
 | `xmap`         | Yes                    | Yes                    |
 | `comapFlatMap` | No                     | Yes                    |
 | `flatComapMap` | Yes                    | No                     |
