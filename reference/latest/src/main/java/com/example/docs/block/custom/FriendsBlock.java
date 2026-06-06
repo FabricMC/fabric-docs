@@ -13,14 +13,14 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import com.example.docs.stats.ModStats;
 
-// #region statistics_block
-public class StatisticsBlock extends Block {
-	// #endregion statistics_block
-	public StatisticsBlock(Properties properties) {
+// #region friends_block
+public class FriendsBlock extends Block {
+	// #endregion friends_block
+	public FriendsBlock(Properties properties) {
 		super(properties);
 	}
 
-	// #region statistics_block
+	// #region friends_block
 	@Override
 	public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity by, ItemStack itemStack) {
 		super.setPlacedBy(level, pos, state, by, itemStack);
@@ -38,4 +38,4 @@ public class StatisticsBlock extends Block {
 		player.awardStat(ModStats.FRIENDSHIPS_MADE, neighborCount);
 	}
 }
-// #endregion statistics_block
+// #endregion friends_block

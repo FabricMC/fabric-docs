@@ -2,6 +2,8 @@ package com.example.docs.block;
 
 import java.util.function.Function;
 
+import com.example.docs.block.custom.FriendsBlock;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -32,7 +34,6 @@ import com.example.docs.block.custom.DirtChestBlock;
 import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
-import com.example.docs.block.custom.StatisticsBlock;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.damage.TaterBlock;
 import com.example.docs.fluid.ModFluids;
@@ -92,6 +93,10 @@ public class ModBlocks {
 			EngineBlock::new,
 			BlockBehaviour.Properties.of(),
 			true
+	);
+
+	public static final Block FRIENDS_BLOCK = register(
+			"friends_block", FriendsBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	public static final Block PIPE_BLOCK = register(
@@ -161,10 +166,6 @@ public class ModBlocks {
 			true
 	);
 	// #endregion waxcap_tinting
-
-	public static final Block STATISTICS_BLOCK = register(
-			"statistics_block", StatisticsBlock::new, BlockBehaviour.Properties.of(), true
-	);
 
 	// #region first_block
 	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties properties, boolean shouldRegisterItem) {

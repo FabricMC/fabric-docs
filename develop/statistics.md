@@ -31,8 +31,8 @@ When adding the stat to the Statistics screen via `Stats.CUSTOM.get()`, you can 
 
 ## Using the Statistic {#using-the-statistic}
 
-In this example, we will increase the statistic whenever the statistics block is placed. We use the `Player#awardStat(stat, amount)` method to increment it by the amount of neighbors the block has when placed.
+In this example, we will increase the statistic whenever the friends block is placed. We use the `Player#awardStat(stat, amount)` method to increment it by the amount of neighbors the block has when placed.
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/custom/StatisticsBlock.java#statistics_block
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/FriendsBlock.java#friends_block
 
 You can also use `Player#awardStat(stat)` or `Player#resetStat(stat)` to increase the stat by 1 or reset it to 0, respectively.
