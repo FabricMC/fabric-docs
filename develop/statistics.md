@@ -10,7 +10,7 @@ authors:
   - Tenneb22
 ---
 
-Statistics track time spent performing actions in the world. Vanilla includes statistics for common actions like jumping, traveling in boats, as well as counting interactions with blocks or usage of items. It's also possible to add your own statistic to count custom interactions.
+Statistics (or Stats) are a way to keep track of certain actions or time that the player spends in the world. Vanilla tracks statistics for common actions like jumping, traveling in boats, interactions with blocks, usage of items and much more. It's also possible to add your own statistic to track some custom interaction.
 
 ## Creating a Statistic {#creating-a-statistic}
 
@@ -37,7 +37,9 @@ Don't forget to initialize the `ModStats` class in your [mod's initializer](./ge
 
 ## Using the Statistic {#using-the-statistic}
 
-In this example, we will increase the statistic whenever the friends block is placed. We use the `Player#awardStat(stat, amount)` method to increment it by the amount of neighbors the block has when placed.
+For this example, we will create a Friends block, which makes friends with its neighbors. We shall track how many friendships the player has formed with the block.
+
+To do this, we will use the `Player#awardStat(stat, amount)` method to increment the stat by the amount of neighbors the block has when placed:
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/FriendsBlock.java#friends_block
 
