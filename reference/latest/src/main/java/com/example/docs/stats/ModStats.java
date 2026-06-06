@@ -22,8 +22,10 @@ public class ModStats {
 	}
 	// #endregion register
 
+	// #region initialize
 	public static void initialize() {
 	}
+	// #endregion initialize
 
 	// #region register
 }
