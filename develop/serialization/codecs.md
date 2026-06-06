@@ -250,12 +250,12 @@ illustrating how to use it:
 
 While these methods are really helpful, their names are a bit confusing, so here's a table to help you remember which one to use:
 
-| Method                  | A -> B always valid? | B -> A always valid? |
-| ----------------------- | -------------------- | -------------------- |
-| `Codec<A>#xmap`         | Yes                  | Yes                  |
-| `Codec<A>#comapFlatMap` | No                   | Yes                  |
-| `Codec<A>#flatComapMap` | Yes                  | No                   |
-| `Codec<A>#flatXMap`     | No                   | No                   |
+| Method         | Decoding always valid? | Encoding always valid? |
+| -------------- | ---------------------- | ---------------------- |
+| `xmap`         | Yes                    | Yes                    |
+| `comapFlatMap` | No                     | Yes                    |
+| `flatComapMap` | Yes                    | No                     |
+| `flatXMap`     | No                     | No                     |
 
 ### Registry Dispatch {#registry-dispatch}
 
