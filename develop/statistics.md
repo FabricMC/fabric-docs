@@ -45,6 +45,6 @@ To do this, we will use the `Player#awardStat(stat, amount)` method to increment
 
 You can also use `Player#awardStat(stat)` to increment the stat by 1.
 
-Since Friends block are very attached to each other, breaking one means breaking all friendships. Let's make it so that breaking a Friends block will reset the player's stat back to 0 by using `Player#resetStat()`:
+Since Friends blocks are very attached to each other, breaking one means breaking all friendships. Let's make it so that breaking a Friends block will reset the player's stat back to 0, by using `Player#resetStat()`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/FriendsBlock.java#break_friendships
