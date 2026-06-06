@@ -4,6 +4,7 @@ import org.jspecify.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -37,5 +38,18 @@ public class FriendsBlock extends Block {
 
 		player.awardStat(ModStats.FRIENDSHIPS_MADE, neighborCount);
 	}
+	// #endregion friends_block
+
+	// #region break_friendships
+	@Override
+	public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+		player.resetStat(Stats.CUSTOM.get(ModStats.FRIENDSHIPS_MADE));
+
+		return super.playerWillDestroy(level, pos, state, player);
+	}
+	// #endregion break_friendships
+
+
+	// #region friends_block
 }
 // #endregion friends_block
