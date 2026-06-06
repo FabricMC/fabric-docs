@@ -137,6 +137,8 @@ Someone from the Docs Team should then notice your PR; if they approve of it, th
 
 ### Translating to Another Language {#label-i18n-l10n}
 
+<!-- TODO: split into translators.md -->
+
 The Docs are translated into multiple languages to help non-English speakers with modding. If you want to tweak translations, you can use Crowdin.
 
 ::: info
@@ -227,6 +229,8 @@ When reviewing someone else's PR, make sure that:
 - External resources and sources are mentioned in the frontmatter
 - Grammar is correct. Consider using [LanguageTool](https://languagetool.org/)
 - Content is up-to-date. Pay close attention to Mojang Mappings
+
+<!-- TODO: add wiki contributors table -->
 
 ## How Is the Project Set Up? {#structure}
 
