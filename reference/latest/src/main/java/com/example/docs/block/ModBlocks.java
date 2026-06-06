@@ -2,8 +2,6 @@ package com.example.docs.block;
 
 import java.util.function.Function;
 
-import com.example.docs.block.custom.FriendsBlock;
-
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -33,6 +31,7 @@ import com.example.docs.block.custom.CounterBlock;
 import com.example.docs.block.custom.DirtChestBlock;
 import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
+import com.example.docs.block.custom.FriendsBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.damage.TaterBlock;
