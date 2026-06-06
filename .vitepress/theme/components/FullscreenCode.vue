@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { getIcon, Icon, loadIcon } from "@iconify/vue";
+import { usePreferredReducedMotion } from "@vueuse/core";
 import { onContentUpdated, useData } from "vitepress";
 import { computed, nextTick, onUnmounted, ref } from "vue";
 import { Fabric } from "../../types";
 
+const prefersReducedMotion = usePreferredReducedMotion();
 const data = useData();
 const options = computed(() => data.theme.value.code as Fabric.CodeOptions);
 
@@ -53,14 +55,14 @@ const handleExitFullscreen = (event: MouseEvent) => {
   (event.currentTarget as HTMLButtonElement)?.blur();
   isClosing.value = true;
 
-  dialog.value?.addEventListener(
-    "transitionend",
-    () => {
-      isClosing.value = false;
-      dialog.value?.close();
-    },
-    { once: true }
-  );
+  const onTransitionend = () => {
+    isClosing.value = false;
+    dialog.value?.close();
+  };
+
+  if (prefersReducedMotion.value === "reduce") return onTransitionend();
+
+  dialog.value?.addEventListener("transitionend", onTransitionend, { once: true });
 };
 
 onContentUpdated(() =>
