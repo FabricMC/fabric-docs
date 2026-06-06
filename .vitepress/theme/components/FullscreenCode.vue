@@ -9,14 +9,18 @@ const options = computed(() => data.theme.value.code as Fabric.CodeOptions);
 
 const fullscreenDialog = ref<HTMLDialogElement>();
 const fullscreenSlot = ref<HTMLDivElement>();
+const clonedBlock = ref<HTMLElement>();
+const originalCopyButton = ref<HTMLButtonElement>();
 const isFullscreen = ref(false);
 const isWrapped = ref(false);
+const isRotated = ref(false);
 
 const icons = [
   "material-symbols:close-fullscreen-rounded",
   "material-symbols:open-in-full-rounded",
   "material-symbols:wrap-text-rounded",
   "material-symbols:format-text-overflow-rounded",
+  "material-symbols:mobile-rotate-outline-rounded",
 ] as const;
 
 const getSvgIcon = (name: (typeof icons)[number]) => {
@@ -49,59 +53,19 @@ const openFullscreen = async (codeBlock: HTMLElement) => {
   fullscreenDialog.value!.showModal();
   isFullscreen.value = true;
   isWrapped.value = false;
+  isRotated.value = false;
   await nextTick();
 
-  const clonedBlock = codeBlock.cloneNode(true) as HTMLElement;
-  const originalCopyButton = clonedBlock.querySelector<HTMLButtonElement>(
-    "button.copy:not(.fullscreen)"
-  );
-  originalCopyButton!.style.opacity = "0";
+  clonedBlock.value = codeBlock.cloneNode(true) as HTMLElement;
+  originalCopyButton.value =
+    clonedBlock.value.querySelector<HTMLButtonElement>("button.copy:not(.fullscreen)") ?? undefined;
+  if (originalCopyButton.value) originalCopyButton.value.style.opacity = "0";
 
-  clonedBlock.querySelector<HTMLDivElement>("div.line-numbers-wrapper")?.remove();
-  clonedBlock.querySelector<HTMLButtonElement>("button.fullscreen")?.remove();
-
-  const fullscreenButton = fullscreenDialog.value.querySelector(
-    "button.fullscreen"
-  ) as HTMLButtonElement;
-  fullscreenButton.title = options.value.exitFullscreen;
-  fullscreenButton.setAttribute("aria-label", options.value.exitFullscreen);
-  fullscreenButton.innerHTML = getSvgIcon("material-symbols:close-fullscreen-rounded");
-  fullscreenButton.addEventListener("click", () => {
-    fullscreenButton.blur();
-    closeFullscreen();
-  });
-
-  const wrapButton = fullscreenDialog.value.querySelector("button.wrap") as HTMLButtonElement;
-  wrapButton.title = options.value.wrap;
-  wrapButton.setAttribute("aria-label", options.value.wrap);
-  wrapButton.innerHTML = getSvgIcon(
-    isWrapped.value
-      ? "material-symbols:format-text-overflow-rounded"
-      : "material-symbols:wrap-text-rounded"
-  );
-  wrapButton.addEventListener("click", () => {
-    wrapButton.blur();
-    isWrapped.value = !isWrapped.value;
-    wrapButton.innerHTML = getSvgIcon(
-      isWrapped.value
-        ? "material-symbols:format-text-overflow-rounded"
-        : "material-symbols:wrap-text-rounded"
-    );
-    clonedBlock.classList.toggle("wrap", isWrapped.value);
-  });
-
-  const copyButton = fullscreenDialog.value.querySelector("button.copy") as HTMLButtonElement;
-  copyButton.title = options.value.copy;
-  copyButton.setAttribute("aria-label", options.value.copy);
-  copyButton.addEventListener("click", (e) => {
-    e.stopImmediatePropagation();
-    copyButton.blur();
-    copyButton.classList.add("copied");
-    setTimeout(() => copyButton.classList.remove("copied"), 1000);
-    originalCopyButton?.click();
-  });
+  clonedBlock.value.querySelector<HTMLDivElement>("div.line-numbers-wrapper")?.remove();
+  clonedBlock.value.querySelector<HTMLButtonElement>("button.fullscreen")?.remove();
 
   const title = fullscreenDialog.value.querySelector("span.title") as HTMLSpanElement;
+  title.style.opacity = "0";
   const codeGroup = codeBlock.closest(".vp-code-group");
   if (codeGroup) {
     const tab = codeGroup.querySelector<HTMLInputElement>("div.tabs input:checked");
@@ -111,12 +75,12 @@ const openFullscreen = async (codeBlock: HTMLElement) => {
     }
   }
 
-  const langInPre = clonedBlock.querySelector<HTMLSpanElement>("span.lang");
+  const langInPre = clonedBlock.value.querySelector<HTMLSpanElement>("span.lang");
   if (langInPre) langInPre.style.opacity = "0";
   const lang = fullscreenDialog.value.querySelector("span.lang") as HTMLSpanElement;
   lang.textContent = langInPre && langInPre.textContent != "" ? langInPre.textContent : "txt";
 
-  fullscreenSlot.value?.replaceChildren(clonedBlock);
+  fullscreenSlot.value?.replaceChildren(clonedBlock.value);
 };
 
 const setupFullscreen = async () => {
@@ -150,6 +114,55 @@ const setupFullscreen = async () => {
     });
     codeBlock.prepend(fullscreenButton);
   }
+
+  if (!fullscreenDialog.value) return;
+
+  const fullscreenButton = fullscreenDialog.value.querySelector(
+    "button.fullscreen"
+  ) as HTMLButtonElement;
+  fullscreenButton.title = options.value.exitFullscreen;
+  fullscreenButton.setAttribute("aria-label", options.value.exitFullscreen);
+  fullscreenButton.innerHTML = getSvgIcon("material-symbols:close-fullscreen-rounded");
+  fullscreenButton.addEventListener("click", () => {
+    closeFullscreen();
+  });
+
+  const rotateButton = fullscreenDialog.value.querySelector("button.rotate") as HTMLButtonElement;
+  rotateButton.title = options.value.rotate;
+  rotateButton.setAttribute("aria-label", options.value.rotate);
+  rotateButton.innerHTML = getSvgIcon("material-symbols:mobile-rotate-outline-rounded");
+  rotateButton.addEventListener("click", () => {
+    isRotated.value = !isRotated.value;
+    fullscreenDialog.value?.classList?.toggle("rotated", isRotated.value);
+  });
+
+  const wrapButton = fullscreenDialog.value.querySelector("button.wrap") as HTMLButtonElement;
+  wrapButton.title = options.value.wrap;
+  wrapButton.setAttribute("aria-label", options.value.wrap);
+  wrapButton.innerHTML = getSvgIcon(
+    isWrapped.value
+      ? "material-symbols:format-text-overflow-rounded"
+      : "material-symbols:wrap-text-rounded"
+  );
+  wrapButton.addEventListener("click", () => {
+    isWrapped.value = !isWrapped.value;
+    wrapButton.innerHTML = getSvgIcon(
+      isWrapped.value
+        ? "material-symbols:format-text-overflow-rounded"
+        : "material-symbols:wrap-text-rounded"
+    );
+    clonedBlock?.value?.classList?.toggle("wrap", isWrapped.value);
+  });
+
+  const copyButton = fullscreenDialog.value.querySelector("button.copy") as HTMLButtonElement;
+  copyButton.title = options.value.copy;
+  copyButton.setAttribute("aria-label", options.value.copy);
+  copyButton.addEventListener("click", (e) => {
+    e.stopImmediatePropagation();
+    copyButton.classList.add("copied");
+    setTimeout(() => copyButton.classList.remove("copied"), 1000);
+    originalCopyButton?.value?.click();
+  });
 };
 
 const handleKeydown = (e: KeyboardEvent) => {
@@ -181,6 +194,7 @@ onContentUpdated(() => setupFullscreen());
         <span class="lang" />
         <button class="copy" />
         <button class="wrap" />
+        <button class="rotate" />
         <button class="fullscreen" />
       </div>
       <div ref="fullscreenSlot" class="vp-doc" />
@@ -260,6 +274,10 @@ div.container {
       }
     }
 
+    &.rotate {
+      display: none;
+    }
+
     &:deep(button):hover {
       border-color: var(--vp-code-copy-code-hover-border-color);
       background-color: var(--vp-code-copy-code-hover-bg);
@@ -270,6 +288,8 @@ div.container {
 dialog:has(.vp-doc) {
   --speed: 0.3s;
 
+  top: 0;
+  left: 0;
   max-height: none;
   max-width: none;
   width: 100vw;
@@ -283,16 +303,37 @@ dialog:has(.vp-doc) {
   opacity: 0;
   animation: fadeIn var(--speed) forwards;
   overflow: hidden;
+  transition:
+    transform var(--speed) ease,
+    width var(--speed) ease,
+    height var(--speed) ease;
 
-  &:open {
-    display: flex;
-    flex-direction: column;
+  &.rotated {
+    width: 100vh;
+    height: 100vw;
+    transform-origin: 50vw;
+    transform: rotate(90deg);
+
+    &:deep(button.rotate) {
+      transform: scaleX(-1);
+    }
   }
 
   &::backdrop {
     opacity: 0;
     background: var(--vp-c-bg);
     animation: fadeIn var(--speed) forwards;
+  }
+
+  &:open {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 640px) {
+  :deep(button.rotate) {
+    display: none !important;
   }
 }
 

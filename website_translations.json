@@ -39,6 +39,7 @@
   "code.enter_fullscreen": "Full Screen",
   "code.exit_fullscreen": "Exit Full Screen",
   "code.wrap": "Toggle Wrap Code",
+  "code.rotate": "Toggle Orientation",
   "description": "Comprehensive documentation for Fabric, the modding toolchain for Minecraft.",
   "download": "Download %s",
   "footer.copyright": "© 2026 - The Fabric Documentation Team. Released under the %s.",

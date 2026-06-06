@@ -121,6 +121,7 @@ export const getLocales = () => {
           enterFullscreen: resolver("code.enter_fullscreen"),
           exitFullscreen: resolver("code.exit_fullscreen"),
           wrap: resolver("code.wrap"),
+          rotate: resolver("code.rotate"),
         },
 
         darkModeSwitchLabel: resolver("mode_switcher"),

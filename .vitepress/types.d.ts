@@ -57,6 +57,11 @@ export namespace Fabric {
     exitFullscreen: string;
 
     /**
+     * @default "Toggle Orientation of fullscreen dialog"
+     */
+    rotate: string;
+
+    /**
      * @default "Toggle Wrap Code"
      */
     wrap: string;
