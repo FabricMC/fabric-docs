@@ -12,7 +12,7 @@ authors:
 
 Перш ніж ви зможете почати створювати наш рецепт, вам потрібна реалізація `RecipeInput`, яка може зберігати вхідні предмети в інвентарі нашого блока. Ми хочемо, щоб рецепт покращення мав два вхідні предмети: базовий покращуваний предмет та саме покращення.
 
-@[code transcludeWith=:::recipeInput](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeInput.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeInput.java#recipe_input
 
 ## Створення класу рецепта {#creating-the-recipe-class}
 
@@ -20,7 +20,7 @@ authors:
 
 Почнемо з визначення результату та інгредієнтів рецепта.
 
-@[code transcludeWith=:::baseClass](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#base_class
 
 Зверніть увагу, як ми використовуємо об’єкти `Ingredient` для наших вхідних предметів. Це дозволяє нашому рецепту приймати кілька предметів взаємозамінно.
 
@@ -30,7 +30,7 @@ authors:
 
 Щоб перевірити, чи збігаються інгредієнти, ми можемо використати метод `test` наших інгредієнтів.
 
-@[code transcludeWith=:::implementing](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#implementing
 
 ## Створення серіалізатора рецептів {#creating-a-recipe-serializer}
 
@@ -38,23 +38,23 @@ authors:
 
 Ми використаємо `RecordCodecBuilder#mapCodec`, щоб створити мапу кодека для нашого рецепта. Це дозволяє нам об’єднати наявні кодеки Minecraft у наші власні:
 
-@[code transcludeWith=:::mapCodec](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#map_codec
 
 Кодек потоку можна створити подібним чином за допомогою `StreamCodec#composite`:
 
-@[code transcludeWith=:::streamCodec](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#stream_codec
 
 Тепер ми зареєструємо серіалізатор рецепта, а також тип рецепта. Ви можете зробити це в ініціалізаторі вашого мода або в окремому класі за допомогою методу, викликаного ініціалізатором вашого мода:
 
-@[code transcludeWith=:::registration](@/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#registration
 
 Повертаючись до нашого класу рецептів, тепер ми можемо додати методи, які повертають щойно зареєстровані об’єкти:
 
-@[code transcludeWith=:::implementRegistryObjects](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#implement_registry_objects
 
 Щоб завершити наш власний тип рецепта, нам просто потрібно реалізувати інші методи `placementInfo`, `showNotification`, `group` і `recipeBookCategory`, які використовуються книгою рецептів для розміщення нашого рецепта на екрані. Наразі ми просто повернемо `PlacementInfo.NOT_PLACEABLE` і `null`, оскільки книгу рецептів не можна легко розширити до модових робочих станків. Ми також перевизначимо `isSpecial`, щоб повернути true, щоб запобігти запуску й реєстрації помилок деякої іншої логіки, пов’язаної з книгою рецептів.
 
-@[code transcludeWith=:::recipeBook](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#recipe_book
 
 ## Створення рецепта {#creating-a-recipe}
 
@@ -64,7 +64,7 @@ authors:
 
 У нашому випадку дійсний файл рецепта виглядає так:
 
-@[code](@/reference/latest/src/main/resources/data/example-mod/recipe/upgrading/diamond_pickaxe.json)
+<<< @/reference/latest/src/main/resources/data/example-mod/recipe/upgrading/diamond_pickaxe.json
 
 ## Створення меню {#creating-a-menu}
 
@@ -76,7 +76,7 @@ authors:
 
 Щоб ми могли створити наш рецепт в інтерфейсі, ми створимо блок із [меню](./blocks/container-menus):
 
-@[code transcludeWith=:::menu](@/reference/latest/src/main/java/com/example/docs/menu/custom/UpgradingMenu.java)
+<<< @/reference/latest/src/main/java/com/example/docs/menu/custom/UpgradingMenu.java#menu
 
 Тут багато чого розібрати! Це меню має два вхідні слоти та один вихідний.
 
@@ -90,6 +90,10 @@ authors:
 
 Щоб запобігти видаленню предметів, важливо скинути введені дані, коли екран закрито, як показано в методі `removed`.
 
+Також потрібно додати меню в реєстр:
+
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#upgrading_menu_registration
+
 ## Синхронізація рецептів {#recipe-synchronization}
 
 ::: info
@@ -102,8 +106,8 @@ authors:
 
 Щоб синхронізувати ваші рецепти, просто викличте `RecipeSynchronization.synchronizeRecipeSerializer` у своєму ініціалізаторі мода та надайте серіалізатор рецепта свого мода:
 
-@[code transcludeWith=:::recipeSync](@/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#recipe_sync
 
 Після синхронізації рецепти можна отримати в будь-який момент із менеджера рецептів рівня клієнта:
 
-@[code transcludeWith=:::recipeSyncClient](@/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java#recipe_sync_client
