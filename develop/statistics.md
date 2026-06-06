@@ -20,6 +20,8 @@ Then register the statistic:
 
 <<< @/reference/latest/src/main/java/com/example/docs/stats/ModStats.java#register
 
+Don't forget to initialize the `ModStats` class in your [mod's initializer](./getting-started/project-structure#entrypoints).
+
 When adding the stat to the Statistics screen via `Stats.CUSTOM.get()`, you can also specify the stat formatter, which determines how the number is displayed in the stat list. Vanilla provides the following formatters:
 
 - `DEFAULT`: Displays the number directly.
