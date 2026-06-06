@@ -11,7 +11,7 @@ import com.example.docs.ExampleMod;
 // #region register
 public class ModStats {
 	// #region stat
-	public static final Identifier INTERACT_WITH_STATISTICS_BLOCK = register("interact_with_statistics_block", StatFormatter.DEFAULT);
+	public static final Identifier FRIENDSHIPS_MADE = register("friendships_made", StatFormatter.DEFAULT);
 	// #endregion stat
 
 	private static Identifier register(String name, StatFormatter formatter) {

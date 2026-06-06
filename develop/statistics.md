@@ -16,9 +16,7 @@ To add a custom statistic, create an `Identifier` which will be used to register
 
 <<< @/reference/latest/src/main/java/com/example/docs/stats/ModStats.java#stat
 
-### Registration {#registration}
-
-Then register the stat:
+Then register the statistic:
 
 <<< @/reference/latest/src/main/java/com/example/docs/stats/ModStats.java#register
 
@@ -29,10 +27,10 @@ When adding the stat to the Statistics screen via `Stats.CUSTOM.get()`, you can 
 - `DISTANCE`: Displays the number as distance: Depending on the size of the number, this will be shown in centimeters, meters, or kilometers.
 - `TIME`: Displays the number as time. Depending on the size of the number, this will be shown in seconds, minutes, hours, or days.
 
-## Using The Statistic {#using-the-statistic}
+## Using the Statistic {#using-the-statistic}
 
-To increment the statistic, for example when a player interacts with a block, you can use `Player#awardStat`:
+In this example, we will increase the statistic whenever the statistics block is placed. We use the `Player#awardStat(stat, amount)` method to increment it by the amount of neighbors the block has when placed.
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/custom/StatisticsBlock.java#interact
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/StatisticsBlock.java#statistics_block
 
-You can also use `Player#awardStat(stat, amount)` to increase the stat by an arbitrary amount.
+You can also use `Player#awardStat(stat)` or `Player#resetStat(stat)` to increase the stat by 1 or reset it to 0, respectively.
