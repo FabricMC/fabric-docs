@@ -35,6 +35,12 @@ Always succeeds:
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/true.json
 
+#### False {#false}
+
+Always fails:
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/false.json
+
 #### Not {#not}
 
 Inverts the load condition specified in `value`. For example, the following will fail:
