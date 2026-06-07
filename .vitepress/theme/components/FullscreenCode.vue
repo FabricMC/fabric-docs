@@ -345,6 +345,10 @@ div.toolbar {
       .line {
         position: relative;
         padding-left: 56px;
+
+        & span::after{
+          content: "\200B";
+        }
       }
 
       .line::before {
