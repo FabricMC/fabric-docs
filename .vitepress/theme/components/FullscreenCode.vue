@@ -346,7 +346,7 @@ div.toolbar {
         position: relative;
         padding-left: 56px;
 
-        & span::after{
+        & span::after {
           content: "\200B";
         }
       }
