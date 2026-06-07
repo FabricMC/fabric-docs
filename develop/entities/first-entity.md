@@ -198,6 +198,14 @@ There's a lot going on here, notice the following key points:
   - We have used linear interpolation, which is the simplest and changes the value (in our case rotation of the model part) at a constant rate from one keyframe to the next. Vanilla also provides Catmull-Rom spline interpolation, which produces a smoother transition between keyframes.
   - Modders can also create custom interpolation types.
 
+We will store the animation state in our `MiniGolemEntityRenderState` by adding it as a field.
+
+<<< @/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java#animation_state
+
+To populate this field, we override `extractRenderState` and copy the state from our entity.
+
+<<< @/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java#copy_animation_state
+
 Finally, let's hook up the animation to the model:
 
 <<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#dancing_animation
