@@ -28,6 +28,10 @@ public class ExampleMod implements ModInitializer {
 	public static final String MOD_ID = "example-mod";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+	public static Identifier id(String path) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
+	}
+
 	// #endregion entrypoint
 	// #region particle_register_main
 	// This DefaultParticleType gets called when you want to use your particle in code.
@@ -46,7 +50,7 @@ public class ExampleMod implements ModInitializer {
 
 		// #region particle_register_main
 		// Register our custom particle type in the mod initializer.
-		Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
+		Registry.register(BuiltInRegistries.PARTICLE_TYPE, ExampleMod.id("sparkle_particle"), SPARKLE_PARTICLE);
 		// #endregion particle_register_main
 		// #region datagen_world_biome_modifications
 		// Spawns everywhere in the overworld

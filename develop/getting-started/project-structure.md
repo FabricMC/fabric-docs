@@ -35,6 +35,12 @@ Here's an example of a simple `main` entrypoint that logs a message to the conso
 
 <<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
 
+The example also provides a small `id` helper that creates identifiers in the mod's namespace. This keeps later registry calls concise and avoids repeating the mod ID each time you need an identifier:
+
+```java
+ExampleMod.id("example_path")
+```
+
 ## `src/main/resources` {#src-main-resources}
 
 The `src/main/resources` folder is used to store the resources that your mod uses, such as textures, models, and sounds.
