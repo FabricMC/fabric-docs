@@ -475,6 +475,10 @@ export default [
         link: "/develop/resource-conditions",
       },
       {
+        text: "develop.misc.statistics",
+        link: "/develop/statistics",
+      },
+      {
         text: "develop.misc.text_and_translations",
         link: "/develop/text-and-translations",
       },

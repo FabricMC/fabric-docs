@@ -31,6 +31,7 @@ import com.example.docs.block.custom.CounterBlock;
 import com.example.docs.block.custom.DirtChestBlock;
 import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
+import com.example.docs.block.custom.FriendsBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.damage.TaterBlock;
@@ -91,6 +92,10 @@ public class ModBlocks {
 			EngineBlock::new,
 			BlockBehaviour.Properties.of(),
 			true
+	);
+
+	public static final Block FRIENDS_BLOCK = register(
+			"friends_block", FriendsBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	public static final Block PIPE_BLOCK = register(
