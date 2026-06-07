@@ -61,37 +61,16 @@ Vanilla provides attributes as well, including [max health](https://minecraft.wi
 
 As a demo, we'll include maximum health, movement speed, attack damage and the aggro range attribute as created earlier.
 
-<!-- TODO: move to the reference mod -->
-
-```java
-public static AttributeSupplier.Builder createEntityAttributes() {
-    return Mob.createMobAttributes()
-        .add(Attributes.MAX_HEALTH, 25.0)
-        .add(Attributes.MOVEMENT_SPEED, 0.22)
-        .add(Attributes.ATTACK_DAMAGE, 3.0)
-        .add(ModAttributes.AGGRO_RANGE, 8.0);
-}
-```
+<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#applying_entity_attributes
 
 ## Reading and Modifying Attributes {#reading-modifying-attributes}
 
 An attribute by itself is just data attached to an entity. For it to be useful, we need to be able to read from and write to it. There are two main ways to do this: getting the `AttributeInstance` on the entity, or getting the value directly.
 
-```java
-entity.getAttribute(ModAttributes.AGGRO_RANGE) // returns an `AttributeInstance`
-entity.getAttributeValue(ModAttributes.AGGRO_RANGE) // returns a double with the current value
-entity.getAttributeBaseValue(ModAttributes.AGGRO_RANGE) // returns a double with the base value
-```
+<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#reading_entity_attributes
 
 An `AttributeInstance` allows more flexibility, such as setting an `AttributeModifier` on the attribute, using one of the [three vanilla attribute modifier operations](https://minecraft.wiki/w/Attribute#Operations). Modifiers can be permanent (saved to NBT) or transitive (not saved to NBT) and are added using `addPermanentModifier` or `addTransitiveModifier`, respectively.
 
-```java
-attribute.addPermanentModifier(
-    new AttributeModifier(
-        Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "increased_range"), // the ID of your modifier, should be static so it can be removed
-        8, // how much to modify it
-        AttributeModifier.Operation.ADD_VALUE // what operator to use, see the wiki page linked above
-    ));
-```
+<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#modifying_entity_attributes
 
 Once you have access to the attribute value, you can use it in your entity's AI.
