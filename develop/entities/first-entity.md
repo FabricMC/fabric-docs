@@ -3,6 +3,7 @@ title: Creating Your First Entity
 description: Learn how to register a simple entity and how to give it goals, render, model, and animate it.
 authors:
   - cassiancc
+  - CelDaemon
   - Earthcomputer
   - JaaiDead
   - skycatminepokie
@@ -202,7 +203,7 @@ We will store the animation state in our `MiniGolemEntityRenderState` by adding 
 
 <<< @/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java#animation_state
 
-To populate this field, we override `extractRenderState` and copy the state from our entity.
+To populate this field, we override `extractRenderState` in the entity renderer and copy the state from our entity.
 
 <<< @/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java#copy_animation_state
 
