@@ -10,7 +10,8 @@ const data = useData();
 const options = computed(() => data.theme.value.code as Fabric.CodeOptions);
 
 const dialog = ref<HTMLDialogElement>();
-const title = ref("");
+const tabs = ref<HTMLDivElement>();
+const originalCodeGroup = ref<HTMLDivElement>();
 const isClosing = ref(false);
 const isWrapped = ref(false);
 const isCopied = ref(false);
@@ -25,18 +26,57 @@ const handleEnterFullscreen = async (originalCodeBlock: HTMLDivElement) => {
   originalCopyButton = //
     originalCodeBlock.querySelector<HTMLButtonElement>("button.copy:not(.fullscreen)");
 
-  const originalCodeGroupTab = originalCodeBlock
-    .closest(".vp-code-group")
-    ?.querySelector<HTMLInputElement>("div.tabs input:checked");
-  title.value = originalCodeGroupTab?.labels?.[0].textContent ?? "";
+  originalCodeGroup.value = originalCodeBlock.closest(".vp-code-group") as HTMLDivElement;
+  await nextTick();
 
-  const clonedCodeBlock = originalCodeBlock.cloneNode(true) as HTMLDivElement;
+  if (tabs.value && originalCodeGroup.value) {
+    tabs.value.innerHTML = "";
+    const codeGroupTabs = originalCodeGroup.value.querySelectorAll(
+      ".tabs > input[type='radio']"
+    ) as NodeListOf<HTMLInputElement>;
+    let index = 0;
+    for (const tab of codeGroupTabs) {
+      const newInput = document.createElement("input");
+      newInput.type = "radio";
+      newInput.name = `code-group-tabs`;
+      newInput.id = `code-group-tab-${index}`;
+      newInput.checked = tab.checked;
+      newInput.setAttribute("index", index.toString());
+      newInput.onchange = handleTabChange;
+
+      const newLabel = document.createElement("label");
+      newLabel.htmlFor = `code-group-tab-${index}`;
+      newLabel.textContent = tab.labels?.[0]?.textContent ?? "text";
+      newLabel.setAttribute("data-title", newLabel.textContent);
+
+      tabs.value.append(newInput);
+      tabs.value.append(newLabel);
+      index++;
+    }
+  }
+
+  loadCodeBlock(originalCodeBlock);
+  dialog.value.showModal();
+};
+
+const handleTabChange = (event: Event) => {
+  if (!originalCodeGroup.value) return;
+  const target = event.target as HTMLInputElement;
+  if (!target.checked) return;
+  const newCodeBlock = originalCodeGroup.value.querySelector(".blocks")?.children[
+    Number(target.getAttribute("index"))
+  ] as HTMLDivElement;
+  loadCodeBlock(newCodeBlock);
+};
+
+const loadCodeBlock = (codeBlock: HTMLDivElement) => {
+  if (!dialog.value) return;
+  const clonedCodeBlock = codeBlock.cloneNode(true) as HTMLDivElement;
   clonedCodeBlock.querySelector<HTMLDivElement>("div.line-numbers-wrapper")?.remove();
   clonedCodeBlock.querySelectorAll<HTMLButtonElement>("button.copy").forEach((b) => b.remove());
 
   const slot = dialog.value.querySelector<HTMLDivElement>("div.slot");
   slot?.replaceChildren(clonedCodeBlock);
-  dialog.value.showModal();
 };
 
 const handleCopy = (event: Event) => {
@@ -124,7 +164,7 @@ onUnmounted(() => dialog.value?.close());
     @cancel.prevent="handleExitFullscreen"
   >
     <div class="toolbar">
-      <h2 v-if="title">{{ title }}</h2>
+      <div v-if="originalCodeGroup" ref="tabs" class="tabs" />
       <button
         class="copy"
         :class="{ copied: isCopied }"
@@ -148,7 +188,7 @@ onUnmounted(() => dialog.value?.close());
         <Icon icon="lucide:minimize-2" />
       </button>
     </div>
-    <div class="slot vp-doc" :class="{ wrapped: isWrapped }" />
+    <div class="slot vp-doc" :class="{ wrapped: isWrapped, grouped: originalCodeGroup }" />
   </dialog>
 </template>
 
@@ -171,7 +211,6 @@ dialog#fullscreen {
   &[open] {
     display: flex;
     flex-direction: column;
-    gap: 12px;
   }
 
   &,
@@ -232,19 +271,78 @@ dialog#fullscreen {
 div.toolbar {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
   flex-grow: 0;
-  gap: 12px;
+  gap: 8px;
 
-  h2 {
+  div.tabs {
     display: flex;
+    align-items: flex-end;
+    padding: 0 12px;
     flex-grow: 1;
-    align-items: center;
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--vp-code-tab-text-color);
-    padding: 8px;
+    background-color: var(--vp-code-tab-bg);
+    box-shadow:
+      inset 0 -1px var(--vp-code-block-divider-color),
+      0 1px var(--vp-code-tab-bg);
+    border: 1px solid var(--vp-c-divider);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
     white-space: nowrap;
-    overflow: hidden;
+    overflow: auto hidden;
+    z-index: 1;
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow:
+        0 -1px var(--vp-code-block-divider-color),
+        0 1px var(--vp-code-tab-bg);
+      z-index: 1;
+    }
+
+    &:deep(label) {
+      position: relative;
+      height: 100%;
+      line-height: 48px;
+      padding: 0 12px;
+      cursor: pointer;
+      text-align: center;
+
+      &:hover,
+      &:focus {
+        color: var(--vp-code-tab-hover-text-color);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: transparent;
+        transition: background-color 0.25s;
+        will-change: background-color;
+      }
+    }
+
+    &:deep(input) {
+      display: none;
+
+      &:checked + label {
+        color: var(--vp-code-tab-active-text-color);
+
+        &::after {
+          background-color: var(--vp-code-tab-active-bar-color);
+        }
+      }
+    }
   }
 
   button {
@@ -255,6 +353,8 @@ div.toolbar {
     border-radius: 4px;
     width: 40px;
     height: 40px;
+    flex-shrink: 0;
+    margin-bottom: 8px;
     background-color: var(--vp-code-copy-code-bg);
     color: #808080;
     transition:
@@ -300,6 +400,10 @@ div.toolbar {
   border: 1px solid var(--vp-c-divider);
   flex-grow: 1;
   overflow: hidden;
+
+  &.grouped {
+    border-top-left-radius: 0;
+  }
 
   div[class*="language-"] {
     margin: 0;
