@@ -23,9 +23,6 @@ const handleEnterFullscreen = async (originalCodeBlock: HTMLDivElement) => {
   await nextTick();
   if (!dialog.value) return;
 
-  originalCopyButton = //
-    originalCodeBlock.querySelector<HTMLButtonElement>("button.copy:not(.fullscreen)");
-
   originalCodeGroup.value = originalCodeBlock.closest(".vp-code-group") as HTMLDivElement;
   await nextTick();
 
@@ -71,6 +68,8 @@ const handleTabChange = (event: Event) => {
 
 const loadCodeBlock = (codeBlock: HTMLDivElement) => {
   if (!dialog.value) return;
+
+  originalCopyButton = codeBlock.querySelector<HTMLButtonElement>("button.copy:not(.fullscreen)");
   const clonedCodeBlock = codeBlock.cloneNode(true) as HTMLDivElement;
   clonedCodeBlock.querySelector<HTMLDivElement>("div.line-numbers-wrapper")?.remove();
   clonedCodeBlock.querySelectorAll<HTMLButtonElement>("button.copy").forEach((b) => b.remove());
