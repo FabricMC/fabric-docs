@@ -55,14 +55,14 @@ const handleExitFullscreen = (event: Event) => {
   (event.currentTarget as HTMLButtonElement)?.blur();
   isClosing.value = true;
 
-  const onTransitionend = () => {
+  const onAnimationend = () => {
     isClosing.value = false;
     dialog.value?.close();
   };
 
-  if (prefersReducedMotion.value === "reduce") return onTransitionend();
+  if (prefersReducedMotion.value === "reduce") return onAnimationend();
 
-  dialog.value?.addEventListener("animationend", onTransitionend, { once: true });
+  dialog.value?.addEventListener("animationend", onAnimationend, { once: true });
 };
 
 onContentUpdated(() =>
@@ -161,7 +161,7 @@ dialog#fullscreen {
   background: transparent;
   animation:
     fadeIn 0.3s ease-in,
-    scaleIn 0.3s ease;
+    scale-in 0.3s ease;
 
   &::backdrop {
     background-color: var(--vp-c-bg);
@@ -184,16 +184,16 @@ dialog#fullscreen {
   &[open].closing {
     pointer-events: none;
     animation:
-      fadeOut 0.3s ease,
-      scaleOut 0.3s ease;
+      fade-out 0.3s ease,
+      scale-out 0.3s ease;
 
     &::backdrop {
-      animation: fadeOut 0.3s ease;
+      animation: fade-out 0.3s ease;
     }
   }
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
@@ -202,7 +202,7 @@ dialog#fullscreen {
   }
 }
 
-@keyframes fadeOut {
+@keyframes fade-out {
   from {
     opacity: 1;
   }
@@ -211,7 +211,7 @@ dialog#fullscreen {
   }
 }
 
-@keyframes scaleIn {
+@keyframes scale-in {
   from {
     transform: scale(0.9);
   }
@@ -220,7 +220,7 @@ dialog#fullscreen {
   }
 }
 
-@keyframes scaleOut {
+@keyframes scale-out {
   from {
     transform: scale(1);
   }
