@@ -9,11 +9,8 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 
@@ -77,16 +74,6 @@ public class ReferenceMethods {
 		});
 		// #endregion saved_data_example_scenario
 	}
-
-	// #region applying_entity_attributes
-	public static AttributeSupplier.Builder createEntityAttributes() {
-		return Mob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 25.0)
-				.add(Attributes.MOVEMENT_SPEED, 0.22)
-				.add(Attributes.ATTACK_DAMAGE, 3.0)
-				.add(ModAttributes.AGGRO_RANGE, 8.0);
-	}
-	// #endregion applying_entity_attributes
 
 	public static void readingEntityAttributes(LivingEntity entity) {
 		// #region reading_entity_attributes

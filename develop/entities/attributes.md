@@ -4,6 +4,7 @@ description: Learn how to add custom attributes to entities.
 authors:
   - cassiancc
   - cprodhomme
+  - Tenneb22
 resources:
   https://minecraft.wiki/w/Attribute: Attributes - Minecraft Wiki
   https://docs.neoforged.net/docs/entities/attributes: Attributes - NeoForge Docs (except Neo exclusives)
@@ -57,11 +58,11 @@ Calling a method on a class statically initializes it if it hasn't been previous
 
 Attributes need to be attached to an entity to take effect. This is typically done in the method where an entity's attributes are built or modified.
 
-Vanilla provides attributes as well, including [max health](https://minecraft.wiki/w/Attribute#Max_health), [movement speed](https://minecraft.wiki/w/Attribute#Movement_speed), and [attack damage](https://minecraft.wiki/w/Attribute#Attack_damage) as seen below. For a full list, see the vanilla `Attributes` class and the [Minecraft Wiki](https://minecraft.wiki/w/Attribute).
+Vanilla provides attributes as well, including [max health](https://minecraft.wiki/w/Attribute#Max_health), [movement speed](https://minecraft.wiki/w/Attribute#Movement_speed), and [attack damage](https://minecraft.wiki/w/Attribute#Attack_damage). For a full list, see the vanilla `Attributes` class and the [Minecraft Wiki](https://minecraft.wiki/w/Attribute).
 
-As a demo, we'll include maximum health, movement speed, attack damage and the aggro range attribute as created earlier.
+This is an example of how to add vanilla attributes and the previously created `AGGRO_RANGE` attribute to the Mini Golem Entity from the [Creating Your First Entity](./first-entity) guide.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#applying_entity_attributes
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#attributes
 
 ## Reading and Modifying Attributes {#reading-modifying-attributes}
 
