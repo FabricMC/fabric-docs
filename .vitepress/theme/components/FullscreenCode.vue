@@ -39,19 +39,19 @@ const handleEnterFullscreen = async (originalCodeBlock: HTMLDivElement) => {
   dialog.value.showModal();
 };
 
-const handleCopy = (event: MouseEvent) => {
+const handleCopy = (event: Event) => {
   (event.currentTarget as HTMLButtonElement).blur();
   originalCopyButton?.click();
   isCopied.value = true;
   setTimeout(() => (isCopied.value = false), 2000);
 };
 
-const handleWrap = (event: MouseEvent) => {
+const handleWrap = (event: Event) => {
   (event.currentTarget as HTMLButtonElement).blur();
   isWrapped.value = !isWrapped.value;
 };
 
-const handleExitFullscreen = (event: MouseEvent) => {
+const handleExitFullscreen = (event: Event) => {
   (event.currentTarget as HTMLButtonElement)?.blur();
   isClosing.value = true;
 
@@ -62,7 +62,7 @@ const handleExitFullscreen = (event: MouseEvent) => {
 
   if (prefersReducedMotion.value === "reduce") return onTransitionend();
 
-  dialog.value?.addEventListener("transitionend", onTransitionend, { once: true });
+  dialog.value?.addEventListener("animationend", onTransitionend, { once: true });
 };
 
 onContentUpdated(() =>
@@ -121,6 +121,7 @@ onUnmounted(() => dialog.value?.close());
     aria-modal="true"
     :class="{ closing: isClosing }"
     @click.self="handleExitFullscreen"
+    @cancel.prevent="handleExitFullscreen"
   >
     <div class="toolbar">
       <h2 v-if="title">{{ title }}</h2>
@@ -153,48 +154,78 @@ onUnmounted(() => dialog.value?.close());
 
 <style scoped>
 dialog#fullscreen {
-  height: 100%;
-  width: 100%;
   max-height: none;
   max-width: none;
   border: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
   overflow: hidden;
-  transition: opacity 0.3s ease;
+  background: transparent;
+  animation:
+    fadeIn 0.3s ease-in,
+    scaleIn 0.3s ease;
+
+  &::backdrop {
+    background-color: var(--vp-c-bg);
+    animation: fadeIn 0.3s ease;
+  }
+
+  &[open] {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
   &,
   &::backdrop {
-    background-color: var(--vp-c-bg);
+    height: 100vh;
+    width: 100vw;
+    will-change: transform, opacity;
   }
 
-  &,
   &[open].closing {
-    opacity: 0;
     pointer-events: none;
+    animation:
+      fadeOut 0.3s ease,
+      scaleOut 0.3s ease;
 
     &::backdrop {
-      opacity: 0;
-    }
-
-    * {
-      transform: scale(0.9);
-      transition: transform 0.3s ease;
+      animation: fadeOut 0.3s ease;
     }
   }
+}
 
-  &[open]:not(.closing) {
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
-    pointer-events: revert;
+  }
+}
 
-    &::backdrop {
-      opacity: 0;
-    }
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 
-    * {
-      transform: scale(1);
-    }
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.9);
   }
 }
 
