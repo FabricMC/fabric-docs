@@ -92,6 +92,8 @@ const handleWrap = (event: Event) => {
 
 const handleExitFullscreen = (event: Event) => {
   (event.currentTarget as HTMLButtonElement)?.blur();
+  dialog.value?.focus();
+  dialog.value?.blur();
   isClosing.value = true;
 
   const onAnimationend = () => {
