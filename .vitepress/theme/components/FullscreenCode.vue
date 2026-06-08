@@ -171,6 +171,7 @@ onUnmounted(() => dialog.value?.close());
         :aria-label="options.copy"
         @click="handleCopy"
       >
+        <span class="copied-label">{{ options.copied }}</span>
         <Icon v-if="isCopied" icon="lucide:clipboard-check" />
         <Icon v-else icon="lucide:clipboard" />
       </button>
@@ -292,6 +293,7 @@ div.toolbar {
     white-space: nowrap;
     overflow: auto hidden;
     z-index: 1;
+    will-change: width;
 
     &::-webkit-scrollbar {
       height: 8px;
@@ -370,25 +372,51 @@ div.toolbar {
       height: 20px;
       width: 20px;
     }
-  }
 
-  button.copy.copied {
-    width: auto;
-    padding-right: 9px;
-    gap: 9px;
-    border-radius: 4px;
+    &.copy {
+      width: auto;
+      min-width: 40px;
+      gap: 0;
+      padding-right: 0;
+      transition:
+        gap 0.3s ease,
+        padding-right 0.3s ease;
+      will-change: gap, padding-right;
 
-    &::before {
-      display: inline-flex;
-      align-items: center;
-      height: 100%;
-      padding: 0 10px;
-      font-size: 12px;
-      font-weight: 500;
-      white-space: nowrap;
-      color: var(--vp-code-copy-code-active-text);
-      border-right: 1px solid var(--vp-code-copy-code-hover-border-color);
-      content: var(--vp-code-copy-copied-text-content);
+      & span.copied-label {
+        transition:
+          max-width 0.3s ease,
+          padding 0.3s ease,
+          opacity 0.1s ease-out;
+        will-change: max-width, padding, opacity;
+        height: 100%;
+        max-width: 0;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 0;
+        font-size: 12px;
+        font-weight: 500;
+        white-space: nowrap;
+        color: var(--vp-code-copy-code-active-text);
+        border-radius: 4px 0 0 4px;
+        opacity: 0;
+      }
+
+      &.copied {
+        gap: 9px;
+        padding-right: 9px;
+
+        & span.copied-label {
+          max-width: 100px;
+          opacity: 1;
+          border-right: 1px solid var(--vp-code-copy-code-hover-border-color);
+          padding: 0 10px;
+          transition:
+            max-width 0.3s ease,
+            padding 0.3s ease,
+            opacity 0.3s ease-in;
+        }
+      }
     }
   }
 }
