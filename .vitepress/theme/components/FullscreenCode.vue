@@ -15,6 +15,7 @@ const originalCodeGroup = ref<HTMLDivElement>();
 const isClosing = ref(false);
 const isWrapped = ref(false);
 const isCopied = ref(false);
+const isInTransition = ref(false);
 
 const processedCodeBlocks = new WeakSet<HTMLDivElement>();
 let originalCopyButton: HTMLButtonElement | null = null;
@@ -74,8 +75,29 @@ const loadCodeBlock = (codeBlock: HTMLDivElement) => {
   clonedCodeBlock.querySelector<HTMLDivElement>("div.line-numbers-wrapper")?.remove();
   clonedCodeBlock.querySelectorAll<HTMLButtonElement>("button.copy").forEach((b) => b.remove());
 
-  const slot = dialog.value.querySelector<HTMLDivElement>("div.slot");
-  slot?.replaceChildren(clonedCodeBlock);
+  const slot = dialog.value?.querySelector<HTMLDivElement>("div.slot");
+  const oldSlot = slot?.querySelector<HTMLDivElement>("div.old-slot-content");
+
+  if (!slot || !oldSlot) return;
+
+  const currentContent = slot.firstElementChild;
+
+  if (originalCodeGroup.value && currentContent && currentContent !== oldSlot) {
+    oldSlot.replaceChildren(currentContent);
+
+    isInTransition.value = true;
+
+    oldSlot.addEventListener(
+      "transitionend",
+      () => {
+        isInTransition.value = false;
+        oldSlot.replaceChildren();
+      },
+      { once: true }
+    );
+  }
+
+  slot.prepend(clonedCodeBlock);
 };
 
 const handleCopy = (event: Event) => {
@@ -190,7 +212,12 @@ onUnmounted(() => dialog.value?.close());
         <Icon icon="lucide:minimize-2" />
       </button>
     </div>
-    <div class="slot vp-doc" :class="{ wrapped: isWrapped, grouped: originalCodeGroup }" />
+    <div class="slot vp-doc" :class="{ wrapped: isWrapped, grouped: originalCodeGroup }">
+      <div
+        class="old-slot-content vp-ignore"
+        :class="{ wrapped: isWrapped, grouped: originalCodeGroup, inTransition: isInTransition }"
+      />
+    </div>
   </dialog>
 </template>
 
@@ -294,7 +321,7 @@ div.toolbar {
     border-radius: 8px 8px 0 0;
     white-space: nowrap;
     overflow: auto hidden;
-    z-index: 1;
+    z-index: 10;
     will-change: width;
 
     &::-webkit-scrollbar {
@@ -305,7 +332,7 @@ div.toolbar {
       box-shadow:
         0 -1px var(--vp-code-block-divider-color),
         0 1px var(--vp-code-tab-bg);
-      z-index: 1;
+      z-index: 10;
     }
 
     &:deep(label) {
@@ -425,6 +452,7 @@ div.toolbar {
 
 /* :deep is needed because clonedCodeBlock does not have the data-v-****** attribute */
 :deep(div.slot) {
+  position: relative;
   border-radius: 12px;
   border: 1px solid var(--vp-c-divider);
   flex-grow: 1;
@@ -511,6 +539,22 @@ div.toolbar {
   &.wrapped div[class*="language-"] pre {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
+  }
+
+  & div.old-slot-content {
+    position: absolute;
+    inset: 0;
+    transform: scale(0);
+    transform-origin: bottom right;
+    opacity: 1;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+    will-change: opacity;
+
+    &.inTransition {
+      transform: scale(1);
+      opacity: 0;
+    }
   }
 }
 </style>
