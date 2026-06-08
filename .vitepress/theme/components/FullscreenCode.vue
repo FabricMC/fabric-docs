@@ -430,7 +430,8 @@ div.toolbar {
   flex-grow: 1;
   overflow: hidden;
 
-  &.grouped {
+  &.grouped,
+  &.grouped > div[class*="language-"] {
     border-top-left-radius: 0;
   }
 
