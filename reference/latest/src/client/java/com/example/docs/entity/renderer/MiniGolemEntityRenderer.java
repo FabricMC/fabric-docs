@@ -24,11 +24,13 @@ public class MiniGolemEntityRenderer extends MobRenderer<MiniGolemEntity, MiniGo
 	}
 	// #endregion renderer
 
+	// #region copy_animation_state
 	@Override
 	public void extractRenderState(MiniGolemEntity entity, MiniGolemEntityRenderState state, float tickProgress) {
 		super.extractRenderState(entity, state, tickProgress);
 		state.dancingAnimationState.copyFrom(entity.dancingAnimationState);
 	}
+	// #endregion copy_animation_state
 	// #region renderer
 
 	@Override

@@ -144,6 +144,7 @@ public class ModItems {
 				output.accept(ModBlocks.DIRT_CHEST_BLOCK);
 				output.accept(ModBlocks.COUNTER_BLOCK);
 				output.accept(ModBlocks.ENGINE_BLOCK);
+				output.accept(ModBlocks.FRIENDS_BLOCK);
 				output.accept(ModBlocks.RUBY_BLOCK);
 				output.accept(ModBlocks.RUBY_STAIRS);
 				output.accept(ModBlocks.RUBY_SLAB);

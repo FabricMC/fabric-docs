@@ -3,6 +3,7 @@ title: Creating Your First Entity
 description: Learn how to register a simple entity and how to give it goals, render, model, and animate it.
 authors:
   - cassiancc
+  - CelDaemon
   - Earthcomputer
   - JaaiDead
   - skycatminepokie
@@ -197,6 +198,14 @@ There's a lot going on here, notice the following key points:
   - When the time is between our keyframes, then the value will be interpolated (blended) between the two neighboring keyframes.
   - We have used linear interpolation, which is the simplest and changes the value (in our case rotation of the model part) at a constant rate from one keyframe to the next. Vanilla also provides Catmull-Rom spline interpolation, which produces a smoother transition between keyframes.
   - Modders can also create custom interpolation types.
+
+To make our animation state available to the renderer, we will store a copy of it in our `MiniGolemEntityRenderState`.
+
+<<< @/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java#animation_state
+
+To perform the copy, we override `extractRenderState` in the entity renderer.
+
+<<< @/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java#copy_animation_state
 
 Finally, let's hook up the animation to the model:
 
