@@ -218,7 +218,7 @@ dialog#fullscreen {
 
   &,
   &::backdrop {
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
   }
 
