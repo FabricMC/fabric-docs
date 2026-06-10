@@ -19,9 +19,11 @@ The simplest and fastest way to locate problems is logging to the console.
 
 Values can be printed there at runtime, informing the developer about the current state of the code, and making it easy to analyze changes and potential mistakes.
 
-In the `ModInitializer`-implementing entrypoint class of the mod, a `LOGGER` is defined by default to print the desired output to the console.
+You can create a logger using the `LoggerFactory`, it takes a name which will be shown in the log next to printed messages.
 
-<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems_basic_logger_definition
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#create_logger
+
+The mod template provides a default logger with your modid as the name, included in the mod initializer.
 
 Whenever you need to know a value for something at any point in the code, use this `LOGGER` by passing a `String` to its methods.
 
