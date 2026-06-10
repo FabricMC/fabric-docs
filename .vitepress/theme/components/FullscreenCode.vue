@@ -292,6 +292,8 @@ div.toolbar {
   gap: 8px;
 
   div.tabs {
+    margin: -1px 0 -1px 0;
+    height: calc(100% + 2px);
     display: flex;
     align-items: flex-end;
     padding: 0 12px;
@@ -301,8 +303,8 @@ div.toolbar {
     color: var(--vp-code-tab-text-color);
     background-color: var(--vp-code-tab-bg);
     border: 1px solid var(--vp-c-divider);
-    margin-bottom: -1px;
-    border-bottom: 1px solid var(--vp-code-block-divider-color);
+    box-shadow: inset 0 -1px var(--vp-code-block-divider-color);
+    border-bottom: none;
     border-radius: 12px 12px 0 0;
     white-space: nowrap;
     overflow-x: auto;
@@ -316,8 +318,12 @@ div.toolbar {
     &::-webkit-scrollbar-track {
       box-shadow:
         0 -1px var(--vp-code-block-divider-color),
-        0 1px var(--vp-code-tab-bg);
+        0 1px var(--vp-code-block-divider-color);
       z-index: 10;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      margin-bottom: 1px;
     }
 
     &:deep(label) {
@@ -341,6 +347,7 @@ div.toolbar {
         display: block;
         width: 100%;
         height: 2px;
+        border-radius: 2px;
         background-color: transparent;
         transition: background-color 0.25s;
       }
