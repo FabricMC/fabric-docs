@@ -469,6 +469,7 @@ div.toolbar {
         var(--vp-code-block-divider-color) 32px,
         transparent 32px
       );
+      overscroll-behavior: none;
 
       code {
         display: flex;
