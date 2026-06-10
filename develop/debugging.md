@@ -19,7 +19,7 @@ The simplest and fastest way to locate problems is logging to the console.
 
 Values can be printed there at runtime, informing the developer about the current state of the code, and making it easy to analyze changes and potential mistakes.
 
-You can create a logger using the `LoggerFactory`, it takes a name which will be shown in the log next to printed messages.
+You can create a logger using the `LoggerFactory`, which takes in a name that will be shown in the log next to printed messages:
 
 <<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#create_logger
 
