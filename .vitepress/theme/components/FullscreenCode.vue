@@ -316,9 +316,7 @@ div.toolbar {
     }
 
     &::-webkit-scrollbar-track {
-      box-shadow:
-        0 -1px var(--vp-code-block-divider-color),
-        0 1px var(--vp-code-block-divider-color);
+      box-shadow: 0 -1px var(--vp-code-block-divider-color);
       z-index: 10;
     }
 
