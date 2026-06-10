@@ -301,8 +301,9 @@ div.toolbar {
     color: var(--vp-code-tab-text-color);
     background-color: var(--vp-code-tab-bg);
     border: 1px solid var(--vp-c-divider);
-    border-bottom: none;
-    border-radius: 8px 8px 0 0;
+    margin-bottom: -1px;
+    border-bottom: 1px solid var(--vp-code-block-divider-color);
+    border-radius: 12px 12px 0 0;
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
