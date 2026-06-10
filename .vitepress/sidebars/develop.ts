@@ -483,10 +483,6 @@ export default [
         link: "/develop/dynamic-registry",
       },
       {
-        text: "develop.misc.resource_conditions",
-        link: "/develop/resource-conditions",
-      },
-      {
         text: "develop.misc.text_and_translations",
         link: "/develop/text-and-translations",
       },
