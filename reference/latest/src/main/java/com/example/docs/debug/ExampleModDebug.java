@@ -5,7 +5,6 @@ import net.fabricmc.api.ModInitializer;
 import com.example.docs.ExampleMod;
 
 public class ExampleModDebug implements ModInitializer {
-
 	@Override
 	public void onInitialize() {
 		// #region problems_debug_logging
@@ -19,5 +18,4 @@ public class ExampleModDebug implements ModInitializer {
 		ExampleMod.LOGGER.error("Critical exceptions, bugs..."); // [!code error]
 		// #endregion problems_log_levels
 	}
-
 }

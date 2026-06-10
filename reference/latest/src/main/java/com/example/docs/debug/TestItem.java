@@ -26,6 +26,7 @@ public class TestItem extends Item {
 	@Override
 	public InteractionResult interactLivingEntity(ItemStack stack, Player user, LivingEntity entity, InteractionHand hand) {
 		Level level = user.level();
+
 		// #endregion problems_logger_usage_example
 		if (level.isClientSide()) {
 			// #region problems_using_logger
@@ -33,7 +34,6 @@ public class TestItem extends Item {
 			// #endregion problems_using_logger
 		}
 		// #region problems_logger_usage_example
-
 		// Extra parameters will be interpolated into the format string
 		ExampleMod.LOGGER.info(
 				"Is Client World: {} | Health: {} / {} | The item was used with the {}",
