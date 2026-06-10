@@ -26,10 +26,17 @@ const loadCodeBlock = (originalCodeBlock: HTMLDivElement) => {
     originalCodeBlock.querySelector<HTMLButtonElement>("button.copy:not(.fullscreen)") ?? undefined;
 
   const clonedCodeBlock = originalCodeBlock.cloneNode(true) as HTMLDivElement;
+  clonedCodeBlock.style.viewTransitionName = "code-block-view-transition";
   clonedCodeBlock.querySelector<HTMLDivElement>("div.line-numbers-wrapper")?.remove();
   clonedCodeBlock.querySelectorAll<HTMLButtonElement>("button.copy").forEach((b) => b.remove());
 
-  dialog.value.querySelector<HTMLDivElement>("div.slot")?.replaceChildren(clonedCodeBlock);
+  const onViewTransition = () => {
+    dialog.value?.querySelector<HTMLDivElement>("div.slot")?.replaceChildren(clonedCodeBlock);
+  };
+
+  if (prefersReducedMotion.value === "reduce") return onViewTransition();
+
+  document.startViewTransition(onViewTransition);
 };
 
 const handleEnterFullscreen = (originalCodeBlock: HTMLDivElement) => {
@@ -418,12 +425,14 @@ div.toolbar {
 }
 
 :deep(div.slot) {
+  background-color: var(--vp-code-block-bg);
   border-radius: 12px;
   border: 1px solid var(--vp-c-divider);
   flex-grow: 1;
   overflow: hidden;
 
   div[class*="language-"] {
+    background: transparent;
     margin: 0;
     padding-left: 0;
     height: 100%;
@@ -504,6 +513,15 @@ div.toolbar {
 </style>
 
 <style>
+::view-transition-group(code-block-view-transition) {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+::view-transition-group(root) {
+  animation: none;
+}
+
 div[class*="language-"] {
   button.copy:not(.fullscreen) {
     right: 64px;
