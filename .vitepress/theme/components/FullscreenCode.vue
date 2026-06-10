@@ -201,14 +201,12 @@ onUnmounted(() => dialog.value?.close());
         <Icon icon="lucide:minimize-2" />
       </button>
     </div>
-    <div class="slot vp-doc" :class="{ wrapped: isWrapped }" />
+    <div class="slot vp-doc" :class="{ wrapped: isWrapped, tabbed: originalTabs.length }" />
   </dialog>
 </template>
 
 <style scoped>
 dialog#fullscreen {
-  height: 100vh;
-  width: 100vw;
   max-height: none;
   max-width: none;
   border: none;
@@ -217,6 +215,12 @@ dialog#fullscreen {
   animation:
     fade-in 0.3s ease-in,
     scale-in 0.3s ease;
+
+  &,
+  &::backdrop {
+    height: 100vh;
+    width: 100vw;
+  }
 
   &::backdrop {
     background-color: var(--vp-c-bg);
@@ -351,13 +355,6 @@ div.toolbar {
           background-color: var(--vp-code-tab-active-bar-color);
         }
       }
-    }
-  }
-
-  &:has(div.tabs) + :deep(div.slot) {
-    &,
-    > div[class*="language-"] {
-      border-top-left-radius: 0;
     }
   }
 
@@ -503,6 +500,10 @@ div.toolbar {
         content: "\a0";
       }
     }
+  }
+
+  &.tabbed {
+    border-top-left-radius: 0;
   }
 
   &.wrapped div[class*="language-"] pre {
