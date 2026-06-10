@@ -17,7 +17,7 @@ authors:
 
 Ця константа буде використовуватися в методі `Item.Properties#maxDamage(int damageValue)` під час створення наших предметів обладунків, вона також потрібна як параметр у конструкторі `ArmorMaterial`, коли ми створимо наш об’єкт `ArmorMaterial` пізніше.
 
-@[code transcludeWith=:::base_durability](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#base_durability
 
 Якщо вам важко визначити збалансовану базову міцність, ви можете звернутися до екземплярів матеріалу обладунків усталеного кольору, знайденого в інтерфейсі `ArmorMaterials`.
 
@@ -25,7 +25,7 @@ authors:
 
 Попри те, що нам не потрібно реєструвати наш `ArmorMaterial` в жодних реєстрах, загалом добре зберігати будь-які ключі реєстру як константи, оскільки гра використовуватиме це для пошуку відповідних текстур для наших обладунків.
 
-@[code transcludeWith=:::material_key](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#material_key
 
 Пізніше ми передамо це конструктору `ArmorMaterial`.
 
@@ -33,7 +33,7 @@ authors:
 
 Щоб створити наш матеріал, нам потрібно створити новий екземпляр запису `ArmorMaterial`, тут використовуватимуться базова міцність і константи ключа реєстру матеріалів.
 
-@[code transcludeWith=:::guidite_armor_material](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#guidite_armor_material
 
 Конструктор `ArmorMaterial` приймає такі параметри в такому конкретному порядку:
 
@@ -50,7 +50,7 @@ authors:
 
 Ми визначаємо посилання на теґ компонента лагодження таким чином:
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
 Якщо вам важко визначити значення для будь-якого з параметрів, ви можете проконсультуватися з екземплярами `ArmorMaterial`, які можна знайти в інтерфейсі `ArmorMaterials`.
 
@@ -64,7 +64,7 @@ authors:
 
 Це досягається шляхом передачі створеної нами раніше константи `BASE_DURABILITY` в метод `maxDamage` у класі `Item.Properties`.
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items
 
 Вам також потрібно буде [додати предмети до вкладок творчості](./custom-creative-tabs), якщо ви хочете, щоб вони були доступні з інвентарю.
 
@@ -88,7 +88,7 @@ authors:
 
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json
 
 Як бачите, в грі предмети обладунків повинні мати відповідні моделі:
 
@@ -121,7 +121,7 @@ authors:
 
 Оскільки ми плануємо додати лише «гуманоїдні» (шолом, нагрудник, наголінники, чоботи тощо) обладунків, наше визначення моделі обладнання виглядатиме так:
 
-@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json
 
 З наявністю текстур і визначення моделі спорядження ви зможете бачити свої обладунки на сутностях, які її носять:
 

@@ -23,7 +23,7 @@ Dieser Artikel bezieht sich auch auf die Mini-Golem Entität aus [deine erste En
 
 Spawn-Eier sind spezielle Items, die bei der Verwendung das entsprechende Mob erschaffen können. Du kannst eines mit der Methode `register` aus deiner [Item Klasse](./first-item#preparing-your-items-class) registrieren, indem du `SpawnEggItem::new` an diese übergibst.
 
-@[code transcludeWith=:::custom_entity_spawn_egg](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_entity_spawn_egg
 
 Bevor es fertig ist, müssen noch ein paar Dinge erledigt werden: Du musst eine Textur, ein Item-Modell, ein Client Item und einen Namen hinzufügen und das Spawn-Ei zum entsprechenden Kreativtab hinzufügen.
 
@@ -37,13 +37,13 @@ Erstelle die 16x16-Item-Textur im Verzeichnis `assets/example-mod/textures/item`
 
 Erstelle das 16x16-Modell im Verzeichnis `assets/example-mod/models/item` mit dem gleichen Dateinamen wie die Id des Items: `mini_golem_spawn_egg.png`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/mini_golem_spawn_egg.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/mini_golem_spawn_egg.json
 
 ## Ein Client Item erstellen {#creating-the-client-item}
 
 Erstelle das Client Item JSON in`assets/example-mod/items` mit dem gleichen Dateinamen wie die ID des Itemmodells: `mini_golem_spawn_egg.png`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/mini_golem_spawn_egg.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/mini_golem_spawn_egg.json
 
 ![Spawn-Ei Item mit Client Item](/assets/develop/entity/mini_golem_spawned.png)
 
@@ -63,7 +63,7 @@ Erstelle oder bearbeite die JSON-Datei unter: `src/main/resources/assets/example
 
 Das Spawn-Ei wird zum Spawn-Ei `CreativeModeTab` in der Methode `initialize()` der [Item-Klasse](./first-item#preparing-your-items-class) hinzugefügt.
 
-@[code transcludeWith=:::spawn_egg_creative_tab](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#spawn_egg_creative_tab
 
 ![Spawn-Ei mit Name und Kreativtab](/assets/develop/entity/spawn_egg_in_creative.png)
 

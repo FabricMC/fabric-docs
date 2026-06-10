@@ -11,7 +11,7 @@ authors:
 
 你可以通过实例化一个`ToolMaterial`对象来创建一个工具材料，并将其储存在一个之后可以用该材料创建工具物品的字段内。
 
-@[code transcludeWith=:::guidite_tool_material](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_tool_material
 
 `ToolMaterial`接口的构造函数接受以下参数（按顺序排列）：
 
@@ -26,7 +26,7 @@ authors:
 
 在本例中，我们将使用与修复盔甲相同的修复物品。 我们定义标签引用如下：
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
 如果你不确定怎么给上述参数设置一个平衡的数值，你可以考虑参考原版材料的数值，比如`ToolMaterial.STONE`或者`ToolMaterial.DIAMOND`。
 
@@ -34,19 +34,19 @@ authors:
 
 使用与 [创建你的第一个物品](./first-item) 指南中相同的实用功能，你可以创建工具物品：
 
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
 两个浮点数值 (`1f, 1f`) 分别表示工具的攻击伤害以及攻击速度。
 
 如果你想通过创造模式物品栏访问，记得其加入一个创造标签页！
 
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_guidite_sword_to_create_tab
 
 你还得添加纹理、物品翻译和物品模型。 然而，对于物品模型，你应该使用 `item/handheld` 模型作为父模型，而非通常的 `item/generaterd`。
 
 在此示例中，我将对“Guidite Sword”物品使用以下模型和纹理：
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">纹理</DownloadEntry>
 

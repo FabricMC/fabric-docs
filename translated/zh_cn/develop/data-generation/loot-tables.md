@@ -23,7 +23,7 @@ authors-nogithub:
 
 方块、箱子和实体需要有不同的 provider（类）。 请记住在 `onInitializeDataGenerator` 方法中的 `DataGeneratorEntrypoint` 中将其全部添加到包中。
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_loot_tables_register
 
 ## 战利品表详解 {#loot-tables-explained}
 
@@ -35,7 +35,7 @@ authors-nogithub:
 
 为了让方块掉落物品（包括本身），我们需要制作一个战利品表。 创建一个继承 `FabricBlockLootTableProvider` 的类：
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_provider
 
 确保将此提供程序添加到包中！
 
@@ -43,18 +43,24 @@ authors-nogithub:
 
 我们在 `generate` 方法中添加一些掉落物：
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:block-drops](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_drops
 
 ## 箱子 {#chests}
 
 箱子的战利品比方块的战利品稍微复杂一些。 创建一个继承自 `SimpleFabricLootTableProvider` 的类，类似于下面的示例**并将其添加到你的包中**。
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_provider
 
 我们需要一个 `ResourceKey<LootTable>` 作为战利品表。 我们把它放入一个名为 `ModLootTables` 的新类中。 如果你使用拆分源，请确保它位于你的 `main` 源集中。
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/latest/src/main/java/com/example/docs/ModLootTables.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ModLootTables.java#datagen_loot_tables_mod_loot_tables
 
 然后，我们可以在提供程序的 `generate` 方法中生成一个战利品表。
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:chest-loot](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_loot
+
+## 资源条件 {#resource-conditions}
+
+要为数据生成的战利品表应用[资源条件](../resource-conditions)，调用 `withConditions` 并提供你要应用的任何资源条件，然后调用来自战利品表提供器的方法，例如 `dropSelf`。 这会生成一个应用了资源条件的战利品表：
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_conditions

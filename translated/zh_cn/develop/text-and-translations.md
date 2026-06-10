@@ -86,7 +86,7 @@ Component translatable = Component.translatable("example-mod.text.whack.item", v
 
 前面提到过，可以使用 text codec 将文本序列化为 JSON。 更多关于 codec 的信息，请看 [Codec](./codecs) 页面。
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#component_to_string
 
 这会产生可用于数据包、命令和其他接受 JSON 格式文本而非字面或可翻译文本的地方的 JSON。
 
@@ -94,7 +94,7 @@ Component translatable = Component.translatable("example-mod.text.whack.item", v
 
 要将 JSON 文本对象反序列化为 `Component` 类，还是使用 codec。
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#string_to_component
 
 ## 格式化文本 {#formatting-text}
 

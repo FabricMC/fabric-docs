@@ -26,11 +26,11 @@ resources:
 
 我们会为该实体创建 `MiniGolemEntity` 类，并首先为它设置属性。 [属性](attributes)决定了实体的多项内容，包括最大生命值、移动速度和生物引诱范围。
 
-@[code transcludeWith=:::registerclass](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#registerclass
 
 若要注册你的实体，建议创建一个单独的 `ModEntityTypes` 类，用于注册所有实体类型、设置它们的尺寸，并注册它们的属性。
 
-@[code transcludeWith=:::types](@/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
 
 ## 添加目标 {#adding-goals}
 
@@ -38,7 +38,7 @@ resources:
 
 若要为实体添加目标，需要在实体类中创建一个 `registerGoals` 方法，用于定义该实体的目标。
 
-@[code transcludeWith=:::goals](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#goals
 
 ::: info
 
@@ -61,7 +61,7 @@ resources:
 
 渲染包含多个步骤，并会涉及各自对应的类。我们先从 `EntityRenderState` 类开始。
 
-@[code transcludeWith=:::entitystate](@/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java#entitystate
 
 存储在渲染状态中的数据会用于决定实体的视觉表现，包括移动、空闲行为等动画状态。
 
@@ -77,11 +77,11 @@ Blockbench 支持多种[映射](../migrating-mappings/#mappings)（例如 Mojang
 
 :::
 
-@[code transcludeWith=:::model1](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model1
 
 `MiniGolemEntityModel` 类定义了迷你傀儡实体的视觉模型。 它继承自 `EntityModel`，并指定实体各个身体部件（身体、头部、左腿和右腿）的名称。
 
-@[code transcludeWith=:::model_texture_data](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model_texture_data
 
 该方法通过将迷你傀儡的身体、头部和腿创建为长方体，设置它们的位置和纹理映射，并返回用于渲染的 `LayerDefinition`，从而定义迷你傀儡的 3D 模型。
 
@@ -95,11 +95,11 @@ Blockbench 支持多种[映射](../migrating-mappings/#mappings)（例如 Mojang
 
 现在，我们需要在客户端包中创建一个 `ModEntityModelLayers` 类。 这个实体只有一个纹理层，但其他实体可能会使用多个纹理层；可以想想 `Player` 这类实体的第二皮肤层，或 `Spider` 的眼睛。
 
-@[code transcludeWith=:::model_layer](@/reference/latest/src/client/java/com/example/docs/entity/model/ModEntityModelLayers.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/ModEntityModelLayers.java#model_layer
 
 随后，必须在模组的客户端初始化器中初始化这个类。
 
-@[code transcludeWith=::register_client](@/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java#register_client
 
 ### 设置纹理 {#setting-up-texture}
 
@@ -119,19 +119,19 @@ Blockbench 支持多种[映射](../migrating-mappings/#mappings)（例如 Mojang
 
 实体的渲染器使你能够在游戏中看到该实体。 我们会创建一个新的 `MiniGolemEntityRenderer` 类，用于告诉 Minecraft 该实体应使用哪种纹理、模型和实体渲染状态。
 
-@[code transcludeWith=:::renderer](@/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java#renderer
 
 这里也会设置阴影半径。对于该实体，阴影半径为 `0.375f`。
 
 随后，必须在模组的客户端初始化器中注册这个渲染器。
 
-@[code transcludeWith=::register_renderer](@/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java#register_renderer
 
 ### 添加行走动画 {#walking-animations}
 
 可以将以下代码添加到 `MiniGolemEntityModel` 类中，为实体添加行走动画。
 
-@[code transcludeWith=:::model_animation](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model_animation
 
 首先，将偏航角和俯仰角应用到头部模型部件上。
 
@@ -163,7 +163,7 @@ Blockbench 支持多种[映射](../migrating-mappings/#mappings)（例如 Mojang
 
 在本例中，我们希望实体每隔一段时间跳舞一次，因此需要创建一个会在客户端之间同步的跳舞状态，以便之后为其播放动画。 不过，跳舞冷却时间不需要与客户端同步，因为动画由服务器触发。
 
-@[code transcludeWith=:::datatracker](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#datatracker
 
 如你所见，我们添加了一个 tick 方法来控制跳舞状态。
 
@@ -171,7 +171,7 @@ Blockbench 支持多种[映射](../migrating-mappings/#mappings)（例如 Mojang
 
 对于需要在游戏关闭后仍然保存的持久数据，我们会在 `MiniGolemEntity` 中重写 `addAdditionalSaveData` 和 `readAdditionalSaveData` 方法。 我们可以用它们来存储跳舞动画剩余的时间。
 
-@[code transcludeWith=:::savedata](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#savedata
 
 现在，每当实体被加载时，它都会恢复到先前留下的状态。
 
@@ -179,13 +179,13 @@ Blockbench 支持多种[映射](../migrating-mappings/#mappings)（例如 Mojang
 
 为实体添加动画的第一步，是在实体类中添加动画状态。 我们会创建一个动画状态，用于让实体跳舞。
 
-@[code transcludeWith=:::dancing_animation](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#dancing_animation
 
 我们重写了 `onSyncedDataUpdated` 方法。 每当同步数据在服务器或客户端更新时，该方法都会被调用。 这里的 if 语句会检查被更新的同步数据是否为跳舞同步数据。
 
 现在，我们继续处理动画本身。 我们会创建 `MiniGolemAnimations` 类，并添加一个 `AnimationDefinition`，用于定义动画应如何应用到实体上。
 
-@[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java#dancing_animation
 
 这里包含了不少内容，请注意以下关键点：
 
@@ -200,7 +200,7 @@ Blockbench 支持多种[映射](../migrating-mappings/#mappings)（例如 Mojang
 
 最后，让我们将动画接入模型：
 
-@[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#dancing_animation
 
 当动画正在播放时，我们会应用该动画；否则，则使用原来的腿部动画代码。
 

@@ -41,25 +41,25 @@ PlayerBlockBreakEvents.AFTER.register((level, player, pos, state, blockEntity) -
 
 Цей клас міститиме поле для відстеження кількості зламаних блоків, а також метод отримання та метод збільшення цього числа.
 
-@[code lang=java transcludeWith=:::basic_structure](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#basic_structure
 
 Для серіалізації та десеріалізації цих даних нам потрібно визначити кодек. Ми можемо створити кодек, використовуючи різні примітивні кодеки, надані Minecraft.
 
 Для ініціалізації класу вам знадобиться конструктор з аргументом `int`.
 
-@[code lang=java transcludeWith=:::ctor](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#ctor
 
 Тоді ми можемо створити кодек.
 
-@[code lang=java transcludeWith=:::codec](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#codec
 
 Ми повинні викликати `setDirty()`, коли дані фактично змінюються, щоб Minecraft знав, що їх потрібно зберегти на носій.
 
-@[code lang=java transcludeWith=:::set_dirty](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#set_dirty
 
 Нарешті, ми повинні мати `SavedDataType`, який описує наші збережені дані. Перший аргумент відповідає імені файлу, який буде створено в каталозі `data` світу.
 
-@[code lang=java transcludeWith=:::type](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#type
 
 ### Доступ до збережених даних {#accessing-saved-data}
 
@@ -67,7 +67,7 @@ PlayerBlockBreakEvents.AFTER.register((level, player, pos, state, blockEntity) -
 
 Ми розмістимо цю логіку в методі утиліти.
 
-@[code lang=java transcludeWith=:::method](@/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/SavedBlockData.java#method
 
 ### Використання збережених даних {#using-saved-data}
 
@@ -75,7 +75,7 @@ PlayerBlockBreakEvents.AFTER.register((level, player, pos, state, blockEntity) -
 
 Ми можемо повторно використати перший сценарій і замість того, щоб збільшувати поле, ми можемо викликати наш `incrementBlocksBroken` з нашого `SavedBlockData`.
 
-@[code lang=java transcludeWith=:::event_registration](@/reference/latest/src/main/java/com/example/docs/saveddata/ExampleModSavedData.java)
+<<< @/reference/latest/src/main/java/com/example/docs/saveddata/ExampleModSavedData.java#event_registration
 
 Це повинно збільшити значення та зберегти його на носію.
 

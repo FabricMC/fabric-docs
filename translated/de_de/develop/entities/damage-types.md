@@ -22,7 +22,7 @@ resources/data/example-mod/damage_type/tater.json
 
 Sie hat folgende Struktur:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json
 
 Diese benutzerdefinierte Schadensart verursacht jedes Mal, wenn ein Spieler Schaden erleidet, einen Anstieg von 0,1 an [Erschöpfung](https://de.minecraft.wiki/w/Hunger#Ersch%C3%B6pfung), wenn der Schaden von einer lebenden Nicht-Spieler-Quelle (z.B. Weiterhin skaliert sich die Höhe des verursachten Schadens mit dem Schwierigkeitsgrad der Welt.
 
@@ -38,7 +38,7 @@ Wenn wir über den Code auf unsere benutzerdefinierte Schadensart zugreifen müs
 
 Der `ResourceKey` kann wie folgt ermittelt werden:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java#damage_type
 
 ### Schadensarten verwenden {#using-damage-types}
 
@@ -48,15 +48,15 @@ Du kannst `stepOn` überschreiben, um diesen Schaden zu zuzufügen.
 
 Wir beginnen mit der Erstellung einer `DamageSource` unserer benutzerdefinierten Schadensart.
 
-@[code lang=java transclude={22-26}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java#create_damage_source
 
-Dann rufen wir `entity.damage()` mit unserer `DamageSource` und einem Betrag auf.
+Dann rufen wir `entity.hurtServer()` mit dem aktuellen Level, unserer `DamageSource` auf und einem Betrag auf.
 
-@[code lang=java transclude={27-27}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java#hurt_entity
 
 Die vollständige Implementierung des Blocks:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java#complete_block
 
 Wenn nun eine lebende Entität auf unseren benutzerdefinierten Block tritt, erleidet sie mit unserer benutzerdefinierten Schadensart 5 Schaden (2,5 Herzen).
 
@@ -96,6 +96,6 @@ data/minecraft/tags/damage_type/bypasses_armor.json
 
 Mit folgendem Inhalt:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
+<<< @/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json
 
 Stelle sicher, dass dein Tag das bestehende Tag nicht ersetzt, indem du den Schlüssel `replace` auf `false` setzt.

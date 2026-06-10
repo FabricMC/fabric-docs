@@ -29,15 +29,15 @@ authors:
 
 По-перше, нам потрібно створити свого постачальника. Створіть клас, який розширює `FabricDynamicRegistryProvider` усередині пакета `main`, і заповніть базові методи:
 
-@[code lang=java transcludeWith=:::datagen-world:provider](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#datagen_world_provider
 
 У методі `configure` ми викличемо `addAll`, щоб забезпечити створення всіх файлів для наших функцій.
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#worldgen-add-entries
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#worldgen_add_entries
 
 Потім додайте цього постачальника до свого класу `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add-worldgen-provider
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add_worldgen_provider
 
 Далі створіть клас для налаштованих функцій і клас для розміщених функцій. Їм не потрібно нічого розширювати.
 
@@ -45,7 +45,7 @@ authors:
 
 У вашому класі `DataGeneratorEntrypoint` додайте наведені нижче рядки до методу `buildRegistry`, замінивши назву методу тим, що ви вибрали:
 
-@[code lang=java transcludeWith=:::datagen-world:registries](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_world_registries
 
 Якщо у вас ще немає методу `buildRegistry`, створіть його та додайте анотацію `@Override`.
 
@@ -55,11 +55,11 @@ authors:
 
 Перш ніж ми зможемо щось зробити, створімо клас налаштованих функцій усередині пакета `main` і оголосимо метод `configure`:
 
-@[code lang=java transcludeWith=:::datagen-world:ConfigureFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configure_features_class
 
 Тепер, додаймо спеціальну налаштовану функцію для жили діамантової руди. Спочатку зареєструйте ключ для `ConfiguredFeature` у вашому налаштованому класі функцій:
 
-@[code lang=java transcludeWith=:::datagen-world:configured-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configured_key
 
 ::: tip
 
@@ -71,25 +71,25 @@ authors:
 
 Далі ми створимо `RuleTest` усередині методу `configure`, який керує тим, які блоки ваша функція може замінити. Наприклад, цей `RuleTest` дозволяє замінювати кожен блок на теґ `DEEPSLATE_ORE_REPLACEABLES`:
 
-@[code lang=java transcludeWith=:::datagen-world:ruletest](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ruletest
 
 Далі, також у методі `configure`, нам потрібно створити `OreConfiguration`, який повідомляє грі, чим замінити блоки.
 
-@[code lang=java transcludeWith=:::datagen-world:ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ore_feature_config
 
 Ви можете мати кілька випадків у списку для різних варіантів. Наприклад, установімо інший варіант для каменю та глиболанцю:
 
-@[code lang=java transcludeWith=:::datagen-world:multi-ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_multi_ore_feature_config
 
 Нарешті, нам потрібно зареєструвати нашу налаштовану функцію в нашій грі в методі `configure`!
 
-@[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_conf_feature_register
 
 ### Дерева {#trees}
 
 Щоб створити спеціальне дерево, вам потрібно спочатку створити `TreeConfiguration` усередині методу `configure`:
 
-@[code lang=java transcludeWith=:::datagen-world:tree-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_feature_config
 
 Ось що робить кожен аргумент:
 
@@ -109,7 +109,7 @@ authors:
 
 Далі нам потрібно зареєструвати наше дерево, додавши наступний рядок до методу `configure` `ExampleModWorldConfiguredFeatures`.
 
-@[code lang=java transcludeWith=:::datagen-world:tree-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_register
 
 ## Функції розміщення {#placement-features}
 
@@ -117,21 +117,21 @@ authors:
 
 Створімо клас розміщених функцій всередині пакета `main` і надамо йому метод `configure`, як раніше:
 
-@[code lang=java transcludeWith=:::datagen-world:PlacedFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_placed_features_class
 
 У методі `configure` вашого розміщеного класу функцій створіть змінну, подібну до наведеної нижче:
 
-@[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_conf_feature_register
 
 У вашому класі розміщення функції визначте ключ для розміщеної функції:
 
-@[code lang=java transcludeWith=:::datagen-world:placed-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_placed_key
 
 ### Модифікатори розміщення {#placement-modifiers}
 
 Далі нам потрібно визначити наші модифікатори розміщення в методі `configure`, які є атрибутами, які ви встановлюєте під час створення функції. Це може бути що завгодно: від частоти появи до початкового рівня `y`. Ви можете мати стільки модифікаторів, скільки забажаєте.
 
-@[code lang=java transcludeWith=:::datagen-world:placement-modifier](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_placement_modifiers
 
 Функції кожного модифікатора в списку такі:
 
@@ -156,13 +156,13 @@ authors:
 
 Тепер, коли у нас є модифікатори, ми можемо зареєструвати нашу розміщену функцію в методі `configure`:
 
-@[code lang=java transcludeWith=:::datagen-world:register-placed-feature](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_register_placed_feature
 
 ## Модифікації біому {#biome-modifications}
 
 Нарешті, нам потрібно додати нашу розміщену функцію до `BiomeModifications` під час ініціалізації мода. Ми можемо зробити це, додавши наступне до нашого [ініціалізатора мода](../getting-started/project-structure#entrypoints):
 
-@[code lang=java transcludeWith=:::datagen-world:biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#datagen_world_biome_modifications
 
 ::: tip
 
@@ -174,7 +174,7 @@ authors:
 
 Змінивши аргумент `BiomeSelectors`, ми можемо створювати нашу функцію лише в певному типі біому:
 
-@[code lang=java transcludeWith=:::datagen-world:selective-biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#datagen_world_selective_biome_modifications
 
 Це з’явиться лише в біомах, позначених теґом біому `minecraft:is_forest`.
 
@@ -184,13 +184,13 @@ authors:
 
 :::details Згенерований файл для налаштованої функції
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/worldgen/configured_feature/diamond_block_vein.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/worldgen/configured_feature/diamond_block_vein.json
 
 :::
 
 :::details Згенерований файл для розміщеної функції
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/worldgen/placed_feature/diamond_block_ore_placed.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/worldgen/placed_feature/diamond_block_ore_placed.json
 
 :::
 

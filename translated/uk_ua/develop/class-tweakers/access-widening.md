@@ -87,7 +87,7 @@ authors:
 
 Приклад:
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening_examples_classes
 
 == Методи
 
@@ -99,7 +99,7 @@ authors:
 
 Приклад:
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening_examples_methods
 
 == Поля
 
@@ -111,7 +111,7 @@ authors:
 
 Приклад:
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening_examples_fields
 
 :::
 

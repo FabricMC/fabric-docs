@@ -17,31 +17,31 @@ authors:
 
 Перед реалізацією генератора створіть пакет `enchantment` в основному початковому наборі та додайте до нього клас `ModEnchantments`. Потім додайте метод `key` до цього нового класу.
 
-@[code transcludeWith=:::key-helper](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java#key_helper
 
 Використовуйте цей метод, щоб створити `ResourceKey` для свого зачарування.
 
-@[code transcludeWith=:::register-enchantment](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java#register_enchantment
 
 Тепер ми готові додати генератор. У пакеті генерації даних створіть клас, який розширює `FabricDynamicRegistryProvider`. До цього щойно створеного класу додайте конструктор, який відповідає `super`, і реалізуйте методи `configure` і `getName`.
 
-@[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#provider
 
 Потім додайте допоміжний метод `register` до новоствореного класу.
 
-@[code transcludeWith=:::register-helper](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#register_helper
 
 Тепер додайте метод `bootstrap`. Тут ми будемо реєструвати зачарування, які хочемо додати до гри.
 
-@[code transcludeWith=:::bootstrap](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#bootstrap
 
 У вашій `DataGeneratorEntrypoint` перевизначте метод `buildRegistry` і зареєструйте наш початковий метод.
 
-@[code transcludeWith=:::datagen-enchantments:bootstrap](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_enchantments_bootstrap
 
 Нарешті переконайтеся, що ваш новий генератор зареєстровано в методі `onInitializeDataGenerator`.
 
-@[code transcludeWith=:::datagen-enchantments:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_enchantments_register
 
 ## Створення зачарування {#creating-the-enchantment}
 
@@ -51,7 +51,7 @@ authors:
 
 У цьому прикладі ми будемо використовувати ефект зачарування, створений у [власних ефектах зачарування](../items/custom-enchantment-effects), але ви також можете використовувати [стандартні ефекти зачарування](https://minecraft.wiki/w/Enchantment_definition#Effect_components).
 
-@[code transcludeWith=:::register-enchantment](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#register_enchantment
 
 Тепер просто запустіть генерацію даних, і ваше нове зачарування стане доступним у грі!
 
@@ -65,7 +65,7 @@ authors:
 
 :::
 
-@[code transcludeWith=:::effect-conditions](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#effect_conditions
 
 ## Кілька ефектів {#multiple-effects}
 
@@ -73,7 +73,7 @@ authors:
 
 Щоб натомість поділитися визначеними умовами та цілями між кількома ефектами, можна використати `AllOf`, щоб об’єднати їх в один ефект.
 
-@[code transcludeWith=:::multiple-effects](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#multiple_effects
 
 Зауважте, що спосіб використання залежить від типу ефекту, який додається. Наприклад, `EnchantmentValueEffect` вимагає натомість `AnyOf.valueEffects`. Різні типи ефектів все ще потребують додаткових викликів `withEffect`.
 
@@ -83,11 +83,11 @@ authors:
 
 Для цього ми можемо створити постачальник теґів. Створіть клас, який розширює `FabricTagProvider<Enchantment>` в пакеті `datagen`. Потім запровадьте конструктор із `Registries.ENCHANTMENT` як параметр `registryKey` до `super` і створіть метод `addTags`.
 
-@[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java#provider
 
 Тепер ми можемо додати наше зачарування до `EnchantmentTags.NON_TREASURE`, викликавши конструктор із методу `addTags`.
 
-@[code transcludeWith=:::non-treasure-tag](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java#non_treasure_tag
 
 ## Прокляття {#curses}
 
@@ -95,4 +95,4 @@ authors:
 
 У методі `addTags` просто додайте своє зачарування до теґу `CURSE`, щоб позначити його як прокляття.
 
-@[code transcludeWith=:::curse-tag](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java#curse_tag

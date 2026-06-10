@@ -7,6 +7,7 @@ authors:
   - jamieswhiteshirt
   - liach
   - Llamalad7
+  - Maganoos
   - SolidBlock-cn
 resources:
   https://maven.fabricmc.net/docs/fabric-loader-0.19.2/: Fabric Loader 0.19.2 Javadocs
@@ -14,7 +15,7 @@ resources:
   https://github.com/FabricMC/fabric-loader: Fabric Loader auf GitHub
 ---
 
-Fabric Loom ist der leichtgewichtige Mod-Loader von Fabric. Er bietet die notwendigen Werkzeuge, um jede beliebige Version von Minecraft zu erstellen. Andererseits gehören spielspezifische und versionsspezifische Hooks in die Fabric-API.
+Fabric Loom ist der leichtgewichtige Mod-Loader von Fabric. Es bietet die notwendigen Werkzeuge, um jede Java-Anwendung zu modden. Andererseits gehören spielspezifische und versionsspezifische Hooks in die Fabric-API.
 
 ::: info
 

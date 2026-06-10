@@ -13,11 +13,11 @@ Minecraft 有大量的声音供您选择。 查看 `SoundEvents` 类以查看 Mo
 
 在本例中，自定义交互式物品的 `interactLivingEntity()` 和 `useOn()` 方法用于播放“放置铜块”的声音和掠夺者的声音。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java#interact
 
 `playerSound()` 方法与 `LivingEntity` 对象一起使用。 只需要指定 SoundEvent、音量（volume）和音高（pitch）。 你还可以使用 level 实例中的 `playSound()` 方法以获得更高级别的控制。
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java#use_on
 
 ### 声音事件与声音组（SoundCategory）{#soundevent-and-soundcategory}
 

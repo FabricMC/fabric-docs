@@ -22,7 +22,7 @@ resources/data/example-mod/damage_type/tater.json
 
 Він має таку структуру:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json
 
 Цей спеціальний тип шкоди збільшує 0,1 [виснаження від голоду](https://uk.minecraft.wiki/w/%D0%93%D0%BE%D0%BB%D0%BE%D0%B4#%D0%97%D0%B1%D1%96%D0%BB%D1%8C%D1%88%D0%B5%D0%BD%D0%BD%D1%8F_%D1%80%D1%96%D0%B2%D0%BD%D1%8F_%C2%AB%D0%B2%D0%B8%D1%81%D0%BD%D0%B0%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F%C2%BB) кожного разу, коли гравець отримує шкоду від живого джерела, яке не гравць (як-от, блок). Крім того, сума завданої шкоди буде збільшуватися зі складністю у світі
 
@@ -38,7 +38,7 @@ resources/data/example-mod/damage_type/tater.json
 
 `ResourceKey` можна отримати таким чином:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java#damage_type
 
 ### Використання типів шкоди {#using-damage-types}
 
@@ -48,15 +48,15 @@ resources/data/example-mod/damage_type/tater.json
 
 Ми починаємо зі створення `DamageSource` нашого спеціального типу шкоди.
 
-@[code lang=java transclude={22-26}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java#create_damage_source
 
-Потім ми викликаємо `entity.damage()` з нашим `DamageSource` і сумою.
+Потім ми викликаємо `entity.hurtServer()` із поточним рівнем, нашим `DamageSource` і кількістю.
 
-@[code lang=java transclude={27-27}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java#hurt_entity
 
 Повна реалізація блока:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java#complete_block
 
 Тепер щоразу, коли жива істота наступає на наш спеціальний блок, вона отримує 5 шкоди (2,5 серця), нашим типом шкоди.
 
@@ -96,6 +96,6 @@ data/minecraft/tags/damage_type/bypasses_armor.json
 
 З таким змістом:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
+<<< @/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json
 
 Переконайтеся, що ваш теґ не замінює наявний теґ, встановивши для ключа `replace` значення `false`.

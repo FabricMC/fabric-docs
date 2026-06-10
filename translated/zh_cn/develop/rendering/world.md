@@ -24,7 +24,7 @@ authors:
 
 正如[渲染概念](./basic-concepts)中所提到的，Minecraft 的最新更新致力于将渲染分为两个阶段：“提取”和“绘制”。
 
-渲染所需的所有数据都在“提取”阶段收集。 例如，这包括写入缓冲构建器。 通过 `buffer.addVertex` 将顶点写入缓冲构建器是“提取”阶段的一部分。 请注意，许多方法即使以 `draw` 或 `render` 为前缀，也应该在“提取”阶段调用。 你应该在此阶段添加所有要渲染的元素。
+渲染所需的所有数据都在“提取”阶段收集。 这包括访问世界数据等。 请注意，许多方法即使以 `draw` 或 `render` 为前缀，也应该在“提取”阶段调用。 你应该在此阶段添加所有要渲染的元素。
 
 “提取”阶段完成后，“绘制”阶段开始，并构建缓冲构建器。 在这个阶段，缓冲构建器被绘制到屏幕上。 这种“提取”和“绘制”分离的最终目标是允许并行绘制上一帧和提取下一帧，从而提高性能。
 
@@ -38,41 +38,41 @@ authors:
 
 我们在一个类中定义自定义渲染管线：
 
-@[code lang=java transcludeWith=:::custom-pipelines:define-pipeline](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_define_pipeline
 
 ### 提取阶段 {#extraction-phase}
 
 我们首先实现“提取”阶段。 我们可以在“提取”阶段调用这个方法来添加要渲染的路径点。
 
-@[code lang=java transcludeWith=:::custom-pipelines:extraction-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_extraction_phase
 
-请注意，`BufferAllocator` 构造函数中使用的大小取决于你使用的渲染管线。 在我们的例子中，它是 `RenderType.SMALL_BUFFER_SIZE`。
-
-如果要渲染多个路径点，则多次调用此方法。 确保在“提取”阶段（即“绘制”阶段开始之前，缓冲区构建器在此时构建）执行此操作。
+如果要渲染多个路径点，请将 `waypointState` 更改为列表并添加多个路径点渲染状态。 确保在“提取”阶段（即“绘制”阶段开始之前，缓冲区构建器在此时构建）执行此操作。
 
 ### 渲染状态 {#render-states}
 
-请注意，在上面的代码中，我们将 `BufferBuilder` 保存在一个字段中。 这是因为我们在“绘制”阶段需要它。 在这种情况下，`BufferBuilder` 就是我们的“渲染状态”或“提取的数据”。 如果你在“绘制”阶段需要额外的数据，则应该创建一个自定义渲染状态类来保存 `BufferedBuilder` 以及你需要的其他渲染数据。
+请注意，在上面的代码中，我们将 `WaypointRenderState` 保存在一个字段中。 这是因为我们在“绘制”阶段需要它。 在这种情况下，`WaypointRenderState` 就是我们的“渲染状态”或“提取的数据”。 如果在“绘制”阶段需要额外数据（即来自世界的数据），则应将其添加到自定义渲染状态类中。
 
 ### 绘制阶段 {#drawing-phase}
 
-现在我们将实现“绘制”阶段。 在“提取”阶段，所有需要渲染的路径点都添加到 `BufferBuilder` 后，应该调用这个阶段。
+现在我们将实现“绘制”阶段。 在“提取”阶段，所有需要渲染的路径点都添加到 `waypointState` 后，应该调用这个阶段。
 
-@[code lang=java transcludeWith=:::custom-pipelines:drawing-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_drawing_phase
+
+请注意，`ByteBufferBuilder` 构造函数中使用的大小取决于你使用的渲染管线。 在我们的例子中，它是 `RenderType.SMALL_BUFFER_SIZE`。
 
 ### 清理 {#cleaning-up}
 
 最后，我们需要在游戏渲染器关闭时清理资源。 `GameRenderer#close` 应该调用这个方法，为此，你目前需要将 mixin 注入到 `GameRenderer#close` 中。
 
-@[code lang=java transcludeWith=:::custom-pipelines:clean-up](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_clean_up
 
-@[code lang=java](@/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java)
+<<< @/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java
 
 ### 最终代码 {#final-code}
 
 结合以上所有步骤，我们得到了一个简单的类，渲染一个穿过墙壁的路径点，位于 `(0, 100, 0)`。
 
-@[code lang=java](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java
 
 别忘了 `GameRendererMixin`！ 结果如下：
 

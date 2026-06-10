@@ -17,11 +17,11 @@ resources:
 
 Чтобы Minecraft распознал и загрузил новые сущности блока, нам нужно создать тип сущности блока. Это делается путем расширения класса `BlockEntity` и регистрации его в новом классе `ModBlockEntities`.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#block_entity
 
 Регистрация `BlockEntity` дает `BlockEntityType`, подобный `COUNTER_BLOCK_ENTITY`, который мы использовали выше:
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/entity/ModBlockEntities.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/ModBlockEntities.java#register_block_entity
 
 ::: tip
 
@@ -45,7 +45,7 @@ resources:
 
 :::
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java#block
 
 Использование `BaseEntityBlock` в качестве родительского класса означает, что нам также необходимо реализовать метод `createCodec`, что довольно просто.
 
@@ -53,19 +53,19 @@ resources:
 
 Не забудьте зарегистрировать блок в классе `ModBlocks`, как в [Создайте свой первый блок].(../blocks/first-block) guide:
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#counter_block
 
 ## Использование сущности блока {#using-the-block-entity}
 
 Теперь, когда у нас есть сущность блока, мы можем использовать её для хранения кол-ва раз, когда на блоке щёлкали ПКМ. Для этого мы добавим поле `clicks` в класс `CounterBlockEntity`:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#clicks
 
 Метод `setChanged`, используемый в `incrementClicks`, сообщает игре, что данные этой сущности были обновлены; это может быть полезно, когда мы добавим методы для сериализации счётчика и загрузки его обратно из файла сохранения.
 
 Далее нам нужно увеличивать это поле каждый раз, когда на блоке щелкают ПКМ. Это делается путём переопределения метода `useWithoutItem` в классе `CounterBlock`:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java#use
 
 Поскольку `BlockEntity` не передается в метод, мы используем `level.getBlockEntity(pos)`, и если `BlockEntity` не является действительным, возвращаемся из метода.
 
@@ -83,13 +83,13 @@ resources:
 
 Сериализация выполняется с помощью метода `saveAdditional`:
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#saving
 
 Здесь мы добавляем поля, которые должны быть сохранены в переданный `ValueOutput`: в случае блока-счётчика это поле `clicks`.
 
 Чтение происходит аналогично: вы получаете ранее сохранённые значения из `ValueInput` и сохраняете их в поля BlockEntity:
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#loading
 
 Теперь, если мы сохраним и перезагрузим игру, блок счетчика должен продолжиться с того места, на котором он остановился при сохранении.
 
@@ -100,7 +100,7 @@ resources:
 
 Чтобы исправить это, мы переопределяем `getUpdateTag`:
 
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#get_update_tag
 
 Теперь, когда игрок входит в игру или перемещается в чанк, где есть блок, он сразу же увидит правильное значение счетчика.
 
@@ -110,11 +110,11 @@ resources:
 
 Чтобы решить эту проблему, мы можем использовать пакеты обновления блока сущности. Переопределите метод `getUpdatePacket` и верните пакет, содержащий данные блока из нашего метода `getUpdateTag`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#update-packet
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#update_packet
 
 Затем переопределите метод `setChanged`, чтобы передавать данные при каждом изменении сущности блока.
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#broadcast-update
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#broadcast_update
 
 Теперь другие игроки смогут видеть изменение счетчика.
 
@@ -124,19 +124,19 @@ resources:
 
 Метод `getTicker` также должен проверить, совпадает ли переданный `BlockEntityType` с тем, который мы используем, и если да, то вернуть функцию, которая будет вызываться каждый тик. К счастью, существует служебная функция `BaseEntityBlock`, которая выполняет эту проверку:
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java#tickers
 
 `CounterBlockEntity::tick` - это ссылка на статический метод `tick`, который мы должны создать в классе `CounterBlockEntity`. Структурировать его таким образом не обязательно, но это хорошая практика, чтобы сохранить код чистым и организованным.
 
 Допустим, мы хотим сделать так, чтобы счетчик увеличивался только раз в 10 тиков (2 раза в секунду). Мы можем сделать это, добавив поле `ticksSinceLast` в класс `CounterBlockEntity` и увеличивая его с каждым тиком:
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#tickers
 
 Не забудьте сериализовать и десериализовать это поле!
 
 Теперь мы можем использовать `ticksSinceLast`, чтобы проверить, можно ли увеличить счетчик в `incrementClicks`:
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#ticks_since_last
 
 ::: tip
 

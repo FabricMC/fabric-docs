@@ -25,37 +25,37 @@ authors-nogithub:
 
 Щоб створити власне ігрове правило, спочатку створіть клас `GameRules`; тут ми збираємося оголосити наші правила. У цьому класі оголосите дві константи: ідентифікатор та саме правило.
 
-@[code lang=java transcludeWith=:::gameruleClass](@/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java)
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#gamerule_class
 
 Аргумент категорії (`.category(GameRuleCategory.MISC)`) визначає, до якої категорії відноситься ігрове правило на екрані створення світу. У цьому прикладі використовується категорія «Інше», надану стандартною грою, але додаткові категорії можна додати за допомогою `GameRuleCategory.register`. У цьому прикладі ми створили логічне правило з усталеним значенням `false` та ID `bad_vision`. Збережені значення в правилах не обмежуються логічними значеннями; інші допустимі типи включають `Double`, `Integer` і `Enum`.
 
 Приклад правила, що зберігає подвійне:
 
-@[code lang=java transcludeWith=:::double](@/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java)
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#double
 
 ## Доступ до ігрового правила {#accessing-a-game-rule}
 
 Тепер, коли у нас є правило та його `Identifier`, ви можете отримати доступ до нього будь-де за допомогою методу `serverLevel.getGameRules().get(GAMERULE)`, де аргументом `.get()` є константа правила, а не ID правила.
 
-@[code lang=java transclude={44-44}](@/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java)
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#badvision_get
 
 Ви також можете використовувати це для доступу до значень правил стандартної гри:
 
-@[code lang=java transcludeWith=:::vanilla](@/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java)
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#vanilla
 
 Наприклад, для правила, яке застосовує сліпоту до кожного гравця, коли воно ввімкнене, реалізація буде такою:
 
-@[code lang=java transcludeWith=:::badvision](@/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java)
+<<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#badvision_implement
 
 ## Переклад {#translations}
 
 Тепер нам потрібно дати нашому правилу показувану назву, щоб її було легко зрозуміти на екрані ігрових правил. Щоб зробити це за допомогою генерації даних, додайте такі рядки до свого постачальника мови:
 
-@[code lang=java transcludeWith=:::gamerule-name](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#gamerule_name
 
 Нарешті, нам потрібно дати опис нашому правилу. Щоб зробити це за допомогою генерації даних, додайте такі рядки до свого постачальника мови:
 
-@[code lang=java transcludeWith=:::gamerule-description](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#gamerule_description
 
 ::: info
 

@@ -17,7 +17,7 @@ authors:
 
 在创建我们的盔甲物品时，这个常量将在 `Item.Properties#maxDamage(int damageValue)` 方法中使用，当我们稍后创建 `ArmorMaterial` 对象时，它也是 `ArmorMaterial` 构造函数中的参数。
 
-@[code transcludeWith=:::base_durability](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#base_durability
 
 如果你难以确定平衡的基础耐久度，你可以参考 `ArmorMaterials` 界面中的原始盔甲材质实例。
 
@@ -25,7 +25,7 @@ authors:
 
 尽管我们不必将我们的 `ArmorMaterial` 注册到任何注册表中，但将任何注册表项存储为常量通常是一种很好的做法，因为游戏将使用它来找到我们盔甲的相关纹理。
 
-@[code transcludeWith=:::material_key](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#material_key
 
 我们稍后会将其传递给 `ArmorMaterial` 构造函数。
 
@@ -33,7 +33,7 @@ authors:
 
 为了创建我们的材质，我们需要创建一个新的 `ArmorMaterial` 记录实例，这里将使用基础耐久度和材质注册表项常量。
 
-@[code transcludeWith=:::guidite_armor_material](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#guidite_armor_material
 
 `ArmorMaterial` 构造函数按照特定顺序接受以下参数：
 
@@ -50,7 +50,7 @@ authors:
 
 我们对修复原材料标签引用定义如下：
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
 如果你难以确定任何参数的值，你可以查阅在 `ArmorMaterials` 界面中可以找到的原始 `ArmorMaterial` 实例。
 
@@ -64,7 +64,7 @@ authors:
 
 这是通过将我们之前创建的 `BASE_DURABILITY` 常量传递到 `Item.Properties` 类中的 `maxDamage` 方法来实现的。
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items
 
 如果你希望这些物品可以从物品栏中访问，你还需要将它们添加到[创造模式标签页](./custom-creative-tabs)。
 
@@ -88,7 +88,7 @@ authors:
 
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json
 
 可以看到，游戏内的盔甲物品应该有合适的模型：
 
@@ -121,7 +121,7 @@ authors:
 
 由于我们只计划加入“humanoid” （头盔、胸甲、护腿、靴子等等） 盔甲部件，我们的装备模型定义如下所示：
 
-@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json
 
 这些纹理存在时，你应该能够看到实体穿着的盔甲了：
 

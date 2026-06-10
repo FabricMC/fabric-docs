@@ -31,27 +31,27 @@ Registrieren wir eine benutzerdefinierte Farbquelle, um unser Waxcap-Item einzuf
 
 Zunächst müssen Sie eine benutzerdefinierte Farbquelle für das Item definieren. Dies geschieht durch die Implementierung des Interface `ItemTintSource` in einer Klasse oder einem Record.
 
-@[code lang=java transcludeWith=:::tint_source](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#tint_source_class
 
 Da dies Teil der Client Item Definition ist, können die Farbwerte mit einem Ressourcenpaket geändert werden. Du musst also einen [Map Codec](../codecs#mapcodec) definieren, der deine Farbton-Definition lesen kann. In diesem Fall hat die Farbquelle einen `int`-Wert, der die Farbe beschreibt, die sie bei Regen haben wird. Wir können den integrierten `ExtraCodecs.RGB_COLOR_CODEC` verwenden, um unseren Codec zusammenzustellen.
 
-@[code lang=java transclude={17-20}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#map_codec
 
 Wir können diesen Codec dann in `type()` zurückgeben.
 
-@[code lang=java transclude={35-38}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#return_codec
 
 Schließlich können wir eine Implementierung für `calculate` bereitstellen, die entscheidet, wie der Farbton aussehen soll. Der Wert von `color` stammt aus dem Ressourcenpaket.
 
-@[code lang=java transclude={26-33}](@/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#calculate
 
 Anschließend müssen wir unsere Item Farbquelle registrieren. Dies geschieht im **Client Initialisierer** unter Verwendung des in `ItemTintSources` deklarierten `ID_MAPPER`.
 
-@[code lang=java transcludeWith=:::item_tint_source](@/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#register_item_tint_source
 
 Sobald dies erledigt ist, können wir unsere Item Farbquelle in einer Client Item Definition verwenden.
 
-@[code lang=json transclude](@/reference/latest/src/main/generated/assets/example-mod/items/waxcap.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/waxcap.json
 
 Du kannst die Farbänderung des Items im Spiel wahrnehmen.
 

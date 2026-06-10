@@ -40,7 +40,7 @@ authors:
 
 若要创建枚举扩展，请在你的 mixin 包中创建一个 `enum`，为其添加 `@Mixin` 注解，并像向目标枚举类本身添加常量一样，在其中添加你的常量。 例如，我们向 `RecipeBookType` 添加一个新条目：
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeBookTypeMixin.java#enum-extension-no-impls-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeBookTypeMixin.java#enum_extension_no_impls_example_mixin
 
 :::warning 重要
 
@@ -54,13 +54,13 @@ authors:
 
 例如，我们来添加一个新的 `RecipeCategory` 条目。 创建一个与目标类中所需构造函数匹配的构造函数，并使用 `@Shadow` 标注它。
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeCategoryMixin.java#enum-extension-ctor-impls-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/RecipeCategoryMixin.java#enum_extension_ctor_impls_example_mixin
 
 ### 实现抽象方法 {#implementing-abstract-methods}
 
 若要实现目标枚举中的抽象方法，请先 shadow 该抽象方法，然后在你添加的条目中重写并实现它。 例如，我们来添加一个新的 `ConversionType` 条目：
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum-extension-abstract-method-impls-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum_extension_abstract_method_impls_example_mixin
 
 ## 创建类调整器条目 {#making-the-class-tweaker-entry}
 
@@ -78,7 +78,7 @@ extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 
 例如，对于我们在 [Mixin 章节](#creating-the-mixin)中添加的 `RecipeBookType` 常量，其类调整器条目如下：
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum-extension-no-impls-example-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#enum_extension_no_impls_example_entry{classtweaker:no-line-numbers}
 
 ## 应用更改 {#applying-changes}
 
@@ -94,15 +94,15 @@ extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 
 现在，你可以在代码中使用该枚举常量：
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-usage-example
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_added_constant_usage_example
 
 如果你只是通过 Mixin 添加了该常量，而它并不存在于反编译源码中，则可以通过比较名称来判断它：
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example-check
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_added_constant_no_ct_usage_example_check
 
 如果你需要在多个地方使用该常量，可以调用 `valueOf` 获取它，并将结果存储在一个字段中：
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-added-constant-no-ct-usage-example-store
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_added_constant_no_ct_usage_example_store
 
 ## 注意事项 {#pitfalls}
 
@@ -116,7 +116,7 @@ extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 
 switch 语句常用于处理枚举常量。 因此，如果某个 switch 表达式没有处理其他模组添加的条目，就可能发生崩溃。 例如，假设我们有以下 switch 表达式：
 
-<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum-extension-problematic-switch-expr-example
+<<< @/reference/latest/src/main/java/com/example/docs/enum_extension/ExampleModEnumExtension.java#enum_extension_problematic_switch_expr_example
 
 请注意，这里没有 `default` 分支。 即使我们已经处理了原版枚举中的所有值以及我们自己添加的值，如果另一个模组添加了不同的条目，这里仍然会抛出异常。
 

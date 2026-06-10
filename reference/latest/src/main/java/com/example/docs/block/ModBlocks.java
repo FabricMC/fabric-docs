@@ -31,6 +31,7 @@ import com.example.docs.block.custom.CounterBlock;
 import com.example.docs.block.custom.DirtChestBlock;
 import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
+import com.example.docs.block.custom.FriendsBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.damage.TaterBlock;
@@ -69,6 +70,38 @@ public class ModBlocks {
 	);
 	// #endregion condensed_oak_log
 
+	// #region counter_block
+	public static final Block COUNTER_BLOCK = register(
+			"counter_block",
+			CounterBlock::new,
+			BlockBehaviour.Properties.of(),
+			true
+	);
+	// #endregion counter_block
+
+	public static final Block DIRT_CHEST_BLOCK = register(
+			"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
+	);
+
+	public static final Block DUPLICATOR_BLOCK = register(
+			"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true
+	);
+
+	public static final Block ENGINE_BLOCK = register(
+			"engine",
+			EngineBlock::new,
+			BlockBehaviour.Properties.of(),
+			true
+	);
+
+	public static final Block FRIENDS_BLOCK = register(
+			"friends_block", FriendsBlock::new, BlockBehaviour.Properties.of(), true
+	);
+
+	public static final Block PIPE_BLOCK = register(
+			"pipe_block", Block::new, BlockBehaviour.Properties.of(), true
+	);
+
 	// #region prismarine_lamp
 	public static final Block PRISMARINE_LAMP = register(
 			"prismarine_lamp",
@@ -79,33 +112,6 @@ public class ModBlocks {
 			true
 	);
 	// #endregion prismarine_lamp
-
-	public static final ResourceKey<Block> ENGINE_BLOCK_KEY = ResourceKey.create(
-			Registries.BLOCK,
-			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "engine")
-	);
-	public static final Block ENGINE_BLOCK = register(
-			"engine",
-			EngineBlock::new,
-			BlockBehaviour.Properties.of().setId(ENGINE_BLOCK_KEY),
-			true
-	);
-
-	// #region counter_block
-	public static final Block COUNTER_BLOCK = register(
-			"counter_block",
-			CounterBlock::new,
-			BlockBehaviour.Properties.of(),
-			true
-	);
-	// #endregion counter_block
-
-	public static final Block STEEL_BLOCK = register(
-			"steel_block", RotatedPillarBlock::new, BlockBehaviour.Properties.of(), true
-	);
-	public static final Block PIPE_BLOCK = register(
-			"pipe_block", Block::new, BlockBehaviour.Properties.of(), true
-	);
 
 	public static final Block RUBY_BLOCK = register(
 			"ruby_block", Block::new, BlockBehaviour.Properties.of(), true
@@ -127,29 +133,25 @@ public class ModBlocks {
 			"ruby_trapdoor", settings -> new TrapDoorBlock(BlockSetType.STONE, settings), BlockBehaviour.Properties.of(), true
 	);
 
-	public static final Block VERTICAL_OAK_LOG_SLAB = register(
-			"vertical_oak_log_slab", VerticalSlabBlock::new, BlockBehaviour.Properties.of(), true
-	);
-
 	// #region family_declaration
 	public static final BlockFamily RUBY_FAMILY =
 			new BlockFamily.Builder(ModBlocks.RUBY_BLOCK)
-			.stairs(ModBlocks.RUBY_STAIRS)
-			.slab(ModBlocks.RUBY_SLAB)
-			.fence(ModBlocks.RUBY_FENCE)
-			.getFamily();
+					.stairs(ModBlocks.RUBY_STAIRS)
+					.slab(ModBlocks.RUBY_SLAB)
+					.fence(ModBlocks.RUBY_FENCE)
+					.getFamily();
 	// #endregion family_declaration
 
-	public static final Block DUPLICATOR_BLOCK = register(
-			"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true
-	);
-
-	public static final Block DIRT_CHEST_BLOCK = register(
-			"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
+	public static final Block STEEL_BLOCK = register(
+			"steel_block", RotatedPillarBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	public static final Block TATER_BLOCK = register(
-					"tater", TaterBlock::new, BlockBehaviour.Properties.of(), true
+			"tater", TaterBlock::new, BlockBehaviour.Properties.of(), true
+	);
+
+	public static final Block VERTICAL_OAK_LOG_SLAB = register(
+			"vertical_oak_log_slab", VerticalSlabBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
 	// #region waxcap_tinting
@@ -165,11 +167,11 @@ public class ModBlocks {
 	// #endregion waxcap_tinting
 
 	// #region first_block
-	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
+	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties properties, boolean shouldRegisterItem) {
 		// Create a registry key for the block
 		ResourceKey<Block> blockKey = keyOfBlock(name);
 		// Create the block instance
-		Block block = blockFactory.apply(settings.setId(blockKey));
+		Block block = blockFactory.apply(properties.setId(blockKey));
 
 		// Sometimes, you may not want to register an item for the block.
 		// Eg: if it's a technical block like `minecraft:moving_piston` or `minecraft:end_gateway`

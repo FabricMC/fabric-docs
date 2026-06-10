@@ -61,7 +61,7 @@ Lo snippet di un file `build.gradle` che segue mostra come attivare l'opzione pe
 
 Sono necessari Minecraft 1.18 (si consiglia 1.19), Loader 0.14 e Loom 1.0 o seguenti per dividere il codice client e comune.
 
-<<< @/reference/build.gradle#split-sources
+<<< @/reference/build.gradle#split_sources
 
 ## Risolvere Problemi {#issues}
 

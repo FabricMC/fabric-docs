@@ -27,7 +27,7 @@ resources:
 
 我们的大部分代码都将进入 `apply()` 事件，当魔咒生效的条件得到满足时，该事件就会被调用。 我们稍后会配置这个 `Effect` 以在实体被击中时调用，但现在，让我们编写简单的代码来实现用闪电击中目标。
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/enchantment/effect/LightningEnchantmentEffect.java)
+<<< @/reference/latest/src/main/java/com/example/docs/enchantment/effect/LightningEnchantmentEffect.java#entrypoint
 
 这里，变量 `amount` 表示与附魔等级成比例的数值。 我们可以根据等级来修改魔咒的效果。 在上面的代码中，我们使用附魔的等级来决定生成多少闪电。
 
@@ -35,7 +35,7 @@ resources:
 
 就像我们的模组中的其他部分，我们将会把我们的 `EnchantmentEffect` 加入到 Minecraft 的注册表中。 为了实现这一点，添加一个叫做 `ModEnchantmentEffects`（或者你想叫什么就叫什么）的类，和一个辅助方法来注册我们的魔咒。 确保在你的主类中调用 `registerModEnchantmentEffects()` 方法，这个主类应该包含 `onInitialize()` 方法。
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantmentEffects.java)
+<<< @/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantmentEffects.java#entrypoint
 
 ## 创建魔咒 {#creating-the-enchantment}
 
@@ -53,7 +53,7 @@ resources:
 
 对于这个例子，我们使用以下魔咒定义，添加 `thundering` 魔咒并使用我们自定义的 `lightning_effect`：
 
-@[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json
 
 你需要在 `en_us.json` 以及 `zh_cn.json` 中给你的自定义魔咒一个可读的名字：
 

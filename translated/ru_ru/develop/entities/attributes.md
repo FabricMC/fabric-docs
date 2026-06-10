@@ -27,11 +27,11 @@ resources:
 - `double` – максимальное возможное значение
 - `boolean` – значение, определяющее, будет ли атрибут синхронизироваться с клиентами
 
-@[code lang=java transcludeWith=:::register](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java#register
 
 Затем мы зарегистрируем атрибут с именем `AGGRO_RANGE` и идентификатором `aggro_range`, значением по умолчанию `8.0`, минимальным значением `0` и максимальным значением, установленным на предел типа double. Этот атрибут не будет синхронизироваться с игроками.
 
-@[code lang=java transcludeWith=:::attributes](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java#attributes
 
 ### Перевод пользовательских атрибутов {#attribute-translation}
 
@@ -47,9 +47,9 @@ resources:
 
 Чтобы убедиться в правильной регистрации атрибута, вам необходимо инициализировать его при запуске мода. Для этого добавьте публичный статический метод инициализации в ваш класс и вызовите его из [главного класса инициализатора](../getting-started/project-structure#entrypoints) вашего мода. На данный момент этот метод может оставаться пустым.
 
-@[code lang=java transcludeWith=:::initialize](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ModAttributes.java#initialize
 
-@[code lang=java transcludeWith=:::init](@/reference/latest/src/main/java/com/example/docs/entity/attribute/ExampleModAttributes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/attribute/ExampleModAttributes.java#init
 
 Статический вызов метода класса инициализирует его, если он не был загружен ранее — это означает, что все статические поля будут вычислены. Именно для этого и нужен пустой метод `initialize`.
 

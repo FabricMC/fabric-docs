@@ -319,16 +319,16 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.misc.codecs",
-        link: "/develop/codecs",
+        text: "develop.serialization.codecs",
+        link: "/develop/serialization/codecs",
       },
       {
-        text: "develop.misc.data_attachments",
-        link: "/develop/data-attachments",
+        text: "develop.serialization.data_attachments",
+        link: "/develop/serialization/data-attachments",
       },
       {
-        text: "develop.misc.saved_data",
-        link: "/develop/saved-data",
+        text: "develop.serialization.saved_data",
+        link: "/develop/serialization/saved-data",
       },
     ],
   },
@@ -443,30 +443,6 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.misc.events",
-        link: "/develop/events",
-      },
-      {
-        text: "develop.misc.game_rules",
-        link: "/develop/game-rules",
-      },
-      {
-        text: "develop.misc.text_and_translations",
-        link: "/develop/text-and-translations",
-      },
-      {
-        text: "develop.misc.networking",
-        link: "/develop/networking",
-      },
-      {
-        text: "develop.misc.key_mappings",
-        link: "/develop/key-mappings",
-      },
-      {
-        text: "develop.misc.debugging",
-        link: "/develop/debugging",
-      },
-      {
         text: "develop.misc.automatic_testing",
         link: "/develop/automatic-testing",
       },
@@ -475,12 +451,44 @@ export default [
         link: "/develop/custom-recipe-types",
       },
       {
+        text: "develop.misc.debugging",
+        link: "/develop/debugging",
+      },
+      {
+        text: "develop.misc.events",
+        link: "/develop/events",
+      },
+      {
+        text: "develop.misc.game_rules",
+        link: "/develop/game-rules",
+      },
+      {
+        text: "develop.misc.key_mappings",
+        link: "/develop/key-mappings",
+      },
+      {
+        text: "develop.misc.networking",
+        link: "/develop/networking",
+      },
+      {
+        text: "develop.misc.resource_conditions",
+        link: "/develop/resource-conditions",
+      },
+      {
+        text: "develop.misc.statistics",
+        link: "/develop/statistics",
+      },
+      {
         text: "develop.misc.dynamic_registries",
         link: "/develop/dynamic-registry",
       },
       {
         text: "develop.misc.resource_conditions",
         link: "/develop/resource-conditions",
+      },
+      {
+        text: "develop.misc.text_and_translations",
+        link: "/develop/text-and-translations",
       },
     ],
   },

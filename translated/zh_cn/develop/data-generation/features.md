@@ -29,15 +29,15 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 首先，我们需要创建自己的 provider。 在 `main` 包中创建一个继承自 `FabricDynamicRegistryProvider` 的类，并完善其基本方法：
 
-@[code lang=java transcludeWith=:::datagen-world:provider](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#datagen_world_provider
 
 在 `configure` 方法中，我们将调用 `addAll` 以确保生成地物所需的所有文件。
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#worldgen-add-entries
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#worldgen_add_entries
 
 然后，在你的 `DataGeneratorEntrypoint` 类的 `onInitializeDataGenerator` 方法中添加该 provider：
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add-worldgen-provider
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add_worldgen_provider
 
 接下来，为已配置地物和已放置地物分别创建一个类。 这些类不需要继承任何内容。
 
@@ -45,7 +45,7 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 在你的 `DataGeneratorEntrypoint` 类中，将下面的代码行添加到 `buildRegistry` 方法中，并将方法名替换为你自己选择的名称：
 
-@[code lang=java transcludeWith=:::datagen-world:registries](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_world_registries
 
 如果你还没有 `buildRegistry` 方法，请创建它，并使用 `@Override` 注解标注。
 
@@ -55,11 +55,11 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 在开始之前，我们先在 `main` 包中创建已配置的地物类，并声明一个 `configure` 方法：
 
-@[code lang=java transcludeWith=:::datagen-world:ConfigureFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configure_features_class
 
 现在，我们为钻石矿脉添加一个自定义配置地物。 首先，在你的已配置地物类中注册 `ConfiguredFeature` 的键：
 
-@[code lang=java transcludeWith=:::datagen-world:configured-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configured_key
 
 ::: tip
 
@@ -71,25 +71,25 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 接下来，我们将在 `configure` 方法中创建一个 `RuleTest`，用于控制你的地物可以替换哪些方块。 例如，下面这个 `RuleTest` 允许替换带有 `DEEPSLATE_ORE_REPLACEABLES` 标签的所有方块：
 
-@[code lang=java transcludeWith=:::datagen-world:ruletest](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ruletest
 
 接下来，同样在 `configure` 方法中，我们需要创建 `OreConfiguration`，它告诉游戏要用什么来替换方块。
 
-@[code lang=java transcludeWith=:::datagen-world:ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ore_feature_config
 
 你可以在列表中加入多个情况，以支持不同变体。 例如，我们可以为石头和深板岩设置不同的变体：
 
-@[code lang=java transcludeWith=:::datagen-world:multi-ore-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_multi_ore_feature_config
 
 最后，我们要在 `configure` 方法中将我们配置好的地物注册到游戏中！
 
-@[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_conf_feature_register
 
 ### 树木 {#trees}
 
 若要创建自定义树，首先需要在 `configure` 方法中创建一个 `TreeConfiguration`：
 
-@[code lang=java transcludeWith=:::datagen-world:tree-feature-config](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_feature_config
 
 各参数的含义如下：
 
@@ -109,7 +109,7 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 接下来，我们需要在 `ExampleModWorldConfiguredFeatures` 的 `configure` 方法中添加以下代码行，以注册我们的树木：
 
-@[code lang=java transcludeWith=:::datagen-world:tree-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_register
 
 ## 已放置地物 {#placement-features}
 
@@ -117,21 +117,21 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 我们在 `main` 包中创建已放置地物类，并像以前一样为其添加一个 `configure` 方法：
 
-@[code lang=java transcludeWith=:::datagen-world:PlacedFeatures-Class](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_placed_features_class
 
 在你的已放置地物类的 `configure` 方法中，创建如下变量：
 
-@[code lang=java transcludeWith=:::datagen-world:conf-feature-register](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_conf_feature_register
 
 在你的已放置地物类中，定义已放置地物的键：
 
-@[code lang=java transcludeWith=:::datagen-world:placed-key](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_placed_key
 
 ### 放置修饰器 {#placement-modifiers}
 
 接下来，我们需要在 `configure` 方法中定义放置修饰符，这些属性是在生成地物时设置的。 可以是任意内容：从生成频率，到起始 `y` 层级都可以。 你可以按需要设置任意数量的修饰器。
 
-@[code lang=java transcludeWith=:::datagen-world:placement-modifier](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_placement_modifiers
 
 上面列出的各修饰器作用如下：
 
@@ -157,13 +157,13 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 现在我们有了修饰符，就可以在 `configure` 方法中注册我们放置的地物：
 
-@[code lang=java transcludeWith=:::datagen-world:register-placed-feature](@/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java)
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_register_placed_feature
 
 ## 生物群系修改 {#biome-modifications}
 
 最后，我们需要在模组初始化期间将已放置地物添加到 `BiomeModifications` 中。 我们可以通过向[模组初始化器](../getting-started/project-structure#entrypoints)添加以下内容来实现：
 
-@[code lang=java transcludeWith=:::datagen-world:biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#datagen_world_biome_modifications
 
 ::: tip
 
@@ -175,7 +175,7 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 通过修改 `BiomeSelectors` 参数，可以让地物只在特定类型的生物群系中生成：
 
-@[code lang=java transcludeWith=:::datagen-world:selective-biome-modifications](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#datagen_world_selective_biome_modifications
 
 这样，该地物只会生成在带有 `minecraft:is_forest` 生物群系标签的生物群系中。
 
@@ -185,13 +185,13 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 :::details 已配置地物生成文件
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/worldgen/configured_feature/diamond_block_vein.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/worldgen/configured_feature/diamond_block_vein.json
 
 :::
 
 :::details 已放置地物生成文件
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/worldgen/placed_feature/diamond_block_ore_placed.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/worldgen/placed_feature/diamond_block_ore_placed.json
 
 :::
 
