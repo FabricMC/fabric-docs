@@ -74,7 +74,7 @@ There are two ways to register a dynamic registry:
 
 #### `SyncOption` {#syncoption}
 
-Both overloads of `DynamicRegistries.registerSynced()` accepts `SyncOption...` at the end to configure synchronization behavior.
+Both overloads of `DynamicRegistries.registerSynced()` accepts `SyncOption...` varargs at the end to configure synchronization behavior.
 
 Available `SyncOption` values include:
 

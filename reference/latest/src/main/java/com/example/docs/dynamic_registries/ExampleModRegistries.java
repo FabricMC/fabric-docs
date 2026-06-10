@@ -15,37 +15,45 @@ import com.example.docs.ExampleMod;
 
 // #region main
 public class ExampleModRegistries {
-	// #region key
 	public static final ResourceKey<Registry<MagicSkillsRegistryEntry>> MAGIC_SKILLS_REGISTRY_KEY =
 					ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_skills_registry"));
-	// #endregion key
 
+	// #endregion main
+	public static final ResourceKey<Registry<MagicSkillsRegistryEntry>> MAGIC_SKILLS_SYNCED_REGISTRY_KEY =
+					ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_skills_synced_registry"));
+	public static final ResourceKey<Registry<MagicSkillsRegistryEntry>> MAGIC_SKILLS_DOUBLE_CODEC_REGISTRY_KEY =
+					ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_skills_double_codec_registry"));
+	public static final ResourceKey<Registry<MagicSkillsRegistryEntry>> MAGIC_SKILLS_WITH_OPTION_REGISTRY_KEY =
+					ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_skills_with_option_registry"));
+	public static final ResourceKey<Registry<MagicSkillsRegistryEntry>> MAGIC_SKILLS_WITH_OPTION_DOUBLE_REGISTRY_KEY =
+					ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_skills_with_option_double_registry"));
+
+	// #region main
 	public static void initialize() {
 		// Register Code Here
-	}
-	// #endregion main
-
-	private void initializeExample() {
+		// #endregion main
 		// #region simple
 		DynamicRegistries.register(MAGIC_SKILLS_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC);
 		// #endregion simple
 
 		// #region synced
-		DynamicRegistries.registerSynced(MAGIC_SKILLS_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC);
+		DynamicRegistries.registerSynced(MAGIC_SKILLS_SYNCED_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC);
 		// #endregion synced
 
 		// #region double_codec
-		DynamicRegistries.registerSynced(MAGIC_SKILLS_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC, MagicSkillsRegistryEntry.CLIENT_CODEC);
+		DynamicRegistries.registerSynced(MAGIC_SKILLS_DOUBLE_CODEC_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC, MagicSkillsRegistryEntry.CLIENT_CODEC);
 		// #endregion double_codec
 
 		// #region with_option
-		DynamicRegistries.registerSynced(MAGIC_SKILLS_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC, DynamicRegistries.SyncOption.SKIP_WHEN_EMPTY);
+		DynamicRegistries.registerSynced(MAGIC_SKILLS_WITH_OPTION_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC, DynamicRegistries.SyncOption.SKIP_WHEN_EMPTY);
 		// #endregion with_option
 
 		// #region with_option_double_codec
-		DynamicRegistries.registerSynced(MAGIC_SKILLS_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC, MagicSkillsRegistryEntry.CLIENT_CODEC, DynamicRegistries.SyncOption.SKIP_WHEN_EMPTY);
+		DynamicRegistries.registerSynced(MAGIC_SKILLS_WITH_OPTION_DOUBLE_REGISTRY_KEY, MagicSkillsRegistryEntry.CODEC, MagicSkillsRegistryEntry.CLIENT_CODEC, DynamicRegistries.SyncOption.SKIP_WHEN_EMPTY);
 		// #endregion with_option_double_codec
+		// #region main
 	}
+	// #endregion main
 
 	// #region get_registry
 	public static <T> Optional<Registry<T>> getRegistry(RegistryAccess registryAccess, ResourceKey<Registry<T>> registryKey) {
