@@ -28,7 +28,7 @@ jobs:
   l10n-pull:
     runs-on: ubuntu-24.04
     steps:
-      - if: startsWith(github.ref_name, 'l10n/')
+      - if: startsWith(github.ref_name, "l10n/")
         run: |
           echo "::error title=Wrong Branch::This workflow must not be triggered from the l10n/* branch"
           exit 1
