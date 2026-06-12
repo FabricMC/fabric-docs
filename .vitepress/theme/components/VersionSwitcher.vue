@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { getIcon, Icon, loadIcon } from "@iconify/vue";
-import { onContentUpdated, useData } from "vitepress";
+import { Icon, loadIcon } from "@iconify/vue";
+import { computedAsync } from "@vueuse/core";
+import { useData } from "vitepress";
 import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
-import { computed, nextTick, ref } from "vue";
+import { computed, ref } from "vue";
 import { Fabric } from "../../types.d";
 
 const props = defineProps<{
@@ -25,14 +26,10 @@ const currentV = computed(() => {
   return props.versioningPlugin.latestVersion;
 });
 
-const button = computed(() => {
-  const iconData = getIcon("lucide:git-graph");
-
-  const icon = iconData
-    ? `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">${iconData.body}</svg>`
-    : "";
-
-  return `<span style='display:flex;align-items:center;gap:4px'>${icon} ${currentV.value}</span>`;
+const button = computedAsync(async () => {
+  const iconData = await loadIcon("lucide:git-graph")
+  const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">${iconData.body}</svg>`;
+  return `<span style="display:flex;align-items:center;gap:4px">${icon} ${currentV.value}</span>`;
 });
 
 // TODO: add future versions to the supported pages
@@ -75,12 +72,6 @@ const getRoute = (newVersion: string) => {
 
   return segments.join("/").replace(/((?<=^|[/])index)?[.](html|md)$/, "");
 };
-
-onContentUpdated(() =>
-  nextTick(async () => {
-    await loadIcon("lucide:git-graph");
-  })
-);
 </script>
 
 <template>
