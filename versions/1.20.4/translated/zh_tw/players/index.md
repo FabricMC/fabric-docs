@@ -9,4 +9,4 @@ search: false
 
 你可以參考側邊欄中提供的所有指南清單。
 
-如果你遇到任何問題，請在 [GitHub](https://github.com/FabricMC/fabric-docs) 上回報問題，或在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#server-admin-support` 頻道中尋求幫助。
+如果你遇到任何問題，請在 [GitHub](https://github.com/FabricMC/fabric-docs) 上回報問題，或在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#mc-server-support` 頻道中尋求幫助。

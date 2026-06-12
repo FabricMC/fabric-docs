@@ -9,7 +9,7 @@ authors:
 
 ::: tip
 
-충돌의 원인을 찾는 데 어려움이 있으시다면, [Fabric 디스코드(영어)](https://discord.fabricmc.net/) 의 `#player-support` 또는 `#server-admin-support` 채널에 도움을 요청할 수 있습니다.
+충돌의 원인을 찾는 데 어려움이 있으시다면, [Fabric 디스코드(영어)](https://discord.fabricmc.net/) 의 `#player-support` 또는 `#mc-server-support` 채널에 도움을 요청할 수 있습니다.
 
 :::
 

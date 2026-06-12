@@ -9,7 +9,7 @@ authors:
 
 ::: tip
 
-Se hai difficoltà nel trovare la causa del crash, puoi chiedere aiuto nel [Discord di Fabric](https://discord.fabricmc.net/) nei canali `#player-support` o `#server-admin-support`.
+Se hai difficoltà nel trovare la causa del crash, puoi chiedere aiuto nel [Discord di Fabric](https://discord.fabricmc.net/) nei canali `#player-support` o `#mc-server-support`.
 
 :::
 

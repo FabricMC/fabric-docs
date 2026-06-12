@@ -7,4 +7,4 @@ Ta sekcja dokumentacji Fabric jest przeznaczona dla graczy i administratorów se
 
 Listę wszystkich dostępnych przewodników znajdziesz na pasku bocznym.
 
-Jeśli napotkasz jakiś problem, zgłoś go na [GitHubie](https://github.com/FabricMC/fabric-docs) lub poproś o pomoc na [Discordzie Fabric](https://discord.gg/v6v4pMv) na kanale `#player-support` albo `#server-admin-support`.
+Jeśli napotkasz jakiś problem, zgłoś go na [GitHubie](https://github.com/FabricMC/fabric-docs) lub poproś o pomoc na [Discordzie Fabric](https://discord.gg/v6v4pMv) na kanale `#player-support` albo `#mc-server-support`.

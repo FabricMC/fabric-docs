@@ -9,4 +9,4 @@ search: false
 
 Список всех доступных руководств есть на боковой панели.
 
-Если вы столкнулись с какой-либо проблемой, сообщите о ней на [странице GitHub](https://github.com/FabricMC/fabric-docs) или попросите помощи в [дискорде Fabric](https://discord.gg/v6v4pMv) в каналах `#player-support` или `#server-admin-support` (На английском языке).
+Если вы столкнулись с какой-либо проблемой, сообщите о ней на [странице GitHub](https://github.com/FabricMC/fabric-docs) или попросите помощи в [дискорде Fabric](https://discord.gg/v6v4pMv) в каналах `#player-support` или `#mc-server-support` (На английском языке).
