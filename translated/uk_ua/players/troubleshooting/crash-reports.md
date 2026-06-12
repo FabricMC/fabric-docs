@@ -9,7 +9,7 @@ authors:
 
 ::: tip
 
-Якщо у вас виникли труднощі з пошуком причини збою, ви можете звернутися за допомогою до [Discord Fabric](https://discord.fabricmc.net/) в каналах `#player-support` або `#server-admin-support`.
+Якщо у вас виникли труднощі з пошуком причини збою, ви можете звернутися за допомогою до [Discord Fabric](https://discord.fabricmc.net/) в каналах `#player-support` або `#mc-server-support`.
 
 :::
 

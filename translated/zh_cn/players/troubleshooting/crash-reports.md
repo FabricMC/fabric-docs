@@ -9,7 +9,7 @@ authors:
 
 ::: tip
 
-如果在查找崩溃原因时遇到任何困难，可以在 [Fabric Discord](https://discord.fabricmc.net/) 的 `#player-support` 或 `#server-admin-support` 频道中寻求帮助。
+如果在查找崩溃原因时遇到任何困难，可以在 [Fabric Discord](https://discord.fabricmc.net/) 的 `#player-support` 或 `#mc-server-support` 频道中寻求帮助。
 
 :::
 

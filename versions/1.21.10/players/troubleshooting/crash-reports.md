@@ -6,7 +6,7 @@ authors:
 ---
 
 ::: tip
-If you're having any difficulty with finding the cause of the crash, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` or `#server-admin-support` channel.
+If you're having any difficulty with finding the cause of the crash, you can ask for help in the [Fabric Discord](https://discord.gg/v6v4pMv) in the `#player-support` or `#mc-server-support` channel.
 :::
 
 Crash reports are a very important part of troubleshooting issues with your game or server. They contain a lot of information about the crash, and can help you find the cause of the crash.
