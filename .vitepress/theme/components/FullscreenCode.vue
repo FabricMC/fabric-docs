@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getIcon, Icon, loadIcon } from "@iconify/vue";
+import { Icon, loadIcon } from "@iconify/vue";
 import { usePreferredReducedMotion } from "@vueuse/core";
 import { onContentUpdated, useData } from "vitepress";
 import { computed, nextTick, onUnmounted, ref } from "vue";
@@ -102,7 +102,6 @@ onContentUpdated(() =>
   nextTick(async () => {
     if (!dialog.value) return;
 
-    await loadIcon("lucide:maximize-2");
     handleExitFullscreen();
 
     document.documentElement.style.setProperty(
@@ -110,14 +109,8 @@ onContentUpdated(() =>
       JSON.stringify(options.value.copied)
     );
 
-    const getSvgIcon = (name: string) => {
-      const iconData = getIcon(name);
-      if (!iconData) return "";
-
-      return `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">${iconData.body}</svg>`;
-    };
-
-    const enterFullscreenIcon = getSvgIcon("lucide:maximize-2");
+    const enterFullscreenIconData = await loadIcon("lucide:maximize-2");
+    const enterFullscreenIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">${enterFullscreenIconData.body}</svg>`;
 
     const codeBlocks = //
       document.querySelectorAll<HTMLDivElement>("div.vp-doc:not(.slot) div[class*='language-']");
