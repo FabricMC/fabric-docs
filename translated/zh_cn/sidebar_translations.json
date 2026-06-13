@@ -85,6 +85,7 @@
   "develop.misc.game_rules": "游戏规则",
   "develop.misc.networking": "网络通信",
   "develop.misc.key_mappings": "按键映射",
+  "develop.misc.statistics": "统计信息",
   "develop.misc.text_and_translations": "文本和翻译",
   "develop.misc.debugging": "调试模组",
   "develop.mixins": "mixin",

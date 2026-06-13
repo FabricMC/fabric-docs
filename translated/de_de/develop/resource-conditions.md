@@ -35,6 +35,12 @@ Ist immer erfolgreich:
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/true.json
 
+#### Falsch {#false}
+
+Schlägt immer fehl:
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/false.json
+
 #### Nicht {#not}
 
 Kehrt die in `value` angegebene Ladebedingung um. Beispielsweise schlägt Folgendes fehl:

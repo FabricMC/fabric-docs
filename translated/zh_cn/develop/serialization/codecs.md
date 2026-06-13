@@ -239,12 +239,12 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 虽然这些方法非常有用，但方法名称有点让人困惑，所以这里有一个表格帮助你记住应该使用哪一个：
 
-| 可重写的方法                  | A -> B 总是有效？ | B -> A 总是有效？ |
-| ----------------------- | ------------ | ------------ |
-| `Codec<A>#xmap`         | 是            | 是            |
-| `Codec<A>#comapFlatMap` | 否            | 是            |
-| `Codec<A>#flatComapMap` | 是            | 否            |
-| `Codec<A>#flatXMap`     | 否            | 否            |
+| 可重写的方法         | 解码始终有效？ | 编码始终有效？ |
+| -------------- | ------- | ------- |
+| `xmap`         | 是       | 是       |
+| `comapFlatMap` | 否       | 是       |
+| `flatComapMap` | 是       | 否       |
+| `flatXMap`     | 否       | 否       |
 
 ### 注册表分派 {#registry-dispatch}
 
