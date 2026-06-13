@@ -34,7 +34,8 @@ const loadCodeBlock = (originalCodeBlock: HTMLDivElement) => {
     dialog.value?.querySelector<HTMLDivElement>("div.slot")?.replaceChildren(clonedCodeBlock);
   };
 
-  if (prefersReducedMotion.value === "reduce") return onViewTransition();
+  if (prefersReducedMotion.value === "reduce" || !document.startViewTransition)
+    return onViewTransition();
 
   document.startViewTransition(onViewTransition);
 };
@@ -54,6 +55,7 @@ const handleEnterFullscreen = (originalCodeBlock: HTMLDivElement) => {
 
   loadCodeBlock(originalCodeBlock);
   dialog.value.showModal();
+  (document.activeElement as HTMLElement)?.blur();
 };
 
 const handleTabChange = (index: number) => {
@@ -79,8 +81,7 @@ const handleExitFullscreen = (event?: Event) => {
   if (event?.currentTarget instanceof HTMLButtonElement) event.currentTarget.blur();
   if (!dialog.value?.open) return;
 
-  dialog.value.focus();
-  dialog.value.blur();
+  (document.activeElement as HTMLElement)?.blur();
   isClosing.value = true;
 
   const onAnimationend = () => {
@@ -305,7 +306,7 @@ div.toolbar {
     z-index: 10;
 
     &::-webkit-scrollbar {
-      scrollbar-width: thin;
+      height: 8px;
     }
 
     &::-webkit-scrollbar-track {
@@ -477,27 +478,27 @@ div.toolbar {
         & span::after {
           content: "\200B";
         }
-      }
 
-      span.line::before {
-        content: counter(line-counter);
-        counter-increment: line-counter;
-        display: inline-block;
-        position: sticky;
-        z-index: 1;
-        left: 0;
-        margin-left: -56px;
-        margin-right: 12px;
-        width: 32px;
-        text-align: center;
-        user-select: none;
-        color: var(--vp-code-line-number-color);
-        background-color: var(--vp-code-block-bg);
-        border-right: 1px solid var(--vp-code-block-divider-color);
-      }
+        &::before {
+          content: counter(line-counter);
+          counter-increment: line-counter;
+          display: inline-block;
+          position: sticky;
+          z-index: 1;
+          left: 0;
+          margin-left: -56px;
+          margin-right: 12px;
+          width: 32px;
+          text-align: center;
+          user-select: none;
+          color: var(--vp-code-line-number-color);
+          background-color: var(--vp-code-block-bg);
+          border-right: 1px solid var(--vp-code-block-divider-color);
+        }
 
-      span.line:empty::after {
-        content: "\a0";
+        &:empty::after {
+          content: "\a0";
+        }
       }
     }
   }
