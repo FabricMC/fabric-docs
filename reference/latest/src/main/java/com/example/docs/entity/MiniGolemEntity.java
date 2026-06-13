@@ -50,10 +50,12 @@ public class MiniGolemEntity extends PathfinderMob {
 	// #region attributes
 	public static AttributeSupplier.Builder createCubeAttributes() {
 		return PathfinderMob.createMobAttributes()
+				// #endregion registerclass
+				.add(ModAttributes.AGGRO_RANGE, 8.0)
+				// #region registerclass
 				.add(Attributes.MAX_HEALTH, 5)
 				.add(Attributes.TEMPT_RANGE, 10)
-				.add(Attributes.MOVEMENT_SPEED, 0.3)
-				.add(ModAttributes.AGGRO_RANGE, 8.0);
+				.add(Attributes.MOVEMENT_SPEED, 0.3);
 	}
 	// #endregion attributes
 	// #endregion registerclass
