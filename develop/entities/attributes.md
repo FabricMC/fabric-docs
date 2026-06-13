@@ -68,10 +68,10 @@ This is an example of how to add vanilla attributes and the previously created `
 
 An attribute by itself is just data attached to an entity. For it to be useful, we need to be able to read from and write to it. There are two main ways to do this: getting the `AttributeInstance` on the entity, or getting the value directly.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#reading_entity_attributes
+<<< @/reference/latest/src/gametest/java/com/example/docs/entity/EntityAttributesGameTest.java#reading_entity_attributes
 
 An `AttributeInstance` allows more flexibility, such as setting an `AttributeModifier` on the attribute, using one of the [three vanilla attribute modifier operations](https://minecraft.wiki/w/Attribute#Operations). Modifiers can be permanent (saved to NBT) or transitive (not saved to NBT) and are added using `addPermanentModifier` or `addTransitiveModifier`, respectively.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#modifying_entity_attributes
+<<< @/reference/latest/src/gametest/java/com/example/docs/entity/EntityAttributesGameTest.java#modifying_entity_attributes
 
 Once you have access to the attribute value, you can use it in your entity's AI.

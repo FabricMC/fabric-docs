@@ -5,17 +5,13 @@ import static com.example.docs.attachment.ExampleModAttachments.EXAMPLE_STRING_A
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 
 import com.example.docs.effect.ExampleModEffects;
-import com.example.docs.entity.attribute.ModAttributes;
 
 /**
  * A static-first class, used solely to provide version-aware
@@ -73,24 +69,5 @@ public class ReferenceMethods {
 			player.sendSystemMessage(Component.literal("Blocks broken: " + blocksBroken));
 		});
 		// #endregion saved_data_example_scenario
-	}
-
-	public static void readingEntityAttributes(LivingEntity entity) {
-		// #region reading_entity_attributes
-		entity.getAttribute(ModAttributes.AGGRO_RANGE); // returns an `AttributeInstance`
-		entity.getAttributeValue(ModAttributes.AGGRO_RANGE); // returns a double with the current value
-		entity.getAttributeBaseValue(ModAttributes.AGGRO_RANGE); // returns a double with the base value
-		// #endregion reading_entity_attributes
-	}
-
-	public static void modifyingEntityAttributes(AttributeInstance attribute) {
-		// #region modifying_entity_attributes
-		attribute.addPermanentModifier(
-				new AttributeModifier(
-						Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "increased_range"), // the ID of your modifier, should be static so it can be removed
-						8, // how much to modify it
-						AttributeModifier.Operation.ADD_VALUE // what operator to use, see the wiki page linked above
-				));
-		// #endregion modifying_entity_attributes
 	}
 }
