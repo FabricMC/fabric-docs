@@ -88,8 +88,11 @@ body:has(.VPFooter:not(.has-sidebar)) .aside-container {
   display: block;
 }
 
-::-webkit-scrollbar {
-  width: 12px;
+html:not(.mac) {
+  &::-webkit-scrollbar,
+  ::-webkit-scrollbar {
+    scrollbar-width: thin;
+  }
 }
 
 ::-webkit-scrollbar-track {
