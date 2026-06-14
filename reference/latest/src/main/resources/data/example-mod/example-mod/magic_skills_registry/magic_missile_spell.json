@@ -1,0 +1,5 @@
+{
+  "name": "Magic Missile Spell",
+  "mana_cost": 853,
+  "on_use_mc_function": "example-mod:magic_missile_spell_function"
+}

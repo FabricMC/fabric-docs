@@ -479,6 +479,10 @@ export default [
         link: "/develop/statistics",
       },
       {
+        text: "develop.misc.dynamic_registries",
+        link: "/develop/dynamic-registry",
+      },
+      {
         text: "develop.misc.text_and_translations",
         link: "/develop/text-and-translations",
       },
