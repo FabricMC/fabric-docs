@@ -10,7 +10,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -34,6 +34,7 @@ import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
@@ -55,14 +56,19 @@ import com.example.docs.networking.basic.LightningTaterItem;
 public class ModItems {
 	// #endregion mod_items_class
 
+	// #region guidite_incorrect_blocks_tag
+	public static final TagKey<Block> INCORRECT_FOR_GUIDITE_TOOL = TagKey.create(BuiltInRegistries.BLOCK.key(),
+			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "incorrect_for_guidite_tool"));
+	// #endregion guidite_incorrect_blocks_tag
+
 	// #region guidite_tool_material
 	public static final ToolMaterial GUIDITE_TOOL_MATERIAL = new ToolMaterial(
-			BlockTags.INCORRECT_FOR_WOODEN_TOOL,
-			455,
-			5.0F,
-			1.5F,
-			22,
-			GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR
+			INCORRECT_FOR_GUIDITE_TOOL, // incorrect blocks for drops
+			455, // durability
+			5.0F, // speed
+			1.5F, // attack damage bonus
+			22, // enchantment value
+			GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR // repair items
 	);
 	// #endregion guidite_tool_material
 
@@ -196,7 +202,12 @@ public class ModItems {
 
 	public static final Item RUBY = register("ruby", Item::new, new Item.Properties());
 
-	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Properties());
+	// #region axe
+	public static final Item GUIDITE_AXE = register(
+					"guidite_axe",
+					settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings),
+					new Item.Properties());
+	// #endregion axe
 
 	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Properties());
 
