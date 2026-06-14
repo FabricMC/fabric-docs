@@ -2,6 +2,7 @@ package com.example.docs.item;
 
 import java.util.List;
 import java.util.function.Function;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
