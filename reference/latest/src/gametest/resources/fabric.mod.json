@@ -6,7 +6,10 @@
   "icon": "assets/example-mod/icon.png",
   "environment": "*",
   "entrypoints": {
-    "fabric-gametest": ["com.example.docs.ExampleModGameTest"],
+    "fabric-gametest": [
+      "com.example.docs.ExampleModGameTest",
+      "com.example.docs.entity.EntityAttributesGameTest"
+    ],
     "fabric-client-gametest": ["com.example.docs.ExampleModClientGameTest"]
   }
 }
