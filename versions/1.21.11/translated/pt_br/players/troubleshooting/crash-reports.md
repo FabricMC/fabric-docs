@@ -9,7 +9,7 @@ authors:
 
 ::: tip
 
-Se você estiver com dificuldades em encontrar a causa do travamento, você pode pedir ajuda no [Discord do Fabric](https://discord.fabricmc.net/) nos canais `#player-support` ou `#server-admin-support`.
+Se você estiver com dificuldades em encontrar a causa do travamento, você pode pedir ajuda no [Discord do Fabric](https://discord.fabricmc.net/) nos canais `#player-support` ou `#mc-server-support`.
 
 :::
 

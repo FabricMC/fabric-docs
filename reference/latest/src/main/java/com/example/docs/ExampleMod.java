@@ -26,7 +26,9 @@ public class ExampleMod implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final String MOD_ID = "example-mod";
+	// #region create_logger
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	// #endregion create_logger
 
 	// #endregion entrypoint
 	// #region particle_register_main

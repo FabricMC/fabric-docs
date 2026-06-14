@@ -9,7 +9,7 @@ authors:
 
 ::: tip
 
-Falls du Schwierigkeiten hast, den Grund für einen Absturz herauszufinden, frage im [Fabric Discord](https://discord.fabricmc.net/) im Kanal `#player-support` oder `#server-admin-support` nach Hilfe.
+Falls du Schwierigkeiten hast, den Grund für einen Absturz herauszufinden, frage im [Fabric Discord](https://discord.fabricmc.net/) im Kanal `#player-support` oder `#mc-server-support` nach Hilfe.
 
 :::
 
