@@ -33,16 +33,14 @@ public class TestItem extends Item {
 			ExampleMod.LOGGER.info("You interacted with an entity!");
 			// #endregion problems_using_logger
 		}
-
 		// #region problems_logger_usage_example
+		// Extra parameters will be interpolated into the format string
+		ExampleMod.LOGGER.info(
+				"Is Client World: {} | Health: {} / {} | The item was used with the {}",
+				level.isClientSide(), entity.getHealth(), entity.getMaxHealth(), hand
+		);
 
-		// Values are used in a String to provide more information in the console
-		String output = "Is Client World: %s | Health: %s / %s | The item was used with the %s"
-				.formatted(user.level().isClientSide(), entity.getHealth(), entity.getMaxHealth(), hand.name());
-
-		ExampleMod.LOGGER.info(output);
-
-		if (!user.level().isClientSide()) {
+		if (!level.isClientSide()) {
 			// you can log non-critical issues differently as a warning
 			ExampleMod.LOGGER.warn("Don't touch that!");
 
