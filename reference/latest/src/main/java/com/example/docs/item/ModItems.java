@@ -2,7 +2,6 @@ package com.example.docs.item;
 
 import java.util.List;
 import java.util.function.Function;
-
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -63,12 +62,12 @@ public class ModItems {
 
 	// #region guidite_tool_material
 	public static final ToolMaterial GUIDITE_TOOL_MATERIAL = new ToolMaterial(
-			INCORRECT_FOR_GUIDITE_TOOL,
-			455,
-			5.0F,
-			1.5F,
-			22,
-			GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR
+			INCORRECT_FOR_GUIDITE_TOOL, // incorrect blocks for drops
+			455, // durability
+			5.0F, // speed
+			1.5F, // attack damage bonus
+			22, // enchantment value
+			GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR // repair items
 	);
 	// #endregion guidite_tool_material
 
@@ -202,7 +201,12 @@ public class ModItems {
 
 	public static final Item RUBY = register("ruby", Item::new, new Item.Properties());
 
-	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Properties());
+	// #region axe
+	public static final Item GUIDITE_AXE = register(
+					"guidite_axe",
+					settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings),
+					new Item.Properties());
+	// #endregion axe
 
 	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Properties());
 
