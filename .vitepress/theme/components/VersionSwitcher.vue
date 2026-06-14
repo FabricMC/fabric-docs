@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { getIcon, Icon, loadIcon } from "@iconify/vue";
+import { Icon, loadIcon } from "@iconify/vue";
+import { computedAsync } from "@vueuse/core";
 import { useData } from "vitepress";
 import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
-import { computed, onMounted, ref } from "vue";
+import { computed, ref } from "vue";
 import { Fabric } from "../../types.d";
 
 const props = defineProps<{
@@ -25,14 +26,10 @@ const currentV = computed(() => {
   return props.versioningPlugin.latestVersion;
 });
 
-const button = computed(() => {
-  const iconData = getIcon("mdi:source-branch");
-
-  const icon = iconData
-    ? `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">${iconData.body}</svg>`
-    : "";
-
-  return `<span style='display:flex;align-items:center;gap:4px'>${icon} ${currentV.value}</span>`;
+const button = computedAsync(async () => {
+  const iconData = await loadIcon("lucide:git-graph")
+  const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">${iconData.body}</svg>`;
+  return `<span style="display:flex;align-items:center;gap:4px">${icon} ${currentV.value}</span>`;
 });
 
 // TODO: add future versions to the supported pages
@@ -42,7 +39,7 @@ const versions = computed(() =>
     ...(typeof env.value === "number"
       ? []
       : props.versioningPlugin.versions.toSorted(collator.compare).reverse()),
-  ].filter((v) => v !== currentV.value && v !== "1.21.10")
+  ].filter((v) => v !== "1.21.10")
 );
 
 const open = ref(false);
@@ -57,6 +54,8 @@ route format:  [locale/] [version/] path/to/
 - [version/] is not added for the latest version
 */
 const getRoute = (newVersion: string) => {
+  if (newVersion === data.frontmatter.value.version) return;
+
   const split = data.page.value.filePath.split("/");
   // path segments for each type of version
   const versionSlices = { latest: 0, future: 1, old: 2 };
@@ -73,10 +72,6 @@ const getRoute = (newVersion: string) => {
 
   return segments.join("/").replace(/((?<=^|[/])index)?[.](html|md)$/, "");
 };
-
-onMounted(async () => {
-  await loadIcon("mdi:source-branch");
-});
 </script>
 
 <template>
@@ -88,16 +83,16 @@ onMounted(async () => {
   >
     <button v-if="screenMenu" :aria-expanded="open" @click="open = !open">
       <span>
-        <Icon icon="mdi:source-branch" width="16" height="16" />
+        <Icon icon="lucide:git-graph" width="16" height="16" />
         {{ options.label.replace("%s", currentV) }}
       </span>
       <span class="vpi-plus" />
     </button>
 
-    <VPLink v-if="versions.length" v-for="v in versions" :key="v" :href="getRoute(v)">{{
+    <VPLink v-for="v in versions" :key="v" :href="getRoute(v)">{{
       options.label.replace("%s", v)
     }}</VPLink>
-    <VPLink v-else>{{ options.none }}</VPLink>
+    <VPLink v-if="versions.length <= 1">{{ options.none }}</VPLink>
   </component>
 </template>
 
