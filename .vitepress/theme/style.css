@@ -88,6 +88,10 @@ body:has(.VPFooter:not(.has-sidebar)) .aside-container {
   display: block;
 }
 
+html.mac {
+  scrollbar-color: var(--vp-c-gray-1) var(--vp-c-bg-alt);
+}
+
 html:not(.mac) {
   &::-webkit-scrollbar,
   ::-webkit-scrollbar {
