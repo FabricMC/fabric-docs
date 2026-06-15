@@ -210,6 +210,12 @@ dialog#fullscreen {
     fade-in 0.3s ease-in,
     scale-in 0.3s ease;
 
+  @supports (-moz-appearance: none) {
+    & {
+      will-change: transform, opacity;
+    }
+  }
+
   &,
   &::backdrop {
     height: 100dvh;
