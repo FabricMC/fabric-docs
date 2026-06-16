@@ -27,7 +27,7 @@ const currentV = computed(() => {
 });
 
 const button = computedAsync(async () => {
-  const iconData = await loadIcon("lucide:git-graph")
+  const iconData = await loadIcon("lucide:git-graph");
   const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">${iconData.body}</svg>`;
   return `<span style="display:flex;align-items:center;gap:4px">${icon} ${currentV.value}</span>`;
 });
