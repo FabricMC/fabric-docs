@@ -3,6 +3,7 @@ title: 创建你的第一个实体
 description: 学习如何注册一个简单的实体，并为其添加目标、渲染器、模型和动画。
 authors:
   - cassiancc
+  - CelDaemon
   - Earthcomputer
   - JaaiDead
   - skycatminepokie
@@ -197,6 +198,14 @@ Blockbench 支持多种[映射](../migrating-mappings/#mappings)（例如 Mojang
   - 当动画时间位于两个关键帧之间时，该属性值会在相邻两个关键帧之间进行插值（混合）。
   - 我们使用了线性插值，这是最简单的插值方式，会使属性值（在本例中是模型部件的旋转）以恒定速率从一个关键帧变化到下一个关键帧。 原版还提供了 Catmull-Rom 样条插值，可在关键帧之间产生更平滑的过渡。
   - 模组开发者也可以创建自定义插值类型。
+
+为了使渲染器能够访问我们的动画状态，我们将它的副本存储在 `MiniGolemEntityRenderState` 中。
+
+<<< @/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java#animation_state
+
+为了执行复制操作，我们在实体渲染器中重写 `extractRenderState` 方法。
+
+<<< @/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java#copy_animation_state
 
 最后，让我们将动画接入模型：
 

@@ -85,6 +85,7 @@
   "develop.misc.game_rules": "Игровые правила",
   "develop.misc.networking": "Создание сетей",
   "develop.misc.key_mappings": "Назначения клавиш",
+  "develop.misc.statistics": "Статистика",
   "develop.misc.text_and_translations": "Текст и переводы",
   "develop.misc.debugging": "Отладка модов",
   "develop.mixins": "Mixins",
