@@ -40,6 +40,10 @@ const hostname =
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
+
+const classTweakerGrammar = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, "../syntaxes/classtweaker.tmLanguage.json"), "utf8")
+);
 export default defineVersionedConfig(
   {
     // Removes .html from the end of URLs.
@@ -74,8 +78,9 @@ export default defineVersionedConfig(
       },
       gfmAlerts: false,
       image: { lazyLoading: true },
-      languageAlias: { classtweaker: "text", gradle: "groovy" },
+      languageAlias: { gradle: "groovy" },
       languages: [
+        { ...classTweakerGrammar, name: "classtweaker", aliases: ["accesswidener"] },
         { ...(mcfunction as any), name: "mcfunction" },
         { ...(bytecode as any), name: "bytecode" },
       ],
