@@ -76,34 +76,6 @@
             "2": { "name": "entity.name.type.class.enum.classtweaker" },
             "3": { "name": "constant.other.enum.classtweaker" }
           }
-        },
-        {
-          "match": "^(<accessible / extendable>)    (class)    (<className>)$",
-          "captures": {
-            "1": { "name": "keyword.control.directive.classtweaker" },
-            "2": { "name": "storage.type.class.classtweaker" },
-            "3": { "name": "entity.name.type.class.classtweaker" }
-          }
-        },
-        {
-          "match": "^(<accessible / extendable>)    (method)    (<className>)    (<methodName>)    (<methodDescriptor>)$",
-          "captures": {
-            "1": { "name": "keyword.control.directive.classtweaker" },
-            "2": { "name": "storage.type.method.classtweaker" },
-            "3": { "name": "entity.name.type.class.classtweaker" },
-            "4": { "name": "variable.method.classtweaker" },
-            "5": { "name": "constant.other.reference.link.classtweaker" }
-          }
-        },
-        {
-          "match": "^(<accessible / mutable>)    (field)    (<className>)    (<fieldName>)    (<fieldDescriptor>)$",
-          "captures": {
-            "1": { "name": "keyword.control.directive.classtweaker" },
-            "2": { "name": "storage.type.field.classtweaker" },
-            "3": { "name": "entity.name.type.class.classtweaker" },
-            "4": { "name": "variable.field.classtweaker" },
-            "5": { "name": "constant.other.reference.link.classtweaker" }
-          }
         }
       ]
     }

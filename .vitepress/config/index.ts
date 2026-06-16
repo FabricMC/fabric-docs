@@ -5,6 +5,7 @@ import * as path from "node:path";
 import * as process from "node:process";
 import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json";
 import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json";
+import classtweaker from "../syntaxes/classtweaker.tmLanguage.json";
 import { SiteConfig } from "vitepress";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
@@ -42,9 +43,6 @@ const hostname =
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
 
-const classTweakerGrammar = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, "../syntaxes/classtweaker.tmLanguage.json"), "utf8")
-);
 export default defineVersionedConfig(
   {
     // Removes .html from the end of URLs.
@@ -83,7 +81,7 @@ export default defineVersionedConfig(
       image: { lazyLoading: true },
       languageAlias: { gradle: "groovy" },
       languages: [
-        { ...classTweakerGrammar, name: "classtweaker", aliases: ["accesswidener"] },
+        { ...(classtweaker as any), name: "classtweaker", aliases: ["accesswidener"] },
         { ...(mcfunction as any), name: "mcfunction" },
         { ...(bytecode as any), name: "bytecode" },
       ],
