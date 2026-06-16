@@ -49,7 +49,7 @@ Note that this example inherits from a weaker tool material, and _removes_ entri
 
 We could also do the reverse: inherit from a stronger tool and _append_ additional blocks that Guidite tools are unfit for.
 
-As an example, if we wanted to create a tool that worked like iron, but can't mine Diamond Ore, `values` would need to contain `#incorrect_blocks_for_iron`, and the entries for Diamond Ore and Deepslate Diamond Ore.
+As an example, if we wanted to create a tool that worked like iron but couldn't mine Diamond Ore, `values` would need to contain `#incorrect_blocks_for_iron`, and the entries for Diamond Ore and Deepslate Diamond Ore.
 
 :::
 
