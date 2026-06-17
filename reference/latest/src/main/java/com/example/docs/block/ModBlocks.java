@@ -106,7 +106,7 @@ public class ModBlocks {
 	// #endregion prismarine_lamp
 
 	public static final Block RUBY_BLOCK = register(
-			ModBlockItemIds.PRISMARINE_LAMP, Block::new, BlockBehaviour.Properties.of()
+			ModBlockItemIds.RUBY_BLOCK, Block::new, BlockBehaviour.Properties.of()
 	);
 	public static final Block RUBY_STAIRS = register(
 			ModBlockItemIds.RUBY_STAIRS, settings -> new StairBlock(RUBY_BLOCK.defaultBlockState(), settings), BlockBehaviour.Properties.of()
