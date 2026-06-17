@@ -3,6 +3,7 @@ title: Створення вашої першої сутності
 description: Дізнайтеся, як зареєструвати просту сутність, як дати їй цілей, рендер, модель та анімувати її.
 authors:
   - cassiancc
+  - CelDaemon
   - Earthcomputer
   - JaaiDead
   - skycatminepokie
@@ -197,6 +198,14 @@ BlockBench підтримує кілька [мапінгів](../migrating-mappi
   - Коли час знаходиться між нашими ключовими кадрами, тоді значення буде інтерпольовано (змішано) між двома сусідніми ключовими кадрами.
   - Ми використали лінійну інтерполяцію, яка є найпростішою та змінює значення (у нашому випадку обертання частини моделі) з постійною швидкістю від одного ключового кадру до іншого. Стандартна гра також забезпечує сплайн-інтерполяцію Catmull-Rom, яка забезпечує більш плавний перехід між ключовими кадрами.
   - Творці модів також можуть створювати власні типи інтерполяції.
+
+Щоб зробити наш стан анімації доступним для рендерера, ми збережемо його копію в нашому `MiniGolemEntityRenderState`.
+
+<<< @/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java#animation_state
+
+Щоб виконати копіювання, ми замінюємо `extractRenderState` у рендерері сутності.
+
+<<< @/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java#copy_animation_state
 
 Нарешті, приєднаймо анімацію до моделі:
 

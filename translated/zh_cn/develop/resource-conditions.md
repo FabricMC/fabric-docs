@@ -35,6 +35,12 @@ Fabric API 提供了九种内置条件供你的模组使用。
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/true.json
 
+#### 假 {#false}
+
+总是失败：
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/false.json
+
 #### 非 {#not}
 
 反转 `value` 中指定的加载条件。 例如，以下内容将失败：

@@ -338,7 +338,7 @@ export default [
     items: [
       {
         text: "develop.loom.introduction",
-        link: "/develop/loom",
+        link: "/develop/loom/",
       },
       {
         text: "develop.loom.fabric_api",
@@ -396,11 +396,11 @@ export default [
         items: [
           {
             text: "develop.porting.mappings.loom",
-            link: "/develop/porting/mappings/loom",
+            link: "/1.21.11/develop/porting/mappings/loom",
           },
           {
             text: "develop.porting.mappings.ravel",
-            link: "/develop/porting/mappings/ravel",
+            link: "/1.21.11/develop/porting/mappings/ravel",
           },
         ],
       },
