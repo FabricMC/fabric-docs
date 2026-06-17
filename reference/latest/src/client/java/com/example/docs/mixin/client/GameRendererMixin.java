@@ -7,12 +7,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.minecraft.client.renderer.GameRenderer;
 
-import com.example.docs.rendering.CustomRenderPipeline;
+//import com.example.docs.rendering.CustomRenderPipeline;
 
 @Mixin(GameRenderer.class)
 public class GameRendererMixin {
 	@Inject(method = "close", at = @At("RETURN"))
 	private void onGameRendererClose(CallbackInfo ci) {
-		CustomRenderPipeline.getInstance().close();
+//		CustomRenderPipeline.getInstance().close(); FIXME
 	}
 }

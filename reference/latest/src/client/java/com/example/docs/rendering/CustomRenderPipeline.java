@@ -1,41 +1,28 @@
+
 package com.example.docs.rendering;
 
 import java.util.Optional;
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
 
-import com.mojang.blaze3d.buffers.GpuBuffer;
-import com.mojang.blaze3d.buffers.GpuBufferSlice;
 import com.mojang.blaze3d.pipeline.RenderPipeline;
-import com.mojang.blaze3d.systems.CommandEncoder;
-import com.mojang.blaze3d.systems.RenderPass;
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import com.mojang.blaze3d.vertex.ByteBufferBuilder;
-import com.mojang.blaze3d.vertex.MeshData;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexFormat;
 import org.joml.Matrix4f;
-import org.joml.Matrix4fc;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
-import org.lwjgl.system.MemoryUtil;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MappableRingBuffer;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.phys.Vec3;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionContext;
-import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderContext;
-import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionEvents;
 
 import com.example.docs.ExampleMod;
 
 public class CustomRenderPipeline implements ClientModInitializer {
+
 	private static CustomRenderPipeline instance;
 	// #region custom_pipelines_define_pipeline
 	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.DEBUG_FILLED_SNIPPET)
@@ -64,8 +51,10 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		instance = this;
-		LevelRenderEvents.END_EXTRACTION.register(this::extractWaypoint);
+		LevelExtractionEvents.END_EXTRACTION.register(this::extractWaypoint);
+		/*
 		LevelRenderEvents.AFTER_TRANSLUCENT_TERRAIN.register(this::renderAndDrawWaypoint);
+		*/
 	}
 
 	// #region custom_pipelines_extraction_phase
@@ -74,6 +63,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		// You can only access the (immutable and thread safe) render state in the drawing phase.
 		waypointState = new WaypointRenderState(0, 100, 0, 0f, 1f, 0f, 0.5f);
 	}
+	/*
 
 	// #endregion custom_pipelines_extraction_phase
 	// #region custom_pipelines_drawing_phase
@@ -228,6 +218,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		}
 	}
 	// #endregion custom_pipelines_clean_up
+	 */
 
 	// #region custom_pipelines_extraction_phase
 	// Render states should be immutable, thread safe, and fast to create.
