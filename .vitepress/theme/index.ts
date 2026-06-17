@@ -21,9 +21,6 @@ export default {
   enhanceApp: ({ app }) => {
     enhanceAppWithTabs(app);
 
-    // VidStack VideoPlayer Component
-    app.config.compilerOptions.isCustomElement = (tag) => tag.startsWith("media-");
-
     // Custom Components for Pages
     app.component("ChoiceComponent", ChoiceComponent);
     app.component("ColorSwatch", ColorSwatch);

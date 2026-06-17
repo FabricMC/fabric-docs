@@ -80,7 +80,7 @@ If you're stuck choosing which `TextureModel` you should use, open the `Textured
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#block_texture_pool_normal
 
-Another useful method is `registerCubeAllModelTexturePool`: define the textures by passing in the "base block", and then append the "children", which will have the same textures.
+Another useful method is `family`: define the textures by passing in the "base block", and then append the "children", which will have the same textures.
 In this case, we passed in the `RUBY_BLOCK`, so the stairs, slab and fence will use the `RUBY_BLOCK` texture.
 
 ::: warning
