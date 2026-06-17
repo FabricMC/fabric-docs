@@ -4,6 +4,7 @@ package com.example.docs.rendering;
 import java.util.Optional;
 import java.util.OptionalDouble;
 
+import com.mojang.blaze3d.PrimitiveTopology;
 import com.mojang.blaze3d.buffers.GpuBufferSlice;
 import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.mojang.blaze3d.pipeline.RenderTarget;
@@ -74,7 +75,8 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 		assert formatBinding != null;
 
-		StagedVertexBuffer.Draw draw = stagedBuffer.appendDraw(formatBinding, renderPipeline.getPrimitiveTopology(), RenderSystem.getProjectionType().vertexSorting());
+		PrimitiveTopology primitive = renderPipeline.getPrimitiveTopology();
+		StagedVertexBuffer.Draw draw = stagedBuffer.appendDraw(formatBinding, primitive, primitive == PrimitiveTopology.QUADS ? RenderSystem.getProjectionType().vertexSorting() : null);
 
 		this.renderWaypoint(context, draw);
 
