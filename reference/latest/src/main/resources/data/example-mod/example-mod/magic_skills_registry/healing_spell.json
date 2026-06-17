@@ -1,5 +1,0 @@
-{
-  "name": "Healing Spell",
-  "mana_cost": 4785,
-  "on_use_mc_function": "example-mod:healing_spell_function"
-}

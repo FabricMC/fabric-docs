@@ -43,6 +43,10 @@ Declaring the registry keys in a common class is recommended because it will mak
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#main
 
+Call `ExampleModRegistries.initialize()` from your [mod's initializer](./getting-started/project-structure#entrypoints).
+
+<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModDynamicRegistries.java#main
+
 Then register it with Fabric API's `DynamicRegistries`, which provides two distinct strategies: `DynamicRegistries.register()`, or `DynamicRegistries.registerSynced()`.
 
 #### Using `register()` {#using-register}
@@ -68,25 +72,19 @@ In our case, we only need the [`name`](#class-setup) and [`manaCost`](#class-set
 
 #### `SyncOption` {#sync-option}
 
-Both overloads of `DynamicRegistries.registerSynced()` accept `SyncOption` arguments at the end to configure synchronization behavior. Such options include:
+Both overloads of `DynamicRegistries.registerSynced()` accept `SyncOption` arguments at the end to configure synchronization behavior. The only available option to use is:
 
-1. `SKIP_WHEN_EMPTY`: Synchronizes the registry only when it contains entries. This can help with compatibility for clients that may not need the registry.
+- `SKIP_WHEN_EMPTY`: Synchronizes the registry only when it contains entries. This can help with compatibility for clients that may not need the registry.
 
 Example:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#with_option
 
-#### Initialize the Class {#initialize-the-class}
-
-Call `ExampleModRegistries.initialize()` from your [mod's initializer](./getting-started/project-structure#entrypoints).
-
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModDynamicRegistries.java#main
-
 ### Populating the Registry {#populating-the-registry}
 
 JSON files are used for creating registry entries. The JSON structure must match the [`MagicSkillsRegistryEntry`](#class-setup). In this example, our entry class has three fields, so the JSON file for `healing_spell` entry might look like this:
 
-<<< @/reference/latest/src/main/resources/data/example-mod/example-mod/magic_skills_registry/healing_spell.json
+<<< @/reference/latest/src/main/generated/data/example-mod/example-mod/magic_skills_registry/healing_spell.json
 
 Entry JSON files are stored under `src/main/resources/data/example-mod/example-mod/magic_skills_registry/`.
 
@@ -119,41 +117,39 @@ When accessing the `RegistryAccess` instance from a client-only class, such as `
 
 #### Get the Entire Registry {#get-the-entire-registry}
 
+Registries can be accessed using the `lookup` method of `RegistryAccess` which returns a `Optional<Registry<T>>` where `T` is the type of the registry.
+
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#get_registry
-
-Usage:
-
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#get_registry_usage
 
 #### Get a Specific Entry {#get-a-specific-entry}
 
+Specific entries can be accessed using the `get` method of `RegistryAccess` which returns a `Optional<Holder.Reference<T>>` where `T` is the type of the registry.
+
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#get_specific_registry_entry
 
-Usage:
-
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#get_specific_registry_entry_usage
-
-Read [Entry ID](#entry-id) to know how to get the `entryId`.
+Read [Entry ID](#entry-id) to know how to get the `HEALING_SPELL_ENTRY_ID`.
 
 In our case we can use this method to get the entry for magic skill used by user on server, then extract the [`onUseMcFunction`](#class-setup) field to execute the mcfunction.
 
 #### Iterate Over All Entries {#iterate-over-all-entries}
 
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#iterate_over_registry_entries
+Registry entries can be iterated over for various purposes like UI population. In our case we can use this method to populate a screen with custom widgets like this:
 
-Usage:
+<<< @/reference/latest/src/client/java/com/example/docs/dynamic_registries/screens/ExampleModMagicSkillsScreen.java#iterate_over_registry_entries
 
-<<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#iterate_over_registry_entries_usage
+::: tip
 
-In our case we can use this method to get all the entries in the registry and show them in a client UI.
+Learn more about creating [Custom Screens](./rendering/gui/custom-screens) and [Custom Widgets](./rendering/gui/custom-widgets)
+
+:::
 
 ### Tags For Custom Registry Entries {#tags-for-custom-registry-entries}
 
 Tags are a way to group multiple entries together. For example, we can create tags like _attack_ and _defense_ to group similar magic skills together.
 
-For example, the attacking tag would be defined under `data/example-mod/tags/example-mod/magic_skills_registry/attacking_skills.json`:
+For example, the attacking tag would be defined under `data/example-mod/tags/example-mod/magic_skills_registry/attacking_spells.json`:
 
-<<< @/reference/latest/src/main/resources/data/example-mod/tags/example-mod/magic_skills_registry/attacking_skills.json
+<<< @/reference/latest/src/main/generated/data/example-mod/tags/example-mod/magic_skills_registry/attacking_spells.json
 
 #### Using Tags In Code {#using-tags-in-code}
 

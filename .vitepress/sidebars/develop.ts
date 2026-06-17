@@ -455,6 +455,10 @@ export default [
         link: "/develop/debugging",
       },
       {
+        text: "develop.misc.dynamic_registries",
+        link: "/develop/dynamic-registry",
+      },
+      {
         text: "develop.misc.events",
         link: "/develop/events",
       },
@@ -477,10 +481,6 @@ export default [
       {
         text: "develop.misc.statistics",
         link: "/develop/statistics",
-      },
-      {
-        text: "develop.misc.dynamic_registries",
-        link: "/develop/dynamic-registry",
       },
       {
         text: "develop.misc.text_and_translations",

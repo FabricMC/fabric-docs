@@ -12,7 +12,7 @@ public class ExampleModTags {
 	public static final TagKey<MagicSkillsRegistryEntry> ATTACKING_SPELLS_TAG_KEY = TagKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "attacking_spells"));
 
 	public static <T> boolean isPresentInMyTag(RegistryAccess registryAccess, ResourceKey<T> entryId, TagKey<T> tagKey) {
-		return ExampleModRegistries.getSpecificRegistryEntry(registryAccess, entryId).map(reference -> reference.is(tagKey)).orElse(false);
+		return registryAccess.get(entryId).map(reference -> reference.is(tagKey)).orElse(false);
 	}
 	// #endregion tag
 

@@ -1,5 +1,0 @@
-{
-  "name": "Blast Spell",
-  "mana_cost": 474,
-  "on_use_mc_function": "example-mod:blast_spell_function"
-}
