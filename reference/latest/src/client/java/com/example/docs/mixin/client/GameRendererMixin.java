@@ -13,6 +13,6 @@ import net.minecraft.client.renderer.GameRenderer;
 public class GameRendererMixin {
 	@Inject(method = "close", at = @At("RETURN"))
 	private void onGameRendererClose(CallbackInfo ci) {
-//		CustomRenderPipeline.getInstance().close(); FIXME
+		//CustomRenderPipeline.getInstance().close(); FIXME
 	}
 }

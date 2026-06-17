@@ -22,7 +22,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionEvents;
 import com.example.docs.ExampleMod;
 
 public class CustomRenderPipeline implements ClientModInitializer {
-
 	private static CustomRenderPipeline instance;
 	// #region custom_pipelines_define_pipeline
 	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.DEBUG_FILLED_SNIPPET)
