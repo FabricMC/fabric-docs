@@ -5,7 +5,7 @@ authors:
   - Jimmy474
 ---
 
-A registry is a centralized _phonebook_ that maps unique IDs such as `minecraft:items` to specific objects. Static registries such as the block and item registries are frozen during startup, but dynamic registries are populated at runtime from JSON files in data packs.
+A **registry** is a centralized "phonebook" that maps unique IDs such as `minecraft:items` to specific objects. Static registries such as the block and item registries are frozen during startup, but dynamic registries are populated at runtime from JSON files in data packs.
 
 Dynamic registries act as a bridge between your hardcoded logic and external data supplied by players, modpacks, or other mods.
 
