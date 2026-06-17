@@ -9,7 +9,7 @@ authors:
 
 ## `fabric.mod.json` {#fabric-mod-json}
 
-Файл `fabric.mod.json` - это главный файл который описывает ваш мод загрузчику Fabric. Он содержит такую информацию как идентификатор мода, версию и зависимости.
+Файл [`fabric.mod.json`](../loader/fabric-mod-json) - это главный файл который описывает ваш мод загрузчику Fabric. Он содержит такую информацию как идентификатор мода, версию и зависимости.
 
 Важнейшие поля в файле `fabric.mod.json`:
 
@@ -20,17 +20,9 @@ authors:
 - `depends`: моды, от которых зависит ваш мод;
 - `mixins`: миксины, которые предоставляет ваш мод.
 
-Ниже вы можете увидеть пример файла `fabric.mod.json` - это файл `fabric.mod.json` для мода, который управляет этим сайтом документации.
-
-:::details `fabric.mod.json` из примера мода
-
-@[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
-
-:::
-
 ## Точки входа {#entrypoints}
 
-Как упоминалось ранее, файл `fabric.mod.json` имеет внутри поле `entrypoint`, это поле используется для указания точек входа, которые предоставляет ваш мод.
+Как упоминалось ранее, файл [`fabric.mod.json`](../loader/fabric-mod-json) содержит поле с именем `entrypoints` — оно используется для указания точек входа, предоставляемых вашим модом.
 
 Генератор шаблонных модов по умолчанию создает как `main`, так и `client` точку входа:
 
@@ -41,7 +33,7 @@ authors:
 
 Вот пример простой `main` точки входа этих логов, которая записывает сообщение на консоль при запуске игры:
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
 
 ## `src/main/resources` {#src-main-resources}
 

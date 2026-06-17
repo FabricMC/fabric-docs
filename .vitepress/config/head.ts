@@ -15,11 +15,42 @@ type NewHeadContext = {
 };
 
 const _getNewHead = (context: NewHeadContext): string | [string, Record<string, string>][] => {
+  const versionMap: Record<string, string> = {
+    "26.1.2": "26.1.2",
+    "26.1.1": "26.1.2",
+    "26.1.0": "26.1.2",
+
+    "1.21.11": "1.21.11",
+
+    // TODO: bring back 1.21.10
+    "1.21.10": "1.21.11",
+    "1.21.9": "1.21.11",
+
+    "1.21.8": "1.21.8",
+    "1.21.7": "1.21.8",
+    "1.21.6": "1.21.8",
+
+    // not on the Docs
+    "1.21.5": "1.21.5",
+
+    "1.21.4": "1.21.4",
+
+    // not on the Docs
+    "1.21.3": "1.21.3",
+    "1.21.2": "1.21.3",
+
+    "1.21.1": "1.21.1",
+    "1.21.0": "1.21.1",
+
+    // not on the Docs
+    "1.20.6": "1.20.6",
+    "1.20.5": "1.20.6",
+
+    "1.20.4": "1.20.4",
+    "1.20.3": "1.20.4",
+  };
+
   const redirects: { from: RegExp; dest: string }[] = [
-    {
-      from: /[/]+/g,
-      dest: "/",
-    },
     {
       from: /develop[/]items[/]custom-item-groups(?=[/]|$)/,
       dest: "develop/items/custom-creative-tabs",
@@ -38,7 +69,7 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     },
     {
       from: /^(?:[0-9.]+[/])?develop[/]porting[/](next|26[.]1)(?=[/]|$)/,
-      dest: "26.1/develop/porting",
+      dest: "26.1.2/develop/porting",
     },
     {
       from: /develop[/]blocks[/]transparency-and-tinting(?=[/]|$)/,
@@ -49,20 +80,12 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
       dest: "develop/blocks/transparency-and-tinting",
     },
     {
-      from: /^(?:[0-9.]+[/])?develop[/]porting[/]mappings(?=[/]|$)/,
-      dest: "1.21.11/develop/porting/mappings",
-    },
-    {
-      from: /^1[.]21[.]10(?=[/]|$)/,
-      dest: "1.21.11",
-    },
-    {
       from: /develop[/](codecs|data-attachments|saved-data)(?=[/]|$)/,
       dest: "develop/serialization/$1",
     },
     {
-      from: new RegExp(`^${context.latestVersion.replaceAll(".", "[.]")}(?=[/]|$)`),
-      dest: "",
+      from: /^(?:[0-9.]+[/])?develop[/]porting[/]mappings(?=[/]|$)/,
+      dest: "1.21.11/develop/porting/mappings",
     },
   ];
 
@@ -71,8 +94,16 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     .replace(/^[/]/, "")
     .replace(/((?<=^|[/])index)?[.](html|md)$/, "");
 
-  const split = oldPath.toLowerCase().split("/");
-  const localeIndex = /^..[_-]..$/.test(split[0]) ? `/${split.shift()}/` : "/";
+  const split = oldPath.toLowerCase().replaceAll(/[/]+/g, "/").split("/");
+  const localeIndex = /^..[_-]..$/.test(split[0])
+    ? `/${split.shift()}/`.replace("/en_us/", "/")
+    : "/";
+
+  split[0] =
+    versionMap[split[0]]
+    ?? versionMap[`${split[0]}.0`]
+    ?? (/^(?!404$)[0-9.]+$/.test(split[0]) ? "" : split[0]);
+  if (!split[0] || split[0] === context.latestVersion) split.shift();
 
   const seenPaths = new Set([split.join("/")]);
   const newPath = redirects.reduce((currentPath, rule) => {
