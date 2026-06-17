@@ -3,6 +3,7 @@ title: Creating Your First Block
 description: Learn how to create your first custom block in Minecraft.
 authors:
   - bluebear94
+  - cassiancc
   - CelDaemon
   - Earthcomputer
   - IMB11
@@ -14,9 +15,27 @@ resources:
 
 Blocks are the building blocks of Minecraft (no pun intended) - just like everything else in Minecraft, they're stored in registries.
 
+## Preparing Your Block Id Classes {#preparing-your-item-ids-classes}
+
+If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create a classes that hold the names of our `Block`s, stored as `ResourceKey<Block`, and `BlockItem`s, stored as `BlockItemId`s.
+
+These references to the block are used for data generating block tags.
+
+We'll put the first method that creates a `ResourceKey<Block>` in a class called `ModBlockIds` (or whatever you want to name the class). This class contains any blocks that do not have block items.
+
+Mojang does this with their blocks as well! Check out the `BlockIds` class for inspiration.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#first_block
+
+We'll put the second method in a class called `ModBlockItemIds` (or whatever you want to name the class). This class contains any blocks that do have block items.
+
+Mojang does this with their blocks as well! Check out the `BlockItemIds` class for inspiration.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#first_block
+
 ## Preparing Your Blocks Class {#preparing-your-blocks-class}
 
-If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create a method that registers your block, and its block item.
+Block registration is also similar to item registration, we'll now create two methods that register your block, one of which also registers a block item.
 
 You should put this method in a class called `ModBlocks` (or whatever you want to name it).
 
