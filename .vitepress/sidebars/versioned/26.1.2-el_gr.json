@@ -1,0 +1,536 @@
+{
+  "/el_gr/develop/": [
+    {
+      "text": "Developer Guides",
+      "link": "/el_gr/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Creating a Project",
+          "link": "/el_gr/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Project Structure",
+          "link": "/el_gr/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Setting Up Your IDE",
+          "link": "/el_gr/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/el_gr/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Launching the Game",
+          "link": "/el_gr/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/el_gr/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "Building a Mod",
+          "link": "/el_gr/develop/getting-started/building-a-mod"
+        },
+        {
+          "text": "IDE Tips and Tricks",
+          "link": "/el_gr/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "Items",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Item",
+          "link": "/el_gr/develop/items/first-item",
+          "items": [
+            {
+              "text": "Custom Food",
+              "link": "/el_gr/develop/items/food"
+            },
+            {
+              "text": "Custom Potions",
+              "link": "/el_gr/develop/items/potions"
+            },
+            {
+              "text": "Custom Spawn Eggs",
+              "link": "/el_gr/develop/items/spawn-egg"
+            },
+            {
+              "text": "Custom Tools",
+              "link": "/el_gr/develop/items/custom-tools"
+            },
+            {
+              "text": "Custom Armor",
+              "link": "/el_gr/develop/items/custom-armor"
+            }
+          ]
+        },
+        {
+          "text": "Item Models",
+          "link": "/el_gr/develop/items/item-models"
+        },
+        {
+          "text": "Item Appearance",
+          "link": "/el_gr/develop/items/item-appearance"
+        },
+        {
+          "text": "Custom Creative Tabs",
+          "link": "/el_gr/develop/items/custom-creative-tabs"
+        },
+        {
+          "text": "Custom Item Interactions",
+          "link": "/el_gr/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Custom Enchantment Effects",
+          "link": "/el_gr/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Custom Data Components",
+          "link": "/el_gr/develop/items/custom-data-components"
+        }
+      ]
+    },
+    {
+      "text": "Blocks",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Block",
+          "link": "/el_gr/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/el_gr/develop/blocks/block-models"
+        },
+        {
+          "text": "Block States",
+          "link": "/el_gr/develop/blocks/blockstates"
+        },
+        {
+          "text": "Block Entities",
+          "link": "/el_gr/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Block Entity Renderers",
+              "link": "/el_gr/develop/blocks/block-entity-renderer"
+            },
+            {
+              "text": "Block Containers",
+              "link": "/el_gr/develop/blocks/block-containers"
+            },
+            {
+              "text": "Container Menus",
+              "link": "/el_gr/develop/blocks/container-menus"
+            }
+          ]
+        },
+        {
+          "text": "Block Tinting",
+          "link": "/el_gr/develop/blocks/block-tinting"
+        }
+      ]
+    },
+    {
+      "text": "Fluids",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Fluid",
+          "link": "/el_gr/develop/fluids/first-fluid"
+        }
+      ]
+    },
+    {
+      "text": "Entities",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Entity",
+          "link": "/el_gr/develop/entities/first-entity"
+        },
+        {
+          "text": "Attributes",
+          "link": "/el_gr/develop/entities/attributes"
+        },
+        {
+          "text": "Mob Effects",
+          "link": "/el_gr/develop/entities/effects"
+        },
+        {
+          "text": "Damage Types",
+          "link": "/el_gr/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Sounds",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Playing Sounds",
+          "link": "/el_gr/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Creating Custom Sounds",
+          "link": "/el_gr/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamic Sounds",
+          "link": "/el_gr/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Commands",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Commands",
+          "link": "/el_gr/develop/commands/basics"
+        },
+        {
+          "text": "Command Arguments",
+          "link": "/el_gr/develop/commands/arguments"
+        },
+        {
+          "text": "Command Suggestions",
+          "link": "/el_gr/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Rendering",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Basic Rendering Concepts",
+          "link": "/el_gr/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Drawing to the GUI",
+          "link": "/el_gr/develop/rendering/gui-graphics"
+        },
+        {
+          "text": "Rendering in the HUD",
+          "link": "/el_gr/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/el_gr/develop/rendering/world"
+        },
+        {
+          "text": "GUIs and Screens",
+          "items": [
+            {
+              "text": "Custom Screens",
+              "link": "/el_gr/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Custom Widgets",
+              "link": "/el_gr/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Particles",
+          "items": [
+            {
+              "text": "Creating Custom Particles",
+              "link": "/el_gr/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Data Generation",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Data Generation Setup",
+          "link": "/el_gr/develop/data-generation/setup"
+        },
+        {
+          "text": "Client Resources",
+          "items": [
+            {
+              "text": "Translation Generation",
+              "link": "/el_gr/develop/data-generation/translations"
+            },
+            {
+              "text": "Model Generation",
+              "items": [
+                {
+                  "text": "Block Model Generation",
+                  "link": "/el_gr/develop/data-generation/block-models"
+                },
+                {
+                  "text": "Item Model Generation",
+                  "link": "/el_gr/develop/data-generation/item-models"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Server Resources",
+          "items": [
+            {
+              "text": "Advancement Generation",
+              "link": "/el_gr/develop/data-generation/advancements"
+            },
+            {
+              "text": "Enchantment Generation",
+              "link": "/el_gr/develop/data-generation/enchantments"
+            },
+            {
+              "text": "Loot Table Generation",
+              "link": "/el_gr/develop/data-generation/loot-tables"
+            },
+            {
+              "text": "Recipe Generation",
+              "link": "/el_gr/develop/data-generation/recipes"
+            },
+            {
+              "text": "Tag Generation",
+              "link": "/el_gr/develop/data-generation/tags"
+            },
+            {
+              "text": "World Generation",
+              "items": [
+                {
+                  "text": "Feature Generation",
+                  "link": "/el_gr/develop/data-generation/features"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Serialization",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Codecs",
+          "link": "/el_gr/develop/serialization/codecs"
+        },
+        {
+          "text": "Data Attachments",
+          "link": "/el_gr/develop/serialization/data-attachments"
+        },
+        {
+          "text": "Saved Data",
+          "link": "/el_gr/develop/serialization/saved-data"
+        }
+      ]
+    },
+    {
+      "text": "Loom",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/el_gr/develop/loom/"
+        },
+        {
+          "text": "Fabric API DSL",
+          "link": "/el_gr/develop/loom/fabric-api"
+        },
+        {
+          "text": "Extension Options",
+          "link": "/el_gr/develop/loom/options"
+        },
+        {
+          "text": "Production Run Tasks",
+          "link": "/el_gr/develop/loom/production-run-tasks"
+        },
+        {
+          "text": "Classpath Groups",
+          "link": "/el_gr/develop/loom/classpath-groups"
+        },
+        {
+          "text": "Other Tasks",
+          "link": "/el_gr/develop/loom/tasks"
+        }
+      ]
+    },
+    {
+      "text": "Loader",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/el_gr/develop/loader/"
+        },
+        {
+          "text": "fabric.mod.json",
+          "link": "/el_gr/develop/loader/fabric-mod-json"
+        }
+      ]
+    },
+    {
+      "text": "Porting",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Porting to 26.1",
+          "link": "/el_gr/develop/porting/",
+          "items": [
+            {
+              "text": "Fabric API",
+              "link": "/el_gr/develop/porting/fabric-api"
+            }
+          ]
+        },
+        {
+          "text": "Migrating Mappings",
+          "link": "/el_gr/develop/porting/mappings/",
+          "items": [
+            {
+              "text": "Loom (Gradle)",
+              "link": "/el_gr/1.21.11/develop/porting/mappings/loom"
+            },
+            {
+              "text": "Ravel (IntelliJ IDEA)",
+              "link": "/el_gr/1.21.11/develop/porting/mappings/ravel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Mixins",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Java Bytecode",
+          "link": "/el_gr/develop/mixins/bytecode"
+        }
+      ]
+    },
+    {
+      "text": "Class Tweakers",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/el_gr/develop/class-tweakers/"
+        },
+        {
+          "text": "Access Widening",
+          "link": "/el_gr/develop/class-tweakers/access-widening"
+        },
+        {
+          "text": "Interface Injection",
+          "link": "/el_gr/develop/class-tweakers/interface-injection"
+        },
+        {
+          "text": "Enum Extension",
+          "link": "/el_gr/develop/class-tweakers/enum-extension"
+        }
+      ]
+    },
+    {
+      "text": "Miscellaneous Pages",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Automated Testing",
+          "link": "/el_gr/develop/automatic-testing"
+        },
+        {
+          "text": "Custom Recipe Types",
+          "link": "/el_gr/develop/custom-recipe-types"
+        },
+        {
+          "text": "Debugging Mods",
+          "link": "/el_gr/develop/debugging"
+        },
+        {
+          "text": "Events",
+          "link": "/el_gr/develop/events"
+        },
+        {
+          "text": "Game Rules",
+          "link": "/el_gr/develop/game-rules"
+        },
+        {
+          "text": "Key Mappings",
+          "link": "/el_gr/develop/key-mappings"
+        },
+        {
+          "text": "Networking",
+          "link": "/el_gr/develop/networking"
+        },
+        {
+          "text": "Resource Conditions",
+          "link": "/el_gr/develop/resource-conditions"
+        },
+        {
+          "text": "Statistics",
+          "link": "/el_gr/develop/statistics"
+        },
+        {
+          "text": "Text and Translations",
+          "link": "/el_gr/develop/text-and-translations"
+        }
+      ]
+    }
+  ],
+  "/el_gr/players/": [
+    {
+      "text": "Player Guides",
+      "link": "/el_gr/players/",
+      "items": [
+        {
+          "text": "Installing Java",
+          "link": "/el_gr/players/installing-java/"
+        },
+        {
+          "text": "Installing Fabric",
+          "link": "/el_gr/players/installing-fabric/"
+        },
+        {
+          "text": "Updating Fabric",
+          "link": "/el_gr/players/updating-fabric/"
+        },
+        {
+          "text": "Finding Mods",
+          "link": "/el_gr/players/finding-mods"
+        },
+        {
+          "text": "Installing Mods",
+          "link": "/el_gr/players/installing-mods"
+        },
+        {
+          "text": "Troubleshooting",
+          "items": [
+            {
+              "text": "Uploading Logs",
+              "link": "/el_gr/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Crash Reports",
+              "link": "/el_gr/players/troubleshooting/crash-reports"
+            },
+            {
+              "text": "Dependency Overrides",
+              "link": "/el_gr/players/troubleshooting/dependency-overrides"
+            }
+          ]
+        },
+        {
+          "text": "Frequently Asked Questions",
+          "link": "/el_gr/players/faq"
+        }
+      ]
+    }
+  ]
+}

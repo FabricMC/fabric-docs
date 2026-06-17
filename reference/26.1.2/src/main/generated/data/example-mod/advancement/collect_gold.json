@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "get_gold": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:gold_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Collect a gold block",
+    "frame": "goal",
+    "icon": {
+      "id": "minecraft:gold_block"
+    },
+    "title": "Too Much Gold!"
+  },
+  "requirements": [
+    [
+      "get_gold"
+    ]
+  ],
+  "rewards": {
+    "experience": 10
+  },
+  "sends_telemetry_event": true
+}

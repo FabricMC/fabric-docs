@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "package": "com.example.docs.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "ExampleMixin",
+    "event.SheepMixin",
+    "class_tweakers.FlowingFluidMixin",
+    "class_tweakers.RecipeBookTypeMixin",
+    "class_tweakers.RecipeCategoryMixin",
+    "class_tweakers.ConversionTypeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
