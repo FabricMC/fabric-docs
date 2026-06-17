@@ -58,13 +58,17 @@ As an example, if we wanted to create a tool that worked like iron but couldn't 
 
 ## Registering Tool Items {#registering-tool-items}
 
-Using the same utility function as in the [Creating Your First Item](./first-item) guide, you can create your tool items:
+Using the same utility functions as in the [Creating Your First Item](./first-item) guide, you can create your tool items:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
 The two float values (`1f, 1f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
 
 For shovels, axes, and hoes, you should create a `ShovelItem`, `AxeItem`, or `HoeItem` instead of a generic `Item`, as these implement tool-specific right-click actions:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#axe
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
 

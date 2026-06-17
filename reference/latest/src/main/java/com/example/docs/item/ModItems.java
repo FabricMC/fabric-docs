@@ -52,8 +52,6 @@ import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
 import com.example.docs.networking.basic.LightningTaterItem;
 
-import org.jetbrains.annotations.ApiStatus;
-
 // #region mod_items_class
 public class ModItems {
 	// #endregion mod_items_class

@@ -7,8 +7,9 @@ import net.minecraft.world.item.Item;
 
 import com.example.docs.ExampleMod;
 
+// #region mod_item_ids_class
 public class ModItemIds {
-
+	// #endregion mod_item_ids_class
 	// #region acid_bucket
 	public static final ResourceKey<Item> ACID_BUCKET = register("acid_bucket");
 	// #endregion acid_bucket
@@ -47,8 +48,10 @@ public class ModItemIds {
 	public static final ResourceKey<Item> MINI_GOLEM_SPAWN_EGG = register("mini_golem_spawn_egg");
 	// #endregion custom_entity_spawn_egg
 
+	// #region mod_item_ids_class
 	public static ResourceKey<Item> register(String name) {
 		// Create the item key.
 		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 	}
 }
+// #endregion mod_item_ids_class

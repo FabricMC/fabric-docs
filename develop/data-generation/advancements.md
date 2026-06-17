@@ -133,7 +133,7 @@ Now that we've got a criterion and its conditions, we need a way to trigger it. 
 
 <<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_criterion_trigger
 
-Almost there! Next, we need an instance of our criterion to work with. Let's put it in a new class, called `ModCriteria`.
+Almost there! Next, we need an instance of our criterion to work with. Let's put it in a new class, called `ModCriteria`, with a helper method to easily register new criteria.
 
 <<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_mod_criteria
 

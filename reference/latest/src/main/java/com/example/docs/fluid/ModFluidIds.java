@@ -13,8 +13,8 @@ public class ModFluidIds {
 	public static final ResourceKey<Fluid> ACID_STILL = register("acid");
 
 	public static ResourceKey<Fluid> register(String name) {
-		// Create the item key.
+		// Create the fluid key.
 		return ResourceKey.create(Registries.FLUID, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 	}
 }
-// #region register
+// #endregion register

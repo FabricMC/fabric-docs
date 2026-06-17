@@ -2,6 +2,7 @@
 title: Tag Generation
 description: A guide to setting up tag generation with datagen.
 authors:
+  - cassiancc
   - CelDaemon
   - IMB11
   - skycatminepokie
@@ -46,7 +47,7 @@ Now that you've created a provider, let's add a tag to it. First, create a `TagK
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_tag_key
 
-Next, call `valueLookupBuilder` inside your provider's `configure` method. From there, you can add individual items, add other tags, or make this tag replace pre-existing tags.
+Next, call `builder` inside your provider's `configure` method. From there, you can add individual item ids, add other tags, or make this tag replace pre-existing tags.
 
 If you want to add a tag, use `addOptionalTag`, as the tag's contents may not be loaded during datagen. If you are certain the tag is loaded, call `addTag`.
 
