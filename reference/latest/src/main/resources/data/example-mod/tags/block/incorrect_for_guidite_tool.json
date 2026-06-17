@@ -1,4 +1,4 @@
 {
   "values": ["#minecraft:incorrect_for_wooden_tool"],
-  "fabric:remove": ["minecraft:copper_ore", "minecraft:deepslate_copper_ore"]
+  "fabric:remove": ["#minecraft:copper_ores"]
 }
