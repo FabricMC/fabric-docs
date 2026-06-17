@@ -4,8 +4,11 @@ description: Learn how to create your own tools and configure their properties.
 authors:
   - bluebear94
   - cassiancc
+  - ChampionAsh5357
   - IMB11
   - its-miroma
+resources:
+  https://docs.neoforged.net/docs/items/tools/: Tools - NeoForge Docs (except Neo exclusives)
 ---
 
 Tools are essential for survival and progression, allowing players to gather resources, construct buildings, and defend themselves.
