@@ -1,0 +1,536 @@
+{
+  "/ms_my/develop/": [
+    {
+      "text": "Panduan Pembangun",
+      "link": "/ms_my/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Mencipta Projek",
+          "link": "/ms_my/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Struktur Projek",
+          "link": "/ms_my/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Menyediakan IDE anda",
+          "link": "/ms_my/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Membuka Projek",
+          "link": "/ms_my/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Melancarkan Permainan",
+          "link": "/ms_my/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Menjana Sumber",
+          "link": "/ms_my/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "Building a Mod",
+          "link": "/ms_my/develop/getting-started/building-a-mod"
+        },
+        {
+          "text": "Petua dan Trik IDE",
+          "link": "/ms_my/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "Item",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Mencipta Item Pertama Anda",
+          "link": "/ms_my/develop/items/first-item",
+          "items": [
+            {
+              "text": "Makanan Tersuai",
+              "link": "/ms_my/develop/items/food"
+            },
+            {
+              "text": "Posyen Tersuai",
+              "link": "/ms_my/develop/items/potions"
+            },
+            {
+              "text": "Telur Penjelmaan Tersuai",
+              "link": "/ms_my/develop/items/spawn-egg"
+            },
+            {
+              "text": "Alatan Tersuai",
+              "link": "/ms_my/develop/items/custom-tools"
+            },
+            {
+              "text": "Zirah Tersuai",
+              "link": "/ms_my/develop/items/custom-armor"
+            }
+          ]
+        },
+        {
+          "text": "Model Item",
+          "link": "/ms_my/develop/items/item-models"
+        },
+        {
+          "text": "Tampilan Item",
+          "link": "/ms_my/develop/items/item-appearance"
+        },
+        {
+          "text": "Tab Kreatif Tersuai",
+          "link": "/ms_my/develop/items/custom-creative-tabs"
+        },
+        {
+          "text": "Interaksi Item Tersuai",
+          "link": "/ms_my/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Kesan Sihir Tersuai",
+          "link": "/ms_my/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Komponen Data Tersuai",
+          "link": "/ms_my/develop/items/custom-data-components"
+        }
+      ]
+    },
+    {
+      "text": "Blok",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Mencipta Blok Pertama Anda",
+          "link": "/ms_my/develop/blocks/first-block"
+        },
+        {
+          "text": "Model Blok",
+          "link": "/ms_my/develop/blocks/block-models"
+        },
+        {
+          "text": "Keadaan Blok",
+          "link": "/ms_my/develop/blocks/blockstates"
+        },
+        {
+          "text": "Entiti Blok",
+          "link": "/ms_my/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Pemapar Entiti Blok",
+              "link": "/ms_my/develop/blocks/block-entity-renderer"
+            },
+            {
+              "text": "Block Containers",
+              "link": "/ms_my/develop/blocks/block-containers"
+            },
+            {
+              "text": "Container Menus",
+              "link": "/ms_my/develop/blocks/container-menus"
+            }
+          ]
+        },
+        {
+          "text": "Block Tinting",
+          "link": "/ms_my/develop/blocks/block-tinting"
+        }
+      ]
+    },
+    {
+      "text": "Fluids",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Fluid",
+          "link": "/ms_my/develop/fluids/first-fluid"
+        }
+      ]
+    },
+    {
+      "text": "Entiti",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Entity",
+          "link": "/ms_my/develop/entities/first-entity"
+        },
+        {
+          "text": "Atribut",
+          "link": "/ms_my/develop/entities/attributes"
+        },
+        {
+          "text": "Kesan Makhluk",
+          "link": "/ms_my/develop/entities/effects"
+        },
+        {
+          "text": "Jenis Kecederaan",
+          "link": "/ms_my/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Suara",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Memainkan Suara",
+          "link": "/ms_my/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Mencipta Suara Tersuai",
+          "link": "/ms_my/develop/sounds/custom"
+        },
+        {
+          "text": "Suara Dinamik",
+          "link": "/ms_my/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Perintah",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Mencipta Perintah",
+          "link": "/ms_my/develop/commands/basics"
+        },
+        {
+          "text": "Argumen Perintah",
+          "link": "/ms_my/develop/commands/arguments"
+        },
+        {
+          "text": "Cadangan Perintah",
+          "link": "/ms_my/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Pemaparan",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Konsep Pemaparan Asas",
+          "link": "/ms_my/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Melukis ke dalam GUI",
+          "link": "/ms_my/develop/rendering/gui-graphics"
+        },
+        {
+          "text": "Pemaparan di dalam HUD",
+          "link": "/ms_my/develop/rendering/hud"
+        },
+        {
+          "text": "Pemaparan di dalam Dunia",
+          "link": "/ms_my/develop/rendering/world"
+        },
+        {
+          "text": "GUI dan Skrin",
+          "items": [
+            {
+              "text": "Skrin Tersuai",
+              "link": "/ms_my/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Widget Tersuai",
+              "link": "/ms_my/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Partikel",
+          "items": [
+            {
+              "text": "Mencipta Partikel Tersuai",
+              "link": "/ms_my/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Penjanaan Data",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Persediaan Penjanaan Data",
+          "link": "/ms_my/develop/data-generation/setup"
+        },
+        {
+          "text": "Sumber Pelanggan",
+          "items": [
+            {
+              "text": "Penjanaan Terjemahan",
+              "link": "/ms_my/develop/data-generation/translations"
+            },
+            {
+              "text": "Model Generation",
+              "items": [
+                {
+                  "text": "Penjanaan Model Blok",
+                  "link": "/ms_my/develop/data-generation/block-models"
+                },
+                {
+                  "text": "Penjanaan Model Item",
+                  "link": "/ms_my/develop/data-generation/item-models"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Sumber Pelayan",
+          "items": [
+            {
+              "text": "Penjanaan Kemajuan",
+              "link": "/ms_my/develop/data-generation/advancements"
+            },
+            {
+              "text": "Enchantment Generation",
+              "link": "/ms_my/develop/data-generation/enchantments"
+            },
+            {
+              "text": "Penjanaan Jadual Rampasan",
+              "link": "/ms_my/develop/data-generation/loot-tables"
+            },
+            {
+              "text": "Penjanaan Resipi",
+              "link": "/ms_my/develop/data-generation/recipes"
+            },
+            {
+              "text": "Penjanaan Tag",
+              "link": "/ms_my/develop/data-generation/tags"
+            },
+            {
+              "text": "World Generation",
+              "items": [
+                {
+                  "text": "Feature Generation",
+                  "link": "/ms_my/develop/data-generation/features"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Serialisasi",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Codecs",
+          "link": "/ms_my/develop/serialization/codecs"
+        },
+        {
+          "text": "Data Attachments",
+          "link": "/ms_my/develop/serialization/data-attachments"
+        },
+        {
+          "text": "Saved Data",
+          "link": "/ms_my/develop/serialization/saved-data"
+        }
+      ]
+    },
+    {
+      "text": "Loom",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Pengenalan",
+          "link": "/ms_my/develop/loom/"
+        },
+        {
+          "text": "DSL Fabric API",
+          "link": "/ms_my/develop/loom/fabric-api"
+        },
+        {
+          "text": "Pilihan Pelanjutan",
+          "link": "/ms_my/develop/loom/options"
+        },
+        {
+          "text": "Penjalanan Tugasan Produksi",
+          "link": "/ms_my/develop/loom/production-run-tasks"
+        },
+        {
+          "text": "Kumpulan Classpath",
+          "link": "/ms_my/develop/loom/classpath-groups"
+        },
+        {
+          "text": "Lain-lain Tugasan",
+          "link": "/ms_my/develop/loom/tasks"
+        }
+      ]
+    },
+    {
+      "text": "Loader",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/ms_my/develop/loader/"
+        },
+        {
+          "text": "fabric.mod.json",
+          "link": "/ms_my/develop/loader/fabric-mod-json"
+        }
+      ]
+    },
+    {
+      "text": "Pemindahan",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Porting to 26.1",
+          "link": "/ms_my/develop/porting/",
+          "items": [
+            {
+              "text": "Fabric API",
+              "link": "/ms_my/develop/porting/fabric-api"
+            }
+          ]
+        },
+        {
+          "text": "Migrating Mappings",
+          "link": "/ms_my/develop/porting/mappings/",
+          "items": [
+            {
+              "text": "Loom (Gradle)",
+              "link": "/ms_my/1.21.11/develop/porting/mappings/loom"
+            },
+            {
+              "text": "Ravel (IntelliJ IDEA)",
+              "link": "/ms_my/1.21.11/develop/porting/mappings/ravel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Mixin",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Bytecode Java",
+          "link": "/ms_my/develop/mixins/bytecode"
+        }
+      ]
+    },
+    {
+      "text": "Class Tweakers",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/ms_my/develop/class-tweakers/"
+        },
+        {
+          "text": "Access Widening",
+          "link": "/ms_my/develop/class-tweakers/access-widening"
+        },
+        {
+          "text": "Interface Injection",
+          "link": "/ms_my/develop/class-tweakers/interface-injection"
+        },
+        {
+          "text": "Enum Extension",
+          "link": "/ms_my/develop/class-tweakers/enum-extension"
+        }
+      ]
+    },
+    {
+      "text": "Lain-lain Laman",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Pengujian Automatik",
+          "link": "/ms_my/develop/automatic-testing"
+        },
+        {
+          "text": "Custom Recipe Types",
+          "link": "/ms_my/develop/custom-recipe-types"
+        },
+        {
+          "text": "Menyahpepijat Mod",
+          "link": "/ms_my/develop/debugging"
+        },
+        {
+          "text": "Peristiwa",
+          "link": "/ms_my/develop/events"
+        },
+        {
+          "text": "Game Rules",
+          "link": "/ms_my/develop/game-rules"
+        },
+        {
+          "text": "Pemetaan Utama",
+          "link": "/ms_my/develop/key-mappings"
+        },
+        {
+          "text": "Perangkaian",
+          "link": "/ms_my/develop/networking"
+        },
+        {
+          "text": "Resource Conditions",
+          "link": "/ms_my/develop/resource-conditions"
+        },
+        {
+          "text": "Statistics",
+          "link": "/ms_my/develop/statistics"
+        },
+        {
+          "text": "Teks dan Terjemahan",
+          "link": "/ms_my/develop/text-and-translations"
+        }
+      ]
+    }
+  ],
+  "/ms_my/players/": [
+    {
+      "text": "Panduan Pemain",
+      "link": "/ms_my/players/",
+      "items": [
+        {
+          "text": "Memasang Java",
+          "link": "/ms_my/players/installing-java/"
+        },
+        {
+          "text": "Memasang Fabric",
+          "link": "/ms_my/players/installing-fabric/"
+        },
+        {
+          "text": "Mengemas Kini Fabric",
+          "link": "/ms_my/players/updating-fabric/"
+        },
+        {
+          "text": "Mencari Mod",
+          "link": "/ms_my/players/finding-mods"
+        },
+        {
+          "text": "Memasang Mod",
+          "link": "/ms_my/players/installing-mods"
+        },
+        {
+          "text": "Penyelesaian Masalah",
+          "items": [
+            {
+              "text": "Memuat Naik Log",
+              "link": "/ms_my/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Laporan Ranap Permainan",
+              "link": "/ms_my/players/troubleshooting/crash-reports"
+            },
+            {
+              "text": "Dependency Overrides",
+              "link": "/ms_my/players/troubleshooting/dependency-overrides"
+            }
+          ]
+        },
+        {
+          "text": "Soalan Lazim",
+          "link": "/ms_my/players/faq"
+        }
+      ]
+    }
+  ]
+}
