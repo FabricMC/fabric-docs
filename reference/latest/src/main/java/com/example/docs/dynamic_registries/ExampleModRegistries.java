@@ -27,12 +27,12 @@ public class ExampleModRegistries {
 	public static final ResourceKey<Registry<MagicSkillsRegistryEntry>> MAGIC_SKILLS_WITH_OPTION_REGISTRY_KEY =
 					ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_skills_with_option_registry"));
 
-	public static final ResourceKey<MagicSkillsRegistryEntry> HEALING_SPELL_ENTRY_ID =
-			ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_spell"));
-	public static final ResourceKey<MagicSkillsRegistryEntry> BLAST_SPELL_ENTRY_ID =
-			ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "blast_spell"));
-	public static final ResourceKey<MagicSkillsRegistryEntry> MAGIC_MISSILE_SPELL_ENTRY_ID =
-			ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_missile_spell"));
+	public static final ResourceKey<MagicSkillsRegistryEntry> HEALING_SKILL_ENTRY_ID =
+			ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_skill"));
+	public static final ResourceKey<MagicSkillsRegistryEntry> BLAST_SKILL_ENTRY_ID =
+			ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "blast_skill"));
+	public static final ResourceKey<MagicSkillsRegistryEntry> MAGIC_MISSILE_SKILL_ENTRY_ID =
+			ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_missile_skill"));
 
 	// #region main
 	public static void initialize() {
@@ -64,9 +64,9 @@ public class ExampleModRegistries {
 
 		// #region get_specific_registry_entry
 		// #region entry_id
-		ResourceKey<MagicSkillsRegistryEntry> HEALING_SPELL_ENTRY_ID = ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_spell"));
+		ResourceKey<MagicSkillsRegistryEntry> HEALING_SKILL_ENTRY_ID = ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_skill"));
 		// #endregion entry_id
-		Optional<Holder.Reference<MagicSkillsRegistryEntry>> entry = registryAccess.get(HEALING_SPELL_ENTRY_ID);
+		Optional<Holder.Reference<MagicSkillsRegistryEntry>> entry = registryAccess.get(HEALING_SKILL_ENTRY_ID);
 		entry.ifPresent(magicSkillRef -> {
 			MagicSkillsRegistryEntry magicSkill = magicSkillRef.value();
 			// Other logic to reduce player's mana and running the function

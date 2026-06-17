@@ -33,8 +33,8 @@ public class ExampleModDynamicRegistriesProvider extends FabricDynamicRegistryPr
 	}
 
 	public static void bootstrap(BootstrapContext<MagicSkillsRegistryEntry> context) {
-		context.register(ExampleModRegistries.HEALING_SPELL_ENTRY_ID, new MagicSkillsRegistryEntry("Healing Spell", 4785, Optional.of(new CacheableFunction(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_spell_function")))));
-		context.register(ExampleModRegistries.BLAST_SPELL_ENTRY_ID, new MagicSkillsRegistryEntry("Blast Spell", 474, Optional.empty()));
-		context.register(ExampleModRegistries.MAGIC_MISSILE_SPELL_ENTRY_ID, new MagicSkillsRegistryEntry("Magic Missile Spell", 853, Optional.empty()));
+		context.register(ExampleModRegistries.HEALING_SKILL_ENTRY_ID, new MagicSkillsRegistryEntry("Healing Skill", 4785, Optional.of(new CacheableFunction(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_skill_function")))));
+		context.register(ExampleModRegistries.BLAST_SKILL_ENTRY_ID, new MagicSkillsRegistryEntry("Blast Skill", 474, Optional.empty()));
+		context.register(ExampleModRegistries.MAGIC_MISSILE_SKILL_ENTRY_ID, new MagicSkillsRegistryEntry("Magic Missile Skill", 853, Optional.empty()));
 	}
 }

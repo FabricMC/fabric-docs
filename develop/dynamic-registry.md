@@ -82,9 +82,9 @@ Example:
 
 ### Populating the Registry {#populating-the-registry}
 
-JSON files are used for creating registry entries. The JSON structure must match the [`MagicSkillsRegistryEntry`](#class-setup). In this example, our entry class has three fields, so the JSON file for `healing_spell` entry might look like this:
+JSON files are used for creating registry entries. The JSON structure must match the [`MagicSkillsRegistryEntry`](#class-setup). In this example, our entry class has three fields, so the JSON file for `healing_skill` entry might look like this:
 
-<<< @/reference/latest/src/main/generated/data/example-mod/example-mod/magic_skills_registry/healing_spell.json
+<<< @/reference/latest/src/main/generated/data/example-mod/example-mod/magic_skills_registry/healing_skill.json
 
 Entry JSON files are stored under `src/main/resources/data/example-mod/example-mod/magic_skills_registry/`.
 
@@ -100,7 +100,7 @@ For example, `another-mod` might want to add elements to our `magic_skills_regis
 
 #### Entry ID {#entry-id}
 
-The entry ID is a unique key for each entry, and it can be useful for accessing a specific entry from a registry. It is composed of the filename and the [registry key](#registering-the-registry). For example, since our entry JSON file is named `healing_spell.json`, the entry ID is:
+The entry ID is a unique key for each entry, and it can be useful for accessing a specific entry from a registry. It is composed of the filename and the [registry key](#registering-the-registry). For example, since our entry JSON file is named `healing_skill.json`, the entry ID is:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#entry_id
 
@@ -127,7 +127,7 @@ Specific entries can be accessed using the `get` method of `RegistryAccess` whic
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#get_specific_registry_entry
 
-Read [Entry ID](#entry-id) to know how to get the `HEALING_SPELL_ENTRY_ID`.
+Read [Entry ID](#entry-id) to know how to get the `HEALING_SKILL_ENTRY_ID`.
 
 In our case we can use this method to get the entry for magic skill used by user on server, then extract the [`onUseMcFunction`](#class-setup) field to execute the mcfunction.
 
@@ -147,9 +147,9 @@ Learn more about creating [Custom Screens](./rendering/gui/custom-screens) and [
 
 Tags are a way to group multiple entries together. For example, we can create tags like _attack_ and _defense_ to group similar magic skills together.
 
-For example, the attacking tag would be defined under `data/example-mod/tags/example-mod/magic_skills_registry/attacking_spells.json`:
+For example, the attacking tag would be defined under `data/example-mod/tags/example-mod/magic_skills_registry/attacking_skills.json`:
 
-<<< @/reference/latest/src/main/generated/data/example-mod/tags/example-mod/magic_skills_registry/attacking_spells.json
+<<< @/reference/latest/src/main/generated/data/example-mod/tags/example-mod/magic_skills_registry/attacking_skills.json
 
 #### Using Tags In Code {#using-tags-in-code}
 
@@ -157,6 +157,6 @@ Create a tag key for the tag to check if entries are present in the tag or not.
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModTags.java#tag
 
-We can use this method to check if a spell is an attacking spell or not.
+We can use this method to check if a skill is an attacking skill or not.
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModTags.java#tag_usage

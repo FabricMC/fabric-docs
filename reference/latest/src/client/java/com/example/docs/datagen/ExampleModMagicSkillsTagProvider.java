@@ -20,8 +20,8 @@ public class ExampleModMagicSkillsTagProvider extends FabricTagsProvider<MagicSk
 
 	@Override
 	protected void addTags(HolderLookup.@NonNull Provider wrapperLookup) {
-		builder(ExampleModTags.ATTACKING_SPELLS_TAG_KEY)
-				.add(ExampleModRegistries.BLAST_SPELL_ENTRY_ID)
-				.add(ExampleModRegistries.MAGIC_MISSILE_SPELL_ENTRY_ID);
+		builder(ExampleModTags.ATTACKING_SKILLS_TAG_KEY)
+				.add(ExampleModRegistries.BLAST_SKILL_ENTRY_ID)
+				.add(ExampleModRegistries.MAGIC_MISSILE_SKILL_ENTRY_ID);
 	}
 }
