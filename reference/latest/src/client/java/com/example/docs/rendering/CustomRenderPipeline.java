@@ -2,22 +2,38 @@
 package com.example.docs.rendering;
 
 import java.util.Optional;
+import java.util.OptionalDouble;
 
+import com.mojang.blaze3d.IndexType;
+import com.mojang.blaze3d.PrimitiveTopology;
+import com.mojang.blaze3d.buffers.GpuBuffer;
+import com.mojang.blaze3d.buffers.GpuBufferSlice;
 import com.mojang.blaze3d.pipeline.RenderPipeline;
+import com.mojang.blaze3d.systems.CommandEncoder;
+import com.mojang.blaze3d.systems.RenderPass;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import com.mojang.blaze3d.vertex.ByteBufferBuilder;
+import com.mojang.blaze3d.vertex.MeshData;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexFormat;
 import org.joml.Matrix4f;
+import org.joml.Matrix4fc;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MappableRingBuffer;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.phys.Vec3;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionContext;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionEvents;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderContext;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
 
 import com.example.docs.ExampleMod;
 
@@ -51,9 +67,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	public void onInitializeClient() {
 		instance = this;
 		LevelExtractionEvents.END_EXTRACTION.register(this::extractWaypoint);
-		/*
 		LevelRenderEvents.AFTER_TRANSLUCENT_TERRAIN.register(this::renderAndDrawWaypoint);
-		*/
 	}
 
 	// #region custom_pipelines_extraction_phase
@@ -62,7 +76,6 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		// You can only access the (immutable and thread safe) render state in the drawing phase.
 		waypointState = new WaypointRenderState(0, 100, 0, 0f, 1f, 0f, 0.5f);
 	}
-	/*
 
 	// #endregion custom_pipelines_extraction_phase
 	// #region custom_pipelines_drawing_phase
@@ -79,7 +92,9 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		matrices.translate(-camera.x, -camera.y, -camera.z);
 
 		if (this.buffer == null) {
-			this.buffer = new BufferBuilder(ALLOCATOR, FILLED_THROUGH_WALLS.getVertexFormatMode(), FILLED_THROUGH_WALLS.getVertexFormat());
+			VertexFormat vertexFormat = FILLED_THROUGH_WALLS.getVertexFormatBinding(0);
+			if(vertexFormat == null) throw new IllegalStateException("Vertex format is null");
+			this.buffer = new BufferBuilder(ALLOCATOR, FILLED_THROUGH_WALLS.getPrimitiveTopology(), vertexFormat);
 		}
 
 		this.renderFilledBox(matrices.last().pose(), this.buffer, waypointState.x(), waypointState.y(), waypointState.z(), waypointState.x() + 1, waypointState.y() + 1, waypointState.z() + 1, waypointState.r(), waypointState.g(), waypointState.b(), waypointState.a());
@@ -89,40 +104,29 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 	private void renderFilledBox(Matrix4fc positionMatrix, BufferBuilder buffer, float minX, float minY, float minZ, float maxX, float maxY, float maxZ, float red, float green, float blue, float alpha) {
 		// Front Face
-		buffer.addVertex(positionMatrix, minX, minY, maxZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, maxX, minY, maxZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, maxX, maxY, maxZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, minX, maxY, maxZ).setColor(red, green, blue, alpha);
+		addFace(positionMatrix, buffer, minX, minY, maxZ, maxX, minY, maxZ, maxX, maxY, maxZ, minX, maxY, maxZ, red, green, blue, alpha);
 
 		// Back face
-		buffer.addVertex(positionMatrix, maxX, minY, minZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, minX, minY, minZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, minX, maxY, minZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, maxX, maxY, minZ).setColor(red, green, blue, alpha);
+		addFace(positionMatrix, buffer, maxX, minY, minZ, minX, minY, minZ, minX, maxY, minZ, maxX, maxY, minZ, red, green, blue, alpha);
 
 		// Left face
-		buffer.addVertex(positionMatrix, minX, minY, minZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, minX, minY, maxZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, minX, maxY, maxZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, minX, maxY, minZ).setColor(red, green, blue, alpha);
+		addFace(positionMatrix, buffer, minX, minY, minZ, minX, minY, maxZ, minX, maxY, maxZ, minX, maxY, minZ, red, green, blue, alpha);
 
 		// Right face
-		buffer.addVertex(positionMatrix, maxX, minY, maxZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, maxX, minY, minZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, maxX, maxY, minZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, maxX, maxY, maxZ).setColor(red, green, blue, alpha);
+		addFace(positionMatrix, buffer, maxX, minY, maxZ, maxX, minY, minZ, maxX, maxY, minZ, maxX, maxY, maxZ, red, green, blue, alpha);
 
 		// Top face
-		buffer.addVertex(positionMatrix, minX, maxY, maxZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, maxX, maxY, maxZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, maxX, maxY, minZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, minX, maxY, minZ).setColor(red, green, blue, alpha);
+		addFace(positionMatrix, buffer, minX, maxY, maxZ, maxX, maxY, maxZ, maxX, maxY, minZ, minX, maxY, minZ, red, green, blue, alpha);
 
 		// Bottom face
-		buffer.addVertex(positionMatrix, minX, minY, minZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, maxX, minY, minZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, maxX, minY, maxZ).setColor(red, green, blue, alpha);
-		buffer.addVertex(positionMatrix, minX, minY, maxZ).setColor(red, green, blue, alpha);
+		addFace(positionMatrix, buffer, minX, minY, minZ, maxX, minY, minZ, maxX, minY, maxZ, minX, minY, maxZ, red, green, blue, alpha);
+	}
+
+	private void addFace(Matrix4fc matrix, BufferBuilder buffer, float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float x4, float y4, float z4, float red, float green, float blue, float alpha) {
+		buffer.addVertex(matrix, x1, y1, z1).setColor(red, green, blue, alpha);
+		buffer.addVertex(matrix, x2, y2, z2).setColor(red, green, blue, alpha);
+		buffer.addVertex(matrix, x3, y3, z3).setColor(red, green, blue, alpha);
+		buffer.addVertex(matrix, x4, y4, z4).setColor(red, green, blue, alpha);
 	}
 
 	private void drawFilledThroughWalls(Minecraft client, @SuppressWarnings("SameParameterValue") RenderPipeline pipeline) {
@@ -131,7 +135,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		MeshData.DrawState drawParameters = builtBuffer.drawState();
 		VertexFormat format = drawParameters.format();
 
-		GpuBuffer vertices = this.upload(drawParameters, format, builtBuffer);
+		GpuBufferSlice vertices = this.upload(drawParameters, format, builtBuffer).slice();
 
 		draw(client, pipeline, builtBuffer, drawParameters, vertices, format);
 
@@ -156,36 +160,42 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		// Copy vertex data into the vertex buffer
 		CommandEncoder commandEncoder = RenderSystem.getDevice().createCommandEncoder();
 
-		try (GpuBuffer.MappedView mappedView = commandEncoder.mapBuffer(this.vertexBuffer.currentBuffer().slice(0, builtBuffer.vertexBuffer().remaining()), false, true)) {
+		/*
+			FIXME: mapBuffer doesnt exists anymore
+		try (GpuBufferSlice.MappedView mappedView = commandEncoder.mapBuffer(this.vertexBuffer.currentBuffer().slice(0, builtBuffer.vertexBuffer().remaining()), false, true)) {
 			MemoryUtil.memCopy(builtBuffer.vertexBuffer(), mappedView.data());
 		}
+		*/
 
 		return this.vertexBuffer.currentBuffer();
 	}
 
-	private static void draw(Minecraft client, RenderPipeline pipeline, MeshData builtBuffer, MeshData.DrawState drawParameters, GpuBuffer vertices, VertexFormat format) {
+	private static void draw(Minecraft client, RenderPipeline pipeline, MeshData builtBuffer, MeshData.DrawState drawParameters, GpuBufferSlice vertices, VertexFormat format) {
 		GpuBuffer indices;
-		VertexFormat.IndexType indexType;
+		IndexType indexType;
 
-		if (pipeline.getVertexFormatMode() == VertexFormat.Mode.QUADS) {
+		if (pipeline.getPrimitiveTopology() == PrimitiveTopology.QUADS) {
 			// Sort the quads if there is translucency
 			builtBuffer.sortQuads(ALLOCATOR, RenderSystem.getProjectionType().vertexSorting());
 			// Upload the index buffer
-			indices = pipeline.getVertexFormat().uploadImmediateIndexBuffer(builtBuffer.indexBuffer());
+			/*
+			FIXME: uploadImmediateIndexBuffer doesnt exists anymore
+			indices = pipeline.getVertexFormatBinding(0).uploadImmediateIndexBuffer(builtBuffer.indexBuffer());
+			*/
 			indexType = builtBuffer.drawState().indexType();
 		} else {
 			// Use the general shape index buffer for non-quad draw modes
-			RenderSystem.AutoStorageIndexBuffer shapeIndexBuffer = RenderSystem.getSequentialBuffer(pipeline.getVertexFormatMode());
+			RenderSystem.AutoStorageIndexBuffer shapeIndexBuffer = RenderSystem.getSequentialBuffer(pipeline.getPrimitiveTopology());
 			indices = shapeIndexBuffer.getBuffer(drawParameters.indexCount());
 			indexType = shapeIndexBuffer.type();
 		}
 
 		// Actually execute the draw
 		GpuBufferSlice dynamicTransforms = RenderSystem.getDynamicUniforms()
-				.writeTransform(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, MODEL_OFFSET, TEXTURE_MATRIX);
+				.writeTransform(RenderSystem.getModelViewMatrixCopy(), COLOR_MODULATOR, MODEL_OFFSET, TEXTURE_MATRIX);
 		try (RenderPass renderPass = RenderSystem.getDevice()
 				.createCommandEncoder()
-				.createRenderPass(() -> ExampleMod.MOD_ID + " example render pipeline rendering", client.getMainRenderTarget().getColorTextureView(), OptionalInt.empty(), client.getMainRenderTarget().getDepthTextureView(), OptionalDouble.empty())) {
+				.createRenderPass(() -> ExampleMod.MOD_ID + " example render pipeline rendering", client.gameRenderer.mainRenderTarget().getColorTextureView(), Optional.empty(), client.gameRenderer.mainRenderTarget().getDepthTextureView(), OptionalDouble.empty())) {
 			renderPass.setPipeline(pipeline);
 
 			RenderSystem.bindDefaultUniforms(renderPass);
@@ -196,11 +206,10 @@ public class CustomRenderPipeline implements ClientModInitializer {
 			// renderPass.bindTexture("Sampler0", textureSetup.texure0(), textureSetup.sampler0());
 
 			renderPass.setVertexBuffer(0, vertices);
-			renderPass.setIndexBuffer(indices, indexType);
+			// renderPass.setIndexBuffer(indices, indexType); FIXME: uncomment after indices is fixed
 
 			// The base vertex is the starting index when we copied the data into the vertex buffer divided by vertex size
-			//noinspection ConstantValue
-			renderPass.drawIndexed(0 / format.getVertexSize(), 0, drawParameters.indexCount(), 1);
+			renderPass.drawIndexed(drawParameters.indexCount(), 1, 0, 0, 0);
 		}
 
 		builtBuffer.close();
@@ -217,7 +226,6 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		}
 	}
 	// #endregion custom_pipelines_clean_up
-	 */
 
 	// #region custom_pipelines_extraction_phase
 	// Render states should be immutable, thread safe, and fast to create.
