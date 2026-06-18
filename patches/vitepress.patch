@@ -65,7 +65,7 @@ index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d386
    const parser = (state, startLine, endLine, silent) => {
      const CH = "<".charCodeAt(0);
      const pos = state.bMarks[startLine] + state.tShift[startLine];
-@@ -37009,26 +37018,40 @@ const snippetPlugin = (md, srcDir) => {
+@@ -37009,26 +37018,43 @@ const snippetPlugin = (md, srcDir) => {
    md.renderer.rules.fence = (...args) => {
      const [tokens, idx, , { includes }] = args;
      const token = tokens[idx];
@@ -112,6 +112,9 @@ index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d386
 +    } else {
 +      content = stripMarkers(content.split("\n"));
      }
++    if (content.length > 10_000) {
++      token.info = token.info.replace(/^\S*/, "text:no-line-numbers");
++    }
      token.content = content;
      return fence(...args);
 @@ -37918,8 +37941,8 @@ function processIncludes(md, srcDir, src, file, includes, cleanUrls) {
@@ -148,6 +151,23 @@ index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d386
 +        } else {
 +          content = `No region or heading #${region} found in path: ${includePath}`;
 +        }
-       }
-       if (range) {
-         const [, startLine, endLine] = range;
+      }
+      if (range) {
+        const [, startLine, endLine] = range;
+
+diff --git a/dist/node/chunk-3d7P_gGE.js b/dist/node/chunk-3d7P_gGE.js
+index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d3861dfe4258 100644
+--- a/dist/node/chunk-3d7P_gGE.js
++++ b/dist/node/chunk-3d7P_gGE.js
+@@ -46818,10 +46847,11 @@ async function build(root, buildOptions = {}) {
+     const { clientResult, serverResult, pageToHashMap } = await bundle(
+       siteConfig,
+       buildOptions
+     );
++    clearCache();
+     if (process.env.BUNDLE_ONLY) {
+       return;
+     }
+     const entryPath = path$1.join(siteConfig.tempDir, "app.js");
+     const { render } = await import(pathToFileURL(entryPath).href);
+     await task("rendering pages", async () => {
