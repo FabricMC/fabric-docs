@@ -2,36 +2,47 @@ package com.example.docs.dynamic_registries.screens;
 
 import java.util.Optional;
 
+import org.jspecify.annotations.NonNull;
+
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.chat.Component;
 
 import com.example.docs.dynamic_registries.ExampleModRegistries;
 import com.example.docs.dynamic_registries.MagicSkillsRegistryEntry;
 
 public class ExampleModMagicSkillsScreen extends Screen {
-	public ExampleModMagicSkillsScreen(Minecraft minecraft, Font font, Component title) {
-		super(minecraft, font, title);
+
+	RegistryAccess registryAccess;
+	public ExampleModMagicSkillsScreen(Minecraft minecraft, RegistryAccess registryAccess) {
+		this.registryAccess = registryAccess;
+		super(minecraft, minecraft.font, Component.literal("Magic Skills"));
 	}
 
 	@Override
 	protected void init() {
-		assert minecraft.level != null;
-		Optional<Registry<MagicSkillsRegistryEntry>> registry = minecraft.level.registryAccess().lookup(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY);
+		System.out.println("Magic Skills Screen Init");
+		Optional<Registry<MagicSkillsRegistryEntry>> registry = this.registryAccess.lookup(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY);
 
 		// #region iterate_over_registry_entries
 		registry.ifPresent(reg -> {
-			int x = 0, y = 0;
+			int y = 50;
 
 			for (MagicSkillsRegistryEntry skill : reg) {
-				MagicSkillWidget widget = new MagicSkillWidget(skill, x, y, 40, 60);
+				MagicSkillWidget widget = new MagicSkillWidget(skill, font, 40, y, 80, 20);
 				this.addRenderableWidget(widget);
-				x += 40;
-				y += 60;
+				y += 30;
 			}
 		});
 		// #endregion iterate_over_registry_entries
+	}
+
+	@Override
+	public void extractRenderState(@NonNull GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
+		super.extractRenderState(graphics, mouseX, mouseY, a);
+		graphics.text(this.font, "Magic Skills", 40, 40 - this.font.lineHeight - 10, 0xFFFFFFFF, true);
 	}
 }

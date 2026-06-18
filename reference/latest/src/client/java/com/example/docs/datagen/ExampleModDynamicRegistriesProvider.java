@@ -24,7 +24,7 @@ public class ExampleModDynamicRegistriesProvider extends FabricDynamicRegistryPr
 
 	@Override
 	protected void configure(HolderLookup.@NonNull Provider registries, @NonNull Entries entries) {
-		entries.addAll(registries.lookupOrThrow(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY));
+		entries.addAll(registries.lookupOrThrow(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY));
 	}
 
 	@Override

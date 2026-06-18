@@ -84,7 +84,7 @@ Example:
 
 JSON files are used for creating registry entries. The JSON structure must match the [`MagicSkillsRegistryEntry`](#class-setup). In this example, our entry class has three fields, so the JSON file for `healing_skill` entry might look like this:
 
-<<< @/reference/latest/src/main/generated/data/example-mod/example-mod/magic_skills_registry/healing_skill.json
+<<< @/reference/latest/src/main/generated/data/example-mod/example-mod/magic_skills_synced_registry/healing_skill.json
 
 Entry JSON files are stored under `src/main/resources/data/example-mod/example-mod/magic_skills_registry/`.
 
@@ -137,7 +137,9 @@ Registry entries can be iterated over for various purposes like UI population. I
 
 <<< @/reference/latest/src/client/java/com/example/docs/dynamic_registries/screens/ExampleModMagicSkillsScreen.java#iterate_over_registry_entries
 
-::: tip
+::: details Screen Example
+
+![Magic Skills Screen Example](/assets/develop/dynamic_registry/magic_skills_screen.png)
 
 Learn more about creating [Custom Screens](./rendering/gui/custom-screens) and [Custom Widgets](./rendering/gui/custom-widgets)
 
@@ -149,7 +151,7 @@ Tags are a way to group multiple entries together. For example, we can create ta
 
 For example, the attacking tag would be defined under `data/example-mod/tags/example-mod/magic_skills_registry/attacking_skills.json`:
 
-<<< @/reference/latest/src/main/generated/data/example-mod/tags/example-mod/magic_skills_registry/attacking_skills.json
+<<< @/reference/latest/src/main/generated/data/example-mod/tags/example-mod/magic_skills_synced_registry/attacking_skills.json
 
 #### Using Tags In Code {#using-tags-in-code}
 

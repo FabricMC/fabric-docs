@@ -15,7 +15,7 @@ import com.example.docs.dynamic_registries.MagicSkillsRegistryEntry;
 
 public class ExampleModMagicSkillsTagProvider extends FabricTagsProvider<MagicSkillsRegistryEntry> {
 	public ExampleModMagicSkillsTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookupFuture) {
-		super(output, ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, registryLookupFuture);
+		super(output, ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY, registryLookupFuture);
 	}
 
 	@Override

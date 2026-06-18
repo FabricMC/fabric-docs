@@ -98,7 +98,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		// #endregion datagen_world_registries
 
 		// #region datagen_magic_skills_dynamic_registries_bootstrap
-		registryBuilder.add(ExampleModRegistries.MAGIC_SKILLS_REGISTRY_KEY, ExampleModDynamicRegistriesProvider::bootstrap);
+		registryBuilder.add(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY, ExampleModDynamicRegistriesProvider::bootstrap);
 		// #endregion datagen_magic_skills_dynamic_registries_bootstrap
 
 		// #region datagen_enchantments_bootstrap
