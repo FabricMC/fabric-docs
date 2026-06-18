@@ -14,10 +14,6 @@ import com.mojang.blaze3d.textures.GpuTextureView;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.blaze3d.vertex.VertexFormat;
-
-import net.minecraft.client.renderer.rendertype.RenderType;
-import net.minecraft.client.renderer.rendertype.RenderTypes;
-
 import org.joml.Matrix4f;
 import org.joml.Matrix4fc;
 import org.joml.Vector3f;
@@ -26,6 +22,7 @@ import org.joml.Vector4f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.StagedVertexBuffer;
+import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.phys.Vec3;
 
@@ -53,7 +50,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	private static final Vector4f COLOR_MODULATOR = new Vector4f(1f, 1f, 1f, 1f);
 	private static final Vector3f MODEL_OFFSET = new Vector3f();
 	private static final Matrix4f TEXTURE_MATRIX = new Matrix4f();
-	private final StagedVertexBuffer stagedBuffer = new StagedVertexBuffer(() -> "Waypoints Buffer", RenderType.SMALL_BUFFER_SIZE);
+	private static final StagedVertexBuffer stagedBuffer = new StagedVertexBuffer(() -> "Waypoints Buffer", RenderType.SMALL_BUFFER_SIZE);
 
 	// #endregion custom_pipelines_drawing_phase
 
@@ -67,7 +64,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	private void extractWaypoint(LevelExtractionContext context) {
 		// Access data from the world or anything here in the extraction phase.
 		// You can only access the (immutable and thread safe) render state in the drawing phase.
-		waypointState = new WaypointRenderState(0, 100, 0, 0f, 1f, 0f, 0.5f);
+		this.waypointState = new WaypointRenderState(0, 100, 0, 0f, 1f, 0f, 0.5f);
 	}
 
 	// #endregion custom_pipelines_extraction_phase
@@ -87,7 +84,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 		StagedVertexBuffer.ExecuteInfo info = stagedBuffer.getExecuteInfo(draw);
 
-		if(info != null) {
+		if (info != null) {
 			draw(Minecraft.getInstance(), info, renderPipeline);
 		}
 
@@ -103,7 +100,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 		final var builder = stagedBuffer.getVertexBuilder(draw);
 
-		this.renderFilledBox(matrices.last().pose(), builder, waypointState.x(), waypointState.y(), waypointState.z(), waypointState.x() + 1, waypointState.y() + 1, waypointState.z() + 1, waypointState.r(), waypointState.g(), waypointState.b(), waypointState.a());
+		this.renderFilledBox(matrices.last().pose(), builder, this.waypointState.x(), this.waypointState.y(), this.waypointState.z(), this.waypointState.x() + 1, this.waypointState.y() + 1, this.waypointState.z() + 1, this.waypointState.r(), this.waypointState.g(), this.waypointState.b(), this.waypointState.a());
 
 		matrices.popPose();
 	}
@@ -147,7 +144,6 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	}
 
 	private static void draw(Minecraft client, StagedVertexBuffer.ExecuteInfo info, RenderPipeline pipeline) {
-
 		GpuBufferSlice dynamicTransforms = RenderSystem.getDynamicUniforms()
 				.writeTransform(RenderSystem.getModelViewMatrixCopy(), COLOR_MODULATOR, MODEL_OFFSET, TEXTURE_MATRIX);
 
@@ -178,11 +174,10 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	// #endregion custom_pipelines_drawing_phase
 
 	// #region custom_pipelines_clean_up
-	public void close() {
+	public static void close() {
 		stagedBuffer.close();
 	}
 	// #endregion custom_pipelines_clean_up
-
 
 	// #region custom_pipelines_extraction_phase
 	// Render states should be immutable, thread safe, and fast to create.
