@@ -40,7 +40,7 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
 		// #endregion datagen_tags_build
-		
+
 		// #region shield_tags
 		valueLookupBuilder(ConventionalItemTags.SHIELD_TOOLS)
 						.add(ModItems.GUIDITE_SHIELD);
