@@ -43,7 +43,7 @@ authors:
 
 :::details 显示崩溃报告
 
-<<< @/public/assets/players/crash-report-example.log{log}
+<<< @/public/assets/players/crash-report-example.log{txt}
 
 :::
 
@@ -64,12 +64,6 @@ authors:
 
 在这个情形中，`---- Minecraft Crash Report ---- ` 部分中的堆栈跟踪最重要，因为包含导致崩溃的主要错误。
 
-:::details 显示错误详情
-
-<<< @/public/assets/players/crash-report-example.log{7 log}
-
-:::
-
 堆栈跟踪中提到了大量模组，因此很难指出原因，不过，首先要做的是查找导致崩溃的模组。
 
 在这里，导致崩溃的模组是 `snownee`，因为它是堆栈跟踪中提到的第一个模组。
@@ -78,7 +72,6 @@ authors:
 
 ## Mixin 崩溃{#mixin-crashes}
 
-:::info
 Mixin 是一种修改游戏而无需修改游戏的源代码的方式。 许多模组都用了 mixin，这对于开发者来说是非常强大的工具。
 :::
 
