@@ -1,3 +1,4 @@
+import cjkFriendlyPlugin from "markdown-it-cjk-friendly";
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import * as fs from "node:fs";
 import * as path from "node:path";
@@ -67,6 +68,8 @@ export default defineVersionedConfig(
 
     markdown: {
       config: (md) => {
+        // Use the CJK-friendly plugin to fix emphasis
+        md.use(cjkFriendlyPlugin);
         // Use the snippet plugin for transclusions
         md.use(snippetPlugin);
         // Use the tabs plugin for... having tabs?
@@ -147,6 +150,14 @@ export default defineVersionedConfig(
 
     vite: {
       plugins: [transformFilesPlugin(latestVersion)],
+    },
+
+    vue: {
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.startsWith("media-"),
+        },
+      },
     },
   } as Fabric.Config,
   path.resolve(import.meta.dirname, "..")

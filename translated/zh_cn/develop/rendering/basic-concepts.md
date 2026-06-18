@@ -131,11 +131,11 @@ authors:
 
 **元素注册：**
 
-@[code lang=java transcludeWith=:::registration](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#registration
 
 **`hudLayer()` 的实现：**
 
-@[code lang=java transcludeWith=:::hudLayer](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#hud_layer
 
 在平视显示器（HUD）上绘制的结果如下：
 
@@ -182,7 +182,7 @@ authors:
 
 :::
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#scaling_square
 
 ![一段展示菱形放大和缩小的视频](/assets/develop/rendering/concepts-matrix-stack.webp)
 
@@ -204,7 +204,7 @@ authors:
 
 不妨让我们尝试绕 z 轴旋转我们的方形。 我们可以通过使用 `PoseStack` 和 `rotateAround(quaternionfc, x, y, z)` 方法来实现这一点。
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#rotating_square
 
 这会产生如下结果：
 

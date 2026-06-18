@@ -25,6 +25,7 @@ public class ExampleModResourceConditionProvider extends ExampleModExampleProvid
 
 	private static void encodeResourceConditions(BiConsumer<String, JsonElement> consumer) {
 		acceptCondition(consumer, ResourceConditions.alwaysTrue());
+		acceptCondition(consumer, ResourceConditions.alwaysFalse());
 		acceptCondition(consumer, ResourceConditions.not(ResourceConditions.alwaysTrue()));
 		acceptCondition(consumer, ResourceConditions.or(ResourceConditions.alwaysTrue(), ResourceConditions.not(ResourceConditions.alwaysTrue())));
 		acceptCondition(consumer, ResourceConditions.and(ResourceConditions.alwaysTrue(), ResourceConditions.not(ResourceConditions.alwaysTrue())));

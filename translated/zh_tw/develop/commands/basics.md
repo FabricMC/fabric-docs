@@ -78,7 +78,7 @@ Command<CommandSourceStack> command = context -> {
 
 在模組初始化器中，我們只需註冊一個簡單的指令：
 
-@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#test_command
 
 在 `sendSuccess()` 方法中，第一個參數是要傳送的文字。它是一個 `Supplier<Component>`，用於避免在不需要時實例化 `Component` 物件。
 
@@ -100,17 +100,17 @@ Command<CommandSourceStack> command = context -> {
 
 如有需要，你也可以確保某個指令只在特定情況下註冊，例如只在專用伺服器環境中註冊：
 
-@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#dedicated_command{2}
 
-@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_dedicated_command
 
 ### 指令需求條件 {#command-requirements}
 
 假設你有一個只希望管理員能夠執行的指令， 這時就可以使用 `requires()` 方法。 `requires()` 方法接受一個 `Predicate<S>` 作為引數，並會提供一個 `CommandSourceStack` 供其測試，以判斷該 `CommandSource` 是否可以執行這個指令。
 
-@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#required_command{3}
 
-@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_required_command
 
 只有當指令來源至少具備管理員權限時，這個指令才會執行；這也包括指令方塊。 否則，該指令不會對該來源可用。
 
@@ -120,21 +120,21 @@ Command<CommandSourceStack> command = context -> {
 
 若要新增子指令，你可以照常註冊指令的第一個字面節點。 若要讓它具有子指令，則需要將下一個字面節點附加到現有節點上。
 
-@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#sub_command_one{3}
 
-@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_sub_command_one
 
 與引數類似，子指令節點也可以設定為可選。 在下面的情況中，`/command_two` 和 `/command_two sub_command_two` 都是有效的。
 
-@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#sub_command_two{2,8}
 
-@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_sub_command_two
 
 ## 客戶端指令 {#client-commands}
 
 同樣地，Fabric API 在 `net.fabricmc.fabric.api.client.command.v2` 套件中提供了 `ClientCommandRegistrationCallback` 事件，可用於註冊客戶端指令。此時應使用等價的 `ClientCommands` 來取代原版的 `Commands` 類別。 相關程式碼應只存在於客戶端程式碼中。
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
+<<< @/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java#register_command
 
 ## 指令重新導向 {#command-redirects}
 
@@ -146,9 +146,9 @@ Brigadier [只會重新導向帶有引數的指令節點](https://github.com/Moj
 
 :::
 
-@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#redirect_command
 
-@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_redirected_by
 
 ## 常見問題 {#faq}
 

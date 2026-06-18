@@ -16,14 +16,7 @@ Let's look at a simple scenario where we need to save the number of blocks broke
 
 We can use the `PlayerBlockBreakEvents.AFTER` event with a simple static integer field to store this value and post it as a chat message.
 
-```java
-private static int blocksBroken = 0; // keeps track of the number of blocks broken
-
-PlayerBlockBreakEvents.AFTER.register((level, player, pos, state, blockEntity) -> {
-    blocksBroken++; // increment the counter each time a block is broken
-    player.displayClientMessage(Component.literal("Blocks broken: " + blocksBroken), false);
-});
-```
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#saved_data_example_scenario
 
 Now, when you break a block, you'll see a message with the count.
 

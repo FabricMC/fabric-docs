@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -41,6 +42,7 @@ import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BannerPatternLayers;
+import net.minecraft.world.level.block.Block;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
@@ -62,9 +64,14 @@ import com.example.docs.networking.basic.LightningTaterItem;
 public class ModItems {
 	// #endregion mod_items_class
 
+	// #region guidite_incorrect_blocks_tag
+	public static final TagKey<Block> INCORRECT_FOR_GUIDITE_TOOL = TagKey.create(BuiltInRegistries.BLOCK.key(),
+			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "incorrect_for_guidite_tool"));
+	// #endregion guidite_incorrect_blocks_tag
+
 	// #region guidite_tool_material
 	public static final ToolMaterial GUIDITE_TOOL_MATERIAL = new ToolMaterial(
-			BlockTags.INCORRECT_FOR_WOODEN_TOOL, // incorrect blocks for drops
+			INCORRECT_FOR_GUIDITE_TOOL, // incorrect blocks for drops
 			455, // durability
 			5.0F, // speed
 			1.5F, // attack damage bonus
@@ -163,6 +170,7 @@ public class ModItems {
 				output.accept(ModBlocks.DIRT_CHEST_BLOCK);
 				output.accept(ModBlocks.COUNTER_BLOCK);
 				output.accept(ModBlocks.ENGINE_BLOCK);
+				output.accept(ModBlocks.FRIENDS_BLOCK);
 				output.accept(ModBlocks.RUBY_BLOCK);
 				output.accept(ModBlocks.RUBY_STAIRS);
 				output.accept(ModBlocks.RUBY_SLAB);

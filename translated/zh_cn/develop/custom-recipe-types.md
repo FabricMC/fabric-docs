@@ -12,7 +12,7 @@ authors:
 
 在开始创建配方之前，你需要实现一个 `RecipeInput` 接口，用于存放方块物品栏中的输入物品。 我们希望升级配方有两个输入物品：一个是待升级的基础物品，另一个是升级后的物品本身。
 
-@[code transcludeWith=:::recipeInput](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeInput.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeInput.java#recipe_input
 
 ## 创建配方类 {#creating-the-recipe-class}
 
@@ -20,7 +20,7 @@ authors:
 
 让我们先来定义一下结果和配方中的原材料。
 
-@[code transcludeWith=:::baseClass](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#base_class
 
 请注意我们如何使用 `Ingredient` 对象作为输入。 这使得我们的配方可以互换地接受多种原材料。
 
@@ -30,7 +30,7 @@ authors:
 
 为了测试原材料是否匹配，我们可以使用原材料的 `test` 方法。
 
-@[code transcludeWith=:::implementing](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#implementing
 
 ## 创建配方序列化器 {#creating-a-recipe-serializer}
 
@@ -38,23 +38,23 @@ authors:
 
 我们将使用 `RecordCodecBuilder#mapCodec` 为我们的配方构建一个映射编解码器。 它允许我们将 Minecraft 现有的编解码器整合到我们自己的编解码器中：
 
-@[code transcludeWith=:::mapCodec](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#map_codec
 
 可以使用 `StreamCodec#composite` 以类似的方式创建流编解码器：
 
-@[code transcludeWith=:::streamCodec](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#stream_codec
 
 现在我们将注册配方序列化器以及配方类型。 你可以在模组的初始化器中完成此操作，也可以在一个单独的类中完成，并通过模组初始化器调用该方法：
 
-@[code transcludeWith=:::registration](@/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#registration
 
 回到我们的配方类，现在我们可以添加返回我们刚刚注册的对象的方法了：
 
-@[code transcludeWith=:::implementRegistryObjects](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#implement_registry_objects
 
 为了完成我们的自定义配方类型，我们只需要实现剩余的 `placementInfo`、`showNotification`、`group` 和 `recipeBookCategory` 方法，配方书会使用这些方法将我们的配方放在屏幕上。 目前，我们将只返回 `PlacementInfo.NOT_PLACEABLE` 和 `null`，因为配方书无法轻易扩展到模组的工作站。 我们还要重写 `isSpecial` 函数使其返回真，以防止其他一些与配方书相关的逻辑运行并记录错误。
 
-@[code transcludeWith=:::recipeBook](@/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#recipe_book
 
 ## 创建配方 {#creating-a-recipe}
 
@@ -64,7 +64,7 @@ authors:
 
 在我们的例子中，一个有效的配方文件如下所示：
 
-@[code](@/reference/latest/src/main/resources/data/example-mod/recipe/upgrading/diamond_pickaxe.json)
+<<< @/reference/latest/src/main/resources/data/example-mod/recipe/upgrading/diamond_pickaxe.json
 
 ## 创建菜单 {#creating-a-menu}
 
@@ -76,7 +76,7 @@ authors:
 
 为了允许我们在 GUI 中创建配方，我们将创建一个带有[菜单](./blocks/container-menus) 的方块：
 
-@[code transcludeWith=:::menu](@/reference/latest/src/main/java/com/example/docs/menu/custom/UpgradingMenu.java)
+<<< @/reference/latest/src/main/java/com/example/docs/menu/custom/UpgradingMenu.java#menu
 
 这里的信息量很大！ 这个菜单有两个输入槽位和一个输出槽位。
 
@@ -90,6 +90,10 @@ authors:
 
 为防止删除物品，屏幕关闭时必须将输入恢复原状，如 `removed` 方法所示。
 
+你还需要将菜单添加到注册表中：
+
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#upgrading_menu_registration
+
 ## 配方同步 {#recipe-synchronization}
 
 ::: info
@@ -102,8 +106,8 @@ authors:
 
 要同步你的配方，只需在你的模组初始化器中调用`RecipeSynchronization.synchronizeRecipeSerializer`，并提供你的模组的配方序列化器即可：
 
-@[code transcludeWith=:::recipeSync](@/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#recipe_sync
 
 同步完成后，可以随时从客户端的配方管理器中检索配方：
 
-@[code transcludeWith=:::recipeSyncClient](@/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java#recipe_sync_client

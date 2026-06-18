@@ -88,7 +88,7 @@ authors:
 
 示例：
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening_examples_classes
 
 == 方法
 
@@ -100,7 +100,7 @@ authors:
 
 示例：
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening_examples_methods
 
 == 字段
 
@@ -112,7 +112,7 @@ authors:
 
 示例：
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening_examples_fields
 
 :::
 

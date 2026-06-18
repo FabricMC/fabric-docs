@@ -28,7 +28,7 @@ Fabric 提供了几个辅助标签提供程序，其中一个用于物品，`Fab
 
 让你的 IDE 填充所需的代码，然后用你的类型的 `ResourceKey` 替换 `resourceKey` 构造函数参数：
 
-@[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_provider
 
 ::: tip
 
@@ -38,13 +38,13 @@ Fabric 提供了几个辅助标签提供程序，其中一个用于物品，`Fab
 
 接着在 `DataGeneratorEntrypoint` 入口点的 `onInitializeDataGenerator` 方法里注册这个类。
 
-@[code lang=java transcludeWith=:::datagen-tags:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_tags_register
 
 ## 创建标签 {#creating-a-tag}
 
 现在你创建了提供程序，让我们为其添加一个标签。 首先，创建一个 `TagKey<T>`：
 
-@[code lang=java transcludeWith=:::datagen-tags:tag-key](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_tag_key
 
 接下来，在提供程序的 `configure` 方法中调用 `valueLookupBuilder`。 自那里，你可以添加单个物品，添加其他标签，或用此标签替换预先存在的标签。
 
@@ -52,4 +52,4 @@ Fabric 提供了几个辅助标签提供程序，其中一个用于物品，`Fab
 
 要强制添加标签并忽略损坏的格式，使用 `forceAddTag`。
 
-@[code lang=java transcludeWith=:::datagen-tags:build](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_build

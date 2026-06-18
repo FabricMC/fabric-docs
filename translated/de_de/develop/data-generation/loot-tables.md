@@ -23,7 +23,7 @@ Stelle sicher, dass du den Prozess der [Einrichtung des Datengenerators](./setup
 
 Du wirst unterschiedliche Provider (Klassen) für Blöcke, Truhen und Entitäten benötigen. Vergesse nicht, alle diese zu deinem Pack in deinem `DataGeneratorEntrypoint` innerhalb der `onInitializeDataGenerator` Methode hinzuzufügen.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_loot_tables_register
 
 ## Beutetabellen erklärt {#loot-tables-explained}
 
@@ -35,7 +35,7 @@ Beutepools haben **Einträge**, **Bedingungen**, Funktionen, **Rollen** und **Bo
 
 Damit Blöcke Items - auch sich selbst - fallen lassen können, müssen wir eine Beutetabelle erstellen. Erstelle eine Klasse, die von `FabricBlockLootTableProvider` erbt:
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_provider
 
 Füge diesen Provider unbedingt zu deinem Pack hinzu!
 
@@ -43,18 +43,24 @@ Es gibt eine Reihe von Hilfsmethoden, die dir bei der Erstellung deiner Beutetab
 
 Lasst uns ein paar Drops in der Methode `generate` hinzufügen:
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:block-drops](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_drops
 
 ## Truhen {#chests}
 
 Beute von Truhen sind ein wenig komplizierter als Beute von Blöcken. Erstelle eine Klasse, die von `SimpleFabricLootTableProvider` erbt, ähnlich zu dem Beispiel unterhalb **und füge sie zu deinem Pack hinzu**.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_provider
 
 Wir werden einen `ResourceKey<LootTable>` für unsere Beutetabelle benötigen. Lasst uns dies in eine neue Klasse mit dem Namen `ModLootTables` packen. Stelle sicher, dass dies dein `main` Quellenverzeichnis ist, wenn du geteilte Quellen nutzt.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/latest/src/main/java/com/example/docs/ModLootTables.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ModLootTables.java#datagen_loot_tables_mod_loot_tables
 
 Dann können wir eine Beutetabelle innerhalb der `generate` Methode unseres Providers generieren.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:chest-loot](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_loot
+
+## Ressourcenbedingungen {#resource-conditions}
+
+Um eine [Ressourcenbedingung](../resource-conditions) auf eine datengenerierte Beutetabelle anzuwenden, rufe `withConditions` auf und gebe die gewünschten Ressourcenbedingungen an. Rufe anschließend eine Methode des Beutetabellen-Provider auf, beispielsweise `dropSelf`. Dadurch wird eine Beutetabelle generiert, auf die Ressourcenbedingungen angewendet werden:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_conditions

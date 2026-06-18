@@ -15,23 +15,6 @@ const options = computed(() => {
   return options;
 });
 
-const getEnglish = computed(() => new RegExp(String.raw`^${data.localeIndex.value}/|[.]md$`, "g"));
-const urls = computed(() =>
-  data.localeIndex.value === "root"
-    ? {
-        home: "/",
-        english: undefined,
-        crowdin: undefined,
-      }
-    : {
-        home: `/${data.localeIndex.value}/`,
-        // TODO: hide if English=404
-        english: data.page.value.relativePath.replaceAll(getEnglish.value, ""),
-        // TODO: link to file: https://developer.crowdin.com/api/v2/#operation/api.projects.files.getMany
-        crowdin: `https://crowdin.com/project/fabricmc/${options.value.crowdinLocale}`,
-      }
-);
-
 const root = ref<HTMLElement>();
 const ball = ref<HTMLCanvasElement>();
 const thread = ref<HTMLElement>();
@@ -263,15 +246,26 @@ const TEXTURE = [
       <h1>{{ options.title.toLocaleUpperCase(data.lang.value) }}</h1>
       <blockquote>{{ options.quote }}</blockquote>
 
-      <VPLink :href="urls.home" :aria-label="options.linkLabel">
+      <VPLink
+        :href="data.site.value.locales[data.localeIndex.value].link!"
+        :aria-label="options.linkLabel"
+      >
         {{ options.linkText }}
       </VPLink>
       <br />
-      <VPLink v-if="urls.english" :href="urls.english" :aria-label="options.englishLinkLabel">
+      <VPLink
+        v-if="data.localeIndex.value !== 'root'"
+        :href="data.page.value.relativePath.replace(data.localeIndex.value, 'en_us')"
+        :aria-label="options.englishLinkLabel"
+      >
         {{ options.englishLinkText }}
       </VPLink>
       <br />
-      <VPLink v-if="urls.crowdin" :href="urls.crowdin" :aria-label="options.crowdinLinkLabel">
+      <VPLink
+        v-if="data.localeIndex.value !== 'root'"
+        :href="(data.theme.value as Fabric.ThemeConfig).editLink!.pattern as string"
+        :aria-label="options.crowdinLinkLabel"
+      >
         {{ options.crowdinLinkText }}
       </VPLink>
     </div>

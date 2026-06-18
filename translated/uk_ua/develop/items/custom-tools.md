@@ -11,7 +11,7 @@ authors:
 
 Ви можете створити матеріал інструменту, створивши екземпляр нового об’єкта `ToolMaterial` і зберігши його в полі, яке можна використовувати пізніше для створення предметів інструменту, які використовують матеріал.
 
-@[code transcludeWith=:::guidite_tool_material](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_tool_material
 
 Конструктор `ToolMaterial` приймає такі параметри в такому конкретному порядку:
 
@@ -26,7 +26,7 @@ authors:
 
 Для цього прикладу ми будемо використовувати той самий предмет лагодження, який будемо використовувати для обладунків. Ми визначаємо посилання на теґ наступним чином:
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
 Якщо вам важко визначити збалансовані значення для будь-якого з числових параметрів, вам слід розглянути константи інструментального матеріалу, такі як `ToolMaterial.STONE` або `ToolMaterial.DIAMOND`.
 
@@ -34,19 +34,19 @@ authors:
 
 Використовуючи ту саму службову функцію, що й у посібнику [створення вашого першого предмета](./first-item), ви можете створювати предмети інструментів:
 
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
 Два рухомих значення (`1f, 1f`) стосуються шкоди від атаки інструмента та швидкості атаки інструмента відповідно.
 
 Не забудьте додати їх до вкладок творчості, якщо ви хочете отримати доступ до них з інвентарю творчості!
 
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_guidite_sword_to_create_tab
 
 Вам також доведеться додати текстуру, переклад предмета та модель предмета. Однак для моделі item ви захочете використовувати модель `item/handheld` як батьківську модель замість звичайної `item/generated`.
 
 У цьому прикладі я буду використовувати наступну модель і текстуру для предмета «Guidite Sword»:
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Текстура</DownloadEntry>
 

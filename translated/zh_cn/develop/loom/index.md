@@ -61,7 +61,7 @@ dependencies {
 
 需要 Minecraft 1.18（推荐 1.19）、Loader 0.14 和 Loom 1.0 或更高版本来拆分客户端和通用代码。
 
-<<< @/reference/build.gradle#split-sources
+<<< @/reference/build.gradle#split_sources
 
 ## 解决问题 {#issues}
 

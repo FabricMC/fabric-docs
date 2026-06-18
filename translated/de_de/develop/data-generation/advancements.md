@@ -23,11 +23,11 @@ Stelle sicher, dass du den Prozess der [Einrichtung des Datengenerators](./setup
 
 Zuerst müssen wir unseren Provider erstellen. Erstelle eine Klasse, die von `FabricAdvancementProvider` erbt und fülle die Basismethoden aus:
 
-@[code lang=java transcludeWith=:::datagen-advancements:provider-start](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_provider_start
 
 Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEntrypoint` in der `onInitializeDataGenerator` Methode hinzu.
 
-@[code lang=java transcludeWith=:::datagen-advancements:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_advancements_register
 
 ## Struktur eines Fortschritts {#advancement-structure}
 
@@ -43,7 +43,7 @@ Ein Fortschritt setzt sich aus mehreren Komponenten zusammen. Neben den Vorausse
 
 Hier ist ein einfacher Fortschritt, um einen Erdblock zu erhalten:
 
-@[code lang=java transcludeWith=:::datagen-advancements:simple-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_simple_advancement
 
 :::details JSON Ausgabe
 
@@ -55,11 +55,11 @@ Hier ist ein einfacher Fortschritt, um einen Erdblock zu erhalten:
 
 Um einen Fortschrittsbaum anzulegen oder zu erweitern, können wir für unseren Fortschritt einen übergeordneten Eintrag festlegen. Rufe dazu `Advancement.Builder#parent(...)` auf und übergebe eine Referenz auf den übergeordneten Fortschritt.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reference-parent
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reference_parent
 
 Wenn keine direkte Referenz auf den übergeordneten Fortschritt vorhanden ist (z. B. bei Verwendung eines Vanilla Fortschritt als übergeordneter Eintrag), kann mithilfe einer Bezeichnung ein Platzhalter angelegt werden.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#placeholder-parent
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#placeholder_parent
 
 Deine Fortschritte sollten nun im Fortschrittsmenü als Baumstruktur angezeigt werden.
 
@@ -69,21 +69,21 @@ Deine Fortschritte sollten nun im Fortschrittsmenü als Baumstruktur angezeigt w
 
 Um unsere Fortschritte mit komplexeren Bedingungen zu versehen, können wir `Advancement.Builder#addCriteria(...)` mehrmals mit zusätzlichen Kriterien aufrufen.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#multiple-criteria
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#multiple_criteria
 
 Im Standard müssen alle Kriterien erfüllt sein, damit der Fortschritt abgeschlossen werden kann. Wir können dieses Verhalten ändern, indem wir eine andere Strategie anwenden.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#requirements-strategy
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#requirements_strategy
 
 ## Belohnungen {#rewards}
 
 Wir können unseren Fortschritten Belohnungen zuweisen, die einem Spieler gewährt werden, sobald er den Fortschritt abgeschlossen hat. Dies erreichen wir, indem wir `Advancement.Builder#rewards(...)` mit den Belohnungen aufrufen, die wir hinzufügen möchten.
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#experience-reward
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#experience_reward
 
 Es gibt mehrere andere Belohnungsarten:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward-types
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward_types
 
 ## Benutzdefinierte Kriterien {#custom-criteria}
 
@@ -105,13 +105,13 @@ Ein **Prädikat** ist etwas, das einen Wert entgegennimmt und einen `boolean` zu
 
 Zuerst müssen wir eine neue Mechanik implementieren. Wir können dem Spieler jedes Mal, wenn er einen Block abbaut, mitteilen, welches Werkzeug er benutzt hat.
 
-@[code lang=java transcludeWith=:::datagen-advancements:entrypoint](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements_entrypoint
 
 Beachte, dass dieser Code wirklich schlecht ist. Die `HashMap` wird nirgendwo dauerhaft gespeichert, daher wird sie bei jedem Neustart des Spiels zurückgesetzt. Es geht nur darum, `Criterion`s aufzuzeigen. Starte das Spiel und teste es!
 
 Als Nächstes erstellen wir unser benutzerdefiniertes Kriterium `UseToolCriterion`. Es wird seine eigene Klasse `Conditions` benötigen, also werden wir beide auf einmal erstellen:
 
-@[code lang=java transcludeWith=:::datagen-advancements:criterion-base](@/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_criterion_base
 
 Puh, das ist eine Menge! Schauen wir uns das mal genauer an.
 
@@ -127,31 +127,31 @@ Um mehr über Codecs zu erfahren, sieh dir die [Codecs](../codecs) Seite an.
 
 Wir brauchen einen Weg, um zu überprüfen, ob Bedingungen erfüllt sind. Lasst uns eine Hilfsmethode zu `Conditions` hinzufügen:
 
-@[code lang=java transcludeWith=:::datagen-advancements:conditions-test](@/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_conditions_test
 
 Da wir nun ein Kriterium und seine Bedingungen haben, brauchen wir eine Möglichkeit, es auszulösen. Füge eine Auslösungsmethode zu `UseToolCriterion` hinzu:
 
-@[code lang=java transcludeWith=:::datagen-advancements:criterion-trigger](@/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_criterion_trigger
 
 Fast geschafft! Als nächstes benötigen wir eine Instanz unseres Kriteriums, mit der wir arbeiten können. Fügen wir sie in eine neue Klasse mit dem Namen `ModCriteria` ein.
 
-@[code lang=java transcludeWith=:::datagen-advancements:mod-criteria](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_mod_criteria
 
 Um sicherzustellen, dass unsere Kriterien zum richtigen Zeitpunkt initialisiert werden, füge eine leere `init`-Methode hinzu:
 
-@[code lang=java transcludeWith=:::datagen-advancements:mod-criteria-init](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_mod_criteria_init
 
 Und rufe es in deinem Mod-Initialisierer auf:
 
-@[code lang=java transcludeWith=:::datagen-advancements:call-init](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements_call_init
 
 Schließlich müssen wir unser Kriterium auslösen. Füge dies zu der Stelle hinzu, an der wir in der Hauptmodklasse eine Nachricht an den Spieler geschickt haben.
 
-@[code lang=java transcludeWith=:::datagen-advancements:trigger-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements_trigger_criterion
 
 Dein neues Kriterium ist jetzt einsatzbereit! Lasst es uns zu unserem provider hinzufügen:
 
-@[code lang=java transcludeWith=:::datagen-advancements:custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_custom_criteria_advancement
 
 Führe den Datengenerator Task erneut aus und du hast einen neuen Fortschritt bekommen, mit dem du spielen kannst!
 
@@ -161,30 +161,36 @@ Das ist alles schön und gut, aber was ist, wenn wir einen Fortschritt nur dann 
 
 Lass uns von unten nach oben arbeiten. Wir müssen prüfen, ob die Anforderungen erfüllt sind, also bearbeiten wir unsere Methode `Conditions#requirementsMet`:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-requirements-met](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements_new_requirements_met
 
 `requiredTimes` existiert nicht, also mache es zu einem Parameter von `Conditions`:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-parameter](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements_new_parameter
 
 Jetzt ist unser Codec fehlerhaft. Lass uns einen neuen Codec für die neuen Änderungen schreiben:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-codec](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements_new_codec
 
 Nun müssen wir unsere `trigger`-Methode korrigieren:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-trigger](@/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ParameterizedUseToolCriterion.java#datagen_advancements_new_trigger
 
 Wenn du ein neues Kriterium erstellt hast, müssen wir es zu `ModCriteria` hinzufügen
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-mod-criteria](@/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_new_mod_criteria
 
 Und rufe sie in unserer Hauptklasse auf, genau dort, wo die alte Klasse ist:
 
-@[code lang=java transcludeWith=:::datagen-advancements:trigger-new-criterion](@/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java)
+<<< @/reference/latest/src/main/java/com/example/docs/advancement/ExampleModDatagenAdvancement.java#datagen_advancements_trigger_new_criterion
 
 Füge den Fortschritt zu deinem Provider hinzu:
 
-@[code lang=java transcludeWith=:::datagen-advancements:new-custom-criteria-advancement](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_new_custom_criteria_advancement
 
 Führe den Datengenerator erneut aus, und du bist endlich fertig!
+
+## Ressourcenbedingungen {#resource-conditions}
+
+Um eine [Ressourcenbedingung](../resource-conditions) auf einen datengenerierten Fortschritt anzuwenden, umschließe den Consumer mit `withConditions` und gebe die gewünschten Ressourcenbedingungen an. Dadurch wird ein Fortschritt generiert, auf den Ressourcenbedingungen angewendet werden:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_conditions

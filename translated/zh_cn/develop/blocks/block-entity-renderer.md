@@ -19,26 +19,26 @@ resources:
 
 首先，我们需要为 `CounterBlockEntity` 创建一个 `BlockEntityRenderState` 来保存将用于渲染的数据。 在这种情况下，我们需要 `clicks` 在渲染期间可用。
 
-@[code transcludeWith=::render-state](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java#render_state
 
 然后我们为 `CounterBlockEntity` 创建一个 `BlockEntityRenderer`。
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#renderer_structure
 
 新类有一个构造函数，以 `BlockEntityRendererProvider.Context` 作为参数。 `Context` 有几个非常有用的渲染辅助工具，比如 `ItemRenderer` 或 `Font`。
 此外，通过包含这样一个构造函数，就可以将该构造函数用作 `BlockEntityRendererProvider` 函数式接口本身：
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java#register_block_entity_renderer
 
 我们将重写一些方法来设置渲染状态以及设置渲染逻辑的 `submit` 方法。
 
 `createRenderState` 可以用于初始化渲染状态。
 
-@[code transclude={31-34}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#create_render_state
 
 `extractRenderState` 可以用于使用实体数据更新渲染状态。
 
-@[code transclude={36-42}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#extract_render_state
 
 你应该在 `ClientModInitializer` 类中注册你的方块实体渲染器。
 
@@ -71,9 +71,7 @@ resources:
 
 这些都可以以单个 `translate` 调用来实现：
 
-```java
-matrices.translate(0.5, 1, 0.5);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#translate
 
 我们已经完成了 _平移_，接下来是 _旋转_ 和 _缩放_。
 
@@ -83,19 +81,15 @@ matrices.translate(0.5, 1, 0.5);
 
 `PoseStack` 没有 `rotate` 函数，我们需要使用 `mulPose` 和 `Axis.XP`：
 
-```java
-matrices.mulPose(Axis.XP.rotationDegrees(90));
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#rotate
 
 那么现在的文字就在正确的位置了，但是文字现在太大了。 `BlockEntityRenderer` 映射整个方块到一个 `[-0.5, 0.5]` 的立方体，而 `Font` 使用 `[0, 9]` 的 Y 坐标。 因此，我们需要将其缩小到原来的 1/18：
 
-```java
-matrices.scale(1/18f, 1/18f, 1/18f);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#scale
 
 那么，我们整个的变换看起来就像这样：
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#transformations
 
 ### 绘制文本 {#drawing-text}
 
@@ -103,7 +97,7 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 为了绘制文本，我们将向渲染队列提交必要的数据。 由于我们正在绘制一些文本，因此我们可以使用通过传递到 `submit` 方法的 `SubmitNodeCollector` 实例提供的 `SubmitText` 方法。
 
-@[code transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#drawing_text
 
 `submitText` 方法接受许多的参数，但最重要的几个是：
 

@@ -232,7 +232,7 @@ Die Werte von beiden müssen zwischen **-16** und **32** liegen, was bedeutet da
 3. `angle`: _Fließkommazahl_. Legt den Winkel der Rotation fest. Reicht von **-45** bis **45** in Schritten von 22,5 Grad.
 4. `rescale`: _Boolean_. Legt fest, ob die Flächen über den gesamten Block skaliert werden sollen. Der Standardwert ist `false`.
 
-<!-- #region shade-to-faces -->
+<!-- #region shade_to_faces -->
 
 ```json
 {
@@ -266,7 +266,7 @@ Die Werte von beiden müssen zwischen **-16** und **32** liegen, was bedeutet da
 
 `faces` enthält alle Flächen eines Quaders. Wenn eine Fläche nicht gesetzt wird, wird sie nicht gerendert. Dessen Schlüssel (`<key>`) können einer der folgenden sein: `down`, `up`, `north`, `south`, `west` oder `east`. Jeder Schlüssel enthält die Eigenschaften für diese Fläche:
 
-<!-- #endregion shade-to-faces -->
+<!-- #endregion shade_to_faces -->
 
 1. `uv`: _Vier Ganzzahlen_. Definiert den Bereich der zu verwendenden Textur gemäß dem Schema `[x1, y1, x2, y2]`. Wenn nicht festgelegt, wird standardmäßig ein Wert verwendet, der der xyz-Position des Elements entspricht.
    Tauschen der Werte von `x1` und `x2` (zum Beispiel von `0, 0, 16, 16` zu `16, 0, 0, 16`) dreht die Textur um. UV ist optional und wird, wenn nicht angegeben, automatisch anhand der Position des Elements generiert.

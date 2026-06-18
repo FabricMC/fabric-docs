@@ -52,39 +52,13 @@ They can be set to perdure even after the death or [conversion](https://minecraf
 
 Methods to read from a Data Attachment have been injected onto the `Entity`, `BlockEntity`, `ServerLevel` and `ChunkAccess` classes. Using it is as simple as calling one of the methods, which return the value of the attached data.
 
-```java
-// Checks if the given AttachmentType has attached data, returning a boolean.
-entity.hasAttached(EXAMPLE_STRING_ATTACHMENT);
-
-// Gets the data associated with the given AttachmentType, or `null` if it doesn't exist.
-entity.getAttached(EXAMPLE_STRING_ATTACHMENT);
-
-// Gets the data associated with the given AttachmentType, throwing a `NullPointerException` if it doesn't exist.
-entity.getAttachedOrThrow(EXAMPLE_STRING_ATTACHMENT);
-
-// Gets the data associated with the given AttachmentType, setting the value if it doesn't exist.
-entity.getAttachedOrSet(EXAMPLE_STRING_ATTACHMENT, "basic");
-entity.getAttachedOrSet(EXAMPLE_BLOCK_POS_ATTACHMENT, new BlockPos(0, 0, 0););
-
-// Gets the data associated with the given AttachmentType, returning the provided value if it doesn't exist.
-entity.getAttachedOrElse(EXAMPLE_STRING_ATTACHMENT, "basic");
-entity.getAttachedOrElse(EXAMPLE_BLOCK_POS_ATTACHMENT, new BlockPos(0, 0, 0););
-```
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#reading_entity_attachments
 
 ## Writing To a Data Attachment {#writing-attachments}
 
 Methods to write to a Data Attachment have been injected onto the `Entity`, `BlockEntity`, `ServerLevel` and `ChunkAccess` classes. Calling one of the following methods will update the value of the attached data, and return the previous value (or `null` if there wasn't one).
 
-```java
-// Sets the data associated with the given AttachmentType, returning the previous value.
-entity.setAttached(EXAMPLE_STRING_ATTACHMENT, "new value");
-
-// Modifies the data associated with the given AttachmentType in place, returning the currently attached value. Note that currentValue is null if there is no previously attached data.
-entity.modifyAttached(EXAMPLE_STRING_ATTACHMENT, currentValue -> "The length was " + (currentValue == null ? 0 : currentValue.length()));
-
-// Removes the data associated with the given AttachmentType, returning the previous value.
-entity.removeAttached(EXAMPLE_STRING_ATTACHMENT);
-```
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#writing_entity_attachments
 
 ::: warning
 

@@ -19,26 +19,26 @@ resources:
 
 По-перше, нам потрібно створити `BlockEntityRenderState` для нашого `CounterBlockEntity`, щоб зберігати дані, які використовуватимуться для рендера. У цьому випадку нам знадобиться, щоб \`clicks' були доступні під час рендера.
 
-@[code transcludeWith=::render-state](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java#render_state
 
 Потім ми створюємо `BlockEntityRenderer` для нашого `CounterBlockEntity`.
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#renderer_structure
 
 Новий клас має конструктор із `BlockEntityRendererProvider.Context` як параметр. У `Context` є кілька корисних штук рендера, наприклад `ItemRenderer` або `Font`.
 Крім того, включивши такий конструктор, стає можливим використовувати конструктор як сам функціональний інтерфейс `BlockEntityRendererProvider`:
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java#register_block_entity_renderer
 
 Ми перевизначимо кілька методів для налаштування стану рендера разом із методом `submit`, де буде налаштовано логіку рендера.
 
 `createRenderState` можна використовувати для ініціалізації стану рендера.
 
-@[code transclude={31-34}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#create_render_state
 
 `extractRenderState` можна використовувати для оновлення стану рендера за допомогою даних сутності.
 
-@[code transclude={36-42}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#extract_render_state
 
 Ви маєте зареєструвати рендер блока-сутності у своєму класі `ClientModInitializer`.
 
@@ -71,9 +71,7 @@ resources:
 
 Це робиться за допомогою одного виклику `translate`:
 
-```java
-matrices.translate(0.5, 1, 0.5);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#translate
 
 Ось і _переклад_ зроблено, залишаються _обертання_ і _масштаб_.
 
@@ -83,19 +81,15 @@ matrices.translate(0.5, 1, 0.5);
 
 `PoseStack` не має функції `rotate`, натомість нам потрібно використовувати `mulPose` і `Axis.XP`:
 
-```java
-matrices.mulPose(Axis.XP.rotationDegrees(90));
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#rotate
 
 Тепер текст у правильному положенні, але він завеликий. `BlockEntityRenderer` промальовує весь блок на куб `[-0.5, 0.5]`, тоді як `Font` використовує координати Y `[0, 9]`. Таким чином, нам потрібно зменшити його в 18 разів:
 
-```java
-matrices.scale(1/18f, 1/18f, 1/18f);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#scale
 
 Тепер усе перетворення виглядає так:
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#transformations
 
 ### Малювання тексту {#drawing-text}
 
@@ -103,7 +97,7 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 Щоб намалювати текст, ми передамо необхідні дані в чергу рендера. Оскільки ми малюємо деякий текст, ми можемо використати метод `submitText`, наданий через екземпляр `SubmitNodeCollector`, який передається в метод `submit`.
 
-@[code transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#drawing_text
 
 Метод `submitText` приймає багато параметрів, але найважливіші з них:
 

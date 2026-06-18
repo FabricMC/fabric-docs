@@ -28,7 +28,7 @@ authors:
 
 В пакете, отличном от вашего пакета миксинов (mixin package), создайте интерфейс, который вы хотите внедрить:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface-injection-example-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface_injection_example_interface
 
 В нашем случае мы настроим выброс исключения по умолчанию (throw by default), так как планируем реализовать этот метод через миксин.
 
@@ -50,7 +50,7 @@ authors:
 
 Чтобы переопределить методы интерфейса в целевом классе, вам следует использовать миксин, который реализует этот интерфейс и указывает в качестве цели класс, в который вы хотите его внедрить.
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface-injection-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface_injection_example_mixin
 
 Эти переопределения будут добавлены в целевой класс при выполнении программы, но они не появятся в декомпилированном исходном коде, даже если вы используете модификатор классов, чтобы сделать видимой саму реализацию интерфейса.
 
@@ -66,7 +66,7 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 Для нашего примера интерфейса, запись будет выглядеть следующим образом:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_example_entry{classtweaker:no-line-numbers}
 
 ### Дженерик-интерфейсы {#generic-interfaces}
 
@@ -88,13 +88,13 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 Чтобы внедриться в данный интерфейс:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface-injection-generic-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface_injection_generic_interface
 
 дженериком `<? extends String, Boolean[]>`
 
 Запись модификатора класса должна выглядеть вот так:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_generic_interface_entry{classtweaker:no-line-numbers}
 
 ## Применение изменений {#applying-changes}
 
@@ -103,6 +103,6 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 Теперь добавленные методы можно использовать на экземплярах того класса, в который был внедрён интерфейс:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface-injection-using-added-method
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface_injection_using_added_method
 
 При необходимости вы также можете переопределять эти методы в подклассах (наследниках) того класса, куда был внедрён интерфейс.

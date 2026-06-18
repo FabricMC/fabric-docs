@@ -40,6 +40,7 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
 		// #endregion datagen_tags_build
+		
 		// #region shield_tags
 		valueLookupBuilder(ConventionalItemTags.SHIELD_TOOLS)
 						.add(ModItems.GUIDITE_SHIELD);
@@ -53,6 +54,7 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 		valueLookupBuilder(ItemTags.AXES)
 						.add(ModItems.GUIDITE_AXE);
 		// #endregion sword_tags
+
 		// #region datagen_tags_provider
 	}
 }

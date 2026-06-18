@@ -17,11 +17,11 @@ authors:
 
 首先，我们需要将 Fabric Loader JUnit 添加到开发环境。 将以下依赖添加到你的 `build.gradle`：
 
-@[code transcludeWith=:::automatic-testing:1](@/reference/build.gradle)
+<<< @/reference/build.gradle#automatic_testing_1
 
 然后，我们需要告诉 Gradle 使用 Fabric Loader JUnit 来测试。 你可以通过将以下代码添加到 `build.gradle` 来做到这件事：
 
-@[code transcludeWith=:::automatic-testing:2](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#automatic_testing_2
 
 ### 编写测试 {#writing-tests}
 
@@ -49,7 +49,7 @@ authors:
 
 现在，该编写您的实测代码了。 你可以使用 `org.junit.jupiter.api.Assertions` 断言条件。 检查以下测试：
 
-@[code lang=java transcludeWith=:::automatic-testing:4](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+<<< @/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java#automatic_testing_4
 
 有关此代码实际作用的解释，请参阅 [Codec](./codecs#registry-dispatch)。
 
@@ -61,7 +61,7 @@ authors:
 
 这是因为我们正在尝试访问注册表或依赖于注册表的类（或者，在极少数情况下，依赖于其他 Minecraft 类，如 `SharedConstants`），但 Minecraft 尚未初始化。 我们只需要初始化一下就能使注册表生效。 在你的 `beforeAll` 函数前简单地加入以下代码。
 
-@[code lang=java transcludeWith=:::automatic-testing:7](@/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java)
+<<< @/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java#automatic_testing_7
 
 ### 配置 GitHub Actions {#setting-up-github-actions}
 
@@ -96,7 +96,7 @@ Minecraft 提供了用于测试服务器端功能的游戏测试框架。 Fabric
 
 要将游戏测试添加到你的模组，请将以下内容添加到你的 `build.gradle`：
 
-@[code transcludeWith=:::automatic-testing:game-test:1](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#automatic_testing_game_test_1
 
 要查看所有可用选项，请参阅 [Loom 测试文档](./loom/fabric-api#tests)。
 
@@ -120,9 +120,9 @@ Minecraft 提供了用于测试服务器端功能的游戏测试框架。 Fabric
 
 ::: code-group
 
-<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModGameTest.java [Server]
+<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModGameTest.java[Server]
 
-<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModClientGameTest.java [Client]
+<<< @/reference/latest/src/gametest/java/com/example/docs/ExampleModClientGameTest.java[Client]
 
 :::
 
@@ -142,6 +142,6 @@ Minecraft 提供了用于测试服务器端功能的游戏测试框架。 Fabric
 
 :::
 
-@[code transcludeWith=:::automatic-testing:game-test:2](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#automatic_testing_game_test_2
 
-@[code transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yaml)
+<<< @/.github/workflows/build.yaml#automatic_testing_game_test_3

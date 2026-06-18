@@ -6,7 +6,7 @@ authors:
 ---
 
 :::tip
-Jeśli masz jakiekolwiek problemy ze znalezieniem przyczyny awarii, możesz poprosić o pomoc na [Discordzie Fabric](https://discord.gg/v6v4pMv) na kanale `#player-support` lub `#server-admin-support`.
+Jeśli masz jakiekolwiek problemy ze znalezieniem przyczyny awarii, możesz poprosić o pomoc na [Discordzie Fabric](https://discord.gg/v6v4pMv) na kanale `#player-support` lub `#mc-server-support`.
 :::
 
 Raporty awarii są bardzo ważną częścią rozwiązywania problemów z grą lub serwerem. Zawierają one dużo informacji na temat awarii i mogą pomóc w ustaleniu jej przyczyny.

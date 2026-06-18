@@ -17,31 +17,31 @@ authors:
 
 在接入生成器之前，在主源码集内添加`enchantment`包，然后创建一个`ModEnchantments`类。 接着在这个新类中添加`key`方法。
 
-@[code transcludeWith=:::key-helper](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java#key_helper
 
 使用此方法为你的魔咒创建一个`ResourceKey`。
 
-@[code transcludeWith=:::register-enchantment](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java#register_enchantment
 
 现在，我们已经准备好添加生成器了。 在数据生成器包里，创建一个继承`FabricDynamicRegistryProvider`的类。 在这个新创建的类里，添加一个匹配`super`的构造函数，并实现`configure`和`getName`方法。
 
-@[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#provider
 
 接着，在新建的类中添加`register`辅助方法。
 
-@[code transcludeWith=:::register-helper](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#register_helper
 
 现在添加 `bootstrap` 方法。 在这里，我们将注册想要添加到游戏中的魔咒。
 
-@[code transcludeWith=:::bootstrap](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#bootstrap
 
 在你的 `DataGeneratorEntrypoint` 类中，重写 `buildRegistry` 方法并注册我们的 bootstrap 方法。
 
-@[code transcludeWith=:::datagen-enchantments:bootstrap](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_enchantments_bootstrap
 
 最后，确保在 `onInitializeDataGenerator` 方法中注册了你的新生成器。
 
-@[code transcludeWith=:::datagen-enchantments:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_enchantments_register
 
 ## 创建魔咒 {#creating-the-enchantment}
 
@@ -51,7 +51,7 @@ authors:
 
 在本例中，我们将使用[自定义魔咒效果](../items/custom-enchantment-effects)中创建的魔咒效果，但你也可以使用[原版魔咒效果](https://zh.minecraft.wiki/w/%E9%AD%94%E5%92%92%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F#%E9%AD%94%E5%92%92%E6%95%88%E6%9E%9C%E7%BB%84%E4%BB%B6)。
 
-@[code transcludeWith=:::register-enchantment](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#register_enchantment
 
 现在只需运行数据生成，你的新魔咒即可在游戏中使用！
 
@@ -65,7 +65,7 @@ authors:
 
 :::
 
-@[code transcludeWith=:::effect-conditions](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#effect_conditions
 
 ## 多重效果 {#multiple-effects}
 
@@ -73,7 +73,7 @@ authors:
 
 若要在多个效果之间共享已定义的条件和目标，可使用`AllOf`将它们合并为单个效果。
 
-@[code transcludeWith=:::multiple-effects](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#multiple_effects
 
 注意，使用方法取决于所添加效果的类型。 例如，`EnchantmentValueEffect`需要使用`AnyOf.valueEffects`。 不同类型的效果仍需额外调用`withEffect`。
 
@@ -83,11 +83,11 @@ authors:
 
 为了实现这一点，我们可以创建一个标签提供者。 在`datagen`包中创建一个继承自 `FabricTagProvider<Enchantment>` 的类。 随后实现构造函数，将`Registries.ENCHANTMENT`作为`registryKey`参数传递给`super`，并创建`addTags`方法。
 
-@[code transcludeWith=:::provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java#provider
 
 现在，我们可以通过在`addTags`方法内调用构建器，将我们的魔咒添加至 `EnchantmentTags.NON_TREASURE`。
 
-@[code transcludeWith=:::non-treasure-tag](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java#non_treasure_tag
 
 ## 诅咒 {#curses}
 
@@ -95,4 +95,4 @@ authors:
 
 在`addTags`方法中，只需将你的魔咒添加至`CURSE`标签，即可将其标记为诅咒。
 
-@[code transcludeWith=:::curse-tag](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentTagProvider.java#curse_tag

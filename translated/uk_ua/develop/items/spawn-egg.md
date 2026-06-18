@@ -23,7 +23,7 @@ authors:
 
 Яйця виклику — це спеціальні предмети, які при використанні породжують відповідного моба. Ви можете зареєструвати його за допомогою методу `register` з вашого [класу предмета](./first-item#preparing-your-items-class), передавши йому `SpawnEggItem::new`.
 
-@[code transcludeWith=:::custom_entity_spawn_egg](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_entity_spawn_egg
 
 Є ще кілька речей, які потрібно зробити, перш ніж він буде готовий: ви повинні додати текстуру, модель предмета, клієнтський предмет, назву та додати яйце виклику до відповідної вкладки творчості.
 
@@ -37,13 +37,13 @@ authors:
 
 Створіть модель предмета в каталозі `assets/example-mod/models/item` з такою самою назвою файлу, як і ID предмета: `mini_golem_spawn_egg.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/mini_golem_spawn_egg.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/mini_golem_spawn_egg.json
 
 ## Створення клієнтського предмета {#creating-the-client-item}
 
 Створіть JSON клієнтського предмета в каталозі `assets/example-mod/items` з такою самою назвою файлу, як і ID предмета: `mini_golem_spawn_egg.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/mini_golem_spawn_egg.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/mini_golem_spawn_egg.json
 
 ![Яйце виклику з клієнтським предметом](/assets/develop/entity/mini_golem_spawned.png)
 
@@ -63,7 +63,7 @@ authors:
 
 Яйце виклику додається до `CreativeModeTab` яйця породження в методі `initialize()` [класу предмета](./first-item#preparing-your-items-class).
 
-@[code transcludeWith=:::spawn_egg_creative_tab](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#spawn_egg_creative_tab
 
 ![Яйце виклику з назвою та вкладкою творчості](/assets/develop/entity/spawn_egg_in_creative.png)
 

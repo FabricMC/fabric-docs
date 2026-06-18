@@ -30,14 +30,14 @@ resources:
 
 Сначала нам нужно создать блок и блочную сущность; подробнее см. в разделе [Контейнеры блоков](./block-containers#creating-the-block).
 
-@[code transcludeWith=:::block](@/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java#block
 
-@[code transcludeWith=:::be](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#be
 
 Помимо стандартных методов сущности блока, нам необходимо переопределить метод `stillValid`. Этот метод вызывается каждый тик для проверки того, нужно ли принудительно закрыть меню для игрока.
 Мы будем использовать стандартную реализацию этого метода из класса `ContainerHelper`. Она проверяет, существует ли еще наша сущность блока и находится ли игрок в радиусе взаимодействия.
 
-<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container-still-valid
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container_still_valid
 
 После реализации нашего меню оно будет закрываться автоматически, когда игрока отталкивает от блока.
 
@@ -47,13 +47,13 @@ resources:
 
 Мы хотим иметь возможность открывать меню, поэтому обработаем это в методе `useWithoutItem`:
 
-@[code transcludeWith=:::use](@/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/DirtChestBlock.java#use
 
 ### Реализация MenuProvider {#implementing-menuprovider}
 
 Чтобы добавить функциональность меню, теперь нам нужно реализовать `MenuProvider` в блочной сущности:
 
-@[code transcludeWith=:::menu](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#menu
 
 Метод `getDisplayName` возвращает название блока, которое будет отображаться в верхней части экрана.
 
@@ -61,7 +61,7 @@ resources:
 
 `createMenu` требует вернуть меню, но мы ещё не создали его для нашего блока. Для этого мы создадим класс `DirtChestMenu`, который наследуется от `AbstractContainerMenu`:
 
-@[code transcludeWith=:::menu](@/reference/latest/src/main/java/com/example/docs/menu/custom/DirtChestMenu.java)
+<<< @/reference/latest/src/main/java/com/example/docs/menu/custom/DirtChestMenu.java#menu
 
 Клиентский конструктор вызывается на клиенте, когда сервер запрашивает открытие меню. Он создаёт пустой контейнер, который затем автоматически синхронизируется с реальным контейнером на сервере.
 
@@ -71,11 +71,11 @@ resources:
 
 Затем нам нужно зарегистрировать меню в новом классе `ModMenuType`:
 
-@[code transcludeWith=:::registerMenu](@/reference/latest/src/main/java/com/example/docs/menu/ModMenuType.java)
+<<< @/reference/latest/src/main/java/com/example/docs/menu/ModMenuType.java#register_menu
 
 Теперь мы можем задать возвращаемое значение `createMenu` в блочной сущности, чтобы использовать наше меню:
 
-@[code transcludeWith=:::providerImplemented](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#provider_implemented
 
 ::: info
 
@@ -88,13 +88,13 @@ resources:
 Чтобы действительно отобразить содержимое контейнера на клиенте, нам также нужно создать экран для нашего меню.
 Создадим новый класс, который наследуется от `AbstractContainerScreen`:
 
-@[code transcludeWith=:::screen](@/reference/latest/src/client/java/com/example/docs/rendering/screens/inventory/DirtChestScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/inventory/DirtChestScreen.java#screen
 
 В качестве фона этого экрана мы используем стандартную текстуру экрана раздатчика, так как наш земляной сундук использует такую же раскладку слотов. В качестве альтернативы вы можете использовать собственную текстуру для `CONTAINER_TEXTURE`.
 
 Поскольку это экран для меню, нам также нужно зарегистрировать его на клиенте с помощью метода `MenuScreens#register()`:
 
-@[code transcludeWith=:::registerScreens](@/reference/latest/src/client/java/com/example/docs/ExampleModScreens.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModScreens.java#register_screens
 
 После запуска игры у вас должен появиться земляной сундук, по которому можно кликнуть правой кнопкой, чтобы открыть меню и хранить в нём предметы.
 

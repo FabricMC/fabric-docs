@@ -79,7 +79,7 @@ Il callback ha tre parametri:
 
 Nell'initializer della mod, registriamo un semplice comando:
 
-@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#test_command
 
 Nel metodo `sendSuccess()` il primo parametro è il testo che viene mandato, che è un `Supplier<Component>` per evitare d'istanziare oggetti `Component` quando non è necessario.
 
@@ -101,17 +101,17 @@ Da ora in poi, estrarremo la logica scritta all'interno della lambda passata nei
 
 Se vuoi, puoi anche assicurarti che un comando venga registrato solo sotto circostanze specifiche, per esempio, solo nell'ambiente dedicato:
 
-@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#dedicated_command{2}
 
-@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_dedicated_command
 
 ### Requisiti dei Comandi {#command-requirements}
 
 Immagina di avere un comando e vuoi che solo i moderatori lo possano eseguire. Questo è dove il metodo `requires()` entra in gioco. Il metodo `requires()` ha un solo argomento `Predicate<S>` che fornirà una `CommandSourceStack` con cui testare e determinare se la `CommandSource` può eseguire il comando.
 
-@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#required_command{3}
 
-@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_required_command
 
 Questo comando verrà eseguito solo se la fonte del comando è almeno un moderatore, inclusi i blocchi comandi. Altrimenti, il comando non è registrato.
 
@@ -121,21 +121,21 @@ Questo ha l'effetto collaterale di non mostrare il comando se si completa con <k
 
 Per aggiungere un sotto comando, devi registrare il primo nodo letterale del comando normalmente. Per avere un sotto comando, devi aggiungere il nodo letterale successivo al nodo esistente.
 
-@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#sub_command_one{3}
 
-@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_sub_command_one
 
 Similarmente agli argomenti, i nodi dei sotto comandi possono anch'essi essere opzionali. Nel caso seguente, sia `/command_two` che `/command_two sub_command_two` saranno validi.
 
-@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#sub_command_two{2,8}
 
-@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_sub_command_two
 
 ## Comandi Lato Client {#client-commands}
 
 Allo stesso modo, l'API di Fabric fornisce l'evento `ClientCommandRegistrationCallback` nel package `net.fabricmc.fabric.api.client.command.v2`, che può essere usato per registrare comandi lato client. Esso sostituisce la classe vanilla `Commands` con l'equivalente `ClientCommands`. Il codice dovrebbe esistere solo nel codice lato client.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
+<<< @/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java#register_command
 
 ## Reindirizzare Comandi {#command-redirects}
 
@@ -147,9 +147,9 @@ Brigadier [reinderizzerà soltanto i nodi di comandi contenenti parametri](https
 
 :::
 
-@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#redirect_command
 
-@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_redirected_by
 
 ## Domande Frequenti (FAQ) {#faq}
 

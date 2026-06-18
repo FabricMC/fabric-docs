@@ -28,7 +28,7 @@ Um die Interface-Injektion zu veranschaulichen, verwenden die Codeausschnitte au
 
 Erstelle in einem Paket, das nicht dein Mixin-Paket ist, das Interface, das du injizieren möchtest:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface-injection-example-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface_injection_example_interface
 
 In unserem Fall wird standardmäßig ein Ausnahmetyp ausgelöst, da wir die Methode über ein Mixin implementieren wollen.
 
@@ -50,7 +50,7 @@ Wenn die Methoden des Interface vollständig mit den `default`-Werten des Interf
 
 Um in der Zielklasse Überschreibungen der Methoden des Interface zu erstellen, solltest du ein Mixin verwenden, das das Interface implementiert und auf die Klasse abzielt, in die du das Interface einbinden möchtest.
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface-injection-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface_injection_example_mixin
 
 Die Überschreibungen werden der Zielklasse zur Laufzeit hinzugefügt, erscheinen jedoch nicht im dekompilierten Quellcode, selbst wenn du den Klassenoptimierer verwendest, um die Implementierung des Interface sichtbar zu machen.
 
@@ -66,7 +66,7 @@ Bei der Optimierung von Klassen verwenden Klassen und Interfaces ihre [internen 
 
 Für unser Beispielinterface würde der Eintrag wie folgt lauten:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_example_entry{classtweaker:no-line-numbers}
 
 ### Generische Interfaces {#generic-interfaces}
 
@@ -87,13 +87,13 @@ Das Signaturformat ist:
 
 Um ein Interface zu injizieren:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface-injection-generic-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface_injection_generic_interface
 
 mite den generischen Typen `<? extends String, Boolean[]>`
 
 Der Eintrag des Klassenoptimierer wäre:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry{classtweaker:no-line-numbers}
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_generic_interface_entry{classtweaker:no-line-numbers}
 
 ## Änderungen anwenden {#applying-changes}
 
@@ -102,6 +102,6 @@ Wenn die Änderungen nicht angezeigt werden, kannst du versuchen, die Datei zu [
 
 Die hinzugefügten Methoden können nun auf Instanzen der Klasse angewendet werden, in die das Interface injiziert wurde:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface-injection-using-added-method
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface_injection_using_added_method
 
 Bei Bedarf kannst du die Methoden in Unterklassen des Interface-Injektionsziels überschreiben.

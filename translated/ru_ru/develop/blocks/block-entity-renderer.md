@@ -19,26 +19,26 @@ resources:
 
 Во-первых, нам нужно создать `BlockEntityRenderState` для нашего `CounterBlockEntity`, чтобы хранить данные, которые будут использоваться для рендеринга. В этом случае нам нужно, чтобы `клики` были доступны во время рендеринга.
 
-@[code transcludeWith=::render-state](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java#render_state
 
 Затем мы создадим `BlockEntityRenderer` для нашего `CounterBlockEntity`.
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#renderer_structure
 
 Новый класс имеет конструктор с `BlockEntityRendererProvider.Context` в качестве параметра. У `Context` есть несколько полезных утилит рендеринга, например `ItemRenderer` или `Font`.
 Также, включение такого конструктора позволяет использовать конструктор в качестве функционального интерфейса `BlockEntityRendererProvider`:
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java#register_block_entity_renderer
 
 Мы переопределим несколько методов, чтобы настроить состояние рендера, а также метод `submit`, в котором будет реализована логика рендеринга.
 
 `createRenderState` можно использовать для инициализации состояния рендеринга.
 
-@[code transclude={31-34}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#create_render_state
 
 `extractRenderState` может быть использован для обновления состояния рендеринга с помощью данных о сущностях.
 
-@[code transclude={36-42}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#extract_render_state
 
 Вы должны зарегистрировать рендеринг блочных сущностей в классе `ClientModInitializer`.
 
@@ -71,9 +71,7 @@ resources:
 
 Это делается одним вызовом `translate`:
 
-```java
-matrices.translate(0.5, 1, 0.5);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#translate
 
 Смещение выполнено, остаются вращение и масштабирование.
 
@@ -83,19 +81,15 @@ matrices.translate(0.5, 1, 0.5);
 
 У `PoseStack` нет функции `rotate`, вместо этого нужно использовать `mulPose` и `Axis.XP`:
 
-```java
-matrices.mulPose(Axis.XP.rotationDegrees(90));
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#rotate
 
 Теперь текст находится в правильной позиции, но он слишком большой. `BlockEntityRenderer` отображает весь блок в кубе `[-0.5, 0.5]`, тогда как `Font` использует координаты Y в диапазоне `[0, 9]`. Следовательно, его нужно уменьшить в 18 раз:
 
-```java
-matrices.scale(1/18f, 1/18f, 1/18f);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#scale
 
 Теперь всё преобразование выглядит так:
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#transformations
 
 ### Отрисовка текста {#drawing-text}
 
@@ -103,7 +97,7 @@ matrices.scale(1/18f, 1/18f, 1/18f);
 
 Чтобы отрисовать текст, мы будем отправлять необходимые данные в очередь рендеринга. Поскольку мы рисуем текст, можно использовать метод `submitText`, предоставляемый через экземпляр `SubmitNodeCollector`, переданный в метод `submit`.
 
-@[code transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#drawing_text
 
 Метод `submitText` принимает множество параметров, но наиболее важные из них:
 

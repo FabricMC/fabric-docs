@@ -23,7 +23,7 @@ authors:
 
 刷怪蛋是一种特殊物品，使用后会生成相应的生物。 你可以通过向[物品类](./first-item#preparing-your-items-class)中的 `register` 方法传递 `SpawnEggItem::new` 来注册一个。
 
-@[code transcludeWith=:::custom_entity_spawn_egg](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_entity_spawn_egg
 
 在它准备就绪之前，还有几件事要做：你必须添加纹理、物品模型、客户端物品、名称，并将刷怪蛋添加到相应的创造标签页。
 
@@ -37,13 +37,13 @@ authors:
 
 在 `assets/example-mod/models/item` 目录中创建物品模型，文件名与物品的 ID 相同：`mini_golem_spawn_egg.json`。
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/mini_golem_spawn_egg.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/mini_golem_spawn_egg.json
 
 ## 创建客户端物品 {#creating-the-client-item}
 
 在 `assets/example-mod/items` 目录中创建客户端物品 JSON，文件名与物品模型的 ID 相同：`mini_golem_spawn_egg.json`。
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/mini_golem_spawn_egg.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/mini_golem_spawn_egg.json
 
 ![有客户端物品的刷怪蛋物品](/assets/develop/entity/mini_golem_spawned.png)
 
@@ -63,7 +63,7 @@ authors:
 
 刷怪蛋被添加到[物品类](./first-item#preparing-your-items-class)的 `initialize()` 方法中的刷怪蛋 `CreativeModeTab` 中。
 
-@[code transcludeWith=:::spawn_egg_creative_tab](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#spawn_egg_creative_tab
 
 ![带有名称和创造模式标签页的刷怪蛋物品](/assets/develop/entity/spawn_egg_in_creative.png)
 

@@ -38,13 +38,13 @@ Nehmen wir an, wir möchten Wegpunkte rendern, die durch Wände hindurch sichtba
 
 Wir definieren benutzerdefinierte Render-Pipelines in einer Klasse:
 
-@[code lang=java transcludeWith=:::custom-pipelines:define-pipeline](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_define_pipeline
 
 ### Extraktionsphase {#extraction-phase}
 
 Wir implementieren zuerst die "Extraktionsphase". Wir können diese Methode während der "Extraktionsphase" aufrufen, um einen Wegpunkt hinzuzufügen, der gerendert werden soll.
 
-@[code lang=java transcludeWith=:::custom-pipelines:extraction-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_extraction_phase
 
 Wenn du mehrere Wegpunkte rendern möchtest, ändere `waypointState` zu einer Liste und füge mehrere Renderzustände für Wegpunkte hinzu. Stelle sicher, dass du dies während der "Extraktionsphase" machst, BEVOR die "Zeichenphase" beginnt, in der der Puffer-Builder gebaut wird.
 
@@ -56,7 +56,7 @@ Beachte, dass wir im obigen Code den `WaypointRenderState` in einem Feld speiche
 
 Jetzt werden wir die "Zeichenphase" implementieren. Dies sollte aufgerufen werden, nachdem alle Wegpunkte, die du rendern möchtest, während der "Extraktionsphase" zum `waypointState` hinzugefügt wurden.
 
-@[code lang=java transcludeWith=:::custom-pipelines:drawing-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_drawing_phase
 
 Beachte, dass die im Konstruktor des `ByteBufferBuilder` verwendete Größe von der verwendeten Render-Pipeline abhängt. In unserem Fall ist es `RenderType.SMALL_BUFFER_SIZE`.
 
@@ -64,15 +64,15 @@ Beachte, dass die im Konstruktor des `ByteBufferBuilder` verwendete Größe von 
 
 Schließlich müssen wir die Ressourcen bereinigen, wenn der Spielrenderer geschlossen wird. `GameRenderer#close` sollte diese Methode aufrufen, und dafür musst du derzeit mit einem Mixin in `GameRenderer#close` injizieren.
 
-@[code lang=java transcludeWith=:::custom-pipelines:clean-up](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_clean_up
 
-@[code lang=java](@/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java)
+<<< @/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java
 
 ### Finaler Code {#final-code}
 
 Durch die Kombination aller oben genannten Schritte, erhalten wir eine einfache Klasse, die einen Wegpunkt bei `(0, 100, 0)` durch Wände hindurch rendert.
 
-@[code lang=java](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java
 
 Vergiss auch nicht das `GameRendererMixin`! Hier ist das Ergebnis:
 

@@ -33,7 +33,7 @@ authors:
 
 Ось приклад простої `main` точки входу, яка записує повідомлення на консоль під час запуску гри:
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
 
 ## `src/main/resources` {#src-main-resources}
 

@@ -75,7 +75,7 @@ effect give @p example-mod:tater
 To apply an effect internally, you'd want to use the `LivingEntity#addEffect` method, which takes in
 a `MobEffectInstance`, and returns a boolean, specifying whether the effect was successfully applied.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#apply_effect
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#apply_effect
 
 | Argument    | Type                | Description                                                                                                                                                                                                                   |
 | ----------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -15,9 +15,9 @@ Um `SuggestionProvider`é usado para criar uma lista de sugestões que será env
 
 Para usar um provedor de sugestões, você precisa chamar o método `suggests`no builder do argumento. Este método recebe um `SuggestionProvider` e retorna o builder do argumento modificado com o provedor de sugestões anexado.
 
-@[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_suggestions{4}
 
-@[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_suggestions
 
 ## Provedores de Sugestões Integrados {#built-in-suggestion-providers}
 
@@ -36,13 +36,13 @@ Se um provedor integrado não atender às suas necessidades, você pode criar se
 
 Neste exemplo, criaremos um provedor de sugestões que sugere todos os nomes de usuário dos jogadores no servidor.
 
-@[code java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java#suggestion_provider
 
 Para usar esse provedor de sugestões, você simplesmente passaria uma instância dele para o método `.suggests`no builder do argumento.
 
-@[code java highlight={4} transcludeWith=:::command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_custom_suggestions{4}
 
-@[code java transcludeWith=:::execute_command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_custom_suggestions
 
 Obviamente, os provedores de sugestões podem ser mais complexos, pois também podem ler o contexto do comando para fornecer sugestões baseadas no estado do comando — como os argumentos que já foram fornecidos.
 
