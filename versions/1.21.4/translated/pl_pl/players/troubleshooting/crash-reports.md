@@ -43,7 +43,7 @@ W tym przewodniku będziemy wykorzystywać [ten raport awarii](/assets/players/c
 
 :::details Pokaż raport awarii
 
-<<< @/public/assets/players/crash-report-example.log{log}
+<<< @/public/assets/players/crash-report-example.log{txt}
 
 :::
 
@@ -63,12 +63,6 @@ Teraz, gdy już wiemy, co zawiera każda sekcja raportu awarii, możemy zacząć
 Korzystając z powyższego przykładu, możemy przeanalizować raport awarii i znaleźć jej przyczynę, w tym mody, które ją spowodowały.
 
 Ślad stosu w sekcji `---- Minecraft Crash Report ----` jest w tym przypadku najważniejszy, ponieważ zawiera główny błąd, który spowodował awarię.
-
-:::details Pokaż błąd
-
-<<< @/public/assets/players/crash-report-example.log{7 log}
-
-:::
 
 Ze względu na liczbę modów wymienionych w śladzie stosu, może być trudno od razu wskazać winowajcę, ale pierwszą rzeczą, jaką należy zrobić, jest poszukanie moda, który spowodował awarię.
 

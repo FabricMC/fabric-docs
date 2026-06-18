@@ -47,7 +47,7 @@ Para esse guia, usaremos [esse relatório de travamento](/assets/players/crash-r
 
 :::details Mostrar o Relatório de Travamento
 
-<<< @/public/assets/players/crash-report-example.log
+<<< @/public/assets/players/crash-report-example.log{txt}
 
 :::
 
@@ -67,12 +67,6 @@ Agora que sabemos o que cada seção do Relatório de Travamento é, podemos com
 Usando o exemplo acima, podemos analisar o Relatório de Travamento e achar sua causa. Incluindo os mods que podem ter levado ao travamento.
 
 O Rastreamento de Pilha na seção `---- Minecraft Crash Report ----` é a parte mais importante nesse caso. Já que ele contém o principal erro que causou o travamento.
-
-:::details Mostrar Erro
-
-<<< @/public/assets/players/crash-report-example.log{7}
-
-:::
 
 Com a quantidade de mods mencionada no Rastreamento de Pilha, pode ser difícil achar o causador do problema. Mas, a primeira coisa a se fazer é olhar para o mod que causou o travamento.
 
