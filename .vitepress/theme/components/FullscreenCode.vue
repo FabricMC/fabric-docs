@@ -55,7 +55,7 @@ const handleEnterFullscreen = (originalCodeBlock: HTMLDivElement) => {
 
   loadCodeBlock(originalCodeBlock);
   dialog.value.showModal();
-  (document.activeElement as HTMLElement)?.blur();
+  if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
 };
 
 const handleTabChange = (index: number) => {
@@ -65,23 +65,22 @@ const handleTabChange = (index: number) => {
   loadCodeBlock(originalCodeBlocks.value[index]);
 };
 
-const handleCopy = (event: Event) => {
-  if (event.currentTarget instanceof HTMLButtonElement) event.currentTarget.blur();
+const handleCopy = () => {
   originalCopyButton.value?.click();
+  if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
   isCopied.value = true;
   setTimeout(() => (isCopied.value = false), 2000);
 };
 
-const handleWrap = (event: Event) => {
-  if (event.currentTarget instanceof HTMLButtonElement) event.currentTarget.blur();
+const handleWrap = () => {
+  if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
   isWrapped.value = !isWrapped.value;
 };
 
-const handleExitFullscreen = (event?: Event) => {
-  if (event?.currentTarget instanceof HTMLButtonElement) event.currentTarget.blur();
+const handleExitFullscreen = () => {
   if (!dialog.value?.open) return;
 
-  (document.activeElement as HTMLElement)?.blur();
+  if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
   isClosing.value = true;
 
   const onAnimationend = () => {
