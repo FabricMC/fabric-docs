@@ -78,6 +78,7 @@ body:has(.VPFooter:not(.has-sidebar)) .aside-container {
 }
 
 html.mac {
+  scrollbar-width: thin;
   scrollbar-color: var(--vp-c-gray-1) var(--vp-c-bg-alt);
 }
 

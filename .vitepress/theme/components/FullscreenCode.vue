@@ -358,6 +358,10 @@ div.toolbar {
       &:hover,
       &:focus {
         color: var(--vp-code-tab-hover-text-color);
+
+        &::after {
+          background-color: var(--vp-c-divider);
+        }
       }
     }
 
@@ -557,7 +561,7 @@ div.toolbar {
 }
 
 div[class*="language-"] {
-  button.copy:has(+ button.copy.fullscreen) {
+  button.copy:not(.fullscreen) {
     right: 64px;
   }
 
