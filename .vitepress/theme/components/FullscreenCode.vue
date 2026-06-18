@@ -201,30 +201,29 @@ onUnmounted(() => dialog.value?.close());
 
 <style scoped>
 dialog#fullscreen {
-  max-height: none;
-  max-width: none;
-  border: none;
+  will-change: transform, opacity;
+
   overflow: hidden;
+
+  max-width: none;
+  max-height: none;
+  border: none;
+
   background: transparent;
+
   animation:
     fade-in 0.3s ease-in,
     scale-in 0.3s ease;
 
-  @supports (-moz-appearance: none) {
-    & {
-      will-change: transform, opacity;
-    }
+  &::backdrop {
+    background-color: var(--vp-c-bg);
+    animation: fade-in 0.3s ease;
   }
 
   &,
   &::backdrop {
-    height: 100dvh;
     width: 100dvw;
-  }
-
-  &::backdrop {
-    background-color: var(--vp-c-bg);
-    animation: fade-in 0.3s ease;
+    height: 100dvh;
   }
 
   &[open] {
@@ -246,21 +245,21 @@ dialog#fullscreen {
 
 @keyframes fade-in {
   from {
-    opacity: 0;
+    opacity: 0%;
   }
 
   to {
-    opacity: 1;
+    opacity: 100%;
   }
 }
 
 @keyframes fade-out {
   from {
-    opacity: 1;
+    opacity: 100%;
   }
 
   to {
-    opacity: 0;
+    opacity: 0%;
   }
 }
 
@@ -286,38 +285,41 @@ dialog#fullscreen {
 
 div.toolbar {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
   flex-grow: 0;
   gap: 8px;
+  align-items: flex-end;
+  justify-content: flex-end;
 
   div.tabs {
-    margin: -1px 0 -1px 0;
-    height: calc(100% + 2px);
+    z-index: 10;
+
+    overflow: auto hidden;
     display: flex;
-    align-items: flex-end;
-    padding: 0 12px;
     flex-grow: 1;
+    align-items: flex-end;
+
+    height: calc(100% + 2px);
+    margin: -1px 0;
+    padding: 0 12px;
+    border: 1px solid var(--vp-c-divider);
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+
     font-size: 14px;
     font-weight: 500;
     color: var(--vp-code-tab-text-color);
-    background-color: var(--vp-code-tab-bg);
-    border: 1px solid var(--vp-c-divider);
-    box-shadow: inset 0 -1px var(--vp-code-block-divider-color);
-    border-bottom: none;
-    border-radius: 12px 12px 0 0;
     white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    z-index: 10;
+
+    background-color: var(--vp-code-tab-bg);
+    box-shadow: inset 0 -1px var(--vp-code-block-divider-color);
 
     &::-webkit-scrollbar {
       height: 8px;
     }
 
     &::-webkit-scrollbar-track {
-      box-shadow: 0 -1px var(--vp-code-block-divider-color);
       z-index: 10;
+      box-shadow: 0 -1px var(--vp-code-block-divider-color);
     }
 
     &::-webkit-scrollbar-thumb {
@@ -325,29 +327,37 @@ div.toolbar {
     }
 
     &:deep(label) {
-      position: relative;
-      height: 100%;
-      line-height: 48px;
-      padding: 0 12px;
       cursor: pointer;
+
+      position: relative;
+
+      height: 100%;
+      padding: 0 12px;
+
+      line-height: 48px;
       text-align: center;
+
+      &::after {
+        content: "";
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        display: block;
+
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+
+        background-color: transparent;
+
+        transition: background-color 0.25s;
+      }
 
       &:hover,
       &:focus {
         color: var(--vp-code-tab-hover-text-color);
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 2px;
-        border-radius: 2px;
-        background-color: transparent;
-        transition: background-color 0.25s;
       }
     }
 
@@ -366,16 +376,20 @@ div.toolbar {
 
   button {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--vp-code-copy-code-border-color);
-    border-radius: 4px;
+
     width: 40px;
     height: 40px;
-    flex-shrink: 0;
     margin-bottom: 8px;
-    background-color: var(--vp-code-copy-code-bg);
+    border: 1px solid var(--vp-code-copy-code-border-color);
+    border-radius: 4px;
+
     color: #808080;
+
+    background-color: var(--vp-code-copy-code-bg);
+
     transition:
       border-color 0.25s,
       background-color 0.25s;
@@ -387,31 +401,34 @@ div.toolbar {
     }
 
     svg.iconify {
-      height: 20px;
       width: 20px;
+      height: 20px;
     }
 
     &.copy {
+      gap: 0;
       width: auto;
       min-width: 40px;
-      gap: 0;
 
       svg.iconify {
-        margin-left: 8px;
         margin-right: 9px;
+        margin-left: 8px;
       }
 
-      & span {
+      span {
+        overflow: hidden;
         display: inline-flex;
         align-items: center;
-        overflow: hidden;
-        white-space: nowrap;
-        height: 100%;
+
         max-width: 0;
+        height: 100%;
+        border-right: 1px solid transparent;
+
         font-size: 12px;
         font-weight: 500;
         color: var(--vp-code-copy-code-active-text);
-        border-right: 1px solid transparent;
+        white-space: nowrap;
+
         transition:
           max-width 0.3s ease,
           padding-inline 0.3s ease,
@@ -428,20 +445,24 @@ div.toolbar {
 }
 
 :deep(div.slot) {
-  background-color: var(--vp-code-block-bg);
-  border-radius: 12px;
-  border: 1px solid var(--vp-c-divider);
-  flex-grow: 1;
   overflow: hidden;
+  flex-grow: 1;
+
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+
+  background-color: var(--vp-code-block-bg);
 
   div[class*="language-"] {
-    background: transparent;
-    margin: 0;
-    padding-left: 0;
-    height: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+
+    height: 100%;
+    margin: 0;
+    padding-left: 0;
+
+    background: transparent;
 
     span.lang {
       right: 20px;
@@ -452,8 +473,8 @@ div.toolbar {
     }
 
     pre {
-      flex-grow: 1;
       overflow: auto;
+      flex-grow: 1;
     }
 
     pre::-webkit-scrollbar-corner {
@@ -462,6 +483,7 @@ div.toolbar {
 
     &.line-numbers-mode pre {
       counter-reset: line-counter;
+      overscroll-behavior: none;
       background-image: linear-gradient(
         to right,
         transparent 31px,
@@ -469,7 +491,6 @@ div.toolbar {
         var(--vp-code-block-divider-color) 32px,
         transparent 32px
       );
-      overscroll-behavior: none;
 
       code {
         display: flex;
@@ -481,25 +502,30 @@ div.toolbar {
         position: relative;
         padding-left: 56px;
 
-        & span::after {
-          content: "\200B";
-        }
-
         &::before {
           content: counter(line-counter);
           counter-increment: line-counter;
-          display: inline-block;
+          user-select: none;
+
           position: sticky;
           z-index: 1;
           left: 0;
-          margin-left: -56px;
-          margin-right: 12px;
+
+          display: inline-block;
+
           width: 32px;
-          text-align: center;
-          user-select: none;
-          color: var(--vp-code-line-number-color);
-          background-color: var(--vp-code-block-bg);
+          margin-right: 12px;
+          margin-left: -56px;
           border-right: 1px solid var(--vp-code-block-divider-color);
+
+          color: var(--vp-code-line-number-color);
+          text-align: center;
+
+          background-color: var(--vp-code-block-bg);
+        }
+
+        span::after {
+          content: "\200B";
         }
 
         &:empty::after {
@@ -514,16 +540,16 @@ div.toolbar {
   }
 
   &.wrapped div[class*="language-"] pre {
-    white-space: pre-wrap;
     overflow-wrap: anywhere;
+    white-space: pre-wrap;
   }
 }
 </style>
 
 <style>
 ::view-transition-group(code-block-view-transition) {
-  border-radius: 12px;
   overflow: hidden;
+  border-radius: 12px;
 }
 
 ::view-transition-group(root) {
@@ -531,7 +557,7 @@ div.toolbar {
 }
 
 div[class*="language-"] {
-  button.copy:not(.fullscreen) {
+  button.copy:has(+ button.copy.fullscreen) {
     right: 64px;
   }
 
@@ -546,7 +572,7 @@ div[class*="language-"] {
 }
 
 html:has(dialog#fullscreen[open]) {
-  overflow: hidden;
   scrollbar-gutter: stable;
+  overflow: hidden;
 }
 </style>
