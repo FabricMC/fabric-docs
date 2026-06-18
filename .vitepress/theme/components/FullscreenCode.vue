@@ -22,7 +22,7 @@ const isCopied = ref(false);
 const loadCodeBlock = (originalCodeBlock: HTMLDivElement) => {
   if (!dialog.value) return;
 
-  originalCopyButton.value = //
+  originalCopyButton.value =
     originalCodeBlock.querySelector<HTMLButtonElement>("button.copy:not(.fullscreen)") ?? undefined;
 
   const clonedCodeBlock = originalCodeBlock.cloneNode(true) as HTMLDivElement;
@@ -123,12 +123,14 @@ onContentUpdated(() =>
       originalCopyButton.title = options.value.copy;
       originalCopyButton.setAttribute("aria-label", options.value.copy);
 
-      const enterFullscreenButton = document.createElement("button");
+      const enterFullscreenButton =
+        codeBlock.querySelector<HTMLButtonElement>("button.copy.fullscreen")
+        ?? document.createElement("button");
       enterFullscreenButton.title = options.value.enterFullscreen;
       enterFullscreenButton.setAttribute("aria-label", options.value.enterFullscreen);
       enterFullscreenButton.className = "copy fullscreen";
       enterFullscreenButton.innerHTML = enterFullscreenIcon;
-      enterFullscreenButton.addEventListener("click", (event) => {
+      enterFullscreenButton.onclick = (event) => {
         if (!(event.currentTarget instanceof HTMLButtonElement)) return;
 
         event.stopImmediatePropagation();
@@ -138,9 +140,8 @@ onContentUpdated(() =>
         if (!codeBlock) return;
 
         handleEnterFullscreen(codeBlock);
-      });
+      };
 
-      codeBlock.querySelector<HTMLButtonElement>("button.copy.fullscreen")?.remove();
       codeBlock.prepend(enterFullscreenButton);
     }
   })
