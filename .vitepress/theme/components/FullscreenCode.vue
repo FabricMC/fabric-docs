@@ -179,12 +179,18 @@ onUnmounted(() => dialog.value?.close());
         @click="handleCopy"
       >
         <span>{{ options.copied }}</span>
-        <Icon v-if="isCopied" icon="lucide:clipboard-check" />
-        <Icon v-else icon="lucide:clipboard" />
+        <Icon icon="lucide:clipboard" />
+        <Icon class="clicked" icon="lucide:clipboard-check" />
       </button>
-      <button class="wrap" :title="options.wrap" :aria-label="options.wrap" @click="handleWrap">
-        <Icon v-if="isWrapped" style="width: 24px; height: 24px" icon="lucide:text" />
-        <Icon v-else icon="lucide:text-wrap" />
+      <button
+        class="wrap"
+        :class="{ wrapped: isWrapped }"
+        :title="options.wrap"
+        :aria-label="options.wrap"
+        @click="handleWrap"
+      >
+        <Icon icon="lucide:text-wrap" />
+        <Icon class="clicked" icon="lucide:text" />
       </button>
       <button
         class="fullscreen"
@@ -407,6 +413,10 @@ div.toolbar {
     svg.iconify {
       width: 20px;
       height: 20px;
+
+      &.clicked {
+        display: none;
+      }
     }
 
     &.copy {
@@ -443,6 +453,22 @@ div.toolbar {
         max-width: 100px;
         padding-inline: 9px;
         border-right-color: var(--vp-code-copy-code-hover-border-color);
+      }
+    }
+
+    &.wrap.wrapped svg.iconify.clicked {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.copy.copied,
+    &.wrap.wrapped {
+      svg.iconify.clicked {
+        display: revert;
+      }
+
+      svg.iconify:not(.clicked) {
+        display: none;
       }
     }
   }
