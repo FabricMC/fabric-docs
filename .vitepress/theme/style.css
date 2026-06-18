@@ -39,7 +39,8 @@
   display: none;
 }
 
-* {
+*,
+*::-webkit-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: var(--vp-c-gray-1) transparent;
 }
