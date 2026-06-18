@@ -549,34 +549,3 @@ div.toolbar {
   }
 }
 </style>
-
-<style>
-::view-transition-group(code-block-view-transition) {
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-::view-transition-group(root) {
-  animation: none;
-}
-
-div[class*="language-"] {
-  button.copy:not(.fullscreen) {
-    right: 64px;
-  }
-
-  button.copy.fullscreen {
-    background-image: unset;
-
-    svg {
-      margin: auto;
-      color: #808080;
-    }
-  }
-}
-
-html:has(dialog#fullscreen[open]) {
-  scrollbar-gutter: stable;
-  overflow: hidden;
-}
-</style>

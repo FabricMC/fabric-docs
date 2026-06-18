@@ -44,10 +44,37 @@
   scrollbar-color: var(--vp-c-gray-1) transparent;
 }
 
+html:has(dialog#fullscreen[open], div.VPLocalSearchBox) {
+  scrollbar-gutter: stable;
+  overflow: hidden;
+}
+
+::view-transition-group(code-block-view-transition) {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+::view-transition-group(root) {
+  animation: none;
+}
+
 code,
 pre {
   tab-size: 2 !important;
   font-variant-ligatures: none;
+}
+
+div[class*="language-"] button.copy.fullscreen {
+  background-image: unset;
+
+  svg {
+    margin: auto;
+    color: #808080;
+  }
+
+  + button.copy {
+    right: 64px;
+  }
 }
 
 /* Description at the top of pages */
