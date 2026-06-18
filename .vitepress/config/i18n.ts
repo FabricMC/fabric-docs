@@ -116,6 +116,14 @@ export const getLocales = () => {
           },
         },
 
+        code: {
+          copied: resolver("code.copied"),
+          copy: resolver("code.copy"),
+          enterFullscreen: resolver("code.enter_fullscreen"),
+          exitFullscreen: resolver("code.exit_fullscreen"),
+          wrap: resolver("code.wrap"),
+        },
+
         darkModeSwitchLabel: resolver("mode_switcher"),
 
         darkModeSwitchTitle: resolver("mode_dark"),
