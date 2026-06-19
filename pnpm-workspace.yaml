@@ -1,7 +1,7 @@
 allowBuilds:
   es5-ext: true
   esbuild: true
-  vitepress-versioning-plugin: true
+  vitepress-versioning-plugin@https://codeload.github.com/FabricMC/vitepress-versioning-plugin/tar.gz/3710e8b43e0484731e79c0fce5e1d623609435f0: true
 
 minimumReleaseAge: 4320 # three days
 

@@ -1,7 +1,7 @@
 {
   "name": "fabric-docs",
   "type": "module",
-  "packageManager": "pnpm@11.0.9",
+  "packageManager": "pnpm@11.11.0",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
