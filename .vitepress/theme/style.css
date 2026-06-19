@@ -1,9 +1,10 @@
 @font-face {
   font-family: "JetBrains Mono";
-  font-style: normal;
-  font-display: swap;
   font-weight: 100 800;
-  src: url(@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2)
+  font-style: normal;
+
+  font-display: swap;
+  src: url("@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2")
     format("woff2-variations");
 }
 
@@ -11,16 +12,13 @@
   --vp-c-blue-1: #1662c5;
   --vp-c-blue-2: #2275da;
   --vp-c-blue-3: #5c9de4;
-  --vp-c-blue-soft: rgba(52, 130, 219, 0.14);
-
+  --vp-c-blue-soft: rgb(52 130 219 / 14%);
   --vp-c-brand-1: var(--vp-c-blue-3);
   --vp-c-brand-2: var(--vp-c-blue-2);
   --vp-c-brand-3: var(--vp-c-blue-1);
   --vp-c-brand-soft: var(--vp-c-blue-soft);
-
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #3463fe 30%, #4787ff);
-
+  --vp-home-hero-name-background: linear-gradient(120deg, #3463fe 30%, #4787ff);
   --font-family-base:
     "Inter", ui-sans-serif, system-ui, sans-serif, "Noto Color Emoji", "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
@@ -28,21 +26,21 @@
   --vp-font-family-mono:
     "JetBrains Mono", ui-monospace, "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New",
     monospace;
-}
 
-:root:where(:lang(zh)) {
-  --vp-font-family-base: "Punctuation SC", var(--font-family-base);
-}
+  &:where(:lang(zh)) {
+    --vp-font-family-base: "Punctuation SC", var(--font-family-base);
+  }
 
-:root:not(.dark) .dark-only,
-:root:is(.dark) .light-only {
-  display: none;
+  &:not(.dark) .dark-only,
+  &:is(.dark) .light-only {
+    display: none;
+  }
 }
 
 *,
 *::-webkit-scrollbar {
-  scrollbar-width: thin;
   scrollbar-color: var(--vp-c-gray-1) transparent;
+  scrollbar-width: thin;
 }
 
 html:has(dialog#fullscreen[open], div.VPLocalSearchBox) {
@@ -61,8 +59,8 @@ html:has(dialog#fullscreen[open], div.VPLocalSearchBox) {
 
 code,
 pre {
-  tab-size: 2 !important;
   font-variant-ligatures: none;
+  tab-size: 2 !important;
 }
 
 div[class*="language-"] button.copy.fullscreen {
@@ -81,19 +79,20 @@ div[class*="language-"] button.copy.fullscreen {
 /* Description at the top of pages */
 p[role="doc-subtitle"] {
   margin-block: 1rem;
-  font-style: italic;
+
   font-size: 0.8rem;
+  font-style: italic;
   line-height: 1.5;
+  color: var(--vp-c-text-3);
   text-align: left;
   text-wrap: balance;
-  color: var(--vp-c-text-3);
 }
 
 body:has(.VPFooter:not(.has-sidebar)) .aside-container {
   padding-bottom: 64px;
 }
 
-@media (min-width: 1525px) {
+@media (width >= 1525px) {
   .aside-container,
   .aside-curtain {
     width: 300px !important;
@@ -109,21 +108,21 @@ body:has(.VPFooter:not(.has-sidebar)) .aside-container {
 }
 
 .VPLocalSearchBox > .backdrop {
-  opacity: 0;
+  opacity: 0%;
   animation: show 150ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
 }
 
 .VPLocalSearchBox > .shell {
-  animation: show 250ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
-  opacity: 0;
-  transform: rotateX(-90deg);
   transform-origin: top center;
+  transform: rotateX(-90deg);
+  opacity: 0%;
+  animation: show 250ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
 }
 
 @keyframes show {
   100% {
-    opacity: 1;
     transform: none;
+    opacity: 100%;
   }
 }
 
@@ -157,16 +156,15 @@ body:has(.VPFooter:not(.has-sidebar)) .aside-container {
 .vp-doc > p > img,
 .vp-doc > div > p > img,
 .medium-zoom-image--opened {
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 4px 10px #8883;
+  margin-inline: auto;
   border-radius: 8px;
+  box-shadow: 0 4px 10px #8883;
 }
 
 h1 > .VPBadge {
-  font-family: var(--vp-font-family-mono);
   padding: 5px 12px;
   border-radius: 8px;
+  font-family: var(--vp-font-family-mono);
 }
 
 /* Remove border from headings if that's the first thing in the page */
