@@ -24,29 +24,31 @@ defineProps<{
 <style scoped>
 div {
   display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 1), 1fr);
   gap: 1rem;
-  grid-template-columns: repeat(var(--grid-columns), 1fr);
-}
 
-@media (max-width: 768px) {
-  div {
+  @media (width <= 768px) {
     grid-template-columns: 1fr;
   }
 }
 
 .VPLink {
-  align-items: center;
-  background-color: var(--vp-c-bg-soft);
-  border-radius: 10px;
-  border: 1px solid var(--vp-c-border);
-  color: var(--vp-c-text-1);
+  overflow: hidden;
   display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  padding: 1rem;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 10px;
+
   font-size: 1.1rem;
   font-weight: 600;
-  gap: 1rem;
-  overflow: hidden;
-  padding: 1rem;
+  color: var(--vp-c-text-1);
   text-decoration: none;
+
+  background-color: var(--vp-c-bg-soft);
+
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
@@ -60,14 +62,14 @@ div {
 
 a.VPLink:hover,
 a.VPLink:focus-visible {
-  border-color: var(--color, var(--vp-brand-1));
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  color: var(--color, var(--vp-brand-1));
   transform: translateY(-4px);
+  border-color: var(--color, var(--vp-c-brand-1));
+  color: var(--color, var(--vp-c-brand-1));
+  box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
 }
 
 span.VPLink {
   cursor: not-allowed;
-  opacity: 0.75;
+  opacity: 75%;
 }
 </style>
