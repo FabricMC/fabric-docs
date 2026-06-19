@@ -38,7 +38,7 @@ If you're struggling to determine balanced values for any of the numerical param
 
 ### Creating the Tool Material Tag {#creating-the-tool-material-tag}
 
-For our `incorrectBlocksForDrops` tag, we can create a tag similar to vanilla's `minecraft:incorrect_for_*_drops` tags, which determine the blocks that will **not** drop when mined with the material. Let's define the tag reference as follows:
+For our `incorrectBlocksForDrops` tag, we can create a tag similar to vanilla's `minecraft:incorrect_for_*_drops` tags, which determines the blocks that will **not** drop when mined with the material. Let's define the tag reference as follows:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_incorrect_blocks_tag
 
@@ -53,6 +53,8 @@ Note that this example inherits from a weaker tool material and _removes_ entrie
 We could also do the reverse: inherit from a stronger tool and _append_ additional blocks that Guidite tools are unfit for.
 
 As an example, if we wanted to create a tool that worked like iron but couldn't mine Diamond Ore, `values` would need to contain `#minecraft:incorrect_for_iron_tool` and `#minecraft:diamond_ores`.
+
+If you want to make your tool material mine the same blocks as an existing one, you can include the respective tag in your tag's definition without any additions or removals. This is recommended over passing the existing tag as your material's `incorrectBlocksForDrops` so that users can configure the incorrect blocks for each of the materials independently.
 
 :::
 
