@@ -26,9 +26,12 @@ const currentV = computed(() => {
   return props.versioningPlugin.latestVersion;
 });
 
-const button = computedAsync(async () => {
-  const iconData = await loadIcon("lucide:git-graph");
-  const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">${iconData.body}</svg>`;
+const body = computedAsync(async () => (await loadIcon("lucide:git-graph")).body);
+
+const button = computed(() => {
+  if (!body.value) return;
+
+  const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">${body.value}</svg>`;
   return `<span style="display:flex;align-items:center;gap:4px">${icon} ${currentV.value}</span>`;
 });
 
