@@ -28,6 +28,7 @@
     "vue": "^3.5.6"
   },
   "devDependencies": {
+    "@csstools/stylelint-formatter-github": "^2.0.0",
     "@types/cross-spawn": "^6.0.6",
     "@types/node": "^22.18.10",
     "cross-spawn": "^7.0.6",
@@ -35,7 +36,15 @@
     "markdownlint-rule-search-replace": "^1.2.0",
     "markdownlint-rule-titlecase": "^0.1.0",
     "oxc-minify": "^0.82.3",
+    "postcss-html": "^1.8.1",
     "prettier": "^3.7.4",
-    "tsx": "^4.20.6"
+    "stylelint": "^17.13.0",
+    "stylelint-config-clean-order": "^10.0.0",
+    "stylelint-config-recommended-vue": "^1.6.1",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-plugin-use-baseline": "^1.4.2",
+    "stylelint-use-nesting": "^6.0.2",
+    "tsx": "^4.20.6",
+    "typescript": "^6.0.3"
   }
 }

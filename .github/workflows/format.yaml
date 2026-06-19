@@ -55,3 +55,15 @@ jobs:
             echo "::error file=${f},title=Prettier::Format this file with 'npx prettier --write \"${f}\"'"
           done
           exit 1
+
+  stylelint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - uses: pnpm/action-setup@58e6119fe4f3092a76a7771efb55e04d25b6b26f
+        with:
+          run_install: true
+      - run: npx stylelint ".vitepress/theme/**/*.{css,vue}" "**/*.md"
