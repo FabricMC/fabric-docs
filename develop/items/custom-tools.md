@@ -54,6 +54,8 @@ We could also do the reverse: inherit from a stronger tool and _append_ addition
 
 As an example, if we wanted to create a tool that worked like iron but couldn't mine Diamond Ore, `values` would need to contain `#minecraft:incorrect_for_iron_tool` and `#minecraft:diamond_ores`.
 
+If you want to make your tool material mine the same blocks as an existing one, you can include the respective tag in your tag's definition without any additions or removals. This is recommended over passing the existing tag as your material's `incorrectBlocksForDrops` so that users can configure the incorrect blocks for each of the materials independently.
+
 :::
 
 ## Registering Tool Items {#registering-tool-items}
