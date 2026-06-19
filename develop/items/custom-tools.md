@@ -38,7 +38,7 @@ If you're struggling to determine balanced values for any of the numerical param
 
 ### Creating the Tool Material Tag {#creating-the-tool-material-tag}
 
-For our `incorrectBlocksForDrops` tag, we can create a tag similar to vanilla's `minecraft:incorrect_for_*_drops` tags, which determine the blocks that will **not** drop when mined with the material. Let's define the tag reference as follows:
+For our `incorrectBlocksForDrops` tag, we can create a tag similar to vanilla's `minecraft:incorrect_for_*_drops` tags, which determines the blocks that will **not** drop when mined with the material. Let's define the tag reference as follows:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_incorrect_blocks_tag
 
