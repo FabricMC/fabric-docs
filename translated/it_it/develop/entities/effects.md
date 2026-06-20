@@ -71,7 +71,7 @@ effect give @p example-mod:tater
 
 Per applicare un effetto internamente, vorrai usare il metodo `LivingEntity#addEffect`, che accetta una `MobEffectInstance`, e restituisce un booleano, che indica se l'effetto è stato applicato con successo.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#apply_effect
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#apply_effect
 
 | Argomento   | Tipo                | Descrizione                                                                                                                                                                                                                                                                             |
 | ----------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
