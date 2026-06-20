@@ -16,7 +16,7 @@ Betrachten wir ein einfaches Szenario, in dem wir die Anzahl der vom Spieler abg
 
 Wir können das Event `PlayerBlockBreakEvents.AFTER` mit einem einfachen statischen Integer-Feld verwenden, um diesen Wert zu speichern und als Chat-Nachricht zu versenden.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#saved_data_example_scenario
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#saved_data_example_scenario
 
 Wenn du jetzt einen Block abbaust, wird eine Nachricht mit der Anzahl angezeigt.
 
