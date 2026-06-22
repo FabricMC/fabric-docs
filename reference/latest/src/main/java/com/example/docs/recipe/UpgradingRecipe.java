@@ -49,7 +49,7 @@ public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 
 	@Override
 	public ItemStack assemble(UpgradingRecipeInput recipeInput) {
-		return this.result.create().copy();
+		return this.result.create();
 	}
 	// #endregion implementing
 
