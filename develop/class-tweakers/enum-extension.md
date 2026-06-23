@@ -68,6 +68,16 @@ let's add a new `ConversionType` entry:
 
 <<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum_extension_abstract_method_impls_example_mixin
 
+### Accessing the Current Enum Ordinal {#accessing-current-enum-ordinal}
+
+Sometimes, you may need to get the ordinal of your added enum entry, such as to pass it to a constructor. To get it reliably while accounting for other mods,
+Mixin provides the `MixinIntrinsics.currentEnumOrdinal()` method.
+
+For example, let's use it to remain compatible while making a Mixin into `SpellcasterIllager.IllagerSpell`, where we can call `currentEnumOrdinal()` to ensure
+the id we pass to a constructor follows the Vanilla pattern of the id corresponding to the enum entry ordinal:
+
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/IllagerSpellMixin.java#enum_extension_current_enum_ordinal_example_mixin
+
 ## Making the Class Tweaker Entry {#making-the-class-tweaker-entry}
 
 If you are targeting a Minecraft enum, you can use a class tweaker entry to visibly modify the target enum in the decompiled source.
