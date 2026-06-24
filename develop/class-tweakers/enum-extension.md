@@ -70,7 +70,7 @@ let's add a new `ConversionType` entry:
 
 ### Accessing the Current Enum Ordinal {#accessing-current-enum-ordinal}
 
-Sometimes, you may need to get the ordinal of your added enum entry, for example when passing it to a constructor. To do this,
+You may need to get the ordinal of your added enum entry to pass it to a constructor. To do this,
 Mixin provides the `MixinIntrinsics.currentEnumOrdinal()` method, which returns the correct index while accounting for other mods' contributions.
 
 As an example, let's make a mixin into vanilla's `IllagerSpell` and add a spell, whose ordinal gets passed as the first argument of the constructor:
