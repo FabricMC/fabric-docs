@@ -32,7 +32,7 @@ jobs:
   l10n-push:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: crowdin/github-action@60debf382ee245b21794321190ad0501db89d8c1
         with:
           token: ${{ secrets.CROWDIN_TOKEN }}
