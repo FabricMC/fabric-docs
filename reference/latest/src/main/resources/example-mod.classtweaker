@@ -5,7 +5,10 @@ classTweaker v2 official
 
 # #region accesswidening_examples_classes
 # Makes the inner class MenuSupplier in MenuType public
-accessible	class	net/minecraft/world/inventory/MenuType$MenuSupplier
+accessible class 	net/minecraft/world/inventory/MenuType$MenuSupplier
+
+# Makes the class Window non final
+extendable  class  com/mojang/blaze3d/platform/Window
 # #endregion accesswidening_examples_classes
 
 # #region accesswidening_examples_methods
@@ -13,13 +16,19 @@ accessible	class	net/minecraft/world/inventory/MenuType$MenuSupplier
 accessible  method  net/minecraft/world/entity/ai/sensing/SensorType  <init>  (Ljava/util/function/Supplier;)V
 
 # Makes the formatValue() method of return type String in TextColor public
-accessible    method    net/minecraft/network/chat/TextColor    formatValue    ()Ljava/lang/String;
+accessible  method  net/minecraft/network/chat/TextColor  formatValue  ()Ljava/lang/String;
+
+# Makes the getCraftingRemainder method of Item class non final
+extendable  method net/minecraft/world/item/Item  getCraftingRemainder  ()Lnet/minecraft/world/item/ItemStackTemplate;
 # #endregion accesswidening_examples_methods
 
 
 # #region accesswidening_examples_fields
 # Makes the field damageTypes of type Registry in DamageSources public.
-accessible    field    net/minecraft/world/damagesource/DamageSources    damageTypes    Lnet/minecraft/core/Registry;
+accessible  field  net/minecraft/world/damagesource/DamageSources  damageTypes  Lnet/minecraft/core/Registry;
+
+# Makes the field craftingRemainingItem of type ItemStackTemplate in Item only non final, It still remains private
+mutable  field  net/minecraft/world/item/Item  craftingRemainingItem  Lnet/minecraft/world/item/ItemStackTemplate;
 # #endregion accesswidening_examples_fields
 
 

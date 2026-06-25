@@ -1,0 +1,83 @@
+{
+  "version": "1.0.0",
+  "uuid": "019ed191-f47a-7b92-8799-aef99a24c37c",
+  "name": "ClassTweaker",
+  "scopeName": "source.classtweaker",
+  "fileTypes": ["classtweaker", "accesswidener"],
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#header"
+    },
+    {
+      "include": "#directives"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "match": "(#).*$",
+      "captures": {
+        "1": { "name": "punctuation.definition.comment.classtweaker" }
+      },
+      "name": "comment.line.number-sign.classtweaker"
+    },
+    "header": {
+      "match": "^\\s*(classTweaker|accessWidener)\\s+(v\\d+)\\s+([a-zA-Z0-9_.-]+)",
+      "captures": {
+        "1": { "name": "keyword.other.header.classtweaker" },
+        "2": { "name": "constant.numeric.version.classtweaker" },
+        "3": { "name": "entity.name.namespace.classtweaker" }
+      }
+    },
+    "directives": {
+      "patterns": [
+        {
+          "match": "^\\s*(transitive-accessible|accessible|transitive-extendable|extendable)\\s+(method)\\s+([^\\s]+)\\s+([^\\s]+)\\s+([^\\s]+)",
+          "captures": {
+            "1": { "name": "keyword.control.directive.classtweaker" },
+            "2": { "name": "storage.type.method.classtweaker" },
+            "3": { "name": "entity.name.type.class.classtweaker" },
+            "4": { "name": "variable.method.classtweaker" },
+            "5": { "name": "constant.other.reference.link.classtweaker" }
+          }
+        },
+        {
+          "match": "^\\s*(transitive-accessible|accessible|transitive-mutable|mutable)\\s+(field)\\s+([^\\s]+)\\s+([^\\s]+)\\s+([^\\s]+)",
+          "captures": {
+            "1": { "name": "keyword.control.directive.classtweaker" },
+            "2": { "name": "storage.type.field.classtweaker" },
+            "3": { "name": "entity.name.type.class.classtweaker" },
+            "4": { "name": "variable.field.classtweaker" },
+            "5": { "name": "constant.other.reference.link.classtweaker" }
+          }
+        },
+        {
+          "match": "^\\s*(transitive-accessible|accessible|transitive-extendable|extendable)\\s+(class)\\s+([^\\s]+)",
+          "captures": {
+            "1": { "name": "keyword.control.directive.classtweaker" },
+            "2": { "name": "storage.type.class.classtweaker" },
+            "3": { "name": "entity.name.type.class.classtweaker" }
+          }
+        },
+        {
+          "match": "^\\s*(transitive-inject-interface|inject-interface)\\s+([^\\s]+)\\s+([^\\s]+)",
+          "captures": {
+            "1": { "name": "keyword.control.directive.classtweaker" },
+            "2": { "name": "entity.name.type.class.target.classtweaker" },
+            "3": { "name": "entity.name.type.class.interface.classtweaker" }
+          }
+        },
+        {
+          "match": "^\\s*(transitive-extend-enum|extend-enum)\\s+([^\\s]+)\\s+([^\\s]+)",
+          "captures": {
+            "1": { "name": "keyword.control.directive.classtweaker" },
+            "2": { "name": "entity.name.type.class.enum.classtweaker" },
+            "3": { "name": "constant.other.enum.classtweaker" }
+          }
+        }
+      ]
+    }
+  }
+}
