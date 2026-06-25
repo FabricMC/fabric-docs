@@ -1,9 +1,9 @@
 package com.example.docs.mixin.accessor;
 
-import net.minecraft.network.protocol.common.ClientboundCustomPayloadPacket;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
+
+import net.minecraft.network.protocol.common.ClientboundCustomPayloadPacket;
 
 //#region mixin_accessors_static_field_accessor_example
 @Mixin(ClientboundCustomPayloadPacket.class)
