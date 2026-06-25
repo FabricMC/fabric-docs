@@ -101,7 +101,12 @@ export default defineVersionedConfig(
       },
     },
 
-    srcExclude: ["README.md", "versions/1.21.10", ...(typeof env === "number" ? ["versions"] : [])],
+    srcExclude: [
+      "README.md",
+      "versions/1.21.10",
+      "versions/1.21.4",
+      ...(typeof env === "number" ? ["versions"] : []),
+    ],
 
     themeConfig: {
       env,

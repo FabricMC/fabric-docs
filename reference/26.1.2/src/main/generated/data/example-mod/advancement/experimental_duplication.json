@@ -1,0 +1,39 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:features_enabled",
+      "features": [
+        "minecraft:redstone_experiments"
+      ]
+    }
+  ],
+  "criteria": {
+    "place_block": {
+      "conditions": {
+        "location": [
+          {
+            "block": "example-mod:duplicator",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Place a duplicator block with the Redstone Experiments flag enabled.",
+    "frame": "challenge",
+    "icon": {
+      "id": "example-mod:duplicator"
+    },
+    "show_toast": false,
+    "title": "Experimental Duplication"
+  },
+  "requirements": [
+    [
+      "place_block"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

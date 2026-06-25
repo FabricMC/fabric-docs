@@ -58,7 +58,7 @@ Now we'll implement the "drawing" phase. This should be called after all waypoin
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_drawing_phase
 
-Note that the size used in the `ByteBufferBuilder` constructor depends on the render pipeline you are using. In our case, it is `RenderType.SMALL_BUFFER_SIZE`.
+Note that the size used in the `StagedVertexBuffer` constructor depends on the render pipeline you are using. In our case, it is `RenderType.SMALL_BUFFER_SIZE`.
 
 ### Cleaning up {#cleaning-up}
 

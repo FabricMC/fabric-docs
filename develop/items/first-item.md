@@ -2,6 +2,7 @@
 title: Creating Your First Item
 description: Learn how to register a simple item and how to texture, model and name it.
 authors:
+  - cassiancc
   - dicedpixels
   - Earthcomputer
   - IMB11
@@ -12,11 +13,23 @@ This page will introduce you into some key concepts relating to items, and how y
 
 If you aren't aware, everything in Minecraft is stored in registries, and items are no exception to that.
 
+## Preparing Your Item Ids Class {#preparing-your-item-ids-classes}
+
+We'll start by creating a class that holds the name of our item, stored as a `ResourceKey`. A `ResourceKey` holds the name of the mod, the name of the item, and what registry it is for. We'll create a method that creates a `ResourceKey` from our item's name, filling it in the rest of the data with constants like the item registry and the mod's id.
+
+These references to the item are used for data generating item tags.
+
+You can put this method in a class called `ModItemIds` (or whatever you want to name the class).
+
+Mojang does this with their items as well! Check out the `ItemIds` class for inspiration.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#mod_item_ids_class
+
 ## Preparing Your Items Class {#preparing-your-items-class}
 
-To simplify the registering of items, you can create a method that accepts a string identifier, some item properties and a factory to create the `Item` instance.
+To simplify the registering of items, you can create a method that accepts a resource key, some item properties and a factory to create the `Item` instance.
 
-This method will create an item with the provided identifier and register it with the game's item registry.
+This method will create an item with the provided key and register it with the game's item registry.
 
 You can put this method in a class called `ModItems` (or whatever you want to name the class).
 
@@ -39,6 +52,8 @@ If you want to change your item's stack size, you can use the `stacksTo` method 
 This will not work if you've marked the item as damageable, as the stack size is always 1 for damageable items to prevent duplication exploits.
 
 :::
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#suspicious_substance
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#suspicious_substance
 

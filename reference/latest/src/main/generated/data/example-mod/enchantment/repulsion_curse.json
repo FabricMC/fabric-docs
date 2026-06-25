@@ -41,7 +41,7 @@
           "condition": "minecraft:entity_properties",
           "entity": "attacker",
           "predicate": {
-            "flags": {
+            "minecraft:flags": {
               "is_flying": false
             }
           }
