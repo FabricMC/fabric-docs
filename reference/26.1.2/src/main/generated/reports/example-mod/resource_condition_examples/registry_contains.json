@@ -1,0 +1,11 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:registry_contains",
+      "registry": "minecraft:block",
+      "values": [
+        "minecraft:cobblestone"
+      ]
+    }
+  ]
+}

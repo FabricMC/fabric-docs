@@ -1,5 +1,5 @@
 diff --git a/dist/node/chunk-3d7P_gGE.js b/dist/node/chunk-3d7P_gGE.js
-index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d3861dfe4258 100644
+index 2970286cac137f7c15d531954cca600407fdbedd..4bd91e122a1173d1da0947255d4af365e071c609 100644
 --- a/dist/node/chunk-3d7P_gGE.js
 +++ b/dist/node/chunk-3d7P_gGE.js
 @@ -36951,32 +36951,41 @@ const markers = [
@@ -65,7 +65,7 @@ index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d386
    const parser = (state, startLine, endLine, silent) => {
      const CH = "<".charCodeAt(0);
      const pos = state.bMarks[startLine] + state.tShift[startLine];
-@@ -37009,26 +37018,40 @@ const snippetPlugin = (md, srcDir) => {
+@@ -37009,26 +37018,44 @@ const snippetPlugin = (md, srcDir) => {
    md.renderer.rules.fence = (...args) => {
      const [tokens, idx, , { includes }] = args;
      const token = tokens[idx];
@@ -111,10 +111,14 @@ index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d386
        }
 +    } else {
 +      content = stripMarkers(content.split("\n"));
++    }
++    if (content.length > 10_000) {
++      console.warn(`Skipping highlighting and line numbers for ${src}, #${region}`);
++      token.info = token.info.replace(/^\S*/, "text:no-line-numbers");
      }
      token.content = content;
      return fence(...args);
-@@ -37918,8 +37941,8 @@ function processIncludes(md, srcDir, src, file, includes, cleanUrls) {
+@@ -37918,8 +37945,8 @@ function processIncludes(md, srcDir, src, file, includes, cleanUrls) {
        if (region) {
          const [regionName] = region;
          const lines = content.split(/\r?\n/);
@@ -125,7 +129,7 @@ index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d386
            const tokens = md.parse(content, {
              path: includePath,
              relativePath: slash(path$1.relative(srcDir, includePath)),
-@@ -37930,17 +37953,23 @@ function processIncludes(md, srcDir, src, file, includes, cleanUrls) {
+@@ -37930,17 +37957,23 @@ function processIncludes(md, srcDir, src, file, includes, cleanUrls) {
            );
            const token = tokens[idx];
            if (token) {

@@ -33,7 +33,8 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     // not on the Docs
     "1.21.5": "1.21.5",
 
-    "1.21.4": "1.21.4",
+    // TODO: bring back 1.21.4
+    "1.21.4": "1.21.8",
 
     // not on the Docs
     "1.21.3": "1.21.3",
