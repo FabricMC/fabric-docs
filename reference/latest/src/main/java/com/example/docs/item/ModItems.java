@@ -1,6 +1,7 @@
 package com.example.docs.item;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 import net.minecraft.core.Registry;
@@ -10,11 +11,14 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.AxeItem;
@@ -26,8 +30,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.component.BlocksAttacks;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.component.ItemLore;
@@ -35,6 +41,7 @@ import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BannerPatternLayers;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
@@ -107,6 +114,18 @@ public class ModItems {
 			new Item.Properties().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
 	);
 	// #endregion guidite_sword
+	// #region shield
+	public static final Item GUIDITE_SHIELD = register(
+					"guidite_shield",
+					ShieldItem::new,
+					new Item.Properties().durability(336)
+									.component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
+									.repairable(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR)
+									.equippableUnswappable(EquipmentSlot.OFFHAND)
+									.delayedComponent(DataComponents.BLOCKS_ATTACKS, (context) -> new BlocksAttacks(0.25F, 1.0F, List.of(new BlocksAttacks.DamageReduction(90.0F, Optional.empty(), 0.0F, 1.0F)), new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F), Optional.of(context.getOrThrow(DamageTypeTags.BYPASSES_SHIELD)), Optional.of(SoundEvents.SHIELD_BLOCK), Optional.of(SoundEvents.SHIELD_BREAK)))
+									.component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK)
+	);
+	// #endregion shield
 	// #region counter
 	public static final Item COUNTER = register(
 			"counter",
@@ -267,7 +286,10 @@ public class ModItems {
 
 		// #region add_guidite_sword_to_create_tab
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
-				.register((creativeTab) -> creativeTab.accept(ModItems.GUIDITE_SWORD));
+				.register((creativeTab) -> {
+					creativeTab.accept(ModItems.GUIDITE_SWORD);
+					creativeTab.accept(ModItems.GUIDITE_AXE);
+				});
 		// #endregion add_guidite_sword_to_create_tab
 
 		// #region register_creative_tab

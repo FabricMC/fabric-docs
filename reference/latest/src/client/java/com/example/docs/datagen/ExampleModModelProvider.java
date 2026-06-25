@@ -23,6 +23,7 @@ import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -34,6 +35,7 @@ import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.item.ModItems;
+import com.example.docs.item.shield.GuiditeShieldSpecialRenderer;
 
 // #region provider
 public class ExampleModModelProvider extends FabricModelProvider {
@@ -168,6 +170,29 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		// #region sword
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
 		// #endregion sword
+
+		// #region shield
+		// Paths to the vanilla shield and modded shield
+		Identifier vanillaShieldModelLocation = ModelLocationUtils.getModelLocation(Items.SHIELD);
+		Identifier modelLocation = ModelLocationUtils.getModelLocation(ModItems.GUIDITE_SHIELD);
+
+		// Item models
+		ModelTemplate shieldTemplate = new ModelTemplate(Optional.of(vanillaShieldModelLocation), Optional.empty(), TextureSlot.PARTICLE);
+		shieldTemplate.create(modelLocation, TextureMapping.singleSlot(TextureSlot.PARTICLE, new Material(ModelLocationUtils.getModelLocation(Blocks.ACACIA_PLANKS))), itemModelGenerator.modelOutput);
+
+		ModelTemplate blockingShieldTemplate = new ModelTemplate(Optional.of(vanillaShieldModelLocation.withSuffix("_blocking")), Optional.empty(), TextureSlot.PARTICLE);
+		blockingShieldTemplate.create(modelLocation.withSuffix("_blocking"), TextureMapping.singleSlot(TextureSlot.PARTICLE, new Material(ModelLocationUtils.getModelLocation(Blocks.ACACIA_PLANKS))), itemModelGenerator.modelOutput);
+
+		// Client Item
+		GuiditeShieldSpecialRenderer.Unbaked specialRenderer = new GuiditeShieldSpecialRenderer.Unbaked(
+						Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite_shield_base"),
+						Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite_shield_base_nopattern")
+		);
+		itemModelGenerator.itemModelOutput.accept(ModItems.GUIDITE_SHIELD, ItemModelUtils.conditional(GuiditeShieldSpecialRenderer.DEFAULT_TRANSFORMATION, ItemModelUtils.isUsingItem(),
+						ItemModelUtils.specialModel(modelLocation.withSuffix("_blocking"), specialRenderer),
+						ItemModelUtils.specialModel(modelLocation, specialRenderer)
+		));
+		// #endregion shield
 
 		// #region provider
 	}
