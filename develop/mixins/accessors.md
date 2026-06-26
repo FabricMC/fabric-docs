@@ -2,6 +2,7 @@
 title: Mixin Accessors
 description: Learn how to access methods and fields using Mixin's Accessors and Invokers.
 authors:
+  - bluebear94
   - MildestToucan
 ---
 
@@ -148,11 +149,11 @@ static TargetClass newTargetClass(/* matching parameters */)
 
 Example:
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/accessor/ShulkerBoxBlockAccessor.java#mixin_accessors_static_invoker_example
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/accessor/IdentifierAccessor.java#mixin_accessors_constructor_invoker_example
 
 Usage:
 
-<<< @/reference/latest/src/main/java/com/example/docs/accessor_usage/ExampleModAccessorUsage.java#mixin_accessors_static_invoker_example_usage
+<<< @/reference/latest/src/main/java/com/example/docs/accessor_usage/ExampleModAccessorUsage.java#mixin_accessors_constructor_invoker_example_usage
 
 :::
 
