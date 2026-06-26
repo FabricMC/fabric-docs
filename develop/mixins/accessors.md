@@ -5,8 +5,8 @@ authors:
   - MildestToucan
 ---
 
-Mixins are typically used to modify existing code to produce and tweak existing behaviors. However, Mixin also provides tools for
-accessing inaccessible fields and methods by adding accessor methods to the target class.
+Mixins are typically used to modify existing code to produce and tweak behavior. However, Mixin also provides tools for
+accessing inaccessible fields and methods in the form of accessor mixins.
 
 [Class tweakers](../class-tweakers) provides a similar tool in the form of [access wideners](../class-tweakers/access-widening), but
 Mixin's accessors do not require reloading Gradle, and can be applied to non-Minecraft targets.
@@ -29,7 +29,7 @@ Fields can be accessed using `@Accessor`-annotated getter and/or setter methods:
 
 Getter/Setter Syntax:
 
-Instance accessor methods are prefixed by your mod's ID and a separator (conventionally `$` or `_`) to ensure it does not clash with any other method.
+Instance accessor methods should be prefixed by your mod's ID and a separator (conventionally `$` or `_`) to ensure it does not clash with any other method.
 
 ```java
 @Accessor("<field name>")
@@ -93,7 +93,7 @@ To call inaccessible methods or constructors, create a method matching the signa
 
 Syntax:
 
-Instance invoker methods are prefixed by your mod's ID and a separator (conventionally `$` or `_`) to ensure it does not clash with any other method.
+Instance invoker methods should be prefixed by your mod's ID and a separator (conventionally `$` or `_`) to ensure it does not clash with any other method.
 
 Invoker methods are typically either named directly after the target method, or either `invoke` or `call` followed by the method name.
 
