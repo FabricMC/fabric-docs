@@ -12,12 +12,12 @@ accessing inaccessible fields and methods in the form of accessor mixins.
 [Class tweakers](../class-tweakers) provides a similar tool in the form of [access wideners](../class-tweakers/access-widening), but
 Mixin's accessors do not require reloading Gradle, and can be applied to non-Minecraft targets.
 
-[Access widening](../class-tweakers/access-widening) is still necessary to override final methods or subclass final classes,
+Access widening is still necessary to override final methods or subclass final classes,
 or to reference private classes, as accessors can only target fields and methods.
 
 ## Creating the Accessor Interface {#creating-the-accessor-interface}
 
-Accessor mixins must always be an interface, and must only contain `@Accessor` or `@Invoker` methods. The interface must be annotated with `@Mixin`
+Accessor mixins must always be an interface, and must only contain methods annotated with `@Accessor` or `@Invoker`. The interface must be annotated with `@Mixin`
 similarly to other mixin classes. Accessor interfaces are conventionally named after their target class with `Accessor` suffixed.
 
 ## Field Accessors {#field-accessors}
