@@ -3,6 +3,7 @@ title: Mixin Accessors
 description: Learn how to access methods and fields using Mixin's Accessors and Invokers.
 authors:
   - bluebear94
+  - cassiancc
   - MildestToucan
 ---
 
