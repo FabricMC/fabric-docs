@@ -7,4 +7,4 @@ description: Собрание руководств для игроков и ад
 
 Список всех доступных руководств есть на боковой панели.
 
-Если у вас возникнут какие-либо проблемы, пожалуйста, сообщите о них [на GitHub](https://github.com/FabricMC/fabric-docs) или попросите помощи в [Fabric Discord](https://discord.fabricmc.net/) на каналах `#player-support` или `#mc-server-support`.
+Если у вас возникнут какие-либо проблемы, пожалуйста, сообщите о них [на GitHub](https://github.com/FabricMC/fabric-docs) или обратитесь за помощью в [Fabric Discord](https://discord.fabricmc.net/) в каналах `#player-support` или `#mc-server-support`.

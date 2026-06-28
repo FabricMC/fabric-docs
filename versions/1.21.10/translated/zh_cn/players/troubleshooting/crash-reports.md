@@ -43,7 +43,7 @@ authors:
 
 :::details 显示崩溃报告
 
-<<< @/public/assets/players/crash-report-example.log{log}
+<<< @/public/assets/players/crash-report-example.log{txt}
 
 :::
 
@@ -63,12 +63,6 @@ authors:
 利用上面链接的崩溃示例，我们可以分析崩溃报告并找到崩溃原因，包括导致崩溃的模组。
 
 在这个情形中，`---- Minecraft Crash Report ---- ` 部分中的堆栈跟踪最重要，因为包含导致崩溃的主要错误。
-
-:::details 显示错误详情
-
-<<< @/public/assets/players/crash-report-example.log{7 log}
-
-:::
 
 堆栈跟踪中提到了大量模组，因此很难指出原因，不过，首先要做的是查找导致崩溃的模组。
 

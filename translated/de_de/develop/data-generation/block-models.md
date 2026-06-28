@@ -80,7 +80,7 @@ Wenn du dich nicht entscheiden kannst, welches `TextureModel` du verwenden solls
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#block_texture_pool_normal
 
-Eine andere nützliche Methode ist `registerCubeAllModelTexturePool`: Definiere die Texturen, indem du den "Basisblock" übergibst, und füge dann die "Kinder" hinzu, die die gleichen Texturen haben.
+Eine andere nützliche Methode ist `family`: Definiere die Texturen, indem du den "Basisblock" übergibst, und füge dann die "Kinder" hinzu, die die gleichen Texturen haben.
 In diesem Fall haben wir den `RUBY_BLOCK` übergeben, so dass die Treppe, die Stufe und der Zaun die Textur `RUBY_BLOCK` verwenden werden.
 
 ::: warning

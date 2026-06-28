@@ -4,6 +4,7 @@ description: Дізнайтеся, як додавати власні атриб
 authors:
   - cassiancc
   - cprodhomme
+  - Tenneb22
 resources:
   https://minecraft.wiki/w/Attribute: Атрибути — Вікі Minecraft
   https://docs.neoforged.net/docs/entities/attributes: Атрибути — Документація NeoForge (крім ексклюзивів Neo)
@@ -57,41 +58,20 @@ resources:
 
 Атрибути мають бути прикріплені до сутності, щоб набули чинності. Зазвичай це робиться в методі, де будуються або змінюються атрибути сутності.
 
-Стандартна гра також надає атрибути, зокрема [максимальне здоров’я](https://minecraft.wiki/w/Attribute#Max_health), [швидкість руху](https://minecraft.wiki/w/Attribute#Movement_speed) і [шкода від атаки](https://minecraft.wiki/w/Attribute#Attack_damage), як показано нижче. Щоб отримати повний список, дивіться стандартний клас `Attributes` і [Вікі Minecraft](https://minecraft.wiki/w/Attribute).
+Стандартна гра також надає атрибути, зокрема [максимальне здоров’я](https://minecraft.wiki/w/Attribute#Max_health), [швидкість руху](https://minecraft.wiki/w/Attribute#Movement_speed) і [шкода при атаці](https://minecraft.wiki/w/Attribute#Attack_damage). Щоб отримати повний список, дивіться стандартний клас `Attributes` і [Вікі Minecraft](https://minecraft.wiki/w/Attribute).
 
-У якості демонстрації ми включимо максимальне здоров’я, швидкість руху, шкоду від атаки та атрибут агродальності, створений раніше.
+Це приклад того, як додати стандартні атрибути та раніше створений атрибут `AGGRO_RANGE` до сутності мініґолема з посібника [створення вашої першої сутності](./first-entity).
 
-<!-- TODO: move to the reference mod -->
-
-```java
-public static AttributeSupplier.Builder createEntityAttributes() {
-    return Mob.createMobAttributes()
-        .add(Attributes.MAX_HEALTH, 25.0)
-        .add(Attributes.MOVEMENT_SPEED, 0.22)
-        .add(Attributes.ATTACK_DAMAGE, 3.0)
-        .add(ModAttributes.AGGRO_RANGE, 8.0);
-}
-```
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#attributes
 
 ## Читання та зміна атрибутів {#reading-modifying-attributes}
 
 Атрибут сам по собі є просто даними, приєднаними до сутності. Щоб він був корисним, ми повинні мати можливість читати з нього та писати в нього. Є два основних способи зробити це: отримати `AttributeInstance` для сутності або отримати значення безпосередньо.
 
-```java
-entity.getAttribute(ModAttributes.AGGRO_RANGE) // returns an `AttributeInstance`
-entity.getAttributeValue(ModAttributes.AGGRO_RANGE) // returns a double with the current value
-entity.getAttributeBaseValue(ModAttributes.AGGRO_RANGE) // returns a double with the base value
-```
+<<< @/reference/latest/src/gametest/java/com/example/docs/entity/EntityAttributesGameTest.java#reading_entity_attributes
 
 `AttributeInstance` забезпечує більшу гнучкість, як-от встановлення `AttributeModifier` для атрибута, використовуючи одну з [трьох операцій модифікатора атрибутів](https://minecraft.wiki/w/Attribute#Operations). Модифікатори можуть бути постійними (збереженими в NBT) або транзитивними (не збереженими в NBT) і додаються за допомогою `addPermanentModifier` або `addTransitiveModifier` відповідно.
 
-```java
-attribute.addPermanentModifier(
-    new AttributeModifier(
-        Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "increased_range"), // the ID of your modifier, should be static so it can be removed
-        8, // how much to modify it
-        AttributeModifier.Operation.ADD_VALUE // what operator to use, see the wiki page linked above
-    ));
-```
+<<< @/reference/latest/src/gametest/java/com/example/docs/entity/EntityAttributesGameTest.java#modifying_entity_attributes
 
 Отримавши доступ до значення атрибута, ви можете використовувати його в ШІ вашої сутності.

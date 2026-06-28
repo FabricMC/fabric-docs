@@ -40,6 +40,33 @@ export namespace Fabric {
     };
   }
 
+  export interface CodeOptions {
+    /**
+     * @default "Copied"
+     */
+    copied: string;
+
+    /**
+     * @default "Copy Code"
+     */
+    copy: string;
+
+    /**
+     * @default "Full Screen"
+     */
+    enterFullscreen: string;
+
+    /**
+     * @default "Exit Full Screen"
+     */
+    exitFullscreen: string;
+
+    /**
+     * @default "Toggle Wrap Code"
+     */
+    wrap: string;
+  }
+
   export interface DownloadOptions {
     /**
      * Set custom text for download button.
@@ -181,6 +208,7 @@ export namespace Fabric {
   export interface ThemeConfig extends Versioned.ThemeConfig {
     authors: AuthorsOptions;
     banner: BannerOptions;
+    code: CodeOptions;
     download: DownloadOptions;
     env: EnvOptions;
     notFound: NotFoundOptions;
