@@ -36,7 +36,7 @@ This includes making them public, extendable and/or mutable.
 
 Access widener entries can be [transitive](../class-tweakers/index#transitive-entries) to make changes visible to mods depending on yours.
 
-To access fields or methods, it can be safer and simpler to use [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors),
+To access fields or methods, it can be safer and simpler to use [accessor mixins](../mixins/accessors),
 but there are two situations where accessors are insufficient and access widening is necessary:
 
 - If you need to access a `private`, `protected` or package-private class
