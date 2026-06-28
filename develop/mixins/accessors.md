@@ -2,6 +2,7 @@
 title: Mixin Accessors
 description: Learn how to access methods and fields using Mixin's Accessors and Invokers.
 authors:
+  - Bawnorton
   - bluebear94
   - cassiancc
   - MildestToucan
@@ -19,7 +20,10 @@ or to reference private classes, as accessors can only target fields and methods
 ## Creating the Accessor Interface {#creating-the-accessor-interface}
 
 Accessor mixins must always be an interface, and must only contain methods annotated with `@Accessor` or `@Invoker`. The interface must be annotated with `@Mixin`
-similarly to other mixin classes. Accessor interfaces are conventionally named after their target class with `Accessor` suffixed.
+similarly to other mixin classes.
+
+Accessor interfaces are conventionally named after their target class with `Accessor` suffixed, and placed in an `accessor` subpackage within your mixin package.
+Ie `your.package.mixin.accessor`
 
 ## Field Accessors {#field-accessors}
 
