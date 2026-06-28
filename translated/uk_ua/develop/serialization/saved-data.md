@@ -16,7 +16,7 @@ resources:
 
 Ми можемо використовувати подію `PlayerBlockBreakEvents.AFTER` із простим статичним цілим полем, щоб зберегти це значення та опублікувати його як повідомлення чату.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#saved_data_example_scenario
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#saved_data_example_scenario
 
 Тепер, коли ви ламаєте блок, ви побачите повідомлення з підрахунком.
 

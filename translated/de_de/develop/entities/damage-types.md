@@ -82,7 +82,7 @@ Vorhandene Schadensarten-Tags kannst du in `data/minecraft/tags/damage_type` fin
 
 ::: info
 
-Im [Minecraft Wiki](https://minecraft.wiki/w/Tag#Damage_types) kannst du eine umfassende Liste der Schadensarten-Tags finden.
+Eine umfassende Liste der Tags für Schadensarten findest du im [Minecraft-Wiki](https://minecraft.wiki/w/Damage_type_tag_(Java_Edition)).
 
 :::
 

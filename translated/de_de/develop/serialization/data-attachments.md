@@ -52,13 +52,13 @@ Mit der Methode `copyOnDeath` können sie so eingestellt werden, dass sie auch n
 
 Methoden zum Lesen aus einem Datenanhang wurden in die Klassen `Entity`, `BlockEntity`, `ServerLevel` und `ChunkAccess` eingefügt. Die Verwendung ist so einfach wie der Aufruf einer der Methoden, die den Wert der angehängten Daten zurückgeben.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#reading_entity_attachments
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#reading_entity_attachments
 
 ## Schreiben zu einem Datenanhang {#writing-attachments}
 
 Methoden zum Schreiben in einen Datenanhang wurden in die Klassen `Entity`, `BlockEntity`, `ServerLevel` und `ChunkAccess` eingefügt. Durch den Aufruf einer der folgenden Methoden wird der Wert der angehängten Daten aktualisiert und der vorherige Wert zurückgegeben (oder `null`, wenn kein Wert vorhanden war).
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#writing_entity_attachments
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#writing_entity_attachments
 
 ::: warning
 

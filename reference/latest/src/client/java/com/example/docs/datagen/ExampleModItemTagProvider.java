@@ -14,6 +14,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.item.ModItems;
 
 // #region datagen_tags_provider
 public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
@@ -38,6 +39,14 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
 		// #endregion datagen_tags_build
+
+		// #region sword_tags
+		valueLookupBuilder(ItemTags.SWORDS)
+						.add(ModItems.GUIDITE_SWORD);
+		valueLookupBuilder(ItemTags.AXES)
+						.add(ModItems.GUIDITE_AXE);
+		// #endregion sword_tags
+
 		// #region datagen_tags_provider
 	}
 }

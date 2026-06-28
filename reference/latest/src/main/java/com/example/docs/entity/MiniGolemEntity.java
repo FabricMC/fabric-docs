@@ -19,6 +19,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
+import com.example.docs.entity.attribute.ModAttributes;
+
 // #region registerclass
 public class MiniGolemEntity extends PathfinderMob {
 	// #endregion registerclass
@@ -45,12 +47,17 @@ public class MiniGolemEntity extends PathfinderMob {
 		super(entityType, world);
 	}
 
+	// #region attributes
 	public static AttributeSupplier.Builder createCubeAttributes() {
 		return PathfinderMob.createMobAttributes()
+				// #endregion registerclass
+				.add(ModAttributes.AGGRO_RANGE, 8.0)
+				// #region registerclass
 				.add(Attributes.MAX_HEALTH, 5)
 				.add(Attributes.TEMPT_RANGE, 10)
 				.add(Attributes.MOVEMENT_SPEED, 0.3);
 	}
+	// #endregion attributes
 	// #endregion registerclass
 
 	// #region goals

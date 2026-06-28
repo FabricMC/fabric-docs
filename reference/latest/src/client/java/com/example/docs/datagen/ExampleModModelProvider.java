@@ -165,6 +165,10 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		CustomItemModelGenerator.registerScaled2x(ModItems.BALLOON, itemModelGenerator);
 		// #endregion custom_balloon
 
+		// #region sword
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
+		// #endregion sword
+
 		// #region provider
 	}
 	// #endregion provider

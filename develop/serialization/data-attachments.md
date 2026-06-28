@@ -52,13 +52,13 @@ They can be set to perdure even after the death or [conversion](https://minecraf
 
 Methods to read from a Data Attachment have been injected onto the `Entity`, `BlockEntity`, `ServerLevel` and `ChunkAccess` classes. Using it is as simple as calling one of the methods, which return the value of the attached data.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#reading_entity_attachments
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#reading_entity_attachments
 
 ## Writing To a Data Attachment {#writing-attachments}
 
 Methods to write to a Data Attachment have been injected onto the `Entity`, `BlockEntity`, `ServerLevel` and `ChunkAccess` classes. Calling one of the following methods will update the value of the attached data, and return the previous value (or `null` if there wasn't one).
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#writing_entity_attachments
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#writing_entity_attachments
 
 ::: warning
 

@@ -43,7 +43,7 @@ Para esta guía, estaremos utilizando el [siguiente reporte de crasheo como ejem
 
 :::details Reportes de Crasheos
 
-<<< @/public/assets/players/crash-report-example.log{log}
+<<< @/public/assets/players/crash-report-example.log{txt}
 
 :::
 
@@ -65,10 +65,6 @@ Usando el ejemplo enlazado arriba, podemos analizar el reporte de crasheo y enco
 El stack trace en la sección de `---- Minecraft Crash Report ----` es la más importante en este caso, ya que contiene el error principal que causó el crasheo. En este caso, el error es `java.lang.NullPointerException: Cannot invoke "net.minecraft.class_2248.method_9539()" because "net.minecraft.class_2248.field_10540" is null`.
 
 Con la cantidad de mods mencionados en el stack trace, puede ser difícil encontrar el mod culpable, pero lo primero que se debe hacer es encontrar el mod que causó el crasheo.
-
-<!-- TODO: show part of this file -->
-
-<<< @/public/assets/players/crash-report-example.log{8-9,14-15 log}
 
 En este caso, el mod que causó el crasheo es `snownee`, ya que es el primer mod mencionado en el stack trace.
 
