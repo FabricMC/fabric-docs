@@ -19,7 +19,7 @@ You can create your own screens to display custom content, a custom settings men
 
 ## Creating a Screen {#creating-a-screen}
 
-To create a screen, you need to extend the `Screen` class and override the `init` method - you may optionally override the `extractRenderState` method as well, but make sure to call its super method or it wont render the background, widgets etc.
+To create a screen, you need to extend the `Screen` class and override the `init` method - you may optionally override the `extractRenderState` method as well, but make sure to call its super method or it won't render the background, widgets etc.
 
 You should take note that:
 
