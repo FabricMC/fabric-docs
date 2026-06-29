@@ -5,7 +5,7 @@ authors:
   - Jimmy474
 ---
 
-A **registry** is a centralized "phonebook" that maps unique IDs such as `minecraft:items` to specific objects. Static registries such as the block and item registries are frozen during startup, but dynamic registries are populated at runtime from JSON files in data packs.
+A **registry** is a centralized "phonebook" that maps unique IDs such as `minecraft:items` to specific objects. Static registries, such as the block and item registries, are frozen during startup, but dynamic registries are populated at runtime from JSON files in data packs.
 
 Dynamic registries act as a bridge between your hardcoded logic and external data supplied by players, modpacks, or other mods.
 
@@ -33,7 +33,7 @@ First, create the class that represents a registry entry. It is a simple data ho
 
 ### Registering the Registry {#registering-the-registry}
 
-Each registry is registered with a key that uniquely identifies it, so let's declare a key in a Registries class:
+Each registry is registered with a key that uniquely identifies it, so let's create that key and a class to hold it. We'll call this class `ExampleModRegistries`:
 
 ::: tip
 
@@ -53,7 +53,7 @@ Then register it with Fabric API's `DynamicRegistries`, which provides two disti
 
 `DynamicRegistries.register()` creates a non-synced registry. It is loaded on the server only, and is not available on the client. Use this when the client never needs to read the registry.
 
-It's not relevant in our example, but here's how to do it otherwise:
+It's not relevant in our example, but here's how to do it:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#simple
 
@@ -65,7 +65,7 @@ It's not relevant in our example, but here's how to do it otherwise:
 
 `DynamicRegistries.registerSynced()` has an overload that accepts a second codec for client-side decoding. This is useful if the client does not need every field from the full server entry.
 
-In our case, we only need the [`name`](#class-setup) and [`manaCost`](#class-setup) field on the client side, so let's create a [`Codec`](./codecs) that doesn't include [`onUseMcFunction`](#class-setup):
+In our case, we only need the [`name`](#class-setup) and [`manaCost`](#class-setup) field on the client side, so let's create a [`Codec`](./codecs) that doesn't include [`onUseMcFunction`](#class-setup), and pass that codec to `registerSynced`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#client_codec
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#double_codec
@@ -129,7 +129,7 @@ Specific entries can be accessed using the `get` method of `RegistryAccess` whic
 
 Read [Entry ID](#entry-id) to know how to get the `HEALING_SKILL_ENTRY_ID`.
 
-In our case we can use this method to get the entry for magic skill used by user on server, then extract the [`onUseMcFunction`](#class-setup) field to execute the mcfunction.
+In our case, we can use this method to get the entry for magic skill used by user on server, then extract the [`onUseMcFunction`](#class-setup) field to execute the mcfunction.
 
 #### Iterate Over All Entries {#iterate-over-all-entries}
 
