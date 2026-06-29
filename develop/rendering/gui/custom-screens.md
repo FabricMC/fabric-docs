@@ -36,7 +36,7 @@ As an example, we can create a simple screen that has a button and a label above
 
 ## Opening the Screen {#opening-the-screen}
 
-You can open the screen using `Minecraft`'s `setScreen` method - you can do this from many places, such as a key binding, a command, or a client packet handler.
+You can open the screen using the `Minecraft`'s `setScreen` method - you can do this from many places, such as a key binding, a command, or a client packet handler.
 
 ```java
 Minecraft.getInstance().setScreen(
