@@ -19,14 +19,14 @@ You can create your own screens to display custom content, a custom settings men
 
 ## Creating a Screen {#creating-a-screen}
 
-To create a screen, you need to extend the `Screen` class and override the `init` method - you may optionally override the `extractRenderState` method as well - but make sure to call it's super method or it wont render the background, widgets etc.
+To create a screen, you need to extend the `Screen` class and override the `init` method - you may optionally override the `extractRenderState` method as well, but make sure to call its super method or it wont render the background, widgets etc.
 
 You should take note that:
 
 - Widgets are not being created in the constructor because the screen is not yet initialized at that point - and certain variables, such as `width` and `height`, are not yet available or not yet accurate.
 - The `init` method is called when the screen is being initialized, and it is the best place to create widgets.
   - You add widgets using the `addRenderableWidget` method, which accepts any drawable widget.
-- The `extractRenderState` method is called every frame - you can access the GUI graphics extractor, and the mouse position from this method.
+- The `extractRenderState` method is called every frame - you can access the GUI graphics extractor and the mouse position from this method.
 
 As an example, we can create a simple screen that has a button and a label above it.
 
@@ -36,7 +36,7 @@ As an example, we can create a simple screen that has a button and a label above
 
 ## Opening the Screen {#opening-the-screen}
 
-You can open the screen using the `Minecraft`'s `setScreen` method - you can do this from many places, such as a key binding, a command, or a client packet handler.
+You can open the screen using `Minecraft`'s `setScreen` method - you can do this from many places, such as a key binding, a command, or a client packet handler.
 
 ```java
 Minecraft.getInstance().setScreen(
@@ -52,11 +52,11 @@ If you want to close the screen, simply set the screen to `null`:
 Minecraft.getInstance().setScreen(null);
 ```
 
-If you want to be fancy, and return to the previous screen, you can pass the current screen into the `CustomScreen` constructor and store it in a field, then use it to return to the previous screen when the `close` method is called.
+If you want to be fancy and return to the previous screen, you can pass the current screen into the `CustomScreen` constructor and store it in a field, then use it to return to the previous screen when the `close` method is called.
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#return_to_previous_screen
 
-Now, when opening the custom screen, you can pass the current screen as the second argument - so when you call `CustomScreen#close` - it will return to the previous screen.
+Now, when opening the custom screen, you can pass the current screen as the second argument - so when you call `CustomScreen#close`, it will return to the previous screen.
 
 ```java
 Screen currentScreen = Minecraft.getInstance().currentScreen;
