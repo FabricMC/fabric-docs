@@ -105,7 +105,7 @@ Invoker methods are typically either named directly after the target method, or 
 
 ```java
 @Invoker("<method name>")
-MethodReturnType modid$methodName(/* matching parameters */)
+MethodReturnType example_mod$methodName(/* matching parameters */)
 ```
 
 Example:
