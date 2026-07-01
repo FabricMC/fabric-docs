@@ -104,6 +104,7 @@ export default defineVersionedConfig(
     srcExclude: [
       "README.md",
       "versions/1.21.10",
+      "versions/1.21.8",
       "versions/1.21.4",
       ...(typeof env === "number" ? ["versions"] : []),
     ],
