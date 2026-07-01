@@ -11,9 +11,7 @@ authors:
 
 ::: warning
 
-Although Minecraft is currently built using OpenGL, as of version 1.17+ you cannot use legacy OpenGL methods to render your own things. Instead, you must use the new `BufferBuilder` system, which formats rendering data and uploads it to OpenGL to draw.
-
-To summarize, you have to use Minecraft's rendering system. Use of raw OpenGL will break even further when [Minecraft 26.2 releases with a Vulkan backend](https://www.minecraft.net/en-us/article/another-step-towards-vibrant-visuals-for-java-edition).
+Use of raw OpenGL is not supported on [Minecraft 26.2 as it has released with an optional Vulkan backend](https://www.minecraft.net/en-us/article/another-step-towards-vibrant-visuals-for-java-edition). Instead, you must use the `Blaze3D` abstraction layer, which sits between your code and the rendering backend (either OpenGL or Vulkan).
 
 :::
 
@@ -31,23 +29,13 @@ This page will cover the basics of rendering using the new system, going over ke
 
 Although much of rendering in Minecraft is abstracted through the various `GuiGraphicsExtractor` methods, and you'll likely not need to touch anything mentioned here, it's still important to understand the basics of how rendering works.
 
-## The `Tesselator` {#the-tesselator}
-
-The `Tesselator` is the main class used to render things in Minecraft. It is a singleton, meaning that there is only one instance of it in the game. You can get the instance using `Tesselator.getInstance()`.
-
 ## The `BufferBuilder` {#the-bufferbuilder}
 
-The `BufferBuilder` is the class used to format and upload rendering data to OpenGL. It is used to create a buffer, which is then uploaded to OpenGL to draw.
+The `BufferBuilder` is the class used to format and upload rendering data to the backend. It is used to create a buffer, which is then uploaded to the backend to draw.
 
-The `Tesselator` is used to create a `BufferBuilder`, which is used to format and upload rendering data to OpenGL.
+### Vertex Formats {#vertex-formats}
 
-### Initializing the `BufferBuilder` {#initializing-the-bufferbuilder}
-
-Before you can write anything to the `BufferBuilder`, you must initialize it. This is done using `Tesselator#begin(...)` method, which takes in a `VertexFormat` and a draw mode and returns a `BufferBuilder`.
-
-#### Vertex Formats {#vertex-formats}
-
-The `VertexFormat` defines the elements that we include in our data buffer and outlines how these elements should be transmitted to OpenGL.
+The `VertexFormat` defines the elements that we include in our data buffer and outlines how these elements should be transmitted to the backend.
 
 The following default `VertexFormat` elements are available at `DefaultVertexFormat`:
 
@@ -67,7 +55,7 @@ The following default `VertexFormat` elements are available at `DefaultVertexFor
 | `POSITION_TEX_LIGHTMAP_COLOR` | `{ position, uv, light, color }`                                                        |
 | `POSITION_TEX_COLOR_NORMAL`   | `{ position, uv, color, normal }`                                                       |
 
-#### Draw Modes {#draw-modes}
+### Draw Modes {#draw-modes}
 
 The draw mode defines how the data is drawn. The following draw modes are available at `VertexFormat.Mode`:
 
@@ -88,7 +76,7 @@ Once the `BufferBuilder` is initialized, you can write data to it.
 
 The `BufferBuilder` allows us to construct our buffer, vertex by vertex. To add a vertex, we use the `buffer.addVertex(Matrix4f, float, float, float)` method. The `Matrix4f` parameter is the transformation matrix, which we'll discuss in more detail later. The three float parameters represent the (x, y, z) coordinates of the vertex position.
 
-This method returns a vertex builder, which we can use to specify additional information for the vertex. It's crucial to follow the order of our defined `VertexFormat` when adding this information. If we don't, OpenGL might not interpret our data correctly. After we've finished building a vertex, just continue adding more vertices and data to the buffer until you're done.
+This method returns a vertex builder, which we can use to specify additional information for the vertex. It's crucial to follow the order of our defined `VertexFormat` when adding this information. If we don't, the backend might not interpret our data correctly. After we've finished building a vertex, just continue adding more vertices and data to the buffer until you're done.
 
 It's also worth understanding the concept of culling. Culling is the process of removing faces of a 3D shape that aren't visible from the viewer's perspective. If the vertices for a face are specified in the wrong order, the face might not render correctly due to culling.
 

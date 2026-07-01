@@ -21,7 +21,7 @@ This constant will be used in the `Item.Properties#maxDamage(int damageValue)` m
 
 If you're struggling to determine a balanced base durability, you can refer to the vanilla armor material instances found in the `ArmorMaterials` interface.
 
-### Equipment Asset Resource Key {#equipment-asset-registry-key}
+### Equipment Asset Resource Key {#equipment-asset-resource-key}
 
 Even though we don't have to register our `ArmorMaterial` to any registries, it's generally good practice to store any resource keys as constants, as the game will use this to find the relevant textures for our armor.
 

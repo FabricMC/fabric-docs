@@ -6,7 +6,7 @@ authors:
   - ChampionAsh5357
 resources:
   https://fabricmc.net/2026/06/15/262.html: Fabric for Minecraft 26.2
-  https://minecraft.wiki/w/Java_Edition_26.1: Java Edition 26.2 - Minecraft Wiki
+  https://minecraft.wiki/w/Java_Edition_26.2: Java Edition 26.2 - Minecraft Wiki
   https://github.com/neoforged/.github/blob/main/primers/26.2/index.md: ChampionAsh5357's 26.1 -> 26.2 Migration Primers
 ---
 

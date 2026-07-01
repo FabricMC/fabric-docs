@@ -37,10 +37,12 @@ import com.example.docs.damage.TaterBlock;
 import com.example.docs.fluid.ModFluids;
 
 // #region first_block
+// #region first_block_item
 // #region static_initialization
 public class ModBlocks {
 	// #endregion static_initialization
 	// #endregion first_block
+	// #endregion first_block_item
 
 	// #region acid
 	public static final Block ACID = register(
@@ -168,9 +170,12 @@ public class ModBlocks {
 	private static Block register(ResourceKey<Block> id, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties properties) {
 		// Create the block instance
 		Block block = blockFactory.apply(properties.setId(id));
+
 		return Registry.register(BuiltInRegistries.BLOCK, id, block);
 	}
+	// #endregion first_block
 
+	// #region first_block_item
 	private static Block register(BlockItemId id, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties properties) {
 		// Create the block instance
 		Block block = register(id.block(), blockFactory, properties);
@@ -181,7 +186,7 @@ public class ModBlocks {
 
 		return block;
 	}
-	// #endregion first_block
+	// #endregion first_block_item
 
 	// #region static_initialization
 	public static void initialize() {
@@ -200,7 +205,9 @@ public class ModBlocks {
 	}
 
 	// #region first_block
+	// #region first_block_item
 	// #region static_initialization
 }
 // #endregion static_initialization
 // #endregion first_block
+// #endregion first_block_item

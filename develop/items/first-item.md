@@ -15,7 +15,7 @@ If you aren't aware, everything in Minecraft is stored in registries, and items 
 
 ## Preparing Your Item Ids Class {#preparing-your-item-ids-classes}
 
-We'll start by creating a class that holds the name of our item, stored as a `ResourceKey`. A `ResourceKey` holds the name of the mod, the name of the item, and what registry it is for. We'll create a method that creates a `ResourceKey` from our item's name, filling it in the rest of the data with constants like the item registry and the mod's id.
+We'll start by creating a class that holds the name of our item, stored as a `ResourceKey`. A `ResourceKey` holds the name of the mod, the name of the item, and what registry it is for. We'll create a method that creates a `ResourceKey` from our item's name, filling in the rest of the data with constants like the item registry and the mod's id.
 
 These references to the item are used for data generating item tags.
 
