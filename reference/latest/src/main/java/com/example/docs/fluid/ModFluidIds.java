@@ -9,10 +9,10 @@ import com.example.docs.ExampleMod;
 
 // #region register
 public class ModFluidIds {
-	public static final ResourceKey<Fluid> ACID_FLOWING = register("flowing_acid");
-	public static final ResourceKey<Fluid> ACID_STILL = register("acid");
+	public static final ResourceKey<Fluid> ACID_FLOWING = create("flowing_acid");
+	public static final ResourceKey<Fluid> ACID_STILL = create("acid");
 
-	public static ResourceKey<Fluid> register(String name) {
+	public static ResourceKey<Fluid> create(String name) {
 		// Create the fluid key.
 		return ResourceKey.create(Registries.FLUID, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
 	}

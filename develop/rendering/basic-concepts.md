@@ -11,7 +11,7 @@ authors:
 
 ::: warning
 
-Use of raw OpenGL is not supported on [Minecraft 26.2 as it has released with an optional Vulkan backend](https://www.minecraft.net/en-us/article/another-step-towards-vibrant-visuals-for-java-edition). Instead, you must use the `Blaze3D` system, which formats rendering data and uploads it to the rendering backend to draw.
+Use of raw OpenGL is not supported on [Minecraft 26.2 as it has released with an optional Vulkan backend](https://www.minecraft.net/en-us/article/another-step-towards-vibrant-visuals-for-java-edition). Instead, you must use the `Blaze3D` abstraction layer, which sits between your code and the rendering backend (either OpenGL or Vulkan).
 
 :::
 
@@ -31,11 +31,11 @@ Although much of rendering in Minecraft is abstracted through the various `GuiGr
 
 ## The `BufferBuilder` {#the-bufferbuilder}
 
-The `BufferBuilder` is the class used to format and upload rendering data to OpenGL. It is used to create a buffer, which is then uploaded to OpenGL to draw.
+The `BufferBuilder` is the class used to format and upload rendering data to the backend. It is used to create a buffer, which is then uploaded to the backend to draw.
 
 ### Vertex Formats {#vertex-formats}
 
-The `VertexFormat` defines the elements that we include in our data buffer and outlines how these elements should be transmitted to OpenGL.
+The `VertexFormat` defines the elements that we include in our data buffer and outlines how these elements should be transmitted to the backend.
 
 The following default `VertexFormat` elements are available at `DefaultVertexFormat`:
 
@@ -76,7 +76,7 @@ Once the `BufferBuilder` is initialized, you can write data to it.
 
 The `BufferBuilder` allows us to construct our buffer, vertex by vertex. To add a vertex, we use the `buffer.addVertex(Matrix4f, float, float, float)` method. The `Matrix4f` parameter is the transformation matrix, which we'll discuss in more detail later. The three float parameters represent the (x, y, z) coordinates of the vertex position.
 
-This method returns a vertex builder, which we can use to specify additional information for the vertex. It's crucial to follow the order of our defined `VertexFormat` when adding this information. If we don't, OpenGL might not interpret our data correctly. After we've finished building a vertex, just continue adding more vertices and data to the buffer until you're done.
+This method returns a vertex builder, which we can use to specify additional information for the vertex. It's crucial to follow the order of our defined `VertexFormat` when adding this information. If we don't, the backend might not interpret our data correctly. After we've finished building a vertex, just continue adding more vertices and data to the buffer until you're done.
 
 It's also worth understanding the concept of culling. Culling is the process of removing faces of a 3D shape that aren't visible from the viewer's perspective. If the vertices for a face are specified in the wrong order, the face might not render correctly due to culling.
 

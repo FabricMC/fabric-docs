@@ -12,13 +12,13 @@ public class ModBlockIds {
 	// #endregion first_block
 
 	// #region acid
-	public static final ResourceKey<Block> ACID = register(
+	public static final ResourceKey<Block> ACID = create(
 			"acid"
 	);
 	// #endregion acid
 
 	// #region first_block
-	private static ResourceKey<Block> register(String name) {
+	private static ResourceKey<Block> create(String name) {
 		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
 		return ResourceKey.create(Registries.BLOCK, id);
 	}
