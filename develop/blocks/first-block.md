@@ -17,7 +17,7 @@ Blocks are the building blocks of Minecraft (no pun intended) - just like everyt
 
 ## Preparing Your Block Id Classes {#preparing-your-item-ids-classes}
 
-If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create a classes that hold the names of our `Block`s, stored as `ResourceKey<Block`, and `BlockItem`s, stored as `BlockItemId`s.
+If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create a classes that hold the names of our `Block`s, stored as `ResourceKey<Block>`, and `BlockItem`s, stored as `BlockItemId`s.
 
 These references to the block are used for data generating block tags.
 
