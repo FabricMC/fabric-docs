@@ -47,7 +47,7 @@ Now that you've created a provider, let's add a tag to it. First, create a `TagK
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_tag_key
 
-Next, call `builder` inside your provider's `configure` method. From there, you can add individual item ids, add other tags, or make this tag replace pre-existing tags.
+Next, call `builder` inside your provider's `configure` method. From there, you can add individual item ids, add other tags, or make this tag replace pre-existing tags. Items themselves can no longer be added to tags, only their IDs.
 
 If you want to add a tag, use `addOptionalTag`, as the tag's contents may not be loaded during datagen. If you are certain the tag is loaded, call `addTag`.
 

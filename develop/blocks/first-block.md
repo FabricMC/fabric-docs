@@ -17,21 +17,29 @@ Blocks are the building blocks of Minecraft (no pun intended) - just like everyt
 
 ## Preparing Your Block Id Classes {#preparing-your-item-ids-classes}
 
-If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create a classes that hold the names of our `Block`s, stored as `ResourceKey<Block>`, and `BlockItem`s, stored as `BlockItemId`s.
+If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create classes to hold the names of your `Block`s. Blocks with items store their IDs as a `BlockItemId`, and blocks without `Item`s store their IDs as a `ResourceKey`.
 
 These references to the block are used for data generating block tags.
 
-We'll put the first method that creates a `ResourceKey<Block>` in a class called `ModBlockIds` (or whatever you want to name the class). This class contains any blocks that do not have block items.
+::: tabs
+
+== Blocks With Items
+
+We'll put a method in a class called `ModBlockItemIds` (or whatever you want to name the class). This class contains any blocks that do have block items.
+
+Mojang does this with their blocks as well! Check out the `BlockItemIds` class for inspiration.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#first_block
+
+== Blocks Without Items
+
+We'll put a method that creates a `ResourceKey` in a class called `ModBlockIds` (or whatever you want to name the class). This class contains any blocks that do not have block items.
 
 Mojang does this with their blocks as well! Check out the `BlockIds` class for inspiration.
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#first_block
 
-We'll put the second method in a class called `ModBlockItemIds` (or whatever you want to name the class). This class contains any blocks that do have block items.
-
-Mojang does this with their blocks as well! Check out the `BlockItemIds` class for inspiration.
-
-<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#first_block
+:::
 
 ## Preparing Your Blocks Class {#preparing-your-blocks-class}
 
@@ -41,7 +49,21 @@ You should put this method in a class called `ModBlocks` (or whatever you want t
 
 Mojang does something extremely similar like this with vanilla blocks; you can refer to the `Blocks` class to see how they do it.
 
+::: tabs
+
+== Blocks With Items
+
+Blocks with items use a `BlockItemId` parameter which contains the ID for both the block and its item.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block_item
+
+== Blocks Without Items
+
+Blocks without items use a `ResourceKey` parameter which contains the ID for the block.
+
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block
+
+:::
 
 Just like with items, you need to ensure that the class is loaded so that all static fields containing your block instances are initialized.
 

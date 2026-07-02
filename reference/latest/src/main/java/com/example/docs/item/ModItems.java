@@ -233,9 +233,9 @@ public class ModItems {
 	public static final Item TEST_ITEM = register("test_item", TestItem::new, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).component(DataComponents.CUSTOM_NAME, Component.literal("[Use on Stone Block]")));
 
 	// #region mod_items_class
-	public static <T extends Item> T register(ResourceKey<Item> itemKey, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
+	public static Item register(ResourceKey<Item> itemKey, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
 		// Create the item instance.
-		T item = itemFactory.apply(settings.setId(itemKey));
+		Item item = itemFactory.apply(settings.setId(itemKey));
 
 		// Register the item.
 		Registry.register(BuiltInRegistries.ITEM, itemKey, item);
