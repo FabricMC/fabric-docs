@@ -117,3 +117,11 @@ To synchronize your recipes, just call `RecipeSynchronization.synchronizeRecipeS
 Once synchronized, recipes can be retrieved at any point from the client level's recipe manager:
 
 <<< @/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java#recipe_sync_client
+
+## Going back to Implement quickMove {#implementing-quick-move}
+
+TODO
+
+## Recipe Remainders {#recipe-remainders}
+
+Want to make a recipe that supports remainders? We recommend taking a look at `net.minecraft.world.inventory.ResultSlot#getRemainingItems`. The crafting table uses this as its result slot, so many similarities to the docs can be found, but there are also some differences.
