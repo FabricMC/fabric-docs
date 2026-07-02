@@ -72,7 +72,7 @@ public class UpgradingMenu extends AbstractContainerMenu {
 	public void slotsChanged(Container container) {
 		super.slotsChanged(container);
 
-		this.access.execute((level, _) -> {
+		this.access.execute((level, blockPos) -> {
 			if (level instanceof ServerLevel serverLevel && container == this.input) {
 				UpgradingRecipeInput recipeInput = new UpgradingRecipeInput(this.input.getItem(0), this.input.getItem(1));
 				Optional<RecipeHolder<UpgradingRecipe>> maybeRecipe = serverLevel.recipeAccess().getRecipeFor(ExampleModRecipes.UPGRADING_RECIPE_TYPE, recipeInput, serverLevel);
@@ -109,7 +109,7 @@ public class UpgradingMenu extends AbstractContainerMenu {
 	@Override
 	public void removed(Player player) {
 		super.removed(player);
-		this.access.execute((_, _) -> this.clearContainer(player, this.input));
+		this.access.execute((level, blockPos) -> this.clearContainer(player, this.input));
 	}
 
 	@Override

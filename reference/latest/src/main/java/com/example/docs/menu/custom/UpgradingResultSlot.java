@@ -5,6 +5,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
+// #region slot
 public class UpgradingResultSlot extends Slot {
 
 	private final UpgradingMenu menu;
@@ -29,3 +30,4 @@ public class UpgradingResultSlot extends Slot {
 		return true;
 	}
 }
+// #endregion slot

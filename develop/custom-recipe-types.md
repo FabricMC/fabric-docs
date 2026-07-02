@@ -84,15 +84,23 @@ To allow us to craft our recipe in the GUI, we will create a block with a [Menu]
 
 <<< @/reference/latest/src/main/java/com/example/docs/menu/custom/UpgradingMenu.java#menu
 
-A lot to unpack here! This menu has two input slots and an output slot.
+<<< @/reference/latest/src/main/java/com/example/docs/menu/custom/UpgradingResultSlot.java#slot
+
+A lot to unpack here! This menu has two input slots and an output `UpgradingResultSlot`.
 
 The input container is an anonymous subclass of `SimpleContainer`, which calls the menu's `slotsChanged` method when its items change. In `slotsChanged`, we then create an instance of our recipe input class, filling it with the two input slots.
+
+TODO: something about why we use `ContainerLevelAccess`
 
 In order to see if it matches any recipes, we'll first ensure we are on the server level, since clients do not know what recipes exist. Then, we'll retrieve the `RecipeManager` via `serverLevel.recipeAccess()`.
 
 We'll call `serverLevel.recipeAccess().getRecipeFor` with our recipe input to get a recipe that matches the inputs. If a recipe was found, we can add or remove the result from the result container.
 
-To detect when the user takes the result out, we create an anonymous subclass of `Slot`. The `onTake` method of our menu then removes the input items.
+To detect when the user takes the result out, we use the `UpgradingResultSlot`'s `onTake` override. The `onTake` method of our menu then decrements the input items.
+
+To ensure that the player is within interaction range from the block, we override `stillValid`.
+
+
 
 To prevent deleting items, it is important to drop the inputs back when the screen is closed, as shown in the `removed` method.
 
