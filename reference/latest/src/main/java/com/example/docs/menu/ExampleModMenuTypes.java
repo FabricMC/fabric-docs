@@ -1,7 +1,10 @@
 package com.example.docs.menu;
 
+import com.example.docs.ExampleMod;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -16,7 +19,7 @@ public class ExampleModMenuTypes {
 					String name,
 					MenuType.MenuSupplier<T> constructor
 	) {
-		return Registry.register(BuiltInRegistries.MENU, name, new MenuType<>(constructor, FeatureFlagSet.of()));
+		return Registry.register(BuiltInRegistries.MENU, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name), new MenuType<>(constructor, FeatureFlagSet.of()));
 	}
 	// #endregion register_menu
 
