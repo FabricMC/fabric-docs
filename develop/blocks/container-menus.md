@@ -69,9 +69,9 @@ The server-side constructor is called on the server, and because it knows the co
 
 `quickMoveStack` handles shift-clicking items within the menu. This example replicates the behavior of vanilla menus like chests and dispensers.
 
-Then we need to register the menu in a new `ModMenuType` class:
+Then we need to register the menu in a new `ExampleModMenuTypes` class:
 
-<<< @/reference/latest/src/main/java/com/example/docs/menu/ModMenuType.java#register_menu
+<<< @/reference/latest/src/main/java/com/example/docs/menu/ExampleModMenuTypes.java#register_menu
 
 We can now set the return value of `createMenu` in the block entity to use our menu:
 

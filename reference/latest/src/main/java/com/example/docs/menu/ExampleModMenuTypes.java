@@ -9,7 +9,7 @@ import net.minecraft.world.inventory.MenuType;
 import com.example.docs.menu.custom.DirtChestMenu;
 
 // #region register_menu
-public class ModMenuType {
+public class ExampleModMenuTypes {
 	public static final MenuType<DirtChestMenu> DIRT_CHEST = register("dirt_chest", DirtChestMenu::new);
 
 	public static <T extends AbstractContainerMenu> MenuType<T> register(

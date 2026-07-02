@@ -8,6 +8,6 @@ public class ExampleModMenuType implements ModInitializer {
 	 */
 	@Override
 	public void onInitialize() {
-		ModMenuType.initialize();
+		ExampleModMenuTypes.initialize();
 	}
 }
