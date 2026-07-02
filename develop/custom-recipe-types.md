@@ -14,6 +14,12 @@ Before you can start creating our recipe, you need an implementation of `RecipeI
 
 <<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipeInput.java#recipe_input
 
+::: info
+
+Alternatively, we could replace the two `ItemStack`s with a `List`. This applies to the other classes that use the two `Ingredient`s or `ItemStack`s.
+
+:::
+
 ## Creating the Recipe Class {#creating-the-recipe-class}
 
 Now that we have a way to store the input items, we can create our `Recipe` implementation. Implementations of this class represent a singular recipe defined in a datapack. They are responsible for checking the ingredients and requirements of the recipe and assembling it into a result.

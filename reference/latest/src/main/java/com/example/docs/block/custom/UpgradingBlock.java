@@ -1,14 +1,14 @@
 package com.example.docs.block.custom;
 
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+
 import org.jspecify.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,24 +16,24 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import com.example.docs.menu.custom.UpgradingMenu;
 
-public class UpgradingBlock extends Block implements MenuProvider {
+public class UpgradingBlock extends Block {
 	public UpgradingBlock(Properties properties) {
 		super(properties);
 	}
 
 	@Override
 	protected InteractionResult useWithoutItem(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult) {
-		player.openMenu(this);
+		if (!level.isClientSide()) {
+			player.openMenu(blockState.getMenuProvider(level, blockPos));
+			//player.awardStat(); (you can increment a custom stat here)
+		}
 		return InteractionResult.SUCCESS;
 	}
 
 	@Override
-	public Component getDisplayName() {
-		return getName();
-	}
-
-	@Override
-	public @Nullable AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
-		return new UpgradingMenu(i, inventory);
+	protected @Nullable MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
+		return new SimpleMenuProvider(
+				(containerId, inventory, player) -> new UpgradingMenu(containerId, inventory, ContainerLevelAccess.create(level, pos)), this.getName()
+		);
 	}
 }
