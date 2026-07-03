@@ -9,6 +9,7 @@ overrides:
 
 patchedDependencies:
   vitepress: 0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059
+  vitepress-plugin-tabs: 5e1e21fe4438004a4590fbcbf2c5dc66a85d6830f4e9c2519223630c888455c3
 
 importers:
 
@@ -58,7 +59,7 @@ importers:
         version: 2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(esbuild@0.27.7)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)
       vitepress-plugin-tabs:
         specifier: ^0.7.3
-        version: 0.7.3(vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(esbuild@0.27.7)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6))(vue@3.5.22)
+        version: 0.7.3(patch_hash=5e1e21fe4438004a4590fbcbf2c5dc66a85d6830f4e9c2519223630c888455c3)(vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(esbuild@0.27.7)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6))(vue@3.5.22)
       vitepress-versioning-plugin:
         specifier: github:FabricMC/vitepress-versioning-plugin#3710e8b43e0484731e79c0fce5e1d623609435f0
         version: https://codeload.github.com/FabricMC/vitepress-versioning-plugin/tar.gz/3710e8b43e0484731e79c0fce5e1d623609435f0(vite@7.3.3(@types/node@22.18.10)(lightningcss@1.32.0)(tsx@4.20.6))(vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(esbuild@0.27.7)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6))
@@ -3153,7 +3154,7 @@ snapshots:
       lightningcss: 1.32.0
       tsx: 4.20.6
 
-  vitepress-plugin-tabs@0.7.3(vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(esbuild@0.27.7)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6))(vue@3.5.22):
+  vitepress-plugin-tabs@0.7.3(patch_hash=5e1e21fe4438004a4590fbcbf2c5dc66a85d6830f4e9c2519223630c888455c3)(vitepress@2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(esbuild@0.27.7)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6))(vue@3.5.22):
     dependencies:
       vitepress: 2.0.0-alpha.12(patch_hash=0bd6b24c9042fa5c7b5149cc3f8380d1865118f5df18f66beec73ad02c88f059)(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.18.10)(esbuild@0.27.7)(oxc-minify@0.82.3)(postcss@8.5.14)(tsx@4.20.6)
       vue: 3.5.22

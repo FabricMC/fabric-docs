@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Icon, loadIcon } from "@iconify/vue";
+import { Icon, IconifyIcon, loadIcon } from "@iconify/vue";
 import { usePreferredReducedMotion } from "@vueuse/core";
 import { onContentUpdated, useData } from "vitepress";
-import { computed, nextTick, onUnmounted, ref } from "vue";
+import { computed, nextTick, onMounted, onUnmounted, ref } from "vue";
 import { Fabric } from "../../types";
 
 const prefersReducedMotion = usePreferredReducedMotion();
@@ -18,6 +18,14 @@ const originalCodeBlocks = ref<HTMLDivElement[]>([]);
 const isClosing = ref(false);
 const isWrapped = ref(false);
 const isCopied = ref(false);
+
+const enterFullscreenIconData = ref<IconifyIcon>();
+
+const getFullscreenIcon = async () => {
+  if (enterFullscreenIconData.value) return enterFullscreenIconData.value.body;
+  enterFullscreenIconData.value = await loadIcon("lucide:maximize-2");
+  return enterFullscreenIconData.value.body;
+};
 
 const loadCodeBlock = (originalCodeBlock: HTMLDivElement) => {
   if (!dialog.value) return;
@@ -109,45 +117,64 @@ onContentUpdated(() =>
       JSON.stringify(options.value.copied)
     );
 
-    const enterFullscreenIconData = await loadIcon("lucide:maximize-2");
-    const enterFullscreenIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">${enterFullscreenIconData.body}</svg>`;
-
     const codeBlocks = //
       document.querySelectorAll<HTMLDivElement>("div.vp-doc:not(.slot) div[class*='language-']");
 
-    for (const codeBlock of codeBlocks) {
-      const originalCopyButton = //
-        codeBlock.querySelector<HTMLButtonElement>("button.copy:not(.fullscreen)");
-      if (!originalCopyButton) continue;
-
-      originalCopyButton.title = options.value.copy;
-      originalCopyButton.setAttribute("aria-label", options.value.copy);
-
-      const enterFullscreenButton =
-        codeBlock.querySelector<HTMLButtonElement>("button.copy.fullscreen")
-        ?? document.createElement("button");
-      enterFullscreenButton.title = options.value.enterFullscreen;
-      enterFullscreenButton.setAttribute("aria-label", options.value.enterFullscreen);
-      enterFullscreenButton.className = "copy fullscreen";
-      enterFullscreenButton.innerHTML = enterFullscreenIcon;
-      enterFullscreenButton.onclick = (event) => {
-        if (!(event.currentTarget instanceof HTMLButtonElement)) return;
-
-        event.stopImmediatePropagation();
-        event.currentTarget.blur();
-
-        const codeBlock = event.currentTarget.closest<HTMLDivElement>("div[class*='language-']");
-        if (!codeBlock) return;
-
-        handleEnterFullscreen(codeBlock);
-      };
-
-      codeBlock.prepend(enterFullscreenButton);
-    }
+    await processCodeBlocks(codeBlocks);
   })
 );
 
-onUnmounted(() => dialog.value?.close());
+const processCodeBlocks = async (codeBlocks: NodeListOf<HTMLDivElement>) => {
+  const enterFullscreenIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">${await getFullscreenIcon()}</svg>`;
+
+  for (const codeBlock of codeBlocks) {
+    const originalCopyButton = //
+      codeBlock.querySelector<HTMLButtonElement>("button.copy:not(.fullscreen)");
+    if (!originalCopyButton) continue;
+
+    originalCopyButton.title = options.value.copy;
+    originalCopyButton.setAttribute("aria-label", options.value.copy);
+
+    const enterFullscreenButton =
+      codeBlock.querySelector<HTMLButtonElement>("button.copy.fullscreen")
+      ?? document.createElement("button");
+    enterFullscreenButton.title = options.value.enterFullscreen;
+    enterFullscreenButton.setAttribute("aria-label", options.value.enterFullscreen);
+    enterFullscreenButton.className = "copy fullscreen";
+    enterFullscreenButton.innerHTML = enterFullscreenIcon;
+    enterFullscreenButton.onclick = (event) => {
+      if (!(event.currentTarget instanceof HTMLButtonElement)) return;
+
+      event.stopImmediatePropagation();
+      event.currentTarget.blur();
+
+      const codeBlock = event.currentTarget.closest<HTMLDivElement>("div[class*='language-']");
+      if (!codeBlock) return;
+
+      handleEnterFullscreen(codeBlock);
+    };
+
+    codeBlock.prepend(enterFullscreenButton);
+  }
+};
+
+const processTabCodeBlocks = async (event: any) => {
+  const panel = (event as CustomEvent<HTMLDivElement | null>).detail;
+  if (!panel) return;
+
+  const codeBlocks = panel.querySelectorAll<HTMLDivElement>("div[class*='language-']");
+  await processCodeBlocks(codeBlocks);
+};
+
+onMounted(async () => {
+  window.addEventListener("vitepress-tabs:changed", processTabCodeBlocks);
+});
+
+onUnmounted(async () => {
+  dialog.value?.close();
+  window.removeEventListener("vitepress-tabs:changed", processTabCodeBlocks);
+});
+
 </script>
 
 <template>
