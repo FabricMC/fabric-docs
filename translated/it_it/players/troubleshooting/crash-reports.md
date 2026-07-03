@@ -47,7 +47,7 @@ Per questa guida, useremo [questa segnalazione di crash](/assets/players/crash-r
 
 :::details Mostra segnalazione di crash
 
-<<< @/public/assets/players/crash-report-example.log
+<<< @/public/assets/players/crash-report-example.log{txt}
 
 :::
 
@@ -67,12 +67,6 @@ Ora che sappiamo cos'è ciascuna sezione della segnalazione di crash, possiamo i
 Usando l'esempio del link sopra, possiamo analizzare la segnalazione di crash e trovare la causa del crash, incluse le mod che l'hanno causato.
 
 Lo stack trace nella sezione `---- Minecraft Crash Report ----` è il più importante in questo caso, poiché contiene l'errore principale che ha causato il crash.
-
-:::details Mostra Errore
-
-<<< @/public/assets/players/crash-report-example.log{7}
-
-:::
 
 Con la quantità di mod menzionata nello stack trace, può essere difficile puntare il dito, ma la prima cosa da fare è cercare la mod che ha causato il crash.
 

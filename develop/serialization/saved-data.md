@@ -16,7 +16,7 @@ Let's look at a simple scenario where we need to save the number of blocks broke
 
 We can use the `PlayerBlockBreakEvents.AFTER` event with a simple static integer field to store this value and post it as a chat message.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#saved_data_example_scenario
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#saved_data_example_scenario
 
 Now, when you break a block, you'll see a message with the count.
 

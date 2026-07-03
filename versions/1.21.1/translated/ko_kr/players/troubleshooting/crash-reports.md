@@ -43,7 +43,7 @@ authors:
 
 :::details 충돌 보고서
 
-<<< @/public/assets/players/crash-report-example.log{log}
+<<< @/public/assets/players/crash-report-example.log{txt}
 
 :::
 
@@ -63,12 +63,6 @@ authors:
 아래에 링크된 예시를 통해, 충돌 보고서를 분석하고 충돌을 일으킨 원인과 모드를 찾아봅시다.
 
 이 예시에서는 `---- Minecraft Crash Report ----` 안 목차의 스택트레이스에서 충돌을 일으킨 주요 오류가 기록되어 있어 가장 중요한 부분이라고 할 수 있습니다.
-
-:::details 오류 표시
-
-<<< @/public/assets/players/crash-report-example.log{7 log}
-
-:::
 
 스택트레이스에 언급된 모드의 개수에 따라, 정확히 지목하기 어려울 수 있지만, 가장 먼저 해야 할 일은 충돌을 일으킨 모드를 찾는 것입니다.
 

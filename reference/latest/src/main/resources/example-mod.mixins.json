@@ -4,11 +4,17 @@
   "compatibilityLevel": "JAVA_25",
   "mixins": [
     "ExampleMixin",
-    "event.SheepMixin",
+    "accessor.ClientboundCustomPayloadPacketAccessor",
+    "accessor.IdentifierAccessor",
+    "accessor.InventoryAccessor",
+    "accessor.ShulkerBoxBlockAccessor",
+    "class_tweakers.ConversionTypeMixin",
     "class_tweakers.FlowingFluidMixin",
     "class_tweakers.RecipeBookTypeMixin",
     "class_tweakers.RecipeCategoryMixin",
-    "class_tweakers.ConversionTypeMixin"
+    "class_tweakers.ConversionTypeMixin",
+    "class_tweakers.IllagerSpellMixin",
+    "event.SheepMixin"
   ],
   "injectors": {
     "defaultRequire": 1

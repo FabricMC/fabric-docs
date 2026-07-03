@@ -19,9 +19,15 @@ authors:
 
 可以在运行时将值打印到控制台，告知开发者代码的当前状态，并方便分析变更和潜在错误。
 
-在模组的实现 `ModInitializer` 的入口点类中，默认定义了一个日志记录器 (`LOGGER`)，用于将所需的输出打印到控制台。
+你可以使用 `LoggerFactory` 创建一个日志记录器，它接受一个名称，该名称将显示在日志中打印消息的旁边：
 
-<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems_basic_logger_definition
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#create_logger
+
+::: tip
+
+由[模组模板](./getting-started/creating-a-project)生成的初始化器会使用你的模组 ID 提供一个默认日志记录器。
+
+:::
 
 每当你需要了解代码中任何一点的某个值时，请通过将 `String` 传递给其方法来使用此 `LOGGER`。
 

@@ -80,7 +80,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#block_texture_pool_normal
 
-Іншим корисним методом є `registerCubeAllModelTexturePool`: визначте текстури, передавши «base block», а потім додайте «children», які матимуть ті самі текстури.
+Іншим корисним методом є `family`: визначте текстури, передавши «базовий блок», а потім додайте `children`, які матимуть ті самі текстури.
 У цьому випадку ми передали `RUBY_BLOCK`, тому сходи, плита та паркан використовуватимуть текстуру `RUBY_BLOCK`.
 
 ::: warning

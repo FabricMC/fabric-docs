@@ -16,7 +16,7 @@ resources:
 
 我们可以使用 `PlayerBlockBreakEvents.AFTER` 事件配合一个简单的静态整数字段来存储这个值，并在聊天栏显示出来。
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#saved_data_example_scenario
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#saved_data_example_scenario
 
 现在，当你破坏一个方块时，你会看到一条显示计数的消息。
 

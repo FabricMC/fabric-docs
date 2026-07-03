@@ -16,7 +16,7 @@ Saved Data — это встроенное в Minecraft решение для с
 
 Мы можем использовать событие `PlayerBlockBreakEvents.AFTER` с простым статическим целочисленным полем для хранения этого значения и отправки его в виде сообщения в чате.
 
-<<< @/reference/latest/src/main/java/com/example/docs/ReferenceMethods.java#saved_data_example_scenario
+<<< @/reference/latest/src/main/java/com/example/docs/Unreferenced.java#saved_data_example_scenario
 
 Теперь, когда вы разбиваете блок, вы увидите сообщение с кол-вом.
 

@@ -63,6 +63,16 @@ Um die abstrakten Methoden eines Ziel-Enum zu implementieren, überschreibe die 
 
 <<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum_extension_abstract_method_impls_example_mixin
 
+### Auf die aktuelle Enum-Ordnungszahl zugreifen {#accessing-current-enum-ordinal}
+
+Möglicherweis musst du die Ordnungszahl deines hinzugefügten Enum-Eintrags abrufen, um sie an einen Konstruktor zu übergeben. Zu diesem Zweck stellt Mixin die Methode `MixinIntrinsics.currentEnumOrdinal()` bereit, die den korrekten Index zurückgibt und dabei die Änderungen anderer Mods berücksichtigt.
+
+Lasst uns als Beispiel ein Mixin für den `IllagerSpell` aus Vanilla machen und einen einen Zauber hinzufügen, dessen Ordnungszahl als erstes Argument dem Konstruktor übergeben wird:
+
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/IllagerSpellMixin.java#enum_extension_current_enum_ordinal_example_mixin
+
+Jetzt kannst du sicher sein, dass `currentEnumOrdinal()` den richtigen Index zurückgibt, selbst wenn ein anderer Mod dieses Enum ebenfalls erweitern sollte.
+
 ## Den Eintrag für den Klassenoptimierer erstellen {#making-the-class-tweaker-entry}
 
 Wenn du eine Minecraft-Enum bearbeiten möchtest, kannst du einen Klassenoptimierer-Eintrag verwenden, um das betreffende Enum im dekompilierten Quellcode sichtbar zu ändern.
