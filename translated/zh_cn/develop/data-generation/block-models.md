@@ -80,7 +80,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#block_texture_pool_normal
 
-另一个有用的方法是 `registerCubeAllModelTexturePool`：通过传入“基础方块”来定义纹理，然后附加具有相同纹理的“子方块”。
+另一个有用的方法是 `family`：通过传入“基础方块”来定义纹理，然后附加具有相同纹理的“子方块”。
 在这种情况下，我们传入了 `RUBY_BLOCK`，因此楼梯、台阶和栅栏将使用 `RUBY_BLOCK` 纹理。
 
 ::: warning

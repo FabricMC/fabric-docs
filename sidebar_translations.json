@@ -91,6 +91,7 @@
   "develop.misc.dynamic_registries": "Dynamic Registries",
   "develop.mixins": "Mixins",
   "develop.mixins.bytecode": "Java Bytecode",
+  "develop.mixins.accessors": "Accessors",
   "develop.class_tweakers": "Class Tweakers",
   "develop.class_tweakers.introduction": "Introduction",
   "develop.class_tweakers.access_widening": "Access Widening",

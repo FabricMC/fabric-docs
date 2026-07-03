@@ -414,6 +414,10 @@ export default [
         text: "develop.mixins.bytecode",
         link: "/develop/mixins/bytecode",
       },
+      {
+        text: "develop.mixins.accessors",
+        link: "/develop/mixins/accessors",
+      },
     ],
   },
   {
