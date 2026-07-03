@@ -174,7 +174,6 @@ onUnmounted(async () => {
   dialog.value?.close();
   window.removeEventListener("vitepress-tabs:changed", processTabCodeBlocks);
 });
-
 </script>
 
 <template>
