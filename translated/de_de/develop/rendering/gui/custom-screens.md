@@ -19,7 +19,7 @@ Du kannst deine eigenen Oberflächen erstellen, um benutzerdefinierte Inhalte, e
 
 ## Eine Oberfläche erstellen {#creating-a-screen}
 
-Um eine Oberfläche zu erstellen, musst du von der Klasse `Screen` erben und die Methode `init` überschreiben - optional kannst du auch die Methode `extractRenderState` überschreiben -, aber achte darauf, die entsprechende Supermethode aufzurufen, da sonst der Hintergrund, die Widgets usw. nicht gerendert werden.
+Um eine Oberfläche zu erstellen, musst du die Klasse `Screen` erweitern und die Methode `init` überschreiben - optional kannst du auch die Methode `extractRenderState` überschreiben, aber stekke scher die entsprechende Super-Methode aufzurufen, sonst wird der Hintergrund, die Widgets usw. nicht gerendert werden.
 
 Folgendes solltest du beachten:
 
@@ -52,7 +52,7 @@ Wenn du eine Oberfläche schließen möchtest, setze die Oberfläche einfach auf
 Minecraft.getInstance().setScreen(null);
 ```
 
-Wenn du ausgefallen sein und zum vorherigen Bildschirm zurückkehren willst, kannst du die aktuelle Oberfläche an den `CustomScreen`-Konstruktor übergeben und ihn in einem Attribut speichern und ihn dann verwenden, um zum vorherigen Bildschirm zurückzukehren, wenn die Methode `close` aufgerufen wird.
+Wenn du ausgefallen sein und zum vorherigen Bildschirm zurückkehren willst, kannst du die aktuelle Oberfläche an den `CustomScreen`-Konstruktor übergeben und ihn in einem Feld speichern und ihn dann verwenden, um zum vorherigen Bildschirm zurückzukehren, wenn die Methode `close` aufgerufen wird.
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#return_to_previous_screen
 

@@ -36,7 +36,7 @@ authors:
 
 存取權限擴寬器條目可以是[傳遞性](../class-tweakers/index#transitive-entries)的，讓依賴你的模組的其他模組也能看到這些變更。
 
-若要存取欄位或方法，使用[存取器 Mixin](https://wiki.fabricmc.net/tutorial:mixin_accessors) 通常會更安全也更簡單；但在以下兩種情況中，存取器並不足夠，必須使用存取權限擴寬：
+若要存取欄位或方法，使用[存取器 Mixin](../mixins/accessors) 通常會更安全也更簡單；但在以下兩種情況中，存取器並不足夠，必須使用存取權限擴寬：
 
 - 如果你需要存取 `private`、`protected` 或套件私有的類別
 - 如果你需要覆寫 `final` 方法，或繼承 `final` 類別

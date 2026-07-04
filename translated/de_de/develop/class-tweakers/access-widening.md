@@ -36,7 +36,7 @@ Dazu gehört, dass sie öffentlich, erweiterbar und/oder veränderbar sind.
 
 Einträge in Zugriffserweiterern können [transitiv](../class-tweakers/index#transitive-entries) sein, damit Änderungen auch für Mods sichtbar werden, die von deinem Mod abhängen.
 
-Um auf Felder oder Methoden zuzugreifen, ist es oft sicherer und einfacher, [Zugriffs-Mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors) zu verwenden,
+Um auf Felder oder Methoden zuzugreifen, ist es oft sicherer und einfacher, [Zugriffs-Mixins](../mixins/accessors) zu verwenden,
 doch gibt es zwei Situationen, in denen diese Art des Zugriffs nicht ausreicht und eine Zugriffserweiterung erforderlich ist:
 
 - Wenn du auf eine `private`, `protected` oder package-private Klasse zugreifen musst.
