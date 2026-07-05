@@ -8,6 +8,7 @@ authors:
   - CelDaemon
   - Earthcomputer
   - its-miroma
+  - Jimmy474
   - Juuxel
   - MildestToucan
   - Sapryx

@@ -5,6 +5,7 @@ authors:
   - cassiancc
   - Earthcomputer
   - its-miroma
+  - Jimmy474
   - MildestToucan
 ---
 
