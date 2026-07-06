@@ -122,7 +122,7 @@ You also need to add the menu to the registry:
 
 ::: info
 
-See also: [Container Menus: Creating the Menu](../blocks/container-menus#creating-the-menu)
+See also: [Container Menus: Creating the Menu](blocks/container-menus#creating-the-menu)
 
 :::
 
@@ -142,7 +142,7 @@ If the clicked slot was not the result slot or within the inventory, the slot is
 
 ::: info
 
-See also: [Container Menus: Creating the Screen](../blocks/container-menus#creating-the-screen)
+See also: [Container Menus: Creating the Screen](blocks/container-menus#creating-the-screen)
 
 :::
 
