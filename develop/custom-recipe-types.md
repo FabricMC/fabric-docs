@@ -134,13 +134,23 @@ Once synchronized, recipes can be retrieved at any point from the client level's
 
 ## Implementing `quickMoveStack` {#implementing-quick-move-stack}
 
-### What is Quick Move? {#what-is-quick-move}
+::: info
 
-### Something {#something}
+See also: [Container Menus](../blocks/container-menus#creating-the-menu)
 
-Now, let's move on to the actual implementation.
+:::
+
+Quick Move is called whenever a shift-click is performed in a Menu.
 
 <<< @/reference/latest/src/main/java/com/example/docs/menu/custom/SuperiorUpgradingMenu.java#quickMove
+
+Wow, that's a lot of code again. Let's try thinking through what's happening.
+
+Usually, when quick-moving a stack from the inventory area, the menu first checks if the clicked slot is the result slot (with index 0). If so, the menu tries to move the result stack into the inventory, but if that fails, nothing happens.
+
+Next, the menu checks to see if the slot clicked belongs to the inventory. If so, then the menu tries to move the stack into the inputs. If that failed, we try to move the stack within the inventory (slots clicked in the hotbar move their stacks into the other 27 slots of the inventory, and vice-versa).
+
+If the clicked slot was not the result slot or within the inventory, the slot is then almost guaranteed to have been one of our two input slots, so we would want to move their stack back into the inventory.
 
 ## Recipe Remainders {#recipe-remainders}
 
