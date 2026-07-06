@@ -148,11 +148,11 @@ See also: [Container Menus: Creating the Screen](../blocks/container-menus#creat
 
 For now, we can just borrow the vanilla Anvil's background texture.
 
-<<< @/reference/latest/src/main/java/com/example/docs/rendering/screens/inventory/UpgradingScreen.java#screen
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/inventory/UpgradingScreen.java#screen
 
 Don't forget to bind your menu type to the screen in your `ClientModInitializer`, like so:
 
-<<< @/reference/latest/src/main/java/com/example/docs/ExampleModRecipesClient.java#registerwithmenu
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java#registerwithmenu
 
 ## Recipe Synchronization {#recipe-synchronization}
 

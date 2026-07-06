@@ -12,9 +12,9 @@ import com.example.docs.rendering.screens.inventory.UpgradingScreen;
 public class ExampleModRecipesClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		// #region registerwithmenu
+		// #region register_with_menu
 		MenuScreens.register(ExampleModRecipes.UPGRADING_MENU_TYPE, UpgradingScreen::new);
-		// #endregion registerwithmenu
+		// #endregion register_with_menu
 	}
 
 	private static void getRecipes() {
