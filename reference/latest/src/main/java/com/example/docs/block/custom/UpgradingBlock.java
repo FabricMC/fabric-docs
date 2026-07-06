@@ -21,6 +21,7 @@ public class UpgradingBlock extends Block {
 		super(properties);
 	}
 
+	// #region openmenu
 	@Override
 	protected InteractionResult useWithoutItem(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult) {
 		if (!level.isClientSide()) {
@@ -36,4 +37,5 @@ public class UpgradingBlock extends Block {
 				(containerId, inventory, player) -> new UpgradingMenu(containerId, inventory, ContainerLevelAccess.create(level, pos)), this.getName()
 		);
 	}
+	// #endregion openmenu
 }

@@ -80,7 +80,11 @@ For more details on creating menus, see [Container Menus](blocks/container-menus
 
 :::
 
-To allow us to craft our recipe in the GUI, we will create a block with a [Menu](./blocks/container-menus):
+To allow us to craft our recipe in the GUI, we will create a block with a [Menu](./blocks/container-menus). To open the menu, we will need to override some methods in our `Block` class:
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/UpgradingBlock.java#openmenu
+
+After that, we are ready to create the menu.
 
 <<< @/reference/latest/src/main/java/com/example/docs/menu/custom/UpgradingMenu.java#menu
 
@@ -114,6 +118,42 @@ You also need to add the menu to the registry:
 
 <<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#upgrading_menu_registration
 
+### Implementing `quickMoveStack` {#implementing-quick-move-stack}
+
+::: info
+
+See also: [Container Menus: Creating the Menu](../blocks/container-menus#creating-the-menu)
+
+:::
+
+Quick Move is called whenever a shift-click is performed in a Menu.
+
+<<< @/reference/latest/src/main/java/com/example/docs/menu/custom/SuperiorUpgradingMenu.java#quickMove
+
+Wow, that's a lot of code again. Let's try thinking through what's happening.
+
+Usually, when quick-moving a stack from the inventory area, the menu first checks if the clicked slot is the result slot (with index 0). If so, the menu tries to move the result stack into the inventory, but if that fails, nothing happens.
+
+Next, the menu checks to see if the slot clicked belongs to the inventory. If so, then the menu tries to move the stack into the inputs. If that failed, we try to move the stack within the inventory (slots clicked in the hotbar move their stacks into the other 27 slots of the inventory, and vice-versa).
+
+If the clicked slot was not the result slot or within the inventory, the slot is then almost guaranteed to have been one of our two input slots, so we would want to move their stack back into the inventory.
+
+### The Screen {#screen}
+
+::: info
+
+See also: [Container Menus: Creating the Screen](../blocks/container-menus#creating-the-screen)
+
+:::
+
+For now, we can just borrow the vanilla Anvil's background texture.
+
+<<< @/reference/latest/src/main/java/com/example/docs/rendering/screens/inventory/UpgradingScreen.java#screen
+
+Don't forget to bind your menu type to the screen in your `ClientModInitializer`, like so:
+
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleModRecipesClient.java#registerwithmenu
+
 ## Recipe Synchronization {#recipe-synchronization}
 
 ::: info
@@ -131,26 +171,6 @@ To synchronize your recipes, just call `RecipeSynchronization.synchronizeRecipeS
 Once synchronized, recipes can be retrieved at any point from the client level's recipe manager:
 
 <<< @/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java#recipe_sync_client
-
-## Implementing `quickMoveStack` {#implementing-quick-move-stack}
-
-::: info
-
-See also: [Container Menus](../blocks/container-menus#creating-the-menu)
-
-:::
-
-Quick Move is called whenever a shift-click is performed in a Menu.
-
-<<< @/reference/latest/src/main/java/com/example/docs/menu/custom/SuperiorUpgradingMenu.java#quickMove
-
-Wow, that's a lot of code again. Let's try thinking through what's happening.
-
-Usually, when quick-moving a stack from the inventory area, the menu first checks if the clicked slot is the result slot (with index 0). If so, the menu tries to move the result stack into the inventory, but if that fails, nothing happens.
-
-Next, the menu checks to see if the slot clicked belongs to the inventory. If so, then the menu tries to move the stack into the inputs. If that failed, we try to move the stack within the inventory (slots clicked in the hotbar move their stacks into the other 27 slots of the inventory, and vice-versa).
-
-If the clicked slot was not the result slot or within the inventory, the slot is then almost guaranteed to have been one of our two input slots, so we would want to move their stack back into the inventory.
 
 ## Recipe Remainders {#recipe-remainders}
 

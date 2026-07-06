@@ -9,6 +9,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 import com.example.docs.menu.custom.UpgradingMenu;
 
+// #region screen
 public class UpgradingScreen extends AbstractContainerScreen<UpgradingMenu> {
 	private final Identifier screenTexture = Identifier.withDefaultNamespace("textures/gui/container/anvil.png");
 
@@ -21,3 +22,4 @@ public class UpgradingScreen extends AbstractContainerScreen<UpgradingMenu> {
 		guiGraphics.blit(RenderPipelines.GUI_TEXTURED, this.screenTexture, this.leftPos, this.topPos, 0.0F, 0.0F, this.imageWidth, this.imageHeight, 256, 256);
 	}
 }
+// #endregion screen
