@@ -97,7 +97,6 @@ public class UpgradingMenu extends AbstractContainerMenu {
 
 	@Override
 	public ItemStack quickMoveStack(Player player, int slotIndex) {
-		// TODO: implement
 		return ItemStack.EMPTY;
 	}
 

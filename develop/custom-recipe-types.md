@@ -84,13 +84,13 @@ To allow us to craft our recipe in the GUI, we will create a block with a [Menu]
 
 <<< @/reference/latest/src/main/java/com/example/docs/menu/custom/UpgradingMenu.java#menu
 
+To go along with this menu, we'll also need a custom result `Slot`.
+
 <<< @/reference/latest/src/main/java/com/example/docs/menu/custom/UpgradingResultSlot.java#slot
 
 A lot to unpack here! This menu has two input slots and an output `UpgradingResultSlot`.
 
 The input container is an anonymous subclass of `SimpleContainer`, which calls the menu's `slotsChanged` method when its items change. In `slotsChanged`, we then create an instance of our recipe input class, filling it with the two input slots.
-
-TODO: something about why we use `ContainerLevelAccess`
 
 In order to see if it matches any recipes, we'll first ensure we are on the server level, since clients do not know what recipes exist. Then, we'll retrieve the `RecipeManager` via `serverLevel.recipeAccess()`.
 
@@ -100,9 +100,15 @@ To detect when the user takes the result out, we use the `UpgradingResultSlot`'s
 
 To ensure that the player is within interaction range from the block, we override `stillValid`.
 
+Finally, to prevent deleting items, it is important to drop the inputs back when the screen is closed, as shown in the `removed` method.
 
+::: info
 
-To prevent deleting items, it is important to drop the inputs back when the screen is closed, as shown in the `removed` method.
+You may have noticed that multiple methods contain a `ContainerLevelAccess#execute` call. This a wrapper class used by Mojang to ensure the correct `Level` and position are in use when interactions occur, and prevents players from accessing containers they shouldn't be accessing. Note that the special `NULL` `ContainerLevelAccess` performs no action when `execute` is called on it.
+
+:::
+
+The `mayPlace` method of the `Slot` returns `false` so players cannot insert items into the result slot, and the `isFake` method tells the `Screen` that the stack it contains does not have an owner (yet).
 
 You also need to add the menu to the registry:
 
@@ -126,9 +132,15 @@ Once synchronized, recipes can be retrieved at any point from the client level's
 
 <<< @/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java#recipe_sync_client
 
-## Going back to Implement quickMove {#implementing-quick-move}
+## Implementing `quickMoveStack` {#implementing-quick-move-stack}
 
-TODO
+### What is Quick Move? {#what-is-quick-move}
+
+### Something {#something}
+
+Now, let's move on to the actual implementation.
+
+<<< @/reference/latest/src/main/java/com/example/docs/menu/custom/SuperiorUpgradingMenu.java#quickMove
 
 ## Recipe Remainders {#recipe-remainders}
 
