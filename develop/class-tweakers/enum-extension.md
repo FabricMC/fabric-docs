@@ -6,7 +6,6 @@ authors:
   - CelDaemon
   - its-miroma
   - Jab125
-  - Jimmy474
   - LlamaLad7
   - MildestToucan
 ---
