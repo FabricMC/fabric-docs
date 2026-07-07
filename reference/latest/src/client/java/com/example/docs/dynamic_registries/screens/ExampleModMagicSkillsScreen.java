@@ -15,16 +15,14 @@ import com.example.docs.dynamic_registries.ExampleModRegistries;
 import com.example.docs.dynamic_registries.MagicSkillsRegistryEntry;
 
 public class ExampleModMagicSkillsScreen extends Screen {
-
 	RegistryAccess registryAccess;
 	public ExampleModMagicSkillsScreen(Minecraft minecraft, RegistryAccess registryAccess) {
-		this.registryAccess = registryAccess;
 		super(minecraft, minecraft.font, Component.literal("Magic Skills"));
+		this.registryAccess = registryAccess;
 	}
 
 	@Override
 	protected void init() {
-		System.out.println("Magic Skills Screen Init");
 		Optional<Registry<MagicSkillsRegistryEntry>> registry = this.registryAccess.lookup(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY);
 
 		// #region iterate_over_registry_entries

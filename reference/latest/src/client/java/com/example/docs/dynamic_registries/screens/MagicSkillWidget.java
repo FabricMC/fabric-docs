@@ -14,10 +14,9 @@ public class MagicSkillWidget extends AbstractWidget {
 	private final MagicSkillsRegistryEntry skill;
 	private final Font font;
 	public MagicSkillWidget(MagicSkillsRegistryEntry skill, Font font, int x, int y, int width, int height) {
+		super(x, y, width, height, Component.empty());
 		this.skill = skill;
 		this.font = font;
-		System.out.printf("Magic Skills Widget created! %s%n", skill.name());
-		super(x, y, width, height, Component.empty());
 	}
 
 	@Override
