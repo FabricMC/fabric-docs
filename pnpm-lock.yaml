@@ -29,6 +29,9 @@ importers:
       '@vueuse/core':
         specifier: ^12.8.2
         version: 12.8.2
+      classtweaker-tmgrammar:
+        specifier: ^1.0.1
+        version: 1.0.1
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -1037,6 +1040,9 @@ packages:
 
   character-reference-invalid@2.0.1:
     resolution: {integrity: sha512-iBZ4F4wRbyORVsu0jPV7gXkOsGYjGHPmAyv+HiHG8gi5PtC9KI2j1+v8/tlibRvjoWX027ypmG/n0HtO5t7unw==}
+
+  classtweaker-tmgrammar@1.0.1:
+    resolution: {integrity: sha512-zyAK+Db3J0RNlmzxI5X9+4n9/Nieo2BeFHh1/S5G4gtsMW8qcq5owJezVAX6fXlT8Nuw1Yh5TZnVGtw+ZRbJ0Q==}
 
   comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
@@ -2382,6 +2388,8 @@ snapshots:
   character-entities@2.0.2: {}
 
   character-reference-invalid@2.0.1: {}
+
+  classtweaker-tmgrammar@1.0.1: {}
 
   comma-separated-tokens@2.0.3: {}
 

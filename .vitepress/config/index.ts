@@ -5,7 +5,7 @@ import * as path from "node:path";
 import * as process from "node:process";
 import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json";
 import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json";
-import classtweaker from "../syntaxes/classtweaker.tmLanguage.json";
+import classtweaker from "classtweaker-tmgrammar"
 import { SiteConfig } from "vitepress";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
@@ -81,7 +81,7 @@ export default defineVersionedConfig(
       image: { lazyLoading: true },
       languageAlias: { gradle: "groovy" },
       languages: [
-        { ...(classtweaker as any), name: "classtweaker", aliases: ["accesswidener"] },
+        { ...(classtweaker as any), aliases: ["accesswidener"] },
         { ...(mcfunction as any), name: "mcfunction" },
         { ...(bytecode as any), name: "bytecode" },
       ],
