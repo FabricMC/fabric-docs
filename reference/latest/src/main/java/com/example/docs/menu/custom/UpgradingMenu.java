@@ -3,6 +3,8 @@ package com.example.docs.menu.custom;
 import java.util.List;
 import java.util.Optional;
 
+import org.jspecify.annotations.Nullable;
+
 import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,8 +22,6 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import com.example.docs.recipe.ExampleModRecipes;
 import com.example.docs.recipe.UpgradingRecipe;
 import com.example.docs.recipe.UpgradingRecipeInput;
-
-import org.jspecify.annotations.Nullable;
 
 // #region menu
 public class UpgradingMenu extends AbstractContainerMenu {
