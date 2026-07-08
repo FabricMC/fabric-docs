@@ -220,7 +220,7 @@ export default [
         text: "develop.recipes.extending_vanilla_recipes",
         link: "/develop/recipes/extending-vanilla-recipes",
       },
-    ]
+    ],
   },
   {
     text: "develop.rendering",
