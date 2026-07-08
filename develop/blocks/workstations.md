@@ -10,7 +10,7 @@ authors:
 
 ::: info PREREQUISITES
 
-This workstation uses a custom recipe type, which can be found in [Custom Recipe Types](../recipes/custom-recipe-types.md).
+This workstation uses a custom recipe type, which can be found in [Custom Recipe Types](../recipes/custom-recipe-types).
 
 :::
 
