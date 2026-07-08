@@ -1,6 +1,6 @@
 ---
 title: Extending Vanilla Recipes
-description: Learn how to create a custom recipe type.
+description: Learn how to make custom recipes for pre-existing workstations.
 authors:
   - SkyNotTheLimit
 ---
