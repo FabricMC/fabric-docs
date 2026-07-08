@@ -8,6 +8,24 @@ authors:
 
 Custom recipe types are a way to create data-driven recipes for your mod's custom crafting mechanics. As an example, we will create a recipe type for an upgrader block, similar to a Smithing Table.
 
+::: info An Aside: Making Recipes for Vanilla Workstations
+
+If you are attempting to add a recipe to an existing workstation, such as a Smithing Table, Crafting Table, or Stonecutter, you likely only need to [create a recipe class](#creating-the-recipe-class), [implement its methods](#implementing-the-methods), [register the serializer](#creating-a-recipe-serializer), and [create the recipe JSON(s)](#creating-a-recipe), as the Block, Menu, and Screen logic have all been completed for you (by Mojang).
+
+Each Vanilla workstation has its own `RecipeType`, defined in the very same place. Each workstation expects a certain subtype of `Recipe` to function.
+
+For instance, the Smithing Table expects any implementation of the `SmithingRecipe` interface, which returns `RecipeTypes.SMITHING`. When making a new `SmithingRecipe`, one might simply create a new class and implement `SmithingRecipe`, but another valid way is to extend `SimpleSmithingRecipe`, a vanilla class, which already implements `SmithingRecipe`.
+
+A similar situation occurs when making a new crafting recipe. The expected type is the interface `CraftingRecipe`, and if `ShapedRecipe` and `ShapelessRecipe` aren't enough, then we recommend you extend `CustomRecipe` instead. We encourage you to look through the subtypes of the recipe interface of your target workstation to see if you can find one that fits your needs.
+
+Stonecutter recipes are separated from other `Recipe`s in the `RecipeManager`/`RecipeAccess` because the Stonecutter needs to display and select any/all of its valid recipes given its one input (menus with recipe books are handled through `ClientRecipeBook`, where the server gives the necessary recipes to the client). Simply extending `StonecutterRecipe` (unlike the others, this is not an interface!) and overriding the `assemble` method should work for most use cases outside just making a stonecutting recipe JSON.
+
+Note that unless you modify the underlying menu, your recipes are limited by the inputs and outputs that the menu has to offer. For example, a Smithing Table has three inputs and one output (in Vanilla, these are usually an `Optional<Ingredient> template`, `Ingredient base`, `Optional<Ingredient> addition`, and `ItemStackTemplate result`). However, within the `Recipe` class, you have a lot of freedom in configuring the inputs to make the outputs. A few ideas (for smithing recipes) include changing the `Optional<Ingredient>`s to `Ingredient`s (which would force all JSONs using this recipe type to define all (note that this would remove your ability to make your custom recipe JSONs that omit one or both of the template/addition)) or overriding `assemble` and having your `result` actually be a data component map (to apply arbitrary item components based on the JSON).
+
+Don't forget to create and register a serializer when you're done!
+
+:::
+
 ## Creating a Recipe Input Class {#creating-your-recipe-input-class}
 
 Before you can start creating our recipe, you need an implementation of `RecipeInput` that can hold the input items in our block's inventory. We want an upgrading recipe to have two input items: a base item to be upgraded, and the upgrade itself.
@@ -104,6 +122,12 @@ To detect when the user takes the result out, we use the `UpgradingResultSlot`'s
 
 To ensure that the player is within interaction range from the block, we override `stillValid`.
 
+::: warning
+
+Ensure the `Block` you pass as an argument for `stillValid` is the block opening the menu! If you don't, the menu and screen might open and proceed to close themselves immediately.
+
+:::
+
 Finally, to prevent deleting items, it is important to drop the inputs back when the screen is closed, as shown in the `removed` method.
 
 ::: info
@@ -152,7 +176,7 @@ For now, we can just borrow the vanilla Anvil's background texture.
 
 Don't forget to bind your menu type to the screen in your `ClientModInitializer`, like so:
 
-<<< @/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java#registerwithmenu
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModRecipesClient.java#register_with_menu
 
 ## Recipe Synchronization {#recipe-synchronization}
 
@@ -164,7 +188,7 @@ This section is optional, and only needed if you need clients to know about reci
 
 As mentioned earlier, recipes are handled entirely on the logical server. However, in some cases a client may need to know what recipes exist - an example from vanilla is Stonecutters, which have to display the available recipe options for a given ingredient. Also, the plugins of certain recipe viewers, including [JEI](https://modrinth.com/mod/jei), run on the logical client, requiring you to use Fabric's recipe synchronization API.
 
-To synchronize your recipes, just call `RecipeSynchronization.synchronizeRecipeSerializer` in your mod initializer, and provide your mod's recipe serializer:
+To synchronize your recipes, simply call `RecipeSynchronization.synchronizeRecipeSerializer` in your mod initializer, and provide your mod's recipe serializer:
 
 <<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#recipe_sync
 
