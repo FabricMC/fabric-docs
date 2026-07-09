@@ -64,4 +64,3 @@ A similar situation occurs when making a new crafting recipe. The expected type 
 ## Stonecutter {#stonecutter}
 
 Stonecutter recipes are separated from other `Recipe`s in the `RecipeManager`/`RecipeAccess` because the Stonecutter needs to display and select any/all of its valid recipes given its one input (menus with recipe books are handled through `ClientRecipeBook`, where the server gives the necessary recipes to the client). Simply extending `StonecutterRecipe` (unlike the others, this is not an interface!) and overriding the `assemble` method should work for most use cases outside just making a stonecutting recipe JSON.
-
