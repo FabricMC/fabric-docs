@@ -43,6 +43,14 @@ The input container is an anonymous subclass of `SimpleContainer`, which calls t
 
 In order to see if it matches any recipes, we'll first ensure we are on the server level, since clients do not know what recipes exist. Then, we'll retrieve the `RecipeManager` via `serverLevel.recipeAccess()`.
 
+::: info An Aside: Recipe Synchronization
+
+"If the client doesn't know what recipes exist, then how does the recipe book work?"
+
+I'm glad you asked. The server tells the client which recipes exist based on which recipes you have unlocked (done by completing certain criteria described in each recipe's advancement JSON, such as obtaining an item or entering water (for boats)). However, this is fairly annoying for recipe viewer mods, who would ideally like to see all recipes available, but can now only see the recipes that the client gets from the server. To bypass this, we can [use Fabric API to synchronize our recipes](../recipes/custom-recipe-types#recipe-synchronization).
+
+:::
+
 We'll call `serverLevel.recipeAccess().getRecipeFor` with our recipe input to get a recipe that matches the inputs. If a recipe was found, we can add or remove the result from the result container.
 
 To detect when the user takes the result out, we use the `UpgradingResultSlot`'s `onTake` override. The `onTake` method of our menu then decrements the input items.
