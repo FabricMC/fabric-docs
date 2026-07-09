@@ -4,6 +4,7 @@ description: Learn how to create a custom recipe type.
 authors:
   - cassiancc
   - skippyall
+  - ekulxam
 ---
 
 Custom recipe types are a way to create data-driven recipes for your mod's custom crafting mechanics. As an example, we will create a recipe type for an upgrader block, similar to a Smithing Table.
