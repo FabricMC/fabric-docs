@@ -29,6 +29,7 @@ public class SuperiorUpgradingMenu extends UpgradingMenu {
 	@Override
 	public ItemStack quickMoveStack(Player player, int slotIndex) {
 		Slot slot = this.slots.get(slotIndex);
+
 		//noinspection ConstantValue
 		if (slot == null || !slot.hasItem()) {
 			return ItemStack.EMPTY;
@@ -36,6 +37,7 @@ public class SuperiorUpgradingMenu extends UpgradingMenu {
 
 		ItemStack stack = slot.getItem();
 		ItemStack clicked = stack.copy();
+
 		if (slotIndex == RESULT_SLOT) {
 			stack.getItem().onCraftedBy(stack, player);
 

@@ -7,7 +7,6 @@ import net.minecraft.world.item.ItemStack;
 
 // #region slot
 public class UpgradingResultSlot extends Slot {
-
 	private final UpgradingMenu menu;
 
 	public UpgradingResultSlot(UpgradingMenu menu, Container container, int slot, int x, int y) {

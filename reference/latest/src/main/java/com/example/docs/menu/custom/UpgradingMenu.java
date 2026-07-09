@@ -59,7 +59,7 @@ public class UpgradingMenu extends AbstractContainerMenu {
 	}
 
 	/**
-	 * Called by {@link UpgradingResultSlot#onTake(Player, ItemStack)}
+	 * Called by {@link UpgradingResultSlot#onTake(Player, ItemStack)}.
 	 */
 	protected void onTake(final Player player, final ItemStack stack) {
 		stack.onCraftedBy(player, stack.getCount());
@@ -77,11 +77,14 @@ public class UpgradingMenu extends AbstractContainerMenu {
 				UpgradingRecipeInput recipeInput = new UpgradingRecipeInput(this.input.getItem(0), this.input.getItem(1));
 				Optional<RecipeHolder<UpgradingRecipe>> maybeRecipe = serverLevel.recipeAccess().getRecipeFor(ExampleModRecipes.UPGRADING_RECIPE_TYPE, recipeInput, serverLevel);
 				ItemStack result = ItemStack.EMPTY;
+
 				if (maybeRecipe.isPresent()) {
 					RecipeHolder<UpgradingRecipe> recipeHolder = maybeRecipe.get();
 					UpgradingRecipe recipe = recipeHolder.value();
+
 					if (this.output.setRecipeUsed((ServerPlayer) this.player, recipeHolder)) {
 						ItemStack recipeResult = recipe.assemble(recipeInput);
+
 						if (recipeResult.isItemEnabled(level.enabledFeatures())) {
 							result = recipeResult;
 						}

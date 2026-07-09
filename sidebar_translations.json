@@ -58,6 +58,7 @@
   "develop.data_generation.features": "Feature Generation",
   "develop.data_generation.item_models": "Item Model Generation",
   "develop.data_generation.enchantments": "Enchantment Generation",
+  "develop.recipes": "Recipes",
   "develop.recipes.custom_recipe_types": "Custom Recipe Types",
   "develop.recipes.extending_vanilla_recipes": "Extending Vanilla Recipes",
   "develop.rendering": "Rendering",

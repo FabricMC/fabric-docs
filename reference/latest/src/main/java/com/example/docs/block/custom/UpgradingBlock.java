@@ -27,6 +27,7 @@ public class UpgradingBlock extends Block {
 			player.openMenu(blockState.getMenuProvider(level, blockPos));
 			//player.awardStat(); (you can increment a custom stat here)
 		}
+
 		return InteractionResult.SUCCESS;
 	}
 
