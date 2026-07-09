@@ -41,13 +41,13 @@ Our `PlacementInfo` mainly assists in recipe placing via the Recipe Book, while 
 
 If you tried to make your own override of `display`, you would quickly notice that you wouldn't be able to make a `SlotDisplay` of your result, because you have a dynamic result based off your `base`, which is an `Ingredient` that you can't easily get `ItemStack`s from. However, we have given a valid override of `display` in our recipe class. What's going on?
 
-<<< @/reference/latest/src/main/java/com/example/docs/recipe/extending/EnchantingSmithingDemoSlotDisplay.java#enchanting_smithing
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/extending/EnchantingSmithingDemoSlotDisplay.java#slot_display
 
 We have created a custom implementation of `SlotDisplay`. This particular implementation allows for displaying the result with the desired enchantments.
 
 In our `resolve` method, we first create a `RandomSource` and a `BinaryOperator<ItemStack>`, then we pass both into `SlotDisplay.applyDemoTransformation` (it's static but private so we need a mixin invoker).
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/SlotDisplayAccessor.java#demo_invoker
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/accessor/SlotDisplayAccessor.java#demo_invoker
 
 `applyDemoTransformation` allows for applying changes to the `ItemStack` being displayed in the `SlotDisplay`. It takes a `BinaryOperator<ItemStack>` so one can modify the `base`'s data based on the `material`. This is useful for recipes such as trim recipes, where the trim color of the result varies depending on the material. However, we directly apply our enchantments to the base stack while ignoring the material (the recipe simply checks if the correct material is present before allowing the assembly), so we can actually omit the `material` field in our `SlotDisplay` implementation (`SlotDisplay.Empty.INSTANCE` would then be passed into `applyDemoTransformation` in place of the `material`).
 
