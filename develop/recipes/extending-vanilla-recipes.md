@@ -7,7 +7,7 @@ resources:
   https://docs.neoforged.net/docs/resources/server/recipes/builtin/: Built-In Recipe Types - NeoForge Docs
 ---
 
-If you are attempting to add a recipe to an existing workstation, such as a Smithing Table, Crafting Table, or Stonecutter, you likely only need to [create a recipe class](./custom-recipe-types#creating-the-recipe-class), [implement its methods](./custom-recipe-types#implementing-the-methods), [register the serializer](./custom-recipe-types#creating-a-recipe-serializer), and [create the recipe JSON(s)](./custom-recipe-types#creating-a-recipe), as the Block, Menu, and Screen logic have all been completed for you (by Mojang).  Let's take a look at some examples.
+If you are attempting to add a recipe to an existing workstation, such as a Smithing Table, Crafting Table, or Stonecutter, you likely only need to [create a recipe class](./custom-recipe-types#creating-the-recipe-class), [implement its methods](./custom-recipe-types#implementing-the-methods), [register the serializer](./custom-recipe-types#creating-a-recipe-serializer), and [create the recipe JSON(s)](./custom-recipe-types#creating-a-recipe), as the Block, Menu, and Screen logic have all been completed for you (by Mojang). Let's take a look at some examples.
 
 ## Overview {#overview}
 
