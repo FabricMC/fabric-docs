@@ -247,8 +247,8 @@ Here are some examples of ranges and what they indicate. Try using [Outlet's Fab
 | <Range r=">=26.1 <26.2" /> | Between two versions (inclusive lower bound)                                                                                                                          | `26.1`, `26.1.2`, snapshots...              | `26.0`, `26.2`...           |
 | <Range r="~26.1-rc.1" />   | Same to next minor version (equivalent to `>=26.1-rc.1 <26.2-`)                                                                                                       | `26.1-rc.1`, `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...           |
 | <Range r="^26.2" />        | Same to next major version (equivalent to `>=26.2 <27`)                                                                                                               | `26.2`, `26.3`...                           | `26.1`, `25.x`, `27.x`...   |
-| <Range r="26.1.x" />       | Similar to `~26.1`, but *does* match `26.1`'s snapshots. Only checks the `major` and `minor` components, and ignores anything specified after the `-` in the version. | `26.1-rc-3`, `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...           |
-| <Range r="1.x" />          | Similar to `^1`, but *does* match `1.0.0`'s snapshots. Only checks the `major` component, and ignores anything specified after the `-` in the version.                | `1.0.0-beta.4`, `1.0.0`, snapshots...       | `26.x`                      |
+| <Range r="26.1.x" />       | Similar to `~26.1`, but _does_ match `26.1`'s snapshots. Only checks the `major` and `minor` components, and ignores anything specified after the `-` in the version. | `26.1-rc-3`, `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...           |
+| <Range r="1.x" />          | Similar to `^1`, but _does_ match `1.0.0`'s snapshots. Only checks the `major` component, and ignores anything specified after the `-` in the version.                | `1.0.0-beta.4`, `1.0.0`, snapshots...       | `26.x`                      |
 
 :::
 
