@@ -5,6 +5,8 @@ authors:
   - cassiancc
   - skippyall
   - ekulxam
+resources:
+  https://docs.neoforged.net/docs/resources/server/recipes/custom/: Custom Recipes - NeoForge Docs
 ---
 
 Custom recipe types are a way to create data-driven recipes for your mod's custom crafting mechanics. As an example, we will create a recipe type for an upgrader block, similar to a Smithing Table.

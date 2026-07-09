@@ -18,6 +18,8 @@ import net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization;
 import com.example.docs.ExampleMod;
 import com.example.docs.block.custom.UpgradingBlock;
 import com.example.docs.menu.custom.UpgradingMenu;
+import com.example.docs.recipe.extending.EnchantingSmithingDemoSlotDisplay;
+import com.example.docs.recipe.extending.EnchantingSmithingRecipe;
 
 public class ExampleModRecipes implements ModInitializer {
 	// #region registration
@@ -32,7 +34,6 @@ public class ExampleModRecipes implements ModInitializer {
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),
 					new RecipeType<UpgradingRecipe>() { }
 	);
-
 	// #endregion registration
 
 	// TODO: recipe book support, requires enum extensions + screen changes
@@ -65,5 +66,10 @@ public class ExampleModRecipes implements ModInitializer {
 		// #region recipe_sync
 		RecipeSynchronization.synchronizeRecipeSerializer(UPGRADING_RECIPE_SERIALIZER);
 		// #endregion recipe_sync
+
+		// #region enchanting_smithing_registration
+		Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "smithing_enchanting"), EnchantingSmithingRecipe.SERIALIZER);
+		Registry.register(BuiltInRegistries.SLOT_DISPLAY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "enchanting_smithing"), EnchantingSmithingDemoSlotDisplay.TYPE);
+		// #endregion enchanting_smithing_registration
 	}
 }
