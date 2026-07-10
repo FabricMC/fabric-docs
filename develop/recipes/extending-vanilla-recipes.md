@@ -65,6 +65,8 @@ This recipe is still data-driven.
 
 :::
 
+![Super Netherite Sword](/assets/develop/recipes/smithing_enchanting.png)
+
 ## Crafting Table {#crafting-table}
 
 A similar situation occurs when making a new crafting recipe. The expected type is the interface `CraftingRecipe`, and if `ShapedRecipe` and `ShapelessRecipe` aren't enough, then we recommend you extend `CustomRecipe` instead. We encourage you to look through the subtypes of the recipe interface of your target workstation to see if you can find one that fits your needs.
@@ -86,6 +88,9 @@ This recipe is still data-driven.
 We only need the type so Minecraft knows we want to load the recipe.
 
 :::
+
+*Shhh, don't tell anyone! >:)*
+![I put so many harmful potions into this stew](/assets/develop/recipes/stew_spiking.png)
 
 ## Stonecutter {#stonecutter}
 
