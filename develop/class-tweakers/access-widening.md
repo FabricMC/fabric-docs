@@ -59,10 +59,10 @@ Making a method or field accessible also makes its class accessible.
 
 ### Extendable {#extendable}
 
-`extendable` can target classes and methods:
+`extendable` can target classes and methods only:
 
 - Classes are made public and non-final
-- Methods are made protected and non-final
+- Methods are made protected and non-final, even if orginally public
 
 Making a method extendable also makes its class extendable.
 
@@ -70,7 +70,7 @@ Making a method extendable also makes its class extendable.
 
 `mutable` can make a field non-final.
 
-To make a private final field both accessible and mutable, you must make two separate entries in the file.
+To make a private final method both accessible and extendable or a private final field both accessible and mutable, you must make two separate entries in the file.
 
 ## Specifying Targets {#specifying-targets}
 
@@ -156,6 +156,6 @@ You can then paste the entry in your class tweaker file.
 
 ## Applying Changes {#applying-changes}
 
-To see your changes applied, you must refresh your Gradle project and [regenerate sources](../getting-started/generating-sources). The elements you targeted should
-have their access limits modified accordingly. If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file)
+To see your changes applied, you must [regenerate sources](../getting-started/generating-sources) then refresh your Gradle project. If you had the modified class file opened, you must reopen the same class file
+from the decompiled source to see the modification. The elements you targeted should have their access limits modified accordingly. If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file)
 and checking if any errors appear.
