@@ -35,7 +35,8 @@ The following fields are mandatory for Fabric to load your mod.
 
 - **`schemaVersion`** Must be the first entry, and the value must always be `1`. Required for Fabric Loader to parse the file correctly.
 - **`id`** A string value that defines the mod's identifier. Must start with a letter. May only contain ASCII letters, digits, underscores, or hyphens. 2 to 64 characters.
-- **`version`** A string value that defines the mod's version, expected to match the [Semantic Versioning 2.0.0](https://semver.org/) specification.
+- **`version`** A string value that defines the mod's version, which is encouraged to match a superset of the [Semantic Versioning 2.0.0](https://semver.org/) specification supporting `n` components.
+  If it does not match the superset of Semantic Versioning,
 
 ```json
 "schemaVersion": 1,
@@ -250,8 +251,10 @@ This translation changed with the release of `1.16-rc1`. Previously, Fabric norm
 | <Range r=">=26.1 <26.2" /> | Between two versions (inclusive lower bound)                                                                                                 | `26.1`, `26.1.2`, snapshots...              | `26.0`, `26.2`...              |
 | <Range r="~26.1-rc.2" />   | Same to next minor version, excluding earlier versions (equivalent to `>=26.1-rc.2 <26.2-`). Only checks the `major` and `minor` components. | `26.1-rc.2`, `26.1`, `26.1.2`, snapshots... | `26.1-rc.1`, `26.2`, `27.x`... |
 | <Range r="^26.2" />        | Same to next major version, excluding earlier versions (equivalent to `>=26.2 <27-`). Only checks the `major` component.                     | `26.2`, `26.3`...                           | `26.1`, `25.x`, `27.x`...      |
-| <Range r="26.1.x" />       | Equivalent to `~26.1-`. Ignores anything specified after the `-` in the version. A `*` or `X` can be used in place of `x` if desired.        | `26.1-rc-3`, `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...              |
-| <Range r="1.x" />          | Equivalent to `^1-`. Ignores anything specified after the `-` in the version. A `*` or `X` can be used in place of `x` if desired.           | `1.0.0-beta.4`, `1.0.0`, snapshots...       | `26.x`                         |
+| <Range r="26.1.x" />       | Equivalent to `~26.1-`.                                                                                                                      | `26.1-rc-3`, `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...              |
+| <Range r="1.x" />          | Equivalent to `^1-`.                                                                                                                         | `1.0.0-beta.4`, `1.0.0`, snapshots...       | `26.x`                         |
+
+**Note:** The `.x` operator does not work if a prerelease component (e.g. `26.1.x-rc.1`) is included, as it causes the range to be treated as a String version (See Other Version Formats below). A `*` or `X` can be used in place of `x` if desired.
 
 :::
 
