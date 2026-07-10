@@ -353,7 +353,7 @@ public enum TransitionState {
 
 ### 使用高级声音系统 {#using-the-advanced-sound-system}
 
-要使用此声音系统，只需使用 `DynamicSoundManager` 方法或 `SoundInstance` 方法即可。 现在，你可以使用实体中的 `onStartedTrackingBy` 和 `onStoppedTrackingBy` 方法，或者使用[自定义客户端绑定网络](../networking#receiving-a-packet-on-the-client)，来启动和停止您的自定义动态 `SoundInstance`。
+要使用此声音系统，只需使用 `DynamicSoundManager` 方法或 `SoundInstance` 方法即可。 现在，你可以使用实体中的 `onStartedTrackingBy` 和 `onStoppedTrackingBy` 方法，或者使用[自定义客户端绑定网络](../networking#receiving-a-packet-on-the-client)，来启动和停止你的自定义动态 `SoundInstance`。
 
 <<< @/reference/latest/src/client/java/com/example/docs/network/ClientboundSoundReceiver.java#handle_packet
 

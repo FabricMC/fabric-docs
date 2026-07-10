@@ -36,7 +36,7 @@ authors:
 
 访问加宽器条目可以是[传递性的](../class-tweakers/index#transitive-entries)，从而让依赖你的模组的其他模组也能看到这些变更。
 
-若只是访问字段或方法，使用 [Mixin 访问器](https://wiki.fabricmc.net/tutorial:mixin_accessors)可能更安全、更简单。  
+若只是访问字段或方法，使用 [Mixin 访问器](../mixins/accessors)可能更安全、更简单。  
 但在以下两种情况下，访问器无法满足需求，必须使用访问加宽：
 
 - 你需要访问 `private`、`protected` 或包私有的类
