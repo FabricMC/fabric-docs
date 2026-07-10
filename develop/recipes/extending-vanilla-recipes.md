@@ -89,7 +89,7 @@ We only need the type so Minecraft knows we want to load the recipe.
 
 :::
 
-*Shhh, don't tell anyone! >:)*
+_Shhh, don't tell anyone! >:)_
 ![I put so many harmful potions into this stew](/assets/develop/recipes/stew_spiking.png)
 
 ## Stonecutter {#stonecutter}
