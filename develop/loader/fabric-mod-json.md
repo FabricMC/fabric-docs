@@ -237,7 +237,7 @@ Here are some examples of ranges and what they indicate. Try using [Outlet's Fab
 ::: details Semantic Versioning Examples
 
 **Note:** Minecraft does not abide by semantic versioning. If needed, Fabric will translate a Minecraft version into its equivalent in semantic versioning. Examples include `26.1`->`26.1.0`, `26.1-snapshot-1`->`26.1-alpha.1`, `26w14a`->`26.1.1-alpha.26.14.a`.
-This translation changed with the release of `1.16-rc1`. Previously, Fabric normalized prereleases like `1.16-pre1` to `1.16-rc.1`, which now conflicted. Starting with loader `0.8.8`, `1.16-rc1` is normalized to `1.16-rc9`, and future prereleases are normalized to `-beta.n`.
+This translation changed with the release of `1.16-rc1`. Previously, Fabric normalized prereleases like `1.16-pre1` to `1.16-rc.1`, which now conflicted. Starting with loader `0.8.8`, `1.16-rc1` is normalized to `1.16-rc.9`, and future prereleases are normalized to `-beta.n`.
 
 | Range                      | Description                                                                                                                                  | Matches                                     | Clashes                        |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------------ |
