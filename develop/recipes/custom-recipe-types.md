@@ -9,6 +9,14 @@ resources:
   https://docs.neoforged.net/docs/resources/server/recipes/custom/: Custom Recipes - NeoForge Docs
 ---
 
+<!---->
+
+::: warning
+
+If you are trying to add a custom recipe type for a Vanilla workstation, please see [Extending Vanilla Recipes](extending-vanilla-recipes).
+
+:::
+
 Custom recipe types are a way to create data-driven recipes for your mod's custom crafting mechanics. As an example, we will create a recipe type for an upgrader block, similar to a Smithing Table.
 
 ## Creating a Recipe Input Class {#creating-your-recipe-input-class}

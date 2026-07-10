@@ -57,6 +57,14 @@ Finally, we need to register our recipe serializer and slot display type.
 
 <<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#enchanting_smithing_registration
 
+::: info
+
+This recipe is still data-driven.
+
+<<< @/reference/latest/src/main/resources/data/example-mod/recipe/smithing_enchanting/netherite_sword_smithing_enchanting.json
+
+:::
+
 ## Crafting Table {#crafting-table}
 
 A similar situation occurs when making a new crafting recipe. The expected type is the interface `CraftingRecipe`, and if `ShapedRecipe` and `ShapelessRecipe` aren't enough, then we recommend you extend `CustomRecipe` instead. We encourage you to look through the subtypes of the recipe interface of your target workstation to see if you can find one that fits your needs.
