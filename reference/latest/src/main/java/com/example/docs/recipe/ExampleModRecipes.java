@@ -20,6 +20,7 @@ import com.example.docs.block.custom.UpgradingBlock;
 import com.example.docs.menu.custom.UpgradingMenu;
 import com.example.docs.recipe.extending.EnchantingSmithingDemoSlotDisplay;
 import com.example.docs.recipe.extending.EnchantingSmithingRecipe;
+import com.example.docs.recipe.extending.StewSpikingCraftingRecipe;
 
 public class ExampleModRecipes implements ModInitializer {
 	// #region registration
@@ -71,5 +72,9 @@ public class ExampleModRecipes implements ModInitializer {
 		Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "smithing_enchanting"), EnchantingSmithingRecipe.SERIALIZER);
 		Registry.register(BuiltInRegistries.SLOT_DISPLAY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "enchanting_smithing"), EnchantingSmithingDemoSlotDisplay.TYPE);
 		// #endregion enchanting_smithing_registration
+
+		// #region stew_spiking_registration
+		Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "stew_spiking"), StewSpikingCraftingRecipe.SERIALIZER);
+		// #endregion stew_spiking_registration
 	}
 }

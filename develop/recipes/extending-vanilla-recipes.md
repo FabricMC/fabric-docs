@@ -69,6 +69,24 @@ This recipe is still data-driven.
 
 A similar situation occurs when making a new crafting recipe. The expected type is the interface `CraftingRecipe`, and if `ShapedRecipe` and `ShapelessRecipe` aren't enough, then we recommend you extend `CustomRecipe` instead. We encourage you to look through the subtypes of the recipe interface of your target workstation to see if you can find one that fits your needs.
 
+As an example, let's create a custom crafting recipe that allows potions to be infused into suspicious stew.
+
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/extending/StewSpikingCraftingRecipe.java#stew_spiking
+
+As always, we need to register our recipe serializer.
+
+<<< @/reference/latest/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#stew_spiking_registration
+
+::: info
+
+This recipe is still data-driven.
+
+<<< @/reference/latest/src/main/resources/data/example-mod/recipe/stew_spiking/stew_spiking.json
+
+We only need the type so Minecraft knows we want to load the recipe.
+
+:::
+
 ## Stonecutter {#stonecutter}
 
 Stonecutter recipes are separated from other `Recipe`s in the `RecipeManager`/`RecipeAccess` because the Stonecutter needs to display and select any/all of its valid recipes given its one input (menus with recipe books are handled through `ClientRecipeBook`, where the server gives the necessary recipes to the client). Simply extending `StonecutterRecipe` (unlike the others, this is not an interface!) and overriding the `assemble` method should work for most use cases outside just making a stonecutting recipe JSON.
