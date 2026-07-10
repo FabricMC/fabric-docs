@@ -156,6 +156,6 @@ You can then paste the entry in your class tweaker file.
 
 ## Applying Changes {#applying-changes}
 
-To see your changes applied, you must [regenerate sources](../getting-started/generating-sources) then refresh your Gradle project. If you had the modified class file opened, you must reopen the same class file
-from the decompiled source to see the modification. The elements you targeted should have their access limits modified accordingly. If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file)
-and checking if any errors appear.
+To see your changes applied, you must [regenerate sources](../getting-started/generating-sources) then refresh your Gradle project. The elements you targeted should
+have their access limits modified accordingly. If you had the modified class file opened, you must reopen the same class file from the decompiled source to see the
+modification. If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file) and checking if any errors appear.
