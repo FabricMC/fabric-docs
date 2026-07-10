@@ -230,6 +230,8 @@ An extended version of Semantic Versioning supporting `n` components instead of 
 
 To match all prerelease components in range, a `-` followed by nothing is used, as it will match to the earliest prerelease. E.g. to get only the `26.2` snapshots, the range `>26.2- <26.2` can be used.
 
+Build metadata, the parts following the `+` in a version, are ignored for version comparison. E.g. `0.154+26.3` and `0.154+26.2` are equivalent.
+
 Here are some examples of ranges and what they indicate. Try using [Outlet's Fabric Loader Verification](https://dexman545.github.io/outlet-database/floaderValidator.html) to test which values will satisfy the constraint.
 
 ::: details Semantic Versioning Examples
@@ -237,19 +239,32 @@ Here are some examples of ranges and what they indicate. Try using [Outlet's Fab
 **Note:** Minecraft does not abide by semantic versioning. If needed, Fabric will translate a Minecraft version into its equivalent in semantic versioning. Examples include `26.1`->`26.1.0`, `26.1-snapshot-1`->`26.1-alpha.1`, `26w14a`->`26.1.1-alpha.26.14.a`.
 This translation changed with the release of `1.16-rc1`. Previously, Fabric normalized prereleases like `1.16-pre1` to `1.16-rc.1`, which now conflicted. Starting with loader `0.8.8`, `1.16-rc1` is normalized to `1.16-rc9`, and future prereleases are normalized to `-beta.n`.
 
-| Range                      | Description                                                                                                                                                                                   | Matches                                     | Clashes                     |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | --------------------------- |
-| <Range r="*" />            | Any version (not recommended)                                                                                                                                                                 | `26.1.2`, `24w14potato`...                  | _none_                      |
-| <Range r="26.1.2" />       | Exact version only                                                                                                                                                                            | `26.1.2`                                    | `26.1`, `26.1.1`, `26.2`... |
-| <Range r=">26" />          | Above a version (exclusive)                                                                                                                                                                   | `26.1.2`, `26.2`...                         | `26`, `25.x`...             |
-| <Range r=">=26.1" />       | At or above a version (inclusive)                                                                                                                                                             | `26.1`, `26.1.2`, `26.2`...                 | `26.0`, `25.x`...           |
-| <Range r="<=26.1" />       | At or below a version (inclusive)                                                                                                                                                             | `26.1`, `26.0`, `25.x`...                   | `26.1.2`, `26.2`...         |
-| <Range r=">26 <26.2" />    | Between two versions (both exclusive)                                                                                                                                                         | `26.1`, `26.1.2`, snapshots...              | `26`, `26.2`...             |
-| <Range r=">=26.1 <26.2" /> | Between two versions (inclusive lower bound)                                                                                                                                                  | `26.1`, `26.1.2`, snapshots...              | `26.0`, `26.2`...           |
-| <Range r="~26.1-rc.1" />   | Same to next minor version (equivalent to `>=26.1-rc.1 <26.2-`)                                                                                                                               | `26.1-rc.1`, `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...           |
-| <Range r="^26.2" />        | Same to next major version (equivalent to `>=26.2 <27`)                                                                                                                                       | `26.2`, `26.3`...                           | `26.1`, `25.x`, `27.x`...   |
-| <Range r="26.1.x" />       | Similar to `~26.1`, but _does_ match `26.1`'s snapshots. Equivalent to `~26.1-`. Only checks the `major` and `minor` components, and ignores anything specified after the `-` in the version. | `26.1-rc-3`, `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...           |
-| <Range r="1.x" />          | Similar to `^1`, but _does_ match `1.0.0`'s snapshots. Equivalent to `^1-`. Only checks the `major` component, and ignores anything specified after the `-` in the version.                   | `1.0.0-beta.4`, `1.0.0`, snapshots...       | `26.x`                      |
+| Range                      | Description                                                                                                                                  | Matches                                     | Clashes                        |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------------ |
+| <Range r="*" />            | Any version (not recommended)                                                                                                                | `26.1.2`, `24w14potato`...                  | _none_                         |
+| <Range r="26.1.2" />       | Exact version only                                                                                                                           | `26.1.2`                                    | `26.1`, `26.1.1`, `26.2`...    |
+| <Range r=">26" />          | Above a version (exclusive)                                                                                                                  | `26.1.2`, `26.2`...                         | `26`, `25.x`...                |
+| <Range r=">=26.1" />       | At or above a version (inclusive)                                                                                                            | `26.1`, `26.1.2`, `26.2`...                 | `26.0`, `25.x`...              |
+| <Range r="<=26.1" />       | At or below a version (inclusive)                                                                                                            | `26.1`, `26.0`, `25.x`...                   | `26.1.2`, `26.2`...            |
+| <Range r=">26 <26.2" />    | Between two versions (both exclusive)                                                                                                        | `26.1`, `26.1.2`, snapshots...              | `26`, `26.2`...                |
+| <Range r=">=26.1 <26.2" /> | Between two versions (inclusive lower bound)                                                                                                 | `26.1`, `26.1.2`, snapshots...              | `26.0`, `26.2`...              |
+| <Range r="~26.1-rc.2" />   | Same to next minor version, excluding earlier versions (equivalent to `>=26.1-rc.2 <26.2-`). Only checks the `major` and `minor` components. | `26.1-rc.2`, `26.1`, `26.1.2`, snapshots... | `26.1-rc.1`, `26.2`, `27.x`... |
+| <Range r="^26.2" />        | Same to next major version, excluding earlier versions (equivalent to `>=26.2 <27`). Only checks the `major` component.                      | `26.2`, `26.3`...                           | `26.1`, `25.x`, `27.x`...      |
+| <Range r="26.1.x" />       | Equivalent to `~26.1-`. Ignores anything specified after the `-` in the version. A `*` or `X` can be used in place of `x` if desired.        | `26.1-rc-3`, `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...              |
+| <Range r="1.x" />          | Equivalent to `^1-`. Ignores anything specified after the `-` in the version. A `*` or `X` can be used in place of `x` if desired.           | `1.0.0-beta.4`, `1.0.0`, snapshots...       | `26.x`                         |
+
+:::
+
+::: details Other Version Formats
+
+If a version does not conform to the extended SemVer supported by Fabric, it is treated as a string and compared lexicographically as per Java's [`String#compareTo`](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#compareTo-java.lang.String-) for sorting purposes,
+e.g. during mod loading where Fabric must decide which version to load.
+
+In this mode, the range operators `<` and `>` are not allowed. The other range operators behave as `=`, except for `*` which will continue to match any version.
+
+See an example [here](https://dexman545.github.io/outlet-database/floaderValidator.html?p=~alpha&mode=custom&c=alpha&c=beta&c=theta&c=0&c=alpha4&c=1.2.3).
+
+**Note:** It is encouraged to use the extended SemVer where possible to support version comparison and ranges!
 
 :::
 
