@@ -65,6 +65,17 @@ authors:
 
 <<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum_extension_abstract_method_impls_example_mixin
 
+### Доступ к текущему порядковому номеру перечисления {#accessing-current-enum-ordinal}
+
+Возможно, вам потребуется получить порядковый номер вашей добавленной константы enum, чтобы передать его в конструктор. Для этого в,
+Mixin предусмотрен метод `MixinIntrinsics.currentEnumOrdinal()`, который возвращает корректный индекс с учётом изменений, внесённых другими модами.
+
+В качестве примера давайте создадим миксин для ванильного `IllagerSpell` и добавим новое заклинание, порядковый номер которого будет передан первым аргументом в конструктор:
+
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/IllagerSpellMixin.java#enum_extension_current_enum_ordinal_example_mixin
+
+Теперь вы можете быть уверены, что `currentEnumOrdinal()` вернёт правильный индекс, даже если другой мод также расширит это же перечисление.
+
 ## Создание Class Tweaker {#making-the-class-tweaker-entry}
 
 Если вы работаете с перечислением Minecraft, вы можете использовать запись в твикере классов, чтобы визуально изменить целевое перечисление в декомпилированном исходном коде.
