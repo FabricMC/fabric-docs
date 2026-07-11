@@ -61,8 +61,8 @@ Making a method or field accessible also makes its class accessible.
 
 `extendable` can target classes and methods only:
 
-- Classes are made public and non-final
-- Methods are made protected and non-final, even if orginally public
+- Classes are made public and non-final.
+- Methods are made non-final, and protected if originally private.
 
 Making a method extendable also makes its class extendable.
 
