@@ -35,8 +35,8 @@ The following fields are mandatory for Fabric to load your mod.
 
 - **`schemaVersion`** Must be the first entry, and the value must always be `1`. Required for Fabric Loader to parse the file correctly.
 - **`id`** A string value that defines the mod's identifier. Must start with a letter. May only contain ASCII letters, digits, underscores, or hyphens. 2 to 64 characters.
-- **`version`** A string value that defines the mod's version, which is encouraged to match a superset of the [Semantic Versioning 2.0.0](https://semver.org/) specification supporting `n` components.
-  If it does not match the superset of Semantic Versioning,
+- **`version`** A string value that defines the mod's version, which is encouraged to match a superset of the [Semantic Versioning 2.0.0](https://semver.org/) specification supporting `n` components and arbitrary `build` contents.
+  If it does not match the superset of Semantic Versioning, it is treated as a string with no support for version ranges for depending mods.
 
 ```json
 "schemaVersion": 1,
