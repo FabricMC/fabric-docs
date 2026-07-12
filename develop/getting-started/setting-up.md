@@ -28,7 +28,7 @@ If you need help installing Java, you can refer to the [Java installation guides
 
 ## Set Up Your IDE {#set-up-your-ide}
 
-To start developing mods with Fabric, you will need to set up a development environment using IntelliJ IDEA (recommended), or alternatively Visual Studio Code or Zed.
+To start developing mods with Fabric, you will need to set up a development environment using IntelliJ IDEA (recommended), or alternatively Visual Studio Code.
 
 <ChoiceComponent :choices="[
   {
@@ -42,11 +42,5 @@ To start developing mods with Fabric, you will need to set up a development envi
     href: './vscode/setting-up',
     icon: 'codicon:vscode',
     color: '#007ACC',
-  },
-  {
-    name: 'Zed',
-    href: './zed/setting-up',
-    icon: 'simple-icons:zedindustries',
-    color: '#084CCF',
   },
 ]" />
