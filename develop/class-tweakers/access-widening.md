@@ -70,7 +70,7 @@ Making a method extendable also makes its class extendable.
 
 `mutable` can make a field non-final.
 
-## Using Multiple Access Directives For One Target {#using-multiple-access-directives-for-one-target)
+## Using Multiple Access Directives For One Target {#using-multiple-access-directives-for-one-target}
 
 To make a private final method both accessible and extendable or a private final field both accessible and mutable, you must make two separate entries in the file.
 
