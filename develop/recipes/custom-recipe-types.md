@@ -51,7 +51,7 @@ To test if the ingredients match, we can use the `test` method of our ingredient
 
 ## Creating a Recipe Serializer {#creating-a-recipe-serializer}
 
-The recipe serializer uses a [`MapCodec`](./codecs/#mapcodec) to read the recipe from JSON and a `StreamCodec` to send it over the network.
+The recipe serializer uses a [`MapCodec`](../serialization/codecs/#mapcodec) to read the recipe from JSON and a `StreamCodec` to send it over the network.
 
 We'll use `RecordCodecBuilder#mapCodec` to build a map codec for our recipe. It allows us to combine Minecraft's existing codecs into our own:
 
