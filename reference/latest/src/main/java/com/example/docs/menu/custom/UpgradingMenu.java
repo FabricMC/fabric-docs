@@ -89,9 +89,18 @@ public class UpgradingMenu extends AbstractContainerMenu {
 							result = recipeResult;
 						}
 					}
+				} else {
+					// We can set the used recipe to null if no recipe was found.
+					//noinspection DataFlowIssue
+					this.output.setRecipeUsed((ServerPlayer) this.player, null);
 				}
 
 				this.output.setItem(0, result);
+
+				/*
+				Alternatively, call broadcastChanges instead of setting the remote slot and sending a packet.
+				Based on how your Menu is structured, you may not need to manually call any syncing method, but it is recommended that you are very sure of yourself before you remove these calls to avoid server-client desyncs.
+				 */
 				this.setRemoteSlot(0, result);
 				((ServerPlayer) this.player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, this.incrementStateId(), 0, result));
 			}
