@@ -103,4 +103,4 @@ Once synchronized, recipes can be retrieved at any point from the client level's
 
 ## Workstations {#workstations}
 
-Want to create a custom workstation to go along with your recipe type? See [Workstations](./blocks/workstations).
+Want to create a custom workstation to go along with your recipe type? See [Workstations](../blocks/workstations).
