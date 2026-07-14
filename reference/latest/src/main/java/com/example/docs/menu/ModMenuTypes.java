@@ -11,7 +11,7 @@ import com.example.docs.ExampleMod;
 import com.example.docs.menu.custom.DirtChestMenu;
 
 // #region register_menu
-public class ExampleModMenuTypes {
+public class ModMenuTypes {
 	public static final MenuType<DirtChestMenu> DIRT_CHEST = register("dirt_chest", DirtChestMenu::new);
 
 	public static <T extends AbstractContainerMenu> MenuType<T> register(

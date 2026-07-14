@@ -8,7 +8,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-import com.example.docs.menu.ExampleModMenuTypes;
+import com.example.docs.menu.ModMenuTypes;
 
 // #region menu
 public class DirtChestMenu extends AbstractContainerMenu {
@@ -35,7 +35,7 @@ public class DirtChestMenu extends AbstractContainerMenu {
 
 	// Server-side constructor
 	public DirtChestMenu(final int containerId, final Inventory inventory, final Container container) {
-		super(ExampleModMenuTypes.DIRT_CHEST, containerId);
+		super(ModMenuTypes.DIRT_CHEST, containerId);
 		checkContainerSize(container, SLOTS_COUNT);
 		this.container = container;
 
