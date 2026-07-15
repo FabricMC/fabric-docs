@@ -254,7 +254,7 @@ This pattern changed with the release of `1.16-rc1`. Previously, Fabric normaliz
 | <Range r="26.1.x" />       | Equivalent to `~26.1-`.                                                                                                                      | `26.1-rc-3`, `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...              |
 | <Range r="1.x" />          | Equivalent to `^1-`.                                                                                                                         | `1.0.0-beta.4`, `1.0.0`, snapshots...       | `26.x`                         |
 
-**Note:** The `.x` operator does not work if a prerelease component (e.g. `26.1.x-rc.1`) is included, as it causes the range to be treated as a String version (See Other Version Formats below). A `*` or `X` can be used in place of `x` if desired.
+**Note:** The `.x` operator does not work if a prerelease component (e.g. `26.1.x-rc.1`) is included; instead, the range is treated as a plain string (See Other Version Formats below). `.*`, `.x`, or `.X` can be used interchangeably.
 As of Fabric Loader `0.19.3`, there is a bug where the `.x` operator does not work correctly for versions with more than 3 components. This will be [fixed in a future version](https://github.com/FabricMC/fabric-loader/pull/1157).
 
 :::
