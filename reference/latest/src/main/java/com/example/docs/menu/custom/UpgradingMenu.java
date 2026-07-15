@@ -19,6 +19,8 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 
+import com.example.docs.block.ModBlocks;
+import com.example.docs.menu.ModMenuTypes;
 import com.example.docs.recipe.ExampleModRecipes;
 import com.example.docs.recipe.UpgradingRecipe;
 import com.example.docs.recipe.UpgradingRecipeInput;
@@ -45,7 +47,7 @@ public class UpgradingMenu extends AbstractContainerMenu {
 	}
 
 	public UpgradingMenu(int containerId, Inventory inventory, ContainerLevelAccess access) {
-		super(ExampleModRecipes.UPGRADING_MENU_TYPE, containerId);
+		super(ModMenuTypes.UPGRADING_MENU_TYPE, containerId);
 
 		this.access = access;
 		this.player = inventory.player;
@@ -114,7 +116,7 @@ public class UpgradingMenu extends AbstractContainerMenu {
 
 	@Override
 	public boolean stillValid(Player player) {
-		return stillValid(this.access, player, ExampleModRecipes.UPGRADING_BLOCK);
+		return stillValid(this.access, player, ModBlocks.UPGRADING_BLOCK);
 	}
 
 	@Override

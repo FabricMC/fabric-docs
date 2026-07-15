@@ -33,6 +33,7 @@ import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
 import com.example.docs.block.custom.FriendsBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
+import com.example.docs.block.custom.UpgradingBlock;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.damage.TaterBlock;
 import com.example.docs.fluid.ModFluids;
@@ -82,6 +83,12 @@ public class ModBlocks {
 	public static final Block DIRT_CHEST_BLOCK = register(
 			"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
 	);
+
+	// #region workstation
+	public static final Block UPGRADING_BLOCK = register(
+			"upgrading_block", UpgradingBlock::new, BlockBehaviour.Properties.of(), true
+	);
+	// #endregion workstation
 
 	public static final Block DUPLICATOR_BLOCK = register(
 			"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true

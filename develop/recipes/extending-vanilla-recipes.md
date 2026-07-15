@@ -3,6 +3,7 @@ title: Extending Vanilla Recipes
 description: Learn how to make custom recipes for pre-existing workstations.
 authors:
   - ekulxam
+  - lynndova
 resources:
   https://docs.neoforged.net/docs/resources/server/recipes/builtin/: Built-In Recipe Types - NeoForge Docs
 ---

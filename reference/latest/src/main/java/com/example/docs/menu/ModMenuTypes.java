@@ -9,6 +9,7 @@ import net.minecraft.world.inventory.MenuType;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.menu.custom.DirtChestMenu;
+import com.example.docs.menu.custom.UpgradingMenu;
 
 // #region register_menu
 public class ModMenuTypes {
@@ -21,6 +22,10 @@ public class ModMenuTypes {
 		return Registry.register(BuiltInRegistries.MENU, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name), new MenuType<>(constructor, FeatureFlagSet.of()));
 	}
 	// #endregion register_menu
+
+	// #region upgrading_menu_registration
+	public static final MenuType<UpgradingMenu> UPGRADING_MENU_TYPE = register("upgrading", UpgradingMenu::new);
+	// #endregion upgrading_menu_registration
 
 	public static void initialize() {
 	}

@@ -3,8 +3,8 @@ title: Custom Recipe Types
 description: Learn how to create a custom recipe type.
 authors:
   - cassiancc
-  - skippyall
   - ekulxam
+  - skippyall
 resources:
   https://docs.neoforged.net/docs/resources/server/recipes/custom/: Custom Recipes - NeoForge Docs
 ---
@@ -13,7 +13,7 @@ resources:
 
 ::: warning
 
-If you are trying to add a custom recipe type for a Vanilla workstation, please see [Extending Vanilla Recipes](extending-vanilla-recipes).
+If you are trying to add a custom recipe type for a Vanilla workstation, please see [Extending Vanilla Recipes](./extending-vanilla-recipes).
 
 :::
 
