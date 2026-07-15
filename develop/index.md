@@ -30,10 +30,12 @@ Before you start modding with Fabric, you need to have some understanding of dev
 
 Here are some resources that might help you familiarize with Java and OOP:
 
-- [W3: Java Tutorials](https://www.w3schools.com/java/)
+- [University of Helsinki: Java Programming MOOC](https://java-programming.mooc.fi/)
+- [Java Platform Group at Oracle: Learn Java](https://dev.java/learn/)
 - [Codecademy: Learn Java](https://www.codecademy.com/learn/learn-java)
-- [W3: Java OOP](https://www.w3schools.com/java/java_oop.asp)
-- [Medium: Introduction to OOP](https://medium.com/@Adekola_Olawale/beginners-guide-to-object-oriented-programming-a94601ea2fbd)
+- [Duke University (via Coursera): Java Programming and Software Engineering Fundamentals](https://www.coursera.org/specializations/java-programming)
+- [freeCodeCamp (YouTube): Java Programming for Beginners](https://www.youtube.com/watch?v=A74TOX803D0)
+- [Modern Java (Online textbook)](https://javabook.mccue.dev/)
 
 ## What Does Fabric Offer? {#what-does-fabric-offer}
 
