@@ -58,7 +58,7 @@ In such case, you can use Java's inbuilt `javap` to view bytecode.
 
     It might look something like this:
 
-    ```:no-line-numbers
+    ```text:no-line-numbers
     C:/project/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-503b555a3d/1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2/minecraft-merged-503b555a3d-1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.jar
     ```
 

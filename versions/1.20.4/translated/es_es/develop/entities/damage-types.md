@@ -15,7 +15,7 @@ Los tipos de daño definen los tipos de daño que pueden tomar las entidades. De
 
 Procedamos a crear un nuevo tipo de daño llamado _Tater_. Empezaremos creando el archivo JSON para tu tipo de daño. Este archivo será puesto en el folder de `data` de tu mod, en un sub-folder llamado `damage_types`.
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/data/example-mod/damage_type/tater.json
 ```
 
@@ -85,7 +85,7 @@ Agreguemos nuestro tipo de daño de Tater al tag de `bypasses_armor`.
 
 Para agregar nuestro tipo de daño a uno de estos tags, crearemos un archivo JSON bajo el namespace de `minecraft`.
 
-```:no-line-numbers
+```text:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
 ```
 
