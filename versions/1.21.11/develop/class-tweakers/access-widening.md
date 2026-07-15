@@ -88,7 +88,7 @@ The names of targets need to correspond to your current mappings.
 
 Format:
 
-```txt:no-line-numbers
+```text:no-line-numbers
 <accessible / extendable>    class    <className>
 ```
 
@@ -100,7 +100,7 @@ Example:
 
 Format:
 
-```txt:no-line-numbers
+```text:no-line-numbers
 <accessible / extendable>    method    <className>    <methodName>    <methodDescriptor>
 ```
 
@@ -112,7 +112,7 @@ Example:
 
 Format:
 
-```txt:no-line-numbers
+```text:no-line-numbers
 <accessible / mutable>    field    <className>    <fieldName>    <fieldDescriptor>
 ```
 
