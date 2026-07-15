@@ -266,7 +266,7 @@ e.g. during mod loading where Fabric must decide which version to load.
 
 In this mode, the range operators `<` and `>` are not allowed. The other range operators behave as `=`, except for `*` which will continue to match any version.
 
-See an example [here](https://dexman545.github.io/outlet-database/floaderValidator.html?p=~alpha&mode=custom&c=alpha&c=beta&c=theta&c=0&c=alpha4&c=1.2.3).
+See an [example of a plain string version](https://dexman545.github.io/outlet-database/floaderValidator?p=~alpha&mode=custom&c=alpha&c=beta&c=theta&c=0&c=alpha4&c=1.2.3).
 
 **Note:** It is encouraged to use the extended SemVer where possible to support version comparison and ranges!
 
