@@ -45,6 +45,6 @@
     "stylelint-plugin-use-baseline": "^1.4.4",
     "stylelint-use-nesting": "^6.0.2",
     "tsx": "^4.23.0",
-    "typescript": "^7.0.2"
+    "typescript": "^6.0.3"
   }
 }
