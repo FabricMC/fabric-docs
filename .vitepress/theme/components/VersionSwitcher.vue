@@ -36,14 +36,12 @@ const button = computed(() => {
 });
 
 // TODO: add future versions to the supported pages
-const versions = computed(() =>
-  [
-    props.versioningPlugin.latestVersion,
-    ...(typeof env.value === "number"
-      ? []
-      : props.versioningPlugin.versions.toSorted(collator.compare).reverse()),
-  ].filter((v) => !["1.21.10", "1.21.8", "1.21.4"].includes(v))
-);
+const versions = computed(() => [
+  props.versioningPlugin.latestVersion,
+  ...(typeof env.value === "number"
+    ? []
+    : props.versioningPlugin.versions.toSorted(collator.compare).reverse()),
+]);
 
 const open = ref(false);
 
