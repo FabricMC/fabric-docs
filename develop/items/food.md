@@ -37,7 +37,9 @@ If you want to add mob effects to the player when they eat your food, you will n
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_food
 
-Similar to the example in the [Creating Your First Item](./first-item) page, I'll be using the above component:
+Similar to the example in the [Creating Your First Item](./first-item) page, we'll be using the above component:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#poisonous_apple
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#poisonous_apple
 

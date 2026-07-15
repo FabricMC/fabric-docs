@@ -1,0 +1,25 @@
+{
+  "required": true,
+  "package": "com.example.docs.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "ExampleMixin",
+    "accessor.ClientboundCustomPayloadPacketAccessor",
+    "accessor.IdentifierAccessor",
+    "accessor.InventoryAccessor",
+    "accessor.ShulkerBoxBlockAccessor",
+    "class_tweakers.ConversionTypeMixin",
+    "class_tweakers.FlowingFluidMixin",
+    "class_tweakers.RecipeBookTypeMixin",
+    "class_tweakers.RecipeCategoryMixin",
+    "class_tweakers.ConversionTypeMixin",
+    "class_tweakers.IllagerSpellMixin",
+    "event.SheepMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

@@ -1,0 +1,540 @@
+{
+  "/cs_cz/develop/": [
+    {
+      "text": "Developer Guides",
+      "link": "/cs_cz/develop/",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Creating a Project",
+          "link": "/cs_cz/develop/getting-started/creating-a-project"
+        },
+        {
+          "text": "Project Structure",
+          "link": "/cs_cz/develop/getting-started/project-structure"
+        },
+        {
+          "text": "Setting Up Your IDE",
+          "link": "/cs_cz/develop/getting-started/setting-up"
+        },
+        {
+          "text": "Opening a Project",
+          "link": "/cs_cz/develop/getting-started/opening-a-project"
+        },
+        {
+          "text": "Launching the Game",
+          "link": "/cs_cz/develop/getting-started/launching-the-game"
+        },
+        {
+          "text": "Generating Sources",
+          "link": "/cs_cz/develop/getting-started/generating-sources"
+        },
+        {
+          "text": "Building a Mod",
+          "link": "/cs_cz/develop/getting-started/building-a-mod"
+        },
+        {
+          "text": "IDE Tips and Tricks",
+          "link": "/cs_cz/develop/getting-started/tips-and-tricks"
+        }
+      ]
+    },
+    {
+      "text": "Items",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Item",
+          "link": "/cs_cz/develop/items/first-item",
+          "items": [
+            {
+              "text": "Custom Food",
+              "link": "/cs_cz/develop/items/food"
+            },
+            {
+              "text": "Custom Potions",
+              "link": "/cs_cz/develop/items/potions"
+            },
+            {
+              "text": "Custom Spawn Eggs",
+              "link": "/cs_cz/develop/items/spawn-egg"
+            },
+            {
+              "text": "Custom Tools",
+              "link": "/cs_cz/develop/items/custom-tools"
+            },
+            {
+              "text": "Custom Armor",
+              "link": "/cs_cz/develop/items/custom-armor"
+            }
+          ]
+        },
+        {
+          "text": "Item Models",
+          "link": "/cs_cz/develop/items/item-models"
+        },
+        {
+          "text": "Item Appearance",
+          "link": "/cs_cz/develop/items/item-appearance"
+        },
+        {
+          "text": "Custom Creative Tabs",
+          "link": "/cs_cz/develop/items/custom-creative-tabs"
+        },
+        {
+          "text": "Custom Item Interactions",
+          "link": "/cs_cz/develop/items/custom-item-interactions"
+        },
+        {
+          "text": "Custom Enchantment Effects",
+          "link": "/cs_cz/develop/items/custom-enchantment-effects"
+        },
+        {
+          "text": "Custom Data Components",
+          "link": "/cs_cz/develop/items/custom-data-components"
+        }
+      ]
+    },
+    {
+      "text": "Blocks",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Block",
+          "link": "/cs_cz/develop/blocks/first-block"
+        },
+        {
+          "text": "Block Models",
+          "link": "/cs_cz/develop/blocks/block-models"
+        },
+        {
+          "text": "Block States",
+          "link": "/cs_cz/develop/blocks/blockstates"
+        },
+        {
+          "text": "Block Entities",
+          "link": "/cs_cz/develop/blocks/block-entities",
+          "items": [
+            {
+              "text": "Block Entity Renderers",
+              "link": "/cs_cz/develop/blocks/block-entity-renderer"
+            },
+            {
+              "text": "Block Containers",
+              "link": "/cs_cz/develop/blocks/block-containers"
+            },
+            {
+              "text": "Container Menus",
+              "link": "/cs_cz/develop/blocks/container-menus"
+            }
+          ]
+        },
+        {
+          "text": "Block Tinting",
+          "link": "/cs_cz/develop/blocks/block-tinting"
+        }
+      ]
+    },
+    {
+      "text": "Fluids",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Fluid",
+          "link": "/cs_cz/develop/fluids/first-fluid"
+        }
+      ]
+    },
+    {
+      "text": "Entities",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Your First Entity",
+          "link": "/cs_cz/develop/entities/first-entity"
+        },
+        {
+          "text": "Attributes",
+          "link": "/cs_cz/develop/entities/attributes"
+        },
+        {
+          "text": "Mob Effects",
+          "link": "/cs_cz/develop/entities/effects"
+        },
+        {
+          "text": "Damage Types",
+          "link": "/cs_cz/develop/entities/damage-types"
+        }
+      ]
+    },
+    {
+      "text": "Sounds",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Playing Sounds",
+          "link": "/cs_cz/develop/sounds/using-sounds"
+        },
+        {
+          "text": "Creating Custom Sounds",
+          "link": "/cs_cz/develop/sounds/custom"
+        },
+        {
+          "text": "Dynamic Sounds",
+          "link": "/cs_cz/develop/sounds/dynamic-sounds"
+        }
+      ]
+    },
+    {
+      "text": "Commands",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Creating Commands",
+          "link": "/cs_cz/develop/commands/basics"
+        },
+        {
+          "text": "Command Arguments",
+          "link": "/cs_cz/develop/commands/arguments"
+        },
+        {
+          "text": "Command Suggestions",
+          "link": "/cs_cz/develop/commands/suggestions"
+        }
+      ]
+    },
+    {
+      "text": "Rendering",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Basic Rendering Concepts",
+          "link": "/cs_cz/develop/rendering/basic-concepts"
+        },
+        {
+          "text": "Drawing to the GUI",
+          "link": "/cs_cz/develop/rendering/gui-graphics"
+        },
+        {
+          "text": "Rendering in the HUD",
+          "link": "/cs_cz/develop/rendering/hud"
+        },
+        {
+          "text": "Rendering in the World",
+          "link": "/cs_cz/develop/rendering/world"
+        },
+        {
+          "text": "GUIs and Screens",
+          "items": [
+            {
+              "text": "Custom Screens",
+              "link": "/cs_cz/develop/rendering/gui/custom-screens"
+            },
+            {
+              "text": "Custom Widgets",
+              "link": "/cs_cz/develop/rendering/gui/custom-widgets"
+            }
+          ]
+        },
+        {
+          "text": "Particles",
+          "items": [
+            {
+              "text": "Creating Custom Particles",
+              "link": "/cs_cz/develop/rendering/particles/creating-particles"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Data Generation",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Data Generation Setup",
+          "link": "/cs_cz/develop/data-generation/setup"
+        },
+        {
+          "text": "Client Resources",
+          "items": [
+            {
+              "text": "Translation Generation",
+              "link": "/cs_cz/develop/data-generation/translations"
+            },
+            {
+              "text": "Model Generation",
+              "items": [
+                {
+                  "text": "Block Model Generation",
+                  "link": "/cs_cz/develop/data-generation/block-models"
+                },
+                {
+                  "text": "Item Model Generation",
+                  "link": "/cs_cz/develop/data-generation/item-models"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Server Resources",
+          "items": [
+            {
+              "text": "Advancement Generation",
+              "link": "/cs_cz/develop/data-generation/advancements"
+            },
+            {
+              "text": "Enchantment Generation",
+              "link": "/cs_cz/develop/data-generation/enchantments"
+            },
+            {
+              "text": "Loot Table Generation",
+              "link": "/cs_cz/develop/data-generation/loot-tables"
+            },
+            {
+              "text": "Recipe Generation",
+              "link": "/cs_cz/develop/data-generation/recipes"
+            },
+            {
+              "text": "Tag Generation",
+              "link": "/cs_cz/develop/data-generation/tags"
+            },
+            {
+              "text": "World Generation",
+              "items": [
+                {
+                  "text": "Feature Generation",
+                  "link": "/cs_cz/develop/data-generation/features"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Serialization",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Codecs",
+          "link": "/cs_cz/develop/serialization/codecs"
+        },
+        {
+          "text": "Data Attachments",
+          "link": "/cs_cz/develop/serialization/data-attachments"
+        },
+        {
+          "text": "Saved Data",
+          "link": "/cs_cz/develop/serialization/saved-data"
+        }
+      ]
+    },
+    {
+      "text": "Loom",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/cs_cz/develop/loom/"
+        },
+        {
+          "text": "Fabric API DSL",
+          "link": "/cs_cz/develop/loom/fabric-api"
+        },
+        {
+          "text": "Extension Options",
+          "link": "/cs_cz/develop/loom/options"
+        },
+        {
+          "text": "Production Run Tasks",
+          "link": "/cs_cz/develop/loom/production-run-tasks"
+        },
+        {
+          "text": "Classpath Groups",
+          "link": "/cs_cz/develop/loom/classpath-groups"
+        },
+        {
+          "text": "Other Tasks",
+          "link": "/cs_cz/develop/loom/tasks"
+        }
+      ]
+    },
+    {
+      "text": "Loader",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/cs_cz/develop/loader/"
+        },
+        {
+          "text": "fabric.mod.json",
+          "link": "/cs_cz/develop/loader/fabric-mod-json"
+        }
+      ]
+    },
+    {
+      "text": "Porting",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Porting to 26.1",
+          "link": "/cs_cz/develop/porting/",
+          "items": [
+            {
+              "text": "Fabric API",
+              "link": "/cs_cz/develop/porting/fabric-api"
+            }
+          ]
+        },
+        {
+          "text": "Migrating Mappings",
+          "link": "/cs_cz/develop/porting/mappings/",
+          "items": [
+            {
+              "text": "Loom (Gradle)",
+              "link": "/cs_cz/1.21.11/develop/porting/mappings/loom"
+            },
+            {
+              "text": "Ravel (IntelliJ IDEA)",
+              "link": "/cs_cz/1.21.11/develop/porting/mappings/ravel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Mixins",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Java Bytecode",
+          "link": "/cs_cz/develop/mixins/bytecode"
+        },
+        {
+          "text": "Accessors",
+          "link": "/cs_cz/develop/mixins/accessors"
+        }
+      ]
+    },
+    {
+      "text": "Class Tweakers",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/cs_cz/develop/class-tweakers/"
+        },
+        {
+          "text": "Access Widening",
+          "link": "/cs_cz/develop/class-tweakers/access-widening"
+        },
+        {
+          "text": "Interface Injection",
+          "link": "/cs_cz/develop/class-tweakers/interface-injection"
+        },
+        {
+          "text": "Enum Extension",
+          "link": "/cs_cz/develop/class-tweakers/enum-extension"
+        }
+      ]
+    },
+    {
+      "text": "Miscellaneous Pages",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Automated Testing",
+          "link": "/cs_cz/develop/automatic-testing"
+        },
+        {
+          "text": "Custom Recipe Types",
+          "link": "/cs_cz/develop/custom-recipe-types"
+        },
+        {
+          "text": "Debugging Mods",
+          "link": "/cs_cz/develop/debugging"
+        },
+        {
+          "text": "Events",
+          "link": "/cs_cz/develop/events"
+        },
+        {
+          "text": "Game Rules",
+          "link": "/cs_cz/develop/game-rules"
+        },
+        {
+          "text": "Key Mappings",
+          "link": "/cs_cz/develop/key-mappings"
+        },
+        {
+          "text": "Networking",
+          "link": "/cs_cz/develop/networking"
+        },
+        {
+          "text": "Resource Conditions",
+          "link": "/cs_cz/develop/resource-conditions"
+        },
+        {
+          "text": "Statistics",
+          "link": "/cs_cz/develop/statistics"
+        },
+        {
+          "text": "Text and Translations",
+          "link": "/cs_cz/develop/text-and-translations"
+        }
+      ]
+    }
+  ],
+  "/cs_cz/players/": [
+    {
+      "text": "Player Guides",
+      "link": "/cs_cz/players/",
+      "items": [
+        {
+          "text": "Installing Java",
+          "link": "/cs_cz/players/installing-java/"
+        },
+        {
+          "text": "Installing Fabric",
+          "link": "/cs_cz/players/installing-fabric/"
+        },
+        {
+          "text": "Updating Fabric",
+          "link": "/cs_cz/players/updating-fabric/"
+        },
+        {
+          "text": "Finding Mods",
+          "link": "/cs_cz/players/finding-mods"
+        },
+        {
+          "text": "Installing Mods",
+          "link": "/cs_cz/players/installing-mods"
+        },
+        {
+          "text": "Troubleshooting",
+          "items": [
+            {
+              "text": "Uploading Logs",
+              "link": "/cs_cz/players/troubleshooting/uploading-logs"
+            },
+            {
+              "text": "Crash Reports",
+              "link": "/cs_cz/players/troubleshooting/crash-reports"
+            },
+            {
+              "text": "Dependency Overrides",
+              "link": "/cs_cz/players/troubleshooting/dependency-overrides"
+            }
+          ]
+        },
+        {
+          "text": "Frequently Asked Questions",
+          "link": "/cs_cz/players/faq"
+        }
+      ]
+    }
+  ]
+}

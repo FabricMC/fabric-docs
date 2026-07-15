@@ -21,9 +21,9 @@ This constant will be used in the `Item.Properties#maxDamage(int damageValue)` m
 
 If you're struggling to determine a balanced base durability, you can refer to the vanilla armor material instances found in the `ArmorMaterials` interface.
 
-### Equipment Asset Registry Key {#equipment-asset-registry-key}
+### Equipment Asset Resource Key {#equipment-asset-resource-key}
 
-Even though we don't have to register our `ArmorMaterial` to any registries, it's generally good practice to store any registry keys as constants, as the game will use this to find the relevant textures for our armor.
+Even though we don't have to register our `ArmorMaterial` to any registries, it's generally good practice to store any resource keys as constants, as the game will use this to find the relevant textures for our armor.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#material_key
 
@@ -63,6 +63,8 @@ Obviously, an armor set doesn't need every type to be satisfied, you can have a 
 Unlike `ToolMaterial`, `ArmorMaterial` does not store any information about the durability of items. For this reason the base durability needs to be manually added to the armor items' `Item.Properties` when registering them.
 
 This is achieved by passing the `BASE_DURABILITY` constant we created previously into the `maxDamage` method in the `Item.Properties` class.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#create_armor_items
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items
 
@@ -128,3 +130,17 @@ With the textures and equipment model definition present, you should be able to 
 ![Working armor model on player](/assets/develop/items/armor_3.png)
 
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
+
+## Tagging Armor Items {#tags}
+
+::: info PREREQUISITES
+
+For more information, see the documentation on generating [item tags](../data-generation/tags).
+
+:::
+
+It's also recommended to place your armor in the appropriate item tags. Armor pieces have their own individual tags, such as `ItemTags.CHEST_ARMOR`, which are used for enchantability.
+
+In your item tag provider, add the following lines to `addTags`:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#armor_tags

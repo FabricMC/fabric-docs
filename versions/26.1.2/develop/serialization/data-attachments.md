@@ -1,0 +1,82 @@
+---
+title: Data Attachments
+description: A guide covering basic usage of Fabric's new Data Attachment API.
+authors:
+  - cassiancc
+  - DennisOchulor
+---
+
+The Data Attachment API provided by Fabric API allows developers to easily attach arbitrary data to Entities, Block Entities, Levels, and Chunks. The attached data can be stored and synced through [Codecs](./codecs) and [Stream Codecs](https://docs.neoforged.net/docs/networking/streamcodecs/), so you should familiarize yourself with those before using it.
+
+::: info
+
+For server-wide data not tied to any specific Level, Fabric provides `GlobalAttachments` obtained via `Level.globalAttachments()` or `MinecraftServer.globalAttachments()`.
+
+:::
+
+## Creating a Data Attachment {#creating-attachments}
+
+You'll start with a call to `AttachmentRegistry.create`. The following example creates a basic Data Attachment that does not sync or persist across restarts.
+
+<<< @/reference/26.1.2/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#string
+
+`AttachmentRegistry` contains a few methods for creating basic Data Attachments, including:
+
+- `AttachmentRegistry.create()`: Creates a Data Attachment. Restarting the game will clear the Attachment.
+- `AttachmentRegistry.createPersistent()`: Creates a Data Attachment that will persist between game restarts.
+- `AttachmentRegistry.createDefaulted()`: Creates a Data Attachment with a default value, which you can read with `getAttachedOrCreate`. Restarting the game will clear the Attachment.
+
+The behavior of each method can also be replicated and further customized with the `builder` parameter of `create`, by applying the [method chaining pattern](https://en.wikipedia.org/wiki/Method_chaining).
+
+### Syncing a Data Attachment {#syncing-attachments}
+
+If you need a Data Attachment to both be persistent and synced between server and clients, you can set that behavior using the `create` method, which allows configuration through a `builder` chain. For example:
+
+<<< @/reference/26.1.2/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#pos
+
+The example above synced to every player, but that might not fit your use case. Here are some other default predicates, but you can also build your own by referencing the `AttachmentSyncPredicate` class.
+
+- `AttachmentSyncPredicate.all()`: Syncs the Attachment with all clients.
+- `AttachmentSyncPredicate.targetOnly()`: Syncs the Attachment only with the target it is attached to. Note that the syncing can only happen if the target is a player.
+- `AttachmentSyncPredicate.allButTarget()`: Syncs the Attachment with every client except the target it is attached to. Note that the exception can only apply if the target is a player.
+
+### Persisting Data Attachments {#persisting-attachments}
+
+Data Attachments can also be set to persist across game restarts by calling the `persistent` method on the builder chain. It takes in a `Codec` so that the game knows how to serialize the data.
+
+They can be set to perdure even after the death or [conversion](https://minecraft.wiki/w/Mob_conversion) of the target with the `copyOnDeath` method.
+
+<<< @/reference/26.1.2/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#persistent
+
+## Reading From a Data Attachment {#reading-attachments}
+
+Methods to read from a Data Attachment have been injected onto the `Entity`, `BlockEntity`, `ServerLevel` and `ChunkAccess` classes. Using it is as simple as calling one of the methods, which return the value of the attached data.
+
+<<< @/reference/26.1.2/src/main/java/com/example/docs/Unreferenced.java#reading_entity_attachments
+
+## Writing To a Data Attachment {#writing-attachments}
+
+Methods to write to a Data Attachment have been injected onto the `Entity`, `BlockEntity`, `ServerLevel` and `ChunkAccess` classes. Calling one of the following methods will update the value of the attached data, and return the previous value (or `null` if there wasn't one).
+
+<<< @/reference/26.1.2/src/main/java/com/example/docs/Unreferenced.java#writing_entity_attachments
+
+::: warning
+
+You should always use values with immutable types for Data Attachments, and you should also update them with API methods only. Doing otherwise may cause the Data Attachment to not persist or sync properly.
+
+:::
+
+## Larger Attachments {#larger-attachments}
+
+Although Data Attachments could store any form of data for which a Codec can be written, they shine when syncing individual values. This is because a Data Attachment is immutable: modifying part of its value (for example a single field of an object) means replacing it entirely, triggering a full sync to every client tracking it.
+
+Instead, you could achieve more intricate Attachments by splitting them into multiple fields, and organizing them with a helper class. For example, if you need two fields related to a player's stamina, you may build something like this:
+
+<<< @/reference/26.1.2/src/main/java/com/example/docs/attachment/Stamina.java#stamina
+
+This helper class can then be used like so:
+
+```java
+Player player = getPlayer();
+Stamina.get(player).getCurrentStamina();
+```

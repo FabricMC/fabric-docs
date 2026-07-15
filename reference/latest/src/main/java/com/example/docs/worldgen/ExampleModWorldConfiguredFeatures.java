@@ -82,8 +82,10 @@ public class ExampleModWorldConfiguredFeatures {
 				BlockStateProvider.simple(Blocks.GOLD_BLOCK),
 				new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3),
 
-				new TwoLayersFeatureSize(0, 0, 0)
-		).build();
+				new TwoLayersFeatureSize(0, 0, 0),
+				// Block underneath the tree
+				BlockStateProvider.simple(Blocks.DIRT)
+				).build();
 		// #endregion datagen_world_tree_feature_config
 
 		// #region datagen_world_tree_register
