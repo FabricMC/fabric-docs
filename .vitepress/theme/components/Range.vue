@@ -7,7 +7,9 @@ const props = defineProps<{ r: string }>();
 
 const data = useData();
 
-const href = computed(() => `https://dexman545.github.io/outlet-database/floaderValidator?mode=minecraft&p=${encodeURIComponent(props.r)}`);
+const href = computed(() => {
+  return `https://dexman545.github.io/outlet-database/floaderValidator.html?mode=minecraft&p=${encodeURIComponent(props.r)}`;
+});
 </script>
 
 <template>
