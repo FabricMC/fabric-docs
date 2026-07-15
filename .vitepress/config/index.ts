@@ -4,9 +4,9 @@ import * as path from "node:path";
 import * as process from "node:process";
 import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json";
 import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json";
-import { SiteConfig } from "vitepress";
+import { defineConfig, SiteConfig } from "vitepress";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
-import defineVersionedConfig from "vitepress-versioning-plugin";
+//import defineVersionedConfig from "vitepress-versioning-plugin";
 import { transformFile, transformFilesPlugin } from "../plugins/transformFiles";
 import { Fabric } from "../types.d";
 import { getBuildTransformHead, getClientTransformHead } from "./head";
@@ -40,7 +40,7 @@ const hostname =
 
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
-export default defineVersionedConfig(
+export default defineConfig(
   {
     // Removes .html from the end of URLs.
     cleanUrls: true,
@@ -156,6 +156,6 @@ export default defineVersionedConfig(
         },
       },
     },
-  } as Fabric.Config,
-  path.resolve(import.meta.dirname, "..")
+  } as Fabric.Config as any,
+  //path.resolve(import.meta.dirname, "..")
 );
