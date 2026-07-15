@@ -227,7 +227,7 @@ The key of each entry is the mod ID of the dependency.
 
 The value of each key is a string or array of strings declaring supported version ranges of the dependency. If it's an array, only one of the ranges has to match for the constraint to be satisfied.
 
-An extended version of Semantic Versioning supporting `n` components instead of 3 is used (versions like `1.2.3.4` are supported. When comparing versions of different component lengths, an implicit component of `0` is used when one is missing. E.g. `1.2` = `1.2.0`)
+Fabric uses a superset of Semantic Versioning to support any number of components; for example, versions like `1.2.3.4` are supported. When comparing versions with a different number of components, they are padded on the right with `0`; for example, `26.1` = `26.1.0`
 
 To match all prerelease components in range, a `-` followed by nothing is used, as it will match to the earliest prerelease. E.g. to get only the `26.2` snapshots, the range `>26.2- <26.2` can be used.
 
