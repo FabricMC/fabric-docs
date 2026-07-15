@@ -47,7 +47,7 @@ jobs:
       - uses: pnpm/action-setup@58e6119fe4f3092a76a7771efb55e04d25b6b26f
         with:
           run_install: true
-      - run: npx prettier --write .
+      - run: pnpm exec prettier --write .
       - run: |
           readarray -d "" files < <(git ls-files --modified --others --exclude-standard -z)
           [[ ${#files[@]} -eq 0 ]] && exit 0
@@ -66,4 +66,4 @@ jobs:
       - uses: pnpm/action-setup@58e6119fe4f3092a76a7771efb55e04d25b6b26f
         with:
           run_install: true
-      - run: npx stylelint ".vitepress/theme/**/*.{css,vue}" "**/*.md"
+      - run: pnpm exec stylelint ".vitepress/theme/**/*.{css,vue}" "**/*.md"
