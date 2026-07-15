@@ -2,8 +2,8 @@ import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
-//import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json";
-//import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json";
+import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json";
+import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json";
 import { SiteConfig } from "vitepress";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
@@ -76,8 +76,8 @@ export default defineVersionedConfig(
       image: { lazyLoading: true },
       languageAlias: { classtweaker: "text", gradle: "groovy" },
       languages: [
-//        { ...(mcfunction as any), name: "mcfunction" },
-//        { ...(bytecode as any), name: "bytecode" },
+        { ...(mcfunction as any), name: "mcfunction" },
+        { ...(bytecode as any), name: "bytecode" },
       ],
       lineNumbers: true,
       shikiSetup: async (shiki) => {
