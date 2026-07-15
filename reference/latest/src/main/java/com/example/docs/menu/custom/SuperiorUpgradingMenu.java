@@ -20,7 +20,7 @@ public class SuperiorUpgradingMenu extends UpgradingMenu {
 	private static final int INPUT_SLOTS_COUNT = 2;
 	private static final int RESULT_SLOT = 0;
 	private static final int INPUT_SLOTS_START = RESULT_SLOT + 1; // 1
-	private static final int INPUT_SLOTS_END = INPUT_SLOTS_COUNT + INPUT_SLOTS_START; // 3
+	private static final int INPUT_SLOTS_END = INPUT_SLOTS_START + INPUT_SLOTS_COUNT; // 3
 	private static final int INVENTORY_START = INPUT_SLOTS_END; // 3
 	private static final int INVENTORY_END = INVENTORY_START + 27; // 30
 	private static final int HOTBAR_START = INVENTORY_END; // 30
