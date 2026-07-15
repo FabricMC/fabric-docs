@@ -230,7 +230,7 @@ The value of each key is a string or array of strings declaring supported versio
 
 Fabric uses a superset of Semantic Versioning to support any number of components; for example, versions like `1.2.3.4` are supported. When comparing versions with a different number of components, they are padded on the right with `0`; for example, `26.1` = `26.1.0`
 
-To match all prerelease components in range, a `-` followed by nothing is used, as it will match to the earliest prerelease. E.g. to get only the `26.2` snapshots, the range `>26.2- <26.2` can be used.
+To match all prerelease components in range, suffix the range with `-`; for example, to get the `26.2` snapshots only, use the range `>26.2- <26.2`.
 
 Build metadata, that is whatever follows the `+` in a version, is ignored for version comparison. E.g. `0.154+26.3` and `0.154+26.2` are equivalent.
 
