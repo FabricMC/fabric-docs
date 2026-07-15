@@ -231,7 +231,7 @@ Fabric uses a superset of Semantic Versioning to support any number of component
 
 To match all prerelease components in range, a `-` followed by nothing is used, as it will match to the earliest prerelease. E.g. to get only the `26.2` snapshots, the range `>26.2- <26.2` can be used.
 
-Build metadata, the parts following the `+` in a version, are ignored for version comparison. E.g. `0.154+26.3` and `0.154+26.2` are equivalent.
+Build metadata, that is whatever follows the `+` in a version, is ignored for version comparison. E.g. `0.154+26.3` and `0.154+26.2` are equivalent.
 
 Here are some examples of ranges and what they indicate. Try using [Outlet's Fabric Loader Verification](https://dexman545.github.io/outlet-database/floaderValidator.html) to test which values will satisfy the constraint.
 
