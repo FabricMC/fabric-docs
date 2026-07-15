@@ -3,6 +3,7 @@ title: fabric.mod.json
 description: A guide to the `fabric.mod.json` specification.
 authors:
   - cassiancc
+  - Deximus-Maximus
   - falseresync
   - jamieswhiteshirt
   - IMB11
@@ -14,7 +15,7 @@ resources:
   https://github.com/FabricMC/fabric-language-kotlin: Fabric Language Kotlin's Language Provider
   https://spdx.org/licenses/: SPDX License Identifiers
   https://semver.org/: Semantic Versioning
-  https://jubianchi.github.io/semver-check/: Semantic Version Comparison Tool
+  https://dexman545.github.io/outlet-database/floaderValidator: Fabric Loader Version Comparison Tool
 ---
 
 The `fabric.mod.json` file is a metadata file used by Fabric Loader to load mods. It must be placed in the JAR's root directory for the mod to get loaded.
@@ -253,13 +254,14 @@ This pattern changed with the release of `1.16-rc1`. Previously, Fabric normaliz
 | <Range r="^26.2" />        | Same to next major version, excluding earlier versions (equivalent to `>=26.2 <27-`). Only checks the `major` component.                     | `26.2`, `26.3`...                           | `26.1`, `25.x`, `27.x`...      |
 | <Range r="26.1.x" />       | Equivalent to `~26.1-`.                                                                                                                      | `26.1-rc-3`, `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...              |
 | <Range r="1.x" />          | Equivalent to `^1-`.                                                                                                                         | `1.0.0-beta.4`, `1.0.0`, snapshots...       | `26.x`                         |
+| <Range r=">26.2- <26.2" /> | All snapshots of `26.2`, excluding `26.2`                                                                                                    | `26.2-pre-1`, `26.2-rc-1`                   | `26.2`                         |
 
 **Note:** The `.x` operator does not work if a prerelease component (e.g. `26.1.x-rc.1`) is included; instead, the range is treated as a plain string (See Other Version Formats below). `.*`, `.x`, or `.X` can be used interchangeably.
 As of Fabric Loader `0.19.3`, there is a bug where the `.x` operator does not work correctly for versions with more than 3 components. This will be [fixed in a future version](https://github.com/FabricMC/fabric-loader/pull/1157).
 
 :::
 
-::: details Other Version Formats
+::: warning Other Version Formats
 
 If a version does not conform to the extended SemVer supported by Fabric, it is treated as a string and compared lexicographically as per Java's [`String#compareTo`](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#compareTo-java.lang.String-) for sorting purposes,
 e.g. during mod loading where Fabric must decide which version to load.
