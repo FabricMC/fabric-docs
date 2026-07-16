@@ -15,6 +15,10 @@ import com.example.docs.menu.custom.UpgradingMenu;
 public class ModMenuTypes {
 	public static final MenuType<DirtChestMenu> DIRT_CHEST = register("dirt_chest", DirtChestMenu::new);
 
+	// #region upgrading_menu_registration
+	public static final MenuType<UpgradingMenu> UPGRADING_MENU_TYPE = register("upgrading", UpgradingMenu::new);
+	// #endregion upgrading_menu_registration
+
 	public static <T extends AbstractContainerMenu> MenuType<T> register(
 					String name,
 					MenuType.MenuSupplier<T> constructor
@@ -22,10 +26,6 @@ public class ModMenuTypes {
 		return Registry.register(BuiltInRegistries.MENU, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name), new MenuType<>(constructor, FeatureFlagSet.of()));
 	}
 	// #endregion register_menu
-
-	// #region upgrading_menu_registration
-	public static final MenuType<UpgradingMenu> UPGRADING_MENU_TYPE = register("upgrading", UpgradingMenu::new);
-	// #endregion upgrading_menu_registration
 
 	public static void initialize() {
 	}

@@ -84,12 +84,6 @@ public class ModBlocks {
 			"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
 	);
 
-	// #region workstation
-	public static final Block UPGRADING_BLOCK = register(
-			"upgrading_block", UpgradingBlock::new, BlockBehaviour.Properties.of(), true
-	);
-	// #endregion workstation
-
 	public static final Block DUPLICATOR_BLOCK = register(
 			"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true
 	);
@@ -156,6 +150,12 @@ public class ModBlocks {
 	public static final Block TATER_BLOCK = register(
 			"tater", TaterBlock::new, BlockBehaviour.Properties.of(), true
 	);
+
+	// #region workstation
+	public static final Block UPGRADING_BLOCK = register(
+			"upgrading_block", UpgradingBlock::new, BlockBehaviour.Properties.of(), true
+	);
+	// #endregion workstation
 
 	public static final Block VERTICAL_OAK_LOG_SLAB = register(
 			"vertical_oak_log_slab", VerticalSlabBlock::new, BlockBehaviour.Properties.of(), true
