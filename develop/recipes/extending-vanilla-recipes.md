@@ -38,7 +38,7 @@ The `assemble` method is the core of the custom recipe, and provides the output 
 
 Our `PlacementInfo` mainly assists in recipe placing via the Recipe Book, while our `RecipeDisplay` helps display the recipes in the Recipe Book.
 
-::: info An Aside: Slot Displays
+::: details An Aside: Slot Displays
 
 If you tried to make your own override of `display`, you would quickly notice that you wouldn't be able to make a `SlotDisplay` of your result, because you have a dynamic result based off your `base`, which is an `Ingredient` that you can't easily get `ItemStack`s from. However, we have given a valid override of `display` in our recipe class. What's going on?
 
