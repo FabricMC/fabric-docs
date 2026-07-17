@@ -90,6 +90,7 @@
   "develop.misc.debugging": "Отладка модов",
   "develop.mixins": "Mixins",
   "develop.mixins.bytecode": "Байт-код Java",
+  "develop.mixins.accessors": "Доступ к полям и методам",
   "develop.class_tweakers": "Модификаторы классов",
   "develop.class_tweakers.introduction": "Введение",
   "develop.class_tweakers.access_widening": "Расширение доступа",
