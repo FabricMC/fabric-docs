@@ -137,7 +137,7 @@ Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
 
 Minecraft 不会自动找到物品模型文件的位置，我们需要提供一个客户端物品。
 
-在 `assets/example-mod/items` 目录下创建客户端物品 JSON 文件，文件名与物品标识符相同：`spilication_substance.json`。
+在 `assets/example-mod/items` 目录下创建客户端物品 JSON 文件，文件名与物品标识符相同：`suspicious_substance.json`。
 
 <<< @/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json
 

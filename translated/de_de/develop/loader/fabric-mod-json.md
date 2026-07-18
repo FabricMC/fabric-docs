@@ -3,6 +3,7 @@ title: fabric.mod.json
 description: Ein Leitfaden zur `fabric.mod.json` Spezifikation.
 authors:
   - cassiancc
+  - Deximus-Maximus
   - falseresync
   - jamieswhiteshirt
   - IMB11
@@ -14,7 +15,7 @@ resources:
   https://github.com/FabricMC/fabric-language-kotlin: Fabric Language Kotlin Sprachprovider
   https://spdx.org/licenses/: SPDX-Lizenzbezeichnungen
   https://semver.org/: Semantische Versionierung
-  https://jubianchi.github.io/semver-check/: Werkezug zum Vergleich semantischer Versionen
+  https://dexman545.github.io/outlet-database/floaderValidator: Fabric Loader Werkzeug zum Vergleich von Versionen
 ---
 
 Die Datei `fabric.mod.json` ist eine Metadatendatei, die vom Fabric Loader zum Laden von Mods verwendet wird. Die Datei muss im Stammverzeichnis der JAR abgelegt werden, damit der Mod geladen wird.
@@ -35,7 +36,8 @@ Die folgenden Felder sind verpflichtend, damit Fabric deinen Mod laden kann.
 
 - **`schemaVersion`** Muss der erste Eintrag sein und der Wert muss immer `1` sein. Ist erforderlich, damit der Fabric Loader die Datei korrekt verarbeiten kann.
 - **`id`** Ein String Wert, der die Bezeichnung des Mods definiert. Muss mit einem Buchstaben beginnen. Darf nur ASCII-Buchstaben, Ziffern, Unterstriche oder Bindestriche enthalten. 2 bis 64 Zeichen.
-- **`version`** Ein String, der die Version des Mods angibt und der der Spezifikation [Semantic Versioning 2.0.0](https://semver.org/) entsprechen sollte.
+- **`version`** Ein String-Wert, der die Version des Mods definiert; er sollte vorzugsweise einer Übermenge der Spezifikation [Semantic Versioning 2.0.0](https://semver.org/) entsprechen und eine beliebige Anzahl von Komponenten sowie beliebige `build`-Metadaten unterstützen.
+  Wenn dies keine Übereinstimmung ergibt, wird es als einfache Zeichenfolge behandelt, wobei Versionsbereiche nicht unterstützt werden.
 
 ```json
 "schemaVersion": 1,
@@ -226,26 +228,48 @@ Der Schlüssel jedes Eintrags ist die Mod-ID der Abhängigkeit.
 
 Der Wert jedes Schlüssels ist ein String oder ein Array von Strings, die die unterstützten Versionsbereiche der Abhängigkeit angeben. Wenn es sich um ein Array handelt, muss nur einer der Bereiche übereinstimmen, damit die Bedingung erfüllt ist.
 
-Hier sind einige Beispiele für Bereiche und was sie aussagen. Probiere die [jubianchis Semver-Prüfung](https://jubianchi.github.io/semver-check/#/) aus, um zu testen, welche Werte die Bedingung erfüllen.
+Fabric nutzt eine Erweiterung des Semantic Versioning, um eine beliebige Anzahl von Komponenten zu unterstützen; so werden beispielsweise Versionen wie `1.2.3.4` unterstützt. Beim Vergleich von Versionen mit unterschiedlicher Anzahl von Komponenten werden diese rechts mit `0` aufgefüllt; zum Beispiel `26.1` = `26.1.0`
+
+Um alle Vorschauversionen innerhalb eines Bereichs zu erfassen, füge am Ende des Bereichs ein `-` hinzu; um beispielsweise nur die `26.2`-Snapshots zu erhalten, verwende den Bereich `>26.2- <26.2`.
+
+Build-Metadaten, d. h. alles, was in einer Version auf das Zeichen `+` folgt, werden beim Versionsvergleich ignoriert. z.B. `0.154+26.3` und `0.154+26.2` sind gleich.
+
+Hier sind einige Beispiele für Bereiche und was sie aussagen. Probiere [Outlet's Fabric Loader Verification](https://dexman545.github.io/outlet-database/floaderValidator) aus, um zu testen, welche Werte die Einschränkung erfüllen.
 
 :::details Beispiel für semantische Versionierung
 
 **Hinweis:** Minecraft hält sich nicht an die Regeln der semantischen Versionierung. Wenn nötig, wandelt Fabric eine Minecraft-Version in die entsprechende Version nach der semantischen Versionierung um. Beispiele schließen ein `26.1`->`26.1.0`, `26.1-snapshot-1`->`26.1-alpha.1`, `26w14a`->`26.1.1-alpha.26.14.a`.
+Dieser Muster änderte sich mit dem Relase von `1.16-rc1`. Zuvor hat Fabric Vorschauversionen wie `1.16-pre1` auf `1.16-rc.1` normalisiert, was nun zu Konflikten führte. Ab der Loader-Version `0.8.8` wird `1.16-rc1` zu `1.16-rc.9` normalisiert und zukünftige Vorschauversionen werden zu `-beta.n` normalisiert.
 
-| Bereich                        | Beschreibung                                                              | Stimmen überein                                                                                                     | Nicht kompatibel                                                                                                    |
-| ------------------------------ | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| <Range r="*" />                | Jegliche Version (nicht empfohlen)                     | `26.1.2`, `24w14potato`...                                          | _Keine_                                                                                                             |
-| <Range r="26.1.2" />           | Nur die genaue Version                                                    | `26.1.2`                                                                                                            | `26.1`, `26.1.1`, `26.2`...                                         |
-| <Range r="26.1.0 || 26.1.1" /> | Entweder der eine oder der andere Bereich                                 | `26.1.0`, `26.1.1`                                                                                                  | 26.1.2`, `26.2\`... |
-| <Range r="[26.1.0, 26.1.1]" /> | Entspricht `26.1.0 \|\| 26.1.1`                                           | `26.1`, `26.1.1`                                                                                                    | 26.1.2`, `26.2\`... |
-| <Range r=">26" />              | Über einer Version (exklusiv)                          | 26.1.2`, `26.2\`... | `26`, `25.x`...                                                     |
-| <Range r=">=26.1" />           | Diese Version oder höher (inklusiv)                    | `26.1`, `26.1.2`, `26.2`...                                         | `26.0`, `25.x`...                                                   |
-| <Range r="<=26.1" />           | Diese Version oder niedriger (inklusiv)                | `26.1`, `26.0`, `25.x`...                                           | 26.1.2`, `26.2\`... |
-| <Range r=">26 <26.2" />        | Zwischen zwei Versionen (beide exklusiv)               | `26.1`, `26.1.2`, Snapshots...                                      | `26`, `26.2`...                                                     |
-| <Range r=">=26.1 <26.2" />     | Zwischen zwei Versionen (inklusive der unteren Grenze) | `26.1`, `26.1.2`, Snapshots...                                      | `26.0`, `26.2`...                                                   |
-| <Range r="26.1.x" />           | Jeglicher Patch einer Minor-Version                                       | `26.1`, `26.1.2`, Snapshots...                                      | `26.2`, `27.x`...                                                   |
-| <Range r="~26.1" />            | Gleich wie `26.1.x`                                                       | `26.1`, `26.1.2`, Snapshots...                                      | `26.2`, `27.x`...                                                   |
-| <Range r="^26.1" />            | Jegliche Version in der selben Major-Version                              | `26.1.2`, `26.2`, `26.3`...                                         | `25.x`, `27.x`...                                                   |
+| Bereich                    | Beschreibung                                                                                                                                                                                           | Stimmen überein                                                                                                                                               | Nicht kompatibel                                                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| <Range r="*" />            | Jegliche Version (nicht empfohlen)                                                                                                                                                  | `26.1.2`, `24w14potato`...                                                                                    | _Keine_                                                                                                             |
+| <Range r="26.1.2" />       | Nur die genaue Version                                                                                                                                                                                 | `26.1.2`                                                                                                                                                      | `26.1`, `26.1.1`, `26.2`...                                         |
+| <Range r=">26" />          | Über einer Version (exklusiv)                                                                                                                                                       | 26.1.2`, `26.2\`...                                           | `26`, `25.x`...                                                     |
+| <Range r=">=26.1" />       | Diese Version oder höher (inklusiv)                                                                                                                                                 | `26.1`, `26.1.2`, `26.2`...                                                                                   | `26.0`, `25.x`...                                                   |
+| <Range r="<=26.1" />       | Diese Version oder niedriger (inklusiv)                                                                                                                                             | `26.1`, `26.0`, `25.x`...                                                                                     | 26.1.2`, `26.2\`... |
+| <Range r=">26 <26.2" />    | Zwischen zwei Versionen (beide exklusiv)                                                                                                                                            | `26.1`, `26.1.2`, Snapshots...                                                                                | `26`, `26.2`...                                                     |
+| <Range r=">=26.1 <26.2" /> | Zwischen zwei Versionen (inklusive der unteren Grenze)                                                                                                                              | `26.1`, `26.1.2`, Snapshots...                                                                                | `26.0`, `26.2`...                                                   |
+| <Range r="~26.1-rc.2" />   | Gilt für die nächste Minor-Version, ausgenommen frühere Versionen (entspricht `>=26.1-rc.2 <26.2-`). Prüft nur die Komponenten `major` und `minor`. | `26.1-rc.2`, `26.1`, `26.1.2`, Snapshots, ...                                                                 | `26.1-rc.1`, `26.2`, `27.x`...                                      |
+| <Range r="^26.2" />        | Gilt für die nächste Major-Version, ausgenommen frühere Versionen (entspricht `>=26.2 <27-`). Prüft nur die Komponente `major`.                     | `26.2`, `26.3`...                                                                                             | `26.1`, `25.x`, `27.x`...                                           |
+| <Range r="26.1.x" />       | Entspricht `~26,1-`.                                                                                                                                                                   | 26.1-rc-3`, `26.1`, `26.1.2\`, Snapshots, ... | `26.2`, `27.x`...                                                   |
+| <Range r="1.x" />          | Entspricht `^1-`.                                                                                                                                                                      | `1.0.0-beta.4`, `1.0.0`, Snapshots, ...                                                                       | `26.x`                                                                                                              |
+| <Range r=">26.2- <26.2" /> | Alle Snapshots von `26.2`, mit Ausnahme von `26.2`                                                                                                                                                     | `26.2-pre-1`, `26.2-rc-1`                                                                                                                                     | `26.2`                                                                                                              |
+
+**Hinweis:** Der Operator `.x` funktioniert nicht, wenn eine Komponente für eine Vorschauversion (z.B. `26.1.x-rc.1`) enthalten ist; stattdessen wird der Bereich als einfache Zeichenfolge behandelt (siehe Andere Versionsformate weiter unten). `.*`, `.x` oder `.X` können austauschbar verwendet werden.
+Ab Fabric Loader `0.19.3` tritt ein Fehler auf, bei dem der Operator `.x` bei Versionen mit mehr als drei Komponenten nicht korrekt funktioniert. Dieser wird [in einer zukünftigen Version behoben](https://github.com/FabricMC/fabric-loader/pull/1157).
+
+:::
+
+:::warning Andere Versionsformate
+
+Wenn eine Version nicht dem von Fabric unterstützten erweiterten SemVer entspricht, wird sie als Zeichenkette behandelt und gemäß Java [`String#compareTo`](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#compareTo-java.lang.String-) lexikografisch zum Sortieren verglichen, z.B. während des Laden von Mods, wenn Fabric entscheiden muss, welche Version geladen werden soll.
+
+In diesem Modus sind die Bereichsoperatoren `<` und `>` nicht erlaubt. Die anderen Bereichsoperatoren verhalten sich wie `=`, mit Ausnahme von `*`, das weiterhin mit jeder Version übereinstimmt.
+
+Siehe dir das [Beispiel für eine Version mit einer einfachen Zeichenkette](https://dexman545.github.io/outlet-database/floaderValidator?p=~alpha&mode=custom&c=alpha&c=beta&c=theta&c=0&c=alpha4&c=1.2.3) an.
+
+**Hinweis:** Es wird empfohlen, nach Möglichkeit das erweiterte SemVer zu verwenden, um den Vergleich von Versionen und Versionsbereichen zu unterstützen!
 
 :::
 
