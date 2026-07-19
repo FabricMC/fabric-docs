@@ -7,6 +7,7 @@ authors:
   - skippyall
 resources:
   https://docs.neoforged.net/docs/resources/server/recipes/custom/: Custom Recipes - NeoForge Docs
+  https://docs.neoforged.net/docs/resources/server/recipes/ingredients/: Ingredients - NeoForge Docs
 ---
 
 <!---->
@@ -39,7 +40,7 @@ Let's start by defining the result and the ingredients of the recipe.
 
 <<< @/reference/latest/src/main/java/com/example/docs/recipe/UpgradingRecipe.java#base_class
 
-Notice how we're using `Ingredient` objects for our inputs. This allows our recipe to accept multiple items interchangeably.
+Notice how we're using `Ingredient` objects for our inputs. This allows our recipe to accept multiple items interchangeably. (See also: the Ingredients page from the NeoForge Docs in the resources section.)
 
 ## Implementing the Methods {#implementing-the-methods}
 
