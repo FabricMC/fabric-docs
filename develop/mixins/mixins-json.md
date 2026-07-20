@@ -12,10 +12,10 @@ resources:
 
 Mixin config files, conventionally named `<modid>.mixins.json`, are JSON files used to register mixin classes and tweak some of Mixin's behavior.
 
-Mixin config files are [registered in a mod's fabric.mod.json file](../loader/fabric-mod-json#mixins), one mod may register multiple Mixin configs if needed.
+Mixin config files are [registered in a mod's fabric.mod.json file](../loader/fabric-mod-json#mixins) and placed in a mod's `resources` directory,
+one mod may register multiple Mixin configs if needed.
 
-You can consult the [source code of the Mixin config specification](https://github.com/FabricMC/Mixin/blob/main/src/main/java/org/spongepowered/asm/mixin/transformer/MixinConfig.java).
-You will also find the Mixin config files used by this website's Example Mod below.
+You can consult the example mod's Mixin config files below for how a typical Mixin config might look like:
 
 ::: details Main `mixins.json` config file of the Example Mod
 
