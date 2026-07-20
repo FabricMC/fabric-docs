@@ -53,12 +53,26 @@ For example, `"accessor.InventoryAccessor"` would register the class `InventoryA
 
 ## Config Options {#config-options}
 
-The following fields are used to tweak the behavior of this config in relation to its mixins.
+The following options are used to tweak the behavior of this config and how its mixins are processed and applied:
 
-## Injector Options {#injector-options}
+- **`required`**: Takes a boolean value, if set to `false`, errors raised by mixins under this config will not cause a crash. This should be set to `true` for most mods.
+- **`compatibilityLevel`**: Takes a value corresponding to a java version, formatted as `"JAVA_<version>"`, such as `JAVA_8` or `JAVA_25`. This should match the Java version
+your mod depends on.
 
-The following fields are options under the `injectors` field used to change the behavior of injectors for this config's mixins.
+### Injector Options {#injector-options}
 
-## Overwrite Options {#overwrite-options}
+- **`injectors`**: An object that defines different options for the injectors of mixins under this config.
+  - **`defaultRequire`**: An integer defining the default `require` value for this config's injectors. If an injector finds less targets than its `require` value, it will raise an error.
+  Setting an injector's `require` value to 0 effectively makes it optional. Most mods should set `defaultRequire` to 1, and override it in individual injectors' annotations.
 
-The following fields are options under the `overwrites` field used to change the behavior of overwriting for this config's mixins.
+### Overwrite Options {#overwrite-options}
+
+- **`overwrites`**: An object that defines different options for the overwrites of mixins under this config.
+  - **`requireAnnotations`**: A boolean defining whether Mixin should require an explicit `@Overwrite` annotation to overwrite a target method.
+  This should almost always be set to `true` to avoid accidental or implicit overwrites, as overwriting should only be done very intentionally and sparingly when absolutely needed.
+
+### MixinExtras Options {#mixinextras-options}
+
+- **`mixinextras`**: An object that defines different options specific to [MixinExtras](http://github.com/llamalad7/mixinextras/wiki), which is bundled alongside Mixin by Fabric Loader.
+  - **`minVersion`**: A string corresponding to the minimum MixinExtras version required for this config's mixins. This is used to gate breaking changes and other features behind an
+  explicit opt-in. It is most notably used to opt into [expression-based targeting](http://github.com/llamalad7/mixinextras/wiki/expressions).
