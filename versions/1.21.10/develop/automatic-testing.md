@@ -17,7 +17,7 @@ Since Minecraft modding relies on runtime byte-code modification tools such as M
 
 First, we need to add Fabric Loader JUnit to the development environment. Add the following to your dependencies block in your `build.gradle`:
 
-@[code transcludeWith=:::automatic-testing:1](@/reference/build.gradle)
+@[code transcludeWith=automatic_testing_1](@/reference/build.gradle)
 
 Then, we need to tell Gradle to use Fabric Loader JUnit for testing. You can do so by adding the following code to your `build.gradle`:
 

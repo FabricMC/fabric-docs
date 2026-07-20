@@ -62,6 +62,16 @@ authors:
 
 <<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum_extension_abstract_method_impls_example_mixin
 
+### Доступ до поточного порядкового номера переліку {#accessing-current-enum-ordinal}
+
+Можливо, вам знадобиться отримати порядковий номер доданого запису переліку, щоб передати його конструктору. Для цього міксин надає метод `MixinIntrinsics.currentEnumOrdinal()`, який повертає правильний індекс, ураховуючи внески інших модів.
+
+Як приклад, створимо міксин для стандартного класу `IllagerSpell` і додамо заклинання, порядковий номер якого передається як перший аргумент конструктора:
+
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/IllagerSpellMixin.java#enum_extension_current_enum_ordinal_example_mixin
+
+Тепер ви можете бути впевнені, що `currentEnumOrdinal()` поверне правильний індекс, навіть якщо інший мод також розширить цей самий перелік.
+
 ## Створення запису твікера класу {#making-the-class-tweaker-entry}
 
 Якщо ви націлюєтеся на перелік Minecraft, ви можете використати запис для налаштування класу, щоб помітно змінити цільовий перелік у декомпільованому джерелі.

@@ -52,25 +52,25 @@ Un payload sono i dati che vengono inviati in un pacchetto.
 
 Questo può essere fatto creando un `Record` Java con un parametro `BlockPos` che implementi `CustomPacketPayload`.
 
-@[code lang=java transcludeWith=:::summon_Lightning_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#summon_lightning_payload
 
 Allo stesso tempo, abbiamo definito:
 
 - Un `Identifier` utilizzato per identificare il payload del nostro pacchetto. Per questo esempio, il nostro identificatore sarà `example-mod:summon_lightning`.
 
-@[code lang=java transclude={13-13}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#identifier
 
 - Un'istanza pubblica statica di `CustomPayload.Type` per identificare in modo univoco questo payload personalizzato. Faremo riferimento a questo ID sia nel codice comune che in quello client.
 
-@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#payload_type
 
 - Un'istanza pubblica statica di `StreamCodec` affinché il gioco sappia come serializzare/deserializzare i contenuti del pacchetto.
 
-@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#stream_codec
 
 Abbiamo anche fatto override di `type` per restituire l'ID del nostro payload.
 
-@[code lang=java transclude={17-20}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#type
 
 ### Registrare un Payload {#registering-a-payload}
 
@@ -78,7 +78,7 @@ Prima di inviare un pacchetto con il nostro payload personalizzato, dobbiamo reg
 
 Questo si può fare nel nostro **initializer comune** usando `PayloadTypeRegistry.clientboundPlay().register` che accetta un `CustomPayload.Type` e un `StreamCodec`.
 
-@[code lang=java transclude={14-14}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java#clientbound
 
 Esiste un metodo simile per registrare i payload da client a server: `PayloadTypeRegistry.serverboundPlay().register`.
 
@@ -89,21 +89,21 @@ Per inviare un pacchetto con il nostro payload personalizzato, possiamo usare `S
 Iniziamo creando il nostro oggetto Lightning Tater. Puoi fare override di `use` per attivare un'azione quando l'oggetto viene utilizzato.
 In questo caso, inviamo pacchetti ai giocatori nel livello del server.
 
-@[code lang=java transcludeWith=:::lightning_tater_item](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#lightning_tater_item
 
 Esaminiamo il codice sopra.
 
 Inviamo pacchetti solo quando l'azione viene avviata sul server, uscendo anticipatamente con un controllo `isClientSide()`:
 
-@[code lang=java transclude={22-24}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#client_check
 
 Creiamo un'istanza del payload con la posizione dell'utente:
 
-@[code lang=java transclude={26-26}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#payload_instance
 
 Infine, otteniamo i giocatori nel livello del server tramite `PlayerLookup` e inviamo un pacchetto a ciascun giocatore.
 
-@[code lang=java transclude={28-30}](@/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#lookup
 
 ::: info
 
@@ -123,17 +123,17 @@ Questo si può fare nell'**initializer del client**, chiamando `ClientPlayNetwor
 
 In questo caso, definiremo l'azione da attivare all'interno dell'implementazione di `PlayPayloadHandler` (come espressione lambda).
 
-@[code lang=java transcludeWith=:::client_global_receiver](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#client_global_receiver
 
 Esaminiamo il codice sopra.
 
 Possiamo accedere ai dati dal nostro payload chiamando i metodi getter del Record. In questo caso `payload.pos()`. Che può poi essere usato per ottenere le coordinate `x`, `y` e `z`.
 
-@[code lang=java transclude={32-32}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#payload_pos
 
 Infine, creiamo una `LightningBolt` e aggiungiamola al livello.
 
-@[code lang=java transclude={33-38}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#lightning_bolt
 
 Ora, aggiungendo questa mod a un server, e quando un giocatore usa il nostro oggetto Lightning Tater, ogni giocatore vedrà un fulmine colpire la posizione dell'utente.
 
@@ -143,33 +143,33 @@ Ora, aggiungendo questa mod a un server, e quando un giocatore usa il nostro ogg
 
 Come per l'invio di un pacchetto al client, iniziamo creando un payload personalizzato. Questa volta, quando un giocatore usa una Patata Velenosa su un'entità vivente, chiediamo al server di applicare l'effetto Luminescenza su di essa.
 
-@[code lang=java transcludeWith=:::give_glowing_effect_payload](@/reference/latest/src/main/java/com/example/docs/networking/basic/GiveGlowingEffectServerboundPayload.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/GiveGlowingEffectServerboundPayload.java#give_glowing_effect_payload
 
 Passiamo il codec appropriato insieme a un riferimento al metodo per ottenere il valore dal Record per costruire questo codec.
 
 Poi registriamo il nostro payload nel nostro **initializer comune**. Ma, questa volta, come payload _Client-to-Server_, utilizzando `PayloadTypeRegistry.serverboundPlay().register`.
 
-@[code lang=java transclude={15-15}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java#serverbound
 
 Per inviare un pacchetto, aggiungiamo un'azione per quando il giocatore usa una Patata Velenosa. Utilizzeremo l'evento `UseEntityCallback` per mantenere il codice conciso.
 
 Registriamo l'evento nel nostro **initializer del client**, e usiamo `isClientSide()` per assicurarci che l'azione venga attivata solo sul client logico.
 
-@[code lang=java transcludeWith=:::use_entity_callback](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#use_entity_callback
 
 Creiamo un'istanza del nostro `GiveGlowingEffectServerboundPayload` con gli argomenti necessari. In questo caso, l'ID di rete dell'entità bersaglio.
 
-@[code lang=java transclude={51-51}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#payload
 
 Infine, inviamo un pacchetto al server chiamando `ClientPlayNetworking.send` con l'istanza del nostro `GiveGlowingEffectServerboundPayload`.
 
-@[code lang=java transclude={52-52}](@/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#send
 
 ### Ricevere un Pacchetto sul Server {#receiving-a-packet-on-the-server}
 
 Questo può essere fatto nell'**initializer comune**, chiamando `ServerPlayNetworking.registerGlobalReceiver` e passando un `CustomPayload.Type` e un `PlayPayloadHandler`.
 
-@[code lang=java transcludeWith=:::server_global_receiver](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java#server_global_receiver
 
 ::: info
 
@@ -177,11 +177,11 @@ Questo può essere fatto nell'**initializer comune**, chiamando `ServerPlayNetwo
 
 In questo caso, verifichiamo se l'entità esiste in base al suo ID di rete.
 
-@[code lang=java transclude={19-19}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java#validate_entity
 
-Inoltre, l'entità-bersaglio deve essere un'entità vivente, e limitiamo la distanza tra il giocatore e l'entità-bersaglio a 5.
+Inoltre, l'entità-bersaglio deve essere un'entità vivente, e limitiamo la distanza tra il giocatore e l'entità-bersaglio a 5. Se le condizioni sono soddisfatte, applicheremo l'effetto:
 
-@[code lang=java transclude={22-22}](@/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java)
+<<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ExampleModNetworkingBasic.java#entity_checks
 
 :::
 
