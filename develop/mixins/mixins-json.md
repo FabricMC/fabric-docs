@@ -1,7 +1,7 @@
 ---
 title: mixins.json Config
 description: Learn how to register mixin classes, and how to configure their behavior from the mixins.json config file.
-authors: 
+authors:
   - MildestToucan
 resources:
   https://github.com/FabricMC/Mixin/blob/main/src/main/java/org/spongepowered/asm/mixin/transformer/MixinConfig.java: MixinConfig class source code - GitHub
@@ -43,9 +43,9 @@ Mixin classes are then registered under one of the following arrays:
 
 - **`mixins`** for mixin classes that should load regardless of if the game launches from a client or server.
 - **`client`** for mixin classes that should only load when the game is launched on a **physical** client. Should be used to register
-mixins targeting client-only classes.
+  mixins targeting client-only classes.
 - **`server`** for mixin classes that should only load when the game is launched from a **dedicated** server. Note that mixins here will not apply in
-singleplayer, as singleplayer is launched from a client.
+  singleplayer, as singleplayer is launched from a client.
 
 Mixin classes are specified by their path relative to the config's `package`, meaning their simple name prefixed by any subpackage paths in the mixin package.
 
@@ -57,22 +57,22 @@ The following options are used to tweak the behavior of this config and how its 
 
 - **`required`**: Takes a boolean value, if set to `false`, errors raised by mixins under this config will not cause a crash. This should be set to `true` for most mods.
 - **`compatibilityLevel`**: Takes a value corresponding to a java version, formatted as `"JAVA_<version>"`, such as `JAVA_8` or `JAVA_25`. This should match the Java version
-your mod depends on.
+  your mod depends on.
 
 ### Injector Options {#injector-options}
 
 - **`injectors`**: An object that defines different options for the injectors of mixins under this config.
   - **`defaultRequire`**: An integer defining the default `require` value for this config's injectors. If an injector finds less targets than its `require` value, it will raise an error.
-  Setting an injector's `require` value to 0 effectively makes it optional. Most mods should set `defaultRequire` to 1, and override it in individual injectors' annotations.
+    Setting an injector's `require` value to 0 effectively makes it optional. Most mods should set `defaultRequire` to 1, and override it in individual injectors' annotations.
 
 ### Overwrite Options {#overwrite-options}
 
 - **`overwrites`**: An object that defines different options for the overwrites of mixins under this config.
   - **`requireAnnotations`**: A boolean defining whether Mixin should require an explicit `@Overwrite` annotation to overwrite a target method.
-  This should almost always be set to `true` to avoid accidental or implicit overwrites, as overwriting should only be done very intentionally and sparingly when absolutely needed.
+    This should almost always be set to `true` to avoid accidental or implicit overwrites, as overwriting should only be done very intentionally and sparingly when absolutely needed.
 
 ### MixinExtras Options {#mixinextras-options}
 
 - **`mixinextras`**: An object that defines different options specific to [MixinExtras](http://github.com/llamalad7/mixinextras/wiki), which is bundled alongside Mixin by Fabric Loader.
   - **`minVersion`**: A string corresponding to the minimum MixinExtras version required for this config's mixins. This is used to gate breaking changes and other features behind an
-  explicit opt-in. It is most notably used to opt into [expression-based targeting](http://github.com/llamalad7/mixinextras/wiki/expressions).
+    explicit opt-in. It is most notably used to opt into [expression-based targeting](http://github.com/llamalad7/mixinextras/wiki/expressions).
