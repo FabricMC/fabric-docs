@@ -80,7 +80,7 @@ Se non sai quale `TextureModel` dovresti scegliere, apri la classe `TexturedMode
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#block_texture_pool_normal
 
-Un altro metodo utile è `registerCubeAllModelTexturePool`: definisce le texture passandoci il "blocco di base", per poi aggiungerci i "figli", che avranno le stesse texture.
+Un altro metodo utile è `family`: definisce le texture passandoci il "blocco di base", per poi aggiungerci i "figli", che avranno le stesse texture.
 In questo caso, abbiamo passato il `RUBY_BLOCK`, quindi scalini, lastra e staccionata useranno la texture `RUBY_BLOCK`.
 
 ::: warning
