@@ -33,17 +33,19 @@ You will also find the Mixin config files used by this website's Example Mod bel
 
 A Mixin config file must have a `package` field indicating the package path under which all of its mixins will be.
 
-Mixin classes are then registered under one of the following fields:
+Packages in a Mixin config are separated by dot characters (`.`), such that a class's path would be formatted as: `example.package.path.ExampleClass`.
+
+Mixin classes are then registered under one of the following arrays:
 
 - **`mixins`** for mixin classes that should load regardless of if the game launches from a client or server.
-- **`client`** for mixin classes that should only load when the game is launched on the client. Should be used to register
+- **`client`** for mixin classes that should only load when the game is launched on a **physical** client. Should be used to register
 mixins targeting client-only classes.
-- **`server`** for mixin classes that should only load when the game is launched from a dedicated server. Note that mixins here will not apply in
-singleplayer.
+- **`server`** for mixin classes that should only load when the game is launched from a **dedicated** server. Note that mixins here will not apply in
+singleplayer, as singleplayer is launched from a client.
 
 Mixin classes are specified by their path relative to the config's `package`, meaning their simple name prefixed by any subpackage paths in the mixin package.
 
-For example, `"accessor.InventoryAccessor"` would mean the class `InventoryAccessor`, in the package `accessor` under the config mixin package.
+For example, `"accessor.InventoryAccessor"` would register the class `InventoryAccessor` in the package `accessor`, itself under the config's `package` option.
 
 ## Config Options {#config-options}
 
