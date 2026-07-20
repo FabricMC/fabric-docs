@@ -48,6 +48,10 @@ However, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_acces
 
 Access widener entries start with one of three directive keywords to specify the type of modification to apply.
 
+After the keyword come the parameters, usually the targets of the widening.
+
+The same class, method, or field, can be targeted by multiple access widening entries, one on each line.
+
 ### Accessible {#accessible}
 
 `accessible` can target classes, methods and fields:
@@ -69,10 +73,6 @@ Making a method extendable also makes its class extendable.
 ### Mutable {#mutable}
 
 `mutable` can make a field non-final.
-
-## Using Multiple Access Directives For One Target {#using-multiple-access-directives-for-one-target}
-
-To make a private final method both accessible and extendable or a private final field both accessible and mutable, you must make two separate entries in the file.
 
 ## Specifying Targets {#specifying-targets}
 
