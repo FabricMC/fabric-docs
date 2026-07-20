@@ -46,11 +46,13 @@ However, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_acces
 
 ## Access Directives {#access-directives}
 
-Access widener entries start with one of three directive keywords to specify the type of modification to apply.
+Access widener entries start with one of three base directive keywords to specify the type of modification to apply.
 
 After the keyword come the parameters, usually the targets of the widening.
 
 The same class, method, or field, can be targeted by multiple access widening entries, one on each line.
+
+Access directives can also be made transitive by adding the `transitive-` prefix before the base access directive.
 
 ### Accessible {#accessible}
 
