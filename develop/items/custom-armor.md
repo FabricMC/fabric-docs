@@ -2,6 +2,7 @@
 title: Custom Armor
 description: Learn how to create your own armor sets.
 authors:
+  - cassiancc
   - IMB11
 ---
 

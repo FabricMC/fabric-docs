@@ -58,7 +58,7 @@ Next, we'll create a class to store all the fluid ids. We'll call it `ModFluidId
 
 <<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluidIds.java#register
 
-We'll use those ids in a new class to register all the fluid instances. We'll call it `ModFluids`.
+We'll use those IDs in a new class to register all the fluid instances. We'll call it `ModFluids`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluids.java#register
 
@@ -74,7 +74,7 @@ So far, we've registered the fluid's source state and its flowing state. Next, w
 
 Let's now add a liquid block for our fluid. This is needed by some commands like `setblock`, so your fluid can exist in the world. If you haven't done so yet, you should take a look at [how to create your first block](../blocks/first-block).
 
-Open your `ModBlockIds` class and add the following `ResourceKey<Block>`:
+Open your `ModBlockIds` class and add the following `ResourceKey`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#acid
 

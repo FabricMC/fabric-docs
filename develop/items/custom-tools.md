@@ -60,7 +60,7 @@ If you want to make your tool material mine the same blocks as an existing one, 
 
 ## Registering Tool Items {#registering-tool-items}
 
-Using the same utility functions as in the [Creating Your First Item](./first-item) guide, you can create your tool items:
+You can create your tool items by using the same classes and functions that we implemented in the [Creating Your First Item](./first-item) guide:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 

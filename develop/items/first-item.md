@@ -13,21 +13,27 @@ This page will introduce you into some key concepts relating to items, and how y
 
 If you aren't aware, everything in Minecraft is stored in registries, and items are no exception to that.
 
-## Preparing Your Item Ids Class {#preparing-your-item-ids-classes}
+## Preparing Your Item IDs Class {#preparing-your-item-ids-classes}
 
-We'll start by creating a class that holds the name of our item, stored as a `ResourceKey`. A `ResourceKey` holds the name of the mod, the name of the item, and what registry it is for. We'll create a method that creates a `ResourceKey` from our item's name, filling in the rest of the data with constants like the item registry and the mod's id.
+We'll start by creating a class that holds the name of our item, stored as a `ResourceKey`. A `ResourceKey` holds the name of the mod, the name of the item, and what registry it is for.
 
-These references to the item are used for data generating item tags.
+We'll implement a helper method that creates a `ResourceKey` given an item's name; it will fill in the rest of the data with constants, like the item registry and the mod's ID.
+
+These references to the item are used for [data-generating item tags](../data-generation/tags).
 
 You can put this method in a class called `ModItemIds` (or whatever you want to name the class).
 
+::: tip
+
 Mojang does this with their items as well! Check out the `ItemIds` class for inspiration.
+
+:::
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#mod_item_ids_class
 
 ## Preparing Your Items Class {#preparing-your-items-class}
 
-To simplify the registering of items, you can create a method that accepts a resource key, some item properties and a factory to create the `Item` instance.
+To simplify the registering of items, you can create a method that accepts a resource key, some item properties, and a factory to create the `Item` instance.
 
 This method will create an item with the provided key and register it with the game's item registry.
 

@@ -1,4 +1,3 @@
-
 package com.example.docs.rendering;
 
 import java.util.Optional;
