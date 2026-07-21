@@ -91,6 +91,10 @@ public class ModBlockItemIds {
 	);
 	// #endregion waxcap_tinting
 
+	// #region workstation
+	public static final BlockItemId UPGRADING_BLOCK = create("upgrading_block");
+	// #endregion workstation
+
 	// #region first_block
 	private static BlockItemId create(String name) {
 		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);

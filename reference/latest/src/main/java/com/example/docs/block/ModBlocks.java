@@ -147,7 +147,7 @@ public class ModBlocks {
 
 	// #region workstation
 	public static final Block UPGRADING_BLOCK = register(
-			"upgrading_block", UpgradingBlock::new, BlockBehaviour.Properties.of(), true
+			ModBlockItemIds.UPGRADING_BLOCK, UpgradingBlock::new, BlockBehaviour.Properties.of()
 	);
 	// #endregion workstation
 
