@@ -1,0 +1,56 @@
+diff --git a/dist/client/browser/index.js b/dist/client/browser/index.js
+index 841a3b1a1ca3ed9f9d019efa0486d04f7b13743f..2e9b036dbc44132cd98f4f8bcbea08c9338d5dba 100644
+--- a/dist/client/browser/index.js
++++ b/dist/client/browser/index.js
+@@ -70,12 +70,8 @@ const useTabsSelectedState = (acceptValues, sharedStateKey) => {
+ 			} else nonSharedState.value = v;
+ 		}
+ 	});
+-	const select = (newValue) => {
+-		selected.value = newValue;
+-	};
+ 	return {
+ 		selected,
+-		select
+ 	};
+ };
+ 
+@@ -136,12 +132,24 @@ var PluginTabs_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ def
+ 		const props = __props;
+ 		const isPrint = useIsPrint();
+ 		const tabLabels = useTabLabels();
+-		const { selected, select } = useTabsSelectedState(tabLabels, toRef(props, "sharedStateKey"));
+-		const tablist = ref();
+-		const { stabilizeScrollPosition } = useStabilizeScrollPosition(tablist);
+-		const selectStable = stabilizeScrollPosition(select);
+-		const buttonRefs = ref([]);
+-		const onKeydown = (e) => {
++		const { selected } = useTabsSelectedState(tabLabels, toRef(props, "sharedStateKey"));
++    const uid = useId();
++    const select = async (newValue) => {
++      selected.value = newValue;
++
++      await nextTick();
++
++      window.dispatchEvent(
++        new CustomEvent("vitepress-tabs:changed", {
++          detail: document.querySelector(`.plugin-tabs--content[role="tabpanel"][id="panel-${newValue}-${unref(uid)}"]`)
++        })
++      );
++    };
++    const tablist = ref();
++    const { stabilizeScrollPosition } = useStabilizeScrollPosition(tablist);
++    const selectStable = stabilizeScrollPosition(select);
++    const buttonRefs = ref([]);
++    const onKeydown = (e) => {
+ 			const currentIndex = tabLabels.value.indexOf(selected.value);
+ 			let selectIndex;
+ 			if (e.key === "ArrowLeft") selectIndex = currentIndex >= 1 ? currentIndex - 1 : tabLabels.value.length - 1;
+@@ -151,7 +159,6 @@ var PluginTabs_vue_vue_type_script_setup_true_lang_default = /* @__PURE__ */ def
+ 				buttonRefs.value[selectIndex]?.focus();
+ 			}
+ 		};
+-		const uid = useId();
+ 		provideTabsSingleState({
+ 			uid,
+ 			selected
