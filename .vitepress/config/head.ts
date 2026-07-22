@@ -92,7 +92,7 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     {
       from: /contributing(?=[/]|$)/,
       dest: "translations",
-    }
+    },
   ];
 
   // these replacements don't need to trigger a redirect
