@@ -3,7 +3,10 @@ title: Custom Shields
 description: Learn how to create your own shields and configure their properties.
 authors:
   - cassiancc
-  - ChampionAsh537
+  - ChampionAsh5357
+resources:
+  https://mcsrc.dev/1/26.2/net/minecraft/client/renderer/special/ShieldSpecialRenderer: Vanilla Shield Renderer
+  https://minecraft.wiki/w/Data_component_format/blocks_attacks: Blocks Attacks Data Component
 ---
 
 <!--  -->
@@ -30,17 +33,18 @@ For this example, we will use the same repair item tag we will be using for armo
 
 Then, we register an item with the following components.
 
-- **Banner Patterns**: Creates an item with no banner patterns.
-- **Repairable**: Creates an item that can be repaired with the given item tag.
-- **Equippable/Unswappable**: In the GUI, Shift-clicking the item will equip it to the offhand. In the world, right clicking with it will not equip the item.
-- **Blocks Attacks**: Creates an item that blocks attacks. This is a _delayed component_, meaning that it loads after the world is loaded, allowing it to reference datapack objects like tags. This example uses the same parameters as a vanilla shield, but individual numbers can be easily tweaked for your mod's needs.
-- **Break Sound**: When the item breaks, it will play the specified sound.
+- [**Banner Patterns**](https://minecraft.wiki/w/Data_component_format/banner_patterns): Creates an item with no banner patterns.
+- [**Repairable**](https://minecraft.wiki/w/Data_component_format/repairable): Creates an item that can be repaired with the given item tag.
+- [**Equippable/Unswappable**](https://minecraft.wiki/w/Data_component_format/equippable): In the GUI, shift-clicking the item will equip it to the offhand. In the world, right-clicking with it will not equip the item.
+- [**Blocks Attacks**](https://minecraft.wiki/w/Data_component_format/blocks_attacks): Creates an item that blocks attacks. This is a _delayed component_, meaning that it loads after the world is loaded, allowing it to reference datapack objects like tags. This example uses the same parameters as a vanilla shield, but individual numbers can be easily tweaked for your mod's needs.
+- [**Break Sound**](https://minecraft.wiki/w/Data_component_format/break_sound): When the item breaks, it will play the specified sound.
 
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#shield
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#shield
 
 ## Creating the Special Renderer {#special-renderer}
 
-As shields are more complicated than a standard item model, we'll be using a special renderer to render the shield rather than the normal item model.
+As shields are more complicated than a standard item model, we'll be using a special renderer to render the shield rather than the normal item model. This special renderer is based off the vanilla [`ShieldSpecialRenderer`](https://mcsrc.dev/1/26.2/net/minecraft/client/renderer/special/ShieldSpecialRenderer), modified to accept textures for shields other than the vanilla shield.
 
 First, we'll create a model layer location that points to where the shield model is.
 
@@ -101,11 +105,43 @@ We'll be creating two item models and a client item for the shield. Add the foll
 
 - A normal item model which uses the vanilla shield as a parent.
 - A blocking item model which uses the vanilla shield's blocking model as a parent.
-- A conditional client item that displays the normal item model normally and the blocking model when blocking. This client item uses the special model renderer we created earlier, and supplies it with the textures we'll be using, `guidite_shield_base`, and `guidite_shield_base_nopattern`.
+- A conditional client item that displays the normal item model normally and the blocking model when blocking. This client item uses the special model renderer we created earlier, and supplies it with the textures we'll be using, `guidite_shield_base` (used when the shield has a banner pattern), and `guidite_shield_base_nopattern`.
 
-<!-- TODO add download link for shield base textures -->
+:::: tabs
+
+== Source Code
+
+::: info
+
+These models can be data generated. For more information, see the documentation on generating [item models](../data-generation/item-models).
+
+:::
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#shield
+
+== Client Item
+
+`generated/assets/example-mod/items/guidite_shield.json`
+
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/guidite_shield.json
+
+== Item Models
+
+`generated/assets/example-mod/models/item/guidite_shield.json`
+
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_shield.json
+
+`generated/assets/example-mod/models/item/guidite_shield_blocking.json`
+
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_shield_blocking.json
+
+== Textures
+
+<DownloadEntry visualURL="/assets/develop/items/shield_hd.png" downloadURL="/assets/develop/items/shield.png">Guidite Shield Texture</DownloadEntry>
+
+<DownloadEntry visualURL="/assets/develop/items/shield_base_hd.png" downloadURL="/assets/develop/items/shield_base.png">Guidite Shield Base Texture</DownloadEntry>
+
+::::
 
 ## Creating the Recipes {#recipes}
 
