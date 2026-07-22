@@ -29,6 +29,7 @@
       "com.example.docs.recipe.ExampleModRecipes",
       "com.example.docs.entity.ExampleModEntity",
       "com.example.docs.gamerule.ExampleModGameRules",
+      "com.example.docs.dynamic_registries.ExampleModDynamicRegistries",
       "com.example.docs.conditions.ExampleModResourceConditions",
       "com.example.docs.stats.ExampleModStats"
     ],

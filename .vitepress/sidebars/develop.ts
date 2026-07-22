@@ -473,6 +473,10 @@ export default [
         link: "/develop/debugging",
       },
       {
+        text: "develop.misc.dynamic_registries",
+        link: "/develop/dynamic-registry",
+      },
+      {
         text: "develop.misc.events",
         link: "/develop/events",
       },
