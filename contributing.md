@@ -171,9 +171,9 @@ When creating a new page, you should do the following:
 
 ### Modifying the Framework {#label-framework}
 
-Sometimes the change you want to apply isn't to the content, but rather to the website structure or visual appearance. We call these framework changes, and you can find greater detail [regarding the file structure](#structure) below.
+Not all contributions are about writing documentation. If you want to modify how the website looks or functions, you can work on the framework. You can find greater detail [regarding the file structure](#structure) below.
 
-Usually, you may want to discuss these wide-scale suggestions with the Docs Team before working on them, because they will affect every page on the site. You can do that either in an [issue on the repository](https://github.com/FabricMC/fabric-docs/issues) or in the **#docs** channel on the [Discord server](https://discord.fabricmc.net/).
+Usually, you should discuss these wide-scale suggestions with the Docs Team before working on them, because they will affect every page on the site. You can do that either in an [issue on the repository](https://github.com/FabricMC/fabric-docs/issues) or in the **#docs** channel on the [Discord server](https://discord.fabricmc.net/).
 
 We're especially wary about introducing new NPM dependencies, because that widens the attack surface and introduces new points of potential failure.
 
