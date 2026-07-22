@@ -90,6 +90,7 @@
   "develop.misc.debugging": "调试模组",
   "develop.mixins": "mixin",
   "develop.mixins.bytecode": "Java 字节码",
+  "develop.mixins.accessors": "访问器",
   "develop.class_tweakers": "Class Tweaker",
   "develop.class_tweakers.introduction": "介绍",
   "develop.class_tweakers.access_widening": "访问权加宽",

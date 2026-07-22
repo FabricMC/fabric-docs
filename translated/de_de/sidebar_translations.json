@@ -90,6 +90,7 @@
   "develop.misc.debugging": "Mods debuggen",
   "develop.mixins": "Mixins",
   "develop.mixins.bytecode": "Java Bytecode",
+  "develop.mixins.accessors": "Accessors",
   "develop.class_tweakers": "Klassenoptimierer",
   "develop.class_tweakers.introduction": "Einführung",
   "develop.class_tweakers.access_widening": "Zugriffserweiterung",

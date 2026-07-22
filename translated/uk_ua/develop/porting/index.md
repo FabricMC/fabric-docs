@@ -27,7 +27,7 @@ resources:
 
 ## Оновлення скриптів збірки {#build-script}
 
-Почніть з оновлення `gradle/wrapper/gradle-wrapper.properties`, `gradle.properties` і `build.gradle` вашого мода до останніх версій, потім виконайте наведені нижче дії. Якщо у вас виникли проблеми, подумайте про [приклад мода Fabric](https://github.com/FabricMC/fabric-example-mod/tree/26.1).
+Почніть з оновлення `gradle/wrapper/gradle-wrapper.properties`, `gradle.properties` і `build.gradle` вашого мода до останніх версій. Якщо у вас виникли проблеми, подумайте про [приклад мода Fabric](https://github.com/FabricMC/fabric-example-mod/tree/26.1).
 
 1. Оновіть Gradle до останньої версії, виконавши таку команду: `./gradlew wrapper --gradle-version latest`
 2. Оновіть Minecraft, Завантажувач Fabric, Fabric Loom і Fabric API у `gradle.properties` (рекомендовано) або `build.gradle`. Знайдіть рекомендовані версії компонентів Fabric на [сайті розробки Fabric](https://fabricmc.net/develop/).

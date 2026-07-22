@@ -128,7 +128,6 @@ Manually writing access widener entries is time-consuming and prone to human err
 
 ### mcsrc.dev {#mcsrc-dev}
 
-Available for all versions with an [unobfuscated JAR](../migrating-mappings/index#whats-going-on-with-mappings) namely 1.21.11 and above,
 [mcsrc](https://mcsrc.dev) allows you to decompile and navigate Minecraft source in the browser and copy Mixin, access widener or access transformer targets to clipboard.
 The names of classes, methods and fields on [mcsrc](https://mcsrc.dev) will align with [Mojang Mappings](../migrating-mappings/index#mappings).
 

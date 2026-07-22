@@ -237,12 +237,12 @@ Per questo, il suo codec predefinito è in realtà una `comapFlatMap` su `Codec.
 
 Anche se questi metodi sono molto d'aiuto, i loro nomi possono confondere un po', quindi ecco una tabella per aiutarti a ricordare quale usare:
 
-| Metodo                  | A -> B è sempre valido? | B -> A è sempre valido? |
-| ----------------------- | ----------------------- | ----------------------- |
-| `Codec<A>#xmap`         | Sì                      | Sì                      |
-| `Codec<A>#comapFlatMap` | No                      | Sì                      |
-| `Codec<A>#flatComapMap` | Sì                      | No                      |
-| `Codec<A>#flatXMap`     | No                      | No                      |
+| Metodo         | Il decoding è sempre valido? | L'encoding è sempre valido? |
+| -------------- | ---------------------------- | --------------------------- |
+| `xmap`         | Sì                           | Sì                          |
+| `comapFlatMap` | No                           | Sì                          |
+| `flatComapMap` | Sì                           | No                          |
+| `flatXMap`     | No                           | No                          |
 
 ### Dispatch della Registry {#registry-dispatch}
 
