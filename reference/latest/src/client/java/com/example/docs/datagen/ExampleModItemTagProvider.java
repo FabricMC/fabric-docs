@@ -43,10 +43,10 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 		// #endregion datagen_tags_build
 
 		// #region shield_tags
-		valueLookupBuilder(ConventionalItemTags.SHIELD_TOOLS)
-						.add(ModItems.GUIDITE_SHIELD);
-		valueLookupBuilder(ItemTags.DURABILITY_ENCHANTABLE)
-						.add(ModItems.GUIDITE_SHIELD);
+		builder(ConventionalItemTags.SHIELD_TOOLS)
+						.add(ModItemIds.GUIDITE_SHIELD);
+		builder(ItemTags.DURABILITY_ENCHANTABLE)
+						.add(ModItemIds.GUIDITE_SHIELD);
 		// #endregion shield_tags
 
 		// #region sword_tags

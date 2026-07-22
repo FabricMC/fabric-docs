@@ -117,7 +117,7 @@ public class ModItems {
 	// #endregion guidite_sword
 	// #region shield
 	public static final Item GUIDITE_SHIELD = register(
-					"guidite_shield",
+					ModItemIds.GUIDITE_SHIELD,
 					ShieldItem::new,
 					new Item.Properties().durability(336)
 									.component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)

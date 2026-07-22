@@ -59,6 +59,10 @@ public class ModItemIds {
 	public static final ResourceKey<Item> LIGHTNING_TATER = create("lightning_tater");
 	public static final ResourceKey<Item> TEST_ITEM = create("test_item");
 
+	// #region shield
+	public static final ResourceKey<Item> GUIDITE_SHIELD = create("guidite_shield");
+	// #endregion shield
+
 	// #region mod_item_ids_class
 	public static ResourceKey<Item> create(String name) {
 		// Create the item key.
