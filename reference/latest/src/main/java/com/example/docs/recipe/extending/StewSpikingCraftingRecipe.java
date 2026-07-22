@@ -121,6 +121,8 @@ public class StewSpikingCraftingRecipe extends CustomRecipe {
 				stew = stack;
 			} else if (stack.has(DataComponents.POTION_CONTENTS)) {
 				builder.add(stack);
+			} else {
+				return null;
 			}
 		}
 
