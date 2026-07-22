@@ -27,7 +27,7 @@ Wenn du die IntelliJ IDEA verwendest, musst du sie ebenfalls auf die Version `20
 
 ## Das Buildskript aktualisieren {#build-script}
 
-Beginne damit, die Dateien `gradle/wrapper/gradle-wrapper.properties`, `gradle.properties` und `build.gradle` deines Mods auf die neuesten Versionen zu aktualisieren und folge dann den unteren Schritten. Solltest du auf Probleme stoßen, empfehlen wir dir, einen Blick in den [Fabric Beispielmod](https://github.com/FabricMC/fabric-example-mod/tree/26.1) zu werfen.
+Beginne damit, die Dateien `gradle/wrapper/gradle-wrapper.properties`, `gradle.properties` und `build.gradle` deines Mods auf die neuesten Versionen zu aktualisieren. Solltest du auf Probleme stoßen, empfehlen wir dir, einen Blick in den [Fabric Beispielmod](https://github.com/FabricMC/fabric-example-mod/tree/26.1) zu werfen.
 
 1. Aktualisiere Gradle auf die aktuellste Version, indem du den folgenden Befehl ausführst: `./gradlew wrapper --gradle-version latest`
 2. Hebe Minecraft, den Fabric Loader, Fabric Loom und die Fabric API an, entweder in der `gradle.properties` (empfohlen) oder in der `build.gradle`. Die empfohlenen Versionen der Fabric-Komponenten findest du auf der [Fabric Develop-Seite](https://fabricmc.net/develop/).

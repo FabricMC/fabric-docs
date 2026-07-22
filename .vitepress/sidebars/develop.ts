@@ -134,6 +134,10 @@ export default [
         text: "develop.blocks.block_tinting",
         link: "/develop/blocks/block-tinting",
       },
+      {
+        text: "develop.blocks.workstations",
+        link: "/develop/blocks/workstations",
+      },
     ],
   },
   {
@@ -201,6 +205,20 @@ export default [
       {
         text: "develop.commands.suggestions",
         link: "/develop/commands/suggestions",
+      },
+    ],
+  },
+  {
+    text: "develop.recipes",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.recipes.custom_recipe_types",
+        link: "/develop/recipes/custom-recipe-types",
+      },
+      {
+        text: "develop.recipes.extending_vanilla_recipes",
+        link: "/develop/recipes/extending-vanilla-recipes",
       },
     ],
   },
@@ -449,10 +467,6 @@ export default [
       {
         text: "develop.misc.automatic_testing",
         link: "/develop/automatic-testing",
-      },
-      {
-        text: "develop.misc.custom_recipe_types",
-        link: "/develop/custom-recipe-types",
       },
       {
         text: "develop.misc.debugging",

@@ -16,6 +16,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
+@SuppressWarnings("ClassCanBeRecord")
 // #region base_class
 public class UpgradingRecipe implements Recipe<UpgradingRecipeInput> {
 	private final ItemStackTemplate result;

@@ -3,6 +3,7 @@ title: fabric.mod.json
 description: A guide to the `fabric.mod.json` specification.
 authors:
   - cassiancc
+  - Deximus-Maximus
   - falseresync
   - jamieswhiteshirt
   - IMB11
@@ -14,7 +15,7 @@ resources:
   https://github.com/FabricMC/fabric-language-kotlin: Fabric Language Kotlin's Language Provider
   https://spdx.org/licenses/: SPDX License Identifiers
   https://semver.org/: Semantic Versioning
-  https://jubianchi.github.io/semver-check/: Semantic Version Comparison Tool
+  https://dexman545.github.io/outlet-database/floaderValidator: Fabric Loader Version Comparison Tool
 ---
 
 The `fabric.mod.json` file is a metadata file used by Fabric Loader to load mods. It must be placed in the JAR's root directory for the mod to get loaded.
@@ -35,7 +36,8 @@ The following fields are mandatory for Fabric to load your mod.
 
 - **`schemaVersion`** Must be the first entry, and the value must always be `1`. Required for Fabric Loader to parse the file correctly.
 - **`id`** A string value that defines the mod's identifier. Must start with a letter. May only contain ASCII letters, digits, underscores, or hyphens. 2 to 64 characters.
-- **`version`** A string value that defines the mod's version, expected to match the [Semantic Versioning 2.0.0](https://semver.org/) specification.
+- **`version`** A string value that defines the mod's version; it should preferably match a superset of the [Semantic Versioning 2.0.0](https://semver.org/) specification, supporting any number of components, and arbitrary `build` metadata.
+  If it does not match that, it is treated as a plain string, with no support for version ranges.
 
 ```json
 "schemaVersion": 1,
@@ -226,26 +228,49 @@ The key of each entry is the mod ID of the dependency.
 
 The value of each key is a string or array of strings declaring supported version ranges of the dependency. If it's an array, only one of the ranges has to match for the constraint to be satisfied.
 
-Here are some examples of ranges and what they indicate. Try using [jubianchi's Semver check](https://jubianchi.github.io/semver-check/#/) to test which values will satisfy the constraint.
+Fabric uses a superset of Semantic Versioning to support any number of components; for example, versions like `1.2.3.4` are supported. When comparing versions with a different number of components, they are padded on the right with `0`; for example, `26.1` = `26.1.0`
+
+To match all prerelease components in range, suffix the range with `-`; for example, to get the `26.2` snapshots only, use the range `>26.2- <26.2`.
+
+Build metadata, that is whatever follows the `+` in a version, is ignored for version comparison. E.g. `0.154+26.3` and `0.154+26.2` are equivalent.
+
+Here are some examples of ranges and what they indicate. Try using [Outlet's Fabric Loader Verification](https://dexman545.github.io/outlet-database/floaderValidator) to test which values will satisfy the constraint.
 
 ::: details Semantic Versioning Examples
 
 **Note:** Minecraft does not abide by semantic versioning. If needed, Fabric will translate a Minecraft version into its equivalent in semantic versioning. Examples include `26.1`->`26.1.0`, `26.1-snapshot-1`->`26.1-alpha.1`, `26w14a`->`26.1.1-alpha.26.14.a`.
+This pattern changed with the release of `1.16-rc1`. Previously, Fabric normalized prereleases like `1.16-pre1` to `1.16-rc.1`, which now conflicted. Starting with loader `0.8.8`, `1.16-rc1` is normalized to `1.16-rc.9`, and future prereleases are normalized to `-beta.n`.
 
-| Range                            | Description                                  | Matches                        | Clashes                     |
-| -------------------------------- | -------------------------------------------- | ------------------------------ | --------------------------- |
-| <Range r="*" />                  | Any version (not recommended)                | `26.1.2`, `24w14potato`...     | _none_                      |
-| <Range r="26.1.2" />             | Exact version only                           | `26.1.2`                       | `26.1`, `26.1.1`, `26.2`... |
-| <Range r="26.1.0 \|\| 26.1.1" /> | Either range                                 | `26.1.0`, `26.1.1`             | `26.1.2`, `26.2`...         |
-| <Range r="[26.1.0, 26.1.1]" />   | Equivalent to `26.1.0 \|\| 26.1.1`           | `26.1`, `26.1.1`               | `26.1.2`, `26.2`...         |
-| <Range r=">26" />                | Above a version (exclusive)                  | `26.1.2`, `26.2`...            | `26`, `25.x`...             |
-| <Range r=">=26.1" />             | At or above a version (inclusive)            | `26.1`, `26.1.2`, `26.2`...    | `26.0`, `25.x`...           |
-| <Range r="<=26.1" />             | At or below a version (inclusive)            | `26.1`, `26.0`, `25.x`...      | `26.1.2`, `26.2`...         |
-| <Range r=">26 <26.2" />          | Between two versions (both exclusive)        | `26.1`, `26.1.2`, snapshots... | `26`, `26.2`...             |
-| <Range r=">=26.1 <26.2" />       | Between two versions (inclusive lower bound) | `26.1`, `26.1.2`, snapshots... | `26.0`, `26.2`...           |
-| <Range r="26.1.x" />             | Any patch of a minor version                 | `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...           |
-| <Range r="~26.1" />              | Same as `26.1.x`                             | `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...           |
-| <Range r="^26.1" />              | Any version in the same major                | `26.1.2`, `26.2`, `26.3`...    | `25.x`, `27.x`...           |
+| Range                      | Description                                                                                                                                  | Matches                                     | Clashes                        |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------------ |
+| <Range r="*" />            | Any version (not recommended)                                                                                                                | `26.1.2`, `24w14potato`...                  | _none_                         |
+| <Range r="26.1.2" />       | Exact version only                                                                                                                           | `26.1.2`                                    | `26.1`, `26.1.1`, `26.2`...    |
+| <Range r=">26" />          | Above a version (exclusive)                                                                                                                  | `26.1.2`, `26.2`...                         | `26`, `25.x`...                |
+| <Range r=">=26.1" />       | At or above a version (inclusive)                                                                                                            | `26.1`, `26.1.2`, `26.2`...                 | `26.0`, `25.x`...              |
+| <Range r="<=26.1" />       | At or below a version (inclusive)                                                                                                            | `26.1`, `26.0`, `25.x`...                   | `26.1.2`, `26.2`...            |
+| <Range r=">26 <26.2" />    | Between two versions (both exclusive)                                                                                                        | `26.1`, `26.1.2`, snapshots...              | `26`, `26.2`...                |
+| <Range r=">=26.1 <26.2" /> | Between two versions (inclusive lower bound)                                                                                                 | `26.1`, `26.1.2`, snapshots...              | `26.0`, `26.2`...              |
+| <Range r="~26.1-rc.2" />   | Same to next minor version, excluding earlier versions (equivalent to `>=26.1-rc.2 <26.2-`). Only checks the `major` and `minor` components. | `26.1-rc.2`, `26.1`, `26.1.2`, snapshots... | `26.1-rc.1`, `26.2`, `27.x`... |
+| <Range r="^26.2" />        | Same to next major version, excluding earlier versions (equivalent to `>=26.2 <27-`). Only checks the `major` component.                     | `26.2`, `26.3`...                           | `26.1`, `25.x`, `27.x`...      |
+| <Range r="26.1.x" />       | Equivalent to `~26.1-`.                                                                                                                      | `26.1-rc-3`, `26.1`, `26.1.2`, snapshots... | `26.2`, `27.x`...              |
+| <Range r="1.x" />          | Equivalent to `^1-`.                                                                                                                         | `1.0.0-beta.4`, `1.0.0`, snapshots...       | `26.x`                         |
+| <Range r=">26.2- <26.2" /> | All snapshots of `26.2`, excluding `26.2`                                                                                                    | `26.2-pre-1`, `26.2-rc-1`                   | `26.2`                         |
+
+**Note:** The `.x` operator does not work if a prerelease component (e.g. `26.1.x-rc.1`) is included; instead, the range is treated as a plain string (See Other Version Formats below). `.*`, `.x`, or `.X` can be used interchangeably.
+As of Fabric Loader `0.19.3`, there is a bug where the `.x` operator does not work correctly for versions with more than 3 components. This will be [fixed in a future version](https://github.com/FabricMC/fabric-loader/pull/1157).
+
+:::
+
+::: warning Other Version Formats
+
+If a version does not conform to the extended SemVer supported by Fabric, it is treated as a string and compared lexicographically as per Java's [`String#compareTo`](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#compareTo-java.lang.String-) for sorting purposes,
+e.g. during mod loading where Fabric must decide which version to load.
+
+In this mode, the range operators `<` and `>` are not allowed. The other range operators behave as `=`, except for `*` which will continue to match any version.
+
+See an [example of a plain string version](https://dexman545.github.io/outlet-database/floaderValidator?p=~alpha&mode=custom&c=alpha&c=beta&c=theta&c=0&c=alpha4&c=1.2.3).
+
+**Note:** It is encouraged to use the extended SemVer where possible to support version comparison and ranges!
 
 :::
 

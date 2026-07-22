@@ -85,7 +85,8 @@ resources/data/example-mod/damage_type/tater.json
 
 ::: info
 
-Полный список тегов типов урона см. на [Minecraft Wiki](https://minecraft.wiki/w/Tag#Damage_types).
+Обратитесь к [Minecraft Wiki](https://minecraft.wiki/w/Damage_type_tag_(Java_Edition)) за полным списком
+тегов типов урона.
 
 :::
 

@@ -2,22 +2,18 @@ package com.example.docs.recipe;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.crafting.RecipeBookCategory;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization;
 
 import com.example.docs.ExampleMod;
-import com.example.docs.block.custom.UpgradingBlock;
-import com.example.docs.menu.custom.UpgradingMenu;
+import com.example.docs.recipe.extending.EnchantingSmithingDemoSlotDisplay;
+import com.example.docs.recipe.extending.EnchantingSmithingRecipe;
+import com.example.docs.recipe.extending.StewSpikingCraftingRecipe;
 
 public class ExampleModRecipes implements ModInitializer {
 	// #region registration
@@ -32,7 +28,6 @@ public class ExampleModRecipes implements ModInitializer {
 					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),
 					new RecipeType<UpgradingRecipe>() { }
 	);
-
 	// #endregion registration
 
 	// TODO: recipe book support, requires enum extensions + screen changes
@@ -42,28 +37,19 @@ public class ExampleModRecipes implements ModInitializer {
 					new RecipeBookCategory()
 	);
 
-	// #region upgrading_menu_registration
-	public static final MenuType<UpgradingMenu> UPGRADING_MENU_TYPE = Registry.register(
-					BuiltInRegistries.MENU,
-					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),
-					new MenuType<>(UpgradingMenu::new, FeatureFlags.VANILLA_SET)
-	);
-
-	private static final Identifier UPGRADING_BLOCK_ID = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading_block");
-
-	public static final UpgradingBlock UPGRADING_BLOCK = Registry.register(
-					BuiltInRegistries.BLOCK,
-					UPGRADING_BLOCK_ID,
-					new UpgradingBlock(BlockBehaviour.Properties.of()
-									.setId(ResourceKey.create(Registries.BLOCK, UPGRADING_BLOCK_ID))
-					)
-	);
-	// #endregion upgrading_menu_registration
-
 	@Override
 	public void onInitialize() {
 		// #region recipe_sync
 		RecipeSynchronization.synchronizeRecipeSerializer(UPGRADING_RECIPE_SERIALIZER);
 		// #endregion recipe_sync
+
+		// #region enchanting_smithing_registration
+		Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "smithing_enchanting"), EnchantingSmithingRecipe.SERIALIZER);
+		Registry.register(BuiltInRegistries.SLOT_DISPLAY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "enchanting_smithing"), EnchantingSmithingDemoSlotDisplay.TYPE);
+		// #endregion enchanting_smithing_registration
+
+		// #region stew_spiking_registration
+		Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "stew_spiking"), StewSpikingCraftingRecipe.SERIALIZER);
+		// #endregion stew_spiking_registration
 	}
 }

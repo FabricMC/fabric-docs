@@ -8,12 +8,12 @@
     "accessor.IdentifierAccessor",
     "accessor.InventoryAccessor",
     "accessor.ShulkerBoxBlockAccessor",
+    "accessor.SlotDisplayAccessor",
     "class_tweakers.ConversionTypeMixin",
     "class_tweakers.FlowingFluidMixin",
+    "class_tweakers.IllagerSpellMixin",
     "class_tweakers.RecipeBookTypeMixin",
     "class_tweakers.RecipeCategoryMixin",
-    "class_tweakers.ConversionTypeMixin",
-    "class_tweakers.IllagerSpellMixin",
     "event.SheepMixin"
   ],
   "injectors": {
