@@ -16,6 +16,22 @@ as items through various other game mechanics.
 
 Just like items and blocks, potions need to be registered.
 
+## Preparing Your Potion ID Classes {#preparing-your-potion-id-class}
+
+If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create classes to hold the identifiers of your `Potion`s, stored as a `ResourceKey`.
+
+These references to the potion are used for [data-generating potion tags](../data-generation/tags).
+
+You can put this method in a class called `ModPotionIds` (or whatever you want to name the class).
+
+::: tip
+
+Mojang does this with their potions as well! Check out the `PotionIds` class for inspiration.
+
+:::
+
+<<< @/reference/latest/src/main/java/com/example/docs/potion/ModPotionIds.java#mod_potion_ids_class
+
 ### Creating the Potion {#creating-the-potion}
 
 Let's start by declaring a field to hold your `Potion` instance. We will be directly using a `ModInitializer`-implementing class to
