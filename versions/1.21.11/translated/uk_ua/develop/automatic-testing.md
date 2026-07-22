@@ -17,7 +17,7 @@ authors:
 
 По-перше, нам потрібно додати Fabric Loader JUnit до середовища розробки. Додайте наступне до блока залежностей у вашому `build.gradle`:
 
-@[code transcludeWith=:::automatic-testing:1](@/reference/build.gradle)
+@[code transcludeWith=automatic_testing_1](@/reference/build.gradle)
 
 Потім нам потрібно сказати Gradle використовувати Fabric Loader JUnit для тестування. Ви можете зробити це, додавши наступний код до свого `build.gradle`:
 

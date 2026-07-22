@@ -1,0 +1,54 @@
+---
+title: Генерація перекладу
+description: Інструкція з налаштування генерації перекладу за допомогою генерації даних.
+authors:
+  - CelDaemon
+  - IMB11
+  - MattiDragon
+  - skycatminepokie
+  - Spinoscythe
+authors-nogithub:
+  - jmanc3
+  - mcrafterzz
+  - sjk1949
+---
+
+<!---->
+
+:::info ПЕРЕДУМОВИ
+
+Спершу переконайтеся, що ви виконали процес [налаштування генерації даних](./setup).
+
+:::
+
+## Налаштування {#setup}
+
+Спочатку ми створимо нашого **постачальника**. Пам’ятайте, що фактично генерують дані для нас постачальники. Створіть клас, який розширює `FabricLanguageProvider`, і заповніть базові методи:
+
+<<< @/reference/26.1.2/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_provider
+
+::: tip
+
+Вам знадобиться окремий постачальник для кожної мови, яку ви хочете створити (наприклад, один `ExampleEnglishLangProvider` і один `ExamplePirateLangProvider`).
+
+:::
+
+Щоб завершити налаштування, додайте цього провайдера до своєї `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
+
+<<< @/reference/26.1.2/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_translations_register
+
+## Створення перекладу {#creating-translations}
+
+Разом зі створенням необроблених перекладів, перекладів з `Identifier` і копіюванням їх з уже наявного файлу (передаючи `Path`), існують допоміжні методи для перекладу предметів, блоків, теґів, статистики, сутностей, ефектів моба, вкладок творчості, атрибути сутностей та зачарування. Просто викличте `add` у `translationBuilder` з тим, що ви хочете перекласти, і на що це має бути перекладено:
+
+<<< @/reference/26.1.2/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
+
+## Використання перекладу {#using-translations}
+
+Згенеровані переклади замінюють багато перекладів, доданих в інших посібниках, але ви також можете використовувати їх усюди, де використовуєте об’єкт `Component`. У нашому прикладі, якщо ми хочемо дозволити пакетам ресурсів перекладати наше привітання, ми використовуємо `Component.translatable` замість `Component.literal`:
+
+```java
+ChatComponent chatHud = Minecraft.getInstance().gui.getChat();
+chatHud.addMessage(Component.literal("Hello there!")); // [!code --]
+chatHud.addMessage(Component.translatable("text.example-mod.greeting")); // [!code ++]
+```

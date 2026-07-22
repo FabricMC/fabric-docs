@@ -16,5 +16,7 @@
     "!README.md",
     "!translated/**",
     "!versions/**"
-  ]
+  ],
+  "markdown.validate.enabled": true,
+  "sarif-viewer.connectToGithubCodeScanning": "off"
 }

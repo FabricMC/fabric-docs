@@ -38,7 +38,7 @@ If you're struggling to determine balanced values for any of the numerical param
 
 ### Creating the Tool Material Tag {#creating-the-tool-material-tag}
 
-For our `incorrectBlocksForDrops` tag, we can create a tag similar to vanilla's `minecraft:incorrect_for_*_drops` tags, which determine the blocks that will **not** drop when mined with the material. Let's define the tag reference as follows:
+For our `incorrectBlocksForDrops` tag, we can create a tag similar to vanilla's `minecraft:incorrect_for_*_drops` tags, which determines the blocks that will **not** drop when mined with the material. Let's define the tag reference as follows:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_incorrect_blocks_tag
 
@@ -54,17 +54,23 @@ We could also do the reverse: inherit from a stronger tool and _append_ addition
 
 As an example, if we wanted to create a tool that worked like iron but couldn't mine Diamond Ore, `values` would need to contain `#minecraft:incorrect_for_iron_tool` and `#minecraft:diamond_ores`.
 
+If you want to make your tool material mine the same blocks as an existing one, you can include the respective tag in your tag's definition without any additions or removals. This is recommended over passing the existing tag as your material's `incorrectBlocksForDrops` so that users can configure the incorrect blocks for each of the materials independently.
+
 :::
 
 ## Registering Tool Items {#registering-tool-items}
 
-Using the same utility function as in the [Creating Your First Item](./first-item) guide, you can create your tool items:
+You can create your tool items by using the same classes and functions that we implemented in the [Creating Your First Item](./first-item) guide:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
 The two float values (`1f, 1f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
 
 For shovels, axes, and hoes, you should create a `ShovelItem`, `AxeItem`, or `HoeItem` instead of a generic `Item`, as these implement tool-specific right-click actions:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#axe
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
 

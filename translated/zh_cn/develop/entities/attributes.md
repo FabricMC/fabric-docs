@@ -4,6 +4,7 @@ description: 了解如何向实体添加自定义属性。
 authors:
   - cassiancc
   - cprodhomme
+  - Tenneb22
 resources:
   https://minecraft.wiki/w/Attribute: 属性 - Minecraft Wiki
   https://docs.neoforged.net/docs/entities/attributes: Attributes - NeoForge 文档（Neo exclusives 除外）
@@ -57,41 +58,20 @@ resources:
 
 属性需要附着到实体以生效。 这通常是在实体属性被构建或修改的方法中完成的。
 
-原版也提供属性，包括[最大生命值](https://zh.minecraft.wiki/w/属性/最大生命值)、[移动速度](https://zh.minecraft.wiki/w/属性/速度)和[攻击伤害](https://zh.minecraft.wiki/w/属性/攻击伤害)，如下所示。 完整列表可见 `Attributes` 类以及 [Minecraft Wiki](https://zh.minecraft.wiki/w/属性)。
+原版也提供属性，包括[最大生命值](https://zh.minecraft.wiki/w/属性/最大生命值)、[移动速度](https://zh.minecraft.wiki/w/属性/速度)和[攻击伤害](https://zh.minecraft.wiki/w/属性/攻击伤害)。 完整列表可见 `Attributes` 类以及 [Minecraft Wiki](https://zh.minecraft.wiki/w/属性)。
 
-作为演示，我们包含最大生命值、移动速度、攻击伤害以及刚刚创建的仇恨范围属性。
+本示例演示了如何将原始属性和之前创建的 `AGGRO_RANGE` 属性添加到[创建你的第一个实体](./first-entity)指南中的迷你魔像实体。
 
-<!-- TODO: move to the reference mod -->
-
-```java
-public static AttributeSupplier.Builder createEntityAttributes() {
-    return Mob.createMobAttributes()
-        .add(Attributes.MAX_HEALTH, 25.0)
-        .add(Attributes.MOVEMENT_SPEED, 0.22)
-        .add(Attributes.ATTACK_DAMAGE, 3.0)
-        .add(ModAttributes.AGGRO_RANGE, 8.0);
-}
-```
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#attributes
 
 ## 读取和修改属性{#reading-modifying-attributes}
 
 属性本身只是附着在实体上的数据。 要让属性有用，需要从中读取和写入。 这有两种方式，获取实体的 `AttributeInstance`，或直接获取值。
 
-```java
-entity.getAttribute(ModAttributes.AGGRO_RANGE) // returns an `AttributeInstance`
-entity.getAttributeValue(ModAttributes.AGGRO_RANGE) // returns a double with the current value
-entity.getAttributeBaseValue(ModAttributes.AGGRO_RANGE) // returns a double with the base value
-```
+<<< @/reference/latest/src/gametest/java/com/example/docs/entity/EntityAttributesGameTest.java#reading_entity_attributes
 
 `AttributeInstance` 更灵活些，例如为属性设置 `AttributeModifier`，使用[三种原版属性修饰符运算](https://zh.minecraft.wiki/w/属性#运算模式)中的一个。 属性可以是持久（存储至 NBT）或临时（不存储至 NBT）的，分别可以使用 `addPermanentModifier` or `addTransitiveModifier` 添加。
 
-```java
-attribute.addPermanentModifier(
-    new AttributeModifier(
-        Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "increased_range"), // the ID of your modifier, should be static so it can be removed
-        8, // how much to modify it
-        AttributeModifier.Operation.ADD_VALUE // what operator to use, see the wiki page linked above
-    ));
-```
+<<< @/reference/latest/src/gametest/java/com/example/docs/entity/EntityAttributesGameTest.java#modifying_entity_attributes
 
 只要能访问属性的值，就可以在实体的 AI 中使用。

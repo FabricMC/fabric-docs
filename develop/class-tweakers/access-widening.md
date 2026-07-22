@@ -36,7 +36,7 @@ This includes making them public, extendable and/or mutable.
 
 Access widener entries can be [transitive](../class-tweakers/index#transitive-entries) to make changes visible to mods depending on yours.
 
-To access fields or methods, it can be safer and simpler to use [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors),
+To access fields or methods, it can be safer and simpler to use [accessor mixins](../mixins/accessors),
 but there are two situations where accessors are insufficient and access widening is necessary:
 
 - If you need to access a `private`, `protected` or package-private class
@@ -122,7 +122,6 @@ Manually writing access widener entries is time-consuming and prone to human err
 
 ### mcsrc.dev {#mcsrc-dev}
 
-Available for all versions with an [unobfuscated JAR](../migrating-mappings/index#whats-going-on-with-mappings), namely 1.21.11 and above,
 [mcsrc](https://mcsrc.dev) allows you to decompile and navigate Minecraft source in the browser and copy Mixin, access widener or access transformer targets to clipboard.
 
 To copy an access widener entry, first navigate to the class which you want to modify, and right-click on your target to open the popup menu.

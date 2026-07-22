@@ -62,6 +62,17 @@ authors:
 
 <<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/ConversionTypeMixin.java#enum_extension_abstract_method_impls_example_mixin
 
+### 访问当前枚举序号 {#accessing-current-enum-ordinal}
+
+你可能需要获取新增枚举条目的序号，以便将其传递给构造函数。 为此，
+Mixin 提供了 `MixinIntrinsics.currentEnumOrdinal()` 方法，该方法在考虑其他模组贡献的情况下返回正确的索引。
+
+举个例子，让我们在原版的 `IllagerSpell` 中添加一个 mixin，并添加一个法术，该法术的序号作为构造函数的第一个参数传递：
+
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/IllagerSpellMixin.java#enum_extension_current_enum_ordinal_example_mixin
+
+现在你可以放心，即使另一个模组也扩展了同一个枚举类型，`currentEnumOrdinal()` 仍然会返回正确的索引。
+
 ## 创建类调整器条目 {#making-the-class-tweaker-entry}
 
 如果你的目标是 Minecraft 枚举，可以使用类调整器条目在反编译源码中可见地修改目标枚举。

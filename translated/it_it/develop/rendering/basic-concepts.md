@@ -11,9 +11,9 @@ authors:
 
 ::: warning
 
-Anche se Minecraft è costruito usando OpenGL, a partire da 1.17 non puoi usare metodi OpenGL legacy per fare rendering. Devi invece usare il nuovo sistema `BufferBuilder`, che formatta i dati del rendering e li carica su OpenGL perché vengano disegnati.
+Anche se Minecraft è attualmente costruito usando OpenGL, a partire da 1.17 non puoi usare metodi OpenGL legacy per fare rendering. Devi invece usare il nuovo sistema `BufferBuilder`, che formatta i dati del rendering e li carica su OpenGL perché vengano disegnati.
 
-Per riassumere, devi usare il sistema di rendering di Minecraft, o crearne uno tuo che usa `GL.glDrawElements()`.
+In breve, devi usare il sistema di rendering di Minecraft. L'utilizzo di OpenGL puro sarà ancora più ostacolato quando [Minecraft 26.2 verrà rilasciato con un backend Vulkan](https://www.minecraft.net/en-us/article/another-step-towards-vibrant-visuals-for-java-edition).
 
 :::
 
@@ -21,7 +21,7 @@ Per riassumere, devi usare il sistema di rendering di Minecraft, o crearne uno t
 
 A partire da 1.21.6 si stanno implementando grandi modifiche alle procedure del rendering, tra cui la migrazione verso `RenderType` e `RenderPipeline` e, soprattutto, `RenderState`, con l'obiettivo ultimo di riuscire a preparare il frame successivo mentre si disegna il frame corrente, in contemporanea. Nella fase di "preparazione", tutti i dati del gioco usati per il rendering sono estratti come `RenderState`, cosicché un altro thread possa lavorare per disegnare quel frame mentre si estrae il prossimo.
 
-Per esempio, in 1.21.8, il rendering alla GUI ha adottato questo schema, e i metodi `GuiGraphics` aggiungono semplicemente al `RenderState`. Il caricamento effettivo a `BufferBuilder` avviene alla fine della fase di preparazione, dopo che tutti gli elementi sono stati aggiunti al `RenderState`. Vedi `GuiRenderer#prepare`.
+Per esempio, in 1.21.8, il rendering alla GUI ha adottato questo schema, e i metodi `GuiGraphicsExtractor` aggiungono semplicemente al `RenderState`. Il caricamento effettivo a `BufferBuilder` avviene alla fine della fase di preparazione, dopo che tutti gli elementi sono stati aggiunti al `RenderState`. Vedi `GuiRenderer#prepare`.
 
 Questo articolo tratta delle basi del rendering e, purché siano alquanto rilevanti, la maggior parte delle volte vi sono livelli superiori di astrazione per prestazioni e compatibilità migliori. Per maggiori informazioni, vedi la pagina [Rendering nel mondo](./world).
 
@@ -29,7 +29,7 @@ Questo articolo tratta delle basi del rendering e, purché siano alquanto rileva
 
 Questa pagina tratterà le basi del rendering usando il nuovo sistema, presentando terminologia e concetti chiave.
 
-Anche se molto del rendering in Minecraft viene astratto attraverso i vari metodi `GuiGraphics`, e probabilmente non ti servirà toccare nulla di quel che viene menzionato qui, è comunque importante capire le basi di come funziona il rendering.
+Anche se molto del rendering in Minecraft viene astratto attraverso i vari metodi `GuiGraphicsExtractor`, e probabilmente non ti servirà toccare nulla di quel che viene menzionato qui, è comunque importante capire le basi di come funziona il rendering.
 
 ## Il `Tesselator` {#the-tesselator}
 
@@ -98,7 +98,7 @@ Una matrice di trasformazione è una matrice 4x4 che viene usata per trasformare
 
 A volte viene chiamata anche matrice di posizione, o matrice modello.
 
-Solitamente è ottenuta dalla classe `Matrix3x2fStack`, che può essere ottenuta attraverso l'oggetto `GuiGraphics` chiamando il metodo `GuiGraphics#pose()`.
+Solitamente è ottenuta dalla classe `Matrix3x2fStack`, che può essere ottenuta attraverso l'oggetto `GuiGraphicsExtractor` chiamando il metodo `GuiGraphicsExtractor#pose()`.
 
 #### Renderizzare una Striscia di Triangoli {#rendering-a-triangle-strip}
 
@@ -123,7 +123,7 @@ Siccome stiamo disegnando sulla HUD in questo esempio, useremo la `HudElementReg
 
 A partire da 1.21.8, il matrix stack usato per il rendering del HUD è cambiato da `PoseStack` a `Matrix3x2fStack`. La maggior parte dei metodi è leggermente diversa, e non prende più un parametro `z`, ma i concetti sono gli stessi.
 
-Inoltre, il codice qua sotto non combacia perfettamente con la spiegazione di sopra: non si deve scrivere manualmente al `BufferBuilder`, perché i metodi di `GuiGraphics` scrivono automaticamente al `BufferBuilder` del HUD durante la preparazione.
+Inoltre, il codice qua sotto non combacia perfettamente con la spiegazione di sopra: non si deve scrivere manualmente al `BufferBuilder`, perché i metodi di `GuiGraphicsExtractor` scrivono automaticamente al `BufferBuilder` del HUD durante la preparazione.
 
 Leggi l'aggiornamento importante sopra per maggiori informazioni.
 
@@ -131,11 +131,11 @@ Leggi l'aggiornamento importante sopra per maggiori informazioni.
 
 **Registrazione dell'elemento:**
 
-@[code lang=java transcludeWith=:::registration](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#registration
 
 **Implementazione di `hudLayer()`:**
 
-@[code lang=java transcludeWith=:::hudLayer](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#hud_layer
 
 Questo risulta nel seguente disegno sul HUD:
 
@@ -182,7 +182,7 @@ Assicurati di spingere lo stack di matrici prima di prendere una matrice di tras
 
 :::
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#scaling_square
 
 ![Un video che mostra il diamante ingrandirsi e rimpicciolirsi](/assets/develop/rendering/concepts-matrix-stack.webp)
 
@@ -204,7 +204,7 @@ Difficilmente dovrai usare una classe Quaternion direttamente, siccome Minecraft
 
 Immaginiamo di voler ruotare il nostro quadrato attorno all'asse z. Possiamo farlo usando il `PoseStack` e il metodo `rotateAround(quaternionfc, x, y, z)`.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/RenderingConceptsEntrypoint.java#rotating_square
 
 Il risultato è il seguente:
 

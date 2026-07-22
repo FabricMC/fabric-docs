@@ -19,9 +19,15 @@ Der einfachste und schnellste Weg, um Probleme zu lokalisieren ist das Logging z
 
 Werte können dort zur Laufzeit ausgegeben werden, wodurch der Entwickler über den aktuellen Status des Codes informiert wird und Änderungen und potenzielle Fehler leicht analysiert werden können.
 
-In der `ModInitializer`-implementierenden Einstiegsklasse des Mods wird standardmäßig ein `LOGGER` definiert, um die gewünschte Ausgabe auf die Konsole zu schreiben.
+Du kannst einen Logger mithilfe der `LoggerFactory` erstellen, die einen Namen entgegennimmt, der im Log neben den ausgegebenen Nachrichten angezeigt wird:
 
-<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems_basic_logger_definition
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#create_logger
+
+::: tip
+
+Der von der [Mod-Vorlage](./getting-started/creating-a-project) generierte Initialisierer stellt einen Standard-Logger bereit, der deine Mod-ID verwendet.
+
+:::
 
 Wenn du an irgendeiner Stelle im Code einen Wert für etwas wissen musst, benutze diesen `LOGGER`, indem du einen `String` an seine Methoden übergibst.
 
