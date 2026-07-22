@@ -89,6 +89,10 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
       from: /^(?:[0-9.]+[/])?develop[/]porting[/]mappings(?=[/]|$)/,
       dest: "1.21.11/develop/porting/mappings",
     },
+    {
+      from: /contributing(?=[/]|$)/,
+      dest: "translations",
+    }
   ];
 
   // these replacements don't need to trigger a redirect
