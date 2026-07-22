@@ -204,7 +204,7 @@ The Docs contain two kinds of pages: player-oriented how-tos, and development-ai
 
 ### Player Pages {#players}
 
-The pages for players are under `/players`. They must be simple to follow, and must take into account all three operating systems where relevant: Windows, macOS, and Linux. These pages will be reviewed with greater scrutiny because of how many people will come across them. Relevant paths:
+Pages for players are under `/players`. They must be simple to follow, and must take into account all three operating systems where relevant: Windows, macOS, and Linux. These pages will be reviewed with greater scrutiny because of how many people will come across them. Relevant paths:
 
 - `.vitepress/sidebars/player.ts`: the common sidebar for player pages
 - `sidebar_translations.json`, keys prefixed with `player.`: titles of the pages as seen in the sidebar
@@ -212,7 +212,7 @@ The pages for players are under `/players`. They must be simple to follow, and m
 
 ### Developer Pages {#develop}
 
-On the other hand, the pages for developers are under `/develop`. These have a greater scope: some are guides, and some are references. Relevant paths:
+Pages for developers are under `/develop`. These have a greater scope: some are guides, and some are references. Relevant paths:
 
 - `.vitepress/sidebars/develop.ts`: the common sidebar for developer pages
 - `sidebar_translations.json`, keys prefixed with `develop.`: titles of the pages as seen in the sidebar
