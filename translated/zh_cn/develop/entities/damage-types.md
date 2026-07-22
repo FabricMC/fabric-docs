@@ -82,7 +82,7 @@ resources/data/example-mod/damage_type/tater.json
 
 ::: info
 
-全部伤害类型的列表详见 [Minecraft Wiki](https://zh.minecraft.wiki/w/标签#伤害类型)。
+全部伤害类型的列表详见 [Minecraft Wiki](https://zh.minecraft.wiki/w/Java%E7%89%88%E6%A0%87%E7%AD%BE/%E4%BC%A4%E5%AE%B3%E7%B1%BB%E5%9E%8B)。
 
 :::
 

@@ -6,6 +6,7 @@ authors:
   - dicedpixels
   - Draylar
   - JamiesWhiteShirt
+  - Jimmy474
   - Juuxel
   - liach
   - mkpoli
@@ -37,7 +38,7 @@ A ogni evento corrisponde un'interfaccia di callback. I callback sono registrati
 
 Questo esempio registra un `AttackBlockCallback` per danneggiare il giocatore quando colpisce dei blocchi che non droppano un oggetto se rotti senza utensili.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#attack_block_callback_event
 
 ### Aggiungere Oggetti alle Loot Table Esistenti {#adding-items-to-existing-loot-tables}
 
@@ -49,19 +50,19 @@ Aggiungeremo le uova alla loot table del minerale di carbone.
 
 #### Ascoltare il Caricamento delle Loot Table {#listening-to-loot-table-loading}
 
-L'API di Fabric ha un evento che si attiva quando le loot table sono caricate, `LootTableEvents.MODIFY`. Puoi registrare un callback per quell'evento nell'[initializer della tua mod](./getting-started/project-structure#entrypoints). Controlliamo anche che la loot table corrente sia quella del minerale di carbone.
+L'API di Fabric ha un evento che si attiva quando le loot table sono caricate, `LootTableEvents.MODIFY`. Puoi registrare un callback per quell'evento nell'[initializer della tua mod](./getting-started/project-structure#entrypoints). Controlliamo anche che la loot table corrente sia quella del minerale di carbone:
 
-@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_table_events
 
 #### Aggiungere Oggetti alla Loot Table {#adding-items-to-the-loot-table}
 
-Nelle loot table, gli oggetti sono memorizzati come _loot pool entries_, e le voci sono memorizzate in _loot pools_. Per aggiungere un oggetto, dovremo aggiungere una pool con una voce oggetto alla loot table.
+Per aggiungere un oggetto, dovremo aggiungere una pool con una voce oggetto alla loot table.
 
-Possiamo creare una pool con `LootPool#builder`, e aggiungerla alla loot table.
+Possiamo creare una pool con `LootPool#lootPool`, e aggiungerla alla loot table.
 
-La nostra pool non ha nemmeno un oggetto, quindi dovremo creare una voce oggetto usando `ItemEntry#builder` e aggiungerla alla pool.
+La nostra pool non ha ancora un oggetto, quindi dovremo creare una voce oggetto usando `LootItem#lootTableItem` e aggiungerla alla pool.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_pool_builder{5-7}
 
 ## Eventi Personalizzati {#custom-events}
 
@@ -79,40 +80,46 @@ L'interfaccia callback descrive cosa deve essere implementato dai listener di ev
 
 Per la nostra implementazione di `Event`, sceglieremo di usare un evento basato su un vettore. Il vettore conterrà tutti i listener agli eventi che stanno ascoltando l'evento.
 
-La nostra implementazione chiamerà i listener di eventi in ordine finché uno di essi non restituisce `ActionResult.PASS`. Questo significa che con il valore restituito un listener può dire "_annulla questo_", "_approva questo_" o "_non m'interessa, lascialo al prossimo listener_".
+La nostra implementazione chiamerà i listener di eventi in ordine finché uno di essi non restituisce `InteractionResult.PASS`. Questo significa che con il valore restituito un listener può dire "_annulla questo_", "_approva questo_", o "_non m'interessa, passalo al prossimo listener_".
 
-Usare `ActionResult` come valore restituito è una convenzione per far cooperare i gestori di eventi in questa maniera.
+Usare `InteractionResult` come valore restituito è una convenzione per far cooperare i gestori di eventi in questa maniera.
 
 Dovrai creare un'interfaccia che ha un'istanza `Event` e un metodo per implementare la risposta. Una semplice configurazione per il nostro callback di tosatura di una pecora è:
 
-@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#sheep_shear_callback
 
 Diamogli un'occhiata più precisa. Quando l'invocatore viene chiamato, iteriamo su tutti i listener:
 
-@[code lang=java transclude={21-22}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#listener_iterator
 
-Poi chiamiamo il nostro metodo (in questo caso, `interact`) sul listener per ottenere la sua risposta:
+Per ogni listener, chiameremo il metodo `interact` per ottenere la sua risposta. Ecco la firma di `interact` dichiarata nella nostra interface:
 
-@[code lang=java transclude={33-33}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#interact_method
 
-Se il listener dice che dobbiamo annullare (`ActionResult.FAIL`), oppure finire completamente (`ActionResult.SUCCESS`), il callback restituisce il risultato e finisce il loop. `ActionResult.PASS` si sposta sul prossimo listener, e nella maggior parte dei casi dovrebbe risultare in un successo se non ci sono altri listener registrati:
+Se il listener dice che dobbiamo annullare (perché restituisce `FAIL`), oppure terminare completamente (`SUCCESS`), il callback restituisce il risultato e finisce il loop.
 
-@[code lang=java transclude={25-30}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+`InteractionResult.PASS` fa avanzare al prossimo listener, e questo finché tutti i listener saranno stati chiamati, anche finché l'ultimo restituisce `PASS`:
 
-Possiamo aggiungere commenti Javadoc in cima alle classi di callback per documentare cosa fa ogni `ActionResult`. Nel nostro caso, potrebbe essere:
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#return_value
 
-@[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+Possiamo aggiungere commenti Javadoc in cima alle classi di callback per documentare cosa fa ogni `InteractionResult`. Nel nostro caso, potrebbe essere:
+
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#javadoc_comment
 
 ### Innescare l'Evento da un Mixin {#triggering-the-event-from-a-mixin}
 
-Ora abbiamo lo scheletro di base dell'evento, ma dobbiamo anche innescarlo. Siccome vogliamo che l'evento venga chiamato quando un giocatore prova a tosare una pecora, chiamiamo l'`invoker` dell'evento in `SheepEntity#interactMob` quando `sheared()` viene chiamata (ovvero quando la pecora può essere tosata, e il giocatore sta tenendo delle cesoie):
+Ora abbiamo lo scheletro di base dell'evento, ma dobbiamo anche innescarlo. Siccome vogliamo che l'evento venga chiamato quando un giocatore prova a tosare una pecora, chiamiamo l'`invoker` dell'evento in `Sheep#mobInteract` quando `shear()` viene chiamato (ovvero quando la pecora può essere tosata, e il giocatore sta tenendo delle cesoie):
 
-@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/event/SheepMixin.java#sheep_mixin
 
 ### Creare un Implementazione di Prova {#creating-a-test-implementation}
 
-Ora dobbiamo testare il nostro evento. Puoi registrare un listener nel tuo metodo d'inizializzazione (o in un'altra area, se preferisci) e aggiungere logica personalizzata lì. Qui c'è un esempio che droppa un diamante anziché lana ai piedi della pecora:
+Ora dobbiamo testare il nostro evento. Puoi registrare un listener nel tuo metodo d'inizializzazione (o in un'altra area, se preferisci) e aggiungere logica personalizzata lì.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+Qui c'è un esempio che droppa un diamante anziché lana ai piedi della pecora:
+
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#sheep_shear_callback_event
 
 Se entri nel gioco e tosi una pecora, un diamante dovrebbe essere droppato anziché lana.
+
+<!-- TODO: maybe adding a video of a sheep dropping diamonds? -->

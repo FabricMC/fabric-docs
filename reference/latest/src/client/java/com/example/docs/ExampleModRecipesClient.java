@@ -6,13 +6,16 @@ import net.minecraft.client.multiplayer.ClientLevel;
 
 import net.fabricmc.api.ClientModInitializer;
 
+import com.example.docs.menu.ModMenuTypes;
 import com.example.docs.recipe.ExampleModRecipes;
 import com.example.docs.rendering.screens.inventory.UpgradingScreen;
 
 public class ExampleModRecipesClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		MenuScreens.register(ExampleModRecipes.UPGRADING_MENU_TYPE, UpgradingScreen::new);
+		// #region register_with_menu
+		MenuScreens.register(ModMenuTypes.UPGRADING_MENU_TYPE, UpgradingScreen::new);
+		// #endregion register_with_menu
 	}
 
 	private static void getRecipes() {
