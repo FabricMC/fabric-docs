@@ -1,0 +1,78 @@
+---
+title: mixins.json Config
+description: Learn how to register mixin classes, and how to configure their behavior from the mixins.json config file.
+authors:
+  - MildestToucan
+resources:
+  https://github.com/FabricMC/Mixin/blob/main/src/main/java/org/spongepowered/asm/mixin/transformer/MixinConfig.java: MixinConfig class source code - GitHub
+  https://github.com/SpongePowered/Mixin/wiki: Official Mixin Wiki - GitHub
+  http://github.com/llamalad7/mixinextras/wiki: Official MixinExtras Wiki - GitHub
+  https://github.com/LlamaLad7/MixinExtras/wiki/Expressions-Setup: Expressions Setup - MixinExtras Wiki
+---
+
+Mixin config files, conventionally named `<modid>.mixins.json`, are JSON files used to register mixin classes and tweak some of Mixin's behavior.
+This page will go over config options relevant to the majority of mod developers, but it is **not** an exhaustive specification of all Mixin config options.
+
+For a more exhaustive look at all the options, you should instead consult the [MixinConfig class](https://github.com/FabricMC/Mixin/blob/main/src/main/java/org/spongepowered/asm/mixin/transformer/MixinConfig.java)
+'s source code.
+
+Mixin config files are [registered in a mod's fabric.mod.json file](../loader/fabric-mod-json#mixins) and placed in a mod's `resources` directory,
+one mod may register multiple Mixin configs if needed.
+
+You can consult the example mod's Mixin config files below for how a typical Mixin config might look like:
+
+::: details Main `mixins.json` config file of the Example Mod
+
+<<< @/reference/latest/src/main/resources/example-mod.mixins.json
+
+:::
+
+::: details Client `mixins.json` config file of the Example Mod
+
+<<<@/reference/latest/src/client/resources/example-mod.client.mixins.json
+
+:::
+
+## Mixin Class Registration {#mixin-class-registration}
+
+A Mixin config file must have a `package` field indicating the package path under which all of its mixins will be.
+
+Packages in a Mixin config are separated by dot characters (`.`), such that a class's path would be formatted as: `example.package.path.ExampleClass`.
+
+Mixin classes are then registered under one of the following arrays:
+
+- **`mixins`** for mixin classes that should load regardless of if the game launches from a client or server.
+- **`client`** for mixin classes that should only load when the game is launched on a **physical** client. Should be used to register
+  mixins targeting client-only classes.
+- **`server`** for mixin classes that should only load when the game is launched from a **dedicated** server. Note that mixins here will not apply in
+  singleplayer, as singleplayer is launched from a client.
+
+Mixin classes are specified by their path relative to the config's `package`, meaning their simple name prefixed by any subpackage paths in the mixin package.
+
+For example, `"accessor.InventoryAccessor"` would register the class `InventoryAccessor` in the package `accessor`, itself under the config's `package` option.
+
+## Config Options {#config-options}
+
+The following options are used to tweak the behavior of this config and how its mixins are processed and applied:
+
+- **`required`**: Takes a boolean value, if set to `false`, errors raised by mixins under this config will not cause a crash. This should be set to `true` for most mods.
+- **`compatibilityLevel`**: Takes a value corresponding to a java version, formatted as `"JAVA_<version>"`, such as `JAVA_8` or `JAVA_25`. This should match the Java version
+  your mod depends on.
+
+### Injector Options {#injector-options}
+
+- **`injectors`**: An object that defines different options for the injectors of mixins under this config.
+  - **`defaultRequire`**: An integer defining the default `require` value for this config's injectors. If an injector finds less targets than its `require` value, it will raise an error.
+    Setting an injector's `require` value to 0 effectively makes it optional. Most mods should set `defaultRequire` to 1, and override it in individual injectors' annotations.
+
+### Overwrite Options {#overwrite-options}
+
+- **`overwrites`**: An object that defines different options for the overwrites of mixins under this config.
+  - **`requireAnnotations`**: A boolean defining whether Mixin should require an explicit `@Overwrite` annotation to overwrite a target method.
+    This should almost always be set to `true` to avoid accidental or implicit overwrites, as overwriting should only be done very intentionally and sparingly when absolutely needed.
+
+### MixinExtras Options {#mixinextras-options}
+
+- **`mixinextras`**: An object that defines different options specific to [MixinExtras](http://github.com/llamalad7/mixinextras/wiki), which is bundled alongside Mixin by Fabric Loader.
+  - **`minVersion`**: A string corresponding to the minimum MixinExtras version required for this config's mixins. This is used to gate breaking changes and other features behind an
+    explicit opt-in. It is most notably used to opt into [expression-based targeting](http://github.com/llamalad7/mixinextras/wiki/expressions).

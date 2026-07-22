@@ -92,6 +92,8 @@
   "develop.misc.text_and_translations": "Text and Translations",
   "develop.misc.debugging": "Debugging Mods",
   "develop.mixins": "Mixins",
+  "develop.mixins.introduction": "Introduction",
+  "develop.mixins.mixins.json": "mixins.json Config",
   "develop.mixins.bytecode": "Java Bytecode",
   "develop.mixins.accessors": "Accessors",
   "develop.class_tweakers": "Class Tweakers",
