@@ -67,8 +67,14 @@ editLink: false
 import { Icon } from "@iconify/vue";
 import { useData } from "vitepress";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { computed } from "vue";
 
 const data = useData();
+
+const href = computed(() =>
+  data.theme.value.editLink!.pattern!.replace(":path", data.page.value.filePath)
+);
+const text = computed(() => data.theme.value.editLink!.text!);
 </script>
 
 Thank you for your interest in contributing to the Fabric Docs!
@@ -118,9 +124,9 @@ The best way to start helping and familiarizing yourself with the project is to 
 
 Spotted a misspelling or a broken link? At the bottom of every page on the website, there is a link to edit it on GitHub:
 
-<VPLink :href="data.theme.value.editLink!.pattern!.replace(':path', data.page.value.filePath)" no-icon>
+<VPLink :href no-icon>
   <Icon icon="lucide:edit" />
-  {{ data.theme.value.editLink!.text! }}
+  {{ text }}
 </VPLink>
 
 That will open the GitHub Web UI, where you can make changes without downloading anything. You'll need to create an account with GitHub, though; that way we will also be able to give you proper credit.
@@ -137,47 +143,7 @@ Someone from the Docs Team should then notice your PR; if they approve of it, th
 
 ### Translating to Another Language {#label-i18n-l10n}
 
-<!-- TODO: split into translators.md -->
-
-The Docs are translated into multiple languages to help non-English speakers with modding. If you want to tweak translations, you can use Crowdin.
-
-::: info
-
-If your language is not listed, you should tell us with a message on the **#docs** channel on the [Discord server](https://discord.fabricmc.net/).
-
-:::
-
-Let's say you speak Italian, and while reading a page, you came across a spelling mistake:
-
-![A paragraph in Italian with a spelling mistake: "legera" should be "leggera"](/assets/contributing/lang-spelling-mistake.png)
-
-To fix it, you should visit the [Crowdin project](https://crowdin.com/project/fabricmc), sign up for an account if you don't have one yet, select your language (Italian), and select the file you want to correct:
-
-![Selecting the language Italian on Crowdin](/assets/contributing/crowdin-select-lang.png)
-
-![Opening the file on Crowdin](/assets/contributing/crowdin-open-file.png)
-
-On the Preview tab you'll see what the page currently looks like, and you can find the string you want to correct there:
-
-![Preview of the file with an error on Crowdin](/assets/contributing/crowdin-preview-with-error.png)
-
-Suggest the correction on the right side, then save your suggestion:
-
-![Correction submitted on Crowdin](/assets/contributing/crowdin-corrected-suggestion.png)
-
-Now, you have to wait. Translations are pulled once a week, on Saturday at 7:37 UTC. When that happens, you'll see a new PR opened on GitHub containing changes from the week, including your correction. Here's an [example of a localization PR](https://github.com/FabricMC/fabric-docs/pull/546):
-
-![Translation PR on GitHub](/assets/contributing/github-l10n-pr.png)
-
-Finally, when someone from the Docs Team approves the PR and merges it, you'll see your correction live on the website.
-
-This is the same process you should follow if you want to translate an entire page anew: you should find the file on Crowdin, suggest translations for **all its sentences**, and wait for them to be merged to the main site.
-
-::: warning IMPORTANT
-
-You'll notice that Crowdin does not show code blocks, snippets, or similar in the translatable strings. Those will be added automatically, and are not expected to be translated. Therefore, when referencing code classes, make sure you use the English names!
-
-:::
+Please check out the [translation guidelines](./translations).
 
 ### Creating New Content {#label-new-content}
 

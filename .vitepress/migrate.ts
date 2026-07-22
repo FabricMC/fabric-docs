@@ -45,7 +45,7 @@ const sorter = (a: string, b: string) => {
 
 const pathToContentMap = Object.fromEntries(
   tinyglobby
-    .globSync(["contributing.md", "develop/**/*.md", "players/**/*.md"])
+    .globSync(["contributing.md", "translations.md", "develop/**/*.md", "players/**/*.md"])
     .sort(sorter)
     .map((f) => [f, fs.readFileSync(f, "utf-8")] as const)
     .filter(([_, c]) => c.split("@[").length !== 1)
