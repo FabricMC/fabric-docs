@@ -2,6 +2,7 @@
 title: Translation Guidelines
 description: General guidelines regarding the localization of the Fabric Docs via Crowdin.
 authors:
+  - fungoza
   - IMB11
   - its-miroma
 resources:
