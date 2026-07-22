@@ -111,7 +111,13 @@ public class EnchantingSmithingRecipe extends SimpleSmithingRecipe {
 		SlotDisplay base = this.base.display();
 		SlotDisplay material = Ingredient.optionalIngredientToDisplay(this.addition);
 		SlotDisplay template = Ingredient.optionalIngredientToDisplay(this.template);
-		return List.of(new SmithingRecipeDisplay(template, base, material, new EnchantingSmithingDemoSlotDisplay(base, material, this.enchantments), new SlotDisplay.ItemSlotDisplay(Items.SMITHING_TABLE)));
+		return List.of(new SmithingRecipeDisplay(
+				template,
+				base,
+				material,
+				new EnchantingSmithingDemoSlotDisplay(base, material, this.enchantments),
+				new SlotDisplay.ItemSlotDisplay(Items.SMITHING_TABLE)
+		));
 	}
 }
 // #endregion enchanting_smithing
