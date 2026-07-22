@@ -47,7 +47,7 @@ resources:
 # This rarely needs to be used, because snippets are automatically detected.
 # These will be shown in the "Files Referenced" section of the right aside.
 files:
-  - "@/contributing.md"
+  - "@/reference/latest/build.gradle"
 
 # Files to be excluded from references.
 # When a list, can be used to ignore some automatically detected files.
@@ -118,7 +118,7 @@ The best way to start helping and familiarizing yourself with the project is to 
 
 Spotted a misspelling or a broken link? At the bottom of every page on the website, there is a link to edit it on GitHub:
 
-<VPLink href="https://github.com/FabricMC/fabric-docs/edit/main/contributing.md" no-icon>
+<VPLink :href="data.theme.value.editLink!.pattern!.replace(':path', data.page.value.filePath)" no-icon>
   <Icon icon="lucide:edit" />
   {{ data.theme.value.editLink!.text! }}
 </VPLink>
@@ -383,9 +383,9 @@ Each page must start with a YAML frontmatter, which contains metadata related to
 
 ::: code-group
 
-<<< @/contributing.md#frontmatter-mandatory{yaml} [Mandatory]
+<<< ./contributing.md#frontmatter-mandatory{yaml} [Mandatory]
 
-<<< @/contributing.md#frontmatter-optional{yaml} [Advanced]
+<<< ./contributing.md#frontmatter-optional{yaml} [Advanced]
 
 :::
 
@@ -443,7 +443,7 @@ For example:
 
 Here's an example of a getter-setter pattern in Java:
 
-<<< @/contributing.md#number{java}
+<<< ./contributing.md#number{java}
 
 == Markdown
 
@@ -552,7 +552,7 @@ Follow these instructions to install Fabric:
 
 === Markdown
 
-<<< @/contributing.md#tabs
+<<< ./contributing.md#tabs
 
 ::::
 
@@ -584,7 +584,7 @@ You may run this command in your project's root to build your mod:
 
 == Markdown
 
-<<< @/contributing.md#code-group
+<<< ./contributing.md#code-group
 
 ::::
 
@@ -622,7 +622,7 @@ Choose your mappings:
 
 == Markdown
 
-<<< @/contributing.md#choice
+<<< ./contributing.md#choice
 
 :::
 
@@ -642,7 +642,7 @@ You can download the favicon used by this website:
 
 == Markdown
 
-<<< @/contributing.md#download
+<<< ./contributing.md#download
 
 :::
 
@@ -664,7 +664,7 @@ The video player supports both [assets](#assets) and external videos:
 
 == Markdown
 
-<<< @/contributing.md#video
+<<< ./contributing.md#video
 
 :::
 
