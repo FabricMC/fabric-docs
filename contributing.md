@@ -304,7 +304,7 @@ Here are some general tips and guidelines for writing Docs pages:
 - Add hyphens where appropriate
 - Avoid the singular first person "I"
 - Use inline `code` for file names, classes, and the like
-- Use title case for headings, which also need an anchor
+- Use title case for headings, which also need an anchor in `kebab-case`
 - Use [descriptive labels for links](#links); avoid using "here"
 - Limit the number of verbs per sentence
 - Avoid complex grammar: long sentences, passive voices...
