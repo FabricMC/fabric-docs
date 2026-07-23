@@ -7,7 +7,10 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponentGetter;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipProvider;
@@ -23,6 +26,13 @@ public record AdvancedCustomComponent(float temperature, boolean burnt) implemen
 		).apply(builder, AdvancedCustomComponent::new);
 	});
 	// #endregion codec
+	// #region stream_codec
+	public static final StreamCodec<FriendlyByteBuf, AdvancedCustomComponent> STREAM_CODEC = StreamCodec.composite(
+			ByteBufCodecs.FLOAT, AdvancedCustomComponent::temperature,
+			ByteBufCodecs.BOOL, AdvancedCustomComponent::burnt,
+			AdvancedCustomComponent::new
+	);
+	// #endregion stream_codec
 
 	// #region advanced_custom_component
 	@Override
