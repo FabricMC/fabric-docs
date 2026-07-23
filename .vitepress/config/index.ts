@@ -71,7 +71,7 @@ export default defineVersionedConfig(
         // Use the CJK-friendly plugin to fix emphasis
         md.use(cjkFriendlyPlugin);
         // Use the snippet plugin for transclusions
-        md.use(snippetPlugin);
+        () => md.use(snippetPlugin);
         // Use the tabs plugin for... having tabs?
         md.use(tabsMarkdownPlugin);
       },
@@ -101,13 +101,7 @@ export default defineVersionedConfig(
       },
     },
 
-    srcExclude: [
-      "README.md",
-      "versions/1.21.10",
-      "versions/1.21.8",
-      "versions/1.21.4",
-      ...(typeof env === "number" ? ["versions"] : []),
-    ],
+    srcExclude: ["README.md", ...(typeof env === "number" ? ["versions"] : [])],
 
     themeConfig: {
       env,
