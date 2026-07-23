@@ -22,7 +22,7 @@ const data = useData();
 
 const href = computed(() =>
   data.localeIndex.value === "root"
-    ? Object.keys(data.frontmatter.value).at(0)
+    ? Object.keys(data.frontmatter.value.resources).at(0)
     : data.theme.value.editLink!.pattern!.replace(":path", data.page.value.filePath)
 );
 const text = computed(() => data.theme.value.editLink!.text!.replace("GitHub", "Crowdin"));

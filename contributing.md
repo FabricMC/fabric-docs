@@ -1,8 +1,8 @@
 ---
 # for GitHub
-TIP: "Read on on the website: https://docs.fabricmc.net/contributing"
+TIP: "Read this on the website: https://docs.fabricmc.net/contributing"
 
-# #region frontmatter-mandatory
+#region frontmatter_mandatory
 # Page title.
 # Should be short, in title case, and uniform with other pages.
 # Should not contain class names or other obscure technical terms.
@@ -25,9 +25,9 @@ authors:
   - its-miroma
   - modmuss50
   - notlin4
-# #endregion frontmatter-mandatory
+#endregion frontmatter_mandatory
 
-# #region frontmatter-optional
+#region frontmatter_optional
 # Authors of the page who don't have a GitHub account.
 # Alphabetical list of contributors not associated to a GitHub account.
 # Oftentimes, this is a result of migrating an article from the Fabric Wiki.
@@ -58,7 +58,7 @@ filesExclude: true
 # https://vitepress.dev/reference/frontmatter-config
 # For example:
 editLink: false
-# endregion frontmatter-optional
+#endregion frontmatter_optional
 ---
 
 <!-- markdownlint-configure-file { MD033: { allowed_elements: [ChoiceComponent, DownloadEntry, Icon, script, style, VideoPlayer, VPLink] } } -->
@@ -452,7 +452,7 @@ Notice how, in the example above, the constructor of the Java class was intertwi
 
 Sometimes you might want to highlight specific lines in the code. To do this, you can use some special `![code]` comments:
 
-:::: tabs
+::: tabs
 
 == Preview
 
@@ -484,7 +484,7 @@ const var5 = 5; // [!code error]      // [!code error]
 ```
 ````
 
-::::
+:::
 
 ### Tabs {#tabs}
 
@@ -530,7 +530,7 @@ Follow these instructions to install Fabric:
 
 == Preview
 
-<!-- #region code-group -->
+<!-- #region code_group -->
 
 You may run this command in your project's root to build your mod:
 
@@ -546,7 +546,7 @@ You may run this command in your project's root to build your mod:
 
 :::
 
-<!-- #endregion code-group -->
+<!-- #endregion code_group -->
 
 == Markdown
 
