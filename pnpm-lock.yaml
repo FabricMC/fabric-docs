@@ -1840,7 +1840,7 @@ packages:
       vitepress: ^2.0.0-alpha.12
 
   vitepress@https://pkg.pr.new/vitepress@5014:
-    resolution: {integrity: sha512-oNNRvo/gJ/Wb8NqqybCS3yCZ01pdlbqdCVMw4pV1TNU2YwCEKCELkUAULDo/gcJe+QNBp3GPPZ4nFo/X8hR5Fg==, tarball: https://pkg.pr.new/vitepress@5014}
+    resolution: {integrity: sha512-IAIQR6NGohTBPrAfbQ/QD851mXHbwp7Bn2IAp0og3+++qPJY9RPYlOUW+3Ou+iNmHz/DsfoXkc1WxS4b76Q09Q==, tarball: https://pkg.pr.new/vitepress@5014}
     version: 2.0.0-alpha.18
     hasBin: true
     peerDependencies:
