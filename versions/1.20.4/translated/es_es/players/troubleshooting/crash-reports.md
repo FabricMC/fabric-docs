@@ -23,15 +23,15 @@ Los reportes de crasheo pueden ser encontrados en los siguientes lugares:
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\crash-reports
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/crash-reports
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/crash-reports
 ```
 
@@ -82,7 +82,7 @@ Cuando un mixin crashea, usualmente mencionará el mixin en el stack trace, y la
 
 Los métodos en un mixin contendrán `mod-id$handlerName` en el stack trace, donde `mod-id` es el ID del mod, y `handlerName` es el nombre del handler en el mixin.
 
-```:no-line-numbers
+```text:no-line-numbers
 ... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 

@@ -98,7 +98,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 순서대로 HUD에 꼭지점을 그려봅시다.
 
-```txt
+```text
 (20, 20)
 (5, 40)
 (35, 40)

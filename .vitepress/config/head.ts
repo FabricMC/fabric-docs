@@ -22,9 +22,8 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
 
     "1.21.11": "1.21.11",
 
-    // TODO: bring back 1.21.10
-    "1.21.10": "1.21.11",
-    "1.21.9": "1.21.11",
+    "1.21.10": "1.21.10",
+    "1.21.9": "1.21.10",
 
     // TODO: bring back 1.21.8
     "1.21.8": "1.21.11",

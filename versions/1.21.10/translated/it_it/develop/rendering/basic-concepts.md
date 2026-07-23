@@ -96,7 +96,7 @@ Spiegare come scrivere al `BufferBuilder` è più semplice con un esempio pratic
 
 Disegneremo vertici nelle seguenti posizioni sul HUD (in ordine):
 
-```txt
+```text
 (20, 20)
 (5, 40)
 (35, 40)
