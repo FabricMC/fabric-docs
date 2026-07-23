@@ -1,4 +1,3 @@
-import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
@@ -67,8 +66,6 @@ export default defineVersionedConfig(
 
     markdown: {
       config: (md) => {
-        // Use the snippet plugin for transclusions
-        md.use(snippetPlugin);
         // Use the tabs plugin for... having tabs?
         md.use(tabsMarkdownPlugin);
       },

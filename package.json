@@ -15,7 +15,6 @@
     "@iconify/vue": "^5.0.1",
     "@vueuse/core": "^14.3.0",
     "gray-matter": "^4.0.3",
-    "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa25527b2f772d50ca37ae526484c890b8ae",
     "medium-zoom": "^1.1.0",
     "syntax-java-bytecode": "github:mcgambing/Java-Bytecode#578f3e2c6861ac6396492540a987fe05d23b061a",
     "syntax-mcfunction": "github:MinecraftCommands/syntax-mcfunction#51eb8bf4ca04355bb89f5538b7331cb0c0f3df2b",
