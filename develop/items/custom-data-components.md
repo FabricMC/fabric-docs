@@ -46,11 +46,19 @@ As an example, let's create an `Integer` value that will track how many times th
 
 <<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#integer_component
 
-You can see that we're now passing `<Integer>` as our generic type, indicating that this component will be stored as a single `int` value. For our codec, we are using the provided `ExtraCodecs.NON_NEGATIVE_INT` codec. We can get away with using basic codecs for simple components like this, but more complex scenarios might require a custom codec (this will be covered briefly later on). For our `StreamCodec` (sending the information to the client), we're using `ByteBufCodecs.VAR_INT`. A VarInt is a method of storing integers using a dynamic number of bytes. A smaller integer will be encoded in less bytes, while a larger integer will require more bytes.
+You can see that we're now passing `<Integer>` as our generic type, indicating that this component will be stored as a single `int` value.
+
+For our codec, we are using the provided `ExtraCodecs.NON_NEGATIVE_INT` codec. We can get away with using basic codecs for simple components like this, but more complex scenarios might require a custom codec (this will be covered briefly later on).
+
+For our `StreamCodec` (sending the information to the client), we're using `ByteBufCodecs.VAR_INT`. A VarInt is a method of storing integers using a dynamic number of bytes. A smaller integer will be encoded in less bytes, while a larger integer will require more bytes.
 
 ::: warning
 
-Do not think you can skip `networkSynchronized`! If you do not specify a `StreamCodec` in this manner, Minecraft will instead construct a more inefficient one and sync your component anyway. To prevent your component from being synced, you will need mixins, which is outside the scope of this tutorial.
+Do not think you can skip `networkSynchronized`!
+
+If you do not specify a `StreamCodec` in this manner, Minecraft will instead construct a more inefficient one and sync your component anyway.
+
+To prevent your component from being synced, you will need mixins, which is outside the scope of this tutorial.
 
 :::
 
