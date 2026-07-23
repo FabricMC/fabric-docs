@@ -23,15 +23,15 @@ Absturzberichte befinden sich an den folgenden Orten:
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\crash-reports
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/crash-reports
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/crash-reports
 ```
 
@@ -62,7 +62,7 @@ Der Stacktrace im `---- Minecraft Crash Report ----`-Abschnitt ist in diesem Fal
 
 Mit der Anzahl an Mods, die sich in diesem Stacktrace befinden, kann es schwierig sein, den Schuldigen zu finden, aber das Erste, was zu tun ist, ist die Mod zu finden, die den Absturz verursacht.
 
-```:no-line-numbers
+```text:no-line-numbers
 at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
 at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
 ...
@@ -85,7 +85,7 @@ Wenn ein Mixin abstürzt, wird normalerweise das Mixin im Stacktrace erwähnt, m
 
 Mixins für Methoden enthalten `mod-id$handlerName` im Stacktrace, wobei `mod-id` die ID der Mod ist und `handlerName` der Name des Mixin-Handlers ist.
 
-```:no-line-numbers
+```text:no-line-numbers
 ... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
