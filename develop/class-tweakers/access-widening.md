@@ -52,7 +52,7 @@ After the keyword come the parameters, usually the targets of the widening.
 
 The same class, method, or field, can be targeted by multiple access widening entries, one on each line.
 
-Access directives can also be made transitive by adding the `transitive-` prefix before the base access directive.
+Access directives can also be made [transitive](../class-tweakers/index#transitive-entries) by adding the `transitive-` prefix before the base access directive.
 
 ### Accessible {#accessible}
 
