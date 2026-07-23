@@ -5,6 +5,7 @@ authors-nogithub:
   - lightningtow
   - siglong
 authors:
+  - An-m1654
   - Ayutac
   - cassiancc
   - CelDaemon
