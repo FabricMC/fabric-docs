@@ -39,7 +39,7 @@ const versions = computed(() =>
     ...(typeof env.value === "number"
       ? []
       : props.versioningPlugin.versions.toSorted(collator.compare).reverse()),
-  ].filter((v) => !["1.21.10", "1.21.8", "1.21.4"].includes(v))
+  ].filter((v) => !["1.21.10"].includes(v))
 );
 
 const open = ref(false);
