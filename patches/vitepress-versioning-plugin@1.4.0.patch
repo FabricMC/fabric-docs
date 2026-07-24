@@ -1,0 +1,164 @@
+diff --git a/dist/index.cjs b/dist/index.cjs
+index 15abf405421642a90cbb120cec28d3a321df699b..79b6033779d55873b10ace2aeb5f36ec7b56de46 100644
+--- a/dist/index.cjs
++++ b/dist/index.cjs
+@@ -49,7 +49,6 @@ __export(index_exports, {
+ module.exports = __toCommonJS(index_exports);
+ var import_node_fs3 = __toESM(require("fs"), 1);
+ var import_node_path3 = __toESM(require("path"), 1);
+-var import_vite = require("vite");
+ 
+ // src/rewrites.ts
+ var import_node_fs = __toESM(require("fs"), 1);
+@@ -250,20 +249,33 @@ var defaultsDeep = (t, d) => {
+ };
+ function defineVersionedConfig(config, dirname) {
+   var _a, _b, _c, _d, _e, _f, _g, _h;
+-  const logger = (0, import_vite.createLogger)();
++  const logger = console;
+   const configBackup = __spreadValues({}, config);
+   config = defaultsDeep(config, defaultConfig);
+-  const versions = [];
+   const versionsFolder = import_node_path3.default.resolve(dirname, "..", "versions");
+   if (!import_node_fs3.default.existsSync(versionsFolder)) {
+     import_node_fs3.default.mkdirSync(versionsFolder);
+     import_node_fs3.default.writeFileSync(import_node_path3.default.resolve(versionsFolder, ".gitkeep"), "");
+   }
+-  const versionFolders = import_node_fs3.default.readdirSync(versionsFolder, { withFileTypes: true }).filter((dirent) => dirent.isDirectory());
+-  versions.push(...versionFolders.map((dirent) => dirent.name));
+-  for (let themeConfig of [
+-    config.themeConfig,
+-    ...Object.values((_a = config.locales) != null ? _a : {}).map((locale) => locale.themeConfig)
++  const discoveredVersions = import_node_fs3.default.readdirSync(versionsFolder, { withFileTypes: true }).filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
++  const versions = config.versioning.versions === void 0 ? discoveredVersions : [...config.versioning.versions];
++  const unknownVersions = versions.filter((version) => !discoveredVersions.includes(version));
++  if (unknownVersions.length > 0) {
++    throw new Error(
++      `[vitepress-plugin-versioning] Configured versions do not exist: ${unknownVersions.join(", ")}`
++    );
++  }
++  if (new Set(versions).size !== versions.length) {
++    throw new Error("[vitepress-plugin-versioning] Configured versions must be unique.");
++  }
++  const localeEntries = Object.entries((_a = config.locales) != null ? _a : {});
++  const localeNames = localeEntries.map(([locale]) => locale);
++  for (let { themeConfig, sidebarLocales } of [
++    { themeConfig: config.themeConfig, sidebarLocales: localeNames },
++    ...localeEntries.map(([locale, localeConfig]) => ({
++      themeConfig: localeConfig.themeConfig,
++      sidebarLocales: [locale]
++    }))
+   ]) {
+     if (!themeConfig) continue;
+     themeConfig = defaultsDeep(
+@@ -305,7 +317,7 @@ function defineVersionedConfig(config, dirname) {
+         config.versioning.sidebars,
+         dirname,
+         versions,
+-        Object.keys((_c = config.locales) != null ? _c : {})
++        sidebarLocales
+       ));
+     }
+   }
+diff --git a/dist/index.d.cts b/dist/index.d.cts
+index 69e8eea8034b7d7368808b7c7a0d85e263a1a1ce..13e24bae59b58bb420e9d007cdd51f5ff3ce2ded 100644
+--- a/dist/index.d.cts
++++ b/dist/index.d.cts
+@@ -96,6 +96,15 @@ declare namespace Versioned {
+          * Configuration relating to versioning.
+          */
+         versioning: {
++            /**
++             * The versions to expose and materialize. When omitted, all
++             * directories under `versions/` are discovered.
++             *
++             * This controls generated switcher data, sidebars, and rewrites.
++             * VitePress page discovery must be scoped separately with
++             * `srcExclude`.
++             */
++            versions?: Version[];
+             /**
+              * A string representation of the latest version of the project (root).
+              */
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 69e8eea8034b7d7368808b7c7a0d85e263a1a1ce..13e24bae59b58bb420e9d007cdd51f5ff3ce2ded 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -96,6 +96,15 @@ declare namespace Versioned {
+          * Configuration relating to versioning.
+          */
+         versioning: {
++            /**
++             * The versions to expose and materialize. When omitted, all
++             * directories under `versions/` are discovered.
++             *
++             * This controls generated switcher data, sidebars, and rewrites.
++             * VitePress page discovery must be scoped separately with
++             * `srcExclude`.
++             */
++            versions?: Version[];
+             /**
+              * A string representation of the latest version of the project (root).
+              */
+diff --git a/dist/index.js b/dist/index.js
+index fd3153ff331dc209f1f97258dab16ee68e5f8811..73cac03f853f19304520891291436aa6c5759a6b 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -18,7 +18,6 @@ var __spreadValues = (a, b) => {
+ // src/index.ts
+ import fs3 from "fs";
+ import path3 from "path";
+-import { createLogger } from "vite";
+ 
+ // src/rewrites.ts
+ import fs from "fs";
+@@ -219,20 +218,33 @@ var defaultsDeep = (t, d) => {
+ };
+ function defineVersionedConfig(config, dirname) {
+   var _a, _b, _c, _d, _e, _f, _g, _h;
+-  const logger = createLogger();
++  const logger = console;
+   const configBackup = __spreadValues({}, config);
+   config = defaultsDeep(config, defaultConfig);
+-  const versions = [];
+   const versionsFolder = path3.resolve(dirname, "..", "versions");
+   if (!fs3.existsSync(versionsFolder)) {
+     fs3.mkdirSync(versionsFolder);
+     fs3.writeFileSync(path3.resolve(versionsFolder, ".gitkeep"), "");
+   }
+-  const versionFolders = fs3.readdirSync(versionsFolder, { withFileTypes: true }).filter((dirent) => dirent.isDirectory());
+-  versions.push(...versionFolders.map((dirent) => dirent.name));
+-  for (let themeConfig of [
+-    config.themeConfig,
+-    ...Object.values((_a = config.locales) != null ? _a : {}).map((locale) => locale.themeConfig)
++  const discoveredVersions = fs3.readdirSync(versionsFolder, { withFileTypes: true }).filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
++  const versions = config.versioning.versions === void 0 ? discoveredVersions : [...config.versioning.versions];
++  const unknownVersions = versions.filter((version) => !discoveredVersions.includes(version));
++  if (unknownVersions.length > 0) {
++    throw new Error(
++      `[vitepress-plugin-versioning] Configured versions do not exist: ${unknownVersions.join(", ")}`
++    );
++  }
++  if (new Set(versions).size !== versions.length) {
++    throw new Error("[vitepress-plugin-versioning] Configured versions must be unique.");
++  }
++  const localeEntries = Object.entries((_a = config.locales) != null ? _a : {});
++  const localeNames = localeEntries.map(([locale]) => locale);
++  for (let { themeConfig, sidebarLocales } of [
++    { themeConfig: config.themeConfig, sidebarLocales: localeNames },
++    ...localeEntries.map(([locale, localeConfig]) => ({
++      themeConfig: localeConfig.themeConfig,
++      sidebarLocales: [locale]
++    }))
+   ]) {
+     if (!themeConfig) continue;
+     themeConfig = defaultsDeep(
+@@ -274,7 +286,7 @@ function defineVersionedConfig(config, dirname) {
+         config.versioning.sidebars,
+         dirname,
+         versions,
+-        Object.keys((_c = config.locales) != null ? _c : {})
++        sidebarLocales
+       ));
+     }
+   }

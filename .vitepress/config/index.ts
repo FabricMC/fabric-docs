@@ -20,6 +20,25 @@ const latestVersion = fs
   )
   .match(/def minecraftVersion = "([^"]+)"/)![1];
 
+// Archived versions are opt-in so page discovery and versioning metadata stay
+// in sync. Preserve the plugin's existing discovery order.
+const builtVersions = [
+  "1.20.4",
+  "1.21.1",
+  "1.21.10",
+  "1.21.11",
+  "1.21.4",
+  "1.21.8",
+  "26.1.2",
+];
+const excludedVersions = fs
+  .readdirSync(path.resolve(import.meta.dirname, "..", "..", "versions"), {
+    withFileTypes: true,
+  })
+  .filter((entry) => entry.isDirectory() && !builtVersions.includes(entry.name))
+  .map((entry) => `versions/${entry.name}`)
+  .sort();
+
 // https://docs.github.com/en/actions/reference/workflows-and-actions/variables#default-environment-variables
 // https://docs.netlify.com/build/configure-builds/environment-variables/#read-only-variables
 const env = process.env.GITHUB_ACTIONS
@@ -64,6 +83,10 @@ export default defineVersionedConfig(
     // Reduce the size of the dist by using a separate js file for the metadata.
     metaChunk: true,
 
+    // Keep one canonical client build, but isolate bounded server/render batches
+    // in disposable Node processes so their module graphs cannot accumulate.
+    ssrBuildBatchSize: 512,
+
     locales: getLocales(),
 
     markdown: {
@@ -103,9 +126,7 @@ export default defineVersionedConfig(
 
     srcExclude: [
       "README.md",
-      "versions/1.21.10",
-      "versions/1.21.8",
-      "versions/1.21.4",
+      ...excludedVersions,
       ...(typeof env === "number" ? ["versions"] : []),
     ],
 
@@ -137,6 +158,7 @@ export default defineVersionedConfig(
     versioning: {
       latestVersion,
       rewrites: { localePrefix: "translated" },
+      versions: typeof env === "number" ? [] : builtVersions,
       sidebars: {
         sidebarContentProcessor: (s) =>
           Object.fromEntries(
