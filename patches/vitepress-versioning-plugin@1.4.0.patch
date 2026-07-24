@@ -60,46 +60,6 @@ index 15abf405421642a90cbb120cec28d3a321df699b..79b6033779d55873b10ace2aeb5f36ec
        ));
      }
    }
-diff --git a/dist/index.d.cts b/dist/index.d.cts
-index 69e8eea8034b7d7368808b7c7a0d85e263a1a1ce..13e24bae59b58bb420e9d007cdd51f5ff3ce2ded 100644
---- a/dist/index.d.cts
-+++ b/dist/index.d.cts
-@@ -96,6 +96,15 @@ declare namespace Versioned {
-          * Configuration relating to versioning.
-          */
-         versioning: {
-+            /**
-+             * The versions to expose and materialize. When omitted, all
-+             * directories under `versions/` are discovered.
-+             *
-+             * This controls generated switcher data, sidebars, and rewrites.
-+             * VitePress page discovery must be scoped separately with
-+             * `srcExclude`.
-+             */
-+            versions?: Version[];
-             /**
-              * A string representation of the latest version of the project (root).
-              */
-diff --git a/dist/index.d.ts b/dist/index.d.ts
-index 69e8eea8034b7d7368808b7c7a0d85e263a1a1ce..13e24bae59b58bb420e9d007cdd51f5ff3ce2ded 100644
---- a/dist/index.d.ts
-+++ b/dist/index.d.ts
-@@ -96,6 +96,15 @@ declare namespace Versioned {
-          * Configuration relating to versioning.
-          */
-         versioning: {
-+            /**
-+             * The versions to expose and materialize. When omitted, all
-+             * directories under `versions/` are discovered.
-+             *
-+             * This controls generated switcher data, sidebars, and rewrites.
-+             * VitePress page discovery must be scoped separately with
-+             * `srcExclude`.
-+             */
-+            versions?: Version[];
-             /**
-              * A string representation of the latest version of the project (root).
-              */
 diff --git a/dist/index.js b/dist/index.js
 index fd3153ff331dc209f1f97258dab16ee68e5f8811..73cac03f853f19304520891291436aa6c5759a6b 100644
 --- a/dist/index.js
