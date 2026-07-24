@@ -20,8 +20,6 @@ const latestVersion = fs
   )
   .match(/def minecraftVersion = "([^"]+)"/)![1];
 
-// Archived versions are opt-in so page discovery and versioning metadata stay
-// in sync. Preserve the plugin's existing discovery order.
 const builtVersions = [
   "1.20.4",
   "1.21.1",
@@ -139,13 +137,13 @@ export default defineVersionedConfig(
         options: {
           _render: (src, env, md) =>
             env.frontmatter?.search === false
-            || env.relativePath.startsWith("translated/")
-            || env.relativePath.startsWith("versions/")
+              || env.relativePath.startsWith("translated/")
+              || env.relativePath.startsWith("versions/")
               ? ""
               : md.render(
-                  transformFile(src, env.path, latestVersion).replace(/<Badge .*> (?={#h1})/, ""),
-                  env
-                ),
+                transformFile(src, env.path, latestVersion).replace(/<Badge .*> (?={#h1})/, ""),
+                env
+              ),
         },
         provider: "local",
       },
