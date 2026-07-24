@@ -22,7 +22,7 @@
     "syntax-mcfunction": "github:MinecraftCommands/syntax-mcfunction#51eb8bf4ca04355bb89f5538b7331cb0c0f3df2b",
     "tinyglobby": "^0.2.15",
     "vidstack": "^1.12.13",
-    "vitepress": "^2.0.0-alpha.12",
+    "vitepress": "2.0.0-alpha.12",
     "vitepress-plugin-tabs": "^0.7.3",
     "vitepress-versioning-plugin": "github:FabricMC/vitepress-versioning-plugin#3710e8b43e0484731e79c0fce5e1d623609435f0",
     "vue": "^3.5.6"
