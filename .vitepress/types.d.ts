@@ -217,5 +217,10 @@ export namespace Fabric {
     version: VersionOptions;
   }
 
-  export type Config = UserConfig<ThemeConfig> & Versioned.Config;
+  export type Config = UserConfig<ThemeConfig> &
+    Omit<Versioned.Config, "versioning"> & {
+      versioning: Versioned.Config["versioning"] & {
+        versions?: Versioned.Version[];
+      };
+    };
 }
