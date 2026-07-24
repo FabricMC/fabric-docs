@@ -29,14 +29,6 @@ const builtVersions = [
   "1.21.8",
   "26.1.2",
 ];
-const excludedVersions = fs
-  .readdirSync(path.resolve(import.meta.dirname, "..", "..", "versions"), {
-    withFileTypes: true,
-  })
-  .filter((entry) => entry.isDirectory() && !builtVersions.includes(entry.name))
-  .map((entry) => `versions/${entry.name}`)
-  .sort();
-
 // https://docs.github.com/en/actions/reference/workflows-and-actions/variables#default-environment-variables
 // https://docs.netlify.com/build/configure-builds/environment-variables/#read-only-variables
 const env = process.env.GITHUB_ACTIONS
