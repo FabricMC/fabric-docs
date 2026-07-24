@@ -57,7 +57,7 @@ public class ModItems {
 	// #endregion mod_items_class
 
 	// #region guidite_incorrect_blocks_tag
-	public static final TagKey<Block> INCORRECT_FOR_GUIDITE_TOOL = TagKey.create(BuiltInRegistries.BLOCK.key(),
+	public static final TagKey<Block> INCORRECT_FOR_GUIDITE_TOOL = TagKey.create(Registries.BLOCK,
 			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "incorrect_for_guidite_tool"));
 	// #endregion guidite_incorrect_blocks_tag
 
@@ -74,42 +74,43 @@ public class ModItems {
 
 	// #region create_armor_items
 	public static final Item GUIDITE_HELMET = register(
-			"guidite_helmet",
+			ModItemIds.GUIDITE_HELMET,
 			Item::new,
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.HELMET)
 					.durability(ArmorType.HELMET.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
-	public static final Item GUIDITE_CHESTPLATE = register("guidite_chestplate",
+	public static final Item GUIDITE_CHESTPLATE = register(
+			ModItemIds.GUIDITE_CHESTPLATE,
 			Item::new,
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.CHESTPLATE)
 					.durability(ArmorType.CHESTPLATE.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 
 	public static final Item GUIDITE_LEGGINGS = register(
-			"guidite_leggings",
+			ModItemIds.GUIDITE_LEGGINGS,
 			Item::new,
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.LEGGINGS)
 					.durability(ArmorType.LEGGINGS.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 
 	public static final Item GUIDITE_BOOTS = register(
-			"guidite_boots",
+			ModItemIds.GUIDITE_BOOTS,
 			Item::new,
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.BOOTS)
 					.durability(ArmorType.BOOTS.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 	// #endregion create_armor_items
-	public static final Item LIGHTNING_STICK = register("lightning_stick", LightningStick::new, new Item.Properties());
+	public static final Item LIGHTNING_STICK = register(ModItemIds.LIGHTNING_STICK, LightningStick::new, new Item.Properties());
 	// #region guidite_sword
 	public static final Item GUIDITE_SWORD = register(
-			"guidite_sword",
+			ModItemIds.GUIDITE_SWORD,
 			Item::new,
 			new Item.Properties().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
 	);
 	// #endregion guidite_sword
 	// #region counter
 	public static final Item COUNTER = register(
-			"counter",
+			ModItemIds.COUNTER,
 			CounterItem::new,
 			new Item.Properties()
 					// Initialize the click count component with a default value of 0
@@ -182,36 +183,36 @@ public class ModItems {
 
 	// #region poisonous_apple
 	public static final Item POISONOUS_APPLE = register(
-			"poisonous_apple",
+			ModItemIds.POISONOUS_APPLE,
 			Item::new,
 			new Item.Properties().food(POISON_FOOD_COMPONENT, POISON_FOOD_CONSUMABLE_COMPONENT)
 	);
 	// #endregion poisonous_apple
 
 	// #region suspicious_substance
-	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Properties());
+	public static final Item SUSPICIOUS_SUBSTANCE = register(ModItemIds.SUSPICIOUS_SUBSTANCE, Item::new, new Item.Properties());
 	// #endregion suspicious_substance
 
 	// #region custom_entity_spawn_egg
 	public static final Item MINI_GOLEM_SPAWN_EGG = register(
-			"mini_golem_spawn_egg",
+			ModItemIds.MINI_GOLEM_SPAWN_EGG,
 			SpawnEggItem::new,
 			new Item.Properties().spawnEgg(ModEntityTypes.MINI_GOLEM)
 	);
 	// #endregion custom_entity_spawn_egg
 
-	public static final Item RUBY = register("ruby", Item::new, new Item.Properties());
+	public static final Item RUBY = register(ModItemIds.RUBY, Item::new, new Item.Properties());
 
 	// #region axe
 	public static final Item GUIDITE_AXE = register(
-					"guidite_axe",
+					ModItemIds.GUIDITE_AXE,
 					settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings),
 					new Item.Properties());
 	// #endregion axe
 
-	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Properties());
+	public static final Item LEATHER_GLOVES = register(ModItemIds.LEATHER_GLOVES, Item::new, new Item.Properties());
 
-	public static final Item FLASHLIGHT = register("flashlight", settings -> new Item(settings) {
+	public static final Item FLASHLIGHT = register(ModItemIds.FLASHLIGHT, settings -> new Item(settings) {
 		@Override
 		public InteractionResult use(Level level, Player user, InteractionHand hand) {
 			user.startUsingItem(hand);
@@ -219,25 +220,22 @@ public class ModItems {
 		}
 	}, new Item.Properties());
 
-	public static final Item BALLOON = register("balloon", Item::new, new Item.Properties());
+	public static final Item BALLOON = register(ModItemIds.BALLOON, Item::new, new Item.Properties());
 
-	public static final Item ENHANCED_HOE = register("enhanced_hoe", settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Properties());
+	public static final Item ENHANCED_HOE = register(ModItemIds.ENHANCED_HOE, settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Properties());
 
-	public static final Item DIMENSIONAL_CRYSTAL = register("dimensional_crystal", Item::new, new Item.Properties());
+	public static final Item DIMENSIONAL_CRYSTAL = register(ModItemIds.DIMENSIONAL_CRYSTAL, Item::new, new Item.Properties());
 
-	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Properties().stacksTo(3));
+	public static final Item THROWING_KNIVES = register(ModItemIds.THROWING_KNIVES, Item::new, new Item.Properties().stacksTo(3));
 
-	public static final Item LIGHTNING_TATER = register("lightning_tater", LightningTaterItem::new, new Item.Properties());
+	public static final Item LIGHTNING_TATER = register(ModItemIds.LIGHTNING_TATER, LightningTaterItem::new, new Item.Properties());
 
-	public static final Item TEST_ITEM = register("test_item", TestItem::new, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).component(DataComponents.CUSTOM_NAME, Component.literal("[Use on Stone Block]")));
+	public static final Item TEST_ITEM = register(ModItemIds.TEST_ITEM, TestItem::new, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).component(DataComponents.CUSTOM_NAME, Component.literal("[Use on Stone Block]")));
 
 	// #region mod_items_class
-	public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
-		// Create the item key.
-		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
-
+	public static Item register(ResourceKey<Item> itemKey, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
 		// Create the item instance.
-		T item = itemFactory.apply(settings.setId(itemKey));
+		Item item = itemFactory.apply(settings.setId(itemKey));
 
 		// Register the item.
 		Registry.register(BuiltInRegistries.ITEM, itemKey, item);
@@ -310,7 +308,7 @@ public class ModItems {
 
 	// #region acid_bucket
 	public static final Item ACID_BUCKET = register(
-			"acid_bucket",
+			ModItemIds.ACID_BUCKET,
 			props -> new BucketItem(ModFluids.ACID_STILL, props),
 			new Item.Properties()
 					.craftRemainder(Items.BUCKET)

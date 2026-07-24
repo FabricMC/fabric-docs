@@ -51,7 +51,9 @@ Using `BaseEntityBlock` as the parent class means we also need to implement the 
 
 Unlike blocks, which are singletons, a new block entity is created for every instance of the block. This is done with the `createBlockEntity` method, which takes the position and `BlockState`, and returns a `BlockEntity`, or `null` if there shouldn't be one.
 
-Don't forget to register the block in the `ModBlocks` class, just like in the [Creating Your First Block](../blocks/first-block) guide:
+Don't forget to add a key to `ModBlockItemIds` and register the block in the `ModBlocks` class, just like in the [Creating Your First Block](../blocks/first-block) guide:
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#counter_block
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#counter_block
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Loggers>
+    <Logger name="example-mod" level="debug" additivity="false">
+      <AppenderRef ref="SysOut"/>
+      <AppenderRef ref="ServerGuiConsole"/>
+    </Logger>
+  </Loggers>
+</Configuration>

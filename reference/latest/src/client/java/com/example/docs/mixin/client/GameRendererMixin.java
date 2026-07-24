@@ -13,6 +13,6 @@ import com.example.docs.rendering.CustomRenderPipeline;
 public class GameRendererMixin {
 	@Inject(method = "close", at = @At("RETURN"))
 	private void onGameRendererClose(CallbackInfo ci) {
-		CustomRenderPipeline.getInstance().close();
+		CustomRenderPipeline.close();
 	}
 }
