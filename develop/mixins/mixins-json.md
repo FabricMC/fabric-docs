@@ -5,6 +5,7 @@ authors:
   - MildestToucan
 resources:
   https://github.com/FabricMC/Mixin/blob/main/src/main/java/org/spongepowered/asm/mixin/transformer/MixinConfig.java: MixinConfig class source code - GitHub
+  https://github.com/FabricMC/Mixin/blob/main/src/main/java/org/spongepowered/asm/mixin/extensibility/IMixinConfigPlugin.java: IMixinConfigPlugin class source code - GitHub
   https://github.com/SpongePowered/Mixin/wiki: Official Mixin Wiki - GitHub
   http://github.com/llamalad7/mixinextras/wiki: Official MixinExtras Wiki - GitHub
   https://github.com/LlamaLad7/MixinExtras/wiki/Expressions-Setup: Expressions Setup - MixinExtras Wiki
@@ -76,3 +77,13 @@ The following options are used to tweak the behavior of this config and how its 
 - **`mixinextras`**: An object that defines different options specific to [MixinExtras](http://github.com/llamalad7/mixinextras/wiki), which is bundled alongside Mixin by Fabric Loader.
   - **`minVersion`**: A string corresponding to the minimum MixinExtras version required for this config's mixins. This is used to gate breaking changes and other features behind an
     explicit opt-in. It is most notably used to opt into [expression-based targeting](http://github.com/llamalad7/mixinextras/wiki/expressions).
+
+## Mixin Config Plugins {#config-plugins}
+
+Mixin allows configs to be paired with a "plugin" in the form of a class implementing the
+`IMixinConfigPlugin` interface.
+
+The plugin is registered with a config's **`plugin`** value, which takes the fully qualified name of the implementing plugin class as a string.
+
+For more information on `IMixinConfigPlugin`'s methods, and what values to return for your intentions, see
+[its source code](https://github.com/FabricMC/Mixin/blob/main/src/main/java/org/spongepowered/asm/mixin/extensibility/IMixinConfigPlugin.java) where you'll find its JavaDocs.
