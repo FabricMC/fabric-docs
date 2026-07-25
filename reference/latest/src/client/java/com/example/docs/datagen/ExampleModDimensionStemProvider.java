@@ -1,9 +1,6 @@
 package com.example.docs.datagen;
 
-import com.example.docs.ExampleMod;
-
-import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -16,7 +13,10 @@ import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 
-import java.util.concurrent.CompletableFuture;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+
+import com.example.docs.ExampleMod;
 
 //:::datagen-dimension:dimensionStemProvider
 public class ExampleModDimensionStemProvider extends FabricDynamicRegistryProvider {
@@ -51,6 +51,7 @@ public class ExampleModDimensionStemProvider extends FabricDynamicRegistryProvid
 	//:::datagen-dimension:dimensionStemBootStrap
 	public static void bootstrap(BootstrapContext<LevelStem> context) {
 		//:::datagen-dimension:dimensionStemBootStrap
+
 		//:::datagen-dimension:dimensionStemCustomization
 		var dimensionTypes = context.lookup(Registries.DIMENSION_TYPE);
 		var biomes = context.lookup(Registries.BIOME);
@@ -71,7 +72,8 @@ public class ExampleModDimensionStemProvider extends FabricDynamicRegistryProvid
 
 		//:::datagen-dimension:dimensionStemBootStrap
 	}
-		//:::datagen-dimension:dimensionStemBootStrap
+	//:::datagen-dimension:dimensionStemBootStrap
+
 	//:::datagen-dimension:dimensionStemProvider
 
 	@Override
