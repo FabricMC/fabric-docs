@@ -1,8 +1,8 @@
 package com.example.docs.accessor_usage.client;
 
-import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.Hud;
 
-import com.example.docs.mixin.client.accessor.GuiAccessor;
+import com.example.docs.mixin.client.accessor.HudAccessor;
 
 /*
 Class to hold example code for using the example accessor mixins,
@@ -14,10 +14,10 @@ final class ExampleModAccessorUsageClient {
 	}
 
 	//#region mixin_accessors_instance_field_accessor_example_usage
-	void exampleInstanceFieldAccessorUsage(Gui gui, int newMessageTime) {
-		int oldMessageTime = ((GuiAccessor) gui).example_mod$getOverlayMessageTime();
+	void exampleInstanceFieldAccessorUsage(Hud hud, int newMessageTime) {
+		int oldMessageTime = ((HudAccessor) hud).example_mod$getOverlayMessageTime();
 
-		((GuiAccessor) gui).example_mod$setOverlayMessageTime(newMessageTime);
+		((HudAccessor) hud).example_mod$setOverlayMessageTime(newMessageTime);
 	}
 	//#endregion mixin_accessors_instance_field_accessor_example_usage
 }

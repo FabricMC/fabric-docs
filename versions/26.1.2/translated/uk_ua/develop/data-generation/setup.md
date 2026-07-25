@@ -1,0 +1,94 @@
+---
+title: Налаштування генерації даних
+description: Посібник із генерації даних налаштування за допомогою API Fabric.
+authors:
+  - ArkoSammy12
+  - Earthcomputer
+  - haykam821
+  - Jab125
+  - matthewperiut
+  - modmuss50
+  - Shnupbups
+  - skycatminepokie
+  - SolidBlock
+authors-nogithub:
+  - jmanc3
+  - mcrafterzz
+---
+
+## Що таке генерація даних? {#what-is-data-generation}
+
+Генерація даних (або datagen) — це API для програмної генерації рецептів, досягнень, теґів, моделей предметів, мовних файлів, таблиць здобичі та всього, що базується на JSON.
+
+## Увімкнення генерації даних {#enabling-data-generation}
+
+### Під час створення проєкту {#enabling-data-generation-at-project-creation}
+
+Найпростіший спосіб увімкнути генерацію даних — під час створення проєкту. Поставте прапорець «Data Generation» під час використання [генератора шаблона](https://fabricmc.net/develop/template/).
+
+![Позначене поле «Data Generation» у генераторі шаблонf](/assets/develop/data-generation/data_generation_setup_01.png)
+
+::: tip
+
+Якщо генерацію даних увімкнено, ви повинні мати налаштування запуску «Генерація даних» і завдання Gradle `runDatagen`.
+
+:::
+
+### Власноруч {#manually-enabling-data-generation}
+
+По-перше, нам потрібно ввімкнути генерацію даних у файлі `build.gradle`.
+
+<<< @/reference/build.gradle#datagen_setup_configure
+
+Далі нам потрібен клас точки входу. Ось де починається наша генерація даних. Розмістіть це десь у пакеті `client` — у цьому прикладі це розміщено в `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
+
+<<< @/reference/26.1.2/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_setup_generator
+
+Нарешті, нам потрібно повідомити Fabric про точку входу в нашому `fabric.mod.json`:
+
+<!-- prettier-ignore -->
+
+```json
+{
+  // ...
+  "entrypoints": {
+    // ...
+    "client": [
+      // ...
+    ],
+    "fabric-datagen": [ // [!code ++]
+      "com.example.docs.datagen.ExampleModDataGenerator" // [!code ++]
+    ] // [!code ++]
+  }
+}
+```
+
+::: warning
+
+Не забудьте додати кому (`,`) після попереднього блока точки входу!
+
+:::
+
+Закрийте та знову відкрийте IntelliJ, щоб створити налаштування запуску для генерації даних.
+
+## Створення пакета {#creating-a-pack}
+
+Усередині методу `onInitializeDataGenerator` вашої точки входу даних нам потрібно створити `Pack`. Пізніше ви додасте **постачальників**, які додадуть згенеровані дані в цей `Pack`.
+
+<<< @/reference/26.1.2/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_setup_pack
+
+## Запуск генерації даних {#running-data-generation}
+
+Щоб запустити генерацію даних, використовуйте налаштування запуску у вашій IDE або запустіть `./gradlew runDatagen` у консолі. Згенеровані файли буде створено в `src/main/generated`.
+
+## Наступні кроки {#next-steps}
+
+Тепер, коли генерацію даних налаштовано, нам потрібно додати **постачальників**. Це те, що генерує дані для додавання до вашого `Pack`. На наступних сторінках описано, як це зробити.
+
+- [Досягнення](./advancements)
+- [Таблиці здобичі](./loot-tables)
+- [Рецепти](./recipes)
+- [Теґи](./tags)
+- [Переклади](./translations)
+- [Моделі блока](./block-models)
+- [Моделі предмета](./item-models)
