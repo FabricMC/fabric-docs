@@ -224,7 +224,7 @@ The following keys will accept a dictionary of dependencies. For more details on
 
 ::: warning
 
-The minimum Fabric Loader version you depend on will affect your mod's [mixins](../mixins/) behave, as Mixin gates new features and breaking changes (including certain bug fixes) behind version requirements.
+The minimum Fabric Loader version you depend on will affect your mod's [mixins](../mixins/) behavior, as Mixin gates new features and breaking changes (including certain bug fixes) behind version requirements.
 To ensure your mod's mixins behave accordingly to the Fabric Loader version you develop with, you should almost always make your lowest Fabric Loader dependency be the same as the one you develop with.
 
 :::
