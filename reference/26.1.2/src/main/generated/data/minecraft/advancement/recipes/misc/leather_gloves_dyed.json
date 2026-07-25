@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_leather_gloves": {
+      "conditions": {
+        "items": [
+          {
+            "items": "example-mod:leather_gloves"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:leather_gloves_dyed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_leather_gloves"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:leather_gloves_dyed"
+    ]
+  }
+}
