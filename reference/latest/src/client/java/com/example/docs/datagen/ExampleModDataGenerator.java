@@ -75,6 +75,8 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ExampleModDimensionTypeProvider::new);
 		// :::datagen-world:dimensionType-provider
 
+		pack.addProvider(ExampleModDimensionStemProvider::new);
+
 		// :::datagen-setup:generator
 	}
 	// :::datagen-setup:generator
@@ -95,6 +97,8 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		// :::datagen-world:biome-registries
 		registryBuilder.add(Registries.BIOME, ExampleModBiomeProvider::bootstrap);
 		// :::datagen-world:biome-registries
+
+		registryBuilder.add(Registries.LEVEL_STEM, ExampleModDimensionStemProvider::bootstrap);
 
 		// :::datagen-world:dimensionType-registries
 		registryBuilder.add(Registries.DIMENSION_TYPE, ExampleModDimensionTypeProvider::bootstrapDimension);
