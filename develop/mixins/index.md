@@ -5,7 +5,7 @@ authors:
   - MildestToucan
 resources:
   https://github.com/SpongePowered/Mixin/wiki: Official Mixin Wiki - GitHub
-  https://github.com/llamalad7/mixinextras/wiki: Official MixinExtras Wiki - GitHub
+  https://github.com/LlamaLad7/MixinExtras/wiki: Official MixinExtras Wiki - GitHub
   https://mcdev.io/: Official Minecraft Development IntelliJ plugin website
 ---
 
@@ -17,7 +17,7 @@ your [loader dependency](../loader/fabric-mod-json#dependency-resolution)'s mini
 
 This page will give a basic overview of Mixin as a framework, its tools, and provide resources to get started with its syntax and systems, alongside further reading and help channels.
 
-::: warning
+::: info PREREQUISITES
 
 Mixin is a tool that assumes users are already familiar with Java code, and have a basic knowledge of JVM bytecode.
 

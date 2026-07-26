@@ -7,11 +7,11 @@ resources:
   https://github.com/FabricMC/Mixin/blob/main/src/main/java/org/spongepowered/asm/mixin/transformer/MixinConfig.java: MixinConfig class source code - GitHub
   https://github.com/FabricMC/Mixin/blob/main/src/main/java/org/spongepowered/asm/mixin/extensibility/IMixinConfigPlugin.java: IMixinConfigPlugin class source code - GitHub
   https://github.com/SpongePowered/Mixin/wiki: Official Mixin Wiki - GitHub
-  http://github.com/llamalad7/mixinextras/wiki: Official MixinExtras Wiki - GitHub
+  https://github.com/LlamaLad7/MixinExtras/wiki: Official MixinExtras Wiki - GitHub
   https://github.com/LlamaLad7/MixinExtras/wiki/Expressions-Setup: Expressions Setup - MixinExtras Wiki
 ---
 
-Mixin config files, conventionally named `<modid>.mixins.json`, are JSON files used to register mixin classes and tweak some of Mixin's behavior.
+Mixin config files, conventionally named `example-mod.mixins.json`, are JSON files used to register mixin classes and tweak some of Mixin's behavior.
 This page will go over config options relevant to the majority of mod developers, but it is **not** an exhaustive specification of all Mixin config options.
 
 For a more exhaustive look at all the options, you should instead consult the [MixinConfig class](https://github.com/FabricMC/Mixin/blob/main/src/main/java/org/spongepowered/asm/mixin/transformer/MixinConfig.java)

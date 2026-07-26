@@ -93,7 +93,7 @@
   "develop.misc.debugging": "Debugging Mods",
   "develop.mixins": "Mixins",
   "develop.mixins.introduction": "Introduction",
-  "develop.mixins.mixins.json": "mixins.json Config",
+  "develop.mixins.mixins.json": "mixins.json",
   "develop.mixins.bytecode": "Java Bytecode",
   "develop.mixins.accessors": "Accessors",
   "develop.class_tweakers": "Class Tweakers",
