@@ -60,13 +60,17 @@ resources:
 
 ## Реєстрація предметів інструментів {#registering-tool-items}
 
-Використовуючи ту саму службову функцію, що й у посібнику [створення вашого першого предмета](./first-item), ви можете створювати предмети інструментів:
+Ви можете створювати власні предмети-інструменти, використовуючи ті самі класи та функції, що й у [створенні вашого першого предмета](./first-item):
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
 Два рухомих значення (`1f, 1f`) стосуються шкоди від атаки інструмента та швидкості атаки інструмента відповідно.
 
 Для лопат, сокир і мотик вам слід створити `ShovelItem`, `AxeItem` або `HoeItem` замість загального `Item`, оскільки вони реалізують дії, пов’язані з інструментом у якого є дії ПКМ:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#axe
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
 

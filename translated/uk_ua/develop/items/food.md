@@ -37,7 +37,9 @@ new Item.Properties().food(new FoodProperties.Builder().build())
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_food
 
-Подібно до прикладу на сторінці [створення вашого першого предмета](./first-item), ви будете використовувати наведений нижче компонент:
+Подібно до прикладу на сторінці [створення вашого першого предмета](./first-item), ми будемо використовувати наведений нижче компонент:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#poisonous_apple
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#poisonous_apple
 
