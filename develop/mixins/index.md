@@ -2,6 +2,8 @@
 title: Mixins
 description: Learn about what mixins are, and how to get started with writing them.
 authors:
+  - ArkoSammy12
+  - cassiancc
   - its-miroma
   - MildestToucan
 resources:
