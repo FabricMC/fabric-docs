@@ -69,9 +69,9 @@ resources:
 
 `quickMoveStack` 处理菜单中按住 Shift 键点击的物品。 这个示例复现了原版菜单（如箱子和发射器）的行为。
 
-然后我们需要在一个新的 `ModMenuType` 类中注册菜单：
+然后我们需要在一个新的 `ModMenuTypes` 类中注册菜单：
 
-<<< @/reference/latest/src/main/java/com/example/docs/menu/ModMenuType.java#register_menu
+<<< @/reference/latest/src/main/java/com/example/docs/menu/ModMenuTypes.java#register_menu
 
 现在我们可以将方块实体中的 `createMenu` 的返回值设置为使用我们的菜单：
 
