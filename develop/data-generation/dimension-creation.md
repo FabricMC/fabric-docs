@@ -124,9 +124,15 @@ Now we can create a dimension stem inside the bootstrap method.
 
 The dimension stem can now be created.
 
-The code below will create a dimension with the same noise map as the overworld and have a single dimension which we created as an example.
+The code below will create a dimension with the same noise map as the overworld and have a single biome which we created as an example.
 
 @[code lang=java transcludeWith=:::datagen-dimension:dimensionStemCustomization](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDimensionStemProvider.java)
+
+::: info TIP
+
+To use custom noise map settings instead of vanilla Overworld noise, replace `NoiseGeneratorSettings.OVERWORLD` with your own registered `ResourceKey<NoiseGeneratorSettings>`.
+
+:::
 
 ### Registering Level Stem {#registering-level-stem}
 
