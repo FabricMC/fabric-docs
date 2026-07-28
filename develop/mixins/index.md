@@ -51,8 +51,8 @@ at runtime, with the notable exception of [accessor mixin interfaces](../mixins/
 
 ### Merging {#merging}
 
-The primary way Mixin applies mixin classes is by pre-processing and then "merging" nearly all of a mixin class's content into the target class. This means any additional fields, methods,
-static initializers, interface implementation declarations, etc. are added to the target class.
+The primary way Mixin applies modifications is by pre-processing and then "merging" nearly all of a mixin class's content into the target class. This means any additional fields, methods,
+static initializers, interface implementation declarations, etc. are added to the target class's bytecode.
 
 All of the additional tools Mixin provides are built on top of merging, giving users ways to control and add steps to certain members' merging, rather than adding entirely separate transformations.
 
@@ -76,3 +76,28 @@ additional fields, etc.
 Added members' names should be prefixed with a unique id, typically your modID, to prevent accidentally clashing with another member.
 Mixin additionally provides the `@Unique` annotation for members declared in a mixin class, which will guarantee the member will never overwrite another, and will be renamed instead
 of clashing.
+
+## Basic Usage {#basic-usage}
+
+Now that we have some understanding of what Mixin does, we can start learning fundamental syntax and usage principles.
+
+This section will demonstrate basic usages of Mixin as a way to introduce its syntax and apply concepts we learned about in the [overview](#overview).
+Do not however treat this as a tutorial fitting for any real use-case, however. You should [seek help](#help-channels) and read more specific documentation to get the knowledge you need
+on a case-by-case basis.
+
+::: tip
+
+For writing mixins, it is highly recommended to use [IntelliJ IDEA](../getting-started/intellij-idea/setting-up) alongside the
+[Minecraft Development Plugin](../getting-started/intellij-idea/setting-up#installing-minecraft-development-plugin), as the latter provides very powerful Mixin autocompletion,
+error highlighting, and quick-fixes.
+
+:::
+
+### Creating a Mixin Class {#creating-a-mixin-class}
+
+For the sake of demonstration, we will be modifying the following `Person` class:
+
+<<< @/reference/latest/src/main/java/com/example/docs/mixin_docs_examples/introduction/Person.java#mixin_introduction_person_example_target_class
+
+To make a mixin class targeting it, we first create a new Java class in our mod's [mixin package](../mixins/mixins-json#mixin-class-registration), and register it in our
+mixin config.
