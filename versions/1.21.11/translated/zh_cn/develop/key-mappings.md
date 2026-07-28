@@ -27,9 +27,9 @@ Minecraft 使用按键映射来处理来自像键盘、鼠标之类的外围设�
 
 ::: info
 
-注意按键的名称（`GLFW.GLFW_KEY_*`）会假定我们使用的是[标准美式布局](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg)。
+注意按键的名称（`InputConstants.KEY_*`）会假定我们使用的是[标准美式布局](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg)。
 
-这意味着如果使用的是 AZERTY 布局，按下 <kbd>A</kbd> 可能会产生 `GLFW.GLFW_KEY_Q`。
+这意味着如果使用的是 AZERTY 布局，按下 <kbd>A</kbd> 可能会产生 `InputConstants.KEY_Q`。
 
 :::
 

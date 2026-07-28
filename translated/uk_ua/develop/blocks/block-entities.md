@@ -51,7 +51,9 @@ Minecraft використовує блоки-сутності для блокі
 
 На відміну від блоків, які є синглетонами, нова блок-сутність створюється для кожного екземпляра блока. Це робиться за допомогою методу `createBlockEntity`, який приймає позицію та `BlockState` і повертає `BlockEntity` або `null`, якщо його не має бути.
 
-Не забудьте зареєструвати блок у класі `ModBlocks`, як у посібнику [створення вашого першого блока](../blocks/first-block):
+Не забудьте додати ключ до `ModBlockItemIds` та зареєструвати блок у класі `ModBlocks`, як у [створенні вашого першого блока](../blocks/first-block):
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#counter_block
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#counter_block
 

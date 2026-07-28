@@ -122,8 +122,7 @@ Das manuelle Schreiben von Einträgen von Zurgriffserweiterern ist zeitaufwendig
 
 ### mcsrc.dev {#mcsrc-dev}
 
-Verfügbar für alle Versionen mit einer [unverschleierten JAR-Datei](../migrating-mappings/index#whats-going-on-with-mappings), nämlich 1.21.11 und höher,
-[mcsrc](https://mcsrc.dev) ermöglicht es dir, den Minecraft-Quellcode im Browser zu dekompilieren und zu durchsuchen sowie Mixin-, Zugriffserweiterer- oder Zugriffstransformatoren-Ziele in die Zwischenablage zu kopieren.
+[mcsrc](https://mcsrc.dev) erlaubt dir den Minecraft-Quellcode im Browser zu dekompilieren und darin zu navigieren sowie Mixin-, Zugriffserweiterer- oder Zugriffstranformator-Ziele in die Zwischenablage kopieren.
 
 Um einen Zugriffserweiterer Eintrag zu kopieren, navigiere zunächst zu der Klasse, die du bearbeiten möchtest, und klicke mit der rechten Maustaste auf das gewünschte Ziel, um das Kontextmenü zu öffnen.
 
