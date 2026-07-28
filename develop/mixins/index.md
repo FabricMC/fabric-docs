@@ -101,3 +101,20 @@ For the sake of demonstration, we will be modifying the following `Person` class
 
 To make a mixin class targeting it, we first create a new Java class in our mod's [mixin package](../mixins/mixins-json#mixin-class-registration), and register it in our
 mixin config.
+
+## Help Channels {#help-channels}
+
+Mixins are always highly tailored to the specific modifications they need to make, and this article will not be helpful for users who are seeking help for a specific use-case.
+
+The primary way to get help for a specific use-case or issue you are encountering is to ask for help in dedicated channels where more experienced users are likely to respond.
+
+For Fabric modding in particular, the best place to ask for help is in the `#mod-dev-mixin` channel in the official [Fabric Discord server](https://discord.fabricmc.net). You should also read
+the pinned message from LlamaLad7 in that channel for another introduction to mixins and basic terminology.
+
+When asking for help, be sure to always provide as many specific details about your specific case as possible, including the code you want to modify, the specific way you need to modify it,
+any specific errors you ran into, and your best attempt at doing it yourself if there was any.
+
+When more experienced users providing you with answers use terms or link to documentation that confuses you in any way, it is also expected and important to ask more questions about anything that
+confuses you.
+
+As with any interaction in the modding community, always remember to be respectful of other developers and to be ready to wait for some time before getting an answer.
