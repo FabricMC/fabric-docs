@@ -2,6 +2,7 @@
 title: mixins.json Config
 description: Learn how to register mixin classes, and how to configure their behavior from the mixins.json config file.
 authors:
+  - its-miroma
   - MildestToucan
 resources:
   https://github.com/FabricMC/Mixin/blob/main/src/main/java/org/spongepowered/asm/mixin/transformer/MixinConfig.java: MixinConfig class source code - GitHub

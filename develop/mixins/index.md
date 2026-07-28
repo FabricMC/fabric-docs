@@ -2,6 +2,7 @@
 title: Mixins
 description: Learn about what mixins are, and how to get started with writing them.
 authors:
+  - its-miroma
   - MildestToucan
 resources:
   https://github.com/SpongePowered/Mixin/wiki: Official Mixin Wiki - GitHub
