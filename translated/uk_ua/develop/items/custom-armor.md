@@ -1,7 +1,8 @@
 ---
 title: Власні обладунки
-description: Навчіться створювати власні обладунки.
+description: Дізнайтеся, як створювати власні обладунки.
 authors:
+  - cassiancc
   - IMB11
 ---
 
@@ -21,9 +22,9 @@ authors:
 
 Якщо вам важко визначити збалансовану базову міцність, ви можете звернутися до екземплярів матеріалу обладунків усталеного кольору, знайденого в інтерфейсі `ArmorMaterials`.
 
-### Ключ реєстру активів обладнання {#equipment-asset-registry-key}
+### Ключ ресурсів спорядження {#equipment-asset-resource-key}
 
-Попри те, що нам не потрібно реєструвати наш `ArmorMaterial` в жодних реєстрах, загалом добре зберігати будь-які ключі реєстру як константи, оскільки гра використовуватиме це для пошуку відповідних текстур для наших обладунків.
+Попри те, що нам не потрібно реєструвати наш `ArmorMaterial` в жодних реєстрах, загалом добре зберігати будь-які ключі ресурсів як константи, оскільки гра використовуватиме це для пошуку відповідних текстур для наших обладунків.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#material_key
 
@@ -63,6 +64,8 @@ authors:
 На відміну від `ToolMaterial`, `ArmorMaterial` не зберігає жодної інформації про міцність предметів. З цієї причини базову міцність потрібно вручну додати до `Item.Properties` елементів обладунків під час їх реєстрації.
 
 Це досягається шляхом передачі створеної нами раніше константи `BASE_DURABILITY` в метод `maxDamage` у класі `Item.Properties`.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#create_armor_items
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items
 
@@ -128,3 +131,17 @@ authors:
 ![Робоча модель обладунків на гравці](/assets/develop/items/armor_3.png)
 
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
+
+## Додавання предметів обладунків до теґу {#tags}
+
+:::info ПЕРЕДУМОВИ
+
+Щоб отримати додаткові відомості, перегляньте документацію щодо створення [теґів предмета](../data-generation/tags).
+
+:::
+
+Також рекомендується розміщувати обладунки у відповідних теґах предметів. Частинки обладунків мають власні індивідуальні теґи, як-от `ItemTags.CHEST_ARMOR`, що використовуються для визначення можливості накладання чарів.
+
+У вашому постачальнику теґів предмета додайте такі рядки до `addTags`:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#armor_tags
