@@ -10,3 +10,4 @@ overrides:
 
 patchedDependencies:
   vitepress: patches/vitepress.patch
+  vitepress-plugin-tabs: patches/vitepress-plugin-tabs.patch
