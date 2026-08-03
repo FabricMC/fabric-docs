@@ -65,11 +65,11 @@ Here, only `a` and `b` are loaded.
 Mod resolution fails if there are incompatible required nested mods, prompting the user with a
 solution.
 
-| Mod | Parent | Nested Mods | Depends On          | Breaks With        |
-| --- | ------ | ----------- | ------------------- | ------------------ |
-| a   |        | aa          | any version of `aa` |                    |
-| aa  | a      |             | any version of `c`  | any version of `c` |
-| b   |        |             |                     |                    |
+| Mod | Parent | Nested Mods | Depends On          | Breaks With |
+| --- | ------ | ----------- | ------------------- | ----------- |
+| a   |        | aa          | any version of `aa` |             |
+| aa  | a      |             | any version of `c`  |             |
+| b   |        |             |                     |             |
 
 #### Multiple Versions of the Same Mod Nested {#multiple-versions-of-the-same-mod-nested}
 
@@ -121,7 +121,7 @@ is compatible with the rest of the mod set, otherwise the nested version is load
 
 | Mod | Version | Parent | Nested Mods | Depends On | Breaks With |
 | --- | ------- | ------ | ----------- | ---------- | ----------- |
-| a   | 1.0.0   |        | aa          |            |             |
+| a   | 1.0.0   |        | aa 2.0.0    |            |             |
 | aa  | 2.0.0   | a      |             |            |             |
 | aa  | 1.0.1   |        |             |            |             |
 
