@@ -9,7 +9,7 @@ resources:
 Fabric Loader will attempt to load the largest set of mods that can be loaded without conflicts,
 choosing the most compatible version of each mod. Only one version of a mod can be loaded at a time.
 
-# Mod Discovery {#mod-discovery}
+## Mod Discovery {#mod-discovery}
 
 To choose which mods to load, it must first find all the mods, such as all the mods in the `mods`
 folder. See [Mod Sources](#mod-sources) for other sources. As mods can contain other mods
@@ -29,28 +29,28 @@ These are mods that are found within other mods.
 These are mods that Loader's game provider provides, for instance, `minecraft` is provided by
 Loader as a builtin mod. See [Built-in Mods](#built-in-sources) for more information.
 
-# Mod Resolution {#mod-resolution}
+## Mod Resolution {#mod-resolution}
 
 Once Loader has found all the mods, it will begin resolution. This is where Loader will attempt to
 find the most compatible version of each mod, and each mod group is handled slightly differently.
 
-## Plain Mods {#plain-mods-res}
+### Plain Mods {#plain-mods-res}
 
 Plain mods are generally preferred over nested mods, and some version of this mod shall be loaded.
 
-## Nested Mods {#nested-mods-res}
+### Nested Mods {#nested-mods-res}
 
 Nested mods are not required to be loaded, unless they are required by another mod. This is useful
 for mods that provide additional features to other mods that may not be present, or allowing the
 parent mod to provide different implementations depending on the environment or other loaded mods.
 
-## Builtin Mods {#builtin-mods-res}
+### Builtin Mods {#builtin-mods-res}
 
 These mods are always loaded.
 
-## Examples {#examples}
+### Examples {#examples}
 
-### Incompatible Nested Mod Skipped {#incompatible-nested-mod-skipped}
+#### Incompatible Nested Mod Skipped {#incompatible-nested-mod-skipped}
 
 Here, only `a` and `b` are loaded.
 
@@ -60,7 +60,7 @@ Here, only `a` and `b` are loaded.
 | aa  | a      |             |            | any version of `c` |
 | b   |        |             |            |                    |
 
-### Incompatible Nested Mod Failure {#incompatible-nested-mod-failure}
+#### Incompatible Nested Mod Failure {#incompatible-nested-mod-failure}
 
 Mod resolution fails if there are incompatible required nested mods, prompting the user with a
 solution.
@@ -71,7 +71,7 @@ solution.
 | aa  | a      |             |                     | any version of `c` |
 | b   |        |             | any version of `a`  |                    |
 
-### Multiple Versions of the Same Mod Nested {#multiple-versions-of-the-same-mod-nested}
+#### Multiple Versions of the Same Mod Nested {#multiple-versions-of-the-same-mod-nested}
 
 The most compatible version of the mod is loaded when there are multiple versions of the same mod.
 `a`, `aa` version 1.0.0, and `b` are all loaded.
@@ -83,7 +83,7 @@ The most compatible version of the mod is loaded when there are multiple version
 | aa  | 2.0.0   | a      |                       |                     | any version of `c` |
 | b   | 2.0.0   |        |                       | any version of `a`  |                    |
 
-### Multiple Copies of the Same Plain Mod {#multiple-copies-of-the-same-mod-plain}
+#### Multiple Copies of the Same Plain Mod {#multiple-copies-of-the-same-mod-plain}
 
 Mod resolution fails if there are incompatible required nested mods, prompting the user with a
 solution.
@@ -94,7 +94,7 @@ solution.
 | a   | 1.0.0   |        |             |                    |             |
 | b   | 2.0.0   |        |             | any version of `a` |             |
 
-### Multiple Versions of the Same Plain Mod {#multiple-versions-of-the-same-mod-plain}
+#### Multiple Versions of the Same Plain Mod {#multiple-versions-of-the-same-mod-plain}
 
 The most latest most compatible version of the mod is loaded when there are multiple versions of the same mod,
 in this case `a` version 2.0.0 is loaded with `b`.
@@ -105,7 +105,7 @@ in this case `a` version 2.0.0 is loaded with `b`.
 | a   | 2.0.0   |        |             |                    |             |
 | b   | 2.0.0   |        |             | any version of `a` |             |
 
-### Picking the Most Compatible Version of a Mod {#picking-the-most-compatible-version-of-a-mod}
+#### Picking the Most Compatible Version of a Mod {#picking-the-most-compatible-version-of-a-mod}
 
 `a` version 1.0.0 is loaded with `b`.
 
@@ -115,7 +115,7 @@ in this case `a` version 2.0.0 is loaded with `b`.
 | a   | 2.0.0   |        |             |            |             |
 | b   | 2.0.0   |        |             |            | a >= 2.0.0  |
 
-### Preferring Plain Mods Over Nested Mods {#preferring-plain-mods-over-nested-mods}
+#### Preferring Plain Mods Over Nested Mods {#preferring-plain-mods-over-nested-mods}
 
 `aa` version 1.0.1 is loaded instead of `aa` version 2.0.0.
 
@@ -125,9 +125,9 @@ in this case `a` version 2.0.0 is loaded with `b`.
 | aa  | 2.0.0   | a      |             |            |             |
 | aa  | 1.0.1   |        |             |            |             |
 
-# Mod Sources {#mod-sources}
+## Mod Sources {#mod-sources}
 
-## Built-in Mods {#built-in-sources}
+### Built-in Mods {#built-in-sources}
 
 For minecraft, Loader provides several builtin mods:
 
@@ -136,14 +136,14 @@ For minecraft, Loader provides several builtin mods:
 - `java`
   - The java version being used to run the game, such as `8` or `25`.
 
-## Mods Folder {#mods-folder}
+### Mods Folder {#mods-folder}
 
 By default, Loader will look for mods in the `mods` folder located in the `minecraft` folder.
 This search is not recursive, so it will not look in subfolders.
 
 This folder can be changed by setting the `fabric.modFolder` system property.
 
-## Additional Mod Sources {#additional-sources}
+### Additional Mod Sources {#additional-sources}
 
 Mods can be loaded from other locations by adding them to the `fabric.addMods` system property,
 which takes a list of file paths. Paths are separated by the standard system path separator -
