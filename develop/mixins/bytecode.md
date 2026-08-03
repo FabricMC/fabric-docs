@@ -604,27 +604,19 @@ Example:
 - Changes to local variable handling to better preserve local variables at the target location where previously they may have been incorrectly removed from Mixin's view
   - For more details, see [this mixin issue](https://github.com/SpongePowered/Mixin/issues/508).
 
-***
-
 #### Compatibility Level 0.14.0 (Fabric Loader 0.14.0, Mixin 0.8.6) {#compat-level-0140}
 
 - Gates a change to the filtering of `NEW` descriptors pursuant to a Mixin [bugfix](https://github.com/SpongePowered/Mixin/issues/515) allowing the constructor descriptor to be used to target an invocation.
 
-***
-
 #### Compatibility Level 0.16.5 (Fabric Loader 0.16.5, Mixin 0.8.7) {#compat-level-087}
 
 - `SHIFT` is now respected during injections.
-
-***
 
 #### Compatibility Level 0.17.0 (Fabric Loader 0.17.0, Mixin 0.8.7) {#compat-level-0170}
 
 - Local variable capture of method parameters
   - If possible, allow capturing by using the parameter's actual name
   - Otherwise, fallback to parameters named `arg<paramIndex>`, which previously was only the case when `argsOnly = false`. When `argsOnly` was `true`, they were named `arg<lvIndex>`
-
-***
 
 #### Compatibility Level 0.17.1 (Fabric Loader 0.17.1, Mixin 0.8.7) {#compat-level-0171}
 
