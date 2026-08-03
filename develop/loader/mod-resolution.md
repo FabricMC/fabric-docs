@@ -54,11 +54,11 @@ These mods are always loaded.
 
 Here, only `a` and `b` are loaded.
 
-| Mod | Parent | Nested Mods | Depends On | Breaks With        |
-| --- | ------ | ----------- | ---------- | ------------------ |
-| a   |        | aa          |            |                    |
-| aa  | a      |             |            | any version of `c` |
-| b   |        |             |            |                    |
+| Mod | Parent | Nested Mods | Depends On         | Breaks With |
+| --- | ------ | ----------- | ------------------ | ----------- |
+| a   |        | aa          |                    |             |
+| aa  | a      |             | any version of `c` |             |
+| b   |        |             |                    |             |
 
 #### Incompatible Nested Mod Failure {#incompatible-nested-mod-failure}
 
@@ -66,15 +66,15 @@ Mod resolution fails if there are incompatible required nested mods, prompting t
 solution.
 
 | Mod | Parent | Nested Mods | Depends On          | Breaks With        |
-| --- | ------ | ----------- | ------------------- | ------------------ |
+|-----|--------|-------------|---------------------|--------------------|
 | a   |        | aa          | any version of `aa` |                    |
-| aa  | a      |             |                     | any version of `c` |
-| b   |        |             | any version of `a`  |                    |
+| aa  | a      |             | any version of `c`  | any version of `c` |
+| b   |        |             |                     |                    |
 
 #### Multiple Versions of the Same Mod Nested {#multiple-versions-of-the-same-mod-nested}
 
 The most compatible version of the mod is loaded when there are multiple versions of the same mod.
-`a`, `aa` version 1.0.0, and `b` are all loaded.
+`a`, `aa` version 2.0.0, and `b` are all loaded.
 
 | Mod | Version | Parent | Nested Mods           | Depends On          | Breaks With        |
 | --- | ------- | ------ | --------------------- | ------------------- | ------------------ |
@@ -85,8 +85,7 @@ The most compatible version of the mod is loaded when there are multiple version
 
 #### Multiple Copies of the Same Plain Mod {#multiple-copies-of-the-same-mod-plain}
 
-Mod resolution fails if there are incompatible required nested mods, prompting the user with a
-solution.
+Mod resolution fails if there are multiple copies of the same plain mod.
 
 | Mod | Version | Parent | Nested Mods | Depends On         | Breaks With |
 | --- | ------- | ------ | ----------- | ------------------ | ----------- |
@@ -96,7 +95,7 @@ solution.
 
 #### Multiple Versions of the Same Plain Mod {#multiple-versions-of-the-same-mod-plain}
 
-The most latest most compatible version of the mod is loaded when there are multiple versions of the same mod,
+The latest most compatible version of the mod is loaded when there are multiple versions of the same mod,
 in this case `a` version 2.0.0 is loaded with `b`.
 
 | Mod | Version | Parent | Nested Mods | Depends On         | Breaks With |
@@ -117,7 +116,8 @@ in this case `a` version 2.0.0 is loaded with `b`.
 
 #### Preferring Plain Mods Over Nested Mods {#preferring-plain-mods-over-nested-mods}
 
-`aa` version 1.0.1 is loaded instead of `aa` version 2.0.0.
+`aa` version 1.0.1 is loaded instead of `aa` version 2.0.0. This only occurs when the plain mod
+is compatible with the rest of the mod set, otherwise the nested version is loaded.
 
 | Mod | Version | Parent | Nested Mods | Depends On | Breaks With |
 | --- | ------- | ------ | ----------- | ---------- | ----------- |
