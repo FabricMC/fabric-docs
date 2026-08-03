@@ -582,20 +582,7 @@ Mixin is a complicated and evolving tool that, for the sake of fixing bugs, some
 Starting with Fabric Loader 0.12.3 (a beta version, recommended to use 0.12.5), Loader is able to change mixin behavior on a per-mod basis, allowing old mods to continue working with
 the old behavior, and new mods to have access to any fixes they need. New features may also be gated behind this block. This is done by selecting the earliest Loader version compatible with a given mod, and then choosing the appropriate compat level.
 
-Fabric Loader version compatibility is based on the mods declared `depends` and `breaks` clauses in the [fabric.mod.json](../loader/fabric-mod-json#dependency-resolution) targeting `fabricloader` or `fabric-loader` (the former is preferred). It is strongly encouraged to declare the
-minimum Fabric Loader dependency a mod is tested against, or if new functionality is desired, a newer loader version.
-
-If no Loader dependency is specified, the minimum compatability level (equivalent to Fabric Loader 0.9.2) is used.
-
-Example:
-
-```json
-"depends": {
-   "fabricloader": ">=0.14.0"
-}
-```
-
-### Compatibility Level Determination {#compat-level-determination}
+See [Compatibility Level Determination](../loader/fabric-mod-json#dependency-resolution) for more details on which compatibility level is selected.
 
 ### Changes {#compat-changes}
 
