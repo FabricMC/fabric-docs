@@ -66,7 +66,7 @@ Mod resolution fails if there are incompatible required nested mods, prompting t
 solution.
 
 | Mod | Parent | Nested Mods | Depends On          | Breaks With        |
-|-----|--------|-------------|---------------------|--------------------|
+| --- | ------ | ----------- | ------------------- | ------------------ |
 | a   |        | aa          | any version of `aa` |                    |
 | aa  | a      |             | any version of `c`  | any version of `c` |
 | b   |        |             |                     |                    |
