@@ -588,6 +588,7 @@ minimum Fabric Loader dependency a mod is tested against, or if new functionalit
 If no Loader dependency is specified, the minimum compatability level (equivalent to Fabric Loader 0.9.2) is used.
 
 Example:
+
 ```json
 "depends": {
    "fabricloader": ">=0.14.0"
@@ -621,7 +622,7 @@ Example:
 
 - Local variable capture of method parameters
   - If possible, allow capturing by using the parameter's actual name
-  - Otherwise, fallback to parameters named `arg<paramIndex>`, which previously was only the case when `argsOnly = false`. When `argsOnly`  was `true`, they were named `arg<lvIndex>`
+  - Otherwise, fallback to parameters named `arg<paramIndex>`, which previously was only the case when `argsOnly = false`. When `argsOnly` was `true`, they were named `arg<lvIndex>`
 
 ---
 
