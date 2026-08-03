@@ -222,6 +222,29 @@ The following keys will accept a dictionary of dependencies. For more details on
 - **`breaks`**: For mods whose together with yours might cause a game crash. **If any are present, Fabric Loader will trigger a crash**.
 - **`conflicts`**: For mods whose together with yours cause some kind of bugs, etc. For each conflicting mod present, Fabric Loader will log a warning.
 
+::: warning Dependencies Involving Fabric Loader
+
+Fabric Loader will examine a mod's dependency on Loader to control changes to mixin behavior that
+may be incompatible with earlier or newer versions of Loader.
+
+See the [compatability level documentation](../mixins/bytecode#compat-level) for more information
+on how Loader dependency is handled and if any changes are applicable to your mod.
+
+If no Loader dependency is declared, Loader will use the compatibility equivalent to version `0.9.2`.
+
+**Note:** It is strongly encouraged to declare the minimum Fabric Loader dependency a mod is tested
+against!
+
+For example, to enable enum extensions via mixin, at least this version of Loader is required:
+
+```json
+"depends": {
+   "fabricloader": ">=0.19.0"
+}
+```
+
+:::
+
 ### Semantic Versioning {#semantic-versioning}
 
 The key of each entry is the mod ID of the dependency.
