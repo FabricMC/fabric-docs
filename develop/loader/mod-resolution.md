@@ -132,9 +132,11 @@ is compatible with the rest of the mod set, otherwise the nested version is load
 For minecraft, Loader provides several builtin mods:
 
 - `minecraft`
-- `fabricloader`
 - `java`
   - The java version being used to run the game, such as `8` or `25`.
+
+Fabric Loader will also list itself in the mod list as `fabricloader`, but it is technically not a
+builtin mod.
 
 ### Mods Folder {#mods-folder}
 
