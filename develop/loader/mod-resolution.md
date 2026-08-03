@@ -40,7 +40,7 @@ Plain mods are generally preferred over nested mods, and some version of this mo
 
 ## Nested Mods {#nested-mods-res}
 
-Nested mods are not required to be loaded, unless they are required by another mod. This is usefule
+Nested mods are not required to be loaded, unless they are required by another mod. This is useful
 for mods that provide additional features to other mods that may not be present, or allowing the
 parent mod to provide different implementations depending on the environment or other loaded mods.
 
