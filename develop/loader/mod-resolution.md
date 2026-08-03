@@ -74,7 +74,7 @@ solution.
 ### Multiple Versions of the Same Mod Nested {#multiple-versions-of-the-same-mod-nested}
 
 The most compatible version of the mod is loaded when there are multiple versions of the same mod.
-`a`, `aa` and `b` are all loaded.
+`a`, `aa` version 1.0.0, and `b` are all loaded.
 
 | Mod | Version | Parent | Nested Mods           | Depends On          | Breaks With        |
 | --- | ------- | ------ | --------------------- | ------------------- | ------------------ |
@@ -96,7 +96,7 @@ solution.
 
 ### Multiple Versions of the Same Plain Mod {#multiple-versions-of-the-same-mod-plain}
 
-The most compatible version of the mod is loaded when there are multiple versions of the same mod,
+The most latest most compatible version of the mod is loaded when there are multiple versions of the same mod,
 in this case `a` version 2.0.0 is loaded with `b`.
 
 | Mod | Version | Parent | Nested Mods | Depends On         | Breaks With |
