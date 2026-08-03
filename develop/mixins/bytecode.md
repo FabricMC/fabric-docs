@@ -2,6 +2,7 @@
 title: Java Bytecode
 description: Learn about Java bytecode so that you can write mixins effectively.
 authors:
+  - Deximus-Maximus
   - Earthcomputer
   - its-miroma
   - Kilip1000
@@ -574,3 +575,59 @@ static lambda$hello$1 (Ljava/lang/String;)V
 :::
 
 Here, the `name` parameter is being passed as a parameter into the lambda. Notice also how string concatenation is implemented with `invokedynamic`.
+
+## Differences in Mixin Bytecode Handling
+
+Mixin is a complicated and evolving tool that, for the sake of fixing bugs, sometimes changes behavior in such a way that working mods can break with a loader update.
+Starting with Fabric Loader 0.12.3 (a beta version, recommended to use 0.12.5), Loader is able to change mixin behavior on a per-mod basis, allowing old mods to continue working with
+the old behavior, and new mods to have access to any fixes they need. This is done by selecting the earliest Loader version compatible with a given mod, and then choosing the appropriate compat level.
+
+Fabric Loader version compatibility is based on the mods declared `depends` and `breaks` clauses in the [fabric.mod.json](../loader/fabric-mod-json.md#dependency-resolution) targeting `fabricloader` or `fabric-loader` (the former is preferred). It is strongly encouraged to declare the
+minimum Fabric Loader dependency a mod is tested against, or if new functionality is desired, a newer loader version.
+
+If no Loader dependency is specified, the minimum compatability level (equivalent to Fabric Loader 0.9.2) is used.
+
+Example:
+```json
+"depends": {
+   "fabricloader": ">=0.14.0"
+}
+```
+
+### Compatibility Level Determination
+
+### Changes
+
+#### Compatibility Level 0.10.0 (Fabric Loader 0.10.0, Mixin 0.8.4)
+
+- Changes to local variable handling to better preserve local variables at the target location where previously they may have been incorrectly removed from Mixin's view
+  - For more details, see [this mixin issue](https://github.com/SpongePowered/Mixin/issues/508).
+
+---
+
+#### Compatibility Level 0.14.0 (Fabric Loader 0.14.0, Mixin 0.8.6)
+
+- Gates a change to the filtering of `NEW` descriptors pursuant to a Mixin [bugfix](https://github.com/SpongePowered/Mixin/issues/515) allowing the constructor descriptor to be used to target an invocation.
+
+---
+
+#### Compatibility Level 0.16.5 (Fabric Loader 0.16.5, Mixin 0.8.7)
+
+- `SHIFT` is now respected during injections.
+
+---
+
+#### Compatibility Level 0.17.0 (Fabric Loader 0.17.0, Mixin 0.8.7)
+
+- Local variable capture of method parameters
+  - If possible, allow capturing by using the parameter's actual name
+  - Otherwise, fallback to parameters named `arg<paramIndex>`, which previously was only the case when `argsOnly = false`. When `argsOnly`  was `true`, they were named `arg<lvIndex>`
+
+---
+
+#### Compatibility Level 0.17.1 (Fabric Loader 0.17.1, Mixin 0.8.7)
+
+- Introduces new initializer merging and targeting behavior for class initializers (`<clinit>`)
+  - Preserve `try-catch` blocks, local variables, and line numbers
+  - Can no longer be skipped by an early return in the target or another mixin
+  - Can no longer target mixin-added initializers
