@@ -44,6 +44,11 @@ Nested mods are not required to be loaded, unless they are required by another m
 for mods that provide additional features to other mods that may not be present, or allowing the
 parent mod to provide different implementations depending on the environment or other loaded mods.
 
+This differs from other methods of conditional loading, such as manually checking if a mod is loaded
+or using features such as [resource conditions](../resource-conditions) or mixin config plugins,
+as the nested mod can have its own dependencies and affect which mods are loaded. See the
+[optional nested influence example](#optional-nested-influence) for more information.
+
 ### Builtin Mods {#builtin-mods-res}
 
 These mods are always loaded.
@@ -124,6 +129,22 @@ is compatible with the rest of the mod set, otherwise the nested version is load
 | a   | 1.0.0   |        | aa 2.0.0    |            |             |
 | aa  | 2.0.0   | a      |             |            |             |
 | aa  | 1.0.1   |        |             |            |             |
+
+#### Optional Nested Mods Influencing Version Selection {#optional-nested-influence}
+
+When `aa` depends on `dd` `1.x`, `dd` version 1.0.0 is loaded instead of `dd` version 2.0.0. Without
+that dependency on `1.x`, `dd` version 2.0.0 would be loaded.
+
+| Mod | Version | Parent | Nested Mods        | Depends On | Breaks With |
+| --- | ------- | ------ | ------------------ | ---------- | ----------- |
+| a   | 1.0.0   |        | aa 2.0.0           |            |             |
+| aa  | 2.0.0   | a      |                    | dd 1.x     |             |
+| b   | 2.0.0   |        |                    |            |             |
+| c   | 1.0.0   |        | cc 1.0.0           |            |             |
+| cc  | 1.0.0   | c      |                    |            |             |
+| d   | 1.0.0   |        | dd 1.0.0 and 2.0.0 |            |             |
+| dd  | 1.0.0   | d      |                    |            |             |
+| dd  | 2.0.0   | d      |                    |            |             |
 
 ## Mod Sources {#mod-sources}
 
