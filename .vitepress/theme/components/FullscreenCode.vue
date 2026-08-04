@@ -37,8 +37,7 @@ const loadCodeBlock = async (originalCodeBlock: HTMLDivElement) => {
   if (prefersReducedMotion.value === "reduce" || !document.startViewTransition)
     return onViewTransition();
 
-  let viewTransition = document.startViewTransition(onViewTransition);
-  await viewTransition.ready;
+  await document.startViewTransition(onViewTransition).ready;
 };
 
 const handleEnterFullscreen = async (originalCodeBlock: HTMLDivElement) => {
