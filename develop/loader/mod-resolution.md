@@ -140,7 +140,7 @@ builtin mod.
 
 ### Mods Folder {#mods-folder}
 
-By default, Loader will look for mods in the `mods` folder located in the `minecraft` folder.
+By default, Loader will look for mods in the `mods` folder located in the `.minecraft` folder.
 This search is not recursive, so it will not look in subfolders.
 
 This folder can be changed by setting the `fabric.modFolder` system property.
