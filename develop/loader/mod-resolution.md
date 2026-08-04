@@ -45,12 +45,12 @@ for mods that provide additional features to other mods that may not be present,
 parent mod to provide different implementations depending on the environment or other loaded mods.
 
 This differs from other methods of conditional loading, such as manually checking if a mod is loaded
-or using features such as resource conditions for optionally loading resources or mixin config
-plugins for optionally applying mixins. Accidental references to unavailable classes can more
-easily be avoided when using nested mods to implement compatibility features. Because a nested mod
-has its own dependencies, Fabric Loader can handle more complex version requirements, and influence
-mod resolution. See the [optional nested influence example](#optional-nested-influence) for an
-example.
+or using features such as [resource conditions](../resource-conditions) for optionally loading
+resources or mixin config plugins for optionally applying mixins. Accidental references to
+unavailable classes can more easily be avoided when using nested mods to implement compatibility
+features. Because a nested mod has its own dependencies, Fabric Loader can handle more complex
+version requirements, and influence mod resolution.
+See the [optional nested influence example](#optional-nested-influence) for an example.
 
 ### Builtin Mods {#builtin-mods-res}
 
