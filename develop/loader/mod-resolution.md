@@ -38,7 +38,7 @@ find the most compatible version of each mod, and each mod group is handled slig
 
 Some version of this mod shall be loaded - that is, a mod with the same mod id must be loaded. This
 can either be a different version of the same mod in the same location, a version of the mod nested
-within another mod, or a mod that [`provides`](/fabric-mod-json#provides) the same mod id. If a
+within another mod, or a mod that [`provides`](./fabric-mod-json#provides) the same mod id. If a
 version of this mod cannot be loaded due to conflicting dependency requirements, Loader will fail to
 load the mod set and prompt the user with a solution.
 
