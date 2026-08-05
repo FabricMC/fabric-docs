@@ -36,13 +36,23 @@ find the most compatible version of each mod, and each mod group is handled slig
 
 ### Plain Mods {#plain-mods-res}
 
-Plain mods are generally preferred over nested mods, and some version of this mod shall be loaded.
+Some version of this mod shall be loaded - that is, a mod with the same mod id must be loaded. This
+can either be a different version of the same mod in the same location, a version of the mod nested
+within another mod, or a mod that [`provides`](/fabric-mod-json#provides) the same mod id. If a
+version of this mod cannot be loaded due to conflicting dependency requirements, Loader will fail to
+load the mod set and prompt the user with a solution.
+
+As Loader prefers less nested mods over more nested mods, Loader will prefer to load a plain mod
+over a nested mod, even if it is of a lower version so long as it is compatible with the
+rest of the mod set. See the [plain mod overriding example](#preferring-plain-mods-over-nested-mods)
+for an example.
 
 ### Nested Mods {#nested-mods-res}
 
-Nested mods are not required to be loaded, unless they are required by another mod. This is useful
-for mods that provide additional features to other mods that may not be present, or allowing the
-parent mod to provide different implementations depending on the environment or other loaded mods.
+Nested mods are only loaded if their parent mod is loaded, and are not required to be loaded,
+unless they are required by another mod that is required to load. This is useful for mods that
+provide additional features to other mods that may not be present, or allowing the parent mod to
+provide different implementations depending on the environment or other loaded mods.
 
 This differs from other methods of conditional loading, such as manually checking if a mod is loaded
 or using features such as [resource conditions](../resource-conditions) for optionally loading
@@ -167,7 +177,7 @@ builtin mod.
 By default, Loader will look for mods in the `mods` folder located in the `.minecraft` folder.
 This search is not recursive, so it will not look in subfolders.
 
-This folder can be changed by setting the `fabric.modFolder` system property.
+This folder can be changed by setting the `fabric.modsFolder` system property.
 
 ### Additional Mod Sources {#additional-sources}
 
@@ -182,4 +192,5 @@ If the file path is not a directory, such as a `.jar` file, then Loader will att
 as a mod.
 
 If the file path is a directory, Loader will search that directory for mods just like the `mods`
-folder.
+folder, however, Loader will recursively search into subdirectories. It is possible to set this to
+the same folder as the `mods` folder, allowing that to be searched recursively.
