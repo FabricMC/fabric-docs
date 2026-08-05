@@ -103,9 +103,7 @@ The class tweaker entry would be:
 
 ## Applying Changes {#applying-changes}
 
-To see your changes applied, you must refresh your Gradle project and [regenerate sources](../getting-started/generating-sources). The elements you targeted should
-have their access limits modified accordingly. Make sure to reopen any targeted class from the decompiled source in order to see the
-modifications.
+To see your interface implementation applied, you must refresh your Gradle project and [regenerate sources](../getting-started/generating-sources).
 
 ::: tip
 
