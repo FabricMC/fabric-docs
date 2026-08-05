@@ -104,6 +104,7 @@ The class tweaker entry would be:
 ## Applying Changes {#applying-changes}
 
 To see your interface implementation applied, you must refresh your Gradle project and [regenerate sources](../getting-started/generating-sources).
+Make sure to reopen any targeted class from the decompiled source in order to see the modifications.
 
 ::: tip
 
