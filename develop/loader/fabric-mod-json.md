@@ -227,9 +227,8 @@ The following keys will accept a dictionary of dependencies. For more details on
 Fabric Loader will examine a mod's dependency on Loader to control changes to mixin behavior that
 may be incompatible with earlier or newer versions of Loader.
 
-The mods declared `depends` and `breaks` clauses in the [fabric.mod.json](../loader/fabric-mod-json#dependency-resolution) targeting `fabricloader`
-or `fabric-loader` (the former is preferred). The minimum compatible Loader version will determine
-the compatibility level.
+The mods declared `depends` and `breaks` clauses in the [fabric.mod.json](../loader/fabric-mod-json#dependency-resolution) targeting `fabricloader`. 
+The minimum compatible Loader version will determine the compatibility level.
 
 If no Loader dependency is specified, the minimum compatibility level (equivalent to Fabric Loader 0.9.2) is used.
 
