@@ -231,7 +231,7 @@ The mods declared `depends` and `breaks` clauses in the [fabric.mod.json](../loa
 or `fabric-loader` (the former is preferred). The minimum compatible Loader version will determine
 the compatibility level.
 
-If no Loader dependency is specified, the minimum compatability level (equivalent to Fabric Loader 0.9.2) is used.
+If no Loader dependency is specified, the minimum compatibility level (equivalent to Fabric Loader 0.9.2) is used.
 
 **Note:** It is strongly encouraged to declare the minimum Fabric Loader dependency a mod is tested
 against!
@@ -244,7 +244,7 @@ For example, to enable enum extensions via mixin, at least this version of Loade
 }
 ```
 
-See the [compatability level documentation](../mixins/bytecode#compat-level) if any changes are applicable to your mod.
+See the [compatibility level documentation](../mixins/bytecode#compat-level) if any changes are applicable to your mod.
 
 :::
 
