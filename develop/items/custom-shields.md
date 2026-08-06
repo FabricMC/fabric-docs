@@ -148,9 +148,10 @@ These models can be data generated. For more information, see the documentation 
 
 == Textures
 
-<DownloadEntry visualURL="/assets/develop/items/shield_hd.png" downloadURL="/assets/develop/items/shield.png">Guidite Shield Texture</DownloadEntry>
+<DownloadEntry visualURL="/assets/develop/items/guidite_shield_base_hd.png" downloadURL="/assets/develop/items/guidite_shield_base.png">Guidite Shield Base Texture</DownloadEntry>
 
-<DownloadEntry visualURL="/assets/develop/items/shield_base_hd.png" downloadURL="/assets/develop/items/shield_base.png">Guidite Shield Base Texture</DownloadEntry>
+<DownloadEntry visualURL="/assets/develop/items/guidite_shield_base_nopattern_hd.png" downloadURL="/assets/develop/items/guidite_shield_base_nopattern.png">Guidite Shield Base (No Banner Patterns) Texture</DownloadEntry>
+
 
 ::::
 
