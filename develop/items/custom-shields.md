@@ -42,9 +42,13 @@ Then, we register an item with the following components.
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#shield
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#shield
 
+Remember to add it to a creative tab if you want to access it from the creative inventory!
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_guidite_shield_to_create_tab
+
 ## Creating the Special Renderer {#special-renderer}
 
-As shields are more complicated than a standard item model, we'll be using a special renderer to render the shield rather than the normal item model. This special renderer is based off the vanilla [`ShieldSpecialRenderer`](https://mcsrc.dev/1/26.2/net/minecraft/client/renderer/special/ShieldSpecialRenderer), modified to accept textures for shields other than the vanilla shield.
+As shields are more complicated than a standard item model, we'll be using a special renderer to render the shield rather than the normal item model.
 
 First, we'll create a model layer location that points to where the shield model is.
 
@@ -54,11 +58,18 @@ Then, register the layer in your client initializer.
 
 <<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#shield_layer
 
-Then, we'll create a special renderer for the item. This one is based off of the vanilla shield renderer, with changes made to allow it to take in custom sprites from the client item. We'll provide those sprites to the renderer in the next section. The renderer is complicated, so we'll break it down.
+Then, we'll create a special renderer for the item. This one is based off of the vanilla [`ShieldSpecialRenderer`](https://mcsrc.dev/1/26.2/net/minecraft/client/renderer/special/ShieldSpecialRenderer), with changes made to allow it to take in custom sprites from the client item. We'll provide those sprites to the renderer in the next section. The renderer is complicated, so we'll break it down.
 
 ### Constructor {#constructor}
 
-The constructor of the renderer is simple - it accepts a `SpriteGetter` that will retrieve we'll be using, and the model we'll be using, in this case a `ShieldModel`. A `SpriteGetter` is an interface that will provide sprites from `Identifier`s. The constructor stores the `SpriteGetter` and `ShieldModel` as fields.
+The constructor of the renderer accepts four parameters:
+
+- A `SpriteGetter` interface that can provide sprites from `Identifier`s.
+- The model we'll be using, in this case a `ShieldModel`.
+- The base white texture (provided in the client item), provided as a `SpriteId`.
+- The texture used when no dye or banner patterns are present, provided as a `SpriteId`.
+
+The constructor stores all four parameters as fields so that we can use them later on.
 
 <<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldSpecialRenderer.java#renderer
 
@@ -159,7 +170,7 @@ You can make the crafting recipe for your shield whatever you want, so we'll onl
 
 With this recipe defined, you can now put banner patterns on your shield.
 
-<!-- TODO IMAGE -->
+![Banner patterns applying in the crafting grid](/assets/develop/items/shield_banner_example.png)
 
 ## Tagging Shield Items {#tags}
 
@@ -174,3 +185,7 @@ It's also recommended to place your shield in the appropriate item tags. For a s
 In your item tag provider, add the following lines to `addTags`:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#shield_tags
+
+That's pretty much it! If you go in-game you should see your shield in the "Combat" tab of the creative inventory menu.
+
+![Finished tools in inventory](/assets/develop/items/shield_use.png)

@@ -290,6 +290,11 @@ public class ModItems {
 				});
 		// #endregion add_guidite_sword_to_create_tab
 
+		// #region add_guidite_shield_to_create_tab
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT)
+				.register((creativeTab) -> creativeTab.accept(ModItems.GUIDITE_SHIELD));
+		// #endregion add_guidite_shield_to_create_tab
+
 		// #region register_creative_tab
 		// Register the group.
 		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_CREATIVE_TAB_KEY, CUSTOM_CREATIVE_TAB);

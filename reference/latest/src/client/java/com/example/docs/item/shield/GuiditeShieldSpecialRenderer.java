@@ -41,7 +41,7 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 	// The texture used when no dye or banner patterns are present (based on the path provided in the client item).
 	private final SpriteId baseSpriteNoPattern;
 
-	public GuiditeShieldSpecialRenderer(final SpriteGetter sprites, final ShieldModel model, SpriteId baseSprite, SpriteId baseSpriteNoPattern) {
+	public GuiditeShieldSpecialRenderer(final SpriteGetter sprites, final ShieldModel model, final SpriteId baseSprite, final SpriteId baseSpriteNoPattern) {
 		this.sprites = sprites;
 		this.model = model;
 		this.baseSprite = baseSprite;
