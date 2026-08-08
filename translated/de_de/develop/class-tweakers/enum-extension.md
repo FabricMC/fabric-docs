@@ -93,8 +93,16 @@ Beispielsweise würde der Eintrag im Klassenoptimierer für die Konstante `Recip
 
 ## Änderungen anwenden {#applying-changes}
 
-Du musst dein Gradle-Projekt aktualisieren und die [Quellen neu generieren](../getting-started/generating-sources), bevor du die hinzugefügten Enum-Einträge in der dekompilierten Quelle sehen kannst.
-Wenn die Änderungen nicht angezeigt werden, kannst du versuchen, die Datei zu [validieren](../class-tweakers/index#validating-the-file) und zu prüfen, ob Fehler auftreten.
+Um deine hinzugefügten Enum-Einträge im dekompilierten Quellcode zu sehen, musst du dein Gradle-Projekt aktualisieren und [die Quellen neu generieren](../getting-started/generating-sources).
+Stelle sicher, dass du jede betroffene Klasse aus dem dekompilierten Quellcode erneut öffnest, um die Änderungen sehen zu können.
+
+::: tip
+
+Falls die Änderungen nicht sichtbar sind, kannst du versuchen, [die Datei zu validieren](../class-tweakers/index#validating-the-file) und zu prüfen, ob Fehler auftauchen.
+
+:::
+
+<!---->
 
 ::: info
 

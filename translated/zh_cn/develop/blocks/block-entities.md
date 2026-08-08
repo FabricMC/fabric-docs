@@ -51,7 +51,9 @@ Minecraft 使用方块实体来处理箱子、熔炉和命令方块这类方块�
 
 与作为单例的方块不同，每个方块实例都会创建一个新的方块实体。 这是通过 `createBlockEntity` 方法完成的，它接受位置和 `BlockState`，并返回一个 `BlockEntity`，或者如果没有则返回 `null`。
 
-别忘了在 `ModBlocks` 类中注册方块，就像在[创建你的第一个方块](../blocks/first-block)指南中那样：
+别忘了向 `ModBlockItemIds` 添加键并在 `ModBlocks` 类中注册方块，就像在[创建你的第一个方块](../blocks/first-block)指南中那样：
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#counter_block
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#counter_block
 
