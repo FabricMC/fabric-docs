@@ -392,6 +392,10 @@ export default [
         text: "develop.loader.fabric.mod.json",
         link: "/develop/loader/fabric-mod-json",
       },
+      {
+        text: "develop.loader.mod.resolution",
+        link: "/develop/loader/mod-resolution",
+      },
     ],
   },
   {
