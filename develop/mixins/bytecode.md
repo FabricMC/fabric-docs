@@ -586,26 +586,26 @@ See [Compatibility Level Determination](../loader/fabric-mod-json#dependency-res
 
 ### Changes {#compat-changes}
 
-#### Compatibility Level 0.10.0 (Fabric Loader 0.12.0, Mixin 0.8.4) {#compat-level-0100}
+#### Compatibility Level 0.10.0 (Fabric Loader 0.12.0) {#compat-level-0100}
 
 - Changes to local variable handling to better preserve local variables at the target location where previously they may have been incorrectly removed from Mixin's view
   - For more details, see [this mixin issue](https://github.com/SpongePowered/Mixin/issues/508).
 
-#### Compatibility Level 0.14.0 (Fabric Loader 0.16.0, Mixin 0.8.6) {#compat-level-0140}
+#### Compatibility Level 0.14.0 (Fabric Loader 0.16.0) {#compat-level-0140}
 
 - Gates a change to the filtering of `NEW` descriptors pursuant to a Mixin [bugfix](https://github.com/SpongePowered/Mixin/issues/515) allowing the constructor descriptor to be used to target an invocation.
 
-#### Compatibility Level 0.16.5 (Fabric Loader 0.17.3, Mixin 0.8.7) {#compat-level-087}
+#### Compatibility Level 0.16.5 (Fabric Loader 0.17.3) {#compat-level-087}
 
 - `SHIFT` is now respected during injections.
 
-#### Compatibility Level 0.17.0 (Fabric Loader 0.18.4, Mixin 0.8.7) {#compat-level-0170}
+#### Compatibility Level 0.17.0 (Fabric Loader 0.18.4) {#compat-level-0170}
 
 - Local variable capture of method parameters
   - If possible, allow capturing by using the parameter's actual name
   - Otherwise, fallback to parameters named `arg<paramIndex>`, which previously was only the case when `argsOnly = false`. When `argsOnly` was `true`, they were named `arg<lvIndex>`
 
-#### Compatibility Level 0.17.1 (Fabric Loader 0.19.0, Mixin 0.8.7) {#compat-level-0171}
+#### Compatibility Level 0.17.1 (Fabric Loader 0.19.0) {#compat-level-0171}
 
 - Introduces new initializer merging and targeting behavior for class initializers (`<clinit>`)
   - Preserve `try-catch` blocks, local variables, and line numbers
