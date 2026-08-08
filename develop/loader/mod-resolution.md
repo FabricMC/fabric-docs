@@ -2,7 +2,7 @@
 title: Mod Resolution
 description: An explanation of how Fabric Loader chooses which mods to load.
 authors:
-  - Deximus-Maximus
+  - dexman545
 resources:
 ---
 
