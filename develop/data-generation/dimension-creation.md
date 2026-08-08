@@ -4,6 +4,10 @@ description: A guide to adding a custom dimension via datagen.
 authors:
   - Wind292
   - NotNightSky
+resources:
+  https://minecraft.wiki/w/Dimension_definition: Dimension Definition
+  https://minecraft.wiki/w/Dimension_type: Dimension Type
+  https://minecraft.wiki/w/World_generation: Minecraft World Generation
 ---
 
 <!---->
@@ -51,7 +55,7 @@ The dimension type can now be created.
 
 Don't worry about the `Cannot resolve symbol 'attributes'` we are going to create it in the next heading.
 
-### Attributes {#attributes}
+#### Attributes {#attributes}
 
 Let's start with a short explanation of what attributes are:
 
@@ -67,7 +71,7 @@ The multiple types of attributes can be found and read from the `EnvironmentAttr
 
 We now have successfully created a new dimension type.
 
-### Registering the New Dimension Type {#registerdimensiontype}
+### Registering Dimension Type {#registerdimensiontype}
 
 Now we need to register the dimension type in order to use it.
 
@@ -133,6 +137,138 @@ The code below will create a dimension with the same noise map as the overworld 
 To use custom noise map settings instead of vanilla Overworld noise, replace `NoiseGeneratorSettings.OVERWORLD` with your own registered `ResourceKey<NoiseGeneratorSettings>`.
 
 :::
+
+### Advanced Configuration {#advanced-configuration}
+
+This section will be dedicated to custom NoiseGenerator and Biome Sources. If you are satisfied with the configuration done in [Stem Customization](#stem-customization), you may skip this section.
+
+From this point on we will also be looking at the JSON structure of the configurations as knowing the exact structure produced by the datagen code will help you to verify output, debug mismatches, and make safe modification.
+
+Now that said, we will take a look at the JSON structure of the Dimension Stem.
+
+``` Text
+Root tag
+├── type : The dimension type that we used (i.e EXAMPLE_DIMENSION_TYPE).
+└── generator : Generation settings used for the dimension.
+    ├── type : The generator type. One of noise, flat, or debug.
+    └── settings : settings of the generators described below ...
+```
+
+#### Generator {#generator}
+
+Now we will take a look at the available generator types.
+
+##### Debug {#debug}
+
+This generator has no additional fields. This is only used for testing block states, block models, and block textures.
+Which means that this generator can not have a biome, so it is not of any use to us.
+
+##### Flat {#flat}
+
+The generator type used for superflat worlds.
+
+This generator has the following JSON structure.
+
+``` Text
+settings
+├── layers : (required, but can be empty).
+│   └── A layer
+│       ├── height : the height of the layer.
+│       └── block : (defaults to minecraft:air) the block ID.
+├── biomes : (optional, defaults to `minecraft:plains`).
+├── lakes : (optional, defaults to `false`).
+├── features : (optional, defaults to `false`).
+└── structure_overrides : (optional, defaults to all the structure sets).
+```
+
+- **layers** :- This is a list that is read from top to bottom. height is how many Y levels will the block span.
+  - **_height_** :- The height of the layer. i.e how many blocks tall the layer is.
+  - **_block_** :- The block ID.
+
+- **biomes** :- The ID of the single biome in the world. In this guide, the ID is `examplemod:tater_biome` for which we use `TATER_BIOME_KEY`.
+
+- **lakes** :- Whether or not to generate lava lakes. If set to true, then lava lakes (lake_lava_underground and lake_lava_surface) generate even in biomes where lakes don't normally generate.
+
+- **features** :- Whether or not to generate biome-specific placed features.
+
+- **structure_override** :- List of structure sets to use. Can be a ID of structure set, a structure set tag, or a list of structure set IDs.
+
+##### Noise {#noise}
+
+The generator used in all the default dimensions.
+
+This generator has the following JSON structure.
+
+``` Text
+generator
+├── settings :- Settings for noise generator.
+└── biome_source :- Settings determining the biome layout.
+    └── type :- The biome source type as a resource location.
+    └── additional fields
+```
+
+- **settings** :- Settings for the noise generator. One noise settings (an ID, or a new NBT compound tag noise settings definition).
+- **biome_source** :- Settings determining the biome layout.
+  - **_type_** :- The biome source type as a resource location.
+
+#### Biome Source {#biome-source}
+
+The available candidates for the biome sources are Checkerboard, Fixed, Multi Noise and The End.
+
+##### Checkerboard {#checkerboard}
+
+The checkerboard biome source places biomes in a checkerboard pattern.
+
+This biome source has the following JSON structure.
+
+``` Text
+additional fields :
+├── biomes :- Any number of biome(s).
+└── scale :- (Optional, default is 2) Value between 0 and 62.
+```
+
+- **biomes** :- an ID, or a tag with #, or an array containing IDs.
+
+- **scale** :- Determines the size of the checkerboard grid. A scale of 0 means each cell of the grid is one chunk wide. is Value^2 chunks.
+
+##### Fixed {#fixed}
+
+The fixed biome source, also called single biome, uses one specified biome everywhere.
+
+This biome source has the following JSON structure.
+
+``` Text
+additional fields :
+└── biome :- One biome ID.
+```
+
+- **biome** :- The single biome to use.
+
+##### Multi Noise {#multi-noise}
+
+The multi-noise biome source places biomes using parameter points.
+
+This biome source has the following JSON structure.
+
+``` Text
+additional fields :
+└── preset :- A reference to a parameter list.
+or
+└── biomes :- (Require atleast one entry) List of biome parameter point.
+    └── A parameter point.
+        ├── biome :- one biome ID.
+        └── parameters :- the parameters of this entry.
+```
+
+- **preset** :- The default parameter lists are overworld and nether.
+
+- **biomes** :- Biomes can appear in more than one parameter point.
+  - **_biome_** :- The biome used at this parameter point.
+  - **_parameters_** :- Noise parameter for the biome.
+
+##### The End {#the-end}
+
+The biome source used for the End dimension. This biome source has no additional fields.
 
 ### Registering Level Stem {#registering-level-stem}
 
@@ -202,4 +338,10 @@ Here is the preview of the example world:
 
 :::
 
-.
+## Resources {#resources}
+
+- [Minecraft Dimension Definition](https://minecraft.wiki/w/Dimension_definition) for the overall JSON structure and root fields used when defining a dimension.
+- [Minecraft Dimension Type](https://minecraft.wiki/w/Dimension_type) for the properties that control dimension behavior, such as time, light, and height limits.
+- [Minecraft World Generation](https://minecraft.wiki/w/World_generation) for the noise, biome, and generation concepts used by the level stem section.
+
+<!---->
