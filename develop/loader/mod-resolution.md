@@ -3,7 +3,6 @@ title: Mod Resolution
 description: An explanation of how Fabric Loader chooses which mods to load.
 authors:
   - dexman545
-resources:
 ---
 
 Fabric Loader will attempt to load the largest set of mods that can be loaded without conflicts,
