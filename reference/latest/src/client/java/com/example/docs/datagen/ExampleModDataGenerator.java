@@ -79,6 +79,10 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ExampleModDimensionStemProvider::new);
 		//:::datagen-world:dimensionStem-provider
 
+		//:::datagen-dimension:noiseSettings-provider
+		pack.addProvider(ExampleModNoiseSettingsProvider::new);
+		//:::datagen-dimension:noiseSettings-provider
+
 		// :::datagen-setup:generator
 	}
 	// :::datagen-setup:generator
@@ -103,9 +107,14 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		//:::datagen-world:dimensionStem-registries
 		registryBuilder.add(Registries.LEVEL_STEM, ExampleModDimensionStemProvider::bootstrap);
 		//:::datagen-world:dimensionStem-registries
+
 		// :::datagen-world:dimensionType-registries
 		registryBuilder.add(Registries.DIMENSION_TYPE, ExampleModDimensionTypeProvider::bootstrapDimension);
 		// :::datagen-world:dimensionType-registries
+
+		//:::datagen-dimension:noiseSettings-registries
+		registryBuilder.add(Registries.NOISE_SETTINGS, ExampleModNoiseSettingsProvider::bootstrap);
+		//:::datagen-dimension:noiseSettings-registries
 
 		// :::datagen-enchantments:bootstrap
 		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
