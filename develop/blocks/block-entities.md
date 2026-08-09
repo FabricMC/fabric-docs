@@ -26,7 +26,7 @@ Registering a `BlockEntity` yields a `BlockEntityType` like the `COUNTER_BLOCK_E
 ::: tip
 
 Note how the constructor of the `CounterBlockEntity` takes two parameters, but the `BlockEntity` constructor takes three: the `BlockEntityType`, the `BlockPos`, and the `BlockState`.
-If we didn't hard-code the `BlockEntityType`, the `ModBlockEntities` class wouldn't compile! This is because the `BlockEntityFactory`, which is a functional interface, describes a function that only takes two parameters, just like our constructor.
+If we didn't hard-code the `BlockEntityType`, the `ModBlockEntities` class wouldn't compile! This is because the `FabricBlockEntityTypeBuilder.Factory`, which is a functional interface, describes a function that only takes two parameters, just like our constructor.
 
 :::
 
