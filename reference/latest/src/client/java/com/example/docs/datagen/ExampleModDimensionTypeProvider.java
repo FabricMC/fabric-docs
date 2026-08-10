@@ -3,13 +3,7 @@ package com.example.docs.datagen;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
-import com.example.docs.ExampleMod;
-
-import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
-
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
@@ -25,6 +19,11 @@ import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.clock.WorldClocks;
 import net.minecraft.world.level.CardinalLighting;
 import net.minecraft.world.level.dimension.DimensionType;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+
+import com.example.docs.ExampleMod;
 
 // :::datagen-dimension:dimensionType
 public class ExampleModDimensionTypeProvider extends FabricDynamicRegistryProvider {
@@ -54,15 +53,15 @@ public class ExampleModDimensionTypeProvider extends FabricDynamicRegistryProvid
 
 		// :::datagen-dimension:attributes
 		EnvironmentAttributeMap attributes = EnvironmentAttributeMap.builder()
-						.set(EnvironmentAttributes.FOG_COLOR,           0xC0D8FF)
-						.set(EnvironmentAttributes.SKY_COLOR,           0x78A7FF)
-						.set(EnvironmentAttributes.CLOUD_COLOR,         0xCCFFFFFF)
-						.set(EnvironmentAttributes.CLOUD_HEIGHT,        192.33f)
+						.set(EnvironmentAttributes.FOG_COLOR, 0xC0D8FF)
+						.set(EnvironmentAttributes.SKY_COLOR, 0x78A7FF)
+						.set(EnvironmentAttributes.CLOUD_COLOR, 0xCCFFFFFF)
+						.set(EnvironmentAttributes.CLOUD_HEIGHT, 192.33f)
 						.set(EnvironmentAttributes.AMBIENT_LIGHT_COLOR, 0x0A0A0A)
-						.set(EnvironmentAttributes.WATER_FOG_COLOR,     0x050533)
-						.set(EnvironmentAttributes.AMBIENT_SOUNDS,      AmbientSounds.EMPTY)
-						.set(EnvironmentAttributes.BACKGROUND_MUSIC,    BackgroundMusic.EMPTY)
-						.set(EnvironmentAttributes.BED_RULE,            BedRule.CAN_SLEEP_WHEN_DARK)
+						.set(EnvironmentAttributes.WATER_FOG_COLOR, 0x050533)
+						.set(EnvironmentAttributes.AMBIENT_SOUNDS, AmbientSounds.EMPTY)
+						.set(EnvironmentAttributes.BACKGROUND_MUSIC, BackgroundMusic.EMPTY)
+						.set(EnvironmentAttributes.BED_RULE, BedRule.CAN_SLEEP_WHEN_DARK)
 						.set(EnvironmentAttributes.NETHER_PORTAL_SPAWNS_PIGLINS, true)
 						.set(EnvironmentAttributes.RESPAWN_ANCHOR_WORKS, false)
 						.build();

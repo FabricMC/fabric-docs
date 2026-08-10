@@ -10,7 +10,7 @@ authors:
 
 ::: info PREREQUISITES
 
-Make sure you've completed the [datagen setup](./setup) and [biome creation](./biome-creation.md) process first.
+Make sure you've completed the [datagen setup](./setup) and [biome creation](./biome-creation) process first.
 
 :::
 

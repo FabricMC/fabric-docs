@@ -63,19 +63,25 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 
 		// :::datagen-world:provider-features
 		pack.addProvider(ExampleModWorldgenProvider::new);
-    // :::datagen-world:provider-features
+		// :::datagen-world:provider-features
 
 		pack.addProvider(ExampleModFluidTagProvider::new);
 
-    // :::datagen-world:biome-provider
+		// :::datagen-world:biome-provider
 		pack.addProvider(ExampleModBiomeProvider::new);
-    // :::datagen-world:biome-provider
+		// :::datagen-world:biome-provider
 
 		// :::datagen-world:dimensionType-provider
 		pack.addProvider(ExampleModDimensionTypeProvider::new);
 		// :::datagen-world:dimensionType-provider
 
-		//  pack.addProvider(ExampleModLevelStemProvider::new);
+		//:::datagen-world:dimensionStem-provider
+		pack.addProvider(ExampleModDimensionStemProvider::new);
+		//:::datagen-world:dimensionStem-provider
+
+		//:::datagen-dimension:noiseSettings-provider
+		pack.addProvider(ExampleModNoiseSettingsProvider::new);
+		//:::datagen-dimension:noiseSettings-provider
 
 		// :::datagen-setup:generator
 	}
@@ -96,11 +102,19 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 
 		// :::datagen-world:biome-registries
 		registryBuilder.add(Registries.BIOME, ExampleModBiomeProvider::bootstrap);
-    // :::datagen-world:biome-registries
+		// :::datagen-world:biome-registries
+
+		//:::datagen-world:dimensionStem-registries
+		registryBuilder.add(Registries.LEVEL_STEM, ExampleModDimensionStemProvider::bootstrap);
+		//:::datagen-world:dimensionStem-registries
 
 		// :::datagen-world:dimensionType-registries
 		registryBuilder.add(Registries.DIMENSION_TYPE, ExampleModDimensionTypeProvider::bootstrapDimension);
 		// :::datagen-world:dimensionType-registries
+
+		//:::datagen-dimension:noiseSettings-registries
+		registryBuilder.add(Registries.NOISE_SETTINGS, ExampleModNoiseSettingsProvider::bootstrap);
+		//:::datagen-dimension:noiseSettings-registries
 
 		// :::datagen-enchantments:bootstrap
 		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);

@@ -1,11 +1,6 @@
 package com.example.docs.datagen;
 
-import com.example.docs.ExampleMod;
-
-import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
-
-import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
@@ -24,7 +19,11 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
-import java.util.concurrent.CompletableFuture;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+
+import com.example.docs.ExampleMod;
+import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 
 // :::datagen-biome:provider-init
 public class ExampleModBiomeProvider extends FabricDynamicRegistryProvider {
@@ -70,7 +69,7 @@ public class ExampleModBiomeProvider extends FabricDynamicRegistryProvider {
 						20, // spawn weight; higher is more common, lower is rarer
 						new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 10)
 		);
-    // :::datagen-biome:mob-spawning
+		// :::datagen-biome:mob-spawning
 
 		// :::datagen-biome:special-effects
 		// Special Effects
