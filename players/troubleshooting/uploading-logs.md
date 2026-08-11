@@ -47,6 +47,7 @@ The latest log is called `latest.log`, and previous logs use the naming pattern 
 
 Logs can be uploaded to a variety of services, such as:
 
-- [Pastebin](https://pastebin.com/)
-- [GitHub Gist](https://gist.github.com/)
 - [mclo.gs](https://mclo.gs/)
+- [pastes.dev](https://pastes.dev/)
+- [Pastebin.com](https://pastebin.com/)
+- [GitHub Gist](https://gist.github.com/)

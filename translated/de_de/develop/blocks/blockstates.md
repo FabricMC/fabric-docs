@@ -117,6 +117,8 @@ Du kannst die Methode `lightLevel` verwenden, um die vom Block ausgestrahlte Lic
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#get_luminance
 
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#prismarine_lamp
+
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#prismarine_lamp
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->

@@ -60,13 +60,17 @@ Wenn du möchtest, dass dein Werkzeug dieselben Blöcke abbaut wie ein bereits v
 
 ## Werkzeugitems registrieren {#registering-tool-items}
 
-Mit der gleichen Hilfsfunktion wie in der Anleitung [Erstelle dein ersten Item](./first-item) kannst du deine Werkzeugitems erstellen:
+Du kannst deine Werkzeug-Items erstellen, indem du dieselben Klassen und Funktionen verwendest, die wir in dem Leitfaden [Dein erstes Item erstellen](./first-item) implementiert haben:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
 Die beiden Float-Werte (1f, 1f) beziehen sich auf den Angriffsschaden des Werkzeugs bzw. die Angriffsgeschwindigkeit des Werkzeugs.
 
 Für Schaufeln, Äxte und Hacken solltest du statt eines generischen `Item` ein `ShovelItem`, `AxeItem` oder `HoeItem` erstellen, da diese werkzeugspezifische Rechtsklick-Aktionen implementieren:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#axe
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
 

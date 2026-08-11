@@ -2,33 +2,52 @@
 title: Erstellen deines ersten Gegenstands
 description: Erfahren, wie man einen einfachen Gegenstand registriert und wie man ihn texturiert, modelliert und benennt.
 authors:
+  - cassiancc
   - dicedpixels
   - Earthcomputer
   - IMB11
   - RaphProductions
 ---
 
-Auf dieser Seite werden einige wichtige Konzepte im Zusammenhang mit Objekten vorgestellt und erklärt, wie diese registriert, texturiert, modelliert und benannt werden können.
+Auf dieser Seite werden einige zentrale Konzepte im Zusammenhang mit Items vorgestellt und wie du diese registrieren, texturieren, modellieren und benennen kannst.
 
-Für alle, die es nicht wissen: In Minecraft wird alles in Registern gespeichert, und Gegenstände bilden da keine Ausnahme.
+Falls du es noch nicht weißt: In Minecraft wird alles in Registern gespeichert, und Items bilden hier keine Ausnahme.
 
-## Vorbereitung Ihrer Gegenstände Klasse {#preparing-your-items-class}
+## Deine Item ID-Klassen vorbereiten {#preparing-your-item-ids-classes}
 
-Um die Registrierung von Elementen zu vereinfachen, kann eine Methode erstellt werden, die eine Zeichenfolgenkennung, einige Element-Eigenschaften und eine Factory zum Erstellen der `Item`-Instanz akzeptiert.
+Wir beginnen mit der Erstellung einer Klasse, die den Namen unseres Items enthält, der als `ResourceKey` gespeichert ist. Ein `ResourceKey` enthält den Namen des Mods, den Namen des Items und das Register, für das er bestimmt ist.
 
-Diese Methode erstellt einen Gegenstand mit der angegebenen Kennung und registriert ihn in der Gegenstandsregistrierung des Spiels.
+Wir werden eine Hilfsmethode implementieren, die anhand des Namens eines Items einen `ResourceKey` erstellt; die restlichen Daten, wie beispielsweise das Item-Register und die Mod-ID, werden dabei mit Konstanten ergänzt.
 
-Diese Methode kann in eine Klasse namens „ModItems“ (oder einen beliebigen anderen Namen) eingefügt werden.
+Diese Referenz auf das Item wird für [Datengenerierung von Tags](../data-generation/tags) verwendet.
 
-Mojang macht das auch mit ihren Gegenständen! Als Inspiration dient die Klasse „Items“.
+Diese Methode kann in eine Klasse namens `ModItemIds` (oder einen beliebigen anderen Namen) eingefügt werden.
+
+::: tip
+
+Mojang macht das auch mit ihren Items! Sieh dir die Klasse `ItemIds` für eine Inspiration an.
+
+:::
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#mod_item_ids_class
+
+## Deine Items Klasse vorbereiten {#preparing-your-items-class}
+
+Um die Registrierung von Items zu vereinfachen, kannst du eine Methode erstellen, die einen Ressourcenschlüssel, einige Item-Eigenschaften und eine Factory zur Erstellung der `Item`-Instanz akzeptiert.
+
+Mit dieser Methode wird ein Item mit dem angegebenen Schlüssel erstellt und im Item-Register des Spiels registriert.
+
+Du kannst diese Methode in eine Klasse namens `ModItems` (oder wie immer du die Klasse nennen willst) einfügen.
+
+Mojang macht das auch mit ihren Items! Sieh dir die Klasse `Items` als Inspiration an.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
 
-Beachte, dass wir `T` verwenden, einen [generischen Typ](https://docs.oracle.com/javase/tutorial/java/generics/types.html), der `Item` erweitert. Dadurch können wir dieselbe Methode `register` zum Registrieren aller Arten von Elementen verwenden, die `Item` erweitern. Wir verwenden außerdem eine [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) für die Factory, mit der wir festlegen können, wie unser Element unter Berücksichtigung der Elementeigenschaften erstellt werden soll.
+Beachte, dass wir `T`, einen [generischen Typ](https://docs.oracle.com/javase/tutorial/java/generics/types.html) verwenden, der `Item` erweitert. Dies ermöglicht es uns, dieselbe Methode `register` zur Registrierung beliebiger Typen von Items zu verwenden, die `Item` erweitern. Außerdem verwenden wir für die Factory eine [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html), mit der wir festlegen können, wie unser Item unter Berücksichtigung der Item-Eigenschaften erstellt werden soll.
 
 ## Ein Item registrieren {#registering-an-item}
 
-Mit der Methode kannst du nun ein Item registrieren.
+Du kannst jetzt mithilfe dieser Methode ein Item registrieren.
 
 Die Methode register nimmt eine Instanz von der Klasse `Item.InteractionResult` als Parameter entgegen. Mit dieser Klasse kannst du die Eigenschaften des Items mit Hilfe verschiedener Erstellungsmethoden konfigurieren.
 
@@ -39,6 +58,8 @@ Wenn du die Stapelgröße deines Items ändern möchtest, kannst du die Methode 
 Dies funktioniert nicht, wenn du das Item als beschädigungsfähig markiert hast, da die Stackgröße für beschädigungsfähige Gegenstände immer 1 ist, um Duplikations-Exploits zu verhindern.
 
 :::
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#suspicious_substance
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#suspicious_substance
 

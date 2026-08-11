@@ -11,9 +11,7 @@ authors:
 
 ::: warning
 
-Obwohl Minecraft aktuell mit OpenGL gebaut ist, kannst du in der Version 1.17+ keine älteren OpenGL-Methoden mehr verwenden, um eigene Inhalte zu rendern. Stattdessen musst du das neue `BufferBuilder`-System verwenden, das die Rendering-Daten formatiert und zum Zeichnen an OpenGL hochlädt.
-
-Zusammenfassend lässt sich sagen, dass du das Rendering-System von Minecraft verwenden musst. Die Verwendung von rohem OpenGL wird noch stärker beeinträchtigt sein, wenn [Minecraft 26.2 mit einem Vulkan-Backend veröffentlicht wird](https://www.minecraft.net/en-us/article/another-step-towards-vibrant-visuals-for-java-edition).
+Die reine Verwendung von OpenGL ohne weitere Anpassung wird in [Minecraft 26.2 nicht unterstützt, da diese Version mit einem optionalen Vulkan-Backend veröffentlicht wurde](https://www.minecraft.net/en-us/article/another-step-towards-vibrant-visuals-for-java-edition). Stattdessen musst du die Abstraktionsschicht von `Blaze3D`verwenden, die zwischen deinem Code und dem Rendering-Backend (entweder OpenGL oder Vulkan) liegt.
 
 :::
 
@@ -31,23 +29,13 @@ Auf dieser Seite werden die Grundlagen des Renderings mit dem neuen System behan
 
 Obwohl ein Großteil des Renderings in Minecraft durch die verschiedenen Methoden von `GuiGraphicsExtractor` abstrahiert wird und du wahrscheinlich nichts von dem, was hier erwähnt wird, anfassen musst, ist es trotzdem wichtig, die Grundlagen zu verstehen, wie Rendering funktioniert.
 
-## Der `Tesselator` {#the-tesselator}
-
-Der `Tesselator` ist die Hauptklasse, die zum Rendern von Dingen in Minecraft verwendet wird. Es ist ein Singleton, das heißt es gibt nur eine Instanz davon im Spiel. Du kannst die Instanz mit `Tesselator.getInstance()` erhalten.
-
 ## Der `BufferBuilder` {#the-bufferbuilder}
 
-Der `BufferBuilder` ist die Klasse, die zum Formatieren und Hochladen von Rendering-Daten in OpenGL verwendet wird. Sie wird verwendet, um einen Puffer zu erstellen, der dann zum Zeichnen in OpenGL hochgeladen wird.
+Der `BufferBuilder` ist die Klasse, die zum Formatieren und Hochladen von Rendering-Daten zum Backend verwendet wird. Sie wird verwendet, um einen Puffer zu erstellen, der dann zum Zeichnen zum Backend hochgeladen wird.
 
-Der `Tesselator` wird verwendet, um einen `BufferBuilder` zu erstellen, der zum Formatieren und Hochladen von Rendering-Daten in OpenGL verwendet wird.
+### Vertex Formate {#vertex-formats}
 
-### Den `BufferBuilder` initialisieren {#initializing-the-bufferbuilder}
-
-Bevor du etwas in den `BufferBuilder` schreiben kannst, musst du ihn initialisieren. Dies geschieht mit der Methode `Tesselator#begin(...)`, die ein `VertexFormat` und einen Zeichenmodus entgegennimmt und einen `BufferBuilder` zurückgibt.
-
-#### Vertex Formate {#vertex-formats}
-
-Das `VertexFormat` definiert die Elemente, die wir in unseren Datenpuffer aufnehmen und umreißt, wie diese Elemente an OpenGL übertragen werden sollen.
+Das `VertexFormat` definiert die Elemente, die wir in unseren Datenpuffer aufnehmen und umreißt, wie diese Elemente an das Backend übertragen werden sollen.
 
 Die folgenden Standard `VertexFormat` Elemente stehen in `DefaultVertexFormat` zur Verfügung:
 
@@ -67,7 +55,7 @@ Die folgenden Standard `VertexFormat` Elemente stehen in `DefaultVertexFormat` z
 | `POSITION_TEX_LIGHTMAP_COLOR` | `{ position, uv, light, color }`                                                        |
 | `POSITION_TEX_COLOR_NORMAL`   | `{ position, uv, color, normal }`                                                       |
 
-#### Zeichenmodi {#draw-modes}
+### Zeichenmodi {#draw-modes}
 
 Der Zeichenmodus legt fest, wie die Daten gezeichnet werden. Die folgenden Zeichenmodi sind in `VertexFormat.Mode` verfügbar:
 
@@ -88,7 +76,7 @@ Sobald der `BufferBuilder` initialisiert ist, kannst du Daten in ihn schreiben.
 
 Der `BufferBuilder` erlaubt uns, unseren Puffer Punkt für Punkt zu konstruieren. Um einen Vertex hinzuzufügen, verwenden wir die Methode `buffer.addVertex(Matrix4f, float, float, float)`. Der Parameter `Matrix4f` ist die Transformationsmatrix, auf die wir später noch näher eingehen werden. Die drei Float-Parameter stellen die (x, y, z) Koordinaten der Eckpunktposition dar.
 
-Diese Methode gibt einen Eckpunkt-Builder zurück, den wir verwenden können, um zusätzliche Informationen für den Eckpunkt anzugeben. Es ist wichtig, dass die Reihenfolge der von uns definierten `VertexFormat` beim Hinzufügen dieser Informationen eingehalten wird. Andernfalls könnte OpenGL unsere Daten nicht richtig interpretieren. Nachdem wir mit der Erstellung eines Scheitelpunktes fertig sind, füge einfach weitere Scheitelpunkte und Daten in den Puffer ein, bis du fertig bist.
+Diese Methode gibt einen Eckpunkt-Builder zurück, den wir verwenden können, um zusätzliche Informationen für den Eckpunkt anzugeben. Es ist wichtig, dass die Reihenfolge der von uns definierten `VertexFormat` beim Hinzufügen dieser Informationen eingehalten wird. Andernfalls könnte das Backend unsere Daten nicht richtig interpretieren. Nachdem wir mit der Erstellung eines Scheitelpunktes fertig sind, füge einfach weitere Scheitelpunkte und Daten in den Puffer ein, bis du fertig bist.
 
 Es lohnt sich auch, das Konzept des Culling zu verstehen. Culling ist der Prozess, bei dem Flächen einer 3D-Form entfernt werden, die aus der Perspektive des Betrachters nicht sichtbar sind. Wenn die Eckpunkte für eine Fläche in der falschen Reihenfolge angegeben werden, wird die Fläche aufgrund von Culling möglicherweise nicht korrekt dargestellt.
 

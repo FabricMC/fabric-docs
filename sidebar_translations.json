@@ -104,7 +104,7 @@
   "develop.serialization.data_attachments": "Data Attachments",
   "develop.serialization.saved_data": "Saved Data",
   "develop.porting": "Porting",
-  "develop.porting.release": "Porting to 26.1",
+  "develop.porting.release": "Porting to 26.2",
   "develop.porting.fabric_api": "Fabric API",
   "develop.porting.mappings": "Migrating Mappings",
   "develop.porting.mappings.loom": "Loom (Gradle)",

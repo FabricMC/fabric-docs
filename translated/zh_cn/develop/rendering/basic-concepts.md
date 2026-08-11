@@ -11,9 +11,7 @@ authors:
 
 ::: warning
 
-尽管 Minecraft 目前是使用 OpenGL 构建的，但是从 1.17 版本开始，就不再能使用旧版 OpenGL 方法渲染自己的东西， 而是必须使用新的 `BufferBuilder`（缓冲构建器）系统，将渲染数据格式化并上传到 OpenGL 以绘制。
-
-总而言之，你需要使用 Minecraft 的渲染系统。 当 [Minecraft 26.2 发布，采用 Vulkan 后端](https://www.minecraft.net/zh-hans/article/another-step-towards-vibrant-visuals-for-java-edition)时，使用原始 OpenGL 将导致更多问题。
+Minecraft 26.2 不支持使用原始 OpenGL，因为[它已发布可选的 Vulkan 后端](https://www.minecraft.net/zh-hans/article/another-step-towards-vibrant-visuals-for-java-edition)。 相反，您必须使用 `Blaze3D` 抽象层，它位于您的代码和渲染后端（OpenGL 或 Vulkan）之间。
 
 :::
 
@@ -31,23 +29,13 @@ authors:
 
 尽管 Minecraft 的许多渲染都通过 `GuiGraphicsExtractor` 中的各种方法抽象出来，且你很可能并不需要接触这里提到的任何内容，但是了解渲染的基础实现依然很重要。
 
-## 镶嵌器 `Tesselator` {#the-tesselator}
-
-镶嵌器 `Tesselator` 是 Minecraft 中用于渲染东西的主类。 它是一个单例，这意味着游戏中只有它的一个实例。 可以使用 `Tesselator.getInstance()` 获取这个实例。
-
 ## 缓冲构建器 `BufferBuilder`{#the-bufferbuilder}
 
-缓冲构建器 `BufferBuilder` 是用来将渲染数据格式化并上传到 OpenGL 的类。 用于创建缓冲，随后也会将这个缓冲上传到 OpenGL 用于绘制。
+`BufferBuilder` 类用于格式化渲染数据并将其上传到后端。 用于创建缓冲，随后也会将这个缓冲上传到后端用于绘制。
 
-镶嵌器 `Tesselator` 负责创建一个缓冲构建器 `BufferBuilder`，用于将渲染数据格式化并上传到 OpenGL。
+### 顶点格式{#vertex-formats}
 
-### 初始化 `BufferBuilder`{#initializing-the-bufferbuilder}
-
-必须先初始化 `BufferBuilder`，才能往里面写入任何东西。 方法就是使用 `Tesselator#begin(...)` 方法，接收一个 `VertexFormat` 和绘制模式，并返回 `BufferBuilder`。
-
-#### 顶点格式{#vertex-formats}
-
-顶点格式 `VertexFormat` 定义了我们在我们的数据缓冲中包含的元素，并规定了这些元素将如何被转发到 OpenGL。
+顶点格式 `VertexFormat` 定义了我们在我们的数据缓冲中包含的元素，并规定了这些元素将如何被转发到后端。
 
 以下默认的 `VertexFormat` 元素可在 `DefaultVertexFormat` 中找到：
 
@@ -67,7 +55,7 @@ authors:
 | `POSITION_TEX_LIGHTMAP_COLOR` | `{ position, uv, light, color }`                                                        |
 | `POSITION_TEX_COLOR_NORMAL`   | `{ position, uv, color, normal }`                                                       |
 
-#### 绘制模式{#draw-modes}
+### 绘制模式{#draw-modes}
 
 绘制模式定义了如何绘制数据。 `VertexFormat.Mode` 中提供了以下绘制模式：
 
@@ -88,7 +76,7 @@ authors:
 
 `BufferBuilder` 允许我们一个顶点一个顶点地构造我们的缓冲。 要添加顶点，我们使用 `buffer.addVertex(Matrix4f, float, float, float)` 方法。 `Matrix4f` 参数是变换矩阵，稍后会详细讨论。 3 个 `float` 参数代表顶点坐标的 (x, y, z)。
 
-这个方法返回一个顶点构建器（vertex builder），可以用来为这个顶点指定附加信息。 附加这些信息时，按照我们先前定义的顶点格式 `VertexFormat` 至关重要。 如果不这么做，OpenGL 可能无法正确解释我们的数据。 完成构建顶点后，只需要给缓冲继续添加更多顶点和数据，直到完成。
+这个方法返回一个顶点构建器（vertex builder），可以用来为这个顶点指定附加信息。 附加这些信息时，按照我们先前定义的顶点格式 `VertexFormat` 至关重要。 如果不这么做，后端可能无法正确解释我们的数据。 完成构建顶点后，只需要给缓冲继续添加更多顶点和数据，直到完成。
 
 “剔除”的概念也值得理解一下。 剔除是从 3D 形状中移除那些在观察者视角不可见的面的过程。 如果一个面的顶点指定顺序错误，这个面可能会因为剔除而无法正确渲染。
 

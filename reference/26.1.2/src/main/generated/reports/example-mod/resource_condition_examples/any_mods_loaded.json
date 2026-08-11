@@ -1,0 +1,11 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:any_mods_loaded",
+      "values": [
+        "example-mod",
+        "another-mod"
+      ]
+    }
+  ]
+}
