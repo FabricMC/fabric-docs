@@ -19,7 +19,7 @@ const isClosing = ref(false);
 const isWrapped = ref(false);
 const isCopied = ref(false);
 
-const loadCodeBlock = (originalCodeBlock: HTMLDivElement) => {
+const loadCodeBlock = async (originalCodeBlock: HTMLDivElement) => {
   if (!dialog.value) return;
 
   originalCopyButton.value =
@@ -37,10 +37,10 @@ const loadCodeBlock = (originalCodeBlock: HTMLDivElement) => {
   if (prefersReducedMotion.value === "reduce" || !document.startViewTransition)
     return onViewTransition();
 
-  document.startViewTransition(onViewTransition);
+  await document.startViewTransition(onViewTransition).ready;
 };
 
-const handleEnterFullscreen = (originalCodeBlock: HTMLDivElement) => {
+const handleEnterFullscreen = async (originalCodeBlock: HTMLDivElement) => {
   if (!dialog.value) return;
 
   const originalCodeGroup = originalCodeBlock.closest<HTMLDivElement>("div.vp-code-group");
@@ -53,7 +53,7 @@ const handleEnterFullscreen = (originalCodeBlock: HTMLDivElement) => {
     ];
   }
 
-  loadCodeBlock(originalCodeBlock);
+  await loadCodeBlock(originalCodeBlock);
   dialog.value.showModal();
   if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
 };

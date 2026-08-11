@@ -15,6 +15,22 @@ Tränke sind Verbrauchsmaterialien, die Entitäten Statuseffekte geben können. 
 
 Genauso wie Items und Blöcke, müssen auch Tränke registriert werden.
 
+## Deine Trank ID-Klassen vorbereiten {#preparing-your-potion-id-class}
+
+Wenn du die Seite [Erstellen deines ersten Items](../items/first-item) bereits durchgearbeitet hast, wird dir dieser Vorgang sehr vertraut vorkommen - du musst Klassen erstellen, um die Identifikatoren deiner `Potion`s, die als `ResourceKey` gespeichert werden, zu speichern.
+
+Diese Verweise auf den Trank werden für [Tags zur Datengenerierung für Tränke](../data-generation/tags) verwendet.
+
+Diese Methode kann in eine Klasse namens `ModPotionIds` (oder einen beliebigen anderen Namen) eingefügt werden.
+
+::: tip
+
+Mojang macht dies auch mit ihren Tränken! Sieh dir die Klasse `PotionIds` für eine Inspiration an.
+
+:::
+
+<<< @/reference/latest/src/main/java/com/example/docs/potion/ModPotionIds.java#mod_potion_ids_class
+
 ### Den Trank erstellen {#creating-the-potion}
 
 Lasst uns mit der Deklaration eines Feldes, welches eine Instanz von `Potion` hält. Wir werden hierfür die `ModInitializer` implementierende Klasse nutzen. Beachte die Verwendung von `Registry.registerForHolder`, da die meisten Vanilla-Methoden, die Tränke verwenden, diese wie Mob-Effekte als Halter bevorzugen.

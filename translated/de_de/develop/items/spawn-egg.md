@@ -23,6 +23,8 @@ Dieser Artikel bezieht sich auch auf die Mini-Golem Entität aus [deine erste En
 
 Spawn-Eier sind spezielle Items, die bei der Verwendung das entsprechende Mob erschaffen können. Du kannst eines mit der Methode `register` aus deiner [Item Klasse](./first-item#preparing-your-items-class) registrieren, indem du `SpawnEggItem::new` an diese übergibst.
 
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#custom_entity_spawn_egg
+
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_entity_spawn_egg
 
 Bevor es fertig ist, müssen noch ein paar Dinge erledigt werden: Du musst eine Textur, ein Item-Modell, ein Client Item und einen Namen hinzufügen und das Spawn-Ei zum entsprechenden Kreativtab hinzufügen.

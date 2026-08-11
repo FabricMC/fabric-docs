@@ -3,6 +3,7 @@ title: 创建你的第一个方块
 description: 学习如何在 Minecraft 中创建你的第一个自定义方块。
 authors:
   - bluebear94
+  - cassiancc
   - CelDaemon
   - Earthcomputer
   - IMB11
@@ -14,15 +15,63 @@ resources:
 
 方块是构成 Minecraft 的基本组成“块”（并非有意双关）——与 Minecraft 中的所有事物一样，它们存储在注册表中。
 
+## 准备你的方块ID类{#preparing-your-block-id-classes}
+
+如果你已经完成了[创建你的第一个物品](../items/first-item)那么这个过程你会觉得非常熟悉——你需要创建类来存放你的 `Block`的标识符。 带有物品的方块，其 ID 以`BlockItemId`的形式存储；而没有物品的方块，则将其 ID 存储为 `ResourceKey`。
+
+这些对方块的引用被用于 [标签生成](../data-generation/tags)。
+
+:::: tabs
+
+== 带方块物品的方块
+
+你可以将这个方法放在叫做 `ModBlockItemIds` 的类中（也可以是其他你想要的名称）。 这个类包含了所有确实拥有方块物品的方块。
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#first_block
+
+::: tip
+
+Mojang对方块也是这么做的！ 看看 `BlockItemIds` 类以了解。
+
+:::
+
+== 不带方块物品的方块
+
+我们将创建一个用于生成 `ResourceKey` 的方法，并将其放在一个名为 `ModBlockIds` 的类中（也可以是其他你想要的名称）。 这个类专门用来存放那些没有对应方块物品的方块。
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#first_block
+
+::: tip
+
+Mojang对方块也是这么做的！ 你可以参考 `BlockIds` 类来获取一些灵感。
+
+:::
+
+::::
+
 ## 准备你的方块类 {#preparing-your-blocks-class}
 
-如果你已经完成了[创建你的第一个物品](../items/first-item)，那么这一过程会非常熟悉——你会需要创建一个注册方块以及方块物品的方法。
+方块的注册方式与[注册物品](../items/first-item#registering-an-item)非常相似：我们现在需要创建两个方法来注册你的方块，其中一个方法还会同时注册对应的方块物品。
 
 你应该把这个方块放在叫做 `ModBlocks` 的类中（也可以是其他你想要的名称）。
 
 Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 `Blocks` 类看看他们是怎么做的。
 
+::: tabs
+
+== 带方块物品的方块
+
+带有方块物品的方块会使用一个 `BlockItemId` 参数，该参数同时包含了方块及其物品的 ID。
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block_item
+
+== 不带方块物品的方块
+
+没有方块物品的方块则使用 `ResourceKey` 参数，该参数仅包含方块的 ID。
+
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block
+
+:::
 
 像物品一样，你需要确保类被加载，这样所有包含方块实体的静态字段都会初始化。
 

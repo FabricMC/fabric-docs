@@ -30,10 +30,10 @@ gleichzeitig unsere Tastenbelegung zu registrieren.
 
 ::: info
 
-Beachte, dass die Namen der Tastentoken (`GLFW.GLFW_KEY_*`) von einem
+Beachte, dass die Namen der Tastentoken (`InputConstants.KEY_*`) von einem
 [Standard-US-Layout](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg) ausgehen.
 
-Das bedeutet, dass bei Verwendung eines AZERTY-Layouts das Drücken von <kbd>A</kbd> zu `GLFW.GLFW_KEY_Q` führt.
+Das bedeutet, dass bei Verwendung eines AZERTY-Layouts das Drücken von <kbd>A</kbd> zu `InputConstants.KEY_Q` führt.
 
 :::
 

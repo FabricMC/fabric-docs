@@ -54,7 +54,11 @@ Innerhalb von `AcidFluid` werden wir zwei Unterklassen für die Flüssigkeiten `
 
 ### Flüssigkeiten registrieren {#registering-fluids}
 
-Als Nächstes erstellen wir eine Klasse, um alle Flüssigkeits-Instanzen zu registrieren. Wir nennen sie `ModFluids`.
+Als Nächstes werden wir eine Klasse erstellen, um alle Flüssigkeits-IDs zu speichern. Wir nennen diese `ModFluidIds`.
+
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluidIds.java#register
+
+Wir werden diese IDs in einer neuen Klasse verwenden, um alle Flüssigkeits-Instanzen zu registrieren. Wir nennen sie `ModFluids`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluids.java#register
 
@@ -70,7 +74,11 @@ Bisher haben wir den Ausgangszustand der Flüssigkeit und ihren Strömungszustan
 
 Fügen wir nun einen Flüssigkeitsblock für unsere Flüssigkeit hinzu. Dies wird von einigen Befehlen wie `setblock` benötigt, damit deine Flüssigkeit in der Welt existieren kann. Falls du das noch nicht getan hast, solltest du dir ansehen, [wie du deinen ersten Block erstellst](../blocks/first-block).
 
-Öffne deine Klasse `ModBlocks` und registriere den folgenden `LiquidBlock`:
+Öffne deine Klasse `ModBlockIds` und füge den folgenden `ResourceKey` hinzu:
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#acid
+
+Öffne dann deine Klasse `ModBlocks` und registriere den folgenden `LiquidBlock` unter Verwendung des Schlüssels:
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#acid
 

@@ -51,7 +51,9 @@ Die Verwendung von `BaseEntityBlock` als übergeordnete Klasse bedeutet, dass wi
 
 Im Gegensatz zu Blöcken, die Singletons sind, wird für jede Instanz des Blocks eine neue Blockentität erstellt. Dies geschieht mit der Methode `createBlockEntity`, die die Position und den `BlockState` entgegennimmt und ein `BlockEntity` zurückgibt, oder `null`, wenn es keins geben sollte.
 
-Vergiss nicht, den Block in der Klasse `ModBlocks` zu registrieren, genau wie in der Anleitung [Deinen ersten Block erstellen](../blocks/first-block):
+Vergiss nicht einen Schlüssel zu `ModBlockItemIds` hinzuzufügen und den Block in der Klasse `ModBlocks` zu registrieren, genau wie in dem Leitfaden [Deinen ersten Block erstellen](../blocks/first-block):
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#counter_block
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#counter_block
 

@@ -23,13 +23,15 @@ authors:
 
 刷怪蛋是一种特殊物品，使用后会生成相应的生物。 你可以通过向[物品类](./first-item#preparing-your-items-class)中的 `register` 方法传递 `SpawnEggItem::new` 来注册一个。
 
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#custom_entity_spawn_egg
+
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_entity_spawn_egg
 
 在它准备就绪之前，还有几件事要做：你必须添加纹理、物品模型、客户端物品、名称，并将刷怪蛋添加到相应的创造标签页。
 
 ## 添加纹理 {#adding-a-texture}
 
-在 `assets/example-mod/textures/item` 目录下创建一张 16x16 的物品纹理，文件名与物品 ID 相同：`mini_golem_spawn_egg.png`。 下面提供了一个纹理示例。
+在 `assets/example-mod/textures/item` 目录下创建一张 16x16 的物品纹理，文件名与物品 ID 相同：`mini_golem_spawn_egg.png`。 下面提供了一个示例纹理。
 
 <DownloadEntry visualURL="/assets/develop/entity/mini_golem_spawn_egg.png" downloadURL="/assets/develop/entity/mini_golem_spawn_egg_small.png">纹理</DownloadEntry>
 

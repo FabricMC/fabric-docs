@@ -60,13 +60,17 @@ If you want to make your tool material mine the same blocks as an existing one, 
 
 ## Registering Tool Items {#registering-tool-items}
 
-Using the same utility function as in the [Creating Your First Item](./first-item) guide, you can create your tool items:
+You can create your tool items by using the same classes and functions that we implemented in the [Creating Your First Item](./first-item) guide:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
 The two float values (`1f, 1f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
 
 For shovels, axes, and hoes, you should create a `ShovelItem`, `AxeItem`, or `HoeItem` instead of a generic `Item`, as these implement tool-specific right-click actions:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#axe
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
 
