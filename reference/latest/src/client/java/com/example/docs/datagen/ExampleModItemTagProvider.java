@@ -2,6 +2,8 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
+import com.example.docs.item.armor.GuiditeArmorMaterial;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.references.BlockItemIds;
@@ -58,6 +60,11 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 		builder(ItemTags.FOOT_ARMOR)
 				.add(ModItemIds.GUIDITE_BOOTS);
 		// #endregion armor_tags
+
+		// #region repair_tags
+		builder(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR)
+				.add(ItemIds.COPPER_INGOT);
+		// #endregion repair_tags
 
 		// #region datagen_tags_provider
 	}

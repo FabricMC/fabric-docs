@@ -2,6 +2,8 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
+import com.example.docs.item.armor.GuiditeArmorMaterial;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -38,6 +40,12 @@ public class FabricDocsReferenceItemTagProvider extends FabricTagProvider.ItemTa
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
 		// :::datagen-tags:build
+
+		// #region repair_tags
+		builder(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR)
+				.add(ItemIds.COPPER_INGOT);
+		// #endregion repair_tags
+
 		// :::datagen-tags:provider
 	}
 }
