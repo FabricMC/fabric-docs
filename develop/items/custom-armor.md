@@ -54,11 +54,13 @@ We define the repair ingredient tag reference as follows:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
-And need to specify required item in `repairs_guidite_armor.json` under `tags/items/`.
+In order to specify which items can be used in an anvil to repair this material, we will create a tag which holds a list of items. Let's create a file named `repairs_guidite_armor.json` under `tags/items/`:
 
 <<< @/reference/latest/src/main/resources/data/example-mod/tags/item/repairs_guidite_armor.json
 
-As, we do not have a guidite ingot, In the example json we will be using the copper ingot. To, create an ingot refer to the [Creating Your First Item](./first-item) guide.
+In our example, we will be using the copper ingot as a repair material for guidite. If you want to create a custom guidite ingot instead, you may [create a custom item](./first-item) and add its ID to the tag.
+
+Now, you'll be able to repair our armor in anvils:
 
 ![Repairing Guidite Armor in an Anvil](/assets/develop/items/mending_guidite.png)
 
