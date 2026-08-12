@@ -4,6 +4,7 @@ description: Learn how to create your own armor sets.
 authors:
   - cassiancc
   - IMB11
+  - NotNightSky
 ---
 
 Armor provides the player with increased defense against attacks from mobs and other players.
@@ -52,6 +53,14 @@ The `ArmorMaterial` constructor accepts the following parameters, in this specif
 We define the repair ingredient tag reference as follows:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
+
+And need to specify required item in `repairs_guidite_armor.json` under `tags/items/`.
+
+<<< @/reference/latest/src/main/resources/data/example-mod/tags/item/repairs_guidite_armor.json
+
+As, we do not have a guidite ingot, In the example json we will be using the copper ingot. To, create an ingot refer to the [Creating Your First Item](./first-item) guide.
+
+![Mending Armor](/assets/develop/items/mending_guidite.png)
 
 If you're struggling to determine values for any of the parameters, you can consult the vanilla `ArmorMaterial` instances which can be found in the `ArmorMaterials` interface.
 
