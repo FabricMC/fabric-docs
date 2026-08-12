@@ -60,7 +60,7 @@ And need to specify required item in `repairs_guidite_armor.json` under `tags/it
 
 As, we do not have a guidite ingot, In the example json we will be using the copper ingot. To, create an ingot refer to the [Creating Your First Item](./first-item) guide.
 
-![Mending Armor](/assets/develop/items/mending_guidite.png)
+![Repairing Guidite Armor in an Anvil](/assets/develop/items/mending_guidite.png)
 
 If you're struggling to determine values for any of the parameters, you can consult the vanilla `ArmorMaterial` instances which can be found in the `ArmorMaterials` interface.
 
