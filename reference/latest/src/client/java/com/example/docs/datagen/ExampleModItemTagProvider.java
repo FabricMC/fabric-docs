@@ -18,6 +18,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.item.ModItemIds;
+import com.example.docs.item.armor.GuiditeArmorMaterial;
 
 // #region datagen_tags_provider
 public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
