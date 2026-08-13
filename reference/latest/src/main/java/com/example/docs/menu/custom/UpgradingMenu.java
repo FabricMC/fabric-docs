@@ -70,7 +70,7 @@ public class UpgradingMenu extends AbstractContainerMenu {
 		super.slotsChanged(container);
 
 		if (container == this.input) {
-			createResult();
+			this.createResult();
 		}
 	}
 
@@ -78,7 +78,7 @@ public class UpgradingMenu extends AbstractContainerMenu {
 		UpgradingRecipeInput recipeInput = new UpgradingRecipeInput(this.input.getItem(0), this.input.getItem(1));
 		Optional<RecipeHolder<UpgradingRecipe>> maybeRecipe;
 
-		if(this.level instanceof ServerLevel serverLevel) {
+		if (this.level instanceof ServerLevel serverLevel) {
 			maybeRecipe = serverLevel.recipeAccess().getRecipeFor(ExampleModRecipes.UPGRADING_RECIPE_TYPE, recipeInput, serverLevel);
 		} else {
 			maybeRecipe = Optional.empty();
