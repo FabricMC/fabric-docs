@@ -14,7 +14,6 @@ import net.minecraft.world.inventory.ResultContainer;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.level.Level;
 
 import com.example.docs.block.ModBlocks;
 import com.example.docs.menu.ModMenuTypes;
@@ -35,17 +34,15 @@ public class UpgradingMenu extends AbstractContainerMenu {
 	private final ResultContainer output = new ResultContainer();
 
 	private final ContainerLevelAccess access;
-	private final Level level;
 
 	public UpgradingMenu(int containerId, Inventory inventory) {
-		this(containerId, inventory, ContainerLevelAccess.NULL, inventory.player.level());
+		this(containerId, inventory, ContainerLevelAccess.NULL);
 	}
 
-	public UpgradingMenu(int containerId, Inventory inventory, ContainerLevelAccess access, Level level) {
+	public UpgradingMenu(int containerId, Inventory inventory, ContainerLevelAccess access) {
 		super(ModMenuTypes.UPGRADING_MENU_TYPE, containerId);
 
 		this.access = access;
-		this.level = level;
 
 		addSlot(new Slot(this.input, 0, 27, 47));
 		addSlot(new Slot(this.input, 1, 76, 47));
@@ -69,20 +66,20 @@ public class UpgradingMenu extends AbstractContainerMenu {
 	public void slotsChanged(Container container) {
 		super.slotsChanged(container);
 
-		if (container == this.input) {
-			this.createResult();
+		if(container != this.input) {
+			return;
 		}
+
+		this.access.execute((level, pos) -> {
+			if (level instanceof ServerLevel serverLevel) {
+				inputsChanged(serverLevel);
+			}
+		});
 	}
 
-	public void createResult() {
+	public void inputsChanged(ServerLevel level) {
 		UpgradingRecipeInput recipeInput = new UpgradingRecipeInput(this.input.getItem(0), this.input.getItem(1));
-		Optional<RecipeHolder<UpgradingRecipe>> maybeRecipe;
-
-		if (this.level instanceof ServerLevel serverLevel) {
-			maybeRecipe = serverLevel.recipeAccess().getRecipeFor(ExampleModRecipes.UPGRADING_RECIPE_TYPE, recipeInput, serverLevel);
-		} else {
-			maybeRecipe = Optional.empty();
-		}
+		Optional<RecipeHolder<UpgradingRecipe>> maybeRecipe = level.recipeAccess().getRecipeFor(ExampleModRecipes.UPGRADING_RECIPE_TYPE, recipeInput, level);
 
 		if (maybeRecipe.isPresent()) {
 			RecipeHolder<UpgradingRecipe> recipeHolder = maybeRecipe.get();
