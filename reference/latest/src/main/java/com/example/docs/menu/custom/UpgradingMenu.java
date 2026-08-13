@@ -39,9 +39,6 @@ public class UpgradingMenu extends AbstractContainerMenu {
 
 	private final ContainerLevelAccess access;
 
-	@Nullable
-	private final Player player;
-
 	public UpgradingMenu(int containerId, Inventory inventory) {
 		this(containerId, inventory, ContainerLevelAccess.NULL);
 	}
@@ -50,7 +47,6 @@ public class UpgradingMenu extends AbstractContainerMenu {
 		super(ModMenuTypes.UPGRADING_MENU_TYPE, containerId);
 
 		this.access = access;
-		this.player = inventory.player;
 
 		addSlot(new Slot(this.input, 0, 27, 47));
 		addSlot(new Slot(this.input, 1, 76, 47));
@@ -74,37 +70,22 @@ public class UpgradingMenu extends AbstractContainerMenu {
 	public void slotsChanged(Container container) {
 		super.slotsChanged(container);
 
-		this.access.execute((level, blockPos) -> {
+		this.access.execute((level, _) -> {
 			if (level instanceof ServerLevel serverLevel && container == this.input) {
 				UpgradingRecipeInput recipeInput = new UpgradingRecipeInput(this.input.getItem(0), this.input.getItem(1));
 				Optional<RecipeHolder<UpgradingRecipe>> maybeRecipe = serverLevel.recipeAccess().getRecipeFor(ExampleModRecipes.UPGRADING_RECIPE_TYPE, recipeInput, serverLevel);
-				ItemStack result = ItemStack.EMPTY;
 
 				if (maybeRecipe.isPresent()) {
 					RecipeHolder<UpgradingRecipe> recipeHolder = maybeRecipe.get();
 					UpgradingRecipe recipe = recipeHolder.value();
 
-					if (this.output.setRecipeUsed((ServerPlayer) this.player, recipeHolder)) {
-						ItemStack recipeResult = recipe.assemble(recipeInput);
-
-						if (recipeResult.isItemEnabled(level.enabledFeatures())) {
-							result = recipeResult;
-						}
-					}
+					this.output.setRecipeUsed(recipeHolder);
+					this.output.setItem(0, recipe.assemble(recipeInput));
 				} else {
 					// We can set the used recipe to null if no recipe was found.
-					//noinspection DataFlowIssue
-					this.output.setRecipeUsed((ServerPlayer) this.player, null);
+					this.output.setRecipeUsed(null);
+					this.output.setItem(0, ItemStack.EMPTY);
 				}
-
-				this.output.setItem(0, result);
-
-				/*
-				Alternatively, call broadcastChanges instead of setting the remote slot and sending a packet.
-				Based on how your Menu is structured, you may not need to manually call any syncing method, but it is recommended that you are very sure of yourself before you remove these calls to avoid server-client desyncs.
-				 */
-				this.setRemoteSlot(0, result);
-				((ServerPlayer) this.player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, this.incrementStateId(), 0, result));
 			}
 		});
 	}
