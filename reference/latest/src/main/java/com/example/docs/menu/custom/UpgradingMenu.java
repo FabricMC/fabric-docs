@@ -66,13 +66,13 @@ public class UpgradingMenu extends AbstractContainerMenu {
 	public void slotsChanged(Container container) {
 		super.slotsChanged(container);
 
-		if(container != this.input) {
+		if (container != this.input) {
 			return;
 		}
 
 		this.access.execute((level, pos) -> {
 			if (level instanceof ServerLevel serverLevel) {
-				inputsChanged(serverLevel);
+				this.inputsChanged(serverLevel);
 			}
 		});
 	}
