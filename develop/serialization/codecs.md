@@ -14,7 +14,7 @@ resources:
 
 Codec is a system for easily serializing Java objects, and is included in Mojang's DataFixerUpper (DFU)
 library, which is included with Minecraft. In a modding context they can be used as an alternative
-to GSON and Jankson when reading and writing custom JSON files, though they're starting to become
+to GSON and Jackson when reading and writing custom JSON files, though they're starting to become
 more and more relevant, as Mojang is rewriting a lot of old code to use Codecs.
 
 Codecs are used in conjunction with another API from DFU, `DynamicOps`. A codec defines the structure of an object, while dynamic ops are used to define a format to be serialized to and from, such as JSON or NBT. This means any codec can be used with any dynamic ops, and vice versa, allowing for great flexibility.
