@@ -1,5 +1,6 @@
 package com.example.docs.item;
 
+import java.awt.*;
 import java.util.List;
 import java.util.function.Function;
 
@@ -193,6 +194,24 @@ public class ModItems {
 	public static final Item SUSPICIOUS_SUBSTANCE = register(ModItemIds.SUSPICIOUS_SUBSTANCE, Item::new, new Item.Properties());
 	// #endregion suspicious_substance
 
+	// #region quark_gluon_plasma
+	public static final Item QUARK_GLUON_PLASMA = register(
+			ModItemIds.QUARK_GLUON_PLASMA,
+			Item::new,
+			new Item.Properties()
+					.stacksTo(1)
+					.rarity(Rarity.EPIC)
+					.component(DataComponents.LORE,
+							new ItemLore(
+									List.of(
+											Component.literal("A strange substance that seems to be made of quarks and gluons."),
+											Component.literal("It is highly unstable and should be handled with care.")
+									)
+							)
+					)
+	);
+	// #endregion quark_gluon_plasma
+
 	// #region custom_entity_spawn_egg
 	public static final Item MINI_GOLEM_SPAWN_EGG = register(
 			ModItemIds.MINI_GOLEM_SPAWN_EGG,
@@ -289,19 +308,25 @@ public class ModItems {
 			creativeTab.accept(ModItems.THROWING_KNIVES);
 		});
 
+		// #region glucon_to_creative_tab
+		CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY).register(creativeTab -> {
+			creativeTab.accept(ModItems.QUARK_GLUON_PLASMA);
+		});
+		// #endregion glucon_to_creative_tab
+
 		// #region compostable_item
 		// Add the suspicious substance to the composting registry with a 30% chance of increasing the composter's level.
 		CompostableRegistry.INSTANCE.add(ModItems.SUSPICIOUS_SUBSTANCE, 0.3f);
 		// #endregion compostable_item
 
 		// #region fuel_item
-		// Add the suspicious substance to the registry of fuels, with a burn time of 30 seconds.
 		// Remember, Minecraft deals with logical based-time using ticks.
 		// 20 ticks = 1 second.
 		FuelValueEvents.BUILD.register((builder, context) -> {
-			builder.add(ModItems.SUSPICIOUS_SUBSTANCE, 30 * 20);
+			builder.add(ModItems.QUARK_GLUON_PLASMA, 120 * 20);
 		});
 		// #endregion fuel_item
+
 		// #region initialize
 	}
 	// #endregion initialize

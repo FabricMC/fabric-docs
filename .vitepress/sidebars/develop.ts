@@ -53,6 +53,14 @@ export default [
             link: "/develop/items/food",
           },
           {
+            text: "develop.items.custom_fuel",
+            link: "/develop/items/custom-fuel",
+          },
+          {
+            text: "develop.items.custom_compostable",
+            link: "/develop/items/custom-compostable",
+          },
+          {
             text: "develop.items.potions",
             link: "/develop/items/potions",
           },
