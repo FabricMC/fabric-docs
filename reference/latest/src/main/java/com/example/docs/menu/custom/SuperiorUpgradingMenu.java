@@ -13,8 +13,8 @@ public class SuperiorUpgradingMenu extends UpgradingMenu {
 		super(containerId, inventory);
 	}
 
-	public SuperiorUpgradingMenu(int containerId, Inventory inventory, ContainerLevelAccess access, Level level) {
-		super(containerId, inventory, access, level);
+	public SuperiorUpgradingMenu(int containerId, Inventory inventory, ContainerLevelAccess access) {
+		super(containerId, inventory, access);
 	}
 
 	// #region quickMove
