@@ -34,7 +34,7 @@ public class UpgradingBlock extends Block {
 	@Override
 	protected @Nullable MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
 		return new SimpleMenuProvider(
-				(containerId, inventory, player) -> new UpgradingMenu(containerId, inventory, ContainerLevelAccess.create(level, pos)), this.getName()
+				(containerId, inventory, player) -> new UpgradingMenu(containerId, inventory, ContainerLevelAccess.create(level, pos), level), this.getName()
 		);
 	}
 	// #endregion openmenu

@@ -5,6 +5,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 @SuppressWarnings("unused")
 public class SuperiorUpgradingMenu extends UpgradingMenu {
@@ -12,8 +13,8 @@ public class SuperiorUpgradingMenu extends UpgradingMenu {
 		super(containerId, inventory);
 	}
 
-	public SuperiorUpgradingMenu(int containerId, Inventory inventory, ContainerLevelAccess access) {
-		super(containerId, inventory, access);
+	public SuperiorUpgradingMenu(int containerId, Inventory inventory, ContainerLevelAccess access, Level level) {
+		super(containerId, inventory, access, level);
 	}
 
 	// #region quickMove
