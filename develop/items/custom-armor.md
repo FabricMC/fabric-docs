@@ -54,7 +54,7 @@ We define the repair ingredient tag reference as follows:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
-In order to specify which items can be used in an anvil to repair this material, we will create a tag which holds a list of items. Let's add the item tag to our Item tag provider class:
+In order to specify which items can be used in an anvil to repair this material, we will create a tag which holds a list of items. Let's add a new tag to our item tag provider class:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#repair_tags
 
