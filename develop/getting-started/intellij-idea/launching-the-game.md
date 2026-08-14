@@ -16,7 +16,11 @@ Fabric Loom provides a variety of launch profiles to help you start and debug yo
 
 ## Launch Profiles {#launch-profiles}
 
-If you're using IntelliJ IDEA, you can find the launch profiles in the top-right corner of the window. Click the dropdown menu to see the available launch profiles.(Ensure that your project path and Windows username only contain English letters, numbers, and special symbols)
+If you're using IntelliJ IDEA, you can find the launch profiles in the top-right corner of the window. Click the dropdown menu to see the available launch profiles.
+
+::: warning
+Make sure your project path and operating system username contain only ASCII characters (letters, digits, hyphens, underscores, and dots). Non-ASCII characters (for example emoji or accented letters) can cause encoding issues and command-line parsing errors with certain build tools or scripts. See also: [project creation guidelines](../creating-a-project).
+:::
 
 There should be a client and server profile, with the option to either run it normally or in debug mode:
 
