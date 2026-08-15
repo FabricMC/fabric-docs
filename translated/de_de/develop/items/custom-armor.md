@@ -4,6 +4,7 @@ description: Lerne, wie du deine eigenen Rüstungssets erstellst.
 authors:
   - cassiancc
   - IMB11
+  - NotNightSky
 ---
 
 Die Rüstung bietet dem Spieler eine bessere Verteidigung gegen Angriffe von Mobs und anderen Spielern.
@@ -52,6 +53,16 @@ Der `ArmorMaterial`-Konstruktor akzeptiert die folgenden Parameter, in dieser sp
 Wir definieren die Referenz für die Bestandteile der Reparatur wie folgt:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
+
+Um festzulegen, welche Items in einem Amboss zur Reparatur dieses Materials verwendet werden können, erstellen wir ein Tag, das eine Liste von Items enthält. Lasst uns ein neues Tag zu unserer ItemTag-Provider-Klasse hinzufügen:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#repair_tags
+
+In unserem Beispiel werden wir den Kupferbarren als Reparaturmaterial für die Guidite verwenden. Wenn du stattdessen einen benutzerdefinierten Guidite-Barren erstellen möchtest, kannst du [ein benutzerdefiniertes Item erstellen](./first-item) und dessen ID zum Tag hinzufügen.
+
+Jetzt kannst du unsere Rüstungen an Ambossen reparieren:
+
+![Reparatur der Guidite-Rüstung auf einem Amboss](/assets/develop/items/mending_guidite.png)
 
 Wenn du Schwierigkeiten hast, die Werte für einen der Parameter zu bestimmen, kannst du die Vanilla-Instanzen von `ArmorMaterial` zu Rate ziehen, die in dem Interface `ArmorMaterials` zu finden sind.
 

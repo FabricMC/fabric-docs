@@ -47,6 +47,7 @@ authors:
 
 日志可以上传到各种服务，例如：
 
-- [Pastebin](https://pastebin.com/)
-- [GitHub Gist](https://gist.github.com/)
 - [mclo.gs](https://mclo.gs/)
+- [pastes.dev](https://pastes.dev/)
+- [Pastebin.com](https://pastebin.com/)
+- [GitHub Gist](https://gist.github.com/)

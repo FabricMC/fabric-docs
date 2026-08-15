@@ -9,6 +9,7 @@ authors:
   - IMB11
   - its-miroma
   - xEobardThawne
+  - NotNightSky
 resources:
   https://docs.neoforged.net/docs/blocks/: Blöcke - NeoForge Docs
 ---
@@ -51,11 +52,17 @@ Mojang macht dies auch mit ihren Blöcken! Sieh dir die Klasse `BlockIds` für e
 
 ## Deine Blockklasse vorbereiten {#preparing-your-blocks-class}
 
-Die Registrierung von Blöcken ähnelt ebenfalls der [Registrierung von Items](../items/first-item#registering-an-item): Wir werden jetzt zwei Methoden erstellen, die deinen Block registrieren, wobei eine davon auch ein Block-Item registriert.
+Die Registrierung von Blöcken ähnelt ebenfalls der [Registrierung von Items](../items/first-item#registering-an-item): Wir werden nun zwei Überladungen der Methode `register()` erstellen, mit denen deine Blöcke registriert werden, eine für Blöcke mit Items und eine für Blöcke ohne Items.
 
-Du solltest diese Methode in eine Klasse mit dem Namen `ModBlocks` (oder wie auch immer du sie nennen willst) einfügen.
+Du solltest diese Methoden in eine Klasse mit dem Namen `ModBlocks` (oder wie auch immer du sie nennen willst) einfügen.
 
 Mojang macht etwas sehr ähnliches mit Vanilleblöcken; Sie können sich die Klasse `Blocks` ansehen, um zu sehen, wie sie es machen.
+
+::: warning
+
+Beide unten aufgeführten Überladungen von `register()` sind in deiner Klasse `ModBlocks` **erforderlich**. Die Überladung für Blöcke mit Items ruft intern die Überladung für Blöcke ohne Items auf. Fehlt eine der beiden Überladungen, lässt sich dein Code nicht kompilieren.
+
+:::
 
 ::: tabs
 
@@ -105,8 +112,6 @@ Du kannst auch `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)` verw
 :::
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_dirt
-
-Um das Blockitem automatisch zu erstellen, können wir dem Parameter `shouldRegisterItem` der Methode `register`, die wir im vorherigen Schritt erstellt haben, `true` übergeben.
 
 ### Dein Blockitem zu einem Kreativtab hinzufügen {#adding-your-block-s-item-to-a-creative-tab}
 
