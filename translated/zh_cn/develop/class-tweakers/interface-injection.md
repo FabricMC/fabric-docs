@@ -96,7 +96,15 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 ## 应用更改 {#applying-changes}
 
 若要看到接口实现生效，你必须刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。
-如果修改没有出现，可以尝试[验证](../class-tweakers/index#validating-the-file)该文件，并检查是否有错误。
+请确保从反编译源文件处重新打开目标类，以便查看修改效果。
+
+::: tip
+
+如果未显示修改，你可以尝试[校验文件](../class-tweakers/index#validating-the-file)并检查是否有错误产生。
+
+:::
+
+<!---->
 
 现在，新增的方法可以直接在被注入接口的类实例上使用：
 

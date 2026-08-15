@@ -93,8 +93,16 @@ extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 
 ## 应用更改 {#applying-changes}
 
-在反编译源码中看到你添加的枚举条目之前，你需要刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。
-如果修改没有出现，可以尝试[验证](../class-tweakers/index#validating-the-file)该文件，并检查是否有错误。
+若要反编译源码中查看到你添加的枚举条目，你必须刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。
+请确保从反编译源文件处重新打开目标类，以便查看修改效果。
+
+::: tip
+
+如果未显示修改，你可以尝试[校验文件](../class-tweakers/index#validating-the-file)并检查是否有错误产生。
+
+:::
+
+<!---->
 
 ::: info
 

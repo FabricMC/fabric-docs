@@ -60,13 +60,17 @@ resources:
 
 ## 注册工具物品 {#registering-tool-items}
 
-使用与 [创建你的第一个物品](./first-item) 指南中相同的实用功能，你可以创建工具物品：
+你可以使用我们在[创建你的第一个物品](./first-item)指南中所实现的相同类和函数来创建工具物品：
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
 两个浮点数值 (`1f, 1f`) 分别表示工具的攻击伤害以及攻击速度。
 
 对于锹、斧和锄，你应该创建 `ShovelItem`、`AxeItem` 或 `HoeItem`，而不是通用的 `Item`，因为这些实现了特定于工具的右键单击操作：
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#axe
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
 

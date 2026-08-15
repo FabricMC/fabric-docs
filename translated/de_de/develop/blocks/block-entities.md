@@ -26,7 +26,7 @@ Wenn eine `BlockEntity` registriert wird, gibt es einen `BlockEntityType` zurüc
 ::: tip
 
 Man beachte, dass der Konstruktor von der `CounterBlockEntity` zwei Parameter benötigt, der Konstruktor von der `BlockEntity` jedoch drei: den `BlockEntityType`, `BlockPos` und den `BlockState`.
-Wenn wir den `BlockEntityType` nicht hart kodiert hätten, würde die Klasse `ModBlockEntities` nicht kompiliert werden! Das liegt daran, dass die `BlockEntityFactory`, die ein funktionales Interface ist, eine Funktion beschreibt, die nur zwei Parameter benötigt, genau wie unser Konstruktor.
+Wenn wir den `BlockEntityType` nicht hart kodiert hätten, würde die Klasse `ModBlockEntities` nicht kompiliert werden! Das liegt daran, dass der `FabricBlockEntityTypeBuilder`, der ein funktionales Interface ist, eine Funktion beschreibt, die nur zwei Parameter benötigt, genau wie unser Konstruktor.
 
 :::
 
@@ -38,8 +38,8 @@ Um als Nächstes die Blockentität zu nutzen, brauchen wir einen Block, der `Ent
 
 Es gibt zwei Wege, um dies zu erreichen:
 
-- Einen Block erstellen, der von `BaseEntityBlock` erbt und die Methode `createBlockEntity` implementiert
-- Einen Block erstellen, der `EntityBlock` implementiert und die Methode `createBlockEntity` überschreibt
+- Einen Block erstellen, der von `BaseEntityBlock` erbt und die Methode `newBlockEntity` implementiert
+- Einen Block erstellen, der `EntityBlock` implementiert und die Methode `newBlockEntity` überschreibt
 
 Wir werden in diesem Beispiel den ersten Weg nutzen, da `BaseEntityBlock` ein paar nützliche Hilfsfunktionen bietet.
 
@@ -49,7 +49,7 @@ Wir werden in diesem Beispiel den ersten Weg nutzen, da `BaseEntityBlock` ein pa
 
 Die Verwendung von `BaseEntityBlock` als übergeordnete Klasse bedeutet, dass wir auch die Methode `createCodec` implementieren müssen, was relativ einfach ist.
 
-Im Gegensatz zu Blöcken, die Singletons sind, wird für jede Instanz des Blocks eine neue Blockentität erstellt. Dies geschieht mit der Methode `createBlockEntity`, die die Position und den `BlockState` entgegennimmt und ein `BlockEntity` zurückgibt, oder `null`, wenn es keins geben sollte.
+Im Gegensatz zu Blöcken, die Singletons sind, wird für jede Instanz des Blocks eine neue Blockentität erstellt. Dies geschieht mit der Methode `newBlockEntity`, die die Position und den `BlockState` entgegennimmt und ein `BlockEntity` zurückgibt, oder `null`, wenn es keins geben sollte.
 
 Vergiss nicht einen Schlüssel zu `ModBlockItemIds` hinzuzufügen und den Block in der Klasse `ModBlocks` zu registrieren, genau wie in dem Leitfaden [Deinen ersten Block erstellen](../blocks/first-block):
 

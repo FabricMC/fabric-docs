@@ -10,7 +10,21 @@ authors-nogithub:
 resources:
   https://github.com/FabricMC: GitHub 上的 FabricMC 组织
   https://github.com/FabricMC/fabric-docs/tree/main/reference/latest: 这些文档中引用的 ExampleMod
+  https://java-programming.mooc.fi/: "赫尔辛基大学：Java 编程 MOOC 课程"
+  https://dev.java/learn/: "Oracle Java 平台团队：学习 Java"
+  https://www.codecademy.com/learn/learn-java: "Codecademy：学习 Java"
+  https://www.coursera.org/specializations/java-programming: "杜克大学（于 Coursera）：Java 编程与软件工程基础"
+  https://www.youtube.com/watch?v=A74TOX803D0: "freeCodeCamp (YouTube)：初学者 Java 编程"
+  https://javabook.mccue.dev/: "现代 Java（在线教科书）"
 ---
+
+<!-- markdownlint-configure-file { MD033: { allowed_elements: [script, ul, li, a ] } } -->
+
+<script setup lang="ts">
+import { useData } from "vitepress";
+
+const javaResources = Object.entries(useData().frontmatter.value.resources).slice(2);
+</script>
 
 Fabric 是一款适用于 Minecraft：Java 版的轻量级模组工具链，设计简洁易用， 让开发者能够对原版游戏进行修改（“模组”），添加新功能或更改现有机制。
 
@@ -30,10 +44,11 @@ Fabric 是一款适用于 Minecraft：Java 版的轻量级模组工具链，设�
 
 以下是一些也许能帮助你熟悉 Java 和 OOP （面向对象编程）的资源：
 
-- [W3: Java Tutorials](https://www.w3schools.com/java/)
-- [Codecademy: Learn Java](https://www.codecademy.com/learn/learn-java)
-- [W3: Java OOP](https://www.w3schools.com/java/java_oop.asp)
-- [Medium: Introduction to OOP](https://medium.com/@Adekola_Olawale/beginners-guide-to-object-oriented-programming-a94601ea2fbd)
+<ul>
+  <li v-for="[url, title] in javaResources" :key="url">
+    <a :href="url" target="_blank" rel="noreferrer">{{ title }}</a>
+  </li>
+</ul>
 
 ## Fabric 能提供什么？ {#what-does-fabric-offer}
 

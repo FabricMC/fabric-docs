@@ -11,7 +11,7 @@ authors:
 
 ::: warning
 
-Minecraft 26.2 不支持使用原始 OpenGL，因为[它已发布可选的 Vulkan 后端](https://www.minecraft.net/zh-hans/article/another-step-towards-vibrant-visuals-for-java-edition)。 相反，您必须使用 `Blaze3D` 抽象层，它位于您的代码和渲染后端（OpenGL 或 Vulkan）之间。
+Minecraft 26.2 不支持使用原始 OpenGL，因为[它已发布可选的 Vulkan 后端](https://www.minecraft.net/zh-hans/article/another-step-towards-vibrant-visuals-for-java-edition)。 相反，你必须使用 `Blaze3D` 抽象层，它位于你的代码和渲染后端（OpenGL 或 Vulkan）之间。
 
 :::
 
