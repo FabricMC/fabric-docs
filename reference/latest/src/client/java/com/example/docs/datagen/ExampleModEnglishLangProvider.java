@@ -45,6 +45,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.DIMENSIONAL_CRYSTAL, "Dimensional Crystal");
 		translationBuilder.add(ModItems.THROWING_KNIVES, "Throwing Knives");
 		translationBuilder.add(ModItems.QUARK_GLUON_PLASMA, "Quark Gluon Plasma");
+		translationBuilder.add(ModItems.BONE_MARROW, "Bone Marrow");
 
 		translationBuilder.add(Util.makeDescriptionId("effect", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater")), "Tater");
 

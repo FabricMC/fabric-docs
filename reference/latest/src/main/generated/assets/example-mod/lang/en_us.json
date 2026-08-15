@@ -25,6 +25,7 @@
   "gamerule.example-mod.bad_vision": "Gives every player the blindness effect",
   "item.example-mod.acid_bucket": "Acid Bucket",
   "item.example-mod.balloon": "Balloon",
+  "item.example-mod.bone_marrow": "Bone Marrow",
   "item.example-mod.burnt.info": "Burnt: %1$s",
   "item.example-mod.counter": "Counter",
   "item.example-mod.counter.info": "Used %1$s times",

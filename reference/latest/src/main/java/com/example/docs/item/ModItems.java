@@ -212,6 +212,23 @@ public class ModItems {
 	);
 	// #endregion quark_gluon_plasma
 
+	// #region bone_marrow
+	public static final Item BONE_MARROW = register(
+			ModItemIds.BONE_MARROW,
+			Item::new,
+			new Item.Properties()
+					.rarity(Rarity.UNCOMMON)
+					.component(DataComponents.LORE,
+							new ItemLore(
+									List.of(
+											Component.literal("A strange substance that seems to be bone marrow."),
+											Component.literal("It is made of soft tissue and may prove to be a great compostable.")
+									)
+							)
+					)
+	);
+	// #endregion bone_marrow
+
 	// #region custom_entity_spawn_egg
 	public static final Item MINI_GOLEM_SPAWN_EGG = register(
 			ModItemIds.MINI_GOLEM_SPAWN_EGG,
@@ -314,9 +331,15 @@ public class ModItems {
 		});
 		// #endregion glucon_to_creative_tab
 
+		// #region bone_marrow_in_creative_tab
+		CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY).register(creativeTab -> {
+			creativeTab.accept(ModItems.BONE_MARROW);
+		});
+		// #endregion bone_marrow_in_creative_tab
+
 		// #region compostable_item
-		// Add the suspicious substance to the composting registry with a 30% chance of increasing the composter's level.
-		CompostableRegistry.INSTANCE.add(ModItems.SUSPICIOUS_SUBSTANCE, 0.3f);
+		// Add the bone marrow to the composting registry with a 100% chance of increasing the composter's level.
+		CompostableRegistry.INSTANCE.add(ModItems.BONE_MARROW, 1.0f);
 		// #endregion compostable_item
 
 		// #region fuel_item

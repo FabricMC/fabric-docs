@@ -48,6 +48,10 @@ public class ModItemIds {
 	public static final ResourceKey<Item> QUARK_GLUON_PLASMA = create("quark_gluon_plasma");
 	// #endregion quark_gluon_plasma_resource
 
+	// #region bone_marrow_resource
+	public static final ResourceKey<Item> BONE_MARROW = create("bone_marrow");
+	// #endregion bone_marrow_resource
+
 	// #region custom_entity_spawn_egg
 	public static final ResourceKey<Item> MINI_GOLEM_SPAWN_EGG = create("mini_golem_spawn_egg");
 	// #endregion custom_entity_spawn_egg

@@ -9,7 +9,7 @@ Fuels are a core aspect of Minecraft, You need fuel to smelt items in a furnace 
 
 Unless you're making an overpowered fuel source, you should consider:
 
-- How long your fuel item will burn for.
+- How long your fuel item will burn for?
 - Is it early-game or endgame accessible?
 
 ## Creating the Item {#creating-the-item}
@@ -43,6 +43,6 @@ Now the item will look like this in the creative menu:
 
 ![Fuel in Furnace](/assets/develop/items/quark_gluon_plasma_ss.png)
 
-And this is how it will look in the furnace when used as fuel:
+And this is how it will look like in the furnace when used as fuel:
 
 <VideoPlayer src="/assets/develop/items/fuel_in_furnace.webm">Using Quark Gluon Plasma as Fuel</VideoPlayer>

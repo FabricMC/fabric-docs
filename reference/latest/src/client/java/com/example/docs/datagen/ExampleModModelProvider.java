@@ -97,6 +97,10 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.QUARK_GLUON_PLASMA, ModelTemplates.FLAT_ITEM);
 		// #endregion quark_gluon_plasma
 
+		// #region bone_marrow
+		itemModelGenerator.generateFlatItem(ModItems.BONE_MARROW, ModelTemplates.FLAT_ITEM);
+		// #endregion bone_marrow
+
 		itemModelGenerator.generateFlatItem(ModItems.ACID_BUCKET, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.LIGHTNING_TATER, ModelTemplates.FLAT_HANDHELD_ITEM);
 
