@@ -59,4 +59,4 @@ Don't forget to add the provider to your Data Generation entrypoint:
 
 Now, when you run datagen, you should see a `.json` file under `src/main/generated/data/example-mod/worldgen/biome/biomename.json` for the biome created. And when you run your game in the world creation screen you should be able to select `World Type: Single Biome` and click `Customize`. Then find your biome in the list and generate the world.
 
-Your biome will NOT spawn in a normal world naturally yet, all we have done is created the biome.
+Your biome will NOT spawn in a normal world naturally yet, all we have done is create a new biome. To have it generate in the world see [Biome Generation](./biome-generation).
