@@ -2,6 +2,8 @@ package com.example.docs;
 
 import com.terraformersmc.biolith.api.biome.BiomePlacement;
 
+import net.fabricmc.fabric.api.biome.v1.NetherBiomes;
+
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
@@ -99,7 +101,7 @@ public class ExampleMod implements ModInitializer {
 										0L));
 		// :::world-gen-biomes:overworld-addition
 
-		// :::world-gen-biomes:nether-addition
+		// :::world-gen-biomes:nether-addition-biolith
 		BiomePlacement.addNether(Biomes.ICE_SPIKES,
 						new Climate.ParameterPoint(
 										Climate.Parameter.span(-1.0f, 1.0f),
@@ -109,7 +111,18 @@ public class ExampleMod implements ModInitializer {
 										Climate.Parameter.point(0.0f),
 										Climate.Parameter.span(-0.5f, 1.0f),
 										0L));
-		// :::world-gen-biomes:nether-addition
+		// :::world-gen-biomes:nether-addition-biolith
 
+		// :::world-gen-biomes:nether-addition-fabricapi
+		NetherBiomes.addNetherBiome(Biomes.FROZEN_PEAKS,
+						new Climate.ParameterPoint(
+							Climate.Parameter.span(-1.0f, 1.0f),
+							Climate.Parameter.span(-1.0f, -0.5f),
+							Climate.Parameter.span(-0.3f, 1.0f),
+							Climate.Parameter.span(-0.375f, 0.50f),
+							Climate.Parameter.point(0.0f),
+							Climate.Parameter.span(-0.5f, 1.0f),
+							0L));
+		// :::world-gen-biomes:nether-addition-fabricapi
 	}
 }
