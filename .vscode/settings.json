@@ -13,5 +13,8 @@
     "!README.md",
     "!translated/**",
     "!versions/**"
+  ],
+  "cSpell.words": [
+    "Biolith"
   ]
 }

@@ -1,12 +1,25 @@
 def minecraftVersion = "26.1"
 def fabricApiVersion = "0.155.2+26.1.2"
 
+
+// :::biome-generation:biolith-repo
+repositories {
+    maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/'
+    }
+}
+// :::biome-generation:biolith-repo
+
 // :::automatic-testing:game-test:2
 dependencies {
 // :::automatic-testing:game-test:2
   minecraft "com.mojang:minecraft:${minecraftVersion}"
   implementation "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 
+  // :::biome-generation:biolith-impl
+  implementation("com.terraformersmc:biolith-fabric:${project.biolith_version}")
+  // :::biome-generation:biolith-impl
 // :::automatic-testing:game-test:2
   productionRuntimeMods "net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}"
 }
