@@ -74,6 +74,7 @@
   "develop.loader": "Loader",
   "develop.loader.index": "Introduction",
   "develop.loader.fabric.mod.json": "fabric.mod.json",
+  "develop.loader.mod.resolution": "Mod Discovery and Resolution",
   "develop.loom": "Loom",
   "develop.loom.introduction": "Introduction",
   "develop.loom.fabric_api": "Fabric API DSL",
