@@ -36,7 +36,7 @@ As an example, we can create a simple screen that has a button and a label above
 
 ## Opening the Screen {#opening-the-screen}
 
-You can open the screen using the `Minecraft`'s `setScreen` method - you can do this from many places, such as a key binding, a command, or a client packet handler.
+You can open the screen using the `Minecraft`'s `setScreenAndShow` method - you can do this from many places, such as a key binding, a command, or a client packet handler.
 
 ```java
 Minecraft.getInstance().setScreen(
@@ -60,7 +60,7 @@ Now, when opening the custom screen, you can pass the current screen as the seco
 
 ```java
 Screen currentScreen = Minecraft.getInstance().currentScreen;
-Minecraft.getInstance().setScreen(
+Minecraft.getInstance().setScreenAndShow(
   new CustomScreen(Component.empty(), currentScreen)
 );
 ```
