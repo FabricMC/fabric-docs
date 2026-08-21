@@ -39,7 +39,7 @@ As an example, we can create a simple screen that has a button and a label above
 You can open the screen using the `Minecraft`'s `setScreenAndShow` method - you can do this from many places, such as a key binding, a command, or a client packet handler.
 
 ```java
-Minecraft.getInstance().setScreen(
+Minecraft.getInstance().gui.setScreen(
   new CustomScreen(Component.empty())
 );
 ```
@@ -49,7 +49,7 @@ Minecraft.getInstance().setScreen(
 If you want to close the screen, simply set the screen to `null`:
 
 ```java
-Minecraft.getInstance().setScreen(null);
+Minecraft.getInstance().gui.setScreen(null);
 ```
 
 If you want to be fancy and return to the previous screen, you can pass the current screen into the `CustomScreen` constructor and store it in a field, then use it to return to the previous screen when the `close` method is called.
