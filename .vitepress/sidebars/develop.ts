@@ -68,6 +68,10 @@ export default [
             text: "develop.items.custom_armor",
             link: "/develop/items/custom-armor",
           },
+          {
+            text: "develop.items.custom_shields",
+            link: "/develop/items/custom-shields",
+          },
         ],
       },
       {
