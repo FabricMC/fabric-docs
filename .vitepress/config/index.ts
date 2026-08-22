@@ -20,6 +20,7 @@ const latestVersion = fs
   )
   .match(/def minecraftVersion = "([^"]+)"/)![1];
 
+const builtVersions = ["1.20.4", "1.21.1", "1.21.4", "1.21.8", "1.21.10", "1.21.11", "26.1.2"];
 // https://docs.github.com/en/actions/reference/workflows-and-actions/variables#default-environment-variables
 // https://docs.netlify.com/build/configure-builds/environment-variables/#read-only-variables
 const env = process.env.GITHUB_ACTIONS
@@ -64,6 +65,10 @@ export default defineVersionedConfig(
     // Reduce the size of the dist by using a separate js file for the metadata.
     metaChunk: true,
 
+    // Keep one canonical client build, but isolate bounded server/render batches
+    // in disposable Node processes so their module graphs cannot accumulate.
+    ssrBuildBatchSize: 512,
+
     locales: getLocales(),
 
     markdown: {
@@ -101,13 +106,7 @@ export default defineVersionedConfig(
       },
     },
 
-    srcExclude: [
-      "README.md",
-      "versions/1.21.10",
-      "versions/1.21.8",
-      "versions/1.21.4",
-      ...(typeof env === "number" ? ["versions"] : []),
-    ],
+    srcExclude: ["README.md", ...(typeof env === "number" ? ["versions"] : [])],
 
     themeConfig: {
       env,
@@ -137,6 +136,7 @@ export default defineVersionedConfig(
     versioning: {
       latestVersion,
       rewrites: { localePrefix: "translated" },
+      versions: typeof env === "number" ? [] : builtVersions,
       sidebars: {
         sidebarContentProcessor: (s) =>
           Object.fromEntries(
