@@ -14,6 +14,7 @@
     "@fontsource-variable/jetbrains-mono": "^5.2.8",
     "@iconify/vue": "^5.0.0",
     "@vueuse/core": "^12.8.2",
+    "classtweaker-tmgrammar": "^1.0.1",
     "gray-matter": "^4.0.3",
     "markdown-it-cjk-friendly": "^2.0.2",
     "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa25527b2f772d50ca37ae526484c890b8ae",
