@@ -21,4 +21,10 @@ authors:
     icon: 'codicon:vscode',
     color: '#007ACC',
   },
+  {
+    name: 'Zed',
+    href: './zed/generating-sources',
+    icon: 'simple-icons:zedindustries',
+    color: '#282C34',
+  },
 ]" />
