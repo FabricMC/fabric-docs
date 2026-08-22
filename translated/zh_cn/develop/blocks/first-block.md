@@ -9,6 +9,7 @@ authors:
   - IMB11
   - its-miroma
   - xEobardThawne
+  - NotNightSky
 resources:
   https://docs.neoforged.net/docs/blocks/: Blocks - NeoForge 文档
 ---
@@ -51,11 +52,17 @@ Mojang对方块也是这么做的！ 你可以参考 `BlockIds` 类来获取一�
 
 ## 准备你的方块类 {#preparing-your-blocks-class}
 
-方块的注册方式与[注册物品](../items/first-item#registering-an-item)非常相似：我们现在需要创建两个方法来注册你的方块，其中一个方法还会同时注册对应的方块物品。
+方块注册与[物品注册](../items/first-item#registering-an-item)类似：我们现在将创建两个 `register()` 方法的重载版本来注册你的方块，一个用于注册包含物品的方块，另一个用于注册不包含物品的方块。
 
-你应该把这个方块放在叫做 `ModBlocks` 的类中（也可以是其他你想要的名称）。
+你应该把这些方法放在一个名为 `ModBlocks` 的类中（或者你想叫它什么名字都行）。
 
 Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 `Blocks` 类看看他们是怎么做的。
+
+::: warning
+
+下面显示的两个 `register()` 重载函数在你的 `ModBlocks` 类中都是**必需的**。 包含物品的方块的重载方法内部会调用不包含物品的方块的重载方法。 如果缺少任何一个重载，你的代码将无法编译。
+
+:::
 
 ::: tabs
 
@@ -105,8 +112,6 @@ Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 
 :::
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_dirt
-
-为了自动创建方块物品，我们可以向在上一步创建的 `register` 方法的 `shouldRegisterItem` 参数中传入 true。
 
 ### 将你的方块的物品添加到创造模式标签页 {#adding-your-block-s-item-to-a-creative-tab}
 

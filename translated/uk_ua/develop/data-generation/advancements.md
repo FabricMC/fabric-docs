@@ -2,6 +2,7 @@
 title: Генерація досягнень
 description: Посібник із налаштування генерації досягнень за допомогою генерації даних.
 authors:
+  - cassiancc
   - CelDaemon
   - MattiDragon
   - skycatminepokie
@@ -133,7 +134,7 @@ authors-nogithub:
 
 <<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_criterion_trigger
 
-Майже готово! Далі нам потрібен екземпляр нашого критерію для роботи. Помістімо його в новий клас під назвою `ModCriteria`.
+Майже готово! Далі нам потрібен екземпляр нашого критерію для роботи. Розмістімо це в новому класі під назвою `ModCriteria` та додамо допоміжний метод для зручної реєстрації нових критеріїв.
 
 <<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_mod_criteria
 
