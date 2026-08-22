@@ -429,6 +429,14 @@ export default [
     collapsed: true,
     items: [
       {
+        text: "develop.mixins.introduction",
+        link: "/develop/mixins",
+      },
+      {
+        text: "develop.mixins.mixins.json",
+        link: "/develop/mixins/mixins-json",
+      },
+      {
         text: "develop.mixins.bytecode",
         link: "/develop/mixins/bytecode",
       },
