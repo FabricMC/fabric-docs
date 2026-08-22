@@ -52,7 +52,7 @@ You can replace `1.21.11` with the version of Minecraft you are migrating from. 
 
 You can now replace your mappings in your `build.gradle`'s dependencies section with Mojang Mappings.
 
-```groovy
+```gradle
 dependencies {
     [...]
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2" // [!code --]

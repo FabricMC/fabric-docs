@@ -75,26 +75,30 @@ h2 {
   margin-bottom: 8px;
   padding-top: 16px;
   border-top: 1px solid var(--vp-c-divider);
+
   font-size: 12px;
   font-weight: bold;
   color: var(--vp-c-text-2);
-  letter-spacing: 0.06em;
   text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .VPLink {
   display: flex;
-  align-items: flex-start;
-  line-height: 1.5;
-  margin-bottom: 4px;
   gap: 0.3em;
-  transition: color 0.15s;
-  font-size: 12px;
-  color: var(--vp-c-text-2);
-}
+  align-items: flex-start;
 
-.VPLink:hover {
-  color: var(--vp-c-text-1);
+  margin-bottom: 4px;
+
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--vp-c-text-2);
+
+  transition: color 0.15s;
+
+  &:hover {
+    color: var(--vp-c-text-1);
+  }
 }
 
 svg {
@@ -106,7 +110,7 @@ img {
   margin-top: 1px;
 }
 
-@media (min-width: 1280px) {
+@media (width >= 1280px) {
   .VPDocFooter > h2,
   .VPDocFooter > .VPLink {
     display: none;

@@ -37,7 +37,7 @@ authors-nogithub:
 
 状态效果的图片是一个 18x18 的 PNG，显示在玩家的背包中。 将你的自定义图标放在：
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 

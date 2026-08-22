@@ -98,7 +98,7 @@ Es más facil explicar como escribir al `BufferBuilder` usando un ejemplo práct
 
 Vamos a dibujar vértices usando los siguientes puntos en el HUD (en orden):
 
-```txt
+```text
 (20, 20)
 (5, 40)
 (35, 40)

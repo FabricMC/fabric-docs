@@ -51,17 +51,21 @@ watch([height, strings], () =>
 
 <style scoped>
 div {
+  position: fixed;
+  z-index: var(--vp-z-index-layout-top);
+  right: 0;
+  left: 0;
+
   align-items: center;
-  background: rgb(207, 114, 21);
-  color: #ffffff;
+
+  padding: 8px;
+
   font-family: var(--vp-font-family-mono);
   font-weight: 600;
-  left: 0;
-  padding: 8px;
-  position: fixed;
-  right: 0;
+  color: #fff;
   text-align: center;
-  z-index: var(--vp-z-index-layout-top);
+
+  background: rgb(207 114 21);
 }
 
 a {

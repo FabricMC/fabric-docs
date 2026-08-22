@@ -72,7 +72,7 @@ authors:
 
 Щоб показати певні зміни розширення доступу до модів залежно від вашого, ви додаєте до відповідних директив префікс `transitive-*`:
 
-```txt:no-line-numbers
+```text:no-line-numbers
 transitive-accessible
 transitive-extendable
 transitive-mutable
@@ -94,7 +94,7 @@ transitive-mutable
 
 Формат:
 
-```txt:no-line-numbers
+```text:no-line-numbers
 <accessible / extendable>    class    <className>
 ```
 
@@ -106,7 +106,7 @@ transitive-mutable
 
 Формат:
 
-```txt:no-line-numbers
+```text:no-line-numbers
 <accessible / extendable>    method    <className>    <methodName>    <methodDescriptor>
 ```
 
@@ -118,7 +118,7 @@ transitive-mutable
 
 Формат:
 
-```txt:no-line-numbers
+```text:no-line-numbers
 <accessible / mutable>    field    <className>    <fieldName>    <fieldDescriptor>
 ```
 

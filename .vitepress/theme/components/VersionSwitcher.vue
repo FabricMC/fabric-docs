@@ -26,21 +26,22 @@ const currentV = computed(() => {
   return props.versioningPlugin.latestVersion;
 });
 
-const button = computedAsync(async () => {
-  const iconData = await loadIcon("lucide:git-graph");
-  const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">${iconData.body}</svg>`;
+const body = computedAsync(async () => (await loadIcon("lucide:git-graph")).body);
+
+const button = computed(() => {
+  if (!body.value) return;
+
+  const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">${body.value}</svg>`;
   return `<span style="display:flex;align-items:center;gap:4px">${icon} ${currentV.value}</span>`;
 });
 
 // TODO: add future versions to the supported pages
-const versions = computed(() =>
-  [
-    props.versioningPlugin.latestVersion,
-    ...(typeof env.value === "number"
-      ? []
-      : props.versioningPlugin.versions.toSorted(collator.compare).reverse()),
-  ].filter((v) => !["1.21.10", "1.21.8", "1.21.4"].includes(v))
-);
+const versions = computed(() => [
+  props.versioningPlugin.latestVersion,
+  ...(typeof env.value === "number"
+    ? []
+    : props.versioningPlugin.versions.toSorted(collator.compare).reverse()),
+]);
 
 const open = ref(false);
 
@@ -98,42 +99,45 @@ const getRoute = (newVersion: string) => {
 
 <style scoped>
 div:not(.VPFlyout) {
-  border-bottom: 1px solid var(--vp-c-divider);
-  height: 48px;
   overflow: hidden;
+  height: 48px;
+  border-bottom: 1px solid var(--vp-c-divider);
   transition: border-color 0.5s;
 
   button {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 12px 4px 11px 0;
+    justify-content: space-between;
+
     width: 100%;
-    line-height: 24px;
+    padding: 12px 4px 11px 0;
+
     font-size: 14px;
     font-weight: 500;
+    line-height: 24px;
     color: var(--vp-c-text-1);
+
     transition: color 0.25s;
 
     span {
       display: flex;
-      align-items: center;
       gap: 4px;
+      align-items: center;
     }
 
     .vpi-plus {
       transition: transform 0.25s;
     }
-  }
 
-  button:hover {
-    color: var(--vp-c-brand-1);
+    &:hover {
+      color: var(--vp-c-brand-1);
+    }
   }
 }
 
 .open:not(.VPFlyout) {
-  padding-bottom: 10px;
   height: auto;
+  padding-bottom: 10px;
 
   button {
     color: var(--vp-c-brand-1);
@@ -146,13 +150,16 @@ div:not(.VPFlyout) {
 
 .VPLink {
   display: block;
-  border-radius: 6px;
+
   padding: 0 12px;
-  line-height: 32px;
+  border-radius: 6px;
+
   font-size: 14px;
   font-weight: 500;
+  line-height: 32px;
   color: var(--vp-c-text-1);
   white-space: nowrap;
+
   transition:
     background-color 0.25s,
     color 0.25s;

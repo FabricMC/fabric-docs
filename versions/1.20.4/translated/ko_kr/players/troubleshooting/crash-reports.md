@@ -23,15 +23,15 @@ search: false
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\crash-reports
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/crash-reports
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/crash-reports
 ```
 
@@ -62,7 +62,7 @@ search: false
 
 스택트레이스에 언급된 모드의 개수에 따라, 정확히 지목하기 어려울 수 있지만, 가장 먼저 해야 할 일은 충돌을 일으킨 모드를 찾는 것입니다.
 
-```:no-line-numbers
+```text:no-line-numbers
 at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
 at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
 ...
@@ -85,7 +85,7 @@ Mixin이 충돌하면, 스택 트레이스에는 충돌이 발생한 Mixin과, M
 
 메소드 Mixin은 스택트레이스에 `mod-id$handlerName` 로 기록되는데, `mod-id`는 모드의 아이디, `handlerName`은 Mixin 처리기의 이름입니다.
 
-```:no-line-numbers
+```text:no-line-numbers
 ... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 
