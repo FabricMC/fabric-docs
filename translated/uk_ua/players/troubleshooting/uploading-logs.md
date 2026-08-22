@@ -47,6 +47,7 @@ authors:
 
 Звіти можуть бути вивантажені на різноманітні сервіси, таких як:
 
-- [Pastebin](https://pastebin.com/)
-- [GitHub Gist](https://gist.github.com/)
 - [mclo.gs](https://mclo.gs/)
+- [pastes.dev](https://pastes.dev/)
+- [Pastebin.com](https://pastebin.com/)
+- [GitHub Gist](https://gist.github.com/)
