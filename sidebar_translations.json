@@ -12,6 +12,8 @@
   "develop.items.first_item": "Creating Your First Item",
   "develop.items.item_models": "Item Models",
   "develop.items.food": "Custom Food",
+  "develop.items.custom_fuel": "Custom Fuel",
+  "develop.items.custom_compostable": "Custom Compostable",
   "develop.items.custom_armor": "Custom Armor",
   "develop.items.custom_tools": "Custom Tools",
   "develop.items.custom_creative_tabs": "Custom Creative Tabs",
