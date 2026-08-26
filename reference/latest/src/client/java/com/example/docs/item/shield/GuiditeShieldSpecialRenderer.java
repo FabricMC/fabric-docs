@@ -64,14 +64,18 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 		boolean hasPatterns = !patterns.layers().isEmpty() || baseColor != null;
 		SpriteId sprite = hasPatterns ? this.baseSprite : this.baseSpriteNoPattern;
 
-		submitNodeCollector.submitModel(this.model, Unit.INSTANCE, poseStack, lightCoords, overlayCoords, -1, sprite, this.sprites, outlineColor, null);
-
-		if (hasPatterns) {
-			BannerRenderer.submitPatterns(this.sprites, poseStack, submitNodeCollector, lightCoords, overlayCoords, this.model, Unit.INSTANCE, false, Objects.requireNonNullElse(baseColor, DyeColor.WHITE), patterns, null);
+		if (hasFoil && !hasPatterns) {
+			submitNodeCollector.submitModel(this.model, Unit.INSTANCE, poseStack, RenderTypes.entitySolidGlint(sprite.atlasLocation()), lightCoords, overlayCoords, -1, this.sprites.get(sprite), outlineColor);
+		} else {
+			submitNodeCollector.submitModel(this.model, Unit.INSTANCE, poseStack, lightCoords, overlayCoords, -1, sprite, this.sprites, outlineColor);
 		}
 
-		if (hasFoil) {
-			submitNodeCollector.submitModel(this.model, Unit.INSTANCE, poseStack, RenderTypes.entityGlint(), lightCoords, overlayCoords, -1, this.sprites.get(sprite), 0, null);
+		if (hasPatterns) {
+			BannerRenderer.submitPatterns(this.sprites, poseStack, submitNodeCollector, lightCoords, overlayCoords, this.model, Unit.INSTANCE, false, Objects.requireNonNullElse(baseColor, DyeColor.WHITE), patterns);
+
+			if (hasFoil) {
+				submitNodeCollector.order(patterns.layers().size() + 2).submitModel(this.model, Unit.INSTANCE, poseStack, RenderTypes.patternedShieldGlint(), lightCoords, overlayCoords, -1, this.sprites.get(sprite), 0);
+			}
 		}
 	}
 	// #endregion submit

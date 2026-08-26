@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "example-mod:crafting_table"
+        "recipes": "example-mod:crafting_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,6 +1,5 @@
 package com.example.docs.block.custom;
 
-import com.mojang.serialization.MapCodec;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
@@ -22,11 +21,6 @@ import com.example.docs.block.entity.custom.CounterBlockEntity;
 public class CounterBlock extends BaseEntityBlock {
 	public CounterBlock(Properties settings) {
 		super(settings);
-	}
-
-	@Override
-	protected MapCodec<? extends BaseEntityBlock> codec() {
-		return simpleCodec(CounterBlock::new);
 	}
 
 	@Nullable

@@ -1,5 +1,6 @@
 package com.example.docs.menu.custom;
 
+import net.minecraft.util.Prediction;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -73,7 +74,7 @@ public class SuperiorUpgradingMenu extends UpgradingMenu {
 		slot.onTake(player, stack);
 
 		if (slotIndex == RESULT_SLOT) {
-			player.drop(stack, false);
+			player.drop(stack, false, Prediction.PREDICTED);
 		}
 
 		return clicked;

@@ -10,13 +10,13 @@ Fuels are the items that can be used in a furnace to smelt ores and cook food. L
 
 ## Creating the Item {#creating-the-item}
 
-Let's create a fuel item called "Quark-Gloun Plasma". We start by [creating an item](./first-item) as usual:
+Let's create a fuel item called "Quark-Gloun Plasma". We start by [creating an item](./first-item) as usual, then apply the `CookingFuel` component to it, either directly via `.component`, or via the `.cookingFuel` helper if you're referring to a `ResourceKey<ContextIntProvider>`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#quark_gluon_plasma_resource
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#quark_gluon_plasma
 
-To make it a fuel, we will use the `FuelValueEvents.BUILD` event from the Fabric Content Registries API:
+Alternatively, if we're not the ones registering the item, we can use the `DefaultItemComponentEvents.MODIFY` event from the Fabric Item API:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
 

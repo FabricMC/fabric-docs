@@ -10,13 +10,13 @@ Compostable items are those that convert to bone meal when they are placed in a 
 
 ## Creating the Item {#creating-the-item}
 
-Let's create a compostable item called "Bone Marrow". We start by [creating an item](./first-item) as usual:
+Let's create a compostable item called "Bone Marrow". We start by [creating an item](./first-item) as usual, then apply the `Compostable` component to it, either directly via `.component`, or via the `.compostable` helper if you're referring to a `ResourceKey<ContextIntProvider>`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#bone_marrow_resource
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#bone_marrow
 
-To make it compostable, we will add it to the `CompostableRegistry.INSTANCE` registry from the Fabric Registry API:
+Alternatively, if we're not the ones registering the item, we can use the `DefaultItemComponentEvents.MODIFY` event from the Fabric Item API:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
 

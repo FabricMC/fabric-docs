@@ -52,18 +52,24 @@ To create your own potion effect, please see the [Effects](../entities/effects) 
 
 :::
 
-### Registering the Potion {#registering-the-potion}
+### Generating the Recipe {#registering-the-potion}
 
-In our initializer, we will use the `FabricBrewingRecipeRegistryBuilder.BUILD` event to register our potion using the `BrewingRecipeRegistry.registerPotionRecipe` method.
+::: info PREREQUISITES
 
-<<< @/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java#register_recipes
+This guide references data generation for [recipes](../data-generation/recipes).
 
-`addMix` takes 3 parameters:
+:::
+
+In a recipe provider's `buildRecipes` method, we will create a new `BrewingProvider` and call `BrewingPrvoider#buildRecipes` to generate a new potion recipe. This can also be done by hand.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBrewingProvider.java#register_recipes
+
+`buildMix` takes 3 parameters:
 
 - `Holder<Potion> from` - The starting potion, represented by a holder. Usually this can be a Water Bottle or an Awkward Potion.
 - `Item item` - The item which is the main ingredient of the potion.
 - `Holder<Potion> to` - The resultant potion, represented by a holder.
 
-Once registered, you can brew a Tater potion using a potato.
+After you run data generation, you can brew a Tater potion using a potato.
 
 ![Effect in player inventory](/assets/develop/tater-potion.png)
