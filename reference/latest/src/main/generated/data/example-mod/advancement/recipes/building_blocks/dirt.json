@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "example-mod:dirt"
+        "recipes": "example-mod:dirt"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

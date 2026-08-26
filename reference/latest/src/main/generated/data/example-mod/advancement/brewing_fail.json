@@ -3,13 +3,17 @@
   "criteria": {
     "brew_mundane": {
       "conditions": {
-        "potion": "minecraft:mundane"
+        "potion": {
+          "potions": "minecraft:mundane"
+        }
       },
       "trigger": "minecraft:brewed_potion"
     },
     "brew_thick": {
       "conditions": {
-        "potion": "minecraft:thick"
+        "potion": {
+          "potions": "minecraft:thick"
+        }
       },
       "trigger": "minecraft:brewed_potion"
     }

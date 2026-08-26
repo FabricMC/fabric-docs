@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:leather_gloves_dyed"
+        "recipes": "example-mod:leather_gloves_dyed"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:leather_gloves_dyed"
+      "example-mod:leather_gloves_dyed"
     ]
   }
 }

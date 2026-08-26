@@ -7,8 +7,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
@@ -33,7 +32,7 @@ public class ExampleModBlockLootTableProvider extends FabricBlockLootSubProvider
 		dropWhenSilkTouch(ModBlocks.PRISMARINE_LAMP);
 		// Make condensed oak logs drop between 7 and 9 oak logs
 		add(ModBlocks.CONDENSED_OAK_LOG, LootTable.lootTable().withPool(applyExplosionCondition(Items.OAK_LOG, LootPool.lootPool()
-				.setRolls(new UniformGenerator(new ConstantValue(7), new ConstantValue(9)))
+				.setRolls(ContextIntProviders.avg(ContextIntProviders.exactly(7), ContextIntProviders.exactly(9)))
 				.add(LootItem.lootTableItem(Items.OAK_LOG))))
 		);
 		// #endregion datagen_loot_tables_block_drops

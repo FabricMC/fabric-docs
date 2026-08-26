@@ -70,7 +70,7 @@ An attribute by itself is just data attached to an entity. For it to be useful, 
 
 <<< @/reference/26.2/src/gametest/java/com/example/docs/entity/EntityAttributesGameTest.java#reading_entity_attributes
 
-An `AttributeInstance` allows more flexibility, such as setting an `AttributeModifier` on the attribute, using one of the [three vanilla attribute modifier operations](https://minecraft.wiki/w/Attribute#Operations). Modifiers can be permanent (saved to NBT) or transitive (not saved to NBT) and are added using `addPermanentModifier` or `addTransitiveModifier`, respectively.
+An `AttributeInstance` allows more flexibility, such as setting an `AttributeModifier` on the attribute, using one of the [three vanilla attribute modifier operations](https://minecraft.wiki/w/Attribute#Operations). Modifiers can be permanent (saved to NBT) or transient (not saved to NBT) and are added using `addPermanentModifier` or `addTransientModifier`, respectively.
 
 <<< @/reference/26.2/src/gametest/java/com/example/docs/entity/EntityAttributesGameTest.java#modifying_entity_attributes
 

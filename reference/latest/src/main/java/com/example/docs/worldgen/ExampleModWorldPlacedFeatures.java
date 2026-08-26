@@ -8,7 +8,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.heightproviders.BiasedToBottomHeight;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
@@ -41,7 +41,7 @@ public class ExampleModWorldPlacedFeatures {
 	public static void configure(BootstrapContext<PlacedFeature> context) {
 		// #endregion datagen_world_placed_features_class
 		// #region datagen_world_conf_feature_register
-		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
+		HolderGetter<Feature> configuredFeatures = context.lookup(Registries.FEATURE);
 		// #endregion datagen_world_conf_feature_register
 
 		// #region datagen_world_placement_modifiers
@@ -65,7 +65,7 @@ public class ExampleModWorldPlacedFeatures {
 		context.register(
 				DIAMOND_BLOCK_ORE_PLACED_KEY,
 				new PlacedFeature(
-					configuredFeatures.getOrThrow(ExampleModWorldConfiguredFeatures.DIAMOND_BLOCK_VEIN_CONFIGURED_KEY),
+					configuredFeatures.getOrThrow(ExampleModWorldFeatures.DIAMOND_BLOCK_VEIN_CONFIGURED_KEY),
 					diamondBlockVeinModifiers
 				)
 		);
@@ -74,7 +74,7 @@ public class ExampleModWorldPlacedFeatures {
 		context.register(
 				DIAMOND_TREE_PLACED_KEY,
 				new PlacedFeature(
-					configuredFeatures.getOrThrow(ExampleModWorldConfiguredFeatures.DIAMOND_TREE_CONFIGURED_KEY),
+					configuredFeatures.getOrThrow(ExampleModWorldFeatures.DIAMOND_TREE_CONFIGURED_KEY),
 					diamondTreeModifiers
 				)
 		);
