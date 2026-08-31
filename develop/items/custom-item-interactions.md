@@ -54,4 +54,6 @@ As usual, you should register your item, add a model and texture.
 
 As you can see, the lightning bolt should spawn 10 blocks in front of you - the player.
 
+**Epilepsy Warning: Strobing Lights**
+
 <VideoPlayer src="/assets/develop/items/custom_items_0.webm">Using the Lightning Stick</VideoPlayer>
