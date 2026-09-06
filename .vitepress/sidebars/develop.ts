@@ -173,6 +173,20 @@ export default [
     ],
   },
   {
+    text: "develop.events",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.events.events",
+        link: "/develop/events/events",
+      },
+      {
+        text: "develop.events.loot_table_modifications",
+        link: "/develop/events/loot-table-modifications",
+      },
+    ],
+  },
+  {
     text: "develop.sounds",
     collapsed: true,
     items: [
