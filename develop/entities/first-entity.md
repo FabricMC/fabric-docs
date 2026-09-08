@@ -33,7 +33,7 @@ To register your entity, it's recommended to create a separate class, `ModEntity
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
 
-Call `registerModEntityTypes` and `registerAttributes` in your mod initializer:
+Call `registerModEntityTypes` and `registerAttributes` in your [mod's initializer](./getting-started/project-structure#entrypoints):
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
 
