@@ -31,7 +31,7 @@ public class ModEntityTypes {
 	}
 
 	public static void registerAttributes() {
-		FabricDefaultAttributeRegistry.register(MINI_GOLEM, MiniGolemEntity.createCubeAttributes());
+		FabricDefaultAttributeRegistry.register(MINI_GOLEM, MiniGolemEntity.createMiniGolemAttributes());
 	}
 }
 // #endregion types
