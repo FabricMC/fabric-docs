@@ -10,6 +10,7 @@ The loot table system is used to determine what items are dropped when a block i
 ## Loot Table Events {#loot-table-events}
 
 The Fabric Loot API provides several events accessed via the `LootTableEvents` class. These events allow you to modify loot tables at runtime, enabling you to add, remove, or change the items that are dropped in various situations.
+
 - `LootTableEvents.MODIFY`: This event is triggered when a loot table is being modified. You can use this event to add or remove entries from the loot table.
 - `LootTableEvents.REPLACE`: This event can be used to modify loot tables. The main use case is to add items to vanilla or mod loot tables
 - `LootTableEvents.MODIFY_DROPS`: This event can be used for cases where the `MODIFY` and `REPLACE` events are inconvenient. Such as when you want to modify the final drops of all loot tables at once under specific conditions.
@@ -20,3 +21,41 @@ The Fabric Loot API provides several events accessed via the `LootTableEvents` c
 ### Replacing Loot Tables {#replacing-loot-tables}
 
 ### Modifying Loot Table Drops {#modifying-loot-table-drops}
+
+### Loot Table Post-Processing {#loot-table-post-processing}
+
+### Predicates {#predicates}
+
+The following conditions can be used to dynamically control when loot table entries and pools apply.
+
+#### AllOfCondition {#allofcondition}
+
+#### AnyOfCondition {#anyofcondition}
+
+#### WeatherCheck {#weathercheck}
+
+#### TimeCheck {#timecheck}
+
+#### MatchTool {#matchtool}
+
+#### LootItemRandomChanceWithEnchantedBonusCondition {#lootitemrandomchancewithenchantedbonuscondition}
+
+#### LootItemRandomChanceCondition {#lootitemrandomchancecondition}
+
+#### LootItemKilledByPlayerCondition {#lootitemkilledbyplayercondition}
+
+#### LootItemBlockStatePropertyCondition {#lootitemblockstatepropertycondition}
+
+#### LocationCheck {#locationcheck}
+
+#### InvertedLootItemCondition {#invertedlootitemcondition}
+
+#### EnvironmentAttributeCheck {#environmentattributecheck}
+
+#### EnchantmentActiveCheck {#enchantmentactivecheck}
+
+#### DamageSourceCondition {#damagesourcecondition}
+
+#### ConditionReference {#conditionreference}
+
+#### BonusLevelTableCondition {#bonusleveltablecondition}

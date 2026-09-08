@@ -26,7 +26,6 @@ import java.util.Optional;
 
 // Class to contain all mod events.
 public class ExampleModEvents implements ModInitializer {
-	private static final ResourceKey<LootTable> COAL_ORE_LOOT_TABLE_ID = Blocks.COAL_ORE.getLootTable().orElseThrow();
 
 	@Override
 	public void onInitialize() {
@@ -46,7 +45,7 @@ public class ExampleModEvents implements ModInitializer {
 		// #region loot_table_modify_event
 		LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
 					// If the loot table is for the diamond block, and it is not overridden by a user:
-					if (source.isBuiltin() && Blocks.DIAMOND_BLOCK.getLootTable().equals(Optional.of(key))) {
+					if (source.isBuiltin() && Blocks.DIAMOND_ORE.getLootTable().equals(Optional.of(key))) {
 						// Create a new loot pool that will hold the diamonds.
 						LootPool.Builder pool = LootPool.lootPool()
 								// Add diamonds...
