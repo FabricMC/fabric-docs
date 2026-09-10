@@ -31,7 +31,7 @@ For this example, we will use the same repair item tag that we used in the [Cust
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
-Then, we register an item with the following components.
+Then, we create an item id and register an item with the following components.
 
 - [**Banner Patterns**](https://minecraft.wiki/w/Data_component_format/banner_patterns): Creates an item with no banner patterns.
 - [**Repairable**](https://minecraft.wiki/w/Data_component_format/repairable): Creates an item that can be repaired with the given item tag.
@@ -103,7 +103,7 @@ The submission process handles the logic of _what_ to render. The shield render'
 
 ### Unbaked Models {#unbaked-models}
 
-You'll also need an unbaked model, used to reference the model renderer and provide the sprites to the model.
+You'll also need an [unbaked model](https://docs.neoforged.net/docs/resources/client/models/modelsystem), used to reference the model renderer and provide the sprites to the model.
 
 <<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldSpecialRenderer.java#unbaked
 
