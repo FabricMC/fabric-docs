@@ -1,7 +1,5 @@
 package com.example.docs.event;
 
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -18,9 +16,6 @@ import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemConditions;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
 
 import java.util.Optional;
 
@@ -78,9 +73,9 @@ public class ExampleModEvents implements ModInitializer {
 
 		// #region loot_table_modify_drops_event
 		LootTableEvents.MODIFY_DROPS.register((holder, context, drops) -> {
-			// Replace a diamond with coal in the drops.
+			// Replace a cobblestone with stone in the drops.
 			if (drops.getFirst().getItem() == Items.COBBLESTONE) {
-				ItemStack coalStack = new ItemStack(Items.COAL, 2);
+				ItemStack coalStack = new ItemStack(Items.STONE, 2);
 				drops.clear();
 				drops.add(coalStack);
 			}

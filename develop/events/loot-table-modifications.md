@@ -66,7 +66,7 @@ The drops may already be separated into stacks if the loot table requested a par
 
 ### Loot Table Post-Processing {#loot-table-post-processing}
 
-Use `LootTableEvents.ALL_LOADED` for work that should happen after every loot table has been loaded and after the REPLACE and MODIFY events have run.
+Use `LootTableEvents.ALL_LOADED` for work that should happen after every loot table has been loaded and after the `REPLACE` and `MODIFY` events have run.
 
 The event provides the server's `ResourceManager` and the complete loot table registry. This makes it suitable for inspecting loaded tables, validating them, collecting information, or performing additional setup that depends on all tables being available.
 
@@ -91,7 +91,7 @@ This checks if all the conditions are true.
 Takes a `List<LootItemCondition>`.
 
 ``` java
-
+.when(AllOfCondition.allOf(ExplosionCondition.survivesExplosion(), LootItemKilledByPlayerCondition.killedByPlayer()))
 ```
 
 #### AnyOfCondition {#anyofcondition}
@@ -101,7 +101,7 @@ This checks if any of the conditions are true.
 Takes a `List<LootItemCondition>`.
 
 ``` java
-
+.when(AnyOfCondition.anyOf(ExplosionCondition.survivesExplosion(), LootItemKilledByPlayerCondition.killedByPlayer()))
 ```
 
 #### WeatherCheck {#weathercheck}
@@ -180,14 +180,56 @@ Takes `<Block>` and, provides `.setProperties` method for setting required prope
 
 #### LocationCheck {#locationcheck}
 
+Checks for the location where the block was broken.
+
+Takes a `LocationPredicate.Builder` and optionally, a `BlockPos`.
+
+``` java
+.when(LocationCheck.checkLocation(LocationPredicate.Builder.location().setY(MinMaxBounds.Doubles.atLeast(60))))
+```
+
 #### InvertedLootItemCondition {#invertedlootitemcondition}
+
+This inverts the condition provided. That is 'not this weather', 'not this time', etc.
+
+Takes a `LootItemCondition.builder`.
+
+``` java
+.when(InvertedLootItemCondition.invert(WeatherCheck.weather().setRaining(true)))
+```
 
 #### EnvironmentAttributeCheck {#environmentattributecheck}
 
-#### EnchantmentActiveCheck {#enchantmentactivecheck}
+Checks the environment attributes of the world.
+
+Takes `EnvironmentAttribute<Value>` and `<Value>`.
+
+``` java
+.when(EnvironmentAttributeCheck.environmentAttribute(EnvironmentAttributes.BED_RULE, BedRule.EXPLODES))
+```
 
 #### DamageSourceCondition {#damagesourcecondition}
 
+Checks for damage conditions such as which source (entity), which damage (arrow or melee) and direct damage (true or false).
+
+Takes a `DamageSourcePredicate.Builder`.
+
+``` java
+.when(DamageSourceCondition.hasDamageSource(DamageSourcePredicate.Builder.damageType().isDirect(true)))
+```
+
 #### ConditionReference {#conditionreference}
 
+Used for loading existing data-driven predicates useful for reusable predicates for various tables.
+
+Takes a `ResourceKey<LootItemCondition>`.
+
 #### BonusLevelTableCondition {#bonusleveltablecondition}
+
+Bonus items provided when mined or killed with certain enchantments based on levels.
+
+Takes `Holder<Enchantment>` and `...chances<float>`.
+
+``` java
+.when(BonusLevelTableCondition.bonusLevelFlatChance(holder.getOrThrow(Registries.ENCHANTMENT).value().getOrThrow(Enchantments.FORTUNE), 0.10F, 0.20F, 0.30F, 1F))
+```
