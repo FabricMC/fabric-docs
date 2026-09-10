@@ -33,7 +33,7 @@ For this example, we will use the same repair item tag that we used in the [Cust
 
 Then, we create an item id and register an item with the following components.
 
-- [**Banner Patterns**](https://minecraft.wiki/w/Data_component_format/banner_patterns): Creates an item with no banner patterns.
+- [**Banner Patterns**](https://minecraft.wiki/w/Data_component_format/banner_patterns): Creates an item with an empty set of banner patterns.
 - [**Repairable**](https://minecraft.wiki/w/Data_component_format/repairable): Creates an item that can be repaired with the given item tag.
 - [**Equippable/Unswappable**](https://minecraft.wiki/w/Data_component_format/equippable): In the GUI, shift-clicking the item will equip it to the offhand. In the world, right-clicking with it will not equip the item.
 - [**Blocks Attacks**](https://minecraft.wiki/w/Data_component_format/blocks_attacks): Creates an item that blocks attacks. This example uses values from the vanilla shield.
