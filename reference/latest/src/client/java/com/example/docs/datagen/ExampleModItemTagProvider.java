@@ -17,6 +17,7 @@ import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.item.ModItemIds;
+import com.example.docs.item.armor.GuiditeArmorMaterial;
 
 // #region datagen_tags_provider
 public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
@@ -66,6 +67,11 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 		builder(ItemTags.FOOT_ARMOR)
 				.add(ModItemIds.GUIDITE_BOOTS);
 		// #endregion armor_tags
+
+		// #region repair_tags
+		builder(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR)
+				.add(ItemIds.COPPER_INGOT);
+		// #endregion repair_tags
 
 		// #region datagen_tags_provider
 	}

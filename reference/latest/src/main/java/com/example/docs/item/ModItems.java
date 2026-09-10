@@ -58,6 +58,7 @@ import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
 import com.example.docs.networking.basic.LightningTaterItem;
+import com.example.docs.projectile.HotTaterItem;
 
 // #region mod_items_class
 public class ModItems {
@@ -150,6 +151,7 @@ public class ModItems {
 				output.accept(ModItems.ACID_BUCKET);
 				output.accept(ModItems.COUNTER);
 				output.accept(ModItems.LIGHTNING_TATER);
+				output.accept(ModItems.HOT_TATER);
 				output.accept(ModItems.TEST_ITEM);
 				output.accept(ModItems.GUIDITE_SWORD);
 				output.accept(ModItems.GUIDITE_HELMET);
@@ -219,6 +221,14 @@ public class ModItems {
 			new Item.Properties().spawnEgg(ModEntityTypes.MINI_GOLEM)
 	);
 	// #endregion custom_entity_spawn_egg
+
+	// #region hot_tater
+	public static final Item HOT_TATER = register(
+			ModItemIds.HOT_TATER,
+			HotTaterItem::new,
+			new Item.Properties().stacksTo(16)
+	);
+	// #endregion hot_tater
 
 	public static final Item RUBY = register(ModItemIds.RUBY, Item::new, new Item.Properties());
 

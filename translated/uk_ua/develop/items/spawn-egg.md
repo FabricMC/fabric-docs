@@ -23,6 +23,8 @@ authors:
 
 Яйця виклику — це спеціальні предмети, які при використанні породжують відповідного моба. Ви можете зареєструвати його за допомогою методу `register` з вашого [класу предмета](./first-item#preparing-your-items-class), передавши йому `SpawnEggItem::new`.
 
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#custom_entity_spawn_egg
+
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_entity_spawn_egg
 
 Є ще кілька речей, які потрібно зробити, перш ніж він буде готовий: ви повинні додати текстуру, модель предмета, клієнтський предмет, назву та додати яйце виклику до відповідної вкладки творчості.

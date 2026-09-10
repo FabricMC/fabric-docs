@@ -58,7 +58,7 @@ Jetzt werden wir die "Zeichenphase" implementieren. Dies sollte aufgerufen werde
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_drawing_phase
 
-Beachte, dass die im Konstruktor des `ByteBufferBuilder` verwendete Größe von der verwendeten Render-Pipeline abhängt. In unserem Fall ist es `RenderType.SMALL_BUFFER_SIZE`.
+Beachte, dass die im `StagedVertexBuffer` Konstruktor verwendete Größe von der verwendeten Render-Pipeline abhängt. In unserem Fall ist es `RenderType.SMALL_BUFFER_SIZE`.
 
 ### Aufräumen {#cleaning-up}
 

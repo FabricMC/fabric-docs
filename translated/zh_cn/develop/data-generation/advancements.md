@@ -2,6 +2,7 @@
 title: 进度生成
 description: 使用数据生成器设置进度生成的指南。
 authors:
+  - cassiancc
   - CelDaemon
   - MattiDragon
   - skycatminepokie
@@ -133,7 +134,7 @@ authors-nogithub:
 
 <<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_criterion_trigger
 
-快完成了！ 接下来，我们需要一个可以使用的准则实例。 我们把它放入一个名为 `ModCriteria` 的新类中。
+快完成了！ 接下来，我们需要一个可以使用的准则实例。 我们把它放在一个名为 `ModCriteria` 的新类中，并添加一个辅助方法来轻松注册新的准则。
 
 <<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_mod_criteria
 

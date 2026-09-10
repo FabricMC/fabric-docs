@@ -54,7 +54,11 @@ authors-nogithub:
 
 ### 注册流体 {#registering-fluids}
 
-接下来，我们会创建一个用于注册所有流体实例的类， 并将其命名为 `ModFluids`。
+接下来，我们会创建一个用于存储所有流体 ID 的类。 我们称其为 `ModFluidIds`。
+
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluidIds.java#register
+
+我们将在一个新的类中使用这些 ID 来注册所有流体实例。 并将其命名为 `ModFluids`。
 
 <<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluids.java#register
 
@@ -70,7 +74,11 @@ authors-nogithub:
 
 现在，让我们为该流体添加一个液体方块。 某些命令（例如 `setblock`）会需要它，这样你的流体才能存在于世界中。 如果你还没有了解过，建议先阅读[如何创建你的第一个方块](../blocks/first-block)。
 
-打开你的 `ModBlocks` 类，并注册以下 `LiquidBlock`：
+打开你的 `ModBlockIds` 类，并添加以下 `ResourceKey`：
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#acid
+
+随后，打开你的 `ModBlocks` 类，并使用该键注册以下 `LiquidBlock`：
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#acid
 

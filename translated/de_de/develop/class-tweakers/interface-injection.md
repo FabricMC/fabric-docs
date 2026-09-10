@@ -98,7 +98,15 @@ Der Eintrag des Klassenoptimierer wäre:
 ## Änderungen anwenden {#applying-changes}
 
 Damit deine Implementierung des Interface übernommen wird, musst du dein Gradle-Projekt aktualisieren und die [Quellen neu generieren](../getting-started/generating-sources).
-Wenn die Änderungen nicht angezeigt werden, kannst du versuchen, die Datei zu [validieren](../class-tweakers/index#validating-the-file) und zu prüfen, ob Fehler auftreten.
+Stelle sicher, dass du jede betroffene Klasse aus dem dekompilierten Quellcode erneut öffnest, um die Änderungen sehen zu können.
+
+::: tip
+
+Falls die Änderungen nicht sichtbar sind, kannst du versuchen, [die Datei zu validieren](../class-tweakers/index#validating-the-file) und zu prüfen, ob Fehler auftauchen.
+
+:::
+
+<!---->
 
 Die hinzugefügten Methoden können nun auf Instanzen der Klasse angewendet werden, in die das Interface injiziert wurde:
 

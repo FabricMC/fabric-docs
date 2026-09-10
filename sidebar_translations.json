@@ -40,6 +40,7 @@
   "develop.entities.effects": "Mob Effects",
   "develop.entities.damage_types": "Damage Types",
   "develop.entities.attributes": "Attributes",
+  "develop.entities.projectiles": "Custom Projectiles",
   "develop.commands": "Commands",
   "develop.commands.basics": "Creating Commands",
   "develop.commands.arguments": "Command Arguments",

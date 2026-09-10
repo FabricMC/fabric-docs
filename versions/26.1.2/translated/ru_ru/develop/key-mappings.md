@@ -29,9 +29,9 @@ Minecraft обрабатывает ввод пользователя с пери
 
 ::: info
 
-Обратите внимание, что названия токенов клавиш (`GLFW.GLFW_KEY_*`) подразумевают [стандартную раскладку США](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg).
+Обратите внимание, что названия токенов клавиш (`InputConstants.KEY_*`) подразумевают [стандартную раскладку США](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg).
 
-Это означает, что если вы используете раскладку AZERTY, нажатие на клавишу <kbd>A</kbd> вернет значение `GLFW.GLFW_KEY_Q`.
+Это означает, что если вы используете раскладку AZERTY, нажатие на клавишу <kbd>A</kbd> вернет значение `InputConstants.KEY_Q`.
 
 :::
 

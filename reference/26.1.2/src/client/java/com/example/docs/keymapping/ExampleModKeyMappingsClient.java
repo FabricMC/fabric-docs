@@ -1,7 +1,6 @@
 package com.example.docs.keymapping;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.client.KeyMapping;
 import net.minecraft.network.chat.Component;
@@ -25,7 +24,7 @@ public class ExampleModKeyMappingsClient implements ClientModInitializer {
 		new KeyMapping(
 				"key.example-mod.send_to_chat", // The translation key for the key mapping.
 				InputConstants.Type.KEYSYM, // The type of the keybinding; KEYSYM for keyboard, MOUSE for mouse.
-				GLFW.GLFW_KEY_J, // The GLFW keycode of the key.
+				InputConstants.KEY_J, // The keycode of the key.
 				this.CATEGORY // The category of the mapping.
 		));
 	// #endregion key_mapping

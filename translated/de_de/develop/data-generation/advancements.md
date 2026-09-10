@@ -2,6 +2,7 @@
 title: Generierung von Fortschritten
 description: Ein Leitfaden zur Einrichtung der Generierung von Fortschritten mit dem Datengenerator.
 authors:
+  - cassiancc
   - CelDaemon
   - MattiDragon
   - skycatminepokie
@@ -133,7 +134,7 @@ Da wir nun ein Kriterium und seine Bedingungen haben, brauchen wir eine Möglich
 
 <<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_criterion_trigger
 
-Fast geschafft! Als nächstes benötigen wir eine Instanz unseres Kriteriums, mit der wir arbeiten können. Fügen wir sie in eine neue Klasse mit dem Namen `ModCriteria` ein.
+Fast geschafft! Als nächstes benötigen wir eine Instanz unseres Kriteriums, mit der wir arbeiten können. Lasst und das Ganze in eine neue Klasse namens `ModCriteria` packen, die eine Hilfsmethode enthält, mit der sich neue Kriterien einfach registrieren lassen.
 
 <<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_mod_criteria
 

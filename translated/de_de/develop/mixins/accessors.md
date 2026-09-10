@@ -44,7 +44,7 @@ void example_mod$setFieldName(FieldType value);
 
 Beispiel:
 
-<<< @/reference/latest/src/client/java/com/example/docs/mixin/client/accessor/GuiAccessor.java#mixin_accessors_instance_field_accessor_example
+<<< @/reference/latest/src/client/java/com/example/docs/mixin/client/accessor/HudAccessor.java#mixin_accessors_instance_field_accessor_example
 
 Verwendung:
 

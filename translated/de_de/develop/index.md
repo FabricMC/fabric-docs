@@ -1,5 +1,5 @@
 ---
-title: Entwickleranleitungen
+title: Leitfäden für Entwickler
 description: Unsere von der Community verfassten Leitfäden für Entwickler behandeln viele Themen, von der Erstellung eines Mods und der Einrichtung deiner Umgebung bis hin zu Rendering, Netzwerken, Datengenerierung und vielem mehr.
 authors:
   - IMB11
@@ -10,7 +10,21 @@ authors-nogithub:
 resources:
   https://github.com/FabricMC: FabricMC-Organisation auf GitHub
   https://github.com/FabricMC/fabric-docs/tree/main/reference/latest: In der Dokumentation referenzierte ExampleMod
+  https://java-programming.mooc.fi/: "University of Helsinki: Java Programming MOOC"
+  https://dev.java/learn/: "Java Platform Group von Oracle: Learn Java"
+  https://www.codecademy.com/learn/learn-java: "Codecademy: Learn Java"
+  https://www.coursera.org/specializations/java-programming: "Duke University (über Coursera): Spezialisierung Java-Programmierung und Grundlagen der Softwaretechnik"
+  https://www.youtube.com/watch?v=A74TOX803D0: "freeCodeCamp (YouTube): Java Programming for Beginners"
+  https://javabook.mccue.dev/: "Modern Java (Online-Lehrbuch)"
 ---
+
+<!-- markdownlint-configure-file { MD033: { allowed_elements: [script, ul, li, a ] } } -->
+
+<script setup lang="ts">
+import { useData } from "vitepress";
+
+const javaResources = Object.entries(useData().frontmatter.value.resources).slice(2);
+</script>
 
 Fabric ist ein leichtgewichtiger Modding-Werkzeugkasten für die Minecraft: Java Edition, die einfach und benutzerfreundlich gestaltet ist. Es ermöglicht Entwicklern, Modifikationen ("Mods") am Originalspiel vorzunehmen, um neue Funktionen hinzuzufügen oder bestehende Mechaniken zu ändern.
 
@@ -30,10 +44,11 @@ Bevor du startest mit Fabric zu modden, musst du über gewisse Kenntnisse in der
 
 Hier sind einige Ressourcen, die dir helfen könnten, dich mit Java und OOP vertraut zu machen:
 
-- [W3: Java-Tutorials](https://www.w3schools.com/java/)
-- [Codecademy: Learn Java](https://www.codecademy.com/learn/learn-java)
-- [W3: Java OOP](https://www.w3schools.com/java/java_oop.asp)
-- [Medium: Introduction to OOP](https://medium.com/@Adekola_Olawale/beginners-guide-to-object-oriented-programming-a94601ea2fbd)
+<ul>
+  <li v-for="[url, title] in javaResources" :key="url">
+    <a :href="url" target="_blank" rel="noreferrer">{{ title }}</a>
+  </li>
+</ul>
 
 ## Was bietet Fabric? {#what-does-fabric-offer}
 

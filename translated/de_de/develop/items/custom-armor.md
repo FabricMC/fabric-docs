@@ -2,7 +2,9 @@
 title: Benutzerdefinierte Rüstung
 description: Lerne, wie du deine eigenen Rüstungssets erstellst.
 authors:
+  - cassiancc
   - IMB11
+  - NotNightSky
 ---
 
 Die Rüstung bietet dem Spieler eine bessere Verteidigung gegen Angriffe von Mobs und anderen Spielern.
@@ -21,9 +23,9 @@ Diese Konstante wird in der Methode `Item.Properties#maxDamage(int damageValue)`
 
 Wenn du Schwierigkeiten hast, eine ausgewogene Grundhaltbarkeit zu bestimmen, kannst du dich an den Instanzen der Vanilla-Rüstungsmaterialien orientieren, die du in dem Interface `ArmorMaterials` findest.
 
-### Ausrüstungs Asset Registry Key {#equipment-asset-registry-key}
+### Ausrüstungs Asset Ressourcenschlüssel {#equipment-asset-resource-key}
 
-Obwohl wie unser `ArmorMaterial` nirgendwo registrieren müssen, sollte man generell alle Registerschlüssel als Konstanten speichern, da das Spiel diese nutzen wird, um die relevanten Texturen für unsere Rüstung zu finden.
+Obwohl wir unser `ArmorMaterial` nirgendwo registrieren müssen, sollte man generell alle Ressourcenschlüssel als Konstanten speichern, da das Spiel diese nutzen wird, um die relevanten Texturen für unsere Rüstung zu finden.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#material_key
 
@@ -52,6 +54,16 @@ Wir definieren die Referenz für die Bestandteile der Reparatur wie folgt:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
+Um festzulegen, welche Items in einem Amboss zur Reparatur dieses Materials verwendet werden können, erstellen wir ein Tag, das eine Liste von Items enthält. Lasst uns ein neues Tag zu unserer ItemTag-Provider-Klasse hinzufügen:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#repair_tags
+
+In unserem Beispiel werden wir den Kupferbarren als Reparaturmaterial für die Guidite verwenden. Wenn du stattdessen einen benutzerdefinierten Guidite-Barren erstellen möchtest, kannst du [ein benutzerdefiniertes Item erstellen](./first-item) und dessen ID zum Tag hinzufügen.
+
+Jetzt kannst du unsere Rüstungen an Ambossen reparieren:
+
+![Reparatur der Guidite-Rüstung auf einem Amboss](/assets/develop/items/mending_guidite.png)
+
 Wenn du Schwierigkeiten hast, die Werte für einen der Parameter zu bestimmen, kannst du die Vanilla-Instanzen von `ArmorMaterial` zu Rate ziehen, die in dem Interface `ArmorMaterials` zu finden sind.
 
 ## Rüstungsitems erstellen {#creating-the-armor-items}
@@ -63,6 +75,8 @@ Natürlich muss ein Rüstungsset nicht jeden Typ abdecken, man kann auch ein Set
 Im Gegensatz zu `ToolMaterial` speichert `ArmorMaterial` keine Informationen über die Haltbarkeit von Items. Aus diesem Grund muss die Grundhaltbarkeit manuell zu den `Item.Properties` der Rüstungsgegenstände hinzugefügt werden, wenn diese registriert werden.
 
 Dies wird erreicht, indem die Konstante `BASE_DURABILITY`, die wir zuvor erstellt haben, an die Methode `maxDamage` in der Klasse `Item.Properties` übergeben wird.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#create_armor_items
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items
 
@@ -128,3 +142,17 @@ Wenn die Texturen und die Definition des Rüstungsmodell vorhanden sind, solltes
 ![Funktionierendes Rüstungsmodell an einem Spieler](/assets/develop/items/armor_3.png)
 
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
+
+## Rüstungsitems taggen {#tags}
+
+:::info VORAUSSETZUNGEN
+
+Weitere Informationen findest du in der Dokumentation zur Erstellung von [Item Tags](../data-generation/tags).
+
+:::
+
+Es wird außerdem empfohlen, deine Rüstung in den entsprechenden Item Tags einzuordnen. Rüstungsteile haben eigene Tags, wie beispielsweise `ItemTags.CHEST_ARMOR`, die für die Verzauberbarkeit verwendet werden.
+
+Füge die folgenden Zeilen zu `addTags` in deinem Item Tag Provider hinzu:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#armor_tags

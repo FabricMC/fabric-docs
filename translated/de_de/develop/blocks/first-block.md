@@ -3,26 +3,82 @@ title: Deinen ersten Block erstellen
 description: Lerne, wie du deinen ersten benutzerdefinierten Block in Minecraft erstellen kannst.
 authors:
   - bluebear94
+  - cassiancc
   - CelDaemon
   - Earthcomputer
   - IMB11
   - its-miroma
   - xEobardThawne
+  - NotNightSky
 resources:
   https://docs.neoforged.net/docs/blocks/: Blöcke - NeoForge Docs
 ---
 
 Blöcke sind die Baublöcke von Minecraft (kein Wortspiel beabsichtigt) - genau wie alles andere in Minecraft, werden sie in Registern gespeichert.
 
+## Deine Block ID-Klassen vorbereiten {#preparing-your-block-id-classes}
+
+Wenn du die Seite [Dein Erstes Item erstellen](../items/first-item) bereits durchgearbeitet hast, wird dir dieser Vorgang sehr vertraut vorkommen - du musst Klassen erstellen, um die Identifikatoren deiner `Block`s zu halten. Die IDs von Blöcken mit Items werden als `BlockItemId`s gespeichert, während diese ohne ihre als `ResourceKey` speichern.
+
+Diese Verweise auf den Block werden für [die Datengenerierung von Block Tags](../data-generation/tags) verwendet.
+
+:::: tabs
+
+== Blöcke mit Items
+
+Wir fügen eine Methode in eine Klasse namens `ModBlockItemIds` ein (oder wie auch immer du die Klasse nennen möchtest). Diese Klasse beinhaltet alle Blöcke, die Block-Items enthalten.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#first_block
+
+::: tip
+
+Mojang macht dies auch mit ihren Blöcken! Sieh dir die Klasse `BlockItemIds` für eine Inspiration an.
+
+:::
+
+== Blöcke ohne Items
+
+Wir fügen eine Methode, die einen `ResourceKey` erstellt, in eine Klasse namens `ModBlockIds` (oder wie auch immer du die Klasse nennen möchtest) ein. Diese Klasse beinhaltet alle Blöcke, die keine Block-Items enthalten.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#first_block
+
+::: tip
+
+Mojang macht dies auch mit ihren Blöcken! Sieh dir die Klasse `BlockIds` für eine Inspiration an.
+
+:::
+
+::::
+
 ## Deine Blockklasse vorbereiten {#preparing-your-blocks-class}
 
-Wenn du die Seite [Dein erstes Item erstellen](../items/first-item) abgeschlossen hast, wird dir dieser Prozess sehr vertraut vorkommen - Du musst eine Methode erstellen, die deinen Block und sein Block-Item registriert.
+Die Registrierung von Blöcken ähnelt ebenfalls der [Registrierung von Items](../items/first-item#registering-an-item): Wir werden nun zwei Überladungen der Methode `register()` erstellen, mit denen deine Blöcke registriert werden, eine für Blöcke mit Items und eine für Blöcke ohne Items.
 
-Du solltest diese Methode in eine Klasse mit dem Namen `ModBlocks` (oder wie auch immer du sie nennen willst) einfügen.
+Du solltest diese Methoden in eine Klasse mit dem Namen `ModBlocks` (oder wie auch immer du sie nennen willst) einfügen.
 
 Mojang macht etwas sehr ähnliches mit Vanilleblöcken; Sie können sich die Klasse `Blocks` ansehen, um zu sehen, wie sie es machen.
 
+::: warning
+
+Beide unten aufgeführten Überladungen von `register()` sind in deiner Klasse `ModBlocks` **erforderlich**. Die Überladung für Blöcke mit Items ruft intern die Überladung für Blöcke ohne Items auf. Fehlt eine der beiden Überladungen, lässt sich dein Code nicht kompilieren.
+
+:::
+
+::: tabs
+
+== Blöcke mit Items
+
+Blöcke mit Items verwenden einen Paramter `BlockItemId`, der die ID sowohl des Blocks als auch seines Items enthält.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block_item
+
+== Blöcke ohne Items
+
+Blöcke ohne Items verwenden einen Parameter `ResourceKey`, der die ID des Blocks enthält.
+
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block
+
+:::
 
 Genau wie bei den Items musst du sicherstellen, dass die Klasse geladen ist, damit alle statischen Felder, die Ihre Blockinstanzen enthalten, initialisiert werden.
 
@@ -56,8 +112,6 @@ Du kannst auch `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)` verw
 :::
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_dirt
-
-Um das Blockitem automatisch zu erstellen, können wir dem Parameter `shouldRegisterItem` der Methode `register`, die wir im vorherigen Schritt erstellt haben, `true` übergeben.
 
 ### Dein Blockitem zu einem Kreativtab hinzufügen {#adding-your-block-s-item-to-a-creative-tab}
 

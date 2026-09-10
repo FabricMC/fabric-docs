@@ -128,7 +128,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" bec
         at net.minecraft.world.item.ItemStack.getTooltipLines(ItemStack.java:767)
 ```
 
-As expected, since the `ItemStack` doesn't currently contain an instance of our custom component, calling `stack.get()` with our component type will return `null`.
+Как и ожидалось, поскольку `ItemStack` в данный момент не содержит ваш компонент, вызов `stack.get()` с типом нашего компонента вернет `null`.
 
 Для решения этой проблемы мы можем использовать три решения.
 

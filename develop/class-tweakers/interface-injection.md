@@ -104,7 +104,15 @@ The class tweaker entry would be:
 ## Applying Changes {#applying-changes}
 
 To see your interface implementation applied, you must refresh your Gradle project and [regenerate sources](../getting-started/generating-sources).
-If modifications do not appear, you can try [validating](../class-tweakers/index#validating-the-file) the file and checking if any errors appear.
+Make sure to reopen any targeted class from the decompiled source in order to see the modifications.
+
+::: tip
+
+If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file) and checking if any errors appear.
+
+:::
+
+<!---->
 
 The added methods can now be used on instances of the class the interface was injected into:
 

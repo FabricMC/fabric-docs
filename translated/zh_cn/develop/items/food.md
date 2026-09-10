@@ -39,6 +39,8 @@ new Item.Properties().food(new FoodProperties.Builder().build())
 
 与 [创建你的第一个物品](./first-item) 类似，该示例将使用上述的组件：
 
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#poisonous_apple
+
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#poisonous_apple
 
 这会让物品：

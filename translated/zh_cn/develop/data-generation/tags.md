@@ -2,6 +2,7 @@
 title: 标签生成
 description: 使用 Datagen 设置标签生成的指南。
 authors:
+  - cassiancc
   - CelDaemon
   - IMB11
   - skycatminepokie
@@ -46,7 +47,7 @@ Fabric 提供了几个辅助标签提供程序，其中一个用于物品，`Fab
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_tag_key
 
-接下来，在提供程序的 `configure` 方法中调用 `valueLookupBuilder`。 自那里，你可以添加单个物品，添加其他标签，或用此标签替换预先存在的标签。
+接下来，在提供程序的 `configure` 方法中调用 `builder`。 自那里，你可以添加单个物品 ID，添加其他标签，或用此标签替换预先存在的标签。
 
 如果想添加标签，使用 `addOptionalTag`，因为标签的内容可能不会在 datagen 期间加载。 如果你确定标签已加载，调用 `addTag`。
 

@@ -2,6 +2,7 @@
 title: Generierung von Tags
 description: Ein Leitfaden zur Einrichtung der Generierung von Tags mit dem Datengenerator.
 authors:
+  - cassiancc
   - CelDaemon
   - IMB11
   - skycatminepokie
@@ -46,7 +47,7 @@ Jetzt, nachdem du den Provider erstellt hast, lasst uns ein Tag zu diesem hinzuf
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_tag_key
 
-Als nächstes, rufe `valueLookupBuilder` innerhalb der `configure`-Methode deines Providers auf. Von dort aus kannst du einzelne Items oder andere Tags hinzufügen oder diese Tags bereits vorhandene Tags ersetzen lassen.
+Als nächstes, rufe `builder` innerhalb der Methode `configure` deines Providers auf. Von dort aus kannst du einzelne Item IDs oder andere Tags hinzufügen oder diese Tags bereits vorhandene Tags ersetzen lassen.
 
 Wenn du ein Tag hinzufügen willst, verwende `addOptionalTag`, da der Inhalt des Tags während der Datengenerierung möglicherweise nicht geladen wird. Wenn du sicher bist, dass der Tag geladen ist, rufe `addTag` auf.
 
