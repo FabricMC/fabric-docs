@@ -62,15 +62,16 @@ public class GuiditeShieldSpecialRenderer implements SpecialModelRenderer<DataCo
 		BannerPatternLayers patterns = components != null ? components.getOrDefault(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY) : BannerPatternLayers.EMPTY;
 		DyeColor baseColor = components != null ? components.get(DataComponents.BASE_COLOR) : null;
 		boolean hasPatterns = !patterns.layers().isEmpty() || baseColor != null;
-		SpriteId base = hasPatterns ? this.baseSprite : this.baseSpriteNoPattern;
-		submitNodeCollector.submitModel(this.model, Unit.INSTANCE, poseStack, lightCoords, overlayCoords, -1, base, this.sprites, outlineColor, null);
+		SpriteId sprite = hasPatterns ? this.baseSprite : this.baseSpriteNoPattern;
+
+		submitNodeCollector.submitModel(this.model, Unit.INSTANCE, poseStack, lightCoords, overlayCoords, -1, sprite, this.sprites, outlineColor, null);
 
 		if (hasPatterns) {
 			BannerRenderer.submitPatterns(this.sprites, poseStack, submitNodeCollector, lightCoords, overlayCoords, this.model, Unit.INSTANCE, false, Objects.requireNonNullElse(baseColor, DyeColor.WHITE), patterns, null);
 		}
 
 		if (hasFoil) {
-			submitNodeCollector.submitModel(this.model, Unit.INSTANCE, poseStack, RenderTypes.entityGlint(), lightCoords, overlayCoords, -1, this.sprites.get(base), 0, null);
+			submitNodeCollector.submitModel(this.model, Unit.INSTANCE, poseStack, RenderTypes.entityGlint(), lightCoords, overlayCoords, -1, this.sprites.get(sprite), 0, null);
 		}
 	}
 	// #endregion submit

@@ -17,17 +17,17 @@ You must first understand how to [create a tool](./custom-tools). This guide als
 
 :::
 
-Shields can be used to defend one's self from attacks. To add a new Shield to the game, you'll need an `Item`, two item models, a client item, recipes, item tags, and a special renderer.
+Shields can be used to defend oneself from attacks. To add a new shield to the game, you'll need an `Item`, two item models, a client item, recipes, item tags, and a special renderer.
 
 ## Creating the Item {#item}
 
 ::: info PREREQUISITES
 
-For more information, see the documentation on registering [items](first-item).
+For more information, see the documentation on [creating items](./first-item).
 
 :::
 
-For this example, we will use the same repair item tag we will be using for armor and tools. We define the tag reference as follows:
+For this example, we will use the same repair item tag that we used in the [Custom Armor](./custom-armor) and [Custom Tools](./custom-tools) pages. We define the tag reference as follows:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
@@ -36,7 +36,8 @@ Then, we register an item with the following components.
 - [**Banner Patterns**](https://minecraft.wiki/w/Data_component_format/banner_patterns): Creates an item with no banner patterns.
 - [**Repairable**](https://minecraft.wiki/w/Data_component_format/repairable): Creates an item that can be repaired with the given item tag.
 - [**Equippable/Unswappable**](https://minecraft.wiki/w/Data_component_format/equippable): In the GUI, shift-clicking the item will equip it to the offhand. In the world, right-clicking with it will not equip the item.
-- [**Blocks Attacks**](https://minecraft.wiki/w/Data_component_format/blocks_attacks): Creates an item that blocks attacks. This is a _delayed component_, meaning that it loads after the world is loaded, allowing it to reference datapack objects like tags. This example uses the same parameters as a vanilla shield, but individual numbers can be easily tweaked for your mod's needs.
+- [**Blocks Attacks**](https://minecraft.wiki/w/Data_component_format/blocks_attacks): Creates an item that blocks attacks. This example uses values from the vanilla shield.
+  - This is a _delayed component_, meaning that it loads after the world is loaded, allowing it to reference datapack objects like tags.
 - [**Break Sound**](https://minecraft.wiki/w/Data_component_format/break_sound): When the item breaks, it will play the specified sound.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#shield
@@ -48,17 +49,19 @@ Remember to add it to a creative tab if you want to access it from the creative 
 
 ## Creating the Special Renderer {#special-renderer}
 
-As shields are more complicated than a standard item model, we'll be using a special renderer to render the shield rather than the normal item model.
+We'll be using a special renderer to render the shield, rather than the normal item model.
 
-First, we'll create a model layer location that points to where the shield model is.
+First, we'll create a model layer location that points to where the shield model is:
 
 <<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldLayers.java#layer
 
-Then, register the layer in your client initializer.
+Then, register the layer in your client initializer:
 
 <<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#shield_layer
 
-Then, we'll create a special renderer for the item. This one is based off of the vanilla [`ShieldSpecialRenderer`](https://mcsrc.dev/1/26.2/net/minecraft/client/renderer/special/ShieldSpecialRenderer), with changes made to allow it to take in custom sprites from the client item. We'll provide those sprites to the renderer in the next section. The renderer is complicated, so we'll break it down.
+Then, we'll create a special renderer for the item. This one is based off of the vanilla [`ShieldSpecialRenderer`](https://mcsrc.dev/1/26.2/net/minecraft/client/renderer/special/ShieldSpecialRenderer), with changes made to allow it to take in custom sprites from the client item. We'll provide those sprites to the renderer in the next section.
+
+The renderer is complicated, so we'll break it down.
 
 ### Constructor {#constructor}
 
@@ -75,13 +78,13 @@ The constructor stores all four parameters as fields so that we can use them lat
 
 ### Extraction {#extraction}
 
-When extracting data to be rendered, we need a immutable copy of the data that contains only the information needed to render the item. We can retrieve that from the `ItemStack` by converting its `DataComponentMap` to an immutable one in `extractArgument`.
+When extracting data to be rendered, we need an immutable copy of the data that only contains the information needed to render the item. We can retrieve that from the `ItemStack` by converting its `DataComponentMap` to an immutable one in `extractArgument`:
 
 <<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldSpecialRenderer.java#extract_argument
 
 ### Extents {#extents}
 
-We'll also set the extents of the model, defining the model's bounding box, which is used for rendering and animations. The model handles this for us.
+We'll also set the extents of the model, defining the model's bounding box, which is used for rendering and animations in the model:
 
 <<< @/reference/latest/src/client/java/com/example/docs/item/shield/GuiditeShieldSpecialRenderer.java#extents
 
@@ -90,7 +93,7 @@ We'll also set the extents of the model, defining the model's bounding box, whic
 The submission process handles the logic of _what_ to render. The shield render's logic does the following:
 
 1. Retrieve the shield's banner patterns and store them in a variable. If the shield has no banner patterns, this variable is set to `BannerPatternLayers.EMPTY`.
-2. Retrieve the shield's dye colour and store it in a variable, `baseColor`. If the shield has no dye colour, this variable is set to `null`.
+2. Retrieve the shield's dye color and store it in `baseColor`. If the shield has no dye color, this variable is set to `null`.
 3. If the shield has banner patterns or has been dyed, use the `base` texture. If not, use the `base_nopattern` texture.
 4. Submit the shield model to be rendered, using the provided parameters and texture.
 5. If the shield has banner patterns, submit those as well.
@@ -112,11 +115,7 @@ For more information, see the documentation on generating [item models](../data-
 
 :::
 
-We'll be creating two item models and a client item for the shield. Add the following lines to your model generator.
-
-- A normal item model which uses the vanilla shield as a parent.
-- A blocking item model which uses the vanilla shield's blocking model as a parent.
-- A conditional client item that displays the normal item model normally and the blocking model when blocking. This client item uses the special model renderer we created earlier, and supplies it with the textures we'll be using, `guidite_shield_base` (used when the shield has a banner pattern), and `guidite_shield_base_nopattern`.
+We'll be creating two item models - one for the normal state, and one for when the shield is blocking - and a conditional client item for the shield, with our custom textures:
 
 :::: tabs
 
@@ -124,7 +123,7 @@ We'll be creating two item models and a client item for the shield. Add the foll
 
 ::: info
 
-These models can be data generated. For more information, see the documentation on generating [item models](../data-generation/item-models).
+These models are data-generated. For more information, see the documentation on generating [item models](../data-generation/item-models).
 
 :::
 
@@ -154,7 +153,7 @@ These models can be data generated. For more information, see the documentation 
 
 ::::
 
-## Creating the Recipes {#recipes}
+## Creating the Decorated Shield Recipe {#recipe}
 
 ::: info PREREQUISITES
 
@@ -162,15 +161,15 @@ For more information, see the documentation on generating [recipes](../data-gene
 
 :::
 
-Two recipes are usually needed to access the item in survival - a normal crafting recipe, and a shield decoration recipe to allow for banner patterns.
+There are two ways to obtain our shield in survival: either crafting a normal shield, or decorating one with banner patterns.
 
-You can make the crafting recipe for your shield whatever you want, so we'll only focus on the decoration recipe. We'll use this line in our recipe provider (`ExampleModRecipeProvider#buildRecipes`) to generate a shield decoration recipe.
+The crafting recipe for the base shield can be whatever you want. On the other hand, the decorated shield recipe can be created in the recipe provider like this:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModRecipeProvider.java#shield_decoration
 
-With this recipe defined, you can now put banner patterns on your shield.
+With this recipe defined, you can now put banner patterns on your shield:
 
-![Banner patterns applying in the crafting grid](/assets/develop/items/shield_banner_example.png)
+![Applying banner patterns in the crafting grid](/assets/develop/items/shield_banner_example.png)
 
 ## Tagging Shield Items {#tags}
 
@@ -180,7 +179,10 @@ For more information, see the documentation on generating [item tags](../data-ge
 
 :::
 
-It's also recommended to place your shield in the appropriate item tags. For a shield, that would be usually be `ItemTags.DURABILITY_ENCHANTABLE` to allow it to be enchanted with Mending and Unbreaking, and `ConventionalItemTags.SHIELD_TOOLS`, which modders can use for shield-specific behaviour like custom shield enchantments.
+You should also place your shield in the appropriate item tags:
+
+- `ItemTags.DURABILITY_ENCHANTABLE`, to allow it to be enchanted with Mending and Unbreaking,
+- `ConventionalItemTags.SHIELD_TOOLS`, which can be used by modders for shield-specific behavior, like custom shield enchantments.
 
 In your item tag provider, add the following lines to `addTags`:
 
