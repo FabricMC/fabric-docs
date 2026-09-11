@@ -5,24 +5,24 @@ authors:
   - NotNightSky
 ---
 
-The loot table system is used to determine what items are dropped when a block is broken, an entity is killed, or a chest is opened. These loot tables can be created, modified, and removed by using the Fabric API.
+The loot table system determines what items are dropped when a block is broken, an entity is killed, or a chest is opened. Fabric API gives you several ways to modify, replace, and post-process loot tables during loading, and to adjust the final drops at runtime.
 
 ## Loot Table Events {#loot-table-events}
 
-The Fabric Loot API provides several events accessed via the `LootTableEvents` class. These events allow you to modify loot tables at runtime, enabling you to add, remove, or change the items that are dropped in various situations.
+The Fabric Loot API provides several events through the `LootTableEvents` class. The table below shows what each event is used for:
 
-- `LootTableEvents.MODIFY`: This event is triggered when a loot table is being modified. You can use this event to add or remove entries from the loot table.
-- `LootTableEvents.REPLACE`: This event can be used to replace loot tables. The main use case is to remove the existing loot table and replace it with a new one.
-- `LootTableEvents.MODIFY_DROPS`: This event can be used for cases where the `MODIFY` and `REPLACE` events are inconvenient. Such as when you want to modify the final drops of all loot tables at once under specific conditions.
-- `LootTableEvents.ALL_LOADED`: This event can be used for post-processing after all loot tables have been loaded and modified by Fabric.
+| Event | Function | Notes |
+| --- | --- | --- |
+| `LootTableEvents.MODIFY` | Keep the original loot table and add, remove, or adjust pools and entries. | Best for most small changes. |
+| `LootTableEvents.REPLACE` | Discard the original table and provide a new one. | Use this when the original structure is no longer useful. |
+| `LootTableEvents.MODIFY_DROPS` | Change the final list of `ItemStack` drops after loot has been generated. | Useful when many tables should follow the same runtime rules. |
+| `LootTableEvents.ALL_LOADED` | Inspect or validate all tables after loading is complete. | Good for post-processing and global setup. |
 
 ### Modifying Loot Tables {#modifying-loot-tables}
 
-Use `LootTableEvents.MODIFY` when you want to change an existing loot table while keeping its original contents intact. The event provides a `LootTable.Builder`, allowing you to add loot pools or modify existing pools.
+Use `LootTableEvents.MODIFY` when you want to change an existing loot table while keeping its original contents intact. The callback gives you a `LootTable.Builder`, so you can add new pools, add entries to existing pools, or make targeted adjustments without rebuilding the whole table.
 
-This is usually chosen for adding items to vanilla or data-packs, such as adding a custom item to a block's existing drops. The `source` parameter can be checked to determine whether the table came from built-in resources, a data-pack, or another replacement event.
-
-<!--TODO: It seemed like it is possible to modify data-pack LTs but have not tested it yet. -->
+This is usually the best choice for adding items to vanilla or data-pack tables, such as adding a custom item to a block's existing drops. You can inspect the `source` parameter to see whether the table came from built-in resources, a data pack, or another replacement event.
 
 Use `MODIFY` when the original loot table should remain mostly intact.
 
@@ -32,7 +32,7 @@ Use `MODIFY` when the original loot table should remain mostly intact.
 
 Use `LootTableEvents.REPLACE` when you want to discard an existing loot table and provide a new one.
 
-The callback receives the original `LootTable`. Returns a new `LootTable` to replace it, or return `null` to leave it unchanged. Once a listener replaces a table, later replacement listeners are not called for that table.
+The callback receives the original `LootTable`. Return a new `LootTable` to replace it, or return the original table unchanged if you do not want to replace it. Once a listener replaces a table, later replacement listeners are not called for that table.
 
 This event is useful when the original table is incompatible with your mod's behavior and modifying individual loot pools would be more complicated than creating a new table.
 
@@ -80,156 +80,65 @@ This event is not normally used to add drops during loot generation. For changin
 
 ### Predicates {#predicates}
 
-Loot conditions, internally called predicates, control whether a loot pool or entry can be used. They are especially useful with `MODIFY` and `REPLACE`, where they let you make added or replacement drops conditional without handling every case in Java code. The same conditions can help when designing replacement tables, while `MODIFY_DROPS` requires equivalent checks to be performed in the event callback.
+Loot conditions, internally called predicates, control whether a loot pool, entry, or function can be used. They are especially useful with `MODIFY` and `REPLACE`, where they let you make added or replacement drops conditional without handling every case in Java code. The same conditions can help when designing replacement tables, while `MODIFY_DROPS` requires equivalent checks to be performed in the event callback.
 
-<!--IMPORTANT :- Validate the above text as it was generated by AI as a PlaceHolder-->
+The exact predicate classes and builders vary a bit between Minecraft versions, so treat the names below as the idea you want to express. The latest reference source only cross-checks `ExplosionCondition.survivesExplosion()`, which is used to prevent a drop from being created when an explosion destroys the block:
 
-#### AllOfCondition {#allofcondition}
-
-This checks if all the conditions are true.
-
-Takes a `List<LootItemCondition>`.
-
-``` java
-.when(AllOfCondition.allOf(ExplosionCondition.survivesExplosion(), LootItemKilledByPlayerCondition.killedByPlayer()))
+```java
+LootPool.Builder pool = LootPool.lootPool()
+    .add(LootItem.lootTableItem(Items.DIAMOND))
+    .when(ExplosionCondition.survivesExplosion());
 ```
 
-#### AnyOfCondition {#anyofcondition}
+Below are the classes of the most common predicates, grouped by their purpose:
 
-This checks if any of the conditions are true.
+#### Logic predicates {#logic-predicates}
 
-Takes a `List<LootItemCondition>`.
+These combine or invert other conditions.
 
-``` java
-.when(AnyOfCondition.anyOf(ExplosionCondition.survivesExplosion(), LootItemKilledByPlayerCondition.killedByPlayer()))
-```
+- `AllOfCondition`: every condition must pass. Use this when you want an **AND** check.
+- `AnyOfCondition`: at least one condition must pass. Use this when you want an **OR** check.
+- `InvertedLootItemCondition`: flips another condition so it passes only when the original one fails. Use this when you need **NOT** logic.
 
-#### WeatherCheck {#weathercheck}
+::: tip
 
-This checks for the current weather condition, contains two methods, `setRaining` and `setThundering`.
+These logical predicates can be nested to create complex conditions. For example, you can combine `AllOfCondition` and `AnyOfCondition` to create a condition that requires multiple checks to pass, while allowing for some flexibility in the requirements.
 
-Either of the methods take `<boolean>`.
+:::
 
-``` java
-.when(WeatherCheck.weather().setRaining(true).build())
-```
+#### World-state predicates {#world-state-predicates}
 
-#### TimeCheck {#timecheck}
+These check things about the world or the position where loot is generated.
 
-This checks for the current time.
+- `WeatherCheck`: checks whether it is raining or thundering.
+- `TimeCheck`: checks the time of day or a time range.
+- `LocationCheck`: checks where the drop happened, such as the Y level or other location data.
+- `EnvironmentAttributeCheck`: checks world-specific environment rules or attributes.
 
-Takes `Holder<WorldClock>` and `IntRange`.
+#### Block, tool, and entity predicates {#block-tool-and-entity-predicates}
 
-``` java
-.when(TimeCheck.time(holder.lookupOrThrow(Registries.WORLD_CLOCK).getOrThrow(WorldClocks.OVERWORLD), IntRange.range(0, 11999)).setPeriod(24000))
-```
+These look at the block being broken, the tool being used, or the entity that caused the loot.
 
-#### MatchTool {#matchtool}
+- `ExplosionCondition`: makes a loot pool or entry apply only when the drop survives an explosion.
+- `MatchTool`: checks whether the tool used to break a block matches a given item or item predicate.
+- `LootItemBlockStatePropertyCondition`: checks the block state before it was broken, which is useful for crops and other stateful blocks.
+- `LootItemKilledByPlayerCondition`: requires the entity to have been killed by a player.
+- `DamageSourceCondition`: checks details about the damage source, such as whether the hit was direct or indirect.
 
-This checks for the tool that was used to break the block.
+#### Chance-based predicates {#chance-based-predicates}
 
-Takes a `ItemPredicate.Builder`.
+These decide drops by probability or by enchantment level.
 
-``` java
-.when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(holder.lookupOrThrow(Registries.ITEM), Items.IRON_PICKAXE)))
-```
+- `LootItemRandomChanceCondition`: gives a flat random chance for a drop.
+- `LootItemRandomChanceWithEnchantedBonusCondition`: changes the chance based on enchantment level.
+- `BonusLevelTableCondition`: a helper for enchantment-scaled loot chances, such as Fortune.
 
-#### LootItemRandomChanceWithEnchantedBonusCondition {#lootitemrandomchancewithenchantedbonuscondition}
+::: warning
 
-Checks for the current level of the enchantments providing loot bonuses and defines chance based on enchantment levels.
+`LootItemRandomChanceWithEnchantedBonusCondition` and `LootItemRandomChanceCondition` should not be used together in the same pool, as both of them define base chance and may cause conflicts.
 
-Takes `Provider`(provided by the `holder` parameter), `baseValue<int>` and `...chancePerLevel<float>`.
+:::
 
-``` java
-.when(BonusLevelTableCondition.bonusLevelFlatChance(
-    holder.getOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE),
-    0.10F, // level 0 (base)
-    0.20F, // level 1
-    0.30F, // level 2
-    1.00F  // level 3 and above
-))
-```
+#### Shared predicate references {#shared-predicate-references}
 
-#### LootItemRandomChanceCondition {#lootitemrandomchancecondition}
-
-This defines the drop chance of the drop.
-
-Takes either a `NumberProvider` or `<float>`
-
-``` java
-.when(LootItemRandomChanceCondition.randomChance(0.10F))
-```
-
-#### LootItemKilledByPlayerCondition {#lootitemkilledbyplayercondition}
-
-This checks that the entity was killed by a player.
-
-``` java
-.when(LootItemKilledByPlayerCondition.killedByPlayer())
-```
-
-#### LootItemBlockStatePropertyCondition {#lootitemblockstatepropertycondition}
-
-This checks the block state of the block before it was broken. Useful for crops.
-
-Takes `<Block>` and, provides `.setProperties` method for setting required properties.
-
-``` java
-.when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.BAMBOO_BLOCK).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoorBlock.OPEN, true)))
-```
-
-#### LocationCheck {#locationcheck}
-
-Checks for the location where the block was broken.
-
-Takes a `LocationPredicate.Builder` and optionally, a `BlockPos`.
-
-``` java
-.when(LocationCheck.checkLocation(LocationPredicate.Builder.location().setY(MinMaxBounds.Doubles.atLeast(60))))
-```
-
-#### InvertedLootItemCondition {#invertedlootitemcondition}
-
-This inverts the condition provided. That is 'not this weather', 'not this time', etc.
-
-Takes a `LootItemCondition.builder`.
-
-``` java
-.when(InvertedLootItemCondition.invert(WeatherCheck.weather().setRaining(true)))
-```
-
-#### EnvironmentAttributeCheck {#environmentattributecheck}
-
-Checks the environment attributes of the world.
-
-Takes `EnvironmentAttribute<Value>` and `<Value>`.
-
-``` java
-.when(EnvironmentAttributeCheck.environmentAttribute(EnvironmentAttributes.BED_RULE, BedRule.EXPLODES))
-```
-
-#### DamageSourceCondition {#damagesourcecondition}
-
-Checks for damage conditions such as which source (entity), which damage (arrow or melee) and direct damage (true or false).
-
-Takes a `DamageSourcePredicate.Builder`.
-
-``` java
-.when(DamageSourceCondition.hasDamageSource(DamageSourcePredicate.Builder.damageType().isDirect(true)))
-```
-
-#### ConditionReference {#conditionreference}
-
-Used for loading existing data-driven predicates useful for reusable predicates for various tables.
-
-Takes a `ResourceKey<LootItemCondition>`.
-
-#### BonusLevelTableCondition {#bonusleveltablecondition}
-
-Bonus items provided when mined or killed with certain enchantments based on levels.
-
-Takes `Holder<Enchantment>` and `...chances<float>`.
-
-``` java
-.when(BonusLevelTableCondition.bonusLevelFlatChance(holder.getOrThrow(Registries.ENCHANTMENT).value().getOrThrow(Enchantments.FORTUNE), 0.10F, 0.20F, 0.30F, 1F))
-```
+- `ConditionReference`: points to a data-driven loot condition defined elsewhere and reused in multiple tables.
