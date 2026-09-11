@@ -157,6 +157,12 @@ export default [
       {
         text: "develop.entities.first_entity",
         link: "/develop/entities/first-entity",
+        items: [
+          {
+            text: "develop.entities.projectiles",
+            link: "/develop/entities/projectiles",
+          },
+        ],
       },
       {
         text: "develop.entities.attributes",

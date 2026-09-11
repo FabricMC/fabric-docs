@@ -2,6 +2,7 @@ package com.example.docs.entity;
 
 import net.fabricmc.api.ModInitializer;
 
+// #region entrypoint
 public class ExampleModEntity implements ModInitializer {
 	@Override
 	public void onInitialize() {
@@ -10,3 +11,4 @@ public class ExampleModEntity implements ModInitializer {
 		ModEntityTypes.registerAttributes();
 	}
 }
+// #endregion entrypoint

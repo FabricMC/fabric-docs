@@ -39,6 +39,7 @@
   "develop.entities.effects": "Mob Effects",
   "develop.entities.damage_types": "Damage Types",
   "develop.entities.attributes": "Attributes",
+  "develop.entities.projectiles": "Custom Projectiles",
   "develop.events": "Events",
   "develop.events.events": "Events",
   "develop.events.loot_table_modifications": "Loot Table Modifications",

@@ -33,6 +33,10 @@ To register your entity, it's recommended to create a separate class, `ModEntity
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
 
+Call `registerModEntityTypes` and `registerAttributes` in your [mod's initializer](../getting-started/project-structure#entrypoints):
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
+
 ## Adding Goals {#adding-goals}
 
 Goals are the system that handle an entity's objective/aim, providing them with a defined set of behavior. Goals have a certain priority: goals with a lower value for the priority are prioritized over goals with a higher value for the priority.
