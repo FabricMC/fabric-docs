@@ -92,7 +92,7 @@ We'll also set the extents of the model, defining the model's bounding box, whic
 
 The submission process handles the logic of _what_ to render. The shield render's logic does the following:
 
-1. Retrieve the shield's banner patterns and store them in a variable. If the shield has no banner patterns, this variable is set to `BannerPatternLayers.EMPTY`.
+1. Retrieve the shield's banner patterns and store them in `patterns`. If the shield has no banner patterns, it is set to `BannerPatternLayers.EMPTY`.
 2. Retrieve the shield's dye color and store it in `baseColor`. If the shield has no dye color, this variable is set to `null`.
 3. If the shield has banner patterns or has been dyed, use the `base` texture. If not, use the `base_nopattern` texture.
 4. Submit the shield model to be rendered, using the provided parameters and texture.
