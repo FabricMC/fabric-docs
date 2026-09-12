@@ -14,6 +14,7 @@ authors:
   - NetUserGet
   - NShak
   - parzivail
+  - skippyall
   - skycatminepokie
   - SolidBlock-cn
   - Voleil
@@ -106,7 +107,7 @@ We only send packets when the action is initiated on the server, by returning ea
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#client_check
 
-We create an instance of the payload with the user's position and the entity id for the lightning:
+We create an instance of the payload with the user's position and the entity ID for the lightning:
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#payload_instance
 
@@ -142,8 +143,8 @@ lambda expression).
 
 Let's examine the code above.
 
-We can access the data from our payload by calling the Record's getter methods. In this case `payload.pos()`, which then
-can be used to get the `x`, `y` and `z` positions, and `payload.id()` for the entity id.
+We can access the data from our payload by calling the Record's getter methods. In this case `payload.pos()`
+can be used to get the `x`, `y` and `z` positions, and `payload.id()` for the entity ID:
 
 <<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#payload_pos
 
