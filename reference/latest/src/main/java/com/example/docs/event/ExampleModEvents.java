@@ -1,12 +1,21 @@
 package com.example.docs.event;
 
+import net.minecraft.advancements.predicates.ItemPredicate;
+import net.minecraft.advancements.predicates.entity.EntityEquipmentPredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.PlayerPredicate;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -16,6 +25,8 @@ import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 
 import java.util.Optional;
 
@@ -39,14 +50,24 @@ public class ExampleModEvents implements ModInitializer {
 
 		// #region loot_table_modify_event
 		LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
-					// If the loot table is for the diamond block, and it is not overridden by a user:
-					if (source.isBuiltin() && Blocks.DIAMOND_ORE.getLootTable().equals(Optional.of(key))) {
-						// Create a new loot pool that will hold the diamonds.
-						LootPool.Builder pool = LootPool.lootPool()
-								// Add diamonds...
-								.add(LootItem.lootTableItem(Items.COAL))
-								// ...only if the block would survive a potential explosion.
-								.when(ExplosionCondition.survivesExplosion());
+			// If the loot table is for the diamond block, and it is not overridden by a user:
+			if (source.isBuiltin() && BuiltInLootTables.SHEEP.white().equals(key)) {
+				// Create a new loot pool that will hold the diamonds.
+				LootPool.Builder pool = LootPool.lootPool()
+						// Add diamonds...
+						.add(LootItem.lootTableItem(Items.DIAMOND))
+						// ...only if the sheep was killed with a diamond sword.
+						.when(LootItemEntityPropertyCondition.hasProperties(
+								LootContext.EntityTarget.ATTACKER,
+								EntityPredicate.Builder.entity().equipment(
+										EntityEquipmentPredicate.Builder.equipment().mainhand(
+												ItemPredicate.Builder.item().of(
+														registries.lookupOrThrow(Registries.ITEM),
+														Items.DIAMOND_SWORD
+												)
+										)
+								)
+						));
 						// Add the loot pool to the loot table
 						tableBuilder.withPool(pool);
 					}
@@ -67,14 +88,14 @@ public class ExampleModEvents implements ModInitializer {
 				// Create a new loot table with the loot pool
 				return LootTable.lootTable().withPool(pool).build();
 			}
-			return original;
+			return null;
 		});
 		// #endregion loot_table_replace_event
 
 		// #region loot_table_modify_drops_event
 		LootTableEvents.MODIFY_DROPS.register((holder, context, drops) -> {
 			// Replace a cobblestone with stone in the drops.
-			if (drops.getFirst().getItem() == Items.COBBLESTONE) {
+			if (!drops.isEmpty() && drops.getFirst().getItem() == Items.COBBLESTONE) {
 				ItemStack coalStack = new ItemStack(Items.STONE, 2);
 				drops.clear();
 				drops.add(coalStack);

@@ -3,6 +3,8 @@ title: Loot Table Modifications
 description: A guide for modifying loot tables using events provided by the Fabric API.
 authors:
   - NotNightSky
+  - its-miroma
+  - cassiancc
 ---
 
 The loot table system determines what items are dropped when a block is broken, an entity is killed, or a chest is opened. Fabric API gives you several ways to modify, replace, and post-process loot tables during loading, and to adjust the final drops at runtime.
@@ -32,7 +34,7 @@ Use `MODIFY` when the original loot table should remain mostly intact.
 
 Use `LootTableEvents.REPLACE` when you want to discard an existing loot table and provide a new one.
 
-The callback receives the original `LootTable`. Return a new `LootTable` to replace it, or return the original table unchanged if you do not want to replace it. Once a listener replaces a table, later replacement listeners are not called for that table.
+The callback receives the original `LootTable`. Return a new `LootTable` to replace it, or return `null` if you do not want to replace it. Once a listener replaces a table, later replacement listeners are not called for that table.
 
 This event is useful when the original table is incompatible with your mod's behavior and modifying individual loot pools would be more complicated than creating a new table.
 
@@ -43,6 +45,12 @@ Unlike `MODIFY`, `REPLACE` is not intended for simply adding an item to an exist
 :::
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_table_replace_event
+
+::: warning
+
+Always return `null` if you are not replacing a loot table. Returning the original table still marks the loot table as replaced, which prevents later replacement or modification listeners from running.
+
+:::
 
 ### Modifying Loot Table Drops {#modifying-loot-table-drops}
 
@@ -82,7 +90,7 @@ This event is not normally used to add drops during loot generation. For changin
 
 Loot conditions, internally called predicates, control whether a loot pool, entry, or function can be used. They are especially useful with `MODIFY` and `REPLACE`, where they let you make added or replacement drops conditional without handling every case in Java code. The same conditions can help when designing replacement tables, while `MODIFY_DROPS` requires equivalent checks to be performed in the event callback.
 
-The exact predicate classes and builders vary a bit between Minecraft versions, so treat the names below as the idea you want to express. The latest reference source only cross-checks `ExplosionCondition.survivesExplosion()`, which is used to prevent a drop from being created when an explosion destroys the block:
+The exact predicate classes and builders vary a bit between Minecraft versions, so treat the names below as the idea you want to express:
 
 ```java
 LootPool.Builder pool = LootPool.lootPool()

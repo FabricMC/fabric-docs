@@ -497,10 +497,6 @@ export default [
         link: "/develop/debugging",
       },
       {
-        text: "develop.misc.events",
-        link: "/develop/events",
-      },
-      {
         text: "develop.misc.game_rules",
         link: "/develop/game-rules",
       },
