@@ -3,6 +3,7 @@ title: Custom Compostable
 description: Learn how to create your own compostable items.
 authors:
   - NotNightSky
+  - its-miroma
 ---
 
 Compostable items are those that convert to bone meal when they are placed in a composter. Let's see how we can create our own custom compostable.
