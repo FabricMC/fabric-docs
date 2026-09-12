@@ -36,6 +36,6 @@ Now the item will look like this in the creative menu:
 
 ![Bone Marrow in Creative Menu](/assets/develop/items/bone_marrow_ss.png)
 
-And this is how it will look like in the furnace when used as fuel:
+And this is how it will look like in the composter when used as a compostable:
 
 <VideoPlayer src="/assets/develop/items/using_bone_marrow.webm">Using Bone Marrow as Compostable</VideoPlayer>
