@@ -5,37 +5,24 @@ authors:
   - NotNightSky
 ---
 
-Compostable items are a core aspect of Minecraft, You need the bone meal yielded from composting to grow crops, and you can create your own compostable items to add to the game.
+Compostable items are those that convert to bone meal when they are placed in a composter. Let's see how we can create our own custom compostable.
 
 ## Creating the Item {#creating-the-item}
 
-To create a compostable item, we do not need to add any special components to the item.
-So, this will be the minimum properties we need to create a compostable item:
-
-```java
-new Item.Properties()
-```
-
-Now, let's create a compostable item called `Bone Marrow` with the following properties:
+Let's create a compostable item called "Bone Marrow". We start by [creating an item](./first-item) as usual:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#bone_marrow_resource
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#bone_marrow
 
-After creating the item, we will be using the `CompostableRegistry.INSTANCE` registry from the fabric registry API to make the compostable.
+To make it compostable, we will add it to the `CompostableRegistry.INSTANCE` registry from the Fabric Registry API:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
 
-Now, create a 16x16 texture for your compostable item and place it in the `resources/assets/example-mod/textures/item` folder with the filename same as the resource key. An example texture is provided below:
+As usual, don't forget to add a texture, translation, creative tab, yada yada. Here's an example texture:
 
 <DownloadEntry visualURL="/assets/develop/items/bone_marrow_big.png" downloadURL="/assets/develop/items/bone_marrow.png">Texture</DownloadEntry>
 
-And add the item to the creative menu and add the translations as shown in [First Item](./first-item).
-
-Now the item will look like this in the creative menu:
-
-![Bone Marrow in Creative Menu](/assets/develop/items/bone_marrow_ss.png)
-
-And this is how it will look like in the composter when used as a compostable:
+Here's how it looks like when used in the composter:
 
 <VideoPlayer src="/assets/develop/items/using_bone_marrow.webm">Using Bone Marrow as Compostable</VideoPlayer>
