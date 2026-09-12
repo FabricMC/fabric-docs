@@ -132,12 +132,6 @@ authors:
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Текстури моделі обладунків Guidite</DownloadEntry>
 
-::: tip
-
-Якщо ви оновлюєте старішу версію гри до 1.21.11, у теці `humanoid` буде ваша текстура обладунків `layer0.png`, а в теці `humanoid_leggings` — ваша текстура обладунків `layer1.png`.
-
-:::
-
 Далі вам потрібно буде створити пов’язане визначення моделі обладнання. Вони знаходяться в теці `/assets/example-mod/equipment/`.
 
 Константа `ResourceKey<EquipmentAsset>`, яку ми створили раніше, визначатиме назву файлу JSON. У цьому випадку це буде `guidite.json`.

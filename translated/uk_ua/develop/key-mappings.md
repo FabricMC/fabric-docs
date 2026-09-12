@@ -4,6 +4,8 @@ description: Створення призначень клавіш та реаг�
 authors:
   - cassiancc
   - dicedpixels
+  - its-miroma
+  - NotNightSky
 resources:
   https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg: Стандартна американська розкладка клавіатури
 ---
@@ -29,7 +31,7 @@ Minecraft обробляє введення користувачами з пер
 
 ::: info
 
-Зауважте, що назви маркерів ключів (`InputConstants.KEY_*`) припускаються [стандартний макет США](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg).
+Зауважте, що назви маркерів ключів (`InputConstants.KEY_*`) припускаються [стандартному макету США](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg).
 
 Це означає, що якщо ви використовуєте розкладку AZERTY, натискання клавіші <kbd>A</kbd> дасть `InputConstants.KEY_Q`.
 
@@ -58,12 +60,45 @@ Minecraft обробляє введення користувачами з пер
 
 ![Перекладені призначення та категорія клавіш](/assets/develop/key-mappings/translated.png)
 
-## Реагування на призначення клавіші {#reacting-to-key-mappings}
+## Дія призначення клавіші у світі {#reacting-to-key-mappings-in-world}
 
-Тепер, коли у нас є призначення клавіші ми можемо реагувати на нього за допомогою події клієнта.
+Тепер, коли ми маємо призначення клавіш, ми можемо запускати дію прямо в ігровому процесі, використовуючи подію клієнтського такту:
 
 <<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#client_tick_event
 
-Це надрукує «Key Pressed!» до чату в грі кожного разу, коли натискається відповідна клавіша. Майте на увазі, що утримування клавіші призведе до повторного друку повідомлення в чаті, тому ви можете застосувати запобіжники, якщо ця логіка має спрацювати лише один раз.
+Це виводитиме повідомлення «Key press detected in the world» у внутрішньоігровий чат щоразу, коли натискається призначена клавіша. Майте на увазі, що утримування клавіші призведе до повторного друку повідомлення в чаті, тому ви можете застосувати запобіжники, якщо ця логіка має спрацювати лише один раз.
 
 ![Повідомлення в чаті](/assets/develop/key-mappings/key_mapping_pressed.png)
+
+## Дія призначення клавіші в інтерфейсі {#reacting-to-key-mappings-in-gui}
+
+Ми також можемо запускати дію у межах екранів — як коли світ відкрито, так і коли ні.
+
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#screen_before_init_event
+
+І додайте два обробники:
+
+<<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#helper_methods
+
+Це перевіряє, чи є поточний екран `TitleScreen` або `CreativeModeInventoryScreen`. Якщо це так, ми реалізуємо дві різні моделі поведінки залежно від того, перебуваємо ми всередині світу чи за його межами:
+
+- Коли гравець перебуває поза межами світу — тобто коли не існує сутності гравця,— у консоль виводиться повідомлення «Key press detected in the title screen».
+- В іншому разі, якщо натиснути клавішу під час перебування у світі, у внутрішньоігровий чат надсилається повідомлення «Key press detected in the GUI with a world open, closing screen», а екран закривається.
+
+<VideoPlayer src="/assets/develop/key-mappings/in_screen_key_map.webm">Натискання клавіші в інтерфейсі при відкритому світі</VideoPlayer>
+
+::: info
+
+Друге повідомлення «Key press detected in the world» надсилається в чат через попередньо зареєстрований слухач події `clientTickEvents`.
+
+:::
+
+::: tip
+
+У режимі виживання `screen` буде екземпляром `InventoryScreen`, тоді як у творчості це буде `CreativeModeInventoryScreen`.
+
+За потреби ви можете видалити перевірку `screen instanceof`, щоб прив'язати слухач подій до всіх екранів.
+
+:::
+
+<!---->
