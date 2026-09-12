@@ -54,7 +54,7 @@ A payload is the data that is sent within a packet.
 
 :::
 
-This can be done by creating a Java `Record` with a `BlockPos` parameter that implements `CustomPacketPayload`.
+This can be done by creating a Java `Record` with a `BlockPos` and an `int` parameter that implements `CustomPacketPayload`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#summon_lightning_payload
 
@@ -106,7 +106,7 @@ We only send packets when the action is initiated on the server, by returning ea
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#client_check
 
-We create an instance of the payload with the user's position:
+We create an instance of the payload with the user's position and the entity id for the lightning:
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#payload_instance
 
@@ -142,8 +142,8 @@ lambda expression).
 
 Let's examine the code above.
 
-We can access the data from our payload by calling the Record's getter methods. In this case `payload.pos()`. Which then
-can be used to get the `x`, `y` and `z` positions.
+We can access the data from our payload by calling the Record's getter methods. In this case `payload.pos()`, which then
+can be used to get the `x`, `y` and `z` positions, and `payload.id()` for the entity id.
 
 <<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#payload_pos
 

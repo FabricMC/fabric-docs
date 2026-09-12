@@ -31,12 +31,14 @@ public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 
 			// #region payload_pos
 			BlockPos lightningPos = payload.pos();
+			int id = payload.id();
 			// #endregion payload_pos
 
 			// #region lightning_bolt
 			LightningBolt entity = EntityTypes.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
 
 			if (entity != null) {
+				entity.setId(id);
 				entity.setPos(lightningPos.getX(), lightningPos.getY(), lightningPos.getZ());
 				level.addEntity(entity);
 			}
