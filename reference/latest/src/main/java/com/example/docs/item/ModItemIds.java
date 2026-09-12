@@ -51,7 +51,7 @@ public class ModItemIds {
 	// #region bone_marrow_resource
 	public static final ResourceKey<Item> BONE_MARROW = create("bone_marrow");
 	// #endregion bone_marrow_resource
-  
+
 	// #region hot_tater
 	public static final ResourceKey<Item> HOT_TATER = create("hot_tater");
 	// #endregion hot_tater
