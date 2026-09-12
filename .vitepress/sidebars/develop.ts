@@ -187,8 +187,8 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.events.events",
-        link: "/develop/events/events",
+        text: "develop.events.introduction",
+        link: "/develop/events/",
       },
       {
         text: "develop.events.loot_table_modifications",
