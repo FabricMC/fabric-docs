@@ -48,7 +48,7 @@ public class MiniGolemEntity extends PathfinderMob {
 	}
 
 	// #region attributes
-	public static AttributeSupplier.Builder createCubeAttributes() {
+	public static AttributeSupplier.Builder createMiniGolemAttributes() {
 		return PathfinderMob.createMobAttributes()
 				// #endregion registerclass
 				.add(ModAttributes.AGGRO_RANGE, 8.0)

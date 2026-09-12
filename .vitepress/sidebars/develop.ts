@@ -76,6 +76,10 @@ export default [
             text: "develop.items.custom_armor",
             link: "/develop/items/custom-armor",
           },
+          {
+            text: "develop.items.custom_shields",
+            link: "/develop/items/custom-shields",
+          },
         ],
       },
       {
@@ -165,6 +169,12 @@ export default [
       {
         text: "develop.entities.first_entity",
         link: "/develop/entities/first-entity",
+        items: [
+          {
+            text: "develop.entities.projectiles",
+            link: "/develop/entities/projectiles",
+          },
+        ],
       },
       {
         text: "develop.entities.attributes",

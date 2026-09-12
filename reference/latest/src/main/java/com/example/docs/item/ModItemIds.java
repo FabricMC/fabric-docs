@@ -51,6 +51,10 @@ public class ModItemIds {
 	// #region bone_marrow_resource
 	public static final ResourceKey<Item> BONE_MARROW = create("bone_marrow");
 	// #endregion bone_marrow_resource
+  
+	// #region hot_tater
+	public static final ResourceKey<Item> HOT_TATER = create("hot_tater");
+	// #endregion hot_tater
 
 	// #region custom_entity_spawn_egg
 	public static final ResourceKey<Item> MINI_GOLEM_SPAWN_EGG = create("mini_golem_spawn_egg");
@@ -66,6 +70,10 @@ public class ModItemIds {
 	public static final ResourceKey<Item> THROWING_KNIVES = create("throwing_knives");
 	public static final ResourceKey<Item> LIGHTNING_TATER = create("lightning_tater");
 	public static final ResourceKey<Item> TEST_ITEM = create("test_item");
+
+	// #region shield
+	public static final ResourceKey<Item> GUIDITE_SHIELD = create("guidite_shield");
+	// #endregion shield
 
 	// #region mod_item_ids_class
 	public static ResourceKey<Item> create(String name) {

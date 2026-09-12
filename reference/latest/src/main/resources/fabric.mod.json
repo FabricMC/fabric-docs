@@ -45,7 +45,8 @@
       "com.example.docs.appearance.ExampleModAppearanceClient",
       "com.example.docs.keymapping.ExampleModKeyMappingsClient",
       "com.example.docs.ExampleModRecipesClient",
-      "com.example.docs.entity.ExampleModCustomEntityClient"
+      "com.example.docs.entity.ExampleModCustomEntityClient",
+      "com.example.docs.projectile.ExampleModProjectileClient"
     ],
     "fabric-datagen": ["com.example.docs.datagen.ExampleModDataGenerator"]
   },

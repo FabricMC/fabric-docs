@@ -114,20 +114,23 @@ When an entity wears your armor, nothing will be shown. This is because you're m
 
 ![Broken armor model on player](/assets/develop/items/armor_2.png)
 
-There are two layers for the armor texture, both must be present.
+![Broken armor model on baby humanoid](/assets/develop/items/armor_2_1.png)
+
+::: info
+
+Note that since version 26.1, the armor texture for baby humanoids is no longer a scaled down version of the adult humanoid texture. Instead, it's a texture that must be provided separately.
+
+:::
+
+There are three layers for the armor texture, that must be present.
 
 Previously, we created a `ResourceKey<EquipmentAsset>` constant called `GUIDITE_ARMOR_MATERIAL_KEY` which we passed into our `ArmorMaterial` constructor. It's recommended to name the texture similarly, so in our case, `guidite.png`
 
 - `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` - Contains upper body and boot textures.
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` - Contains legging textures.
+- `assets/example-mod/textures/entity/equipment/humanoid_baby/guidite.png` - Contains the texture for baby humanoid.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Armor Model Textures</DownloadEntry>
-
-::: tip
-
-If you're updating to 1.21.11 from an older version of the game, the `humanoid` folder is where your `layer0.png` armor texture goes, and the `humanoid_leggings` folder is where your `layer1.png` armor texture goes.
-
-:::
 
 Next, you'll need to create an associated equipment model definition. These go in the `/assets/example-mod/equipment/` folder.
 
@@ -140,6 +143,8 @@ Since we only plan to add "humanoid" (helmet, chestplate, leggings, boots etc.) 
 With the textures and equipment model definition present, you should be able to see your armor on entities that wear it:
 
 ![Working armor model on player](/assets/develop/items/armor_3.png)
+
+![Working armor model on baby humanoid](/assets/develop/items/armor_3_1.png)
 
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
 

@@ -31,8 +31,7 @@ Minecraft обробляє введення користувачами з пер
 
 Зауважте, що назви маркерів ключів (`InputConstants.KEY_*`) припускаються [стандартний макет США](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg).
 
-Це означає, що якщо ви використовуєте макет AZERTY, натискання <kbd>A</kbd> призведе до
-`InputConstants.KEY_Q`.
+Це означає, що якщо ви використовуєте розкладку AZERTY, натискання клавіші <kbd>A</kbd> дасть `InputConstants.KEY_Q`.
 
 :::
 

@@ -54,4 +54,10 @@ As usual, you should register your item, add a model and texture.
 
 As you can see, the lightning bolt should spawn 10 blocks in front of you - the player.
 
+::: warning SEIZURE TRIGGER WARNING!
+
+The following video contains visuals and sustained flashing lighting that may affect those who are susceptible to photosensitive epilepsy or have other photosensitivities.
+
+:::
+
 <VideoPlayer src="/assets/develop/items/custom_items_0.webm">Using the Lightning Stick</VideoPlayer>
