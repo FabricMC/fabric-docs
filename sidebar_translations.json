@@ -42,7 +42,7 @@
   "develop.entities.attributes": "Attributes",
   "develop.entities.projectiles": "Custom Projectiles",
   "develop.events": "Events",
-  "develop.events.events": "Events",
+  "develop.events.introduction": "Introduction",
   "develop.events.loot_table_modifications": "Loot Table Modifications",
   "develop.commands": "Commands",
   "develop.commands.basics": "Creating Commands",
