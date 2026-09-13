@@ -13,12 +13,12 @@ The loot table system determines what items are dropped when a block is broken, 
 
 The Fabric Loot API provides several events through the `LootTableEvents` class. The table below shows what each event is used for:
 
-| Event                          | Function                                                                   | Notes                                                         |
-| ------------------------------ | -------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `LootTableEvents.MODIFY`       | Keep the original loot table and add pools and entries.                    | Best for most small changes.                                  |
-| `LootTableEvents.REPLACE`      | Discard the original table and provide a new one.                          | Use this when the original structure is no longer useful.     |
-| `LootTableEvents.MODIFY_DROPS` | Change the final list of `ItemStack` drops after loot has been generated.  | Useful when many tables should follow the same runtime rules. |
-| `LootTableEvents.ALL_LOADED`   | Inspect or validate all tables after loading is complete.                  | Good for post-processing and global setup.                    |
+| Event                          | Function                                                                  | Notes                                                         |
+| ------------------------------ | ------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `LootTableEvents.MODIFY`       | Keep the original loot table and add pools and entries.                   | Best for most small changes.                                  |
+| `LootTableEvents.REPLACE`      | Discard the original table and provide a new one.                         | Use this when the original structure is no longer useful.     |
+| `LootTableEvents.MODIFY_DROPS` | Change the final list of `ItemStack` drops after loot has been generated. | Useful when many tables should follow the same runtime rules. |
+| `LootTableEvents.ALL_LOADED`   | Inspect or validate all tables after loading is complete.                 | Good for post-processing and global setup.                    |
 
 These events occur in a specific order during the loot table loading process:
 
