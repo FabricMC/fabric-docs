@@ -15,7 +15,7 @@ The Fabric Loot API provides several events through the `LootTableEvents` class.
 
 | Event                          | Function                                                                   | Notes                                                         |
 | ------------------------------ | -------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `LootTableEvents.MODIFY`       | Keep the original loot table and add, remove, or adjust pools and entries. | Best for most small changes.                                  |
+| `LootTableEvents.MODIFY`       | Keep the original loot table and add pools and entries.                    | Best for most small changes.                                  |
 | `LootTableEvents.REPLACE`      | Discard the original table and provide a new one.                          | Use this when the original structure is no longer useful.     |
 | `LootTableEvents.MODIFY_DROPS` | Change the final list of `ItemStack` drops after loot has been generated.  | Useful when many tables should follow the same runtime rules. |
 | `LootTableEvents.ALL_LOADED`   | Inspect or validate all tables after loading is complete.                  | Good for post-processing and global setup.                    |
@@ -40,7 +40,7 @@ When using these events, remembering this order is important, as it affects how 
 
 ### Modifying Loot Tables {#modifying-loot-tables}
 
-Use `LootTableEvents.MODIFY` when you want to change an existing loot table while keeping its original contents intact. The callback gives you a `LootTable.Builder`, so you can add new pools, add entries to existing pools, or make targeted adjustments without rebuilding the whole table.
+Use `LootTableEvents.MODIFY` when you want to change an existing loot table while keeping its original contents intact. The callback gives you a `LootTable.Builder`, so you can add new pools or add entries to existing pools without rebuilding the whole table.
 
 This is usually the best choice for adding items to vanilla or data-pack tables, such as adding a custom item to a block's existing drops. You can inspect the `source` parameter to see whether the table came from built-in resources, a data pack, or another replacement event.
 

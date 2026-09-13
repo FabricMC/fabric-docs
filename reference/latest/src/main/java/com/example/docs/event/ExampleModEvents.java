@@ -1,5 +1,7 @@
 package com.example.docs.event;
 
+import java.util.Optional;
+
 import net.minecraft.advancements.predicates.ItemPredicate;
 import net.minecraft.advancements.predicates.entity.EntityEquipmentPredicate;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
@@ -21,6 +23,8 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyC
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+
+import com.example.docs.ExampleMod;
 
 // Class to contain all mod events.
 public class ExampleModEvents implements ModInitializer {
@@ -107,10 +111,12 @@ public class ExampleModEvents implements ModInitializer {
 
 		// #region loot_table_all_loaded_event
 		LootTableEvents.ALL_LOADED.register((resourceManager, lootRegistry) -> {
-			// Example: inspect a loot table after all tables have been loaded.
-			lootRegistry.get(Blocks.COAL_ORE.getLootTable().orElseThrow()).ifPresent(table -> {
-				// At this point, you can read or post-process the table.
-			});
+			Optional<LootTable> blueWoolTable = lootRegistry.getOptional(Blocks.WOOL.blue().getLootTable().orElse(null));
+
+			// Log a warning if the blue wool loot table is empty or missing.
+			if (blueWoolTable.isEmpty() || blueWoolTable.get() == LootTable.EMPTY) {
+				ExampleMod.LOGGER.warn("blue wool loot table should not be empty");
+			}
 		});
 		// #endregion loot_table_all_loaded_event
 
