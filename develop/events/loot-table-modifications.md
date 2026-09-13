@@ -20,6 +20,24 @@ The Fabric Loot API provides several events through the `LootTableEvents` class.
 | `LootTableEvents.MODIFY_DROPS` | Change the final list of `ItemStack` drops after loot has been generated. | Useful when many tables should follow the same runtime rules. |
 | `LootTableEvents.ALL_LOADED` | Inspect or validate all tables after loading is complete. | Good for post-processing and global setup. |
 
+These events occur in a specific order during the loot table loading process:
+
+```Text
+  Loading World
+     |
+  REPLACE
+     |
+  MODIFY
+     |
+  ALL_LOADED
+     |
+  Runtime Loot Generation
+     |
+  MODIFY_DROPS
+```
+
+When using these events, remembering this order is important, as it affects how your changes interact with other events and the original loot tables.
+
 ### Modifying Loot Tables {#modifying-loot-tables}
 
 Use `LootTableEvents.MODIFY` when you want to change an existing loot table while keeping its original contents intact. The callback gives you a `LootTable.Builder`, so you can add new pools, add entries to existing pools, or make targeted adjustments without rebuilding the whole table.
@@ -30,6 +48,10 @@ Use `MODIFY` when the original loot table should remain mostly intact.
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_table_modify_event
 
+Effects of the above example:
+
+<VideoPlayer src="/assets/develop/events/modify_event_example.webm">Modify Event Example</VideoPlayer>
+
 ### Replacing Loot Tables {#replacing-loot-tables}
 
 Use `LootTableEvents.REPLACE` when you want to discard an existing loot table and provide a new one.
@@ -38,31 +60,30 @@ The callback receives the original `LootTable`. Return a new `LootTable` to repl
 
 This event is useful when the original table is incompatible with your mod's behavior and modifying individual loot pools would be more complicated than creating a new table.
 
-::: info
-
-Unlike `MODIFY`, `REPLACE` is not intended for simply adding an item to an existing table. Use `MODIFY` for that.
-
-:::
-
 <<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_table_replace_event
 
 ::: warning
 
-Always return `null` if you are not replacing a loot table. Returning the original table still marks the loot table as replaced, which prevents later replacement or modification listeners from running.
+Always return `null` if you are not replacing a loot table. Returning the original table still marks the loot table as replaced, which prevents later replacement listeners from running and fails the `isBuiltIn()` check.
 
 :::
 
+Effects of the above example:
+
+<VideoPlayer src="/assets/develop/events/replace_event_example.webm">Replace Event Example</VideoPlayer>
+
 ### Modifying Loot Table Drops {#modifying-loot-table-drops}
 
-Use `LootTableEvents.MODIFY_DROPS` when you need to modify the final list of `ItemStack` drops after a loot table has generated them.
+`LootTableEvents.MODIFY_DROPS` runs after the loot tables have been built and after loot has been generated during runtime.
 
 This event is useful when:
 
-- The number of loot tables are unknown or numerous.
+- The number of loot tables is unknown or numerous.
 - The same rules should apply to many loot tables.
 - You want to inspect the `LootContext`, such as the entity, tool, or damage source.
 - Adding a custom loot function to every table would be inconvenient.
-- The drops list can be modified directly by adding, removing, or changing item stacks. Note that, because this event runs after loot generation, it cannot change the loot table's pools, entries, or conditions.
+
+The drops list can be modified directly by adding, removing, or changing item stacks. Note that, because this event runs after loot generation, it cannot change the loot table's pools, entries, or conditions.
 
 ::: info
 
@@ -71,6 +92,10 @@ The drops may already be separated into stacks if the loot table requested a par
 :::
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_table_modify_drops_event
+
+Effects of the above example:
+
+<VideoPlayer src="/assets/develop/events/modify_drops_event_example.webm">Modify Drops Event Example</VideoPlayer>
 
 ### Loot Table Post-Processing {#loot-table-post-processing}
 
@@ -88,19 +113,11 @@ This event is not normally used to add drops during loot generation. For changin
 
 ### Predicates {#predicates}
 
-Loot conditions, internally called predicates, control whether a loot pool, entry, or function can be used. They are especially useful with `MODIFY` and `REPLACE`, where they let you make added or replacement drops conditional without handling every case in Java code. The same conditions can help when designing replacement tables, while `MODIFY_DROPS` requires equivalent checks to be performed in the event callback.
+Loot conditions, internally called predicates, control whether a loot pool, entry, or function can be used. They are especially useful with `MODIFY` and `REPLACE`, where they let you make added or replacement drops conditional without handling every case in Java code. See the `.when(...)` calls in the `MODIFY` and `REPLACE` examples above. The same conditions can help when designing replacement tables, while `MODIFY_DROPS` requires equivalent checks to be performed in the event callback.
 
-The exact predicate classes and builders vary a bit between Minecraft versions, so treat the names below as the idea you want to express:
+Below are examples of commonly used predicates, grouped by their purpose. See the `net.minecraft.world.level.storage.loot.predicates` package and the [Minecraft Wiki predicate list](https://minecraft.wiki/w/Predicate) for the full set:
 
-```java
-LootPool.Builder pool = LootPool.lootPool()
-    .add(LootItem.lootTableItem(Items.DIAMOND))
-    .when(ExplosionCondition.survivesExplosion());
-```
-
-Below are the classes of the most common predicates, grouped by their purpose:
-
-#### Logic predicates {#logic-predicates}
+#### Logic Predicates {#logic-predicates}
 
 These combine or invert other conditions.
 
@@ -114,7 +131,7 @@ These logical predicates can be nested to create complex conditions. For example
 
 :::
 
-#### World-state predicates {#world-state-predicates}
+#### World-State Predicates {#world-state-predicates}
 
 These check things about the world or the position where loot is generated.
 
@@ -123,7 +140,7 @@ These check things about the world or the position where loot is generated.
 - `LocationCheck`: checks where the drop happened, such as the Y level or other location data.
 - `EnvironmentAttributeCheck`: checks world-specific environment rules or attributes.
 
-#### Block, tool, and entity predicates {#block-tool-and-entity-predicates}
+#### Block, Tool, and Entity Predicates {#block-tool-and-entity-predicates}
 
 These look at the block being broken, the tool being used, or the entity that caused the loot.
 
@@ -133,7 +150,7 @@ These look at the block being broken, the tool being used, or the entity that ca
 - `LootItemKilledByPlayerCondition`: requires the entity to have been killed by a player.
 - `DamageSourceCondition`: checks details about the damage source, such as whether the hit was direct or indirect.
 
-#### Chance-based predicates {#chance-based-predicates}
+#### Chance-Based Predicates {#chance-based-predicates}
 
 These decide drops by probability or by enchantment level.
 
@@ -143,10 +160,10 @@ These decide drops by probability or by enchantment level.
 
 ::: warning
 
-`LootItemRandomChanceWithEnchantedBonusCondition` and `LootItemRandomChanceCondition` should not be used together in the same pool, as both of them define base chance and may cause conflicts.
+`LootItemRandomChanceWithEnchantedBonusCondition` and `LootItemRandomChanceCondition` should not be used together in the same pool, as both of them define base chance and may cause unintended behavior.
 
 :::
 
-#### Shared predicate references {#shared-predicate-references}
+#### Shared Predicate References {#shared-predicate-references}
 
 - `ConditionReference`: points to a data-driven loot condition defined elsewhere and reused in multiple tables.
