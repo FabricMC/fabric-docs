@@ -16,16 +16,14 @@ import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 
-import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
-
 // Class to contain all mod events.
 public class ExampleModEvents implements ModInitializer {
-
 	@Override
 	public void onInitialize() {
 		// #region attack_block_callback_event
@@ -61,11 +59,10 @@ public class ExampleModEvents implements ModInitializer {
 										)
 								)
 						));
-						// Add the loot pool to the loot table
-						tableBuilder.withPool(pool);
-					}
-				}
-		);
+				// Add the loot pool to the loot table
+				tableBuilder.withPool(pool);
+			}
+		});
 		// #endregion loot_table_modify_event
 
 		// #region loot_table_replace_event
@@ -91,6 +88,7 @@ public class ExampleModEvents implements ModInitializer {
 				// Create a new loot table with the loot pool
 				return LootTable.lootTable().withPool(pool).build();
 			}
+
 			return null;
 		});
 		// #endregion loot_table_replace_event
