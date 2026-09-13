@@ -1,13 +1,15 @@
 ---
 title: Dynamic Registry
-description: An introduction to dynamic registries - what are they, what are they useful for, and how to create your own with the Fabric API.
+description: An introduction to dynamic registries - what they are, when they are useful, and how to create your own with the Fabric API.
 authors:
   - Jimmy474
 ---
 
-A **registry** is a centralized "phonebook" that maps unique IDs such as `minecraft:items` to specific objects. Static registries, such as the block and item registries, are frozen during startup, but dynamic registries are populated at runtime from JSON files in data packs.
+A registry is a centralized "phonebook" that maps unique IDs, such as `minecraft:items`, to specific objects.
 
-Dynamic registries act as a bridge between your hardcoded logic and external data supplied by players, modpacks, or other mods.
+There are two kinds of registries: static registries, such as the block and item registries, are frozen during startup.
+
+On the other hand, dynamic registries are populated at runtime from JSON files in data packs. This makes them a bridge between your hardcoded logic and external data supplied by players, servers, or other mods.
 
 They are useful for many reasons:
 
@@ -65,7 +67,7 @@ It's not relevant in our example, but here's how to do it:
 
 `DynamicRegistries.registerSynced()` has an overload that accepts a second codec for client-side decoding. This is useful if the client does not need every field from the full server entry.
 
-In our case, we only need the [`name`](#class-setup) and [`manaCost`](#class-setup) field on the client side, so let's create a [`Codec`](./codecs) that doesn't include [`onUseMcFunction`](#class-setup), and pass that codec to `registerSynced`:
+In our case, we only need the [`name` and `manaCost` fields](#class-setup) on the client side, so let's create a [`Codec`](./codecs) that doesn't include `onUseMcFunction`, and pass that codec to `registerSynced`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#client_codec
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#double_codec
@@ -109,7 +111,7 @@ The entry ID is a unique key for each entry, and it can be useful for accessing 
 Dynamic registries are loaded with the world, and can be accessed through the `RegistryAccess` class by using your registry key.
 Instances of `RegistryAccess` can be acquired from many classes, but the most common ones are `MinecraftServer`, `ServerLevel`, `ClientLevel`, `Entity`, and more.
 
-::: warning
+::: warning IMPORTANT
 
 When accessing the `RegistryAccess` instance from a client-only class, such as `ClientLevel`, only [synced registries](#using-register-synced) are available.
 
@@ -117,7 +119,7 @@ When accessing the `RegistryAccess` instance from a client-only class, such as `
 
 #### Get the Entire Registry {#get-the-entire-registry}
 
-Registries can be accessed using the `lookup` method of `RegistryAccess` which returns a `Optional<Registry<T>>` where `T` is the type of the registry.
+Registries can be accessed using the `lookup` method of `RegistryAccess`, which returns an `Optional<Registry<T>>` where `T` is the type of the registry.
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#get_registry
 
@@ -137,11 +139,11 @@ Registry entries can be iterated over for various purposes like UI population. I
 
 <<< @/reference/latest/src/client/java/com/example/docs/dynamic_registries/screens/ExampleModMagicSkillsScreen.java#iterate_over_registry_entries
 
-::: details Screen Example
+::: details A custom screen populated from the registry
 
 ![Magic Skills Screen Example](/assets/develop/dynamic_registry/magic_skills_screen.png)
 
-Learn more about creating [Custom Screens](./rendering/gui/custom-screens) and [Custom Widgets](./rendering/gui/custom-widgets)
+Learn more about creating [Custom Screens](./rendering/gui/custom-screens) and [Custom Widgets](./rendering/gui/custom-widgets).
 
 :::
 
