@@ -7,9 +7,7 @@ authors:
 
 A registry is a centralized "phonebook" that maps unique IDs, such as `minecraft:items`, to specific objects.
 
-There are two kinds of registries: static registries, such as the block and item registries, are frozen during startup.
-
-On the other hand, dynamic registries are populated at runtime from JSON files in data packs. This makes them a bridge between your hardcoded logic and external data supplied by players, servers, or other mods.
+There are two kinds of registries: static registries, such as the block and item registries, are frozen during startup, whereas dynamic registries, or custom registries, are populated at runtime from JSON files in data packs.
 
 They are useful for many reasons:
 
@@ -61,7 +59,7 @@ It's not relevant in our example, but here's how to do it:
 
 ::: info
 
-the Keys used in the following methods are made the same way we made the [`MAGIC_SKILLS_REGISTRY_KEY`](#registering-the-registry) but with a different name.
+The keys used in the following methods are made the same way we made the [`MAGIC_SKILLS_REGISTRY_KEY`](#registering-the-registry), but with a different name.
 
 :::
 

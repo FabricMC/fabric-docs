@@ -351,6 +351,16 @@ export default [
     ],
   },
   {
+    text: "develop.registries",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.registries.dynamic_registries",
+        link: "/develop/registries/dynamic-registry",
+      },
+    ],
+  },
+  {
     text: "develop.serialization",
     collapsed: true,
     items: [
