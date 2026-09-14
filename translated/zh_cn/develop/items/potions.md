@@ -15,6 +15,22 @@ authors:
 
 和物品和方块一样，药水需要注册。
 
+## 准备你的药水 ID 类 {#preparing-your-potion-id-class}
+
+如果你已经完成了[创建你的第一个物品](../items/first-item)页面，那么这个过程对你来说会非常熟悉——你需要创建类来保存你的 `Potion` 的标识符，这些标识符存储为 `ResourceKey`。
+
+这些对药水的引用用于[生成药水标签的数据](../data-generation/tags)。
+
+你可以将此方法放在一个名为 `ModPotionIds` 的类中（或者你想给类起什么名字都行）。
+
+::: tip
+
+Mojang对药水也是这么做的！ 参考 `PotionIds` 类来获取灵感。
+
+:::
+
+<<< @/reference/latest/src/main/java/com/example/docs/potion/ModPotionIds.java#mod_potion_ids_class
+
 ### 创建物品{#creating-the-potion}
 
 让我们从声明一个用于储存你的 `Potion` 实例的字段开始。 我们将直接使用 `ModInitializer`——实现这个类来持有这个字段。 注意使用了 `Registry.registerForHolder`，就像生物效果一样，许多使用药水的原版方法都优先使用这些作为 holder。

@@ -26,7 +26,7 @@ Minecraft 使用方块实体来处理箱子、熔炉和命令方块这类方块�
 ::: tip
 
 注意，`CounterBlockEntity` 的构造函数接收两个参数，而 `BlockEntity` 的构造函数需要三个参数：`BlockEntityType`、`BlockPos` 和 `BlockState`。
-如果我们没有硬编码 `BlockEntityType`，`ModBlockEntities` 类将无法通过编译！ 这是因为 `BlockEntityFactory` 是一个函数式接口，它所描述的函数仅接收两个参数，这恰好与我们的构造函数一致。
+如果我们没有硬编码 `BlockEntityType`，`ModBlockEntities` 类将无法通过编译！ 这是因为 `FabricBlockEntityTypeBuilder.Factory` 是一个函数式接口，它所描述的函数仅接收两个参数，这恰好与我们的构造函数一致。
 
 :::
 
@@ -38,8 +38,8 @@ Minecraft 使用方块实体来处理箱子、熔炉和命令方块这类方块�
 
 有两种实现方式：
 
-- 创建一个继承自 `BaseEntityBlock` 的方块，并实现 `createBlockEntity` 方法
-- 创建一个自行实现 `EntityBlock` 接口的方块，并重写 `createBlockEntity` 方法
+- 创建一个继承自 `BaseEntityBlock` 的方块，并实现 `newBlockEntity` 方法
+- 创建一个自行实现 `EntityBlock` 接口的方块，并重写 `newBlockEntity` 方法
 
 在本示例中，我们将采用第一种方法，因为 `BaseEntityBlock` 还提供了一些实用的工具。
 
@@ -49,7 +49,7 @@ Minecraft 使用方块实体来处理箱子、熔炉和命令方块这类方块�
 
 使用 `BaseEntityBlock` 作为父类意味着我们还需要实现 `createCodec` 方法，而这其实相当简单。
 
-与作为单例的方块不同，每个方块实例都会创建一个新的方块实体。 这是通过 `createBlockEntity` 方法完成的，它接受位置和 `BlockState`，并返回一个 `BlockEntity`，或者如果没有则返回 `null`。
+与作为单例的方块不同，每个方块实例都会创建一个新的方块实体。 这是通过 `newBlockEntity` 方法完成的，它接受位置和 `BlockState`，并返回一个 `BlockEntity`，或者如果没有则返回 `null`。
 
 别忘了向 `ModBlockItemIds` 添加键并在 `ModBlocks` 类中注册方块，就像在[创建你的第一个方块](../blocks/first-block)指南中那样：
 

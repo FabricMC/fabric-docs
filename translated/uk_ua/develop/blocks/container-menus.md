@@ -69,9 +69,9 @@ resources:
 
 `quickMoveStack` обробляє предмети меню, натискання з утриманим Shift. Цей приклад повторює поведінку стандартних меню, таких як скрині та роздавачів.
 
-Потім нам потрібно зареєструвати меню в новому класі `ModMenuType`:
+Потім нам потрібно зареєструвати меню в новому класі `ModMenuTypes`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/menu/ModMenuType.java#register_menu
+<<< @/reference/latest/src/main/java/com/example/docs/menu/ModMenuTypes.java#register_menu
 
 Тепер ми можемо встановити значення, що повертається `createMenu` в блоці-сутності, щоб використовувати наше меню:
 

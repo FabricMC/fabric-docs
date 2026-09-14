@@ -33,6 +33,10 @@ Um deine Entitäten zu registrieren, empfiehlt es sich, eine eigene Klasse mit d
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
 
+Rufe `registerModEntityTypes` und `registerModEntityTypes` in deinem [Mod Initialisierer](../getting-started/project-structure#entrypoints) auf:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
+
 ## Ziele hinzufügen {#adding-goals}
 
 Ziele sind das System, das die Ziele einer Entität regelt und ihr ein definiertes Verhaltensmuster vorgibt. Ziele haben eine bestimmte Priorität: Ziele mit einem geringeren Wert werden gegenüber den Zielen mit einem höheren Wert priorisiert.

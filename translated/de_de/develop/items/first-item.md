@@ -43,8 +43,6 @@ Mojang macht das auch mit ihren Items! Sieh dir die Klasse `Items` als Inspirati
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
 
-Beachte, dass wir `T`, einen [generischen Typ](https://docs.oracle.com/javase/tutorial/java/generics/types.html) verwenden, der `Item` erweitert. Dies ermöglicht es uns, dieselbe Methode `register` zur Registrierung beliebiger Typen von Items zu verwenden, die `Item` erweitern. Außerdem verwenden wir für die Factory eine [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html), mit der wir festlegen können, wie unser Item unter Berücksichtigung der Item-Eigenschaften erstellt werden soll.
-
 ## Ein Item registrieren {#registering-an-item}
 
 Du kannst jetzt mithilfe dieser Methode ein Item registrieren.

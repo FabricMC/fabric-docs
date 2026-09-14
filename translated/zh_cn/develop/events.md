@@ -18,13 +18,13 @@ authors-nogithub:
   - stormyfabric
 ---
 
-Fabric API 提供了一个系统，允许模组对行为或发生的事（也被定义为游戏中发生的_事件_）做出反应。
+Fabric API 提供了一个系统，允许模组对游戏中发生的行为或事（也被定义为 _事件 (events)_ ）做出反应。
 
 事件是一种 Hook ，可满足常见的使用情况，并且增强和优化多个模组间对于同一代码区间的 Hook 的兼容性。 使用事件往往就可以替代 mixin 的使用。
 
 Fabric API 为 Minecraft 代码库中的重要区域提供事件，许多模组制作者可能有兴趣将其接入。
 
-事件由 `net.fabricmc.fabric.api.event.Event` 实例表示，该实例存储并调用_回调（CallBack）_。 一个回调通常只有一个事件实例，存储在回调接口的静态字段 `EVENT` 中，但也有其他可能。 例如，`ClientTickEvents` 会为多个相关连的事件分组。
+事件由 `net.fabricmc.fabric.api.event.Event` 实例表示，该实例存储并调用 _回调(CallBack)_。 一个回调通常只有一个事件实例，存储在回调接口的静态字段 `EVENT` 中，但也有其他可能。 例如，`ClientTickEvents` 会为多个相关连的事件分组。
 
 ## 回调{#callbacks}
 

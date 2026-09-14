@@ -10,12 +10,15 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.recipes.SpecialRecipeBuilder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShieldDecorationRecipe;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -75,6 +78,16 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						"glass_bottle_to_glass" // group
 				);
 				// #endregion datagen_recipes_smelting
+
+				// #region shield_decoration
+				SpecialRecipeBuilder.special(
+											() -> new ShieldDecorationRecipe(
+													this.tag(ItemTags.BANNERS),
+													Ingredient.of(ModItems.GUIDITE_SHIELD),
+													new ItemStackTemplate(ModItems.GUIDITE_SHIELD))
+									)
+									.save(this.output, "shield_decoration");
+				// #endregion shield_decoration
 
 				// #region datagen_recipes_conditions
 				shapeless(RecipeCategory.BUILDING_BLOCKS, Items.SAND)

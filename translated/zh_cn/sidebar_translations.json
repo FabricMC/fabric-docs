@@ -30,7 +30,7 @@
   "develop.blocks.block_containers": "方块容器",
   "develop.blocks.container_menus": "容器菜单",
   "develop.blocks.block_tinting": "方块着色",
-  "develop.blocks.workstations": "工作站",
+  "develop.blocks.workstations": "工作站点",
   "develop.fluids": "流体",
   "develop.fluids.first_fluid": "创建你的第一个流体",
   "develop.fluids.fluid_fog": "为你的流体添加迷雾",

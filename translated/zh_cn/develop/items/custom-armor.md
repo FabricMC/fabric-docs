@@ -2,7 +2,9 @@
 title: 自定义盔甲
 description: 学习如何创建自己的盔甲集。
 authors:
+  - cassiancc
   - IMB11
+  - NotNightSky
 ---
 
 盔甲增强玩家的防御，抵御来自生物和其他玩家的攻击。
@@ -21,9 +23,9 @@ authors:
 
 如果你难以确定平衡的基础耐久度，你可以参考 `ArmorMaterials` 界面中的原始盔甲材质实例。
 
-### 装备资产注册表项 {#equipment-asset-registry-key}
+### 装备资产资源键 {#equipment-asset-resource-key}
 
-尽管我们不必将我们的 `ArmorMaterial` 注册到任何注册表中，但将任何注册表项存储为常量通常是一种很好的做法，因为游戏将使用它来找到我们盔甲的相关纹理。
+尽管我们不必将我们的 `ArmorMaterial` 注册到任何注册表中，但将任何资源键存储为常量通常是一种很好的做法，因为游戏将使用它来找到我们盔甲的相关纹理。
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#material_key
 
@@ -52,6 +54,16 @@ authors:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
+为了明确哪些物品可用于铁砧上修复这种材料，我们将创建一个标签，其中包含物品列表。 让我们在物品标签提供程序类中添加一个新标签：
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#repair_tags
+
+在我们的示例中，我们将使用铜锭作为修复 Guidite 的材料。 如果你想创建自定义的 Guidite 锭，你可以[创建一个自定义物品](./first-item)并将其 ID 添加到标签中。
+
+现在，你可以在铁砧上修复盔甲了：
+
+![在铁砧上修复 Guidite 盔甲](/assets/develop/items/mending_guidite.png)
+
 如果你难以确定任何参数的值，你可以查阅在 `ArmorMaterials` 界面中可以找到的原始 `ArmorMaterial` 实例。
 
 ## 创建盔甲物品 {#creating-the-armor-items}
@@ -63,6 +75,8 @@ authors:
 不像 `ToolMaterial`，`ArmorMaterial` 并不储存物品的耐久度信息。 因此，在注册盔甲物品时需要手动将基础耐久度添加到盔甲物品的 `Item.Properties` 中。
 
 这是通过将我们之前创建的 `BASE_DURABILITY` 常量传递到 `Item.Properties` 类中的 `maxDamage` 方法来实现的。
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#create_armor_items
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items
 
@@ -100,20 +114,23 @@ authors:
 
 ![玩家身上的损坏的盔甲模型](/assets/develop/items/armor_2.png)
 
-盔甲纹理有两层，都要有。
+![幼年人形生物身上的破损盔甲模型](/assets/develop/items/armor_2_1.png)
+
+::: info
+
+请注意，自 26.1 版本起，幼年人形生物的盔甲纹理不再是成年人形生物纹理的缩小版本。 相反，必须单独提供一种纹理。
+
+:::
+
+盔甲纹理有三层，都要有。
 
 之前，我们创建了一个名为 `GUIDITE_ARMOR_MATERIAL_KEY` 的 `ResourceKey<EquipmentAsset>` 常量，并将其传递给我们的 `ArmorMaterial` 构造函数。 建议以相似方法命名纹理文件，在我们的例子中，是 `guidite.png`
 
 - `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` — 包含了上身和靴子纹理。
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了护腿纹理。
+- `assets/example-mod/textures/entity/equipment/humanoid_baby/guidite.png` - 包含幼年人形生物的纹理。
 
-<DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite盔甲模型纹理</DownloadEntry>
-
-::: tip
-
-如果你从旧版本的游戏更新到 1.21.11，则 `layer0.png` 盔甲纹理所在的位置是 `humanoid` 文件夹，`layer1.png` 盔甲纹理所在的位置是 `humanoid_leggings` 文件夹。
-
-:::
+<DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite 盔甲模型纹理</DownloadEntry>
 
 然后，你需要创建一个关联的装备模型定义。 这些会保存在 `/assets/example-mod/equipment/` 文件夹。
 
@@ -127,4 +144,20 @@ authors:
 
 ![玩家身上的生效的盔甲模型](/assets/develop/items/armor_3.png)
 
+![幼年人形生物身上的生效盔甲模型](/assets/develop/items/armor_3_1.png)
+
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
+
+## 标签盔甲物品 {#tags}
+
+:::info 前置知识
+
+更多信息，请参阅有关生成[物品标签](../data-generation/tags)的文档。
+
+:::
+
+建议将盔甲放置在相应的物品标签中。 盔甲部件有各自独立的标签，例如 `ItemTags.CHEST_ARMOR`，这些标签用于附魔。
+
+在你的物品标签提供程序中，将以下代码添加到 `addTags` 函数中：
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#armor_tags

@@ -13,9 +13,11 @@ import net.minecraft.world.item.Item;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.item.ModItemIds;
+import com.example.docs.item.armor.GuiditeArmorMaterial;
 
 // #region datagen_tags_provider
 public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
@@ -41,6 +43,13 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 				.setReplace(true);
 		// #endregion datagen_tags_build
 
+		// #region shield_tags
+		builder(ConventionalItemTags.SHIELD_TOOLS)
+						.add(ModItemIds.GUIDITE_SHIELD);
+		builder(ItemTags.DURABILITY_ENCHANTABLE)
+						.add(ModItemIds.GUIDITE_SHIELD);
+		// #endregion shield_tags
+
 		// #region sword_tags
 		builder(ItemTags.SWORDS)
 						.add(ModItemIds.GUIDITE_SWORD);
@@ -58,6 +67,11 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 		builder(ItemTags.FOOT_ARMOR)
 				.add(ModItemIds.GUIDITE_BOOTS);
 		// #endregion armor_tags
+
+		// #region repair_tags
+		builder(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR)
+				.add(ItemIds.COPPER_INGOT);
+		// #endregion repair_tags
 
 		// #region datagen_tags_provider
 	}

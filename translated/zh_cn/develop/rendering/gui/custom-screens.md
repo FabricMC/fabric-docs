@@ -36,10 +36,10 @@ authors:
 
 ## 打开屏幕 {#opening-the-screen}
 
-你可以使用 `Minecraft` 的 `setScreen` 方法打开屏幕——你可以从很多地方执行此操作，例如按键绑定、命令或客户端数据包处理程序。
+你可以使用 `Gui` 中的 `setScreen` 方法打开屏幕——你可以从很多地方执行此操作，例如按键绑定、命令或客户端数据包处理程序。
 
 ```java
-Minecraft.getInstance().setScreen(
+Minecraft.getInstance().gui.setScreen(
   new CustomScreen(Component.empty())
 );
 ```
@@ -49,7 +49,7 @@ Minecraft.getInstance().setScreen(
 当你想要关闭屏幕时，只需将屏幕设为 `null` 即可：
 
 ```java
-Minecraft.getInstance().setScreen(null);
+Minecraft.getInstance().gui.setScreen(null);
 ```
 
 如果你希望在关闭屏幕时返回到上一个屏幕，你可以将当前屏幕对象传入自定义的 `CustomScreen` 构造函数，把它保存为字段，然后重写 `close` 方法，将实现修改为 `this.client.setScreen(/* 你保存的上一个屏幕 */)` 即可。
@@ -59,8 +59,8 @@ Minecraft.getInstance().setScreen(null);
 现在，当你按照上面的步骤打开屏幕时，你可以给构造函数的第二个参数传入当前屏幕对象，这样当你调用 `CustomScreen#close` 的时候，游戏就会回到上一个屏幕。
 
 ```java
-Screen currentScreen = Minecraft.getInstance().currentScreen;
-Minecraft.getInstance().setScreen(
+Screen currentScreen = Minecraft.getInstance().gui.screen();
+Minecraft.getInstance().gui.setScreen(
   new CustomScreen(Component.empty(), currentScreen)
 );
 ```
