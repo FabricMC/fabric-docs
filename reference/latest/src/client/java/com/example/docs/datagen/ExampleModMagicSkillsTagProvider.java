@@ -12,6 +12,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import com.example.docs.dynamic_registries.ExampleModRegistries;
 import com.example.docs.dynamic_registries.ExampleModTags;
 import com.example.docs.dynamic_registries.MagicSkillsRegistryEntry;
+import com.example.docs.dynamic_registries.MagicSkillsRegistryIds;
 
 public class ExampleModMagicSkillsTagProvider extends FabricTagsProvider<MagicSkillsRegistryEntry> {
 	public ExampleModMagicSkillsTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookupFuture) {
@@ -21,7 +22,7 @@ public class ExampleModMagicSkillsTagProvider extends FabricTagsProvider<MagicSk
 	@Override
 	protected void addTags(HolderLookup.@NonNull Provider wrapperLookup) {
 		builder(ExampleModTags.ATTACKING_SKILLS_TAG_KEY)
-				.add(ExampleModRegistries.BLAST_SKILL_ENTRY_ID)
-				.add(ExampleModRegistries.MAGIC_MISSILE_SKILL_ENTRY_ID);
+				.add(MagicSkillsRegistryIds.BLAST_SKILL_ENTRY_ID)
+				.add(MagicSkillsRegistryIds.MAGIC_MISSILE_SKILL_ENTRY_ID);
 	}
 }

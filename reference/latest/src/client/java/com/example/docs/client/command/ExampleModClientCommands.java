@@ -22,14 +22,10 @@ public class ExampleModClientCommands implements ClientModInitializer {
 		});
 		// #endregion register_command
 
-		ClientCommandRegistrationCallback.EVENT.register((dispatcher, commandBuildContext) -> {
-			dispatcher.register(ClientCommands.literal("magic_skills_screen").executes(context -> {
-				Minecraft instance = Minecraft.getInstance();
-				instance.execute(() -> {
-					instance.setScreen(new ExampleModMagicSkillsScreen(instance, context.getSource().registryAccess()));
-				});
-				return 1;
-			}));
-		});
+		ClientCommandRegistrationCallback.EVENT.register((dispatcher, _) -> dispatcher.register(ClientCommands.literal("magic_skills_screen").executes(context -> {
+			Minecraft instance = Minecraft.getInstance();
+			instance.execute(() -> instance.gui.setScreen(new ExampleModMagicSkillsScreen(instance, context.getSource().registryAccess())));
+			return 1;
+		})));
 	}
 }

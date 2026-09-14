@@ -16,6 +16,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider
 import com.example.docs.ExampleMod;
 import com.example.docs.dynamic_registries.ExampleModRegistries;
 import com.example.docs.dynamic_registries.MagicSkillsRegistryEntry;
+import com.example.docs.dynamic_registries.MagicSkillsRegistryIds;
 
 public class ExampleModDynamicRegistriesProvider extends FabricDynamicRegistryProvider {
 	public ExampleModDynamicRegistriesProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
@@ -33,8 +34,29 @@ public class ExampleModDynamicRegistriesProvider extends FabricDynamicRegistryPr
 	}
 
 	public static void bootstrap(BootstrapContext<MagicSkillsRegistryEntry> context) {
-		context.register(ExampleModRegistries.HEALING_SKILL_ENTRY_ID, new MagicSkillsRegistryEntry("Healing Skill", 4785, Optional.of(new CacheableFunction(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_skill_function")))));
-		context.register(ExampleModRegistries.BLAST_SKILL_ENTRY_ID, new MagicSkillsRegistryEntry("Blast Skill", 474, Optional.empty()));
-		context.register(ExampleModRegistries.MAGIC_MISSILE_SKILL_ENTRY_ID, new MagicSkillsRegistryEntry("Magic Missile Skill", 853, Optional.empty()));
+		context.register(
+				MagicSkillsRegistryIds.HEALING_SKILL_ENTRY_ID,
+				new MagicSkillsRegistryEntry(
+						"Healing Skill",
+						4785,
+						Optional.of(new CacheableFunction(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_skill_function")))
+				)
+		);
+		context.register(
+				MagicSkillsRegistryIds.BLAST_SKILL_ENTRY_ID,
+				new MagicSkillsRegistryEntry(
+						"Blast Skill",
+						474,
+						Optional.empty()
+				)
+		);
+		context.register(
+				MagicSkillsRegistryIds.MAGIC_MISSILE_SKILL_ENTRY_ID,
+				new MagicSkillsRegistryEntry(
+						"Magic Missile Skill",
+						853,
+						Optional.empty()
+				)
+		);
 	}
 }
