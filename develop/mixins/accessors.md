@@ -8,7 +8,7 @@ authors:
   - MildestToucan
 ---
 
-Mixins are typically used to modify existing code to produce and tweak behavior. However, Mixin also provides tools for
+[Mixins](../mixins) are typically used to modify existing code to produce and tweak behavior. However, Mixin also provides tools for
 accessing inaccessible fields and methods in the form of accessor mixins.
 
 [Class tweakers](../class-tweakers) provides a similar tool in the form of [access wideners](../class-tweakers/access-widening), but
@@ -20,7 +20,7 @@ or to reference private classes, as accessors can only target fields and methods
 ## Creating the Accessor Interface {#creating-the-accessor-interface}
 
 Accessor mixins must always be an interface, and must only contain methods annotated with `@Accessor` or `@Invoker`. The interface must be annotated with `@Mixin`
-similarly to other mixin classes.
+and must be [registered](../mixins/mixins-json#mixin-class-registration) in the mixin config, similarly to other mixin classes.
 
 Accessor interfaces are conventionally named after their target class with `Accessor` suffixed, and placed in an `accessor` subpackage within your mixin package.
 Ie `your.package.mixin.accessor`

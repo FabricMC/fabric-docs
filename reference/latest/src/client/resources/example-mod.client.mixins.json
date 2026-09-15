@@ -5,5 +5,8 @@
   "client": ["ExampleClientMixin", "GameRendererMixin", "TitleScreenMixin", "accessor.HudAccessor"],
   "injectors": {
     "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
   }
 }
