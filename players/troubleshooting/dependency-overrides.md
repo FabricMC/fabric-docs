@@ -102,7 +102,7 @@ First, we have `version`, which specifies the dependency override spec version w
 
 Secondly, we have an `overrides` object that will contain all of our dependency overrides to various mods. To start, it includes an empty entry for `example-mod` that we can add dependency overrides to.
 
-Keys inside the mod object can be one of the 5 dependency types (`depends`, `recommends`, `suggests`, `conflicts`, `breaks`). The value of any one of those keys must be a JSON object. This JSON object follows the exact same structure as a [`fabric.mod.json` dependency object](./fabric-mod-json#semantic-versioning).
+Keys inside the mod object can be one of the 5 dependency types (`depends`, `recommends`, `suggests`, `conflicts`, `breaks`). The value of any one of those keys must be a JSON object. This JSON object follows the exact same structure as a [`fabric.mod.json` dependency object](../../develop/loader/fabric-mod-json#semantic-versioning).
 
 The key may be optionally prefixed with `+` or `-` (e.g. `"+depends"`, `"-breaks"`).
 
