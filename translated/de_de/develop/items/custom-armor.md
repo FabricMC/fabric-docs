@@ -114,20 +114,23 @@ Wenn eine Entität deine Rüstung trägt, wird nichts angezeigt. Das liegt daran
 
 ![Kaputtes Rüstungsmodell an einem Spieler](/assets/develop/items/armor_2.png)
 
-Es gibt zwei Schichten für die Rüstungstextur, beide müssen vorhanden sein.
+![Kaputtes Rüstungsmodell eines Baby-Humanoid](/assets/develop/items/armor_2_1.png)
+
+::: info
+
+Beachte, dass die Rüstungstextur für Baby-Humanoide seit Version 26.1 nicht mehr eine verkleinerte Version der Textur für erwachsene Humanoide ist. Stattdessen handelt es sich um eine Textur, die getrennt bereitgestellt werden muss.
+
+:::
+
+Es gibt drei Schichten für die Rüstungstextur, die vorhanden sein müssen.
 
 Zuvor haben wir eine Konstante `ResourceKey<EquipmentAsset>` mit dem Namen `GUIDITE_ARMOR_MATERIAL_KEY` erstellt, die wir an unseren `ArmorMaterial`-Konstruktor übergeben haben. Es wird empfohlen, die Textur ähnlich zu benennen, in unserem Fall also `guidite.png`
 
 - `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` - Enthält Oberkörper- und Stiefeltexturen.
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` - Enthält Hosentexturen.
+- `assets/example-mod/textures/entity/equipment/humanoid_baby/guidite.png` - Enthält die Textur für den Baby-Humanoid.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Rüstungsmodell-Texturen</DownloadEntry>
-
-::: tip
-
-Wenn du von einer älteren Version des Spiels auf 1.21.11 aktualisierst, ist der Ordner `humanoid` der Ort, an dem deine Rüstungstextur `layer0.png` liegt, und der Ordner `humanoid_leggings` ist der Ort, an dem deine Rüstungstextur `layer1.png` liegt.
-
-:::
 
 Als Nächstes musst du eine Definition für ein zugehöriges Ausrüstungsmodell erstellen. Diese gehören in den Ordner `/assets/example-mod/equipment/`.
 
@@ -140,6 +143,8 @@ Da wir nur "Humanoide" Rüstungsteile (Helm, Brustpanzer, Hose, Stiefel usw.) hi
 Wenn die Texturen und die Definition des Rüstungsmodell vorhanden sind, solltest du in der Lage sein, deine Rüstung auf den Entitäten zu sehen, die sie tragen:
 
 ![Funktionierendes Rüstungsmodell an einem Spieler](/assets/develop/items/armor_3.png)
+
+![Funktionierendes Rüstungsmodell eines Baby-Humanoid](/assets/develop/items/armor_3_1.png)
 
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
 

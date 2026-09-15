@@ -4,6 +4,7 @@ description: Learn how to add custom projectiles.
 authors:
   - ayutac
   - cassiancc
+  - CelDaemon
   - ChampionAsh5357
   - dicedpixels
   - Earthcomputer
@@ -134,7 +135,11 @@ Don't forget to add a [model](../items/first-item#adding-a-model), [texture](../
 
 <DownloadEntry visualURL="/assets/develop/projectiles/hot_tater_preview.png" downloadURL="/assets/develop/projectiles/hot_tater.png">Texture</DownloadEntry>
 
-Register the entity too, like we did in the [Creating Your First Entity](./first-entity#preparing-your-first-entity) guide, by adding it as a static field in `ModEntityTypes`. Since entities and items live in separate registries, the entity type simply uses the same path as the item, like vanilla's `snowball`:
+Make sure to add the ID of the new entity to `ModEntityTypeIds`:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#hot_tater
+
+Now register the entity, like we did in the [Creating Your First Entity](./first-entity#preparing-your-first-entity) guide, by adding it as a static field in `ModEntityTypes`. Since entities and items live in separate registries, the entity type simply uses the same path as the item, like vanilla's `snowball`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#hot_tater
 

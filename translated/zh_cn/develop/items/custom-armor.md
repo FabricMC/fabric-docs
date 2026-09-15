@@ -114,20 +114,23 @@ authors:
 
 ![玩家身上的损坏的盔甲模型](/assets/develop/items/armor_2.png)
 
-盔甲纹理有两层，都要有。
+![幼年人形生物身上的破损盔甲模型](/assets/develop/items/armor_2_1.png)
+
+::: info
+
+请注意，自 26.1 版本起，幼年人形生物的盔甲纹理不再是成年人形生物纹理的缩小版本。 相反，必须单独提供一种纹理。
+
+:::
+
+盔甲纹理有三层，都要有。
 
 之前，我们创建了一个名为 `GUIDITE_ARMOR_MATERIAL_KEY` 的 `ResourceKey<EquipmentAsset>` 常量，并将其传递给我们的 `ArmorMaterial` 构造函数。 建议以相似方法命名纹理文件，在我们的例子中，是 `guidite.png`
 
 - `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` — 包含了上身和靴子纹理。
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了护腿纹理。
+- `assets/example-mod/textures/entity/equipment/humanoid_baby/guidite.png` - 包含幼年人形生物的纹理。
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite 盔甲模型纹理</DownloadEntry>
-
-::: tip
-
-如果你从旧版本的游戏更新到 1.21.11，则 `layer0.png` 盔甲纹理所在的位置是 `humanoid` 文件夹，`layer1.png` 盔甲纹理所在的位置是 `humanoid_leggings` 文件夹。
-
-:::
 
 然后，你需要创建一个关联的装备模型定义。 这些会保存在 `/assets/example-mod/equipment/` 文件夹。
 
@@ -140,6 +143,8 @@ authors:
 这些纹理存在时，你应该能够看到实体穿着的盔甲了：
 
 ![玩家身上的生效的盔甲模型](/assets/develop/items/armor_3.png)
+
+![幼年人形生物身上的生效盔甲模型](/assets/develop/items/armor_3_1.png)
 
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
 

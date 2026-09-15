@@ -53,6 +53,14 @@ export default [
             link: "/develop/items/food",
           },
           {
+            text: "develop.items.custom_fuel",
+            link: "/develop/items/custom-fuel",
+          },
+          {
+            text: "develop.items.custom_compostable",
+            link: "/develop/items/custom-compostable",
+          },
+          {
             text: "develop.items.potions",
             link: "/develop/items/potions",
           },
@@ -67,6 +75,10 @@ export default [
           {
             text: "develop.items.custom_armor",
             link: "/develop/items/custom-armor",
+          },
+          {
+            text: "develop.items.custom_shields",
+            link: "/develop/items/custom-shields",
           },
         ],
       },
@@ -175,6 +187,20 @@ export default [
       {
         text: "develop.entities.damage_types",
         link: "/develop/entities/damage-types",
+      },
+    ],
+  },
+  {
+    text: "develop.events",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.events.introduction",
+        link: "/develop/events/",
+      },
+      {
+        text: "develop.events.loot_tables",
+        link: "/develop/events/loot-tables",
       },
     ],
   },
@@ -339,6 +365,16 @@ export default [
     ],
   },
   {
+    text: "develop.registries",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.registries.dynamic_registries",
+        link: "/develop/registries/dynamic-registry",
+      },
+    ],
+  },
+  {
     text: "develop.serialization",
     collapsed: true,
     items: [
@@ -477,10 +513,6 @@ export default [
       {
         text: "develop.misc.debugging",
         link: "/develop/debugging",
-      },
-      {
-        text: "develop.misc.events",
-        link: "/develop/events",
       },
       {
         text: "develop.misc.game_rules",

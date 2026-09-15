@@ -1,6 +1,7 @@
 package com.example.docs.item;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 import net.minecraft.core.Registry;
@@ -9,11 +10,14 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.AxeItem;
@@ -25,8 +29,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.component.BlocksAttacks;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.component.ItemLore;
@@ -34,6 +40,7 @@ import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BannerPatternLayers;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
@@ -108,6 +115,18 @@ public class ModItems {
 			new Item.Properties().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
 	);
 	// #endregion guidite_sword
+	// #region shield
+	public static final Item GUIDITE_SHIELD = register(
+					ModItemIds.GUIDITE_SHIELD,
+					ShieldItem::new,
+					new Item.Properties().durability(336)
+									.component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
+									.repairable(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR)
+									.equippableUnswappable(EquipmentSlot.OFFHAND)
+									.delayedComponent(DataComponents.BLOCKS_ATTACKS, (context) -> new BlocksAttacks(0.25F, 1.0F, List.of(new BlocksAttacks.DamageReduction(90.0F, Optional.empty(), 0.0F, 1.0F)), new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F), Optional.of(context.getOrThrow(DamageTypeTags.BYPASSES_SHIELD)), Optional.of(SoundEvents.SHIELD_BLOCK), Optional.of(SoundEvents.SHIELD_BREAK)))
+									.component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK)
+	);
+	// #endregion shield
 	// #region counter
 	public static final Item COUNTER = register(
 			ModItemIds.COUNTER,
@@ -194,6 +213,22 @@ public class ModItems {
 	public static final Item SUSPICIOUS_SUBSTANCE = register(ModItemIds.SUSPICIOUS_SUBSTANCE, Item::new, new Item.Properties());
 	// #endregion suspicious_substance
 
+	// #region quark_gluon_plasma
+	public static final Item QUARK_GLUON_PLASMA = register(
+			ModItemIds.QUARK_GLUON_PLASMA,
+			Item::new,
+			new Item.Properties()
+	);
+	// #endregion quark_gluon_plasma
+
+	// #region bone_marrow
+	public static final Item BONE_MARROW = register(
+			ModItemIds.BONE_MARROW,
+			Item::new,
+			new Item.Properties()
+	);
+	// #endregion bone_marrow
+
 	// #region custom_entity_spawn_egg
 	public static final Item MINI_GOLEM_SPAWN_EGG = register(
 			ModItemIds.MINI_GOLEM_SPAWN_EGG,
@@ -274,8 +309,16 @@ public class ModItems {
 
 		// #region add_guidite_sword_to_create_tab
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
-				.register((creativeTab) -> creativeTab.accept(ModItems.GUIDITE_SWORD));
+				.register((creativeTab) -> {
+					creativeTab.accept(ModItems.GUIDITE_SWORD);
+					creativeTab.accept(ModItems.GUIDITE_AXE);
+				});
 		// #endregion add_guidite_sword_to_create_tab
+
+		// #region add_guidite_shield_to_create_tab
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT)
+				.register((creativeTab) -> creativeTab.accept(ModItems.GUIDITE_SHIELD));
+		// #endregion add_guidite_shield_to_create_tab
 
 		// #region register_creative_tab
 		// Register the group.
@@ -298,19 +341,31 @@ public class ModItems {
 			creativeTab.accept(ModItems.THROWING_KNIVES);
 		});
 
+		// #region glucon_to_creative_tab
+		CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY).register(creativeTab -> {
+			creativeTab.accept(ModItems.QUARK_GLUON_PLASMA);
+		});
+		// #endregion glucon_to_creative_tab
+
+		// #region bone_marrow_in_creative_tab
+		CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY).register(creativeTab -> {
+			creativeTab.accept(ModItems.BONE_MARROW);
+		});
+		// #endregion bone_marrow_in_creative_tab
+
 		// #region compostable_item
-		// Add the suspicious substance to the composting registry with a 30% chance of increasing the composter's level.
-		CompostableRegistry.INSTANCE.add(ModItems.SUSPICIOUS_SUBSTANCE, 0.3f);
+		// Add the bone marrow to the composting registry with a 100% chance of increasing the composter's level.
+		CompostableRegistry.INSTANCE.add(ModItems.BONE_MARROW, 1.0f);
 		// #endregion compostable_item
 
 		// #region fuel_item
-		// Add the suspicious substance to the registry of fuels, with a burn time of 30 seconds.
 		// Remember, Minecraft deals with logical based-time using ticks.
 		// 20 ticks = 1 second.
 		FuelValueEvents.BUILD.register((builder, context) -> {
-			builder.add(ModItems.SUSPICIOUS_SUBSTANCE, 30 * 20);
+			builder.add(ModItems.QUARK_GLUON_PLASMA, 120 * 20);
 		});
 		// #endregion fuel_item
+
 		// #region initialize
 	}
 	// #endregion initialize
