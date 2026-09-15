@@ -103,7 +103,7 @@ The event provides the server's `ResourceManager` and the complete loot table re
 
 ::: info
 
-This event is not normally used to add drops during loot generation. For changing a table, use `MODIFY` or `REPLACE`. For changing generated item stacks, use `MODIFY_DROPS`.
+This event is not used to add drops during loot generation. For changing a table, use [`MODIFY`](#modifying-loot-tables) or [`REPLACE`](#replacing-loot-tables). For changing generated item stacks, use [`MODIFY_DROPS`](#modifying-loot-table-drops).
 
 :::
 
