@@ -191,6 +191,20 @@ export default [
     ],
   },
   {
+    text: "develop.events",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.events.introduction",
+        link: "/develop/events/",
+      },
+      {
+        text: "develop.events.loot_tables",
+        link: "/develop/events/loot-tables",
+      },
+    ],
+  },
+  {
     text: "develop.sounds",
     collapsed: true,
     items: [
@@ -489,10 +503,6 @@ export default [
       {
         text: "develop.misc.debugging",
         link: "/develop/debugging",
-      },
-      {
-        text: "develop.misc.events",
-        link: "/develop/events",
       },
       {
         text: "develop.misc.game_rules",
