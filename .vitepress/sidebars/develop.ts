@@ -199,8 +199,8 @@ export default [
         link: "/develop/events/",
       },
       {
-        text: "develop.events.loot_table_modifications",
-        link: "/develop/events/loot-table-modifications",
+        text: "develop.events.loot_tables",
+        link: "/develop/events/loot-tables",
       },
     ],
   },
