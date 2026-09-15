@@ -97,7 +97,7 @@ Effects of the above example:
 
 ### Loot Table Post-Processing {#loot-table-post-processing}
 
-Use `LootTableEvents.ALL_LOADED` for work that should happen after every loot table has been loaded and after the `REPLACE` and `MODIFY` events have run.
+Use `LootTableEvents.ALL_LOADED` for work that should happen after every loot table has been loaded, and after the `REPLACE` and `MODIFY` events have triggered.
 
 The event provides the server's `ResourceManager` and the complete loot table registry. This makes it suitable for inspecting loaded tables, validating them, collecting information, or performing additional setup that depends on all tables being available.
 
