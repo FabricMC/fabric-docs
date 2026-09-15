@@ -46,9 +46,10 @@ public class ExampleMod implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		// #endregion entrypoint
 
+		@SuppressWarnings("unused")
 		// #region id_helper_usage
-		Identifier id = ExampleMod.id("my-path");
-		// #endregion id_lper_usage
+		Identifier id = ExampleMod.id("my_path");
+		// #endregion id_helper_usage
 
 		// #region particle_register_main
 		// Register our custom particle type in the mod initializer.
