@@ -1,7 +1,6 @@
 package com.example.docs.fluid;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.material.Fluid;
 
@@ -14,7 +13,7 @@ public class ModFluidIds {
 
 	public static ResourceKey<Fluid> create(String name) {
 		// Create the fluid key.
-		return ResourceKey.create(Registries.FLUID, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+		return ResourceKey.create(Registries.FLUID, ExampleMod.id(name));
 	}
 }
 // #endregion register

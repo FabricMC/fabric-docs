@@ -6,7 +6,6 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -28,14 +27,14 @@ public class ExampleModWorldPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> DIAMOND_BLOCK_ORE_PLACED_KEY =
 			ResourceKey.create(
 				Registries.PLACED_FEATURE,
-				Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_block_ore_placed")
+				ExampleMod.id("diamond_block_ore_placed")
 			);
 	// #endregion datagen_world_placed_key
 
 	public static final ResourceKey<PlacedFeature> DIAMOND_TREE_PLACED_KEY =
 			ResourceKey.create(
 				Registries.PLACED_FEATURE,
-							Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_tree_placed")
+							ExampleMod.id("diamond_tree_placed")
 			);
 
 	// #region datagen_world_placed_features_class

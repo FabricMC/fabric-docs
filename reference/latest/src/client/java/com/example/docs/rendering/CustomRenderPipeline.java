@@ -22,7 +22,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.StagedVertexBuffer;
 import net.minecraft.client.renderer.rendertype.RenderType;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.phys.Vec3;
 
 import net.fabricmc.api.ClientModInitializer;
@@ -36,7 +35,7 @@ import com.example.docs.ExampleMod;
 public class CustomRenderPipeline implements ClientModInitializer {
 	// #region custom_pipelines_define_pipeline
 	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.DEBUG_FILLED_SNIPPET)
-			.withLocation(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "pipeline/debug_filled_box_through_walls"))
+			.withLocation(ExampleMod.id("pipeline/debug_filled_box_through_walls"))
 			.withDepthStencilState(Optional.empty())
 			.build()
 	);

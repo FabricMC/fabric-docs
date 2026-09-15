@@ -71,7 +71,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				// "got_dirt" is the name referenced by other advancements when they want to have "requirements."
 				.addCriterion("got_dirt", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIRT))
 				// Give the advancement an id
-				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "get_dirt"));
+				.save(consumer, ExampleMod.id("get_dirt"));
 		// #endregion datagen_advancements_simple_advancement
 		final HolderLookup.RegistryLookup<Item> itemLookup = wrapperLookup.lookupOrThrow(Registries.ITEM);
 		// #region multiple_criteria
@@ -91,7 +91,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						true,
 						false
 				)
-				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "apple_and_beef"));
+				.save(consumer, ExampleMod.id("apple_and_beef"));
 		// #region requirements_strategy
 		Advancement.Builder.advancement()
 				.addCriterion("brew_mundane", CriteriaTriggers.BREWED_POTION.createCriterion(
@@ -114,7 +114,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false,
 						false
 				)
-				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "brewing_fail"));
+				.save(consumer, ExampleMod.id("brewing_fail"));
 		// #region experience_reward
 		Advancement.Builder.advancement()
 				.rewards(AdvancementRewards.Builder.experience(10))
@@ -132,7 +132,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false
 				)
 				.addCriterion("get_gold", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_BLOCK))
-				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "collect_gold"));
+				.save(consumer, ExampleMod.id("collect_gold"));
 
 		// #region reward_types
 		Advancement.Builder.advancement()
@@ -143,7 +143,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 								// Make recipes available in the recipe book
 								.addRecipe(RecipeBuilder.getDefaultRecipeId(new ItemStackTemplate(Items.BEACON)))
 								// Run a .mcfunction - https://minecraft.wiki/w/Function_(Java_Edition)
-								.runs(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "got_nether_star"))
+								.runs(ExampleMod.id("got_nether_star"))
 								// Give experience points
 								.addExperience(200)
 				)
@@ -161,7 +161,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false
 				)
 				.addCriterion("get_star", InventoryChangeTrigger.TriggerInstance.hasItems(Items.NETHER_STAR))
-				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "collect_nether_star"));
+				.save(consumer, ExampleMod.id("collect_nether_star"));
 
 		// #region datagen_advancements_custom_criteria_advancement
 		AdvancementHolder breakBlockWithTool = Advancement.Builder.advancement()
@@ -177,7 +177,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false
 				)
 				.addCriterion("break_block_with_tool", ModCriteria.USE_TOOL.createCriterion(new UseToolCriterion.Conditions(Optional.empty())))
-				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "break_block_with_tool"));
+				.save(consumer, ExampleMod.id("break_block_with_tool"));
 		// #endregion datagen_advancements_custom_criteria_advancement
 		// #region datagen_advancements_new_custom_criteria_advancement
 		AdvancementHolder breakBlockWithToolFiveTimes = Advancement.Builder.advancement()
@@ -193,7 +193,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false
 				)
 				.addCriterion("break_block_with_tool_five_times", ModCriteria.PARAMETERIZED_USE_TOOL.createCriterion(new ParameterizedUseToolCriterion.Conditions(Optional.empty(), 5)))
-				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "break_block_with_tool_five_times"));
+				.save(consumer, ExampleMod.id("break_block_with_tool_five_times"));
 		// #endregion datagen_advancements_new_custom_criteria_advancement
 		// #region reference_parent
 		Advancement.Builder.advancement()
@@ -211,7 +211,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false
 				)
 				.addCriterion("place_dirt", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(Blocks.DIRT))
-				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "create_dirt_shack"));
+				.save(consumer, ExampleMod.id("create_dirt_shack"));
 		final HolderLookup<Enchantment> enchantmentsLookup = wrapperLookup.lookupOrThrow(Registries.ENCHANTMENT);
 		// #region placeholder_parent
 		Advancement.Builder.advancement()
@@ -245,7 +245,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 								MinMaxBounds.Ints.ANY
 						))
 				)
-				.save(consumer, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "get_thundering_enchantment"));
+				.save(consumer, ExampleMod.id("get_thundering_enchantment"));
 
 		// #region datagen_advancements_conditions
 		Advancement.Builder.advancement()
@@ -258,7 +258,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						false, false, false)
 				.addCriterion("place_block", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(ModBlocks.DUPLICATOR_BLOCK))
 				.save(withConditions(consumer,
-								ResourceConditions.featuresEnabled(FeatureFlags.REDSTONE_EXPERIMENTS)), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "experimental_duplication"));
+								ResourceConditions.featuresEnabled(FeatureFlags.REDSTONE_EXPERIMENTS)), ExampleMod.id("experimental_duplication"));
 		// #endregion datagen_advancements_conditions
 		// #region datagen_advancements_provider_start
 	}

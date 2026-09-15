@@ -1,7 +1,6 @@
 package com.example.docs.item;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 
@@ -78,7 +77,7 @@ public class ModItemIds {
 	// #region mod_item_ids_class
 	public static ResourceKey<Item> create(String name) {
 		// Create the item key.
-		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+		return ResourceKey.create(Registries.ITEM, ExampleMod.id(name));
 	}
 }
 // #endregion mod_item_ids_class

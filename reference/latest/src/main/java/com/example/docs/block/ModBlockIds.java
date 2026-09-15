@@ -19,7 +19,7 @@ public class ModBlockIds {
 
 	// #region first_block
 	private static ResourceKey<Block> create(String name) {
-		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
+		Identifier id = ExampleMod.id(name);
 		return ResourceKey.create(Registries.BLOCK, id);
 	}
 	// #endregion first_block

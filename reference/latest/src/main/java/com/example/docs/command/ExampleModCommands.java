@@ -13,7 +13,6 @@ import net.minecraft.commands.synchronization.SuggestionProviders;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.server.permissions.Permissions;
 
 import net.fabricmc.api.ModInitializer;
@@ -123,7 +122,7 @@ public class ExampleModCommands implements ModInitializer {
 	public void onInitialize() {
 		// #region register_custom_arg
 		ArgumentTypeRegistry.registerArgumentType(
-				Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block_pos"),
+				ExampleMod.id("block_pos"),
 				BlockPosArgumentType.class,
 				SingletonArgumentInfo.contextFree(BlockPosArgumentType::new)
 		);

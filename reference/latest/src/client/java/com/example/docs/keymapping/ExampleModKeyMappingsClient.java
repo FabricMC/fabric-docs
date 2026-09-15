@@ -7,7 +7,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -20,7 +19,7 @@ import com.example.docs.ExampleMod;
 public class ExampleModKeyMappingsClient implements ClientModInitializer {
 	// #region category
 	KeyMapping.Category CATEGORY = KeyMapping.Category.register(
-			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "custom_category")
+			ExampleMod.id("custom_category")
 	);
 	// #endregion category
 

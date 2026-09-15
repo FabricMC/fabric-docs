@@ -13,7 +13,7 @@ public enum TransitionState {
 	private final Identifier identifier;
 
 	TransitionState(String name) {
-		this.identifier = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
+		this.identifier = ExampleMod.id(name);
 	}
 
 	public Identifier getIdentifier() {

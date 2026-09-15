@@ -3,7 +3,6 @@ package com.example.docs.datagen;
 import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.resources.Identifier;
 import net.minecraft.util.Util;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
@@ -49,7 +48,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.BONE_MARROW, "Bone Marrow");
 		translationBuilder.add(ModItems.HOT_TATER, "Hot Tater");
 
-		translationBuilder.add(Util.makeDescriptionId("effect", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater")), "Tater");
+		translationBuilder.add(Util.makeDescriptionId("effect", ExampleMod.id("tater")), "Tater");
 
 		// You can alternatively use the translationBuilder.add(Path.of("../existing/language/file.json"));
 		// to add translations from an existing language file instead of manually defining them all.
@@ -91,12 +90,12 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 
 		// #region gamerule_description
 		translationBuilder.add(
-						Util.makeDescriptionId("gamerule", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision")),
+						Util.makeDescriptionId("gamerule", ExampleMod.id("bad_vision")),
 						"Gives every player the blindness effect" // A short description of the game rule
 		);
 		// #endregion gamerule_description
 		// #region gamerule_name
-		translationBuilder.add(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision"), "Bad Vision");
+		translationBuilder.add(ExampleMod.id("bad_vision"), "Bad Vision");
 		// #endregion gamerule_name
 		// #region datagen_translations_provider
 	}

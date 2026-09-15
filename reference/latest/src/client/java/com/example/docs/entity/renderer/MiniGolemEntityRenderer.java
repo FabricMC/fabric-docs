@@ -12,7 +12,7 @@ import com.example.docs.entity.state.MiniGolemEntityRenderState;
 
 // #region renderer
 public class MiniGolemEntityRenderer extends MobRenderer<MiniGolemEntity, MiniGolemEntityRenderState, MiniGolemEntityModel> {
-	private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "textures/entity/mini_golem.png");
+	private static final Identifier TEXTURE = ExampleMod.id("textures/entity/mini_golem.png");
 
 	public MiniGolemEntityRenderer(EntityRendererProvider.Context context) {
 		super(context, new MiniGolemEntityModel(context.bakeLayer(ModEntityModelLayers.MINI_GOLEM)), 0.375f); // 0.375 shadow radius

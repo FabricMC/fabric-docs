@@ -1,7 +1,6 @@
 package com.example.docs.dynamic_registries;
 
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 
@@ -9,7 +8,7 @@ import com.example.docs.ExampleMod;
 
 public class ExampleModTags {
 	// #region tag
-	public static final TagKey<MagicSkillsRegistryEntry> ATTACKING_SKILLS_TAG_KEY = TagKey.create(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "attacking_skills"));
+	public static final TagKey<MagicSkillsRegistryEntry> ATTACKING_SKILLS_TAG_KEY = TagKey.create(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY, ExampleMod.id("attacking_skills"));
 
 	public static <T> boolean isPresentInMyTag(RegistryAccess registryAccess, ResourceKey<T> entryId, TagKey<T> tagKey) {
 		return registryAccess.get(entryId).map(reference -> reference.is(tagKey)).orElse(false);

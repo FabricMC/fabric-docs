@@ -27,7 +27,7 @@ This is the basic template to register a component type:
 ```java
 public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     BuiltInRegistries.DATA_COMPONENT_TYPE,
-    Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
+    ExampleMod.id("my_component"),
     DataComponentType.<?>builder().persistent(null).networkSynchronized(null).build()
 );
 ```

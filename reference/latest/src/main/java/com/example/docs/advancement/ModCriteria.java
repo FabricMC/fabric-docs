@@ -3,7 +3,6 @@ package com.example.docs.advancement;
 import net.minecraft.advancements.triggers.CriterionTrigger;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.Identifier;
 
 import com.example.docs.ExampleMod;
 
@@ -18,7 +17,7 @@ public class ModCriteria {
 
 	// #region datagen_advancements_mod_criteria
 	private static <T extends CriterionTrigger<?>> T register(final String name, final T criterion) {
-		return Registry.register(BuiltInRegistries.TRIGGER_TYPES, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name), criterion);
+		return Registry.register(BuiltInRegistries.TRIGGER_TYPES, ExampleMod.id(name), criterion);
 	}
 	// #endregion datagen_advancements_mod_criteria
 

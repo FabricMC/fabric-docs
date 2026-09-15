@@ -49,7 +49,7 @@ public class ExampleModDamageTypesProvider {
 			damageTypeObject.addProperty("message_id", TATER_DAMAGE_TYPE.msgId());
 			damageTypeObject.addProperty("scaling", TATER_DAMAGE_TYPE.scaling().getSerializedName());
 
-			return DataProvider.saveStable(writer, damageTypeObject, this.path.json(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater")));
+			return DataProvider.saveStable(writer, damageTypeObject, this.path.json(ExampleMod.id("tater")));
 		}
 
 		@Override

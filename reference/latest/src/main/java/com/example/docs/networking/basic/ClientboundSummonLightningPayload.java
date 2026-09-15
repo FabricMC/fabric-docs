@@ -12,7 +12,7 @@ import com.example.docs.ExampleMod;
 // #region summon_lightning_payload
 public record ClientboundSummonLightningPayload(BlockPos pos, int id) implements CustomPacketPayload {
 	// #region identifier
-	public static final Identifier SUMMON_LIGHTNING_PAYLOAD_ID = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "summon_lightning");
+	public static final Identifier SUMMON_LIGHTNING_PAYLOAD_ID = ExampleMod.id("summon_lightning");
 	// #endregion identifier
 
 	// #region payload_type

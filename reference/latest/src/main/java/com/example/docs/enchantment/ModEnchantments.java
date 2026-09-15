@@ -15,7 +15,7 @@ public class ModEnchantments {
 
 	// #region key_helper
 	private static ResourceKey<Enchantment> key(String path) {
-		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, path);
+		Identifier id = ExampleMod.id(path);
 		return ResourceKey.create(Registries.ENCHANTMENT, id);
 	}
 	// #endregion key_helper

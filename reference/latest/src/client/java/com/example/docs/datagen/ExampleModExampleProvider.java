@@ -12,7 +12,6 @@ import com.mojang.serialization.JsonOps;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.Identifier;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 
@@ -58,7 +57,7 @@ public abstract class ExampleModExampleProvider implements DataProvider {
 										DataProvider.saveStable(
 														cache,
 														x.getValue(),
-														paths.json(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, x.getKey()))
+														paths.json(ExampleMod.id(x.getKey()))
 										))
 										.toArray(CompletableFuture[]::new)
 		);

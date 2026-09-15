@@ -6,7 +6,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
 
@@ -17,15 +16,15 @@ import com.example.docs.ExampleMod;
 // #region main
 public class ExampleModRegistries {
 	public static final ResourceKey<Registry<MagicSkillsRegistryEntry>> MAGIC_SKILLS_REGISTRY_KEY =
-					ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_skills_registry"));
+					ResourceKey.createRegistryKey(ExampleMod.id("magic_skills_registry"));
 
 	// #endregion main
 	public static final ResourceKey<Registry<MagicSkillsRegistryEntry>> MAGIC_SKILLS_SYNCED_REGISTRY_KEY =
-					ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_skills_synced_registry"));
+					ResourceKey.createRegistryKey(ExampleMod.id("magic_skills_synced_registry"));
 	public static final ResourceKey<Registry<MagicSkillsRegistryEntry>> MAGIC_SKILLS_DOUBLE_CODEC_REGISTRY_KEY =
-					ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_skills_double_codec_registry"));
+					ResourceKey.createRegistryKey(ExampleMod.id("magic_skills_double_codec_registry"));
 	public static final ResourceKey<Registry<MagicSkillsRegistryEntry>> MAGIC_SKILLS_WITH_OPTION_REGISTRY_KEY =
-					ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "magic_skills_with_option_registry"));
+					ResourceKey.createRegistryKey(ExampleMod.id("magic_skills_with_option_registry"));
 
 	// #region main
 	public static void initialize() {
@@ -57,7 +56,7 @@ public class ExampleModRegistries {
 
 		// #region get_specific_registry_entry
 		// #region entry_id
-		ResourceKey<MagicSkillsRegistryEntry> HEALING_SKILL_ENTRY_ID = ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_skill"));
+		ResourceKey<MagicSkillsRegistryEntry> HEALING_SKILL_ENTRY_ID = ResourceKey.create(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY, ExampleMod.id("healing_skill"));
 		// #endregion entry_id
 		Optional<Holder.Reference<MagicSkillsRegistryEntry>> entry = registryAccess.get(HEALING_SKILL_ENTRY_ID);
 		entry.ifPresent(magicSkillRef -> {

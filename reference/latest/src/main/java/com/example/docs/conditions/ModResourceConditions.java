@@ -2,8 +2,6 @@ package com.example.docs.conditions;
 
 import com.mojang.serialization.MapCodec;
 
-import net.minecraft.resources.Identifier;
-
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditionType;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
@@ -21,7 +19,7 @@ public class ModResourceConditions {
 
 	// #region create
 	private static <T extends ResourceCondition> ResourceConditionType<T> createResourceConditionType(String name, MapCodec<T> codec) {
-		return ResourceConditionType.create(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name), codec);
+		return ResourceConditionType.create(ExampleMod.id(name), codec);
 	}
 	// #endregion create
 
