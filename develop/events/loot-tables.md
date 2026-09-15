@@ -35,7 +35,7 @@ This is usually the best choice for adding items to vanilla or data-pack tables,
 
 Use `MODIFY` when the original loot table should remain mostly intact.
 
-For example, let's use the `MODIFY` event to make killing a white sheep with a diamond sword drop a diamond by using the `LootItemEntityPropertyCondition` [predicate](#predicates-predicates).
+For example, let's use the `MODIFY` event to make killing a white sheep with a diamond sword drop a diamond by using the `LootItemEntityPropertyCondition` [predicate](#predicates).
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_table_modify_event
 
