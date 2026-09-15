@@ -96,7 +96,7 @@ Es ist einfacher, anhand eines praktischen Beispiels zu erklären, wie man in de
 
 Wir werden Eckpinkt an den folgenden Punkten auf dem HUD zeichnen (in dieser Reihenfolge):
 
-```txt
+```text
 (20, 20)
 (5, 40)
 (35, 40)

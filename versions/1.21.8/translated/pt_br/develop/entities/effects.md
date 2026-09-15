@@ -36,7 +36,7 @@ Similar a registração de blocos e itens, usamos `Registry.register` para regis
 
 Estenda `MobEffect` Traduções e Texturas Você pode atribuir um nome ao seu efeito e providenciar uma textura de ícone que aparecerá na tela de inventário do jogador. O ícone de textura é um PNG de 18x18. Coloque seu ícone personalizado em:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 

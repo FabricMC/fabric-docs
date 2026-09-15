@@ -23,15 +23,15 @@ Le segnalazioni di crash possono essere trovate nelle seguenti posizioni:
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\crash-reports
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/crash-reports
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/crash-reports
 ```
 
@@ -62,7 +62,7 @@ Lo stack trace nella sezione `---- Minecraft Crash Report ----` è il più impor
 
 Con la quantità di mod menzionata nello stack trace, può essere difficile puntare il dito, ma la prima cosa da fare è cercare la mod che ha causato il crash.
 
-```:no-line-numbers
+```text:no-line-numbers
 at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
 at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
 ...
@@ -85,7 +85,7 @@ Quando un mixin causa un crash, esso menzionerà solitamente il mixin nello stac
 
 I metodi mixin conterranno `mod-id$handlerName` nello stack trace, mentre `mod-id` è l'ID della mod, e `handlerName` è il nome del gestore del mixin.
 
-```:no-line-numbers
+```text:no-line-numbers
 ... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 

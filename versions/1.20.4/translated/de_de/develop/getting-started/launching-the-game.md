@@ -54,7 +54,7 @@ Für den nächsten Schritt musst du den "Absolute Path" (Absoluten Pfad) der JAR
 
 Füge in deiner "Minecraft Client"- und/oder "Minecraft Server"-Ausführungskonfiguration Folgendes zur Option VM-Argumente hinzu:
 
-```:no-line-numbers
+```text:no-line-numbers
 -javaagent:"Pfad zur Mixin-Bibliothek JAR hier"
 ```
 

@@ -31,24 +31,24 @@ const text = computed(() =>
 <style scoped>
 div {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   gap: 8px;
+  align-items: center;
+  justify-content: center;
 }
 
 img {
   pointer-events: none;
+  z-index: 0;
   max-width: 100%;
   max-height: 300px;
-  z-index: 0;
 }
 
 a {
   text-decoration: none;
-}
 
-a:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 </style>

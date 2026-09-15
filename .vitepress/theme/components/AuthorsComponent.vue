@@ -55,33 +55,34 @@ h2 {
   margin-top: 20px;
   padding-top: 16px;
   border-top: 1px solid var(--vp-c-divider);
+
   font-size: 12px;
   font-weight: bold;
   color: var(--vp-c-text-2);
-  letter-spacing: 0.06em;
   text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 div {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-top: 8px;
+  flex-flow: row wrap;
   gap: 8px;
+  align-items: center;
+
+  margin-top: 8px;
 
   a {
     transition: filter 0.2s ease-in-out;
-  }
 
-  a:hover {
-    filter: brightness(120%);
+    &:hover {
+      filter: brightness(120%);
+    }
   }
 
   img {
-    border-radius: 50%;
     width: 32px;
     height: 32px;
+    border-radius: 50%;
   }
 }
 
@@ -95,7 +96,7 @@ div {
   }
 }
 
-@media (min-width: 1280px) {
+@media (width >= 1280px) {
   .content-container > div {
     display: none;
   }

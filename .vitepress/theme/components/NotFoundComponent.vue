@@ -263,7 +263,7 @@ const TEXTURE = [
       <br />
       <VPLink
         v-if="data.localeIndex.value !== 'root'"
-        :href="(data.theme.value as Fabric.ThemeConfig).editLink!.pattern as string"
+        :href="String((data.theme.value as Fabric.ThemeConfig).editLink!.pattern)"
         :aria-label="options.crowdinLinkLabel"
       >
         {{ options.crowdinLinkText }}
@@ -274,72 +274,77 @@ const TEXTURE = [
 
 <style scoped>
 .not-found {
-  padding: 64px 24px 96px;
-  text-align: center;
   position: relative;
   overflow: hidden;
-}
+  padding: 64px 24px 96px;
+  text-align: center;
 
-@media (min-width: 768px) {
-  .not-found {
+  @media (width >= 768px) {
     padding: 96px 32px 168px;
   }
 }
 
 .yarn {
+  pointer-events: none;
+
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
+
+  overflow: visible;
+
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  overflow: visible;
 }
 
 code {
-  line-height: 64px;
   font-size: 64px;
   font-weight: 600;
+  line-height: 64px;
 }
 
 h1 {
-  padding: 12px 0px;
-  letter-spacing: 2px;
-  line-height: 20px;
+  padding: 12px 0;
+
   font-size: 20px;
-  font-weight: 700;
+  font-weight: bold;
+  line-height: 20px;
+  letter-spacing: 2px;
 }
 
 blockquote {
-  margin: 0 auto;
   max-width: 512px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+
   font-size: 14px;
   font-weight: 500;
   color: var(--vp-c-text-2);
-  padding-bottom: 20px;
 }
 
 .VPLink {
-  margin: 8px;
   display: inline-block;
+
+  margin: 8px;
+  padding: 3px 16px;
   border: 1px solid var(--vp-c-brand-1);
   border-radius: 16px;
-  padding: 3px 16px;
+
   font-size: 14px;
   font-weight: 500;
-}
 
-.VPLink,
-.VPLink::after {
-  color: var(--vp-c-brand-1) !important;
-  transition:
-    border-color 0.25s,
-    color 0.25s;
-}
+  &,
+  &.vp-external-link-icon:not(.no-icon)::after {
+    color: var(--vp-c-brand-1);
+    transition:
+      border-color 0.25s,
+      color 0.25s;
+  }
 
-.VPLink:hover,
-.VPLink:hover::after {
-  border-color: var(--vp-c-brand-2);
-  color: var(--vp-c-brand-2) !important;
+  &:hover,
+  &.vp-external-link-icon:not(.no-icon):hover::after {
+    border-color: var(--vp-c-brand-2);
+    color: var(--vp-c-brand-2);
+  }
 }
 </style>

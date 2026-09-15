@@ -37,7 +37,7 @@ Lasst uns eine benutzerdefinierte Effektklasse erstellen, indem wir `MobEffect` 
 
 Das Statuseffekt-Symbol ist ein 18x18 PNG. Platziere dein eigenes Icon in:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 

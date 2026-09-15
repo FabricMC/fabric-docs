@@ -13,7 +13,7 @@ Os tipos de dano definem os tipos de dano que as entidades podem sofrer. A parti
 
 Vamos criar um tipo de dano customizado chamado _Tater_. Começaremos criando um arquivo JSON para seu dano. Este arquivo será colocado na pasta `data` do seu mod, em uma subpasta chamada `damage_type`.
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/data/fabric-docs-reference/damage_type/tater.json
 ```
 
@@ -83,7 +83,7 @@ Vamos adicionar nosso dano Tater para a tag `bypasses_armor` (ignora armadura).
 
 Para adicionar nosso dano a uma dessas tags, criamos um arquivo JSON sob o namespace de `minecraft`.
 
-```:no-line-numbers
+```text:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
 ```
 

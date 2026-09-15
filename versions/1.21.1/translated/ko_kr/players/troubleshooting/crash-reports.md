@@ -21,15 +21,15 @@ authors:
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\crash-reports
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/crash-reports
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/crash-reports
 ```
 
@@ -80,7 +80,7 @@ Mixin이 충돌하면, 스택트레이스에는 충돌한 Mixin과 그 Mixin이 
 
 메소드 Mixin은 스택트레이스에 `mod-id$handlerName`로 기록되는데, `mod-id`는 모드의 ID, `handlerName`은 Mixin 처리기의 이름입니다.
 
-```:no-line-numbers
+```text:no-line-numbers
 ... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 

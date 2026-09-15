@@ -70,7 +70,7 @@ migrateMappings --mappings "net.minecraft:mappings:1.21.10" --overrideInputsIHav
 
 If you are coming from Yarn, you can now replace your mappings in your `build.gradle`'s dependencies section with Mojang Mappings.
 
-```groovy
+```gradle
 dependencies {
     [...]
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2" // [!code --]
@@ -142,7 +142,7 @@ yarn_mappings=1.21.10+build.2
 
 **`build.gradle`**
 
-```groovy
+```gradle
 dependencies {
     [...]
     mappings loom.officialMojangMappings() // [!code --]

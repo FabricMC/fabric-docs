@@ -39,7 +39,7 @@ authors-nogithub:
 
 Значок статусного ефекту — це PNG розміром 18x18, який з’явиться на екрані інвентарю гравця. Розмістіть ваш значок у:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 
