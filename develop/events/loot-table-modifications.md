@@ -74,9 +74,7 @@ Effects of the above example:
 
 ### Modifying Loot Table Drops {#modifying-loot-table-drops}
 
-`LootTableEvents.MODIFY_DROPS` runs after the loot tables have been built and after loot has been generated during runtime.
-
-This event is useful when:
+`LootTableEvents.MODIFY_DROPS` doesn't run until the loot has been generated at runtime. This event is useful when:
 
 - The number of loot tables is unknown or numerous.
 - The same rules should apply to many loot tables.
