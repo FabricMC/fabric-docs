@@ -1,0 +1,6 @@
+{
+  "parent": "example-mod:item/scaled2x",
+  "textures": {
+    "layer0": "example-mod:item/balloon"
+  }
+}

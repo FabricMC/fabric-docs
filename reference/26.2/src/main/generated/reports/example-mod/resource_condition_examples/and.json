@@ -1,0 +1,18 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:and",
+      "values": [
+        {
+          "condition": "fabric:true"
+        },
+        {
+          "condition": "fabric:not",
+          "value": {
+            "condition": "fabric:true"
+          }
+        }
+      ]
+    }
+  ]
+}

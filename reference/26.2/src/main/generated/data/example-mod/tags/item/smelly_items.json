@@ -1,0 +1,13 @@
+{
+  "replace": true,
+  "values": [
+    "minecraft:slime_ball",
+    "minecraft:rotten_flesh",
+    {
+      "id": "#minecraft:dirt",
+      "required": false
+    },
+    "minecraft:oak_planks",
+    "#minecraft:banners"
+  ]
+}

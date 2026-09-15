@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 300,
+  "experience": 0.1,
+  "group": "glass_bottle_to_glass",
+  "ingredient": "minecraft:glass_bottle",
+  "result": {
+    "id": "minecraft:glass"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "variants": {
+    "facing=east,single=false": {
+      "model": "minecraft:block/oak_log",
+      "uvlock": true
+    },
+    "facing=east,single=true": {
+      "model": "example-mod:block/vertical_oak_log_slab",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north,single=false": {
+      "model": "minecraft:block/oak_log",
+      "uvlock": true
+    },
+    "facing=north,single=true": {
+      "model": "example-mod:block/vertical_oak_log_slab",
+      "uvlock": true
+    },
+    "facing=south,single=false": {
+      "model": "minecraft:block/oak_log",
+      "uvlock": true
+    },
+    "facing=south,single=true": {
+      "model": "example-mod:block/vertical_oak_log_slab",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=west,single=false": {
+      "model": "minecraft:block/oak_log",
+      "uvlock": true
+    },
+    "facing=west,single=true": {
+      "model": "example-mod:block/vertical_oak_log_slab",
+      "uvlock": true,
+      "y": 270
+    }
+  }
+}

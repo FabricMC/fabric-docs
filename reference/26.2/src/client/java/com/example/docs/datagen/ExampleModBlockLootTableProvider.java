@@ -1,0 +1,48 @@
+package com.example.docs.datagen;
+
+import java.util.concurrent.CompletableFuture;
+
+import net.minecraft.core.HolderLookup;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
+
+import com.example.docs.block.ModBlocks;
+
+// #region datagen_loot_tables_block_provider
+public class ExampleModBlockLootTableProvider extends FabricBlockLootSubProvider {
+	protected ExampleModBlockLootTableProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+		super(dataOutput, registryLookup);
+	}
+
+	@Override
+	public void generate() {
+		// #endregion datagen_loot_tables_block_provider
+		// #region datagen_loot_tables_block_drops
+		// Make condensed dirt drop its block item.
+		// Also adds the condition that it survives the explosion that broke it, if applicable,
+		dropSelf(ModBlocks.CONDENSED_DIRT);
+		// Make prismarine lamps drop themselves with silk touch only
+		dropWhenSilkTouch(ModBlocks.PRISMARINE_LAMP);
+		// Make condensed oak logs drop between 7 and 9 oak logs
+		add(ModBlocks.CONDENSED_OAK_LOG, LootTable.lootTable().withPool(applyExplosionCondition(Items.OAK_LOG, LootPool.lootPool()
+				.setRolls(new UniformGenerator(new ConstantValue(7), new ConstantValue(9)))
+				.add(LootItem.lootTableItem(Items.OAK_LOG))))
+		);
+		// #endregion datagen_loot_tables_block_drops
+		// #region datagen_loot_tables_conditions
+		// Make the duplicator never drop via resource conditions
+		withConditions(ResourceConditions.not(ResourceConditions.alwaysTrue()))
+				.dropSelf(ModBlocks.DUPLICATOR_BLOCK);
+		// #endregion datagen_loot_tables_conditions
+		// #region datagen_loot_tables_block_provider
+	}
+}
+// #endregion datagen_loot_tables_block_provider

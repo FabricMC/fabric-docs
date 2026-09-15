@@ -1,0 +1,24 @@
+package com.example.docs.enchantment;
+
+import com.mojang.serialization.MapCodec;
+
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
+
+import com.example.docs.ExampleMod;
+import com.example.docs.enchantment.effect.LightningEnchantmentEffect;
+
+// #region entrypoint
+public class ModEnchantmentEffects {
+	public static MapCodec<LightningEnchantmentEffect> LIGHTNING_EFFECT = register("lightning_effect", LightningEnchantmentEffect.CODEC);
+
+	private static <T extends EnchantmentEntityEffect> MapCodec<T> register(String id, MapCodec<T> codec) {
+		return Registry.register(BuiltInRegistries.ENCHANTMENT_ENTITY_EFFECT_TYPE, ExampleMod.id(id), codec);
+	}
+
+	public static void registerModEnchantmentEffects() {
+		ExampleMod.LOGGER.info("Registering EnchantmentEffects for" + ExampleMod.MOD_ID);
+	}
+}
+// #endregion entrypoint
