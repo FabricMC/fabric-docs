@@ -173,7 +173,7 @@ export const getLocales = () => {
           },
           {
             text: resolver("nav.contribute"),
-            link: `${locale === "en_us" ? "" : `/${locale}`}/contributing`,
+            link: locale === "en_us" ? "/contributing" : `/${locale}/translations`,
           },
           {
             text: resolver("nav.repo"),
