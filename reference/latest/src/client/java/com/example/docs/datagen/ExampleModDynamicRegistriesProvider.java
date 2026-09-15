@@ -8,7 +8,6 @@ import org.jspecify.annotations.NonNull;
 import net.minecraft.commands.CacheableFunction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.Identifier;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
@@ -39,7 +38,7 @@ public class ExampleModDynamicRegistriesProvider extends FabricDynamicRegistryPr
 				new MagicSkillsRegistryEntry(
 						"Healing Skill",
 						4785,
-						Optional.of(new CacheableFunction(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "healing_skill_function")))
+						Optional.of(new CacheableFunction(ExampleMod.id("healing_skill_function")))
 				)
 		);
 		context.register(

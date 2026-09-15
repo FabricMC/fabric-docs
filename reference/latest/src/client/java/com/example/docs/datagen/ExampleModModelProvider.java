@@ -193,8 +193,8 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 		// Client Item
 		GuiditeShieldSpecialRenderer.Unbaked specialRenderer = new GuiditeShieldSpecialRenderer.Unbaked(
-						Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite_shield_base"),
-						Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "guidite_shield_base_nopattern")
+						ExampleMod.id("guidite_shield_base"),
+						ExampleMod.id("guidite_shield_base_nopattern")
 		);
 		itemModelGenerator.itemModelOutput.accept(ModItems.GUIDITE_SHIELD, ItemModelUtils.conditional(GuiditeShieldSpecialRenderer.DEFAULT_TRANSFORMATION, ItemModelUtils.isUsingItem(),
 						ItemModelUtils.specialModel(modelLocation.withSuffix("_blocking"), specialRenderer),
