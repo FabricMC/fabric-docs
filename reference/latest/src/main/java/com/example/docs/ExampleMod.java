@@ -46,6 +46,10 @@ public class ExampleMod implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		// #endregion entrypoint
 
+		// #region id_helper_usage
+		Identifier id = ExampleMod.id("my-path");
+		// #endregion id_lper_usage
+
 		// #region particle_register_main
 		// Register our custom particle type in the mod initializer.
 		Registry.register(BuiltInRegistries.PARTICLE_TYPE, ExampleMod.id("sparkle_particle"), SPARKLE_PARTICLE);
