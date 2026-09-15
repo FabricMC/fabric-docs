@@ -19,8 +19,8 @@ jobs:
   markdownlint:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
       - uses: pnpm/action-setup@58e6119fe4f3092a76a7771efb55e04d25b6b26f
@@ -40,8 +40,8 @@ jobs:
   prettier:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
       - uses: pnpm/action-setup@58e6119fe4f3092a76a7771efb55e04d25b6b26f
