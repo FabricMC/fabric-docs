@@ -51,7 +51,7 @@ The callback receives the original `LootTable`. Return a new `LootTable` to repl
 
 This event is useful when the original table is incompatible with your mod's behavior and modifying individual loot pools would be more complicated than creating a new table.
 
-For example, let's use the `REPLACE` event to replace the loot table for a brown sheep with a new table that drops a gold ingot when killed with a golden sword by using the `LootItemEntityPropertyCondition` [predicate](#predicates-predicates).
+For example, let's use the `REPLACE` event to replace the loot table for a brown sheep with a new table that drops a gold ingot when killed with a golden sword by using the `LootItemEntityPropertyCondition` [predicate](#predicates).
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_table_replace_event
 
