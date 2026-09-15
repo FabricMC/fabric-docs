@@ -56,7 +56,7 @@ Effects of the above example:
 
 Use `LootTableEvents.REPLACE` when you want to discard an existing loot table and provide a new one.
 
-The callback receives the original `LootTable`. Return a new `LootTable` to replace it, or return `null` if you do not want to replace it. Once a listener replaces a table, later replacement listeners are not called for that table.
+The callback receives the original `LootTable`. Return a new `LootTable` to replace it, or return `null` to keep it intact. Once a listener replaces a table, no other replacement listeners will be called on it.
 
 This event is useful when the original table is incompatible with your mod's behavior and modifying individual loot pools would be more complicated than creating a new table.
 
