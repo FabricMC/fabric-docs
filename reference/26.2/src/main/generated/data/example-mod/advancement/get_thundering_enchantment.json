@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "enchant_thundering": {
+      "conditions": {
+        "item": {
+          "predicates": {
+            "minecraft:enchantments": [
+              {
+                "enchantments": "example-mod:thundering"
+              }
+            ]
+          }
+        }
+      },
+      "trigger": "minecraft:enchanted_item"
+    }
+  },
+  "display": {
+    "description": "Get the thundering enchantment",
+    "icon": {
+      "id": "minecraft:lightning_rod"
+    },
+    "title": "Control the weather"
+  },
+  "requirements": [
+    [
+      "enchant_thundering"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -20,13 +20,17 @@ import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.advancements.triggers.EnchantedItemTrigger;
 import net.minecraft.advancements.triggers.InventoryChangeTrigger;
 import net.minecraft.advancements.triggers.ItemUsedOnLocationTrigger;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.predicates.DataComponentPredicates;
 import net.minecraft.core.component.predicates.EnchantmentsPredicate;
+import net.minecraft.core.component.predicates.PotionsPredicate;
+import net.minecraft.core.registries.EmptyTagLookupWrapper;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
@@ -34,6 +38,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.storage.loot.LootTable;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
@@ -53,12 +58,18 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 		super(output, registryLookup);
 	}
 
+	// #region terrible_workaround
+	private static Holder<LootTable> fakeLootTable(HolderLookup.RegistryLookup<LootTable> registries, ResourceKey<LootTable> lootTable) {
+		return Holder.Reference.createStandAlone(registries instanceof EmptyTagLookupWrapper<LootTable>(HolderLookup.RegistryLookup<LootTable> parent) ? parent : registries, lootTable);
+	}
+	// #endregion terrible_workaround
+
 	@Override
 	public void generateAdvancement(HolderLookup.Provider wrapperLookup, Consumer<AdvancementHolder> consumer) {
 		// #endregion datagen_advancements_provider_start
 		// #region datagen_advancements_simple_advancement
 		AdvancementHolder getDirt = Advancement.Builder.advancement()
-				.display(
+				.rootDisplay(
 						Items.DIRT, // The display icon
 						Component.literal("Your First Dirt Block"), // The title
 						Component.literal("Now make a house from it"), // The description
@@ -85,7 +96,6 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						Items.APPLE,
 						Component.literal("Apple and Beef"),
 						Component.literal("Ate an apple and beef"),
-						null, // Children don't need a background, the root advancement takes care of that
 						AdvancementType.CHALLENGE,
 						true,
 						true,
@@ -95,10 +105,10 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 		// #region requirements_strategy
 		Advancement.Builder.advancement()
 				.addCriterion("brew_mundane", CriteriaTriggers.BREWED_POTION.createCriterion(
-						new BrewedPotionTrigger.TriggerInstance(Optional.empty(), Optional.of(Potions.MUNDANE))
+						new BrewedPotionTrigger.TriggerInstance(Optional.empty(), Optional.of(PotionsPredicate.ofPotion(Potions.MUNDANE)))
 				))
 				.addCriterion("brew_thick", CriteriaTriggers.BREWED_POTION.createCriterion(
-						new BrewedPotionTrigger.TriggerInstance(Optional.empty(), Optional.of(Potions.THICK))
+						new BrewedPotionTrigger.TriggerInstance(Optional.empty(), Optional.of(PotionsPredicate.ofPotion(Potions.THICK)))
 				))
 				.requirements(AdvancementRequirements.Strategy.OR)
 				// ...
@@ -108,7 +118,6 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						Items.POTION,
 						Component.literal("Brewing Fail"),
 						Component.literal("Brew a useless potion"),
-						null,
 						AdvancementType.TASK,
 						true,
 						false,
@@ -125,7 +134,6 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						Items.GOLD_BLOCK,
 						Component.literal("Too Much Gold!"),
 						Component.literal("Collect a gold block"),
-						null,
 						AdvancementType.GOAL,
 						true,
 						false,
@@ -139,7 +147,7 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 				.rewards(
 						new AdvancementRewards.Builder()
 								// Give entries from a loot table
-								.addLootTable(ModLootTables.ADVANCEMENT_COLLECT_NETHER_STAR)
+								.addLootTable(fakeLootTable(wrapperLookup.lookupOrThrow(Registries.LOOT_TABLE), ModLootTables.ADVANCEMENT_COLLECT_NETHER_STAR))
 								// Make recipes available in the recipe book
 								.addRecipe(RecipeBuilder.getDefaultRecipeId(new ItemStackTemplate(Items.BEACON)))
 								// Run a .mcfunction - https://minecraft.wiki/w/Function_(Java_Edition)
@@ -154,7 +162,6 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						Items.NETHER_STAR,
 						Component.literal("Celestial body"),
 						Component.literal("Get a nether star"),
-						null,
 						AdvancementType.GOAL,
 						true,
 						false,
@@ -170,7 +177,6 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						Items.DIAMOND_SHOVEL,
 						Component.literal("Not a Shovel"),
 						Component.literal("That's not a shovel (probably)"),
-						null,
 						AdvancementType.GOAL,
 						true,
 						true,
@@ -186,7 +192,6 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						Items.GOLDEN_SHOVEL,
 						Component.literal("Not a Shovel Still"),
 						Component.literal("That's still not a shovel (probably)"),
-						null,
 						AdvancementType.GOAL,
 						true,
 						true,
@@ -204,13 +209,12 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						Items.DIRT,
 						Component.literal("Create a dirt shack"),
 						Component.literal("It's all coming together!"),
-						null,
 						AdvancementType.TASK,
 						false,
 						false,
 						false
 				)
-				.addCriterion("place_dirt", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(Blocks.DIRT))
+				.addCriterion("place_dirt", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(wrapperLookup.lookupOrThrow(Registries.BLOCK), Blocks.DIRT))
 				.save(consumer, ExampleMod.id("create_dirt_shack"));
 		final HolderLookup<Enchantment> enchantmentsLookup = wrapperLookup.lookupOrThrow(Registries.ENCHANTMENT);
 		// #region placeholder_parent
@@ -222,7 +226,6 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 						Items.LIGHTNING_ROD.weathering().unaffected(),
 						Component.literal("Control the weather"),
 						Component.literal("Get the thundering enchantment"),
-						null,
 						AdvancementType.TASK,
 						true,
 						true,
@@ -249,14 +252,14 @@ public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
 
 		// #region datagen_advancements_conditions
 		Advancement.Builder.advancement()
+				.parent(getDirt)
 				.display(
-						ModBlocks.DUPLICATOR_BLOCK,
+						ModBlocks.DUPLICATOR_BLOCK.asItem(),
 						Component.literal("Experimental Duplication"),
 						Component.literal("Place a duplicator block with the Redstone Experiments flag enabled."),
-						null,
 						AdvancementType.CHALLENGE,
 						false, false, false)
-				.addCriterion("place_block", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(ModBlocks.DUPLICATOR_BLOCK))
+				.addCriterion("place_block", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(wrapperLookup.lookupOrThrow(Registries.BLOCK), ModBlocks.DUPLICATOR_BLOCK))
 				.save(withConditions(consumer,
 								ResourceConditions.featuresEnabled(FeatureFlags.REDSTONE_EXPERIMENTS)), ExampleMod.id("experimental_duplication"));
 		// #endregion datagen_advancements_conditions

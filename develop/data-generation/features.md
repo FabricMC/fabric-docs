@@ -21,7 +21,7 @@ Features in Minecraft are natural or generated patterns in the world, like trees
 
 The generation for features of Minecraft worlds is broken down into 3 parts:
 
-- **Configured Features**: this defines what a feature is; for example, a single tree
+- **Features**: this defines what a feature is; for example, a single tree
 - **Placement Features**: this defines how the features should be laid out, in which direction, relative location, and so on; for example, the placement of trees in a forest
 - **Biome Modifications**: this defines where the features are placed in the world; for example, the coordinates of the whole forest
 
@@ -39,9 +39,9 @@ Then add this provider to your `DataGeneratorEntrypoint` class within the `onIni
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add_worldgen_provider
 
-Next, make a class for your configured features and a class for your placed features. These don't need to extend anything.
+Next, make a class for your Features and a class for your placed features. These don't need to extend anything.
 
-The configured feature class and placed feature class should both have a public method to register and define your features. Its argument, that we called `context`, should be a `BootstrapContext<ConfiguredFeature<?, ?>>` for the configured feature, or a `BootstrapContext<PlacedFeature>` for the placed feature.
+The feature class and placed feature class should both have a public method to register and define your features. Its argument, that we called `context`, should be a `BootstrapContext<Feature>` for the feature, or a `BootstrapContext<PlacedFeature>` for the placed feature.
 
 In your `DataGeneratorEntrypoint` class, add the lines below to your `buildRegistry` method, replacing the method name with what you chose:
 
@@ -49,17 +49,17 @@ In your `DataGeneratorEntrypoint` class, add the lines below to your `buildRegis
 
 If you don't already have the `buildRegistry` method, create it and annotate it with an `@Override`.
 
-## Configured Features {#configured-features}
+## Features {#features}
 
-To make a feature naturally spawn in our world, we should start by defining a configured feature in our configured features class.
+To make a feature naturally spawn in our world, we should start by defining a feature in our Features class.
 
-Before we can do anything, let's create the configured features class inside of the `main` package, and declare a `configure` method:
+Before we can do anything, let's create the Feature class inside of the `main` package, and declare a `configure` method:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configure_features_class
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_configure_features_class
 
-Now, let's add a custom configured feature for a Diamond Ore vein. First, register the key for the `ConfiguredFeature` in your configured feature class:
+Now, let's add a custom feature for a Diamond Ore vein. First, register the key for the `Feature` in your feature class:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configured_key
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_configured_key
 
 ::: tip
 
@@ -71,25 +71,25 @@ The second argument to the `Identifier` (`diamond_block_vein` in this example) i
 
 Next, we'll make a `RuleTest` inside the `configure` method that controls which blocks your feature can replace. For example, this `RuleTest` allows the replacement of every block with the tag `DEEPSLATE_ORE_REPLACEABLES`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ruletest
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_ruletest
 
 Next, also inside the `configure` method, we need to create the `OreConfiguration`, which tells the game what to replace blocks with.
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ore_feature_config
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_ore_feature_config
 
 You can have multiple cases in the list for different variants. For example, let's set a different variant for stone and deepslate:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_multi_ore_feature_config
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_multi_ore_feature_config
 
-Lastly, we need to register our configured feature to our game inside the `configure` method!
+Lastly, we need to register our feature to our game inside the `configure` method!
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_conf_feature_register
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_conf_feature_register
 
 ### Trees {#trees}
 
 To make a custom tree, you need to first create a `TreeConfiguration` inside the `configure` method:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_feature_config
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_tree_feature_config
 
 This is what each argument does:
 
@@ -107,9 +107,9 @@ You can use the built-in placers for the Trunk and Foliage from the vanilla tree
 
 :::
 
-Next, we need to register our tree by adding the following line to the `configure` method of `ExampleModWorldConfiguredFeatures`.
+Next, we need to register our tree by adding the following line to the `configure` method of `ExampleModWorldFeatures`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_register
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_tree_register
 
 ## Placement Features {#placement-features}
 
@@ -181,11 +181,11 @@ This would only spawn in biomes tagged with the `minecraft:is_forest` biome tag.
 
 ## Running Datagen {#running-datagen}
 
-Now, when you run datagen, you should see a `.json` file under `src/main/generated/data/example-mod/worldgen/configured_feature` for each configured feature you added, and a file under `src/main/generated/data/example-mod/worldgen/placed_feature` for each placed feature as well!
+Now, when you run datagen, you should see a `.json` file under `src/main/generated/data/example-mod/worldgen/feature` for each feature you added, and a file under `src/main/generated/data/example-mod/worldgen/placed_feature` for each placed feature as well!
 
-::: details Generated File for the Configured Feature
+::: details Generated File for the Feature
 
-<<< @/reference/latest/src/main/generated/data/example-mod/worldgen/configured_feature/diamond_block_vein.json
+<<< @/reference/latest/src/main/generated/data/example-mod/worldgen/feature/diamond_block_vein.json
 
 :::
 

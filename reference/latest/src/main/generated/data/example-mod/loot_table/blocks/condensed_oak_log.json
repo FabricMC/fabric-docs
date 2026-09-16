@@ -2,11 +2,9 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
       "entries": [
         {
           "type": "minecraft:item",
@@ -14,9 +12,11 @@
         }
       ],
       "rolls": {
-        "type": "minecraft:uniform",
-        "max": 9.0,
-        "min": 7.0
+        "type": "minecraft:avg",
+        "inputs": [
+          7,
+          9
+        ]
       }
     }
   ]

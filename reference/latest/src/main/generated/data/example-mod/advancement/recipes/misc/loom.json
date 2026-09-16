@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "example-mod:loom"
+        "recipes": "example-mod:loom"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

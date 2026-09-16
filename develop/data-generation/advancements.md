@@ -86,6 +86,14 @@ There are multiple other reward types available:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward_types
 
+::: warning
+
+A temporary workaround is used here to avoid the game crashing due to the loot table not being generated.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#terrible_workaround
+
+:::
+
 ## Custom Criteria {#custom-criteria}
 
 ::: warning

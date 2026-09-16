@@ -22,7 +22,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "example-mod:sand"
+        "recipes": "example-mod:sand"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

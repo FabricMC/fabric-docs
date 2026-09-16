@@ -1,6 +1,5 @@
 package com.example.docs.block.custom;
 
-import com.mojang.serialization.MapCodec;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
@@ -22,15 +21,8 @@ import com.example.docs.block.entity.ModBlockEntities;
 import com.example.docs.block.entity.custom.EngineBlockEntity;
 
 public class EngineBlock extends BaseEntityBlock {
-	public static final MapCodec<EngineBlock> CODEC = simpleCodec(EngineBlock::new);
-
 	public EngineBlock(Properties settings) {
 		super(settings);
-	}
-
-	@Override
-	protected MapCodec<? extends BaseEntityBlock> codec() {
-		return CODEC;
 	}
 
 	@Nullable
@@ -54,7 +46,7 @@ public class EngineBlock extends BaseEntityBlock {
 		if (player.getMainHandItem().is(ItemTags.COALS)) {
 			if (engineBlockEntity.setFuelIfPossible(engineBlockEntity.getFuel() + 40)) {
 				player.getMainHandItem().consume(1, player);
-				playSound(level, SoundEvents.AXE_STRIP, pos);
+				playSound(level, SoundEvents.AXE_STRIP.value(), pos);
 				return InteractionResult.SUCCESS;
 			}
 

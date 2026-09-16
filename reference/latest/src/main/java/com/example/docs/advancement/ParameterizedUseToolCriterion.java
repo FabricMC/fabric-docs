@@ -5,9 +5,10 @@ import java.util.Optional;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.advancements.predicates.ContextAwarePredicate;
 import net.minecraft.advancements.triggers.SimpleCriterionTrigger;
+import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 /**
  * {@link UseToolCriterion} but with a parameter. Separated because there was no way to show the process to parameterize
@@ -27,17 +28,17 @@ public class ParameterizedUseToolCriterion extends SimpleCriterionTrigger<Parame
 	}
 
 	// #region datagen_advancements_new_parameter
-	public record Conditions(Optional<ContextAwarePredicate> playerPredicate, int requiredTimes) implements SimpleCriterionTrigger.SimpleInstance {
+	public record Conditions(Optional<Holder<LootItemCondition>> playerPredicate, int requiredTimes) implements SimpleCriterionTrigger.SimpleInstance {
 		// #endregion datagen_advancements_new_parameter
 		// #region datagen_advancements_new_codec
 		public static Codec<ParameterizedUseToolCriterion.Conditions> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-				ContextAwarePredicate.CODEC.optionalFieldOf("player").forGetter(Conditions::player),
+				LootItemCondition.CODEC.optionalFieldOf("player").forGetter(Conditions::player),
 				Codec.INT.fieldOf("requiredTimes").forGetter(Conditions::requiredTimes)
 		).apply(instance, Conditions::new));
 		// #endregion datagen_advancements_new_codec
 		// #region datagen_advancements_new_parameter
 		@Override
-		public Optional<ContextAwarePredicate> player() {
+		public Optional<Holder<LootItemCondition>> player() {
 			return this.playerPredicate;
 		}
 

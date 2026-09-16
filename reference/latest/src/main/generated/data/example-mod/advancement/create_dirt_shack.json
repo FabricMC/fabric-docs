@@ -3,12 +3,10 @@
   "criteria": {
     "place_dirt": {
       "conditions": {
-        "location": [
-          {
-            "block": "minecraft:dirt",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "minecraft:dirt"
+        }
       },
       "trigger": "minecraft:placed_block"
     }
