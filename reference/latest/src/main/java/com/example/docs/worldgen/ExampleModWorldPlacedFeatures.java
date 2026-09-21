@@ -41,7 +41,7 @@ public class ExampleModWorldPlacedFeatures {
 	public static void configure(BootstrapContext<PlacedFeature> context) {
 		// #endregion datagen_world_placed_features_class
 		// #region datagen_world_conf_feature_register
-		HolderGetter<Feature> configuredFeatures = context.lookup(Registries.FEATURE);
+		HolderGetter<Feature> features = context.lookup(Registries.FEATURE);
 		// #endregion datagen_world_conf_feature_register
 
 		// #region datagen_world_placement_modifiers
@@ -65,7 +65,7 @@ public class ExampleModWorldPlacedFeatures {
 		context.register(
 				DIAMOND_BLOCK_ORE_PLACED_KEY,
 				new PlacedFeature(
-					configuredFeatures.getOrThrow(ExampleModWorldFeatures.DIAMOND_BLOCK_VEIN_CONFIGURED_KEY),
+					features.getOrThrow(ExampleModWorldFeatures.DIAMOND_BLOCK_VEIN_FEATURE_KEY),
 					diamondBlockVeinModifiers
 				)
 		);
@@ -74,7 +74,7 @@ public class ExampleModWorldPlacedFeatures {
 		context.register(
 				DIAMOND_TREE_PLACED_KEY,
 				new PlacedFeature(
-					configuredFeatures.getOrThrow(ExampleModWorldFeatures.DIAMOND_TREE_CONFIGURED_KEY),
+					features.getOrThrow(ExampleModWorldFeatures.DIAMOND_TREE_FEATURE_KEY),
 					diamondTreeModifiers
 				)
 		);

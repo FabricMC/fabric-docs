@@ -26,14 +26,14 @@ import com.example.docs.ExampleMod;
 public class ExampleModWorldFeatures {
 	// #endregion datagen_world_configure_features_class
 	// #region datagen_world_configured_key
-	public static final ResourceKey<Feature> DIAMOND_BLOCK_VEIN_CONFIGURED_KEY =
+	public static final ResourceKey<Feature> DIAMOND_BLOCK_VEIN_FEATURE_KEY =
 			ResourceKey.create(
 				Registries.FEATURE,
 				ExampleMod.id("diamond_block_vein")
 			);
 	// #endregion datagen_world_configured_key
 
-	public static final ResourceKey<Feature> DIAMOND_TREE_CONFIGURED_KEY =
+	public static final ResourceKey<Feature> DIAMOND_TREE_FEATURE_KEY =
 			ResourceKey.create(
 					Registries.FEATURE,
 					ExampleMod.id("diamond_tree")
@@ -65,7 +65,7 @@ public class ExampleModWorldFeatures {
 
 		// #region datagen_world_conf_feature_register
 		context.register(
-				DIAMOND_BLOCK_VEIN_CONFIGURED_KEY,
+				DIAMOND_BLOCK_VEIN_FEATURE_KEY,
 				new OreFeature(diamondBlockOreConfig, 10) // 10 is the blocks per vein
 		);
 		// #endregion datagen_world_conf_feature_register
@@ -87,7 +87,7 @@ public class ExampleModWorldFeatures {
 		// #endregion datagen_world_tree_feature_config
 
 		// #region datagen_world_tree_register
-		context.register(DIAMOND_TREE_CONFIGURED_KEY, diamondTree);
+		context.register(DIAMOND_TREE_FEATURE_KEY, diamondTree);
 		// #endregion datagen_world_tree_register
 		// #region datagen_world_configure_features_class
 	}
