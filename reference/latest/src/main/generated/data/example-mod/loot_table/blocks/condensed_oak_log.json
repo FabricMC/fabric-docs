@@ -12,11 +12,9 @@
         }
       ],
       "rolls": {
-        "type": "minecraft:avg",
-        "inputs": [
-          7,
-          9
-        ]
+        "type": "minecraft:uniform",
+        "max": 9,
+        "min": 7
       }
     }
   ]
