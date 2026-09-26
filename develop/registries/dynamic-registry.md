@@ -169,4 +169,4 @@ We can use this method to check if a skill is an attacking skill or not.
 
 ## Next Steps {#next-steps}
 
-- [Populate Dynamic Registry Using Datagen](../data-generation/dynamic-registry.md)
+- [Populate Dynamic Registry Using Datagen](../data-generation/dynamic-registry)
