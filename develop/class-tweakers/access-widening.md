@@ -16,6 +16,7 @@ authors:
   - haykam821
   - hYdos
   - its-miroma
+  - Jimmy474
   - kb-1000
   - kcrca
   - liach
@@ -88,7 +89,8 @@ For class tweaking, classes use their [internal names](../mixins/bytecode#class-
 Format:
 
 ```classtweaker:no-line-numbers
-<accessible / extendable>    class    <className>
+accessible    class    <className>
+extendable    class    <className>
 ```
 
 Example:
@@ -100,7 +102,8 @@ Example:
 Format:
 
 ```classtweaker:no-line-numbers
-<accessible / extendable>    method    <className>    <methodName>    <methodDescriptor>
+accessible    method    <className>    <methodName>    <methodDescriptor>
+extendable    method    <className>    <methodName>    <methodDescriptor>
 ```
 
 Example:
@@ -112,7 +115,8 @@ Example:
 Format:
 
 ```classtweaker:no-line-numbers
-<accessible / mutable>    field    <className>    <fieldName>    <fieldDescriptor>
+accessible    field    <className>    <fieldName>    <fieldDescriptor>
+mutable       field    <className>    <fieldName>    <fieldDescriptor>
 ```
 
 Example:
