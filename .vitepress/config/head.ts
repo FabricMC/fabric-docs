@@ -16,6 +16,9 @@ type NewHeadContext = {
 
 const _getNewHead = (context: NewHeadContext): string | [string, Record<string, string>][] => {
   const versionMap: Record<string, string> = {
+    // TODO: bring back 26.2
+    "26.2": "26.3",
+
     "26.1.2": "26.1.2",
     "26.1.1": "26.1.2",
     "26.1.0": "26.1.2",

@@ -68,17 +68,9 @@ You can create your tool items by using the same classes and functions that we i
 
 The two float values (`1f, 1f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
 
-For shovels, axes, and hoes, you should create a `ShovelItem`, `AxeItem`, or `HoeItem` instead of a generic `Item`, as these implement tool-specific right-click actions:
-
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#axe
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
-
-::: info
-
-`ShovelItem`, `AxeItem`, and `HoeItem` call the `shovel`, `axe`, or `hoe` method of `Item.Properties` in their constructors.
-
-:::
 
 Remember to add them to a creative tab if you want to access them from the creative inventory!
 

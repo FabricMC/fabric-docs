@@ -1,12 +1,14 @@
 package com.example.docs.fog.client;
 
 import org.jetbrains.annotations.Nullable;
+import org.joml.Vector3fc;
 
 import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.fog.FogData;
 import net.minecraft.client.renderer.fog.environment.FogEnvironment;
+import net.minecraft.util.ARGB;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.material.FogType;
 
@@ -27,8 +29,8 @@ public class AcidFogEnvironment extends FogEnvironment {
 	}
 
 	@Override
-	public int getBaseColor(ClientLevel level, Camera camera, int viewDistance, float tickDelta) {
-		return 0x075800;
+	public Vector3fc getBaseColor(ClientLevel level, Camera camera, int viewDistance, float tickDelta) {
+		return ARGB.vector3fFromRGB24(0x075800);
 	}
 }
 // #endregion environment

@@ -13,7 +13,7 @@ import com.example.docs.damage.ExampleModDamageTypes;
 import com.example.docs.datagen.internal.ExampleModInternalModelProvider;
 import com.example.docs.datagen.internal.ExampleModResourceConditionProvider;
 import com.example.docs.dynamic_registries.ExampleModRegistries;
-import com.example.docs.worldgen.ExampleModWorldConfiguredFeatures;
+import com.example.docs.worldgen.ExampleModWorldFeatures;
 import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 import com.example.docs.worldgen.ExampleModWorldgenProvider;
 
@@ -46,6 +46,10 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		// #region datagen_recipes_register
 		pack.addProvider(ExampleModRecipeProvider::new);
 		// #endregion datagen_recipes_register
+
+		// #region datagen_brewing_recipes_register
+		pack.addProvider(ExampleModBrewingProvider::new);
+		// #endregion datagen_brewing_recipes_register
 
 		// #region datagen_loot_tables_register
 		pack.addProvider(ExampleModBlockLootTableProvider::new);
@@ -93,7 +97,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		});
 
 		// #region datagen_world_registries
-		registryBuilder.add(Registries.CONFIGURED_FEATURE, ExampleModWorldConfiguredFeatures::configure);
+		registryBuilder.add(Registries.FEATURE, ExampleModWorldFeatures::configure);
 		registryBuilder.add(Registries.PLACED_FEATURE, ExampleModWorldPlacedFeatures::configure);
 		// #endregion datagen_world_registries
 

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "example-mod:glass_from_smelting_glass_bottle"
+        "recipes": "example-mod:glass_from_smelting_glass_bottle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

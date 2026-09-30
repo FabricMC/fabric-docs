@@ -11,7 +11,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableSubProvider;
@@ -30,14 +30,20 @@ public class ExampleModChestLootTableProvider extends SimpleFabricLootTableSubPr
 		// #region datagen_loot_tables_chest_loot
 		lootTableBiConsumer.accept(ModLootTables.TEST_CHEST_LOOT, LootTable.lootTable()
 				.withPool(LootPool.lootPool() // One pool
-						.setRolls(ConstantValue.exactly(2.0f)) // That has two rolls
+						.setRolls(ContextIntProviders.exactly(2)) // That has two rolls
 						.add(LootItem.lootTableItem(Items.DIAMOND) // With an entry that has diamond(s)
-								.apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0f)))) // One diamond
+								.apply(SetItemCountFunction.setCount(ContextIntProviders.exactly(1)))) // One diamond
 						.add(LootItem.lootTableItem(Items.DIAMOND_SWORD) // With an entry that has a plain diamond sword
 						)
 				));
 		// #endregion datagen_loot_tables_chest_loot
 		// #region datagen_loot_tables_chest_provider
+	}
+
+	@Override
+	public void run() {
+		this.generate((key, builder) -> {
+		});
 	}
 }
 // #endregion datagen_loot_tables_chest_provider

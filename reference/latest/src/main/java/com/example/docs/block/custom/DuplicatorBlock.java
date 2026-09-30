@@ -1,6 +1,5 @@
 package com.example.docs.block.custom;
 
-import com.mojang.serialization.MapCodec;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
@@ -26,11 +25,6 @@ public class DuplicatorBlock extends BaseEntityBlock {
 
 	public DuplicatorBlock(Properties settings) {
 		super(settings);
-	}
-
-	@Override
-	protected MapCodec<? extends BaseEntityBlock> codec() {
-		return simpleCodec(DuplicatorBlock::new);
 	}
 
 	// #region block

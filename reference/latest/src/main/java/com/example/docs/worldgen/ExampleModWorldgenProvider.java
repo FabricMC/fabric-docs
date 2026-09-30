@@ -17,7 +17,7 @@ public class ExampleModWorldgenProvider extends FabricDynamicRegistryProvider {
 	@Override
 	protected void configure(HolderLookup.Provider registries, Entries entries) {
 		// #region worldgen_add_entries
-		entries.addAll(registries.lookupOrThrow(Registries.CONFIGURED_FEATURE));
+		entries.addAll(registries.lookupOrThrow(Registries.FEATURE));
 		entries.addAll(registries.lookupOrThrow(Registries.PLACED_FEATURE));
 		// #endregion worldgen_add_entries
 	}

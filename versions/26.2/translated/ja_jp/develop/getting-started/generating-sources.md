@@ -1,0 +1,24 @@
+---
+title: ソースの生成
+description: Minecraftのソースの生成のためのガイド。
+authors:
+  - dicedpixels
+  - its-miroma
+---
+
+## あなたのIDEを選択してください {#choose-your-ide}
+
+<ChoiceComponent :choices="[
+{
+ name: 'IntelliJ IDEA',
+ href: './intellij-idea/generating-sources',
+ icon: 'simple-icons:intellijidea',
+ color: '#FE2857',
+},
+{
+ name: 'Visual Studio Code',
+ href: './vscode/generating-sources',
+ icon: 'codicon:vscode',
+ color: '#007ACC',
+},
+]" />

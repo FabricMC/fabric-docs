@@ -1,0 +1,17 @@
+package com.example.docs.rendering.blockentity;
+
+import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
+
+// #region render_state
+public class CounterBlockEntityRenderState extends BlockEntityRenderState {
+	private int clicks = 0;
+
+	public int getClicks() {
+		return this.clicks;
+	}
+
+	public void setClicks(int clicks) {
+		this.clicks = clicks;
+	}
+}
+// #endregion render_state

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_special_shielddecoration",
+  "banner": "#minecraft:banners",
+  "result": {
+    "id": "example-mod:guidite_shield"
+  },
+  "target": "example-mod:guidite_shield"
+}

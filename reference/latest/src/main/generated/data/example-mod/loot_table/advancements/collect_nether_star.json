@@ -9,12 +9,12 @@
         }
       ],
       "rolls": {
-        "type": "minecraft:sum",
-        "summands": [
-          1.0,
+        "type": "minecraft:add",
+        "inputs": [
+          1,
           {
             "type": "minecraft:binomial",
-            "n": 2.0,
+            "n": 2,
             "p": 0.2
           }
         ]
