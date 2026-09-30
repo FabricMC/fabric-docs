@@ -73,6 +73,7 @@ for (const file of tinyglobby.globSync("**/*.md", {
   ignore: [
     "README.md",
     "contributing.md",
+    "translations.md",
     "versions/**/*.md",
     "+([0-9.])/**/*.md",
     "node_modules/**/*",
