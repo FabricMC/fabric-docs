@@ -160,7 +160,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 			// Bind texture if applicable:
 			// Sampler0 is used for texture inputs in vertices
-			// renderPass.bindTexture("Sampler0", textureSetup.texure0(), textureSetup.sampler0());
+			// renderPass.setUniform("Sampler0", textureSetup.texure0(), textureSetup.sampler0());
 
 			renderPass.setVertexBuffer(0, info.vertexBuffer().slice());
 			renderPass.setIndexBuffer(info.indexBuffer(), info.indexType());
