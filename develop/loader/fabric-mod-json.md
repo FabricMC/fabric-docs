@@ -222,6 +222,8 @@ The following keys will accept a dictionary of dependencies. For more details on
 - **`breaks`**: For mods whose together with yours might cause a game crash. **If any are present, Fabric Loader will trigger a crash**.
 - **`conflicts`**: For mods whose together with yours cause some kind of bugs, etc. For each conflicting mod present, Fabric Loader will log a warning.
 
+See the [Mod Resolution](./mod-resolution) page for more details on how Fabric Loader chooses which version of a mod to load.
+
 ### Semantic Versioning {#semantic-versioning}
 
 The key of each entry is the mod ID of the dependency.
