@@ -1,8 +1,27 @@
 diff --git a/dist/node/chunk-3d7P_gGE.js b/dist/node/chunk-3d7P_gGE.js
-index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d3861dfe4258 100644
+index 2970286cac137f7c15d531954cca600407fdbedd..42aad0fdd60f0c4501ac34d841d58523f49877c6 100644
 --- a/dist/node/chunk-3d7P_gGE.js
 +++ b/dist/node/chunk-3d7P_gGE.js
-@@ -36951,32 +36951,41 @@ const markers = [
+@@ -18192,7 +18192,8 @@ async function resolveConfig(root = process.cwd(), command = "serve", mode = "de
+     transformPageData: userConfig.transformPageData,
+     userConfig,
+     sitemap: userConfig.sitemap,
+-    buildConcurrency: userConfig.buildConcurrency ?? 64
++    buildConcurrency: userConfig.buildConcurrency ?? 64,
++    ssrBuildBatchSize: userConfig.ssrBuildBatchSize
+   };
+   global.VITEPRESS_CONFIG = config;
+   await resolvePages(config, true);
+@@ -23891,7 +23892,7 @@ var matter = /*@__PURE__*/getDefaultExportFromCjs(grayMatterExports);
+ const frontmatterPlugin = (md, { grayMatterOptions, renderExcerpt = true } = {}) => {
+ 	const parse = md.parse.bind(md);
+ 	md.parse = (src, env = {}) => {
+-		const { data, content, excerpt = "" } = matter(src, grayMatterOptions);
++		const { data, content, excerpt = "" } = matter(src, grayMatterOptions ?? {});
+ 		env.content = content;
+ 		env.frontmatter = {
+ 			...env.frontmatter,
+@@ -36951,32 +36952,41 @@ const markers = [
      end: /^\s*\(\*\s*#endregion\b\s*(.*?)\s*\*\)/
    }
  ];
@@ -65,7 +84,7 @@ index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d386
    const parser = (state, startLine, endLine, silent) => {
      const CH = "<".charCodeAt(0);
      const pos = state.bMarks[startLine] + state.tShift[startLine];
-@@ -37009,26 +37018,40 @@ const snippetPlugin = (md, srcDir) => {
+@@ -37009,26 +37019,40 @@ const snippetPlugin = (md, srcDir) => {
    md.renderer.rules.fence = (...args) => {
      const [tokens, idx, , { includes }] = args;
      const token = tokens[idx];
@@ -114,7 +133,90 @@ index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d386
      }
      token.content = content;
      return fence(...args);
-@@ -37918,8 +37941,8 @@ function processIncludes(md, srcDir, src, file, includes, cleanUrls) {
+@@ -37877,25 +37901,68 @@ function requireCrossSpawn () {
+ var crossSpawnExports = requireCrossSpawn();
+ 
+ const cache$2 = /* @__PURE__ */ new Map();
++const GIT_TIMESTAMP_CONCURRENCY = 16;
++const gitTimestampQueue = [];
++let activeGitTimestampProcesses = 0;
++function withGitTimestampSlot(task2) {
++  return new Promise((resolve, reject) => {
++    const run = () => {
++      activeGitTimestampProcesses++;
++      Promise.resolve().then(task2).then(
++        (value) => {
++          activeGitTimestampProcesses--;
++          gitTimestampQueue.shift()?.();
++          resolve(value);
++        },
++        (error) => {
++          activeGitTimestampProcesses--;
++          gitTimestampQueue.shift()?.();
++          reject(error);
++        }
++      );
++    };
++    if (activeGitTimestampProcesses < GIT_TIMESTAMP_CONCURRENCY) {
++      run();
++    } else {
++      gitTimestampQueue.push(run);
++    }
++  });
++}
+ function getGitTimestamp(file) {
+   const cached = cache$2.get(file);
+-  if (cached) return cached;
++  if (cached !== void 0) return cached;
+   if (!fs.existsSync(file)) return 0;
+-  return new Promise((resolve, reject) => {
+-    const child = crossSpawnExports.spawn(
+-      "git",
+-      ["log", "-1", '--pretty="%ai"', basename$1(file)],
+-      { cwd: dirname$1(file) }
+-    );
+-    let output = "";
+-    child.stdout.on("data", (d) => output += String(d));
+-    child.on("close", () => {
+-      const timestamp = +new Date(output);
+-      cache$2.set(file, timestamp);
+-      resolve(timestamp);
++  const pending = withGitTimestampSlot(() => {
++    return new Promise((resolve, reject) => {
++      const child = crossSpawnExports.spawn(
++        "git",
++        ["log", "-1", '--pretty="%ai"', basename$1(file)],
++        { cwd: dirname$1(file) }
++      );
++      let output = "";
++      child.stdout.on("data", (d) => output += String(d));
++      child.on("close", () => {
++        resolve(+new Date(output));
++      });
++      child.on("error", reject);
+     });
+-    child.on("error", reject);
+   });
++  cache$2.set(file, pending);
++  pending.then(
++    (timestamp) => cache$2.set(file, timestamp),
++    () => cache$2.delete(file)
++  );
++  return pending;
++}
++function snapshotGitTimestamps() {
++  return [...cache$2].filter(
++    ([, timestamp]) => typeof timestamp === "number" && Number.isFinite(timestamp)
++  );
++}
++function restoreGitTimestamps(entries) {
++  for (const [file, timestamp] of entries) {
++    cache$2.set(file, timestamp);
++  }
+ }
+ 
+ function processIncludes(md, srcDir, src, file, includes, cleanUrls) {
+@@ -37918,8 +37985,8 @@ function processIncludes(md, srcDir, src, file, includes, cleanUrls) {
        if (region) {
          const [regionName] = region;
          const lines = content.split(/\r?\n/);
@@ -125,7 +227,7 @@ index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d386
            const tokens = md.parse(content, {
              path: includePath,
              relativePath: slash(path$1.relative(srcDir, includePath)),
-@@ -37930,17 +37953,23 @@ function processIncludes(md, srcDir, src, file, includes, cleanUrls) {
+@@ -37930,17 +37997,23 @@ function processIncludes(md, srcDir, src, file, includes, cleanUrls) {
            );
            const token = tokens[idx];
            if (token) {
@@ -151,3 +253,753 @@ index 2970286cac137f7c15d531954cca600407fdbedd..9b7624e1152bdcb48c62c654c7e7d386
        }
        if (range) {
          const [, startLine, endLine] = range;
+@@ -37951,7 +38024,7 @@ function processIncludes(md, srcDir, src, file, includes, cleanUrls) {
+         ).join("\n");
+       }
+       if (!hasMeta && path$1.extname(includePath) === ".md") {
+-        content = matter(content).content;
++        content = matter(content, {}).content;
+       }
+       includes.push(slash(includePath));
+       return processIncludes(
+@@ -37973,7 +38046,13 @@ Include file not found: ${m1}`));
+ }
+ 
+ const debug$1 = _debug("vitepress:md");
+-const cache$1 = new LRUCache({ max: 1024 });
++const cache$1 = new LRUCache({
++  max: 1024,
++  maxSize: 64 * 1024 * 1024,
++  sizeCalculation(value, key) {
++    return Math.max(1, 2 * (key.length + value.vueSrc.length));
++  }
++});
+ function clearCache(relativePath) {
+   if (!relativePath) {
+     cache$1.clear();
+@@ -38028,7 +38107,8 @@ async function createMarkdownToVueRenderFn(srcDir, options = {}, isBuild = false
+     ].filter((fn) => fn != null);
+     file = rewrites.get(file) || file;
+     const relativePath = slash(path$1.relative(srcDir, file));
+-    const cacheKey = JSON.stringify({ src, ts, relativePath });
++    const sourceHash = createHash("sha256").update(src).digest("base64url");
++    const cacheKey = JSON.stringify({ sourceHash, ts, relativePath });
+     if (isBuild || options.cache !== false) {
+       const cached = cache$1.get(cacheKey);
+       if (cached) {
+@@ -41810,8 +41890,8 @@ async function task(taskName, task2) {
+ const debug = _debug("vitepress:local-search");
+ const LOCAL_SEARCH_INDEX_ID = "@localSearchIndex";
+ const LOCAL_SEARCH_INDEX_REQUEST_PATH = "/" + LOCAL_SEARCH_INDEX_ID;
+-async function localSearchPlugin(siteConfig) {
+-  if (siteConfig.site.themeConfig?.search?.provider !== "local") {
++async function localSearchPlugin(siteConfig, stubIndex = false) {
++  if (stubIndex || siteConfig.site.themeConfig?.search?.provider !== "local") {
+     return {
+       name: "vitepress:local-search",
+       resolveId(id) {
+@@ -42116,7 +42196,7 @@ const staticRestoreRE = /__VP_STATIC_(START|END)__/g;
+ const scriptClientRE = /<script\b[^>]*client\b[^>]*>([^]*?)<\/script>/;
+ const isPageChunk = (chunk) => !!(chunk.type === "chunk" && chunk.isEntry && chunk.facadeModuleId && chunk.facadeModuleId.endsWith(".md"));
+ const cleanUrl = (url) => url.replace(/#.*$/s, "").replace(/\?.*$/s, "");
+-async function createVitePressPlugin(siteConfig, ssr = false, pageToHashMap, clientJSMap, restartServer) {
++async function createVitePressPlugin(siteConfig, ssr = false, pageToHashMap, clientJSMap, restartServer, stubLocalSearch = false) {
+   const {
+     srcDir,
+     configPath,
+@@ -42401,7 +42481,7 @@ async function createVitePressPlugin(siteConfig, ssr = false, pageToHashMap, cli
+     hmrFix,
+     webFontsPlugin(siteConfig.useWebFonts),
+     ...userViteConfig?.plugins || [],
+-    await localSearchPlugin(siteConfig),
++    await localSearchPlugin(siteConfig, stubLocalSearch),
+     staticDataPlugin,
+     await dynamicRoutesPlugin(siteConfig)
+   ];
+@@ -42455,21 +42535,25 @@ const excludedModules = [
+   "node_modules/vue/",
+   clientDir
+ ];
+-async function bundle(config, options) {
++async function bundle(config, options, serverBatch) {
+   const pageToHashMap = /* @__PURE__ */ Object.create(null);
+   const clientJSMap = /* @__PURE__ */ Object.create(null);
+-  const input = {};
+-  config.pages.forEach((file) => {
+-    const alias = config.rewrites.map[file] || file;
+-    input[slash(alias).replace(/\//g, "_")] = path$1.resolve(config.srcDir, file);
+-  });
++  const createInput = (pages) => {
++    const input = {};
++    pages.forEach((file) => {
++      const alias = config.rewrites.map[file] || file;
++      input[slash(alias).replace(/\//g, "_")] = path$1.resolve(config.srcDir, file);
++    });
++    return input;
++  };
+   const themeEntryRE = new RegExp(
+     `^${escapeRegExp(
+       path$1.resolve(config.themeDir, "index.js").replace(/\\/g, "/")
+     ).slice(0, -2)}m?(j|t)s`
+   );
+   const { rollupOptions } = options;
+-  const resolveViteConfig = async (ssr) => ({
++  const resolveViteConfig = async (ssr, pages = config.pages, tempDir = config.tempDir) => {
++    return {
+     root: config.srcDir,
+     cacheDir: config.cacheDir,
+     base: config.site.base,
+@@ -42478,7 +42562,9 @@ async function bundle(config, options) {
+       config,
+       ssr,
+       pageToHashMap,
+-      clientJSMap
++      clientJSMap,
++      void 0,
++      !!serverBatch
+     ),
+     ssr: {
+       noExternal: ["vitepress", "@docsearch/css"]
+@@ -42489,14 +42575,14 @@ async function bundle(config, options) {
+       ssr,
+       ssrEmitAssets: config.mpa,
+       minify: ssr ? !!config.mpa : options.minify ?? !process.env.DEBUG,
+-      outDir: ssr ? config.tempDir : config.outDir,
++      outDir: ssr ? tempDir : config.outDir,
+       cssCodeSplit: false,
+       rollupOptions: {
+         ...rollupOptions,
+         input: {
+           // use different entry based on ssr or not
+           app: path$1.resolve(APP_PATH, ssr ? "ssr.js" : "index.js"),
+-          ...input
++          ...createInput(pages)
+         },
+         // important so that each page chunk and the index export things for each
+         // other
+@@ -42543,14 +42629,24 @@ async function bundle(config, options) {
+       }
+     },
+     configFile: config.vite?.configFile
+-  });
++    };
++  };
+   let clientResult;
+   let serverResult;
+-  await task("building client + server bundles", async () => {
++  const buildServerBatch = async (pages, tempDir) => {
++    await build$9(await resolveViteConfig(true, pages, tempDir));
++  };
++  if (serverBatch) {
++    await buildServerBatch(serverBatch.pages, serverBatch.tempDir);
++    return;
++  }
++  await task(config.ssrBuildBatchSize ? "building client bundle" : "building client + server bundles", async () => {
+     clientResult = config.mpa ? null : await build$9(await resolveViteConfig(false));
+-    serverResult = await build$9(
+-      await resolveViteConfig(true)
+-    );
++    if (!config.ssrBuildBatchSize || config.mpa) {
++      serverResult = await build$9(
++        await resolveViteConfig(true)
++      );
++    }
+   });
+   if (config.mpa) {
+     await Promise.all(
+@@ -42574,7 +42670,11 @@ async function bundle(config, options) {
+   Object.keys(pageToHashMap).sort().forEach((key) => {
+     sortedPageToHashMap[key] = pageToHashMap[key];
+   });
+-  return { clientResult, serverResult, pageToHashMap: sortedPageToHashMap };
++  return {
++    clientResult,
++    serverResult,
++    pageToHashMap: sortedPageToHashMap
++  };
+ }
+ const cache = /* @__PURE__ */ new Map();
+ const cacheTheme = /* @__PURE__ */ new Map();
+@@ -46535,7 +46635,7 @@ async function generateSitemap(siteConfig) {
+     file = siteConfig.rewrites.inv[file] || file;
+     file = path$1.join(siteConfig.srcDir, file);
+     if (!fs.existsSync(file)) return void 0;
+-    const { data } = matter.read(file);
++    const { data } = matter.read(file, {});
+     if (data.lastUpdated === false) return void 0;
+     if (data.lastUpdated instanceof Date) return +data.lastUpdated;
+     return await getGitTimestamp(file) || void 0;
+@@ -46583,7 +46683,58 @@ async function generateSitemap(siteConfig) {
+ 
+ var version = "2.0.0-alpha.12";
+ 
+-async function renderPage(render, config, page, result, appChunk, cssChunk, assets, pageToHashMap, metadataScript, additionalHeadTags, usedIcons) {
++function createRenderMetadata(config, clientResult, serverResult) {
++  const clientOutput = clientResult?.output ?? [];
++  const assetOutput = (config.mpa ? serverResult : clientResult)?.output ?? [];
++  const appChunk = clientOutput.find(
++    (chunk) => chunk.type === "chunk" && chunk.isEntry && chunk.facadeModuleId?.endsWith(".js")
++  );
++  const cssChunk = assetOutput.find(
++    (chunk) => chunk.type === "asset" && chunk.fileName.endsWith(".css")
++  );
++  const assets = assetOutput.filter(
++    (chunk) => chunk.type === "asset" && !chunk.fileName.endsWith(".css")
++  ).map((asset) => config.site.base + asset.fileName);
++  const isDefaultTheme = clientOutput.some(
++    (chunk) => chunk.type === "chunk" && (vite.rolldownVersion || chunk.name === "theme") && chunk.moduleIds.some((id) => id.includes("client/theme-default"))
++  );
++  const pageChunks = /* @__PURE__ */ new Map();
++  for (const chunk of clientOutput) {
++    if (!isPageChunk(chunk)) continue;
++    const facadeModuleId = normalizePath$1(chunk.facadeModuleId);
++    pageChunks.set(
++      facadeModuleId,
++      config.mpa ? {
++        fileName: chunk.fileName,
++        code: chunk.code
++      } : [...chunk.imports]
++    );
++  }
++  return {
++    appChunk: appChunk ? {
++      fileName: appChunk.fileName,
++      imports: [...appChunk.imports]
++    } : void 0,
++    cssChunk: cssChunk ? { fileName: cssChunk.fileName } : void 0,
++    assets,
++    isDefaultTheme,
++    pageChunks
++  };
++}
++function serializeRenderMetadata(renderMetadata) {
++  return {
++    ...renderMetadata,
++    pageChunks: [...renderMetadata.pageChunks]
++  };
++}
++function deserializeRenderMetadata(renderMetadata) {
++  return {
++    ...renderMetadata,
++    pageChunks: new Map(renderMetadata.pageChunks)
++  };
++}
++async function renderPage(render, config, page, renderMetadata, pageToHashMap, metadataScript, additionalHeadTags, usedIcons, serverTempDir = config.tempDir) {
++  const { appChunk, cssChunk, assets, pageChunks } = renderMetadata;
+   const routePath = `/${page.replace(/\.md$/, "")}`;
+   const siteData = resolveSiteDataByRoute(config.site, page);
+   const context = await render(routePath);
+@@ -46596,7 +46747,7 @@ async function renderPage(render, config, page, result, appChunk, cssChunk, asse
+   let pageData;
+   let hasCustom404 = true;
+   try {
+-    const { __pageData } = await import(pathToFileURL(path$1.join(config.tempDir, pageServerJsFileName)).href);
++    const { __pageData } = await import(pathToFileURL(path$1.join(serverTempDir, pageServerJsFileName)).href);
+     pageData = __pageData;
+   } catch (e) {
+     if (page === "404.md") {
+@@ -46609,12 +46760,12 @@ async function renderPage(render, config, page, result, appChunk, cssChunk, asse
+   const title = createTitle(siteData, pageData);
+   const description = pageData.description || siteData.description;
+   const stylesheetLink = cssChunk ? `<link rel="preload stylesheet" href="${siteData.base}${cssChunk.fileName}" as="style">` : "";
+-  let preloadLinks = config.mpa || !hasCustom404 && page === "404.md" ? [] : result && appChunk ? [
++  let preloadLinks = config.mpa || !hasCustom404 && page === "404.md" ? [] : appChunk ? [
+     .../* @__PURE__ */ new Set([
+       // resolve imports for index.js + page.md.js and inject script tags
+       // for them as well so we fetch everything as early as possible
+       // without having to wait for entry chunks to parse
+-      ...resolvePageImports(config, page, result, appChunk),
++      ...resolvePageImports(config, page, pageChunks, appChunk),
+       pageClientJsFileName
+     ])
+   ] : [];
+@@ -46658,9 +46809,9 @@ async function renderPage(render, config, page, result, appChunk, cssChunk, asse
+     }) || []
+   );
+   let inlinedScript = "";
+-  if (config.mpa && result) {
+-    const matchingChunk = result.output.find(
+-      (chunk) => chunk.type === "chunk" && chunk.facadeModuleId === slash(path$1.join(config.srcDir, page))
++  if (config.mpa) {
++    const matchingChunk = pageChunks.get(
++      normalizePath$1(path$1.join(config.srcDir, page))
+     );
+     if (matchingChunk) {
+       if (!matchingChunk.code.includes("import")) {
+@@ -46707,7 +46858,7 @@ async function renderPage(render, config, page, result, appChunk, cssChunk, asse
+   });
+   await fs.writeFile(htmlFileName, transformedHtml || html);
+ }
+-function resolvePageImports(config, page, result, appChunk) {
++function resolvePageImports(config, page, pageChunks, appChunk) {
+   page = config.rewrites.inv[page] || page;
+   let srcPath = path$1.resolve(config.srcDir, page);
+   try {
+@@ -46717,13 +46868,11 @@ function resolvePageImports(config, page, result, appChunk) {
+   } catch (e) {
+   }
+   srcPath = normalizePath$1(srcPath);
+-  const pageChunk = result.output.find(
+-    (chunk) => chunk.type === "chunk" && chunk.facadeModuleId === srcPath
+-  );
++  const pageImports = pageChunks.get(srcPath);
+   return [
+     ...appChunk.imports,
+     // ...appChunk.dynamicImports,
+-    ...pageChunk.imports
++    ...pageImports
+     // ...pageChunk.dynamicImports
+   ];
+ }
+@@ -46773,6 +46922,165 @@ function isMetaViewportOverridden(head = []) {
+ }
+ 
+ const require$1 = createRequire(import.meta.url);
++function disposeBuildCaches() {
++  clearCache();
++  matter.clearCache();
++  disposeMdItInstance();
++  cache.clear();
++  cacheTheme.clear();
++}
++function createAdditionalHeadTags(renderMetadata) {
++  const additionalHeadTags = [];
++  if (renderMetadata.isDefaultTheme) {
++    const fontURL = renderMetadata.assets.find(
++      (file) => /inter-roman-latin\.[\w-]+\.woff2/.test(file)
++    );
++    if (fontURL) {
++      additionalHeadTags.push([
++        "link",
++        {
++          rel: "preload",
++          href: fontURL,
++          as: "font",
++          type: "font/woff2",
++          crossorigin: ""
++        }
++      ]);
++    }
++  }
++  return additionalHeadTags;
++}
++async function renderPages(render, siteConfig, serverTempDir, pages, renderMetadata, pageToHashMap, metadataScript, additionalHeadTags, usedIcons) {
++  await pMap(
++    pages,
++    async (page) => {
++      await renderPage(
++        render,
++        siteConfig,
++        siteConfig.rewrites.map[page] || page,
++        renderMetadata,
++        pageToHashMap,
++        metadataScript,
++        additionalHeadTags,
++        usedIcons,
++        serverTempDir
++      );
++    },
++    { concurrency: siteConfig.buildConcurrency }
++  );
++}
++function findNonJsonValue(value, path2 = "buildOptions", seen = /* @__PURE__ */ new Set()) {
++  if (value === null || typeof value === "string" || typeof value === "boolean") {
++    return;
++  }
++  if (typeof value === "number") {
++    return Number.isFinite(value) ? void 0 : path2;
++  }
++  if (typeof value !== "object") {
++    return path2;
++  }
++  if (seen.has(value)) return path2;
++  seen.add(value);
++  if (!Array.isArray(value)) {
++    const prototype = Object.getPrototypeOf(value);
++    if (prototype !== Object.prototype && prototype !== null) return path2;
++  }
++  for (const [key, nested] of Object.entries(value)) {
++    const invalidPath = findNonJsonValue(
++      nested,
++      `${path2}.${key}`,
++      seen
++    );
++    if (invalidPath) return invalidPath;
++  }
++  seen.delete(value);
++}
++function workerExecArgv() {
++  const result = [];
++  for (let index = 0; index < process.execArgv.length; index++) {
++    const argument = process.execArgv[index];
++    if (!argument.startsWith("--inspect")) {
++      result.push(argument);
++      continue;
++    }
++    if ((argument === "--inspect-port" || argument === "--inspect-publish-uid") && index + 1 < process.execArgv.length) {
++      index++;
++    }
++  }
++  return result;
++}
++function runSsrBatchWorker(descriptorPath) {
++  const workerEntry = fileURLToPath(
++    new URL$1("./ssr-worker.js", import.meta.url)
++  );
++  return new Promise((resolve, reject) => {
++    const child = require$$0$4.spawn(
++      process.execPath,
++      [
++        ...workerExecArgv(),
++        workerEntry
++      ],
++      {
++        cwd: process.cwd(),
++        env: {
++          ...process.env,
++          VITEPRESS_SSR_BATCH_DESCRIPTOR: descriptorPath
++        },
++        stdio: "inherit"
++      }
++    );
++    child.once("error", reject);
++    child.once("exit", (code, signal) => {
++      if (code === 0) {
++        resolve();
++      } else {
++        reject(
++          new Error(
++            `SSR batch worker failed (${signal ? `signal ${signal}` : `exit ${code}`}).`
++          )
++        );
++      }
++    });
++  });
++}
++async function buildSsrBatchWorker(siteConfig, buildOptions, descriptorPath) {
++  const descriptor = fs.readJSONSync(descriptorPath);
++  const contract = fs.readJSONSync(descriptor.contractPath);
++  siteConfig.site.base = descriptor.base;
++  siteConfig.outDir = descriptor.outDir;
++  siteConfig.ssrBuildBatchSize = void 0;
++  restoreGitTimestamps(contract.gitTimestamps);
++  await fs.ensureDir(siteConfig.tempDir);
++  const batchTempDir = await fs.mkdtemp(
++    path$1.join(siteConfig.tempDir, `ssr-${descriptor.offset}-`)
++  );
++  siteConfig.tempDir = batchTempDir;
++  const usedIcons = /* @__PURE__ */ new Set();
++  try {
++    await bundle(siteConfig, buildOptions, {
++      pages: descriptor.serverPages,
++      tempDir: batchTempDir
++    });
++    disposeBuildCaches();
++    const entryPath = path$1.join(batchTempDir, "app.js");
++    const { render } = await import(pathToFileURL(entryPath).href);
++    await renderPages(
++      render,
++      siteConfig,
++      batchTempDir,
++      descriptor.pages,
++      deserializeRenderMetadata(contract.renderMetadata),
++      contract.pageToHashMap,
++      contract.metadataScript,
++      contract.additionalHeadTags,
++      usedIcons
++    );
++    fs.writeJSONSync(descriptor.iconsPath, [...usedIcons].sort());
++  } finally {
++    disposeBuildCaches();
++    if (!process.env.DEBUG) await rimraf(batchTempDir);
++  }
++}
+ async function build(root, buildOptions = {}) {
+   const start = Date.now();
+   if (vite.rolldownVersion) {
+@@ -46785,10 +47093,16 @@ async function build(root, buildOptions = {}) {
+     }
+   }
+   process.env.NODE_ENV = "production";
++  const workerDescriptorPath = process.env.VITEPRESS_SSR_BATCH_DESCRIPTOR;
++  if (workerDescriptorPath) {
++    delete process.env.VITEPRESS_SSR_BATCH_DESCRIPTOR;
++  }
++  const invokedFromCli = buildOptions.__vitepressCli === true;
++  delete buildOptions.__vitepressCli;
++  const hasAfterConfigResolve = typeof buildOptions.onAfterConfigResolve === "function";
+   const siteConfig = await resolveConfig(root, "build", "production");
+   await buildOptions.onAfterConfigResolve?.(siteConfig);
+   delete buildOptions.onAfterConfigResolve;
+-  const unlinkVue = linkVue();
+   if (buildOptions.base) {
+     siteConfig.site.base = buildOptions.base;
+     delete buildOptions.base;
+@@ -46801,80 +47115,139 @@ async function build(root, buildOptions = {}) {
+     siteConfig.outDir = path$1.resolve(process.cwd(), buildOptions.outDir);
+     delete buildOptions.outDir;
+   }
++  if (workerDescriptorPath) {
++    const unlinkVue = linkVue();
++    try {
++      await buildSsrBatchWorker(
++        siteConfig,
++        buildOptions,
++        workerDescriptorPath
++      );
++    } finally {
++      unlinkVue();
++    }
++    return;
++  }
++  if (siteConfig.ssrBuildBatchSize != null && (!Number.isInteger(siteConfig.ssrBuildBatchSize) || siteConfig.ssrBuildBatchSize < 1)) {
++    throw new Error("ssrBuildBatchSize must be a positive integer.");
++  }
++  if (siteConfig.mpa && siteConfig.ssrBuildBatchSize) {
++    throw new Error("ssrBuildBatchSize is not compatible with MPA mode.");
++  }
++  if (process.env.BUNDLE_ONLY && siteConfig.ssrBuildBatchSize) {
++    throw new Error("BUNDLE_ONLY is not compatible with ssrBuildBatchSize because batched server bundles are rendered and disposed incrementally.");
++  }
++  if (hasAfterConfigResolve && !invokedFromCli && siteConfig.ssrBuildBatchSize) {
++    throw new Error("onAfterConfigResolve is not compatible with ssrBuildBatchSize because functions cannot be transferred to SSR batch worker processes.");
++  }
++  if (siteConfig.ssrBuildBatchSize) {
++    const invalidBuildOption = findNonJsonValue(buildOptions);
++    if (invalidBuildOption) {
++      throw new Error(`${invalidBuildOption} is not JSON-serializable and cannot be transferred to SSR batch worker processes.`);
++    }
++  }
++  const unlinkVue = linkVue();
+   try {
+-    const { clientResult, serverResult, pageToHashMap } = await bundle(
++    let {
++      clientResult,
++      serverResult,
++      pageToHashMap
++    } = await bundle(
+       siteConfig,
+       buildOptions
+     );
+     if (process.env.BUNDLE_ONLY) {
++      disposeBuildCaches();
+       return;
+     }
+-    const entryPath = path$1.join(siteConfig.tempDir, "app.js");
+-    const { render } = await import(pathToFileURL(entryPath).href);
+-    await task("rendering pages", async () => {
+-      const appChunk = clientResult && clientResult.output.find(
+-        (chunk) => chunk.type === "chunk" && chunk.isEntry && chunk.facadeModuleId?.endsWith(".js")
+-      );
+-      const cssChunk = (siteConfig.mpa ? serverResult : clientResult).output.find(
+-        (chunk) => chunk.type === "asset" && chunk.fileName.endsWith(".css")
+-      );
+-      const assets = (siteConfig.mpa ? serverResult : clientResult).output.filter(
+-        (chunk) => chunk.type === "asset" && !chunk.fileName.endsWith(".css")
+-      ).map((asset) => siteConfig.site.base + asset.fileName);
+-      const additionalHeadTags = [];
+-      const isDefaultTheme = clientResult && clientResult.output.some(
+-        (chunk) => chunk.type === "chunk" && // @ts-ignore only exists for rolldown-vite
+-        (vite.rolldownVersion || chunk.name === "theme") && // FIXME: remove when rolldown-vite supports manualChunks
+-        chunk.moduleIds.some((id) => id.includes("client/theme-default"))
++    const renderMetadata = createRenderMetadata(
++      siteConfig,
++      clientResult,
++      serverResult
++    );
++    clientResult = void 0;
++    serverResult = void 0;
++    const additionalHeadTags = createAdditionalHeadTags(renderMetadata);
++    const metadataScript = generateMetadataScript(pageToHashMap, siteConfig);
++    const gitTimestamps = snapshotGitTimestamps();
++    disposeBuildCaches();
++    globalThis.gc?.();
++    const usedIcons = /* @__PURE__ */ new Set();
++    if (siteConfig.ssrBuildBatchSize) {
++      await fs.ensureDir(siteConfig.tempDir);
++      const coordinatorDir = await fs.mkdtemp(
++        path$1.join(siteConfig.tempDir, "ssr-coordinator-")
+       );
+-      const metadataScript = generateMetadataScript(pageToHashMap, siteConfig);
+-      if (isDefaultTheme) {
+-        const fontURL = assets.find(
+-          (file) => /inter-roman-latin\.[\w-]+\.woff2/.test(file)
+-        );
+-        if (fontURL) {
+-          additionalHeadTags.push([
+-            "link",
+-            {
+-              rel: "preload",
+-              href: fontURL,
+-              as: "font",
+-              type: "font/woff2",
+-              crossorigin: ""
+-            }
+-          ]);
+-        }
+-      }
+-      const usedIcons = /* @__PURE__ */ new Set();
+-      await pMap(
+-        ["404.md", ...siteConfig.pages],
+-        async (page) => {
+-          await renderPage(
+-            render,
+-            siteConfig,
+-            siteConfig.rewrites.map[page] || page,
+-            clientResult,
+-            appChunk,
+-            cssChunk,
+-            assets,
+-            pageToHashMap,
+-            metadataScript,
+-            additionalHeadTags,
+-            usedIcons
++      const contractPath = path$1.join(coordinatorDir, "contract.json");
++      fs.writeJSONSync(contractPath, {
++        renderMetadata: serializeRenderMetadata(renderMetadata),
++        pageToHashMap,
++        metadataScript,
++        additionalHeadTags,
++        gitTimestamps
++      });
++      const renderQueue = ["404.md", ...siteConfig.pages];
++      const sourcePages = new Set(siteConfig.pages);
++      await task("building server bundles + rendering pages", async () => {
++        for (let offset = 0; offset < renderQueue.length; offset += siteConfig.ssrBuildBatchSize) {
++          const pages = renderQueue.slice(
++            offset,
++            offset + siteConfig.ssrBuildBatchSize
+           );
+-        },
+-        { concurrency: siteConfig.buildConcurrency }
+-      );
+-      const icons = require$1("@iconify-json/simple-icons/icons.json");
+-      const iconsCss = getIconsCSS(icons, Array.from(usedIcons).sort(), {
+-        iconSelector: ".vpi-social-{name}",
+-        commonSelector: ".vpi-social",
+-        varName: "icon",
+-        format: process.env.DEBUG ? "expanded" : "compressed",
+-        mode: "mask"
+-      }).replace(/[^]*?}\n*/, "");
+-      fs.writeFileSync(path$1.join(siteConfig.outDir, "vp-icons.css"), iconsCss);
+-    });
++          const serverPages = [...new Set(
++            pages.filter((page) => sourcePages.has(page))
++          )];
++          const descriptorPath = path$1.join(
++            coordinatorDir,
++            `batch-${offset}.json`
++          );
++          const iconsPath = path$1.join(
++            coordinatorDir,
++            `icons-${offset}.json`
++          );
++          fs.writeJSONSync(descriptorPath, {
++            root: siteConfig.root,
++            base: siteConfig.site.base,
++            outDir: siteConfig.outDir,
++            offset,
++            pages,
++            serverPages,
++            contractPath,
++            iconsPath,
++            buildOptions
++          });
++          await runSsrBatchWorker(descriptorPath);
++          for (const icon of fs.readJSONSync(iconsPath)) {
++            usedIcons.add(icon);
++          }
++        }
++      });
++    } else {
++      const entryPath = path$1.join(siteConfig.tempDir, "app.js");
++      const { render } = await import(pathToFileURL(entryPath).href);
++      await task("rendering pages", async () => {
++        await renderPages(
++          render,
++          siteConfig,
++          siteConfig.tempDir,
++          ["404.md", ...siteConfig.pages],
++          renderMetadata,
++          pageToHashMap,
++          metadataScript,
++          additionalHeadTags,
++          usedIcons
++        );
++      });
++    }
++    const icons = require$1("@iconify-json/simple-icons/icons.json");
++    const iconsCss = getIconsCSS(icons, Array.from(usedIcons).sort(), {
++      iconSelector: ".vpi-social-{name}",
++      commonSelector: ".vpi-social",
++      varName: "icon",
++      format: process.env.DEBUG ? "expanded" : "compressed",
++      mode: "mask"
++    }).replace(/[^]*?}\n*/, "");
++    fs.writeFileSync(path$1.join(siteConfig.outDir, "vp-icons.css"), iconsCss);
+     fs.writeJSONSync(
+       path$1.join(siteConfig.outDir, "hashmap.json"),
+       pageToHashMap
+@@ -46885,7 +47258,7 @@ async function build(root, buildOptions = {}) {
+   }
+   await generateSitemap(siteConfig);
+   await siteConfig.buildEnd?.(siteConfig);
+-  clearCache();
++  disposeBuildCaches();
+   siteConfig.logger.info(
+     `build complete in ${((Date.now() - start) / 1e3).toFixed(2)}s.`
+   );
+diff --git a/dist/node/cli.js b/dist/node/cli.js
+index 5257fd68355ed75a937b92e23f629f8b3dd56698..8760027ff9b4988cf9c7e426a33217f709adf0b8 100644
+--- a/dist/node/cli.js
++++ b/dist/node/cli.js
+@@ -460,6 +460,7 @@ if (!command || command === "dev") {
+   if (command === "build") {
+     build(root, {
+       ...argv,
++      __vitepressCli: true,
+       onAfterConfigResolve(siteConfig) {
+         logVersion(siteConfig.logger);
+       }
+diff --git a/dist/node/index.d.ts b/dist/node/index.d.ts
+index 808d899ee3866a82ce502f0d2138b3e05bbf0621..aaf2f5f5624a523c85eec18261a77f64311bdab8 100644
+--- a/dist/node/index.d.ts
++++ b/dist/node/index.d.ts
+@@ -1021,6 +1021,13 @@ interface UserConfig<ThemeConfig = any> extends LocaleSpecificConfig<ThemeConfig
+      * @default 64
+      */
+     buildConcurrency?: number;
++    /**
++     * Limits the number of page entries in each server bundle. The client
++     * bundle still contains every page and is emitted only once.
++     *
++     * @experimental
++     */
++    ssrBuildBatchSize?: number;
+     /**
+      * @experimental
+      *
+@@ -1089,6 +1096,7 @@ interface SiteConfig<ThemeConfig = any> extends Pick<UserConfig<ThemeConfig>, 'm
+     logger: Logger;
+     userConfig: UserConfig<ThemeConfig>;
+     buildConcurrency: number;
++    ssrBuildBatchSize?: number;
+ }
+ 
+ type UserConfigFn<ThemeConfig> = (env: ConfigEnv) => Awaitable<UserConfig<ThemeConfig>>;
+diff --git a/dist/node/ssr-worker.js b/dist/node/ssr-worker.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..515963aed815468fe50619821b6a88ead3d9a72c
+--- /dev/null
++++ b/dist/node/ssr-worker.js
+@@ -0,0 +1,10 @@
++import fs from "node:fs";
++import { build } from "./index.js";
++
++const descriptorPath = process.env.VITEPRESS_SSR_BATCH_DESCRIPTOR;
++if (!descriptorPath) {
++  throw new Error("Missing VITEPRESS_SSR_BATCH_DESCRIPTOR.");
++}
++const descriptor = fs.readFileSync(descriptorPath, "utf8");
++const { root, buildOptions = {} } = JSON.parse(descriptor);
++await build(root, buildOptions);

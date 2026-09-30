@@ -3,8 +3,15 @@ import * as path from "node:path";
 import { Plugin, SiteConfig } from "vitepress";
 import { Fabric } from "../types";
 
+// gray-matter v4 uses an unbounded process-global cache only when options are
+// omitted. Passing an otherwise-default option avoids retaining every source
+// and transformed Markdown string for the lifetime of the build.
+const uncachedMatterOptions = { excerpt: false };
+
 export const transformFile = (src: string, id: string, latestVersion: string) => {
-  let { data, content } = matter(src);
+  const parsed = matter(src, uncachedMatterOptions);
+  const data = { ...parsed.data };
+  let { content } = parsed;
   const newContent: string[] = [];
 
   // Version information
@@ -94,7 +101,7 @@ export const transformFile = (src: string, id: string, latestVersion: string) =>
     data.files = [...new Set(matches)].filter((f) => !(data.filesExclude ?? []).includes(f));
   }
 
-  return matter.stringify(content, data);
+  return matter.stringify(content, data, uncachedMatterOptions);
 };
 
 export const transformFilesPlugin = (latestVersion: string): Plugin => ({
