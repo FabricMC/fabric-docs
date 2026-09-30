@@ -166,3 +166,7 @@ Create a tag key for the tag to check if entries are present in the tag or not.
 We can use this method to check if a skill is an attacking skill or not.
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModTags.java#tag_usage
+
+## Next Steps {#next-steps}
+
+- [Populate Dynamic Registry Using Datagen](../data-generation/dynamic-registry)
