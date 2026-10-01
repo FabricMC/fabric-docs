@@ -45,7 +45,7 @@ jobs:
       - run: ./gradlew runDatagen --stacktrace --warning-mode fail
         working-directory: ./reference
       - if: failure()
-        uses: FabricMCBot/publish-checkstyle-report@4627c82002aa370b6cb2a3140f34c7a8c55a5297
+        uses: FabricMCBot/publish-checkstyle-report@v3
         with:
           reports: reference/**/build/reports/checkstyle/*.xml
       # require clean working directory
