@@ -23,4 +23,10 @@ authors:
     icon: 'codicon:vscode',
     color: '#007ACC',
   },
+  {
+    name: 'Zed',
+    href: './zed/tips-and-tricks',
+    icon: 'simple-icons:zedindustries',
+    color: '#282C34',
+  },
 ]" />

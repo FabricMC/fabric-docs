@@ -24,11 +24,16 @@ authors-nogithub:
 
 To develop mods for Minecraft 26.1, you will need JDK 25.
 
+::: tip Recommended for Linux
+On Linux, we recommend using [SDKMan!](https://sdkman.io/) to manage JDK installations.
+It makes it easy to install and switch between different Java versions.
+:::
+
 If you need help installing Java, you can refer to the [Java installation guides](../../players/installing-java/).
 
 ## Set Up Your IDE {#set-up-your-ide}
 
-To start developing mods with Fabric, you will need to set up a development environment using IntelliJ IDEA (recommended), or alternatively Visual Studio Code.
+To start developing mods with Fabric, you will need to set up a development environment using IntelliJ IDEA (recommended), or alternatively Visual Studio Code or Zed.
 
 <ChoiceComponent :choices="[
   {
@@ -42,5 +47,11 @@ To start developing mods with Fabric, you will need to set up a development envi
     href: './vscode/setting-up',
     icon: 'codicon:vscode',
     color: '#007ACC',
+  },
+  {
+    name: 'Zed',
+    href: './zed/setting-up',
+    icon: 'simple-icons:zedindustries',
+    color: '#282C34',
   },
 ]" />
