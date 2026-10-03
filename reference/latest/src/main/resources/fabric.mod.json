@@ -31,7 +31,8 @@
       "com.example.docs.gamerule.ExampleModGameRules",
       "com.example.docs.dynamic_registries.ExampleModDynamicRegistries",
       "com.example.docs.conditions.ExampleModResourceConditions",
-      "com.example.docs.stats.ExampleModStats"
+      "com.example.docs.stats.ExampleModStats",
+      "com.example.docs.particle.ExampleModParticles"
     ],
     "client": [
       "com.example.docs.client.command.ExampleModClientCommands",
@@ -47,7 +48,8 @@
       "com.example.docs.keymapping.ExampleModKeyMappingsClient",
       "com.example.docs.ExampleModRecipesClient",
       "com.example.docs.entity.ExampleModCustomEntityClient",
-      "com.example.docs.projectile.ExampleModProjectileClient"
+      "com.example.docs.projectile.ExampleModProjectileClient",
+      "com.example.docs.particle.ExampleModParticlesClient"
     ],
     "fabric-datagen": ["com.example.docs.datagen.ExampleModDataGenerator"]
   },
