@@ -14,13 +14,11 @@ resources:
   https://blog.jetbrains.com/idea/category/tips-tricks/: 官方提示和技巧
 ---
 
-本页面提供一些有用的信息，加速并简化开发者的工作流程。 根据你的喜好自由发挥到你的项目中。
-学习并习惯这些捷径和其他选项可能会花点时间。 你可以以此页面作为参考。
+本页面提供一些有用的信息，加速并简化开发者的工作流程。根据你的喜好自由发挥到你的项目中。学习并习惯这些捷径和其他选项可能会花点时间。你可以以此页面作为参考。
 
 ::: warning
 
-如果没有特别说明，本文中的按键映射均指 IntelliJ IDEA 的默认按键映射预设。
-如果你所使用的是不同的键盘布局，请参考 `文件 > 设置 > 按键映射` 设置，或直接搜索对应功能。
+如果没有特别说明，本文中的按键映射均指 IntelliJ IDEA 的默认按键映射预设。如果你所使用的是不同的键盘布局，请参考 `文件 > 设置 > 按键映射` 设置，或直接搜索对应功能。
 
 :::
 
@@ -28,14 +26,11 @@ resources:
 
 ### 手动 {#manually}
 
-IntelliJ 有许多不同的方式来遍历项目。 如果你已使用终端中的 `./gradlew genSources` 命令生成源代码或在 Gradle 窗口中使用了 `Tasks > fabric > genSources` Gradle 任务，则可以在项目窗口的外部库中手动浏览 Minecraft 的源文件。
+IntelliJ 有许多不同的方式来遍历项目。如果你已使用终端中的 `./gradlew genSources` 命令生成源代码或在 Gradle 窗口中使用了 `Tasks > fabric > genSources` Gradle 任务，则可以在项目窗口的外部库中手动浏览 Minecraft 的源文件。
 
 ![Gradle 任务](/assets/develop/misc/using-the-ide/traversing_01.png)
 
-在项目窗口的外部库查找 `net.minecraft` 即可找到 Minecraft 源代码。
-如果你的项目使用了在线[模板模组生成器](https://fabricmc.net/develop/template)中的分离源码集，则会有两个分开的源代码(client/common）。
-此外，通过 `build.gradle` 文件导入的其他项目源、库和依赖也将可用。
-这种方法常用于浏览资源文件、标签和其他文件。
+在项目窗口的外部库查找 `net.minecraft` 即可找到 Minecraft 源代码。如果你的项目使用了在线[模板模组生成器](https://fabricmc.net/develop/template)中的分离源码集，则会有两个分开的源代码(client/common）。此外，通过 `build.gradle` 文件导入的其他项目源、库和依赖也将可用。这种方法常用于浏览资源文件、标签和其他文件。
 
 ![外部库](/assets/develop/misc/using-the-ide/traversing_02_1.png)
 
@@ -43,7 +38,7 @@ IntelliJ 有许多不同的方式来遍历项目。 如果你已使用终端中�
 
 ### 搜索{#search}
 
-按两次 <kbd>Shift</kbd> 键可打开“搜索”窗口。 你可以在其中搜索项目的文件和类。 当激活复选框 `包括非项目条目` 或再次按两次 <kbd>Shift</kbd> 时，搜索不仅会查找你自己的项目，还会查找其他项目，例如外部库。
+按两次 <kbd>Shift</kbd> 键可打开“搜索”窗口。你可以在其中搜索项目的文件和类。当激活复选框 `包括非项目条目` 或再次按两次 <kbd>Shift</kbd> 时，搜索不仅会查找你自己的项目，还会查找其他项目，例如外部库。
 
 你还可以使用快捷键 <kbd>⌘/CTRL</kbd> + <kbd>N</kbd> 来搜索类，以及使用快捷键 <kbd>⌘/CTRL</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> 搜索所&#x6709;_&#x6587;件_。
 
@@ -51,8 +46,7 @@ IntelliJ 有许多不同的方式来遍历项目。 如果你已使用终端中�
 
 ### 最近窗口{#recent-window}
 
-IntelliJ 中的另一个有用的工具是 `最近` 窗口， 可以使用快捷键 <kbd>⌘/CTRL</kbd> + <kbd>E</kbd> 打开。
-在那里可以跳转到已经访问过的文件并打开工具窗口，例如[结构](#structure-of-a-class)或[书签](#bookmarks)窗口。
+IntelliJ 中的另一个有用的工具是 `最近` 窗口，可以使用快捷键 <kbd>⌘/CTRL</kbd> + <kbd>E</kbd> 打开。在那里可以跳转到已经访问过的文件并打开工具窗口，例如[结构](#structure-of-a-class)或[书签](#bookmarks)窗口。
 
 ![最近窗口](/assets/develop/misc/using-the-ide/traversing_04.png)
 
@@ -60,22 +54,19 @@ IntelliJ 中的另一个有用的工具是 `最近` 窗口， 可以使用快捷
 
 ### 跳转至定义/用法 {#jump-to-definition-usage}
 
-如果你需要查看变量、方法、类和其他内容的定义或用法，可以按 <kbd>⌘/CTRL</kbd> + <kbd>左键单击/B</kbd> 或在其名称上使用<kbd>鼠标中键</kbd>（按下鼠标滚轮）。 这样，你就可以避免长时间滚动会话或手动搜索位于另一个文件中的定义。
+如果你需要查看变量、方法、类和其他内容的定义或用法，可以按 <kbd>⌘/CTRL</kbd> + <kbd>左键单击/B</kbd> 或在其名称上使用<kbd>鼠标中键</kbd>（按下鼠标滚轮）。这样，你就可以避免长时间滚动会话或手动搜索位于另一个文件中的定义。
 
 你还可以使用 <kbd>⌘/CTRL</kbd> + <kbd>⌥/Shift</kbd> + <kbd>左键单击/B</kbd> 查看某个类或接口的所有实现。
 
 ### 书签 {#bookmarks}
 
-你可以为代码行、文件甚至打开的“编辑器”选项卡添加书签。
-特别是在研究源代码时，书签可以帮助你标记将来想要再次快速找到的位置。
+你可以为代码行、文件甚至打开的“编辑器”选项卡添加书签。特别是在研究源代码时，书签可以帮助你标记将来想要再次快速找到的位置。
 
-右键单击 `项目` 窗口、编辑器选项卡或文件中的行号中的文件。
-创建`助记书签`使你能够使用其热键 <kbd>⌘/CTRL</kbd> 和你为其选择的数字快速切换回这些书签。
+右键单击 `项目` 窗口、编辑器选项卡或文件中的行号中的文件。创建`助记书签`使你能够使用其热键 <kbd>⌘/CTRL</kbd> 和你为其选择的数字快速切换回这些书签。
 
 ![设置书签](/assets/develop/misc/using-the-ide/traversing_05.png)
 
-如果你需要分离或排序书签列表，可以在`书签`窗口中同时创建多个书签列表。
-[断点](../../debugging#breakpoints)也将显示在那里。
+如果你需要分离或排序书签列表，可以在`书签`窗口中同时创建多个书签列表。[断点](../../debugging#breakpoints)也将显示在那里。
 
 ![书签窗口](/assets/develop/misc/using-the-ide/traversing_06.png)
 
@@ -83,7 +74,7 @@ IntelliJ 中的另一个有用的工具是 `最近` 窗口， 可以使用快捷
 
 ### 类的结构 {#structure-of-a-class}
 
-打开`结构`窗口（<kbd>⌘/Alt</kbd> + <kbd>7</kbd>），可以获得当前活动类的概览。 你可以看到该文件中有哪些类和枚举、实现了哪些方法以及声明了哪些字段和变量。
+打开`结构`窗口（<kbd>⌘/Alt</kbd> + <kbd>7</kbd>），可以获得当前活动类的概览。你可以看到该文件中有哪些类和枚举、实现了哪些方法以及声明了哪些字段和变量。
 
 有时，在寻找可能要覆盖的方法时，在“视图”选项顶部激活`继承`选项也会很有帮助。
 
@@ -99,8 +90,7 @@ IntelliJ 中的另一个有用的工具是 `最近` 窗口， 可以使用快捷
 
 ### 代码补全 {#code-completion}
 
-代码补全应默认激活。 你将在编写代码时自动获得建议。
-如果你不小心把它关闭了或者不慎将光标移动到了新位置，可以使用 <kbd>⌘/CTRL</kbd> + <kbd>空格</kbd> 重新打开。
+代码补全应默认激活。你将在编写代码时自动获得建议。如果你不小心把它关闭了或者不慎将光标移动到了新位置，可以使用 <kbd>⌘/CTRL</kbd> + <kbd>空格</kbd> 重新打开。
 
 例如，当使用 lambda 表达式时，你可以使用这种方法快速编写。
 
@@ -108,9 +98,7 @@ IntelliJ 中的另一个有用的工具是 `最近` 窗口， 可以使用快捷
 
 ### 代码生成 {#code-generation}
 
-可以通过 <kbd>Alt</kbd> + <kbd>Insert</kbd>（在 macOS 上为 <kbd>⌘ Command</kbd> + <kbd>N</kbd>）快速访问生成菜单，或者转到顶部的 `代码` 并选择 `生成`。
-在 Java 文件中，你可以生成构造器、getter、setter、重写或实现方法，等等。
-如果安装了 [Minecraft Development 插件](./setting-up#installing-idea-plugins)，你还可以生成访问器和调用器。
+可以通过 <kbd>Alt</kbd> + <kbd>Insert</kbd>（在 macOS 上为 <kbd>⌘ Command</kbd> + <kbd>N</kbd>）快速访问生成菜单，或者转到顶部的 `代码` 并选择 `生成`。在 Java 文件中，你可以生成构造器、getter、setter、重写或实现方法，等等。如果安装了 [Minecraft Development 插件](./setting-up#installing-idea-plugins)，你还可以生成访问器和调用器。
 
 此外，你可以使用 <kbd>⌘/CTRL</kbd> + <kbd>O</kbd> 快速重写方法，并使用 <kbd>⌘/CTRL</kbd> + <kbd>I</kbd> 实现方法。
 
@@ -122,33 +110,27 @@ IntelliJ 中的另一个有用的工具是 `最近` 窗口， 可以使用快捷
 
 ### 显示参数 {#displaying-parameters}
 
-显示参数应默认激活。 你将在编写代码时自动获取参数的类型和名称。
-如果你意外把它关闭了或者不慎将光标移动到了新位置，可以使用 <kbd>⌘/CTRL</kbd> + <kbd>P</kbd> 再次打开。
+显示参数应默认激活。你将在编写代码时自动获取参数的类型和名称。如果你意外把它关闭了或者不慎将光标移动到了新位置，可以使用 <kbd>⌘/CTRL</kbd> + <kbd>P</kbd> 再次打开。
 
-方法和类可以有具有不同参数的多个实现，也称为“重载”。 这样，你可以在编写方法调用时决定要使用哪种实现。
+方法和类可以有具有不同参数的多个实现，也称为“重载”。这样，你可以在编写方法调用时决定要使用哪种实现。
 
 ![显示方法参数](/assets/develop/misc/using-the-ide/util_02.png)
 
 ### 重构 {#refactoring}
 
-重构是在不改变代码运行时功能的情况下重组代码的过程。 安全地重命名和删除部分代码是其中的一部分，但将部分代码提取到单独的方法中以及为重复的代码语句引入新变量等操作也称为“重构”。
+重构是在不改变代码运行时功能的情况下重组代码的过程。安全地重命名和删除部分代码是其中的一部分，但将部分代码提取到单独的方法中以及为重复的代码语句引入新变量等操作也称为“重构”。
 
-许多 IDE 都有丰富的工具包来帮助完成这一过程。 在 IntelliJ 中，只需右键单击文件或部分代码即可访问可用的重构工具。
+许多 IDE 都有丰富的工具包来帮助完成这一过程。在 IntelliJ 中，只需右键单击文件或部分代码即可访问可用的重构工具。
 
 ![重构](/assets/develop/misc/using-the-ide/refactoring_01.png)
 
-习惯`重命名`重构工具的按键绑定 <kbd>Shift</kbd>+<kbd>F6</kbd> 特别有用，因为你将来可能会重命名很多东西。
-使用这一功能，重命名的代码中每次出现的地方都会被重命名，并保持功能不变。
+习惯`重命名`重构工具的按键绑定 <kbd>Shift</kbd>+<kbd>F6</kbd> 特别有用，因为你将来可能会重命名很多东西。使用这一功能，重命名的代码中每次出现的地方都会被重命名，并保持功能不变。
 
-你还可以根据你的代码风格重新格式化代码。
-要这么做，请选择要重新格式化的代码（如果未选择任何内容，则将重新格式化整个文件）并按 <kbd>⌘/CTRL</kbd> + <kbd>⌥/ALT</kbd> + <kbd>L</kbd>。
-要更改 IntelliJ 格式化代码的方式，参见 `文件 > 设置 > 编辑器 > 代码风格 > Java` 中的设置。
+你还可以根据你的代码风格重新格式化代码。要这么做，请选择要重新格式化的代码（如果未选择任何内容，则将重新格式化整个文件）并按 <kbd>⌘/CTRL</kbd> + <kbd>⌥/ALT</kbd> + <kbd>L</kbd>。要更改 IntelliJ 格式化代码的方式，参见 `文件 > 设置 > 编辑器 > 代码风格 > Java` 中的设置。
 
 #### 上下文操作 {#context-actions}
 
-上下文操作允许根据上下文重构特定代码段。
-要使用它，只需将光标移动到要重构的区域，然后按 <kbd>⌥/ALT</kbd> + <kbd>Enter</kbd> 或者单击左侧的灯泡。
-将出现一个弹出窗口，会显示所选代码可用的上下文操作。
+上下文操作允许根据上下文重构特定代码段。要使用它，只需将光标移动到要重构的区域，然后按 <kbd>⌥/ALT</kbd> + <kbd>Enter</kbd> 或者单击左侧的灯泡。将出现一个弹出窗口，会显示所选代码可用的上下文操作。
 
 ![上下文操作示例](/assets/develop/misc/using-the-ide/context_actions_01.png)
 
@@ -173,15 +155,13 @@ IntelliJ 中的另一个有用的工具是 `最近` 窗口， 可以使用快捷
 
 选择一些文本并使用<kbd>⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>↑ 上 / ↓ 下</kbd>可以将选择的文本向上或者向下移动。
 
-在 IntelliJ 中，“重做”的按键绑定不是常用的<kbd>⌘/CTRL</kbd>+<kbd>Y</kbd>（删除行），
-相反地，它可能是 <kbd> ⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> 可以在**按键映射**中修改。
+在 IntelliJ 中，“重做”的按键绑定不是常用的<kbd>⌘/CTRL</kbd>+<kbd>Y</kbd>（删除行），相反地，它可能是 <kbd> ⌘/CTRL</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> 可以在**按键映射**中修改。
 
 键盘快捷键的更多信息，可见 [IntelliJ 的文档](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html)。
 
 ## 注释 {#comments}
 
-好的代码应该可读并且[是自解释的](https://bytedev.medium.com/code-comment-anti-patterns-and-why-the-comment-you-just-wrote-is-probably-not-needed-919a92cf6758)。
-变量、类、方法选择能清晰表达的名称，这会很有帮助，但有时也需要用注释来留下记录，或者**暂时**把代码禁用以做测试。
+好的代码应该可读并且[是自解释的](https://bytedev.medium.com/code-comment-anti-patterns-and-why-the-comment-you-just-wrote-is-probably-not-needed-919a92cf6758)。变量、类、方法选择能清晰表达的名称，这会很有帮助，但有时也需要用注释来留下记录，或者**暂时**把代码禁用以做测试。
 
 要更快地将代码注释掉，可以选择一些文本，并使用<kbd>⌘/CTRL</kbd>+<kbd>/</kbd>（行注释）和<kbd>⌘/CTRL</kbd>+<kbd>⌥/Shift</kbd>+<kbd>/</kbd>（块注释）按键绑定。
 
@@ -208,9 +188,7 @@ private static int secondsToTicks(float seconds) {
 
 ### 代码折叠{#code-folding}
 
-在 IntelliJ 中，在行号旁边，可能会看到小的箭头图标。
-这些可以用于暂时折叠方法、if-语句、类和很多其他东西，如果这些你并不是正在处理这些。
-要创建自定义的可以被折叠的块，使用 `region` 和 `endregion` 注释。
+在 IntelliJ 中，在行号旁边，可能会看到小的箭头图标。这些可以用于暂时折叠方法、if-语句、类和很多其他东西，如果这些你并不是正在处理这些。要创建自定义的可以被折叠的块，使用 `region` 和 `endregion` 注释。
 
 ```java
 // region collapse block name
@@ -242,8 +220,7 @@ private static int secondsToTicks(float seconds) {
 
 ### 禁止检查{#noinspection}
 
-`//noinspection` 注释可用于禁止检查和警告。
-它们在功能上与 `@SuppressWarnings` 注释相同，但没有注释的限制，并且可以在语句上使用。
+`//noinspection` 注释可用于禁止检查和警告。它们在功能上与 `@SuppressWarnings` 注释相同，但没有注释的限制，并且可以在语句上使用。
 
 ```java
 // below is bad code and IntelliJ knows that
@@ -266,7 +243,7 @@ new ArrayList().add("bananas");
 
 ### TODO 和 FIXME 注释{#todo-and-fixme-notes}
 
-写代码时，把需要关心的东西留下注释也是很方便的。 有时你可以也注意到代码中有潜在的问题，但是不想停下当前的事情去关注这个问题。 这时，可以使用 `TODO` 或 `FIXME` 注释。
+写代码时，把需要关心的东西留下注释也是很方便的。有时你可以也注意到代码中有潜在的问题，但是不想停下当前的事情去关注这个问题。这时，可以使用 `TODO` 或 `FIXME` 注释。
 
 ![TODO 和 FIXME 注释](/assets/develop/misc/using-the-ide/comments_03.png)
 
@@ -285,15 +262,15 @@ JavaDoc 不仅提供方法和类的实现的有用信息，还能与 IntelliJ �
 
 ![JavaDoc](/assets/develop/misc/using-the-ide/comments_06.png)
 
-要开始写，先在方法或类的定义上方写上 `/**`，然后按 <kbd>Enter</kbd>。 IntelliJ 会自动为返回值及各参数生成行，但你也可以随意改变。 有很多可用的自定义功能，还可以在需要时使用 HTML。
+要开始写，先在方法或类的定义上方写上 `/**`，然后按 <kbd>Enter</kbd>。 IntelliJ 会自动为返回值及各参数生成行，但你也可以随意改变。有很多可用的自定义功能，还可以在需要时使用 HTML。
 
-Minecraft 的 `ScreenHandler` 类有些例子。 要开启渲染视图，可使用行号旁边的笔按钮。
+Minecraft 的 `ScreenHandler` 类有些例子。要开启渲染视图，可使用行号旁边的笔按钮。
 
 ![JavaDoc 编辑](/assets/develop/misc/using-the-ide/comments_07.png)
 
 ## 查看字节码 {#viewing-bytecode}
 
-在编写 mixins 时，查看字节码是必要的。 你可以通过在编辑器中打开一个库类（例如 Minecraft 类），然后在 `View` 菜单中选择 `Show Bytecode` 来查看该类的字节码。
+在编写 mixins 时，查看字节码是必要的。你可以通过在编辑器中打开一个库类（例如 Minecraft 类），然后在 `View` 菜单中选择 `Show Bytecode` 来查看该类的字节码。
 
 ![“View”菜单中的“Show bytecode”按钮](/assets/develop/getting-started/intellij/show_bytecode.png)
 
@@ -306,8 +283,7 @@ Jetbrains 有很多关于如何进一步个性化你的工作空间的讨论、�
 
 ### 后缀补全{#postfix-completion}
 
-写了代码后，可以用后缀补全来快速修改。 常用的一些例子有 `.not`、`.if`、`.var`、`.null`、`.nn`、`.for`、`.fori`、`.return` 和 `.new`。
-除了这些已有的之外，你也可以在 IntelliJ 的设置中创建你自己的。
+写了代码后，可以用后缀补全来快速修改。常用的一些例子有 `.not`、`.if`、`.var`、`.null`、`.nn`、`.for`、`.fori`、`.return` 和 `.new`。除了这些已有的之外，你也可以在 IntelliJ 的设置中创建你自己的。
 
 <VideoPlayer src="https://youtu.be/wvo9aXbzvy4">IntelliJ IDEA 专业技巧：YouTube 上的 Postfix 补全</VideoPlayer>
 
@@ -323,5 +299,4 @@ Jetbrains 的 Anthon Arhipov 也有关于正则表达式匹配、代码补全、
 
 <VideoPlayer src="https://youtu.be/V8lss58zBPI">YouTube 上的 Anton Arhipov 的 IntelliJ talk</VideoPlayer>
 
-如需更多信息，请查看 [Jetbrains' Tips & Tricks 网站](https://blog.jetbrains.com/idea/category/tips-tricks) 和 [IntelliJ 文档](https://www.jetbrains.com/help/idea/getting-started)。
-大多数这些帖子都适用于 Fabric 的生态系统中。
+如需更多信息，请查看 [Jetbrains' Tips & Tricks 网站](https://blog.jetbrains.com/idea/category/tips-tricks) 和 [IntelliJ 文档](https://www.jetbrains.com/help/idea/getting-started)。大多数这些帖子都适用于 Fabric 的生态系统中。

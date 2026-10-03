@@ -42,8 +42,8 @@ La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nom
 Per aggiungere il suono personalizzato alla mod, registra un SoundEvent nell'[initializer della tua mod](../getting-started/project-structure#entrypoints).
 
 ```java
-Registry.register(BuiltInRegistries.SOUND_EVENT, Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle"),
-        SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle")));
+Registry.register(BuiltInRegistries.SOUND_EVENT, ExampleMod.id("metal_whistle"),
+        SoundEvent.createVariableRangeEvent(ExampleMod.id("metal_whistle")));
 ```
 
 ## Ripulire il Disordine {#cleaning-up-the-mess}

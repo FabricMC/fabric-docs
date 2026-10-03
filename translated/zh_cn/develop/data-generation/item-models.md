@@ -20,8 +20,8 @@ resources:
 
 对于每一个需要生成模型的物品，我们必须创建两个独立的 JSON 文件：
 
-1. 一个**物品模型**，用于定义物品的纹理、旋转和整体外观。 将生成在 `generated/assets/example-mod/models/item` 目录下。
-2. 一个**客户端物品**，根据组件、交互等不同标准来定义使用的模型。 将生成在 `generated/assets/example-mod/items` 目录下。
+1. 一个**物品模型**，用于定义物品的纹理、旋转和整体外观。将生成在 `generated/assets/example-mod/models/item` 目录下。
+2. 一个**客户端物品**，根据组件、交互等不同标准来定义使用的模型。将生成在 `generated/assets/example-mod/items` 目录下。
 
 ## 设置 {#setup}
 
@@ -33,8 +33,7 @@ resources:
 
 :::
 
-创建一个继承 `FabricModelProvider` 的类，并且实现两个抽象方法：`generateBlockStateModels` 和 `generateItemModels`。
-然后，创建一个匹配 `super` 的构造器。
+创建一个继承 `FabricModelProvider` 的类，并且实现两个抽象方法：`generateBlockStateModels` 和 `generateItemModels`。然后，创建一个匹配 `super` 的构造器。
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#provider
 
@@ -44,13 +43,13 @@ resources:
 
 ## 内置物品模型 {#built-in}
 
-对于物品模型，我们将使用 `generateItemModels` 方法， 其形参 `ItemModelGenerators itemModelGenerator` 负责生成物品模型，并包含相应的方法。
+对于物品模型，我们将使用 `generateItemModels` 方法，其形参 `ItemModelGenerators itemModelGenerator` 负责生成物品模型，并包含相应的方法。
 
 以下是最常用的物品模型生成方法。
 
 ### 简单 {#simple}
 
-简单物品模型即是默认的模型，也是大多数原版物品所使用的模型， 其父模型为 `GENERATED`， 在背包中使用 2D 纹理，但在游戏中渲染为 3D， 例如船、蜡烛和染料。
+简单物品模型即是默认的模型，也是大多数原版物品所使用的模型，其父模型为 `GENERATED`，在背包中使用 2D 纹理，但在游戏中渲染为 3D，例如船、蜡烛和染料。
 
 ::: tabs
 
@@ -80,7 +79,7 @@ resources:
 
 ### 手持{#handheld}
 
-手持物品通常用于工具和武器（斧、剑、三叉戟）。 这些物品的旋转和定位与简单模型有点区别，从而在手中看上去更自然。
+手持物品通常用于工具和武器（斧、剑、三叉戟）。这些物品的旋转和定位与简单模型有点区别，从而在手中看上去更自然。
 
 ::: tabs
 
@@ -110,7 +109,7 @@ resources:
 
 ### 可染色{#dyeable}
 
-可染色物品的方法会生成一个简单的物品模型和客户端物品，并会指定着色（tint）颜色。 此方法需要一个默认的十进制颜色值，用于未染色的物品。 皮革的默认值为 `0xFFA06540`。
+可染色物品的方法会生成一个简单的物品模型和客户端物品，并会指定着色（tint）颜色。此方法需要一个默认的十进制颜色值，用于未染色的物品。皮革的默认值为 `0xFFA06540`。
 
 :::: tabs
 
@@ -148,7 +147,7 @@ resources:
 
 ### 条件{#conditional}
 
-接下来，我们来尝试生成会在当由第二个参数 `BooleanProperty` 指定的特定条件满足时改变其外观的物品模型。 这是其中的一些：
+接下来，我们来尝试生成会在当由第二个参数 `BooleanProperty` 指定的特定条件满足时改变其外观的物品模型。这是其中的一些：
 
 | 属性              | 描述                               |
 | --------------- | -------------------------------- |
@@ -199,7 +198,7 @@ resources:
 
 ### 复合{#composite}
 
-复合物品模型会由一个或更多个纹理层叠组成。 这个没有原版的方法，你需要使用 `itemModelGenerator` 的 `itemModelOutput` 字段，然后调用 `accept()`。
+复合物品模型会由一个或更多个纹理层叠组成。这个没有原版的方法，你需要使用 `itemModelGenerator` 的 `itemModelOutput` 字段，然后调用 `accept()`。
 
 ::: tabs
 
@@ -231,7 +230,7 @@ resources:
 
 ### 选择{#select}
 
-基于特定属性的值渲染物品模型。 有这样一些：
+基于特定属性的值渲染物品模型。有这样一些：
 
 | 属性                  | 描述                                                         |
 | ------------------- | ---------------------------------------------------------- |
@@ -280,7 +279,7 @@ resources:
 
 ### 范围派发{#range-dispatch}
 
-基于数字属性的值渲染物品模型。 接收一个物品和变种列表，每个都与值配对。 示例包括指南针、弓和刷子。
+基于数字属性的值渲染物品模型。接收一个物品和变种列表，每个都与值配对。示例包括指南针、弓和刷子。
 
 有不少支持的属性，这里是一些例子：
 
@@ -331,7 +330,7 @@ resources:
 
 ## 自定义物品模型{#custom}
 
-生成物品模型不仅可以通过原版方法完成，你当然还可以创建自己的。 在本段中，我们会为一个气球物品创建自定义的模型。
+生成物品模型不仅可以通过原版方法完成，你当然还可以创建自己的。在本段中，我们会为一个气球物品创建自定义的模型。
 
 本教程此部分的所有字段和模型都声明在叫做 `CustomItemModelGenerator` 的静态内部类中。
 
@@ -343,7 +342,7 @@ resources:
 
 ### 创建自定义父模型{#custom-parent}
 
-首先，先创建一个父物品模型，定义物品在游戏内如何显示。 比如说，我们要让气球看上去像普通的物品模型，但放大。
+首先，先创建一个父物品模型，定义物品在游戏内如何显示。比如说，我们要让气球看上去像普通的物品模型，但放大。
 
 要做到这个，我们先创建 `resources/assets/example-mod/models/item/scaled2x.json`，将其父模型设置为 `item/generated` 模型，然后覆盖缩放。
 
@@ -353,7 +352,7 @@ resources:
 
 ### 创建 `ModelTemplate`{#custom-item-model}
 
-接下来我们需要创建 `ModelTemplate` 类的实例， 代表我们模组内部的实际[父物品模型](#custom-parent)。
+接下来我们需要创建 `ModelTemplate` 类的实例，代表我们模组内部的实际[父物品模型](#custom-parent)。
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_item_model
 
@@ -370,7 +369,7 @@ TextureSlot `LAYER0` 代表 `#layer0` 纹理变量，会被指向纹理的 ID �
 我们看看参数是做什么的：
 
 1. `Item item`：物品，为此物品生成模型。
-2. `ItemModelGenerators generator`：和传入 `generateItemModels()` 的相同。 用于其字段。
+2. `ItemModelGenerators generator`：和传入 `generateItemModels()` 的相同。用于其字段。
 
 首先，先使用 `SCALED2X.create()` 得到 `Identifier`，从我们的 `generator` 参数传入一个 `TextureMapping` 和 `modelOutput`。
 

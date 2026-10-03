@@ -13,7 +13,7 @@ authors:
 
 ::: info
 
-本指南僅適用於官方的 Minecraft Launcher。 對於第三方啟動器，你應該參閱他們的文檔。
+本指南僅適用於官方的 Minecraft Launcher。對於第三方啟動器，你應該參閱他們的文檔。
 
 :::
 

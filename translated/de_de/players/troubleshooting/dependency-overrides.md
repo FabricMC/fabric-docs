@@ -102,7 +102,7 @@ Zuerst haben wir `version`, womit die Version der Spezifikation für die Übersc
 
 Als zweites haben wir ein Objekt `overrides`, das alle unsere Überschreibungen von Abhängigkeiten zu verschiedenen Mods enthält. Zunächst enthält es einen leeren Eintrag für `example-mod`, dem wir Überschreibungen von Abhängigkeiten hinzufügen können.
 
-Schlüssel innerhalb des Mod-Objekts können einem der fünf Abhängigkeitstypen entsprechen (`depends`, `recommends`, `suggests`, `conflicts`, `breaks`). Der Wert jedes dieser Schlüssel muss ein JSON-Objekt sein. Dieses JSON-Objekt folgt genau derselben Struktur wie ein [Objekt für eine Abhängigkeit in der `fabric.mod.json`](./fabric-mod-json#semantic-versioning).
+Schlüssel innerhalb des Mod-Objekts können einem der fünf Abhängigkeitstypen entsprechen (`depends`, `recommends`, `suggests`, `conflicts`, `breaks`). Der Wert jedes dieser Schlüssel muss ein JSON-Objekt sein. Dieses JSON-Objekt folgt genau derselben Struktur wie ein [Objekt für eine Abhängigkeit in der `fabric.mod.json`](../../develop/loader/fabric-mod-json#semantic-versioning).
 
 Dem Schlüssel kann optional ein `+` oder `-` vorangestellt werden (z. B. `"+depends"`, `"-breaks"`).
 

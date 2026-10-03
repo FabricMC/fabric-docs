@@ -170,18 +170,6 @@ Minecraft не визначає автоматично, де можна знай
 
 ![Предмет із правильною моделлю](/assets/develop/items/first_item_2.png)
 
-## Зробити предмет компостованим або паливом {#making-the-item-compostable-or-a-fuel}
-
-Fabric API надає різні реєстри, які можна використовувати для додавання додаткових властивостей до вашого предмета.
-
-Наприклад, якщо ви хочете зробити свій предмет компостованим, ви можете використати `CompostableRegistry`:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
-
-Крім того, якщо ви хочете зробити свій предмет паливом, ви можете використати подію `FuelValueEvents.BUILD`:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
-
 ## Додання звичайних рецептів майстрування {#adding-a-basic-crafting-recipe}
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->

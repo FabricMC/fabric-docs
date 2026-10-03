@@ -21,7 +21,7 @@ Minecraft Launcher 隨附自己的 Java 安裝，因此本章節只在你想使�
 
 開啟命令提示字元後，輸入 `java -version` 並按下 <kbd>Enter</kbd>。
 
-如果指令成功執行，你會看到類似下圖的內容。 如果指令失敗，請繼續下一步。
+如果指令成功執行，你會看到類似下圖的內容。如果指令失敗，請繼續下一步。
 
 ![已輸入「java -version」的命令提示字元](/assets/players/installing-java/windows-java-version.png)
 
@@ -43,11 +43,11 @@ Minecraft Launcher 隨附自己的 Java 安裝，因此本章節只在你想使�
 
 如果你的作業系統是 32 位元，請選擇 `x86`；如果是 64 位元，請選擇 `x64`。
 
-大多數現代電腦都使用 64 位元作業系統。 如果你不確定，請先嘗試使用 64 位元下載。
+大多數現代電腦都使用 64 位元作業系統。如果你不確定，請先嘗試使用 64 位元下載。
 
 ## 3. 執行安裝程式！ {#3-run-the-installer}
 
-依照安裝程式中的步驟安裝 Java 25。 到達此頁面時，你應該將下列功能設定為「Entire feature will be installed on local hard drive」：
+依照安裝程式中的步驟安裝 Java 25。到達此頁面時，你應該將下列功能設定為「Entire feature will be installed on local hard drive」：
 
 - `Set JAVA_HOME environment variable` - 這會加入你的 PATH。
 - `JavaSoft (Oracle) registry keys`

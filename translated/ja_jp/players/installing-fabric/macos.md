@@ -29,7 +29,7 @@ next: false
 
 ::: tip
 
-Appleが`.jar`ファイルを検証できなかったという警告が表示される場合があります。 これを回避するには、「システム設定」＞「プライバシーとセキュリティ」を開き、「とにかく開く」をクリックします。 指示があった場合は、管理者パスワードを確認して入力してください。
+Appleが`.jar`ファイルを検証できなかったという警告が表示される場合があります。これを回避するには、「システム設定」＞「プライバシーとセキュリティ」を開き、「とにかく開く」をクリックします。指示があった場合は、管理者パスワードを確認して入力してください。
 
 ![macOS システム設定](/assets/players/installing-fabric/macos-settings.png)
 
@@ -53,10 +53,10 @@ brew install fabric-installer
 
 ## 3. セットアップの完了 {#3-finish-setup}
 
-インストールが完了したら、Minecraft ランチャーを起動してください。 次に、バージョンを選択からFabric プロファイルを選択し、Play を押してください。
+インストールが完了したら、Minecraft ランチャーを起動してください。次に、バージョンを選択からFabric プロファイルを選択し、Play を押してください。
 
 ![Fabricプロファイルを選択したMinecraftランチャー](/assets/players/installing-fabric/launcher-screen.png)
 
-ゲームにModを追加できるようになりました。 詳しくは、[信頼できるモッドを見つける](../finding-mods) のガイドを参照してください。
+ゲームにModを追加できるようになりました。詳しくは、[信頼できるモッドを見つける](../finding-mods) のガイドを参照してください。
 
 問題が発生した場合は、[Fabric Discord](https://discord.fabricmc.net/) の`#player-support`チャンネルで遠慮なくサポートを求めてください。
