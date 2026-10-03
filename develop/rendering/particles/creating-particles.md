@@ -72,13 +72,17 @@ You can use Vanilla textures too, just add `minecraft:<vanilla_texture_file_name
 
 == Template
 
+<!-- prettier-ignore-start -->
 ```json
 {
   "textures": [
-    "mod_id:texture_name"
+
   ]
 }
 ```
+<!-- prettier-ignore-end -->
+
+A blank template for you to copy-paste into your Sprite Set JSON file.
 
 :::
 
