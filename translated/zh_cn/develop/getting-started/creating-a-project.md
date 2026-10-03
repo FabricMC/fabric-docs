@@ -17,11 +17,11 @@ Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来�
 
 你可以使用 [Fabric 模板模组生成器](https://fabricmc.net/develop/template/)为你的模组生成一个新项目——你应该填写必要的字段，例如模组名称、包名以及你想开发的 Minecraft 版本。
 
-包名应为小写，用点分隔，并保持唯一以避免与其他程序员的包冲突。 它通常被格式化为反向互联网域名，例如 `com.example.example-mod`。
+包名应为小写，用点分隔，并保持唯一以避免与其他程序员的包冲突。它通常被格式化为反向互联网域名，例如 `com.example.example-mod`。
 
 :::warning 重要
 
-请记住你的模组 ID！ 当你在这些文档中找到 `example-mod` ，尤其是在文件路径中时，你必须用你自己的替换它。
+请记住你的模组 ID！当你在这些文档中找到 `example-mod` ，尤其是在文件路径中时，你必须用你自己的替换它。
 
 例如，如果你的模组 ID 是 **`my-cool-mod`**，则使用 **`resources/assets/my-cool-mod`** 而不是 _`resources/assets/example-mod`_。
 
@@ -73,7 +73,7 @@ git clone https://github.com/FabricMC/fabric-example-mod.git example-mod
 
 这将把代码仓库克隆到一个名为 `example-mod` 的新文件夹中。
 
-然后你应该从克隆的代码仓库中删除 `.git` 文件夹，并·打开项目。 如果找不到 `.git` 文件夹，你需要在你的文件资源管理器中启用显示隐藏文件。
+然后你应该从克隆的代码仓库中删除 `.git` 文件夹，并·打开项目。如果找不到 `.git` 文件夹，你需要在你的文件资源管理器中启用显示隐藏文件。
 
 ### 设置你的 IDE {#setting-up}
 

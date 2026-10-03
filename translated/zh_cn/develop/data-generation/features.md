@@ -17,7 +17,7 @@ authors:
 
 :::
 
-Minecraft 中的地物是世界中的自然或生成图案，例如树木、花、矿石或湖泊。 地物不同于结构（例如村庄、神殿等），后者可以通过 `/locate` 命令查找。
+Minecraft 中的地物是世界中的自然或生成图案，例如树木、花、矿石或湖泊。地物不同于结构（例如村庄、神殿等），后者可以通过 `/locate` 命令查找。
 
 Minecraft 世界中的地物生成可分为 3 个部分：
 
@@ -27,7 +27,7 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 ## 设置 {#setup}
 
-首先，我们需要创建自己的 provider。 在 `main` 包中创建一个继承自 `FabricDynamicRegistryProvider` 的类，并完善其基本方法：
+首先，我们需要创建自己的 provider。在 `main` 包中创建一个继承自 `FabricDynamicRegistryProvider` 的类，并完善其基本方法：
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#datagen_world_provider
 
@@ -39,9 +39,9 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add_worldgen_provider
 
-接下来，为已配置地物和已放置地物分别创建一个类。 这些类不需要继承任何内容。
+接下来，为已配置地物和已放置地物分别创建一个类。这些类不需要继承任何内容。
 
-已配置地物类和已放置地物类都应包含一个公共方法，用于注册并定义你的地物。 该方法的参数（这里我们将其命名为 `context`）对于已配置地物应为 `BootstrapContext<ConfiguredFeature<?, ?>>`，对于已放置地物则应为 `BootstrapContext<PlacedFeature>`。
+已配置地物类和已放置地物类都应包含一个公共方法，用于注册并定义你的地物。该方法的参数（这里我们将其命名为 `context`）对于已配置地物应为 `BootstrapContext<ConfiguredFeature<?, ?>>`，对于已放置地物则应为 `BootstrapContext<PlacedFeature>`。
 
 在你的 `DataGeneratorEntrypoint` 类中，将下面的代码行添加到 `buildRegistry` 方法中，并将方法名替换为你自己选择的名称：
 
@@ -57,7 +57,7 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configure_features_class
 
-现在，我们为钻石矿脉添加一个自定义配置地物。 首先，在你的已配置地物类中注册 `ConfiguredFeature` 的键：
+现在，我们为钻石矿脉添加一个自定义配置地物。首先，在你的已配置地物类中注册 `ConfiguredFeature` 的键：
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configured_key
 
@@ -69,7 +69,7 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 ### 矿石 {#ores}
 
-接下来，我们将在 `configure` 方法中创建一个 `RuleTest`，用于控制你的地物可以替换哪些方块。 例如，下面这个 `RuleTest` 允许替换带有 `DEEPSLATE_ORE_REPLACEABLES` 标签的所有方块：
+接下来，我们将在 `configure` 方法中创建一个 `RuleTest`，用于控制你的地物可以替换哪些方块。例如，下面这个 `RuleTest` 允许替换带有 `DEEPSLATE_ORE_REPLACEABLES` 标签的所有方块：
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ruletest
 
@@ -77,7 +77,7 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ore_feature_config
 
-你可以在列表中加入多个情况，以支持不同变体。 例如，我们可以为石头和深板岩设置不同的变体：
+你可以在列表中加入多个情况，以支持不同变体。例如，我们可以为石头和深板岩设置不同的变体：
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_multi_ore_feature_config
 
@@ -129,7 +129,7 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 ### 放置修饰器 {#placement-modifiers}
 
-接下来，我们需要在 `configure` 方法中定义放置修饰符，这些属性是在生成地物时设置的。 可以是任意内容：从生成频率，到起始 `y` 层级都可以。 你可以按需要设置任意数量的修饰器。
+接下来，我们需要在 `configure` 方法中定义放置修饰符，这些属性是在生成地物时设置的。可以是任意内容：从生成频率，到起始 `y` 层级都可以。你可以按需要设置任意数量的修饰器。
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_placement_modifiers
 
@@ -140,14 +140,14 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 - **`InSquarePlacement`**：使地物以更接近伪随机的方式分散
 - **`HeightRangePlacement`**：指定地物可生成的 `y` 坐标范围；它支持三种主要分布类型：
   1. **Uniform**：
-     范围内所有 `y` 值生成该地物的概率相同。 如果你不确定该用哪种，就使用这一种。
+     范围内所有 `y` 值生成该地物的概率相同。如果你不确定该用哪种，就使用这一种。
 
   2. **Trapezoid**：
      越接近中位 `y` 值的位置，生成该地物的概率越高。
 
   3. **Biased-Bottom**：
 
-     采用对数尺度，其中较低的 `y` 值更有可能生成地物。 它接收一个起始 `y` 坐标，低于该坐标时地物绝不会生成。 第二个参数是地物可以生成的最大高度。 第三个参数定义一个以方块为单位的范围，用于延伸最大概率区间。
+     采用对数尺度，其中较低的 `y` 值更有可能生成地物。它接收一个起始 `y` 坐标，低于该坐标时地物绝不会生成。第二个参数是地物可以生成的最大高度。第三个参数定义一个以方块为单位的范围，用于延伸最大概率区间。
 
 ::: tip
 
@@ -161,7 +161,7 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 ## 生物群系修改 {#biome-modifications}
 
-最后，我们需要在模组初始化期间将已放置地物添加到 `BiomeModifications` 中。 我们可以通过向[模组初始化器](../getting-started/project-structure#entrypoints)添加以下内容来实现：
+最后，我们需要在模组初始化期间将已放置地物添加到 `BiomeModifications` 中。我们可以通过向[模组初始化器](../getting-started/project-structure#entrypoints)添加以下内容来实现：
 
 <<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#datagen_world_biome_modifications
 

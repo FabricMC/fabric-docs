@@ -68,7 +68,7 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 ### 泛型接口 {#generic-interfaces}
 
-如果你的接口带有泛型，也可以在条目中指定泛型。 为此，需要在接口名称末尾添加 `<>` 尖括号，并在括号中使用 Java 字节码签名格式填写泛型。
+如果你的接口带有泛型，也可以在条目中指定泛型。为此，需要在接口名称末尾添加 `<>` 尖括号，并在括号中使用 Java 字节码签名格式填写泛型。
 
 签名格式如下：
 
@@ -95,8 +95,7 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 ## 应用更改 {#applying-changes}
 
-若要看到接口实现生效，你必须刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。
-请确保从反编译源文件处重新打开目标类，以便查看修改效果。
+若要看到接口实现生效，你必须刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。请确保从反编译源文件处重新打开目标类，以便查看修改效果。
 
 ::: tip
 

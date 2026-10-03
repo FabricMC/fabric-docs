@@ -23,17 +23,17 @@ authors:
 
 ![注册的物品](/assets/develop/item-appearance/item_tint_0.png)
 
-如你所见，我们使用的是灰度纹理。 接下来，我们使用着色源添加一些颜色。
+如你所见，我们使用的是灰度纹理。接下来，我们使用着色源添加一些颜色。
 
 ## 物品着色源 {#item-tint-sources}
 
 让我们注册一个自定义着色源来为 Waxcap 物品着色，这样下雨时物品会呈现蓝色，其他情况则呈现棕色。
 
-首先，你需要定义一个自定义物品着色源。 这可以通过在类或记录上实现 `ItemTintSource` 接口来实现。
+首先，你需要定义一个自定义物品着色源。这可以通过在类或记录上实现 `ItemTintSource` 接口来实现。
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#tint_source_class
 
-由于这是客户端物品定义的一部分，因此可以通过资源包更改色调值。 所以你需要定义一个能够读取色调定义的 [Map Codec](../codecs#mapcodec)。 在本例中，色调源将包含一个 `int` 值，用于描述下雨时的颜色。 我们可以使用内置的 `ExtraCodecs.RGB_COLOR_CODEC` 来构建我们的 Codec。
+由于这是客户端物品定义的一部分，因此可以通过资源包更改色调值。所以你需要定义一个能够读取色调定义的 [Map Codec](../codecs#mapcodec)。在本例中，色调源将包含一个 `int` 值，用于描述下雨时的颜色。我们可以使用内置的 `ExtraCodecs.RGB_COLOR_CODEC` 来构建我们的 Codec。
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#map_codec
 
@@ -45,7 +45,7 @@ authors:
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#calculate
 
-接下来，我们需要注册我们的物品着色源。 这是在**客户端初始化器**中使用在 `ItemTintSources` 中声明的 `ID_MAPPER` 完成的。
+接下来，我们需要注册我们的物品着色源。这是在**客户端初始化器**中使用在 `ItemTintSources` 中声明的 `ID_MAPPER` 完成的。
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#register_item_tint_source
 

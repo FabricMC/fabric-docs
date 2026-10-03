@@ -35,6 +35,14 @@ authors:
 
 <<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
 
+### Допоміжний ID {#id-helper}
+
+Офіційний шаблон уключає допоміжний метод для легшого будування `Identifier`. До нього можна отримати доступ через `ExampleMod.id(...)`:
+
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#id_helper_usage
+
+У документації ця допоміжна функція використовується дуже активно. Використовуючи наведені приклади, обов'язково замініть згадки про `ExampleMod` на назву власного ініціалізатора мода.
+
 ## `src/main/resources` {#src-main-resources}
 
 Тека `src/main/resources` використовується для зберігання ресурсів, які використовує ваш мод, таких як текстури, моделі та звуки.

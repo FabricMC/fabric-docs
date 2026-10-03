@@ -43,8 +43,7 @@ OpenJDK 64-Bit Server VM Temurin-25.0.2+10 (build 25.0.2+10-LTS, mixed mode, sha
 
 ![Temurin Java 下载页面](/assets/players/installing-java/macos-download-java.png)
 
-请务必选择“25 - LTS”版本，并选择 `.PKG` 安装程序格式。
-你还应根据你系统的芯片选择正确的架构：
+请务必选择“25 - LTS”版本，并选择 `.PKG` 安装程序格式。你还应根据你系统的芯片选择正确的架构：
 
 - 如果你使用的是 Apple M 系列芯片，请选择 `aarch64`（默认）
 - 如果你使用的是 Intel 芯片，请选择 `x64`

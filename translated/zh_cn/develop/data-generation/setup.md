@@ -24,7 +24,7 @@ authors-nogithub:
 
 ### 在项目创建时 {#enabling-data-generation-at-project-creation}
 
-启用数据生成的最简单方法是在创建项目时。 使用[模板生成器](https://fabricmc.net/develop/template/)时，勾选“启用数据生成”框。
+启用数据生成的最简单方法是在创建项目时。使用[模板生成器](https://fabricmc.net/develop/template/)时，勾选“启用数据生成”框。
 
 ![模板生成器上勾选的“数据生成”框](/assets/develop/data-generation/data_generation_setup_01.png)
 
@@ -40,7 +40,7 @@ authors-nogithub:
 
 <<< @/reference/build.gradle#datagen_setup_configure
 
-接下来，我们需要一个入口点类。 这是我们的数据生成的起点。 将其放在 `client` 包中的某个位置——本示例将其放在 `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`。
+接下来，我们需要一个入口点类。这是我们的数据生成的起点。将其放在 `client` 包中的某个位置——本示例将其放在 `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`。
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_setup_generator
 
@@ -73,17 +73,17 @@ authors-nogithub:
 
 ## 创建包 {#creating-a-pack}
 
-在数据生成入口点的 `onInitializeDataGenerator` 方法中，我们需要创建一个 `Pack`。 稍后，你将添加**提供程序**（provider），将生成的数据放入此 `Pack` 中。
+在数据生成入口点的 `onInitializeDataGenerator` 方法中，我们需要创建一个 `Pack`。稍后，你将添加**提供程序**（provider），将生成的数据放入此 `Pack` 中。
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_setup_pack
 
 ## 运行数据生成 {#running-data-generation}
 
-要运行数据生成，请使用 IDE 中的运行配置，或者在控制台中运行 `./gradlew runDatagen`。 生成的文件将创建在 `src/main/generated` 中。
+要运行数据生成，请使用 IDE 中的运行配置，或者在控制台中运行 `./gradlew runDatagen`。生成的文件将创建在 `src/main/generated` 中。
 
 ## 下一步 {#next-steps}
 
-现在数据生成已设置完毕，我们需要添加**提供程序**（provider）。 这些提供程序将生成要添加到 `Pack` 的数据。 以下页面概述了如何执行此操作。
+现在数据生成已设置完毕，我们需要添加**提供程序**（provider）。这些提供程序将生成要添加到 `Pack` 的数据。以下页面概述了如何执行此操作。
 
 - [进度](./advancements)
 - [战利品表](./loot-tables)

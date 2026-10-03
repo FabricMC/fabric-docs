@@ -79,7 +79,7 @@ authors:
 
 ## 指定目标 {#specifying-targets}
 
-在类调整中，类使用其[内部名称](../mixins/bytecode#class-names)。 对于字段和方法，你必须指定它们所属的类名、名称以及[字节码描述符](../mixins/bytecode#field-and-method-descriptors)。
+在类调整中，类使用其[内部名称](../mixins/bytecode#class-names)。对于字段和方法，你必须指定它们所属的类名、名称以及[字节码描述符](../mixins/bytecode#field-and-method-descriptors)。
 
 ::: tabs
 
@@ -123,7 +123,7 @@ authors:
 
 ## 生成条目 {#generating-entries}
 
-手动编写访问加宽器条目既耗时，又容易出现人为错误。 下面介绍了一些工具，它们可以帮助你生成并复制条目，从而简化部分流程。
+手动编写访问加宽器条目既耗时，又容易出现人为错误。下面介绍了一些工具，它们可以帮助你生成并复制条目，从而简化部分流程。
 
 ### mcsrc.dev {#mcsrc-dev}
 
@@ -141,8 +141,7 @@ authors:
 
 ### Minecraft Development 插件（IntelliJ IDEA） {#mcdev-plugin}
 
-[Minecraft Development 插件](../getting-started/intellij-idea/setting-up#installing-idea-plugins)，也称为 MCDev，是一个 IntelliJ IDEA 插件，可辅助 Minecraft 模组开发的多个方面。
-例如，它可以让你从反编译源码中的目标处复制访问加宽器条目到剪贴板。
+[Minecraft Development 插件](../getting-started/intellij-idea/setting-up#installing-idea-plugins)，也称为 MCDev，是一个 IntelliJ IDEA 插件，可辅助 Minecraft 模组开发的多个方面。例如，它可以让你从反编译源码中的目标处复制访问加宽器条目到剪贴板。
 
 若要复制访问加宽器条目，请先导航到你想要修改的类，然后右键点击目标以打开弹出菜单。
 
@@ -160,7 +159,7 @@ authors:
 
 ## 应用更改 {#applying-changes}
 
-若要看到你的更改生效，必须刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。 你所指定的目标元素的访问限制应会相应发生变化。 请确保从反编译源文件处重新打开目标类，以便查看修改效果。
+若要看到你的更改生效，必须刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。你所指定的目标元素的访问限制应会相应发生变化。请确保从反编译源文件处重新打开目标类，以便查看修改效果。
 
 ::: tip
 

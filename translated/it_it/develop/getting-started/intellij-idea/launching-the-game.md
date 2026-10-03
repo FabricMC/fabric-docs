@@ -18,6 +18,12 @@ Loom di Fabric fornisce una varietà di profili d'avvio che ti aiutano ad avviar
 
 Se stai usando IntelliJ IDEA, puoi trovare i profili d'avvio nell'angolo in alto a destra della finestra. Clicca sul menu a tendina per vedere i profili d'avvio disponibili.
 
+::: warning
+
+Assicurati che il percorso al tuo progetto, incluso il tuo nome utente nel sistema operativo, contenga solo caratteri ASCII (lettere non accentate, cifre, trattini alti e bassi, e punti). Caratteri non-ASCII (per esempio emoji o lettere accentate) potrebbero causare problemi di codifica oppure errori nella linea di comando con alcuni strumenti o programmi. Consulta anche le [project creation guidelines](../creating-a-project).
+
+:::
+
 Dovrebbe esserci un profilo client e uno server, con l'opzione di eseguire normalmente o in modalità debug:
 
 ![Profili d'Avvio](/assets/develop/getting-started/launch-profiles.png)

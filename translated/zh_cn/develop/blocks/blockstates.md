@@ -45,13 +45,13 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 ::: info
 
-请记住，方块状态文件可以在 `assets/example-mod/blockstates` 中找到，方块状态文件的名称应当匹配你在 `ModBlocks` 类中注册的方块的 ID。 例如，如果方块 ID 为 `condensed_oak_log`，这个文件就应当叫做 `condensed_oak_log.json`。
+请记住，方块状态文件可以在 `assets/example-mod/blockstates` 中找到，方块状态文件的名称应当匹配你在 `ModBlocks` 类中注册的方块的 ID。例如，如果方块 ID 为 `condensed_oak_log`，这个文件就应当叫做 `condensed_oak_log.json`。
 
 如需更加深入了解方块状态文件中可用的所有修饰符，可查看[中文 Minecraft Wiki - 教程:制作资源包/模型（方块状态）](https://zh.minecraft.wiki/w/Tutorial:%E5%88%B6%E4%Bd%9C%E8%B5%84%E6%Ba%90%E5%8C%85/%E6%A8%A1%E5%9E%8B#%E6%96%B9%E5%9D%97%E7%8A%B6%E6%80%81)页面。
 
 :::
 
-接下来，我们需要创建一个方块状态文件，这正是见证奇迹的地方。 柱型方块有三个轴，因此我们将针对以下情况使用特定模型：
+接下来，我们需要创建一个方块状态文件，这正是见证奇迹的地方。柱型方块有三个轴，因此我们将针对以下情况使用特定模型：
 
 - `axis=x` - 方块沿 X 轴放置时，旋转模型以朝向正 X 方向。
 - `axis=y` - 方块沿 Y 轴旋转时，使用正常的垂直模型。
@@ -75,7 +75,7 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#block
 
-接下来，需要在 `createBlockStateDefinition` 方法中将该属性添加到方块状态管理器。 需要重写此方法以访问构建器：
+接下来，需要在 `createBlockStateDefinition` 方法中将该属性添加到方块状态管理器。需要重写此方法以访问构建器：
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#block_state_definition
 
@@ -85,7 +85,7 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 ### 使用属性{#using-the-property}
 
-这个例子会在玩家与方块交互时，翻转 `activated` 属性的布尔值。 我们可以重写 `useWithoutItem` 方法来实现：
+这个例子会在玩家与方块交互时，翻转 `activated` 属性的布尔值。我们可以重写 `useWithoutItem` 方法来实现：
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#on_use
 
@@ -95,11 +95,11 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 <DownloadEntry visualURL="/assets/develop/blocks/blockstates_2_large.png" downloadURL="/assets/develop/blocks/prismarine_lamp_textures.zip">纹理</DownloadEntry>
 
-利用你对方块模型的了解，为该方块创建两个模型：一个用于激活状态，另一个用于未激活状态。 完成后，就可以开始创建方块状态文件了。
+利用你对方块模型的了解，为该方块创建两个模型：一个用于激活状态，另一个用于未激活状态。完成后，就可以开始创建方块状态文件了。
 
 既然创建了新的属性，就需要更新该方块的方块状态文件以适配这个属性。
 
-如果方块有多个属性，那么会需要包含所有可能的组合。 例如，`activated` 和 `axis` 可能就会导致 6 个组合（`activated` 有两个可能的值，`axis` 有三个可能的值）。
+如果方块有多个属性，那么会需要包含所有可能的组合。例如，`activated` 和 `axis` 可能就会导致 6 个组合（`activated` 有两个可能的值，`axis` 有三个可能的值）。
 
 由于该方块只有一个属性（`activated`），因此仅有两种可能的变体，其方块状态 JSON 应如下所示：
 
@@ -111,7 +111,7 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 :::
 
-由于这个示例方块是灯，我们还需要让它在 `activated` 属性为 true 时发光。 此操作可通过在注册方块时传递给构造函数的方块设置来实现。
+由于这个示例方块是灯，我们还需要让它在 `activated` 属性为 true 时发光。此操作可通过在注册方块时传递给构造函数的方块设置来实现。
 
 可以使用 `lightLevel` 方法设置方块发出的光照等级，我们可以在 `PrismarineLampBlock` 类中创建一个静态方法，根据 `activated` 属性返回光照等级，并将其作为方法引用传递给 `lightLevel` 方法：
 

@@ -19,15 +19,15 @@ authors-nogithub:
 
 :::
 
-游戏规则是特定于世界的配置选项，玩家可以在游戏中使用命令来更改。 这些变量通常控制世界的某些功能，例如 `pvp`、`spawn_monsters` 和 `advance_time` 分别控制 PvP 是否启用、怪物生成和时间流逝。
+游戏规则是特定于世界的配置选项，玩家可以在游戏中使用命令来更改。这些变量通常控制世界的某些功能，例如 `pvp`、`spawn_monsters` 和 `advance_time` 分别控制 PvP 是否启用、怪物生成和时间流逝。
 
 ## 创建游戏规则 {#creating-a-game-rule}
 
-要创建自定义游戏规则，首先要创建一个 `GameRules` 类；我们将在这里声明我们的游戏规则。 在这个类中，声明两个常量：游戏规则标识符和规则本身。
+要创建自定义游戏规则，首先要创建一个 `GameRules` 类；我们将在这里声明我们的游戏规则。在这个类中，声明两个常量：游戏规则标识符和规则本身。
 
 <<< @/reference/latest/src/main/java/com/example/docs/gamerule/ExampleModGameRules.java#gamerule_class
 
-类别参数（`.category(GameRuleCategory.MISC)`）决定游戏规则在创建世界屏幕中属于哪个类别。 本例使用原版提供的“杂项”类别，但可以通过 `GameRuleCategory.register` 添加其他类别。 在这个示例中，我们创建了一个布尔游戏规则，默认值为 `false`，ID 为 `bad_vision`。 游戏规则中存储的值不仅限于布尔值，其他有效的类型包括 `Double`、`Integer` 和 `Enum`。
+类别参数（`.category(GameRuleCategory.MISC)`）决定游戏规则在创建世界屏幕中属于哪个类别。本例使用原版提供的“杂项”类别，但可以通过 `GameRuleCategory.register` 添加其他类别。在这个示例中，我们创建了一个布尔游戏规则，默认值为 `false`，ID 为 `bad_vision`。游戏规则中存储的值不仅限于布尔值，其他有效的类型包括 `Double`、`Integer` 和 `Enum`。
 
 游戏规则中存储双精度浮点数的示例：
 
@@ -49,17 +49,17 @@ authors-nogithub:
 
 ## 翻译 {#translations}
 
-现在，我们需要给游戏规则添加一个显示名，以便在“游戏规则”屏幕中能够轻松理解。 要通过数据生成来实现这一点，将以下代码添加到你的语言提供程序中：
+现在，我们需要给游戏规则添加一个显示名，以便在“游戏规则”屏幕中能够轻松理解。要通过数据生成来实现这一点，将以下代码添加到你的语言提供程序中：
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#gamerule_name
 
-最后，我们需要给游戏规则添加描述。 要通过数据生成来实现这一点，将以下代码添加到你的语言提供程序中：
+最后，我们需要给游戏规则添加描述。要通过数据生成来实现这一点，将以下代码添加到你的语言提供程序中：
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#gamerule_description
 
 ::: info
 
-这些翻译键用于在游戏规则屏幕中显示文本。 若不使用数据生成，也可以在 `assets/example-mod/lang/en_us.json` 中手动编写它们。
+这些翻译键用于在游戏规则屏幕中显示文本。若不使用数据生成，也可以在 `assets/example-mod/lang/en_us.json` 中手动编写它们。
 
 ```json
 "example-mod.bad_vision": "Bad Vision",

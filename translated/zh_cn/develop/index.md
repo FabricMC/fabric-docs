@@ -26,7 +26,7 @@ import { useData } from "vitepress";
 const javaResources = Object.entries(useData().frontmatter.value.resources).slice(2);
 </script>
 
-Fabric 是一款适用于 Minecraft：Java 版的轻量级模组工具链，设计简洁易用， 让开发者能够对原版游戏进行修改（“模组”），添加新功能或更改现有机制。
+Fabric 是一款适用于 Minecraft：Java 版的轻量级模组工具链，设计简洁易用，让开发者能够对原版游戏进行修改（“模组”），添加新功能或更改现有机制。
 
 本文档将指导你使用 Fabric 进行模组开发，从[创建第一个模组](./getting-started/creating-a-project)和[设置环境](./getting-started/setting-up)，到[渲染](./rendering/basic-concepts)、[网络](./networking)、[数据生成](./data-generation/setup)等高级主题，应有尽有。
 

@@ -27,8 +27,8 @@ Dies ist die grundlegende Vorlage für die Registrierung eines Component Typs:
 ```java
 public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     BuiltInRegistries.DATA_COMPONENT_TYPE,
-    Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
-    DataComponentType.<?>builder().persistent(null).build()
+    ExampleMod.id("my_component"),
+    DataComponentType.<?>builder().persistent(null).networkSynchronized(null).build()
 );
 ```
 
@@ -36,7 +36,7 @@ Hier gibt es einige Dinge zu beachten. In der ersten und vierten Zeile ist ein `
 
 Zweitens musst du einen `Identifier` angeben, der die beabsichtigte ID deiner Komponente enthält. Diese ist mit der Mod-ID deines Mods verknüpft.
 
-Schließlich haben wir einen `DataComponentType.Builder`, der die eigentliche Instanz von `DataComponentType` erstellt, die registriert wird. Dies enthält ein weiteres wichtiges Detail, das wir besprechen müssen: den `Codec`. deiner Komponente. Dies ist derzeit `null`, aber wir werden es auch bald befüllen.
+Schließlich haben wir einen `DataComponentType.Builder`, der die eigentliche Instanz von `DataComponentType` erstellt, die registriert wird. Dies enthält ein weiteres wichtiges Detail, das wir besprechen müssen: Serialisierung über `Codec`und `StreamCodec` deiner Komponente. Diese sind beide derzeit `null`, aber wir werden sie auch bald befüllen.
 
 ## Einfache Datenkomponenten {#basic-data-components}
 
@@ -46,7 +46,21 @@ Als Beispiel wollen wir einen `Integer`-Wert erstellen, der festhält, wie oft d
 
 <<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#integer_component
 
-Du kannst sehen, dass wir jetzt `<Integer>` als unseren generischen Typ übergeben, was anzeigt, dass diese Komponente als ein einzelner `int` Wert gespeichert wird. Für unseren Codec verwenden wir den mitgelieferten `DataComponents.POSITIVE_INT` Codec. Für einfache Komponenten wie diese können wir mit einfachen Codecs auskommen, aber komplexere Szenarien erfordern möglicherweise einen benutzerdefinierten Codec (dies wird später kurz behandelt).
+Du kannst sehen, dass wir jetzt `<Integer>` als unseren generischen Typ übergeben, was anzeigt, dass diese Komponente als ein einzelner `int` Wert gespeichert wird.
+
+Für unseren Codec verwenden wir den mitgelieferten `ExtraCodecs.NON_NEGATIVE_INT` Codec. Für einfache Komponenten wie diese können wir mit einfachen Codecs auskommen, aber komplexere Szenarien erfordern möglicherweise einen benutzerdefinierten Codec (dies wird später kurz behandelt).
+
+Für unseren `StreamCodec` (die Information zum Client senden), verwenden wir `ByteBufCodecs.VAR_INT`. Ein VarInt ist eine Methode, Integer mit einer dynamischen Anzahl an Bytes zu speichern. Ein kleinerer Integer wird in weniger Bytes kodiert, während ein größerer Integer mehr Bytes benötigt.
+
+::: warning
+
+Glaube nicht daran, du könntest `networkSynchronized` überspringen!
+
+Wenn du auf diese Weise keinen `StreamCodec` angibst, erstellt Minecraft stattdessen einen weniger effizienten und synchronisiert deine Komponente trotzdem.
+
+Um zu verhindern, dass deine Komponente synchronisiert wird, benötigst du Mixins, was jedoch den Rahmen dieses Tutorials sprengen würde.
+
+:::
 
 Wenn du das Spiel startest, solltest du einen Befehl wie diesen eingeben können:
 
@@ -248,7 +262,13 @@ Du kannst auch optionale Felder definieren, indem du `optionalFieldOf()` verwend
 
 Schließlich rufen wir `apply()` auf und übergeben den Konstruktor unseres Datensatzes. Weitere Einzelheiten über die Erstellung von Codecs und fortgeschrittene Anwendungsfälle findest du auf der Seite [Codecs](../codecs).
 
-Die Registrierung einer zusammengesetzten Komponente ist ähnlich wie zuvor. Wir übergeben einfach unsere Record-Klasse als generischen Typ und unseren benutzerdefinierten `Codec` an die Methode `codec()`.
+Außerdem müssen wir unseren `StreamCodec` konstruieren.
+
+<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#stream_codec
+
+`composite` ähnelt `RecordCodecBuilder` insofern, als es jedes Feld mit dem angegebenen Serialisierer (in diesem Fall `StreamCodec`) serialisiert. Es ist jedoch viel leichter zu verstehen als einen `RecordCodecBuilder`. Hier stellen wir einfach für jedes Feld einen `StreamCodec` bereit und anschließend für dieses Feld den Getter (als `Function`). Unser letzter Parameter ist eine Funktion (in der Regel wird hier der Konstruktor angegeben), die alle deserialisierten Felder entgegennimmt und unsere Komponente zurückgibt.
+
+Die Registrierung einer zusammengesetzten Komponente ist ähnlich wie zuvor. Wir übergeben einfach unsere Record-Klasse als generischen Typ, unseren benutzerdefinierten `Codec` an die Methode `codec()` und unseren benutzerdefinierten `StreamCodec` an die Methode `networkSynchronized()`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#custom_component
 
