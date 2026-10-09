@@ -33,6 +33,10 @@ resources:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
 
+Викличте `registerModEntityTypes` та `registerAttributes` у вашому [ініціалізаторі мода](../getting-started/project-structure#entrypoints):
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
+
 ## Додавання цілей {#adding-goals}
 
 Цілі — це система обробки того, що буде прагнути сутність, надаючи їй визначений набір поведінок. Цілі мають певний пріоритет: мети з нижчим значенням пріоритету мають перевагу над метами з вищим значенням пріоритету.

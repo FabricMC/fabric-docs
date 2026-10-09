@@ -26,7 +26,7 @@ public class LightningTaterItem extends Item {
 		// #endregion client_check
 
 		// #region payload_instance
-		ClientboundSummonLightningPayload payload = new ClientboundSummonLightningPayload(user.blockPosition());
+		ClientboundSummonLightningPayload payload = new ClientboundSummonLightningPayload(user.blockPosition(), level.getNextEntityId());
 		// #endregion payload_instance
 
 		// #region lookup

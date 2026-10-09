@@ -24,7 +24,7 @@ Registering a `BlockEntity` yields a `BlockEntityType` like the `COUNTER_BLOCK_E
 
 ::: tip
 Note how the constructor of the `CounterBlockEntity` takes two parameters, but the `BlockEntity` constructor takes three: the `BlockEntityType`, the `BlockPos`, and the `BlockState`.
-If we didn't hard-code the `BlockEntityType`, the `ModBlockEntities` class wouldn't compile! This is because the `BlockEntityFactory`, which is a functional interface, describes a function that only takes two parameters, just like our constructor.
+If we didn't hard-code the `BlockEntityType`, the `ModBlockEntities` class wouldn't compile! This is because the `BlockEntityType.BlockEntitySupplier`, which is a functional interface, describes a function that only takes two parameters, just like our constructor.
 :::
 
 ## Creating the Block {#creating-the-block}
@@ -56,7 +56,7 @@ Now that we have a block entity, we can use it to store the number of times the 
 
 @[code transcludeWith=:::2](@/reference/1.21.1/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
 
-The `markDirty` method, used in `incrementClicks`, tells the game that this entity's data has been updated; this will be useful when we add the methods to serialize the counter and load it back from the save file.
+The `setChanged` method, used in `incrementClicks`, tells the game that this entity's data has been updated; this will be useful when we add the methods to serialize the counter and load it back from the save file.
 
 Next, we need to increment this field every time the block is right-clicked. This is done by overriding the `useWithoutItem` method in the `CounterBlock` class:
 

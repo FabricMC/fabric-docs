@@ -43,8 +43,6 @@ Mojang також робить це зі своїми предметами! Що
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
 
-Зверніть увагу, як ми використовуємо `T`, [загальний тип](https://docs.oracle.com/javase/tutorial/java/generics/types.html), який розширює `Item`. Це дозволяє нам використовувати той самий метод `register` для реєстрації будь-якого типу предмета, який розширює `Item`. Ми також використовуємо [`функцію`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) для фабрики, яка дозволяє нам вказати, як ми хочемо створити наш предмет відповідно до властивостей предмета.
-
 ## Реєстрація предмета {#registering-an-item}
 
 Тепер ви можете зареєструвати товар за допомогою методу зараз.

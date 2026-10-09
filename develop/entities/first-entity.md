@@ -29,9 +29,17 @@ We'll create the class `MiniGolemEntity` for our entity, and start by giving it 
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#registerclass
 
+Our new entity needs an ID; create a new class called `ModEntityTypeIds` and add a resource key for the entity:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#ids
+
 To register your entity, it's recommended to create a separate class, `ModEntityTypes`, where you register any and all entity types, set their sizes, and register their attributes.
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
+
+Call `registerModEntityTypes` and `registerAttributes` in your [mod's initializer](../getting-started/project-structure#entrypoints):
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
 
 ## Adding Goals {#adding-goals}
 

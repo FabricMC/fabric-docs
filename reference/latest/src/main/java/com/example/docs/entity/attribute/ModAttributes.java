@@ -29,7 +29,7 @@ public class ModAttributes {
 	private static Holder<Attribute> register(
 			String name, double defaultValue, double minValue, double maxValue, boolean syncedWithClient
 	) {
-		Identifier identifier = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
+		Identifier identifier = ExampleMod.id(name);
 		Attribute entityAttribute = new RangedAttribute(
 				identifier.toLanguageKey(),
 				defaultValue,

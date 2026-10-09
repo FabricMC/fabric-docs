@@ -9,6 +9,7 @@ authors:
   - IMB11
   - its-miroma
   - xEobardThawne
+  - NotNightSky
 resources:
   https://docs.neoforged.net/docs/blocks/: Blocks - NeoForge Docs
 ---
@@ -51,11 +52,17 @@ Mojang does this with their blocks as well! Check out the `BlockIds` class for i
 
 ## Preparing Your Blocks Class {#preparing-your-blocks-class}
 
-Block registration is also similar to [item registration](../items/first-item#registering-an-item): we'll now create two methods that register your block, one of which also registers a block item.
+Block registration is also similar to [item registration](../items/first-item#registering-an-item): we'll now create two overloads of a `register()` method that register your blocks, one for blocks with items and one for blocks without.
 
-You should put this method in a class called `ModBlocks` (or whatever you want to name it).
+You should put these methods in a class called `ModBlocks` (or whatever you want to name it).
 
 Mojang does something extremely similar like this with vanilla blocks; you can refer to the `Blocks` class to see how they do it.
+
+::: warning
+
+Both `register()` overloads shown below are **required** in your `ModBlocks` class. The overload for blocks with items internally calls the overload for blocks without items. If either overload is missing, your code will not compile.
+
+:::
 
 ::: tabs
 
@@ -105,8 +112,6 @@ You can also use `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)` to
 :::
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_dirt
-
-To automatically create the block item, we can pass `true` to the `shouldRegisterItem` parameter of the `register` method we created in the previous step.
 
 ### Adding Your Block's Item to a Creative Tab {#adding-your-block-s-item-to-a-creative-tab}
 

@@ -10,7 +10,7 @@ import com.example.docs.ExampleMod;
 
 // #region give_glowing_effect_payload
 public record GiveGlowingEffectServerboundPayload(int entityId) implements CustomPacketPayload {
-	public static final Identifier GIVE_GLOWING_EFFECT_PAYLOAD_ID = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "give_glowing_effect");
+	public static final Identifier GIVE_GLOWING_EFFECT_PAYLOAD_ID = ExampleMod.id("give_glowing_effect");
 	public static final CustomPacketPayload.Type<GiveGlowingEffectServerboundPayload> TYPE = new CustomPacketPayload.Type<>(GIVE_GLOWING_EFFECT_PAYLOAD_ID);
 	public static final StreamCodec<RegistryFriendlyByteBuf, GiveGlowingEffectServerboundPayload> CODEC = StreamCodec.composite(ByteBufCodecs.INT, GiveGlowingEffectServerboundPayload::entityId, GiveGlowingEffectServerboundPayload::new);
 

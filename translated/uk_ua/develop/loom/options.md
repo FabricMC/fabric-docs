@@ -39,26 +39,34 @@ loom {
  // Used to configure existing or new run configurations
  runs {
   client {
-   // Add a VM arg
-   vmArgs "-Dexample=true"
+   // Add JVM arguments
+   jvmArguments.add("-Dexample=true")
    // Add a JVM property
-   property("example", "true")
-   // Add a program arg
-   programArg "--example"
+   systemProperties.put("example", "true")
+   // Add program arguments
+   programArguments.add("--example")
    // Add an environment variable
-   environmentVariable("example", "true")
+   environmentVars.put("example", "true")
    // The environment (or side) to run, usually client or server.
-   environment = "client"
+   runtimeEnvironment = "client"
    // The full name of the run configuration, i.e. 'Minecraft Client'. By default this is determined from the base name.
-   configName = "Minecraft Client"
-   // The default main class of the run configuration. This will be overridden if using a mod loader with a fabric_installer.json file.
-   defaultMainClass = ""
+   displayName = "Minecraft Client"
+   // Whether to append the project path to the display name in non-root projects.
+   appendProjectPathToDisplayName = true
+   // The main class of the run configuration. This defaults to the main class specified in the loader metadata.
+   mainClass = ""
    // The run directory for this configuration, relative to the root project directory.
-   runDir = "run"
-   // The source set to run, commonly set to sourceSets.test
-   source = sourceSets.main
+   runDirectory = file("run")
+   // The name of the source set to run.
+   sourceSet = sourceSets.main.name
    // When true a run configuration file will be generated for IDE's. By default only set to true for the root project.
-   ideConfigGenerated = true
+   generateRunConfig = true
+   // When true, generated IDE run configurations prefer using the corresponding Gradle run task.
+   preferGradleTask = false
+   // Group the run configuration under this folder in IntelliJ IDEA.
+   ideConfigFolder = "Minecraft"
+   // The true entrypoint, usually dev launch injector. This should not normally be changed.
+   devLaunchMainClass = "net.fabricmc.devlaunchinjector.Main"
 
    // Configure run config with the default client options.
    client()
@@ -72,17 +80,17 @@ loom {
    // Copies settings from another run configuration.
    inherit client
 
-   configName = "Test Minecraft Client"
-   source = sourceSets.test
+   displayName = "Test Minecraft Client"
+   sourceSet = sourceSets.test.name
   }
 
-    // Example of removing the built-in server configuration
-    remove server
+  // Example of removing the built-in server configuration
+  remove server
  }
 
  // Configure all run configs to generate ide run configurations. Useful for sub projects.
- runConfigs.configureEach {
-  ideConfigGenerated = true
+ runs.configureEach {
+  generateRunConfig = true
  }
 
  // Used to configure mixin options or apply to additional source sets.
@@ -202,3 +210,26 @@ dependencies {
  implementation project(path: ":name", configuration: "namedElements")
 }
 ```
+
+:::details Міграція налаштувань запуску зі старого API
+
+Новий API на основі властивостей доступний у Loom версії 1.17 та пізніших.
+
+Замініть старі методи та властивості налаштувань запуску на їхні еквіваленти, на основі властивостях:
+
+| Старий API                                     | API на основі властивостей                                              |
+| ---------------------------------------------- | ----------------------------------------------------------------------- |
+| `vmArg(value)` / `vmArgs(values)`              | `jvmArguments.add(value)` / `jvmArguments.addAll(values)`               |
+| `programArg(value)` / `programArgs(values)`    | `programArguments.add(value)` / `programArguments.addAll(values)`       |
+| `environmentVariable(name, value)`             | `environmentVars.put(name, value)`                                      |
+| `property(name, value)` / `properties(values)` | `systemProperties.put(name, value)` / `systemProperties.putAll(values)` |
+| `environment = value`                          | `runtimeEnvironment = value`                                            |
+| `configName = value` / `name(value)`           | `displayName = value`                                                   |
+| `defaultMainClass = value`                     | `mainClass = value`                                                     |
+| `runDir = value` / `runDir(value)`             | `runDirectory = file(value)`                                            |
+| `source = sourceSet` / `source(sourceSet)`     | `sourceSet = sourceSet.name`                                            |
+| `ideConfigGenerated = value`                   | `generateRunConfig = value`                                             |
+
+:::
+
+<!---->

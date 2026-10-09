@@ -2,6 +2,7 @@
 title: 创建你的第一个物品
 description: 学习如何注册简单的物品，以及如何给物品添加纹理、模型和名称。
 authors:
+  - cassiancc
   - dicedpixels
   - Earthcomputer
   - IMB11
@@ -12,19 +13,35 @@ authors:
 
 如果你还不知道的话，Minecraft 中的一切都存储在注册表中，物品也不例外。
 
+## 准备你的物品类 {#preparing-your-item-ids-class}
+
+我们先创建一个带有类，里面放着我们的物品，这些物品是'ResourceKey'。 一个'ResourceKey'带有这个mod的ID，物品的名称，以及它所注册到的注册表。
+
+我们将实现一个辅助方法，通过传入物品的名称来创建一个 `ResourceKey`；该方法会自动使用一些常量（比如物品注册表以及模组的 ID）来补全剩余的数据。
+
+这些对方块的引用被用于 [物品生成](../data-generation/tags)。
+
+你可以将这个方法放在叫做 `ModItemIds` 的类中（也可以是其他你想要的名称）。
+
+::: tip
+
+Mojang 也是对物品这么做的！ 看看 `ItemIds` 类以了解。
+
+:::
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#mod_item_ids_class
+
 ## 准备你的物品类 {#preparing-your-items-class}
 
-为了简化物品注册，你可以创建一个接受字符串标识符、一些物品属性和工厂方法来创建 `Item` 实例。
+为了简化物品的注册流程，你可以创建一个方法，让它接收一个资ResourceKey、一些物品属性，以及一个用于创建`Item` 实例的方法。
 
-这个方法会用提供的 id 创建物品并在游戏的物品注册表中注册。
+这个方法会利用你传入的Key来创建一个物品，并将它注册到游戏的物品注册表中。
 
 你可以将这个方法放在叫做 `ModItems` 的类中（也可以是其他你想要的名称）。
 
 Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
-
-注意我们使用的是 `T`，这是一个继承自 `Item` 的[泛型类型](https://docs.oracle.com/javase/tutorial/java/generics/types.html)。 这样我们就可以使用相同的 `register` 方法来注册任何继承自 `Item` 的类型的物品。 此外，我们还使用了 [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) 作为工厂，它允许我们根据物品属性指定创建物品的方式。
 
 ## 注册物品 {#registering-an-item}
 
@@ -39,6 +56,8 @@ Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
 如果将物品标记为有耐久度，那么这就不会生效，因为有耐久度的物品的堆叠大小永远是 1 以避免重复损坏。
 
 :::
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#suspicious_substance
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#suspicious_substance
 

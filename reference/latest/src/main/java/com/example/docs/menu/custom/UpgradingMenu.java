@@ -3,11 +3,7 @@ package com.example.docs.menu.custom;
 import java.util.List;
 import java.util.Optional;
 
-import org.jspecify.annotations.Nullable;
-
-import net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -39,9 +35,6 @@ public class UpgradingMenu extends AbstractContainerMenu {
 
 	private final ContainerLevelAccess access;
 
-	@Nullable
-	private final Player player;
-
 	public UpgradingMenu(int containerId, Inventory inventory) {
 		this(containerId, inventory, ContainerLevelAccess.NULL);
 	}
@@ -50,7 +43,6 @@ public class UpgradingMenu extends AbstractContainerMenu {
 		super(ModMenuTypes.UPGRADING_MENU_TYPE, containerId);
 
 		this.access = access;
-		this.player = inventory.player;
 
 		addSlot(new Slot(this.input, 0, 27, 47));
 		addSlot(new Slot(this.input, 1, 76, 47));
@@ -74,39 +66,32 @@ public class UpgradingMenu extends AbstractContainerMenu {
 	public void slotsChanged(Container container) {
 		super.slotsChanged(container);
 
-		this.access.execute((level, blockPos) -> {
-			if (level instanceof ServerLevel serverLevel && container == this.input) {
-				UpgradingRecipeInput recipeInput = new UpgradingRecipeInput(this.input.getItem(0), this.input.getItem(1));
-				Optional<RecipeHolder<UpgradingRecipe>> maybeRecipe = serverLevel.recipeAccess().getRecipeFor(ExampleModRecipes.UPGRADING_RECIPE_TYPE, recipeInput, serverLevel);
-				ItemStack result = ItemStack.EMPTY;
+		if (container != this.input) {
+			return;
+		}
 
-				if (maybeRecipe.isPresent()) {
-					RecipeHolder<UpgradingRecipe> recipeHolder = maybeRecipe.get();
-					UpgradingRecipe recipe = recipeHolder.value();
-
-					if (this.output.setRecipeUsed((ServerPlayer) this.player, recipeHolder)) {
-						ItemStack recipeResult = recipe.assemble(recipeInput);
-
-						if (recipeResult.isItemEnabled(level.enabledFeatures())) {
-							result = recipeResult;
-						}
-					}
-				} else {
-					// We can set the used recipe to null if no recipe was found.
-					//noinspection DataFlowIssue
-					this.output.setRecipeUsed((ServerPlayer) this.player, null);
-				}
-
-				this.output.setItem(0, result);
-
-				/*
-				Alternatively, call broadcastChanges instead of setting the remote slot and sending a packet.
-				Based on how your Menu is structured, you may not need to manually call any syncing method, but it is recommended that you are very sure of yourself before you remove these calls to avoid server-client desyncs.
-				 */
-				this.setRemoteSlot(0, result);
-				((ServerPlayer) this.player).connection.send(new ClientboundContainerSetSlotPacket(this.containerId, this.incrementStateId(), 0, result));
+		this.access.execute((level, pos) -> {
+			if (level instanceof ServerLevel serverLevel) {
+				this.inputsChanged(serverLevel);
 			}
 		});
+	}
+
+	public void inputsChanged(ServerLevel level) {
+		UpgradingRecipeInput recipeInput = new UpgradingRecipeInput(this.input.getItem(0), this.input.getItem(1));
+		Optional<RecipeHolder<UpgradingRecipe>> maybeRecipe = level.recipeAccess().getRecipeFor(ExampleModRecipes.UPGRADING_RECIPE_TYPE, recipeInput, level);
+
+		if (maybeRecipe.isPresent()) {
+			RecipeHolder<UpgradingRecipe> recipeHolder = maybeRecipe.get();
+			UpgradingRecipe recipe = recipeHolder.value();
+
+			this.output.setRecipeUsed(recipeHolder);
+			this.output.setItem(0, recipe.assemble(recipeInput));
+		} else {
+			// We can set the used recipe to null if no recipe was found.
+			this.output.setRecipeUsed(null);
+			this.output.setItem(0, ItemStack.EMPTY);
+		}
 	}
 
 	@Override

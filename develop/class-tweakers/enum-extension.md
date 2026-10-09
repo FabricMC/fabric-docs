@@ -99,8 +99,16 @@ For example, the class tweaker entry for the `RecipeBookType` constant we added 
 
 ## Applying Changes {#applying-changes}
 
-You'll have to refresh your Gradle project and [regenerate sources](../getting-started/generating-sources) before you can see your added enum entries in the decompiled source.
-If modifications do not appear, you can try [validating](../class-tweakers/index#validating-the-file) the file and checking if any errors appear.
+To see your added enum entries in the decompiled source, you must refresh your Gradle project and [regenerate sources](../getting-started/generating-sources).
+Make sure to reopen any targeted class from the decompiled source in order to see the modifications.
+
+::: tip
+
+If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file) and checking if any errors appear.
+
+:::
+
+<!---->
 
 ::: info
 

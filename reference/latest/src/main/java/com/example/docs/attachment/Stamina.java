@@ -1,7 +1,6 @@
 package com.example.docs.attachment;
 
 import net.minecraft.network.codec.ByteBufCodecs;
-import net.minecraft.resources.Identifier;
 
 import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
@@ -13,11 +12,11 @@ import com.example.docs.ExampleMod;
 // #region stamina
 public class Stamina {
 	private static final AttachmentType<Integer> CURRENT_STAMINA = AttachmentRegistry.create(
-					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "current_stamina"),
+					ExampleMod.id("current_stamina"),
 					builder -> builder.syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.all())
 	);
 	private static final AttachmentType<Integer> MAX_STAMINA = AttachmentRegistry.create(
-					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "max_stamina"),
+					ExampleMod.id("max_stamina"),
 					builder -> builder.syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.all())
 	);
 

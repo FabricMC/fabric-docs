@@ -2,7 +2,6 @@ package com.example.docs.recipe;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.crafting.RecipeBookCategory;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -19,13 +18,13 @@ public class ExampleModRecipes implements ModInitializer {
 	// #region registration
 	public static final RecipeSerializer<UpgradingRecipe> UPGRADING_RECIPE_SERIALIZER = Registry.register(
 					BuiltInRegistries.RECIPE_SERIALIZER,
-					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),
+					ExampleMod.id("upgrading"),
 					new RecipeSerializer<>(UpgradingRecipe.CODEC, UpgradingRecipe.STREAM_CODEC)
 	);
 
 	public static final RecipeType<UpgradingRecipe> UPGRADING_RECIPE_TYPE = Registry.register(
 					BuiltInRegistries.RECIPE_TYPE,
-					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),
+					ExampleMod.id("upgrading"),
 					new RecipeType<UpgradingRecipe>() { }
 	);
 	// #endregion registration
@@ -33,7 +32,7 @@ public class ExampleModRecipes implements ModInitializer {
 	// TODO: recipe book support, requires enum extensions + screen changes
 	public static final RecipeBookCategory UPGRADING_RECIPE_BOOK_CATEGORY = Registry.register(
 					BuiltInRegistries.RECIPE_BOOK_CATEGORY,
-					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "upgrading"),
+					ExampleMod.id("upgrading"),
 					new RecipeBookCategory()
 	);
 
@@ -44,12 +43,12 @@ public class ExampleModRecipes implements ModInitializer {
 		// #endregion recipe_sync
 
 		// #region enchanting_smithing_registration
-		Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "smithing_enchanting"), EnchantingSmithingRecipe.SERIALIZER);
-		Registry.register(BuiltInRegistries.SLOT_DISPLAY, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "enchanting_smithing"), EnchantingSmithingDemoSlotDisplay.TYPE);
+		Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, ExampleMod.id("smithing_enchanting"), EnchantingSmithingRecipe.SERIALIZER);
+		Registry.register(BuiltInRegistries.SLOT_DISPLAY, ExampleMod.id("enchanting_smithing"), EnchantingSmithingDemoSlotDisplay.TYPE);
 		// #endregion enchanting_smithing_registration
 
 		// #region stew_spiking_registration
-		Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "stew_spiking"), StewSpikingCraftingRecipe.SERIALIZER);
+		Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, ExampleMod.id("stew_spiking"), StewSpikingCraftingRecipe.SERIALIZER);
 		// #endregion stew_spiking_registration
 	}
 }

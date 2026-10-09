@@ -12,6 +12,7 @@ import com.example.docs.appearance.ExampleModAppearanceModelProvider;
 import com.example.docs.damage.ExampleModDamageTypes;
 import com.example.docs.datagen.internal.ExampleModInternalModelProvider;
 import com.example.docs.datagen.internal.ExampleModResourceConditionProvider;
+import com.example.docs.dynamic_registries.ExampleModRegistries;
 import com.example.docs.worldgen.ExampleModWorldConfiguredFeatures;
 import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 import com.example.docs.worldgen.ExampleModWorldgenProvider;
@@ -67,6 +68,14 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ExampleModWorldgenProvider::new);
 		// #endregion add_worldgen_provider
 
+		// #region datagen_dynamic_registries
+		pack.addProvider(ExampleModDynamicRegistriesProvider::new);
+		// #endregion datagen_dynamic_registries
+
+		// #region magic_skills_tag_provider
+		pack.addProvider(ExampleModMagicSkillsTagProvider::new);
+		// #endregion magic_skills_tag_provider
+
 		pack.addProvider(ExampleModFluidTagProvider::new);
 
 		pack.addProvider(ExampleModAdvancementRewardLootTableProvider::new);
@@ -87,6 +96,10 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.add(Registries.CONFIGURED_FEATURE, ExampleModWorldConfiguredFeatures::configure);
 		registryBuilder.add(Registries.PLACED_FEATURE, ExampleModWorldPlacedFeatures::configure);
 		// #endregion datagen_world_registries
+
+		// #region datagen_magic_skills_dynamic_registries_bootstrap
+		registryBuilder.add(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY, ExampleModDynamicRegistriesProvider::bootstrap);
+		// #endregion datagen_magic_skills_dynamic_registries_bootstrap
 
 		// #region datagen_enchantments_bootstrap
 		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);

@@ -42,8 +42,8 @@ The subtitle entry provides more context for the player. The subtitle name is us
 To add the custom sound to the mod, register a SoundEvent in your [mod's initializer](../getting-started/project-structure#entrypoints).
 
 ```java
-Registry.register(BuiltInRegistries.SOUND_EVENT, Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle"),
-        SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle")));
+Registry.register(BuiltInRegistries.SOUND_EVENT, ExampleMod.id("metal_whistle"),
+        SoundEvent.createVariableRangeEvent(ExampleMod.id("metal_whistle")));
 ```
 
 ## Cleaning up the Mess {#cleaning-up-the-mess}

@@ -54,4 +54,10 @@ Wie üblich solltest du deine Items registrieren, ein Modell und eine Textur hin
 
 Wie du sehen kannst, sollte der Blitz 10 Blöcke vor dir - dem Spieler - erscheinen.
 
+:::warning WARNUNG: KANN ANFÄLLE AUSLÖSEN!
+
+Das folgende Video enthält Bildmaterial und anhaltende Lichtblitze, die bei Personen, die anfällig für photosensitive Epilepsie sind oder unter anderen Lichtempfindlichkeiten leiden, Beschwerden auslösen können.
+
+:::
+
 <VideoPlayer src="/assets/develop/items/custom_items_0.webm">Den Blitzstick benutzen</VideoPlayer>

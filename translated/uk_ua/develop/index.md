@@ -10,7 +10,21 @@ authors-nogithub:
 resources:
   https://github.com/FabricMC: Організація FabricMC на GitHub
   https://github.com/FabricMC/fabric-docs/tree/main/reference/latest: ExampleMod, на який посилаються у цій документації
+  https://java-programming.mooc.fi/: "Гельсінський університет: МВОК із програмування на Java"
+  https://dev.java/learn/: "Група Java Platform в Oracle: Вивчайте Java"
+  https://www.codecademy.com/learn/learn-java: "Codecademy: Вивчайте Java"
+  https://www.coursera.org/specializations/java-programming: "Університет Дюка (через Coursera): Основи програмування на Java та розробки програмного забезпечення"
+  https://www.youtube.com/watch?v=A74TOX803D0: "freeCodeCamp (YouTube): Програмування на Java для початківців"
+  https://javabook.mccue.dev/: "Сучасна Java (онлайн-підручник)"
 ---
+
+<!-- markdownlint-configure-file { MD033: { allowed_elements: [script, ul, li, a ] } } -->
+
+<script setup lang="ts">
+import { useData } from "vitepress";
+
+const javaResources = Object.entries(useData().frontmatter.value.resources).slice(2);
+</script>
 
 Fabric — це легкий інструментарій модифікації для Minecraft: Java Edition, розроблений, щоб бути простим і легким у використанні. Це дозволяє розробникам застосовувати модифікації («моди») до стандартної гри, додавати нові функції або змінювати наявні механіки.
 
@@ -30,10 +44,11 @@ Fabric — це легкий інструментарій модифікації
 
 Ось деякі ресурси, які можуть допомогти вам ознайомитися з Java та ООП:
 
-- [W3: Посібник з Java](https://www.w3schools.com/java/)
-- [Codecademy: Учіться Java](https://www.codecademy.com/learn/learn-java)
-- [W3: Java ООП](https://www.w3schools.com/java/java_oop.asp)
-- [Medium: Вступ до ООП](https://medium.com/@Adekola_Olawale/beginners-guide-to-object-oriented-programming-a94601ea2fbd)
+<ul>
+  <li v-for="[url, title] in javaResources" :key="url">
+    <a :href="url" target="_blank" rel="noreferrer">{{ title }}</a>
+  </li>
+</ul>
 
 ## Що пропонує Fabric? {#what-does-fabric-offer}
 

@@ -35,6 +35,14 @@ Here's an example of a simple `main` entrypoint that logs a message to the conso
 
 <<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
 
+### ID Helper {#id-helper}
+
+The official template includes a helper method to easily construct `Identifier`s. It is accessible through `ExampleMod.id(...)`:
+
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#id_helper_usage
+
+The docs make extensive use of this helper. When following examples, make sure to replace references to `ExampleMod` with the name of your own mod initialiser.
+
 ## `src/main/resources` {#src-main-resources}
 
 The `src/main/resources` folder is used to store the resources that your mod uses, such as textures, models, and sounds.

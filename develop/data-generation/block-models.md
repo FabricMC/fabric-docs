@@ -130,13 +130,13 @@ All fields and methods for this part of the tutorial are declared in a static in
 ### Custom Block Class {#custom-block-class}
 
 Create a `VerticalSlab` block with a `FACING` property and a `SINGLE` boolean property, like in the [Block States](../blocks/blockstates) tutorial. `SINGLE` will indicate if there are both slabs.
-Then you should override `getOutlineShape` and `getCollisionShape`, so that the outline is rendered correctly, and the block has the correct collision shape.
+Then you should override `getShape` and `getCollisionShape` so that the outline is rendered correctly and the block has the correct collision shape.
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_voxels
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_collision
 
-Also override the `canReplace()` method, otherwise you couldn't make the slab a full block.
+Also override the `canBeReplaced()` method, otherwise you couldn't make the slab a full block.
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_replace
 

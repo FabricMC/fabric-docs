@@ -5,6 +5,7 @@ authors-nogithub:
   - lightningtow
   - siglong
 authors:
+  - An-m1654
   - Ayutac
   - cassiancc
   - CelDaemon
@@ -46,7 +47,13 @@ Im Gegensatz zu [Zugriffs-Mixins](https://wiki.fabricmc.net/tutorial:mixin_acces
 
 ## Zugriffsrichtlinien {#access-directives}
 
-Einträge von Zugriffserweiterern beginnen mit einem von drei richtlinienbasierten Schlüsselwörtern, um die Art der vorzunehmenden Änderung anzugeben.
+Einträge für Zugriffserweiterer beginnen mit einem von drei grundlegenden Direktiv-Schlüsselwörtern, um die Art der vorzunehmenden Änderung anzugeben.
+
+Nach dem Schlüsselwort folgen die Parameter, bei denen es sich in der Regel um die Ziele der Erweiterung handelt.
+
+Dieselbe Klasse, Methode oder dasselbe Feld kann Ziel mehrerer Zugriffserweiterer-Einträgen sein, wobei jeder Eintrag in einer eigenen Zeile steht.
+
+Zugriffsdirektiven können auch [transitiv](../class-tweakers/index#transitive-entries) gemacht werden, indem man den Präfix `transitive-` vor der Basis-Zugriffsdirektive hinzufügt.
 
 ### Zugänglich {#accessible}
 
@@ -59,18 +66,16 @@ Wenn man eine Methode oder ein Feld zugänglich macht, wird auch die zugehörige
 
 ### Erweiterbar {#extendable}
 
-`extendable` kann auf Klassen oder Methoden abzielen:
+`extendable` kann nur auf Klassen oder Methoden abzielen:
 
 - Klassen werden öffentlich und nicht-final gemacht.
-- Methoden werden protected und nicht-final gemacht.
+- Methoden werden nicht-final und protected, wenn sie ursprünglich private waren, gemacht.
 
 Wenn man eine Methode erweiterbar macht, wird auch die zugehörige Klasse erweiterbar.
 
 ### Veränderbar {#mutable}
 
 `mutable` kann Felder nicht-final machen.
-
-Um ein privates, finales Feld sowohl zugänglich als auch veränderbar zu machen, musst du zwei getrennte Einträge in der Datei machen.
 
 ## Ziele spezifizieren {#specifying-targets}
 
@@ -156,4 +161,12 @@ Du kannst dann den Eintrag in deine Klassenoptimierer Datei einfügen.
 ## Änderungen anwenden {#applying-changes}
 
 Damit deine Änderungen übernommen werden, musst du dein Gradle-Projekt aktualisieren und die [Quellen neu generieren](../getting-started/generating-sources). Die von dir ausgewählten Elemente sollten
-entsprechend deren Zugriffsbeschränkungen angepasst werden. Wenn die Änderungen nicht angezeigt werden, kannst du versuchen, [die Datei zu validieren](../class-tweakers/index#validating-the-file) und zu prüfen, ob irgendwelche Fehler auftreten.
+entsprechend deren Zugriffsbeschränkungen angepasst werden. Stelle sicher, dass du jede betroffene Klasse aus dem dekompilierten Quellcode erneut öffnest, um die Änderungen sehen zu können.
+
+::: tip
+
+Falls die Änderungen nicht sichtbar sind, kannst du versuchen, [die Datei zu validieren](../class-tweakers/index#validating-the-file) und zu prüfen, ob Fehler auftauchen.
+
+:::
+
+<!---->

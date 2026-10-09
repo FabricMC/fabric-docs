@@ -58,7 +58,7 @@ authors:
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_drawing_phase
 
-请注意，`ByteBufferBuilder` 构造函数中使用的大小取决于你使用的渲染管线。 在我们的例子中，它是 `RenderType.SMALL_BUFFER_SIZE`。
+请注意，`StagedVertexBuffer` 构造函数中使用的大小取决于你使用的渲染管线。 在我们的例子中，它是 `RenderType.SMALL_BUFFER_SIZE`。
 
 ### 清理 {#cleaning-up}
 

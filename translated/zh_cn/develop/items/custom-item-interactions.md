@@ -54,4 +54,10 @@ InteractionResult.SUCCESS.heldItemTransformedTo().success(heldStack);
 
 正如你所见，闪电应该在你（玩家）面前 10 个方块远处产生。
 
+:::warning 癫痫发作警告！
+
+以下视频包含视觉效果和持续闪光，可能会对光敏性癫痫患者或其他光敏人群造成影响。
+
+:::
+
 <VideoPlayer src="/assets/develop/items/custom_items_0.webm">使用闪电棒</VideoPlayer>

@@ -64,7 +64,7 @@ public class DrawContextExampleScreen extends Screen {
 		// #endregion draw_entire_texture
 
 		// #region draw_portion_of_texture
-		Identifier texture2 = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "textures/gui/test-uv-drawing.png");
+		Identifier texture2 = ExampleMod.id("textures/gui/test-uv-drawing.png");
 		int u = 10, v = 13, regionWidth = 14, regionHeight = 14;
 		// renderLayer, texture, x, y, u, v, width, height, regionWidth, regionHeight, textureWidth, textureHeight
 		graphics.blit(RenderPipelines.GUI_TEXTURED, texture2, 90, 190, u, v, 14, 14, regionWidth, regionHeight, 256, 256);

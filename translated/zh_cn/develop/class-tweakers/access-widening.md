@@ -5,6 +5,7 @@ authors-nogithub:
   - lightningtow
   - siglong
 authors:
+  - An-m1654
   - Ayutac
   - cassiancc
   - CelDaemon
@@ -46,7 +47,13 @@ authors:
 
 ## 访问指令 {#access-directives}
 
-访问加宽器条目以三种指令关键字之一开头，用于指定要应用的修改类型。
+访问加宽器条目以三种基础指令关键字之一开头，用于指定要应用的修改类型。
+
+关键字之后是参数，通常是加宽的目标。
+
+同一个类、方法或字段可以被多个访问加宽条目所针对，每个条目位于一行。
+
+通过在基础访问指令前添加 `transitive-` 前缀，也可以将访问指令设置为[可传递的](../class-tweakers/index#transitive-entries)。
 
 ### accessible {#accessible}
 
@@ -59,18 +66,16 @@ authors:
 
 ### extendable {#extendable}
 
-`extendable` 可以作用于类和方法：
+`extendable` 仅能作用于类和方法：
 
-- 类会被设为 public 且非 final
-- 方法会被设为 protected 且非 final
+- 类会被设为 public 且非 final.
+- 方法会被取消 final 限制，若原本为 private 则会被改为 protected。
 
 将某个方法设为 extendable 时，也会同时将其所属类设为 extendable。
 
 ### mutable {#mutable}
 
 `mutable` 可以将字段设为非 final。
-
-如果要让一个 private final 字段同时变为 accessible 和 mutable，必须在文件中分别添加两个条目。
 
 ## 指定目标 {#specifying-targets}
 
@@ -122,7 +127,7 @@ authors:
 
 ### mcsrc.dev {#mcsrc-dev}
 
-对于所有提供[未混淆 JAR](../migrating-mappings/index#whats-going-on-with-mappings) 的版本，也就是 1.21.11 及以上版本，[mcsrc](https://mcsrc.dev) 允许你在浏览器中反编译并浏览 Minecraft 源码，还可以将 Mixin、访问加宽器或访问转换器目标复制到剪贴板。
+[mcsrc](https://mcsrc.dev) 允许你在浏览器中反编译和浏览 Minecraft 源代码，并将 Mixin、访问加宽器或访问转换器的目标复制到剪贴板。
 
 若要复制访问加宽器条目，请先导航到你想要修改的类，然后右键点击目标以打开弹出菜单。
 
@@ -155,4 +160,12 @@ authors:
 
 ## 应用更改 {#applying-changes}
 
-若要看到你的更改生效，必须刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。 你所指定的目标元素的访问限制应会相应发生变化。 如果修改没有出现，可以尝试[验证该文件](../class-tweakers/index#validating-the-file)，并检查是否有错误。
+若要看到你的更改生效，必须刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。 你所指定的目标元素的访问限制应会相应发生变化。 请确保从反编译源文件处重新打开目标类，以便查看修改效果。
+
+::: tip
+
+如果未显示修改，你可以尝试[校验文件](../class-tweakers/index#validating-the-file)并检查是否有错误产生。
+
+:::
+
+<!---->

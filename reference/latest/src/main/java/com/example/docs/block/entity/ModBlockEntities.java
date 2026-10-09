@@ -35,7 +35,7 @@ public class ModBlockEntities {
 			FabricBlockEntityTypeBuilder.Factory<? extends T> entityFactory,
 			Block... blocks
 	) {
-		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
+		Identifier id = ExampleMod.id(name);
 		return Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id, FabricBlockEntityTypeBuilder.<T>create(entityFactory, blocks).build());
 	}
 	// #endregion register_block_entity

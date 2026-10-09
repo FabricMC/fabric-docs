@@ -36,10 +36,10 @@ authors:
 
 ## Відкриття екрана {#opening-the-screen}
 
-Ви можете відкрити екран за допомогою методу `setScreen` `Minecraft` — ви можете зробити це з багатьох місць, таких як призначення клавіш, команда або обробник клієнтських пакетів.
+Ви можете відкрити екран за допомогою методу `setScreen` з `Gui` — це можна зробити з багатьох місць, наприклад, через призначену клавіші, команду або обробник клієнтських пакетів.
 
 ```java
-Minecraft.getInstance().setScreen(
+Minecraft.getInstance().gui.setScreen(
   new CustomScreen(Component.empty())
 );
 ```
@@ -49,7 +49,7 @@ Minecraft.getInstance().setScreen(
 Якщо ви хочете закрити екран, просто встановіть для екрана значення `null`:
 
 ```java
-Minecraft.getInstance().setScreen(null);
+Minecraft.getInstance().gui.setScreen(null);
 ```
 
 Якщо ви хочете, щоб було гарно та повернення до попереднього екрана, ви можете передати поточний екран у конструктор `CustomScreen` і зберегти його в полі, а потім використовувати його для повернення до попереднього екрана, коли викликається метод `close`.
@@ -59,8 +59,8 @@ Minecraft.getInstance().setScreen(null);
 Тепер, відкриваючи власний екран, ви можете передати поточний екран як другий аргумент, тож коли ви викличете `CustomScreen#close`, він повернеться до попереднього екрана.
 
 ```java
-Screen currentScreen = Minecraft.getInstance().currentScreen;
-Minecraft.getInstance().setScreen(
+Screen currentScreen = Minecraft.getInstance().gui.screen();
+Minecraft.getInstance().gui.setScreen(
   new CustomScreen(Component.empty(), currentScreen)
 );
 ```

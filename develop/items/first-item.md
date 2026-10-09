@@ -43,8 +43,6 @@ Mojang does this with their items as well! Check out the `Items` class for inspi
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
 
-Notice how we're using `T`, a [generic type](https://docs.oracle.com/javase/tutorial/java/generics/types.html) that extends `Item`. This allows us to use the same method `register` for registering any type of item that extends `Item`. We're also using a [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) for the factory, which allows us to specify how we want our item to be created given the item properties.
-
 ## Registering an Item {#registering-an-item}
 
 You can now register an item using the method now.
@@ -171,18 +169,6 @@ Create the client item JSON in the `assets/example-mod/items`, with the same fil
 Your item should now look like this in-game:
 
 ![Item with correct model](/assets/develop/items/first_item_2.png)
-
-## Making the Item Compostable or a Fuel {#making-the-item-compostable-or-a-fuel}
-
-Fabric API provides various registries that can be used to add additional properties to your item.
-
-For example, if you want to make your item compostable, you can use the `CompostableRegistry`:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
-
-Alternatively, if you want to make your item a fuel, you can use the `FuelValueEvents.BUILD` event:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
 
 ## Adding a Basic Crafting Recipe {#adding-a-basic-crafting-recipe}
 

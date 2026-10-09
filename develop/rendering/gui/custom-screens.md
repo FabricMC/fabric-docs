@@ -36,10 +36,10 @@ As an example, we can create a simple screen that has a button and a label above
 
 ## Opening the Screen {#opening-the-screen}
 
-You can open the screen using the `Minecraft`'s `setScreen` method - you can do this from many places, such as a key binding, a command, or a client packet handler.
+You can open the screen using the `setScreen` method from `Gui` - you can do this from many places, such as a key binding, a command, or a client packet handler.
 
 ```java
-Minecraft.getInstance().setScreen(
+Minecraft.getInstance().gui.setScreen(
   new CustomScreen(Component.empty())
 );
 ```
@@ -49,7 +49,7 @@ Minecraft.getInstance().setScreen(
 If you want to close the screen, simply set the screen to `null`:
 
 ```java
-Minecraft.getInstance().setScreen(null);
+Minecraft.getInstance().gui.setScreen(null);
 ```
 
 If you want to be fancy and return to the previous screen, you can pass the current screen into the `CustomScreen` constructor and store it in a field, then use it to return to the previous screen when the `close` method is called.
@@ -59,8 +59,8 @@ If you want to be fancy and return to the previous screen, you can pass the curr
 Now, when opening the custom screen, you can pass the current screen as the second argument - so when you call `CustomScreen#close`, it will return to the previous screen.
 
 ```java
-Screen currentScreen = Minecraft.getInstance().currentScreen;
-Minecraft.getInstance().setScreen(
+Screen currentScreen = Minecraft.getInstance().gui.screen();
+Minecraft.getInstance().gui.setScreen(
   new CustomScreen(Component.empty(), currentScreen)
 );
 ```

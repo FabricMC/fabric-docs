@@ -26,7 +26,7 @@ public class ExampleModAppearanceClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// #region register_item_tint_source
-		ItemTintSources.ID_MAPPER.put(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "color"), RainTintSource.MAP_CODEC);
+		ItemTintSources.ID_MAPPER.put(ExampleMod.id("color"), RainTintSource.MAP_CODEC);
 		// #endregion register_item_tint_source
 		// #region color_provider
 		BlockColorRegistry.register(List.of(new BlockTintSource() {
