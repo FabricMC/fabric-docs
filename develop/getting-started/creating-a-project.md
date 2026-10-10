@@ -1,19 +1,44 @@
 ---
 title: Creating a Project
-description: A step-by-step guide on how to create a new mod project using the Fabric template mod generator.
+description: A step-by-step guide on how to create a new mod project using the Fabric CLI, the template mod generator, or the example mod repository.
 authors:
   - Cactooz
   - IMB11
   - radstevee
   - Thomas1034
 resources:
+  https://fabricmc.net/develop/cli/: Fabric Command Line Tools
   https://fabricmc.net/develop/template/: Fabric Template Mod Generator
   https://fabricmc.net/develop/: Develop with Fabric Website
 ---
 
-Fabric provides an easy way to create a new mod project using the Fabric Template Mod Generator - if you want, you can manually create a new project using the example mod repository, you should refer to the [Manual Project Creation](#manual-project-creation) section.
+There are three ways to create a new mod project: using the [Fabric CLI](#using-the-fabric-cli) (recommended), the [Fabric Template Mod Generator](#using-the-template-mod-generator), or by [manually cloning the example mod repository](#manual-project-creation).
 
-## Generating a Project {#generating-a-project}
+## Using the Fabric CLI {#using-the-fabric-cli}
+
+The [Fabric command line tools](https://fabricmc.net/develop/cli/) can generate a new mod project directly from your terminal.
+
+First, install the CLI using npm (requires Node.js 22 or newer):
+
+```sh:no-line-numbers
+npm install -g @fabricmc/cli
+```
+
+Then generate a new mod project. You can optionally pass a directory name - if the directory does not exist, it will be created for you:
+
+```sh:no-line-numbers
+fabric init MyCoolMod
+```
+
+If you wish to accept all of the default values, you can pass the `-y` flag - the directory name will then be used to influence the mod name:
+
+```sh:no-line-numbers
+fabric init MyCoolMod -y
+```
+
+Once the project has been generated, open it in your IDE and follow the [Setting Up Your IDE](./setting-up) guide.
+
+## Using the Template Mod Generator {#using-the-template-mod-generator}
 
 You can use the [Fabric Template Mod Generator](https://fabricmc.net/develop/template/) to generate a new project for your mod - you should fill in the required fields, such as the mod name, package name, and the Minecraft version that you want to develop for.
 
@@ -63,7 +88,7 @@ You will need [Git](https://git-scm.com/) installed in order to clone the exampl
 
 :::
 
-If you cannot use the Fabric Template Mod Generator, you can create a new project manually by following these steps.
+If you cannot use the Fabric CLI or the Fabric Template Mod Generator, you can create a new project manually by following these steps.
 
 Firstly, clone the example mod repository using Git:
 
@@ -75,13 +100,7 @@ This will clone the repository into a new folder called `example-mod`.
 
 You should then delete the `.git` folder from the cloned repository, and then open the project. If the `.git` folder does not appear, you should enable the display of hidden files in your file manager.
 
-### Setting Up Your IDE {#setting-up}
-
-Once you've opened the project in your IDE, it should automatically load the project's Gradle configuration and perform the necessary setup tasks.
-
-If you receive a notification talking about a Gradle build script, you should click the `Import Gradle Project` button.
-
-For more information, please check out the [Setting Up Your IDE](./setting-up) page.
+For information on opening the project in your IDE, please check out the [Setting Up Your IDE](./setting-up) page.
 
 ### Modifying the Template {#modifying-the-template}
 
