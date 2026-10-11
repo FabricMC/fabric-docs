@@ -14,12 +14,6 @@ resources:
 
 There are three ways to create a new mod project: using the [Fabric Template Mod Generator](#using-the-template-mod-generator), by [manually cloning the example mod repository](#manual-project-creation), or using the [Fabric CLI](#using-the-fabric-cli) (advanced users).
 
-::: info
-
-A `@fabricmc/create` scaffolding package is planned for the future, but doesn't exist yet.
-
-:::
-
 ## Using the Template Mod Generator {#using-the-template-mod-generator}
 
 You can use the [Fabric Template Mod Generator](https://fabricmc.net/develop/template/) to generate a new project for your mod - you should fill in the required fields, such as the mod name, package name, and the Minecraft version that you want to develop for.
