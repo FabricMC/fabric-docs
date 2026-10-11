@@ -61,4 +61,8 @@ Tags created by your mod should have translations, so that other mods - such as 
 
 > Dev warning - Untranslated Item Tags detected. Please translate your item tags so other mods such as recipe viewers can properly display your tag's name.
 
-To translate a tag, add a translation key to your language file using the format `tag.item.<namespace>.<path>`, where any slashes in the path are replaced with periods. For example, a tag with the ID `example-mod:metal_ingots` would use the translation key `tag.item.example-mod.metal_ingots`.
+Rather than writing translation keys by hand, generate them with data generation. Follow the [Translation Generation](./translations) guide to set up a language provider - its `TranslationBuilder` has helpers for tags, so you can simply pass your `TagKey` and the display name:
+
+```java
+translationBuilder.add(ExampleModItemTagProvider.SMELLY_ITEMS, "Smelly Items");
+```
