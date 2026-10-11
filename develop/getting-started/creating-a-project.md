@@ -12,7 +12,13 @@ resources:
   https://fabricmc.net/develop/: Develop with Fabric Website
 ---
 
-There are three ways to create a new mod project: using the [Fabric Template Mod Generator](#using-the-template-mod-generator), the [Fabric CLI](#using-the-fabric-cli), or by [manually cloning the example mod repository](#manual-project-creation).
+There are three ways to create a new mod project: using the [Fabric Template Mod Generator](#using-the-template-mod-generator), by [manually cloning the example mod repository](#manual-project-creation), or using the [Fabric CLI](#using-the-fabric-cli) (advanced users).
+
+::: info
+
+A `@fabricmc/create` scaffolding package is planned for the future, but doesn't exist yet.
+
+:::
 
 ## Using the Template Mod Generator {#using-the-template-mod-generator}
 
@@ -56,10 +62,6 @@ An example of a "good" path may be: `C:\Projects\YourProjectName`
 
 :::
 
-## Using the Fabric CLI {#using-the-fabric-cli}
-
-If you prefer working from the terminal, the [Fabric command line tools](https://fabricmc.net/develop/cli/) can generate a new mod project for you. Note that the CLI is aimed at power users - if you are new to modding, the Template Mod Generator above is the easier path.
-
 ## Manual Project Creation {#manual-project-creation}
 
 ::: info PREREQUISITES
@@ -97,3 +99,7 @@ Once the project has been imported, you should modify the project's details to m
 - Make sure to update the versions of Minecraft, the mappings, the Loader and the Loom - all of which can be queried through the [Develop site](https://fabricmc.net/develop/) - to match the versions you wish to target.
 
 You can then change the package name and the mod's main class to match your mod's details.
+
+## Using the Fabric CLI {#using-the-fabric-cli}
+
+If you prefer working from the terminal, the [Fabric command line tools](https://fabricmc.net/develop/cli/) can generate a new mod project for you. Note that the CLI is aimed at advanced users - if you are new to modding, the Template Mod Generator above is the easier path.
