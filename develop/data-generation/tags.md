@@ -63,6 +63,4 @@ Tags created by your mod should have translations, so that other mods - such as 
 
 Rather than writing translation keys by hand, generate them with data generation. Follow the [Translation Generation](./translations) guide to set up a language provider - its `TranslationBuilder` has helpers for tags, so you can simply pass your `TagKey` and the display name:
 
-```java
-translationBuilder.add(ExampleModItemTagProvider.SMELLY_ITEMS, "Smelly Items");
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#tag_name

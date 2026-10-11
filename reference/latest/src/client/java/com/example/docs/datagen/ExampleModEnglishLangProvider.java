@@ -97,6 +97,9 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		// #region gamerule_name
 		translationBuilder.add(ExampleMod.id("bad_vision"), "Bad Vision");
 		// #endregion gamerule_name
+		// #region tag_name
+		translationBuilder.add(ExampleModItemTagProvider.SMELLY_ITEMS, "Smelly Items");
+		// #endregion tag_name
 		// #region datagen_translations_provider
 	}
 }
