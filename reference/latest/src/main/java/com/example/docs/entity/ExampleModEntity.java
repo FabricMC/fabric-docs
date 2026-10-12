@@ -6,9 +6,8 @@ import net.fabricmc.api.ModInitializer;
 public class ExampleModEntity implements ModInitializer {
 	@Override
 	public void onInitialize() {
-		ModEntityTypes.registerModEntityTypes();
+		ModEntityTypes.initialize();
 
-		ModEntityTypes.registerAttributes();
 	}
 }
 // #endregion entrypoint
