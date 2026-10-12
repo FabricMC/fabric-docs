@@ -46,8 +46,6 @@ public class ExampleMod implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		// #endregion entrypoint
 
-
-
 		@SuppressWarnings("unused")
 		// #region id_helper_usage
 		Identifier id = ExampleMod.id("my_path");

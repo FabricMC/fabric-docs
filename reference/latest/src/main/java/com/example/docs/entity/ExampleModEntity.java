@@ -7,7 +7,6 @@ public class ExampleModEntity implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModEntityTypes.initialize();
-
 	}
 }
 // #endregion entrypoint
