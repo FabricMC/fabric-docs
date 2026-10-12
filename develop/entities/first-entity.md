@@ -33,7 +33,7 @@ Our new entity needs an ID; create a new class called `ModEntityTypeIds` and add
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#ids
 
-To register your entity, it's recommended to create a separate class, `ModEntityTypes`, where you register any and all entity types, set their sizes, and pass their attributes directly into the registration method.
+To register your entity, it's recommended to create a separate class, `ModEntityTypes`, where you register any and all entity types, set their sizes, and pass their attributes directly into the registration method:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
 
