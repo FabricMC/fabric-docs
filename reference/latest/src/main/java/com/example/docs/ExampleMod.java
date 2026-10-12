@@ -17,7 +17,6 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.item.v1.ItemComponentTooltipProviderRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 
-import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.component.ModComponents;
 import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 
@@ -47,7 +46,7 @@ public class ExampleMod implements ModInitializer {
 		LOGGER.info("Hello Fabric world!");
 		// #endregion entrypoint
 
-		ModEntityTypes.initialize();
+
 
 		@SuppressWarnings("unused")
 		// #region id_helper_usage
