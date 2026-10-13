@@ -63,7 +63,7 @@ If you want to make your tool material mine the same blocks as an existing one, 
 
 You can create your tool items by using the same classes and functions that we implemented in the [Creating Your First Item](./first-item) guide:
 
-:::tabs
+::: tabs
 
 == Sword
 
