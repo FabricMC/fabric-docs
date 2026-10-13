@@ -63,7 +63,7 @@ If you want to make your tool material mine the same blocks as an existing one, 
 
 You can create your tool items by using the same classes and functions that we implemented in the [Creating Your First Item](./first-item) guide:
 
-::: tabs
+:::: tabs
 
 == Sword
 
@@ -75,7 +75,15 @@ The two float values (`1f, 1f`) refer to the attack damage of the tool and the a
 
 == Axe
 
+The two float values (`5.0f, -3.0f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
+
 For axes, you should create a `AxeItem` instead of a generic `Item`, as this implements tool-specific right-click action:
+
+::: info
+
+`AxeItem` calls the `axe` method of `Item.Properties` in its constructor.
+
+:::
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_axe
 
@@ -91,7 +99,15 @@ For bows, you should create a `BowItem` instead of a generic `Item`, as this imp
 
 == Shovel
 
+The two float values (`1.0f, -1.0f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
+
 For shovels, you should create a `ShovelItem` instead of a generic `Item`, as this implements tool-specific right-click action:
+
+::: info
+
+`ShovelItem` calls the `shovel` method of `Item.Properties` in its constructor.
+
+:::
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_shovel
 
@@ -99,19 +115,21 @@ For shovels, you should create a `ShovelItem` instead of a generic `Item`, as th
 
 == Hoe
 
-For hoes, you should create a `HoeItem` instead of a generic `Item`, as this implements tool-specific right-click action:
+The two float values (`2.0f, -1.0f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
+
+For hoes, you should create a `HoeItem` instead of a generic `Item`:
+
+::: info
+
+`HoeItem` calls the `hoe` method of `Item.Properties` in its constructor.
+
+:::
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_hoe
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_hoe
 
-:::
-
-::: info
-
-`ShovelItem`, `AxeItem`, and `HoeItem` call the `shovel`, `axe`, or `hoe` method of `Item.Properties` in their constructors.
-
-:::
+::::
 
 Remember to add them to a creative tab if you want to access them from the creative inventory!
 
