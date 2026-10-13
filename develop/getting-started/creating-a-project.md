@@ -64,7 +64,7 @@ You will need [Git](https://git-scm.com/) installed in order to clone the exampl
 
 :::
 
-If you cannot use the Fabric CLI or the Fabric Template Mod Generator, you can create a new project manually by following these steps.
+If you cannot use the Fabric Template Mod Generator, you can create a new project manually by following these steps.
 
 Firstly, clone the example mod repository using Git:
 
