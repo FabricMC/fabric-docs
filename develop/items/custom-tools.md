@@ -117,7 +117,7 @@ For shovels, you should create a `ShovelItem` instead of a generic `Item`, as th
 
 The two float values (`2.0f, -1.0f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
 
-For hoes, you should create a `HoeItem` instead of a generic `Item`:
+For hoes, you should create a `HoeItem` instead of a generic `Item`, as this implements tool-specific right-click action:
 
 ::: info
 
