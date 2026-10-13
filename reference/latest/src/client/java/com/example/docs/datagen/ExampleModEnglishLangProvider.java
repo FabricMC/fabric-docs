@@ -32,6 +32,8 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.GUIDITE_LEGGINGS, "Guidite Leggings");
 		translationBuilder.add(ModItems.GUIDITE_BOOTS, "Guidite Boots");
 		translationBuilder.add(ModItems.GUIDITE_SWORD, "Guidite Sword");
+		translationBuilder.add(ModItems.GUIDITE_AXE, "Guidite Axe");
+		translationBuilder.add(ModItems.GUIDITE_SPEAR, "Guidite Spear");
 		translationBuilder.add(ModItems.GUIDITE_BOW, "Guidite Bow");
 		translationBuilder.add(ModItems.GUIDITE_SHOVEL, "Guidite Shovel");
 		translationBuilder.add(ModItems.GUIDITE_HOE, "Guidite Hoe");
@@ -40,7 +42,6 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.MINI_GOLEM_SPAWN_EGG, "Mini Golem Spawn Egg");
 		translationBuilder.add(ModItems.ACID_BUCKET, "Acid Bucket");
 		translationBuilder.add(ModItems.RUBY, "Ruby");
-		translationBuilder.add(ModItems.GUIDITE_AXE, "Guidite Axe");
 		translationBuilder.add(ModItems.LEATHER_GLOVES, "Leather Gloves");
 		translationBuilder.add(ModItems.FLASHLIGHT, "Flashlight");
 		translationBuilder.add(ModItems.BALLOON, "Balloon");

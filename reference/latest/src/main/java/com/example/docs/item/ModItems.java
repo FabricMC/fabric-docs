@@ -127,6 +127,14 @@ public class ModItems {
 	);
 	// #endregion guidite_axe
 
+	// #region guidite_spear
+	public static final Item GUIDITE_SPEAR = register(
+			ModItemIds.GUIDITE_SPEAR,
+			Item::new,
+			new Item.Properties().spear(GUIDITE_TOOL_MATERIAL, 2.8f, 0.3f, 1.4f, 1.1f, 2.0f, 1.1f, 0.15f, 0.25f, 0.45f)
+	);
+	// #endregion guidite_spear
+
 	// #region guidite_bow
 	public static final Item GUIDITE_BOW = register(
 			ModItemIds.GUIDITE_BOW,
@@ -341,6 +349,7 @@ public class ModItems {
 				.register((creativeTab) -> {
 					creativeTab.accept(ModItems.GUIDITE_SWORD);
 					creativeTab.accept(ModItems.GUIDITE_AXE);
+					creativeTab.accept(ModItems.GUIDITE_SPEAR);
 					creativeTab.accept(ModItems.GUIDITE_BOW);
 					creativeTab.accept(ModItems.GUIDITE_HOE);
 					creativeTab.accept(ModItems.GUIDITE_SHOVEL);

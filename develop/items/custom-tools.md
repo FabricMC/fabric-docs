@@ -47,7 +47,7 @@ Next, we define the tag's contents using a tag JSON. Let's make Guidite tools be
 
 <<< @/reference/latest/src/main/resources/data/example-mod/tags/block/incorrect_for_guidite_tool.json
 
-Note that this example inherits from a weaker tool material and _removes_ entries that our stronger material can mine, inheriting all of the other blocks that wood cannot.
+Note that this example inherits from a weaker tool material and _removes_ entries that our stronger material can mine, inheriting all the other blocks that wood cannot.
 
 ::: tip
 
@@ -88,6 +88,14 @@ For axes, you should create a `AxeItem` instead of a generic `Item`, as this imp
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_axe
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_axe
+
+== Spear
+
+The nine float values (`2.8f, 0.3f, 1.4f, 1.1f, 2.0f, 1.1f, 0.15f, 0.25f, 0.45f`) refer to the float attack duration, damage multiplier, delay, dismount time, dismount threshold, knockback time, knockback threshold, damage time and damage threshold respectively.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_spear
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_spear
 
 == Bow
 
@@ -160,6 +168,10 @@ The models below are using data generation. For more information, see the docume
 == Axe
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
+
+== Spear
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_spear
 
 == Bow
 

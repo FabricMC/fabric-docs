@@ -54,6 +54,8 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 				.add(ModItemIds.GUIDITE_SWORD);
 		builder(ItemTags.AXES)
 				.add(ModItemIds.GUIDITE_AXE);
+		builder(ItemTags.SPEARS)
+				.add(ModItemIds.GUIDITE_SPEAR);
 		builder(ItemTags.BOW_ENCHANTABLE)
 				.add(ModItemIds.GUIDITE_BOW);
 		builder(ItemTags.HOES)
