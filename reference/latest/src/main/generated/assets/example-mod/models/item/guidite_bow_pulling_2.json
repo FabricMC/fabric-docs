@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/bow",
+  "textures": {
+    "layer0": "example-mod:item/guidite_bow_pulling_2"
+  }
+}
