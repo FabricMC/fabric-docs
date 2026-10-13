@@ -123,7 +123,8 @@ public class ModItems {
 	public static final Item GUIDITE_AXE = register(
 			ModItemIds.GUIDITE_AXE,
 			settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings),
-			new Item.Properties());
+			new Item.Properties()
+	);
 	// #endregion guidite_axe
 
 	// #region guidite_bow
@@ -137,7 +138,7 @@ public class ModItems {
 	// #region guidite_shovel
 	public static final Item GUIDITE_SHOVEL = register(
 			ModItemIds.GUIDITE_SHOVEL,
-			settings -> new ShovelItem(GUIDITE_TOOL_MATERIAL, 1.0F, 1.0F, settings),
+			settings -> new ShovelItem(GUIDITE_TOOL_MATERIAL, 1.0F, -1.0F, settings),
 			new Item.Properties()
 	);
 	// #endregion guidite_shovel
@@ -145,7 +146,7 @@ public class ModItems {
 	// #region guidite_hoe
 	public static final Item GUIDITE_HOE = register(
 			ModItemIds.GUIDITE_HOE,
-			settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, 2.0F, 1.0F, settings),
+			settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, 2.0F, -1.0F, settings),
 			new Item.Properties()
 	);
 	// #endregion guidite_hoe

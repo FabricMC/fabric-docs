@@ -49,18 +49,18 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 						.add(ModItemIds.GUIDITE_SHIELD);
 		// #endregion shield_tags
 
-		// #region tools
+		// #region tool_tags
 		builder(ItemTags.SWORDS)
-						.add(ModItemIds.GUIDITE_SWORD);
+				.add(ModItemIds.GUIDITE_SWORD);
 		builder(ItemTags.AXES)
-						.add(ModItemIds.GUIDITE_AXE);
+				.add(ModItemIds.GUIDITE_AXE);
 		builder(ItemTags.BOW_ENCHANTABLE)
 				.add(ModItemIds.GUIDITE_BOW);
 		builder(ItemTags.HOES)
 				.add(ModItemIds.GUIDITE_HOE);
 		builder(ItemTags.SHOVELS)
 				.add(ModItemIds.GUIDITE_SHOVEL);
-		// #endregion tools
+		// #endregion tool_tags
 
 		// #region armor_tags
 		builder(ItemTags.HEAD_ARMOR)

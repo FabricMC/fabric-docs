@@ -7,6 +7,7 @@ authors:
   - ChampionAsh5357
   - IMB11
   - its-miroma
+  - NotNightSky
 resources:
   https://docs.neoforged.net/docs/items/tools/: Tools - NeoForge Docs (except Neo exclusives)
 ---
@@ -62,17 +63,49 @@ If you want to make your tool material mine the same blocks as an existing one, 
 
 You can create your tool items by using the same classes and functions that we implemented in the [Creating Your First Item](./first-item) guide:
 
+:::tabs
+
+== Sword
+
+The two float values (`1f, 1f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
+
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
-The two float values (`1f, 1f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
+== Axe
 
-For shovels, axes, and hoes, you should create a `ShovelItem`, `AxeItem`, or `HoeItem` instead of a generic `Item`, as these implement tool-specific right-click actions:
+For axes, you should create a `AxeItem` instead of a generic `Item`, as this implements tool-specific right-click action:
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#axe
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_axe
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_axe
+
+== Bow
+
+For bows, you should create a `BowItem` instead of a generic `Item`, as this implements tool-specific right-click action:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_bow
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_bow
+
+== Shovel
+
+For shovels, you should create a `ShovelItem` instead of a generic `Item`, as this implements tool-specific right-click action:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_shovel
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_shovel
+
+== Hoe
+
+For hoes, you should create a `HoeItem` instead of a generic `Item`, as this implements tool-specific right-click action:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_hoe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_hoe
+
+:::
 
 ::: info
 
@@ -88,65 +121,45 @@ You will also have to add a texture, item translation and item model. However, f
 
 ## Assets {#models}
 
-You will also have to add a [texture](./first-item#adding-a-texture), [translation](./first-item#naming-the-item), [client item](./first-item#creating-the-client-item), and [item model](./item-models). However, for the item model, you'll want to use the `item/handheld` model as your parent instead of the usual `item/generated`.
-
-For this example, we will be defining the following client item, model and texture for the "Guidite Sword" item:
-
 :::: tabs
-
-== Source Code
-
-::: info
-
-This model can be data generated. For more information, see the documentation on generating [item models](../data-generation/item-models).
-
-:::
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#sword
-
-== Client Item
-
-`generated/assets/example-mod/items/guidite_sword.json`
-
-<<< @/reference/latest/src/main/generated/assets/example-mod/items/guidite_sword.json
-
-== Item Model
-
-`generated/assets/example-mod/models/item/guidite_sword.json`
-
-<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json
-
-== Texture
-
-<DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Guidite Sword Texture</DownloadEntry>
 
 ::::
 
-A similar pattern applies to the "Guidite Axe" item.
+You will also have to add a [texture](./first-item#adding-a-texture), [translation](./first-item#naming-the-item), [client item](./first-item#creating-the-client-item), and [item model](./item-models). However, for the item model, you'll want to use the `item/handheld` model as your parent instead of the usual `item/generated`.
+
+::: info
+
+The models below are using data generation. For more information, see the documentation on generating [item models](../data-generation/item-models).
+
+:::
 
 ::: tabs
 
-== Source Code
+== Sword
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#handheld
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_sword
 
-== Client Item
+== Axe
 
-`generated/assets/example-mod/items/guidite_axe.json`
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
 
-<<< @/reference/latest/src/main/generated/assets/example-mod/items/guidite_axe.json
+== Bow
 
-== Item Model
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_bow
 
-`generated/assets/example-mod/models/item/guidite_axe.json`
+== Shovel
 
-<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_axe.json
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_shovel
 
-== Texture
+== Hoe
 
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/guidite_axe_big.png" downloadURL="/assets/develop/data-generation/item-model/guidite_axe.png">Guidite Axe Texture</DownloadEntry>
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_hoe
 
 :::
+
+Here are all the example textures used in this guide:
+
+<DownloadEntry downloadURL="/assets/develop/items/tools.zip">Guidite Tool Textures</DownloadEntry>
 
 ## Tagging Tool Items {#tags}
 
@@ -160,7 +173,7 @@ It's also recommended to place your tool in the appropriate item tags. Tools hav
 
 In your item tag provider, add the following lines to `addTags`:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#sword_tags
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#tool_tags
 
 That's pretty much it! If you go in-game you should see your tools in the "Tools and Utilities" tab of the creative inventory menu.
 
