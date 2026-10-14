@@ -116,6 +116,10 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
 		// #endregion guidite_sword
 
+		// #region guidite_pickaxe
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		// #endregion guidite_pickaxe
+
 		// #region guidite_axe
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
 		// #endregion guidite_axe

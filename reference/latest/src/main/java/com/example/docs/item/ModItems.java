@@ -118,6 +118,14 @@ public class ModItems {
 	);
 	// #endregion guidite_sword
 
+	// #region guidite_pickaxe
+	public static final Item GUIDITE_PICKAXE = register(
+			ModItemIds.GUIDITE_PICKAXE,
+			Item::new,
+			new Item.Properties().pickaxe(GUIDITE_TOOL_MATERIAL, 2.0F, -1.0F)
+	);
+	// #endregion guidite_pickaxe
+
 	// #region guidite_axe
 	public static final Item GUIDITE_AXE = register(
 			ModItemIds.GUIDITE_AXE,
@@ -339,6 +347,7 @@ public class ModItems {
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
 				.register((creativeTab) -> {
 					creativeTab.accept(ModItems.GUIDITE_SWORD);
+					creativeTab.accept(ModItems.GUIDITE_PICKAXE);
 					creativeTab.accept(ModItems.GUIDITE_AXE);
 					creativeTab.accept(ModItems.GUIDITE_SPEAR);
 					creativeTab.accept(ModItems.GUIDITE_HOE);

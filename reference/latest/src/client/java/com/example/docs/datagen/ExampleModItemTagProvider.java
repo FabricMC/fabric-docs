@@ -52,6 +52,8 @@ public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvid
 		// #region tool_tags
 		builder(ItemTags.SWORDS)
 				.add(ModItemIds.GUIDITE_SWORD);
+		builder(ItemTags.PICKAXES)
+				.add(ModItemIds.GUIDITE_PICKAXE);
 		builder(ItemTags.AXES)
 				.add(ModItemIds.GUIDITE_AXE);
 		builder(ItemTags.SPEARS)

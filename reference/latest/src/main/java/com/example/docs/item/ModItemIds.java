@@ -27,6 +27,10 @@ public class ModItemIds {
 	public static final ResourceKey<Item> GUIDITE_BOOTS = create("guidite_boots");
 	// #endregion create_armor_items
 
+	// #region guidite_pickaxe
+	public static final ResourceKey<Item> GUIDITE_PICKAXE = create("guidite_pickaxe");
+	// #endregion guidite_pickaxe
+
 	// #region guidite_axe
 	public static final ResourceKey<Item> GUIDITE_AXE = create("guidite_axe");
 	// #endregion guidite_axe

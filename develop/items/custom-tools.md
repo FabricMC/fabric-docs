@@ -73,6 +73,22 @@ The two float values (`1f, 1f`) refer to the attack damage of the tool and the a
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
+== Spear
+
+The nine float values (`2.8f, 0.3f, 1.4f, 1.1f, 2.0f, 1.1f, 0.15f, 0.25f, 0.45f`) refer to the float attack duration, damage multiplier, delay, dismount time, dismount threshold, knockback time, knockback threshold, damage time and damage threshold respectively.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_spear
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_spear
+
+== Pickaxe
+
+The two float values (`2.0f, -1.0f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_pickaxe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_pickaxe
+
 == Axe
 
 The two float values (`5.0f, -3.0f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
@@ -88,14 +104,6 @@ For axes, you should create a `AxeItem` instead of a generic `Item`, as this imp
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_axe
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_axe
-
-== Spear
-
-The nine float values (`2.8f, 0.3f, 1.4f, 1.1f, 2.0f, 1.1f, 0.15f, 0.25f, 0.45f`) refer to the float attack duration, damage multiplier, delay, dismount time, dismount threshold, knockback time, knockback threshold, damage time and damage threshold respectively.
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_spear
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_spear
 
 == Shovel
 
@@ -157,13 +165,17 @@ The models below are using data generation. For more information, see the docume
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_sword
 
-== Axe
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
-
 == Spear
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_spear
+
+== Pickaxe
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_pickaxe
+
+== Axe
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
 
 == Shovel
 
