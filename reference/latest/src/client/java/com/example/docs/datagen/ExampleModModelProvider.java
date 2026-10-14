@@ -124,11 +124,6 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateSpear(ModItems.GUIDITE_SPEAR);
 		// #endregion guidite_spear
 
-		// #region guidite_bow
-		itemModelGenerator.createFlatItemModel(ModItems.GUIDITE_BOW, ModelTemplates.BOW);
-		itemModelGenerator.generateBow(ModItems.GUIDITE_BOW);
-		// #endregion guidite_bow
-
 		// #region guidite_hoe
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_HOE, ModelTemplates.FLAT_HANDHELD_ITEM);
 		// #endregion guidite_hoe

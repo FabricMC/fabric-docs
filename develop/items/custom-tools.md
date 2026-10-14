@@ -97,14 +97,6 @@ The nine float values (`2.8f, 0.3f, 1.4f, 1.1f, 2.0f, 1.1f, 0.15f, 0.25f, 0.45f`
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_spear
 
-== Bow
-
-For bows, you should create a `BowItem` instead of a generic `Item`, as this implements tool-specific right-click action:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_bow
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_bow
-
 == Shovel
 
 The two float values (`1.0f, -1.0f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
@@ -172,10 +164,6 @@ The models below are using data generation. For more information, see the docume
 == Spear
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_spear
-
-== Bow
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_bow
 
 == Shovel
 

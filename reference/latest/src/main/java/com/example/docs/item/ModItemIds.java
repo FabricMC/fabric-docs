@@ -37,11 +37,7 @@ public class ModItemIds {
 
 	// #region guidite_spear
 	public static final ResourceKey<Item> GUIDITE_SPEAR = create("guidite_spear");
-	// #endregion
-
-	// #region guidite_bow
-	public static final ResourceKey<Item> GUIDITE_BOW = create("guidite_bow");
-	// #endregion guidite_bow
+	// #endregion guidite_spear
 
 	// #region guidite_shovel
 	public static final ResourceKey<Item> GUIDITE_SHOVEL = create("guidite_shovel");

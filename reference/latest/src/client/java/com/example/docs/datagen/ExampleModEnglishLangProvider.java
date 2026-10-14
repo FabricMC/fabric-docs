@@ -34,7 +34,6 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add(ModItems.GUIDITE_SWORD, "Guidite Sword");
 		translationBuilder.add(ModItems.GUIDITE_AXE, "Guidite Axe");
 		translationBuilder.add(ModItems.GUIDITE_SPEAR, "Guidite Spear");
-		translationBuilder.add(ModItems.GUIDITE_BOW, "Guidite Bow");
 		translationBuilder.add(ModItems.GUIDITE_SHOVEL, "Guidite Shovel");
 		translationBuilder.add(ModItems.GUIDITE_HOE, "Guidite Hoe");
 		translationBuilder.add(ModItems.GUIDITE_SHIELD, "Guidite Shield");

@@ -21,7 +21,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -134,14 +133,6 @@ public class ModItems {
 			new Item.Properties().spear(GUIDITE_TOOL_MATERIAL, 2.8f, 0.3f, 1.4f, 1.1f, 2.0f, 1.1f, 0.15f, 0.25f, 0.45f)
 	);
 	// #endregion guidite_spear
-
-	// #region guidite_bow
-	public static final Item GUIDITE_BOW = register(
-			ModItemIds.GUIDITE_BOW,
-			settings -> new BowItem(settings.durability(500)),
-			new Item.Properties()
-	);
-	// #endregion guidite_bow
 
 	// #region guidite_shovel
 	public static final Item GUIDITE_SHOVEL = register(
@@ -350,7 +341,6 @@ public class ModItems {
 					creativeTab.accept(ModItems.GUIDITE_SWORD);
 					creativeTab.accept(ModItems.GUIDITE_AXE);
 					creativeTab.accept(ModItems.GUIDITE_SPEAR);
-					creativeTab.accept(ModItems.GUIDITE_BOW);
 					creativeTab.accept(ModItems.GUIDITE_HOE);
 					creativeTab.accept(ModItems.GUIDITE_SHOVEL);
 				});
