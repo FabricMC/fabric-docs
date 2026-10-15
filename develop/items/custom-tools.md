@@ -75,7 +75,7 @@ The two float values (`1f, 1f`) refer to the attack damage of the tool and the a
 
 == Spear
 
-The nine float values (`2.8f, 0.3f, 1.4f, 1.1f, 2.0f, 1.1f, 0.15f, 0.25f, 0.45f`) refer to the float attack duration, damage multiplier, delay, dismount time, dismount threshold, knockback time, knockback threshold, damage time and damage threshold respectively.
+The nine float values (`2.8f, 0.3f, 1.4f, 1.1f, 2.0f, 1.1f, 0.15f, 0.25f, 0.45f`) refer to the attack duration, damage multiplier, delay, dismount time, dismount threshold, knockback time, knockback threshold, damage time and damage threshold respectively.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_spear
 
