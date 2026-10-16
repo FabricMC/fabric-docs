@@ -13,6 +13,7 @@ import com.example.docs.block.ModBlocks;
 import com.example.docs.enchantment.ModEnchantments;
 import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.ModItems;
+import com.example.docs.item.armor.GuiditeArmorMaterial;
 
 // #region datagen_translations_provider
 public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
@@ -100,6 +101,7 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		// #region tag_name
 		translationBuilder.add(ExampleModItemTagProvider.SMELLY_ITEMS, "Smelly Items");
 		// #endregion tag_name
+		translationBuilder.add(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR, "Repairs Guidite Armor");
 		// #region datagen_translations_provider
 	}
 }
