@@ -43,7 +43,7 @@ Along with creating raw translations, translations from `Identifier`s, and copyi
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
 
-You can also merge translations from a JSON file that already lives in your mod. Keep that file off the generated `en_us.json` path, then pass it to `translationBuilder.add`:
+You can also merge in translations from a JSON file that already lives in your mod. Place that file somewhere outside the generated directory, then pass it to `translationBuilder.add`:
 
 <<< @/reference/latest/src/main/resources/assets/example-mod/lang/en_us.existing.json
 
