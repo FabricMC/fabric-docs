@@ -90,16 +90,9 @@ The two float values (`2.0f, -1.0f`) refer to the attack damage of the tool and 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_pickaxe
 
 == Axe
+For axes, you should create an `AxeItem` instead of a generic `Item`. This implements axe-specific right-click actions, and calls the `axe` method of `Item.Properties` automatically.
 
-The two float values (`5.0f, -3.0f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
-
-For axes, you should create a `AxeItem` instead of a generic `Item`, as this implements tool-specific right-click action:
-
-::: info
-
-`AxeItem` calls the `axe` method of `Item.Properties` in its constructor.
-
-:::
+The float values refer to the attack damage of the tool and its attack speed respectively.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_axe
 
