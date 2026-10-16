@@ -67,7 +67,7 @@ You can create your tool items by using the same classes and functions that we i
 
 == Sword
 
-The two float values (`1f, 1f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
+The float parameters refer to the attack damage of the tool and its attack speed respectively.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 
@@ -75,7 +75,7 @@ The two float values (`1f, 1f`) refer to the attack damage of the tool and the a
 
 == Spear
 
-The nine float values (`2.8f, 0.3f, 1.4f, 1.1f, 2.0f, 1.1f, 0.15f, 0.25f, 0.45f`) refer to the attack duration, damage multiplier, delay, dismount time, dismount threshold, knockback time, knockback threshold, damage time and damage threshold respectively.
+The float parameters refer to the attack duration, damage multiplier, delay, dismount time, dismount threshold, knockback time, knockback threshold, damage time, and damage threshold respectively.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_spear
 
@@ -155,7 +155,7 @@ You will also have to add a [texture](./first-item#adding-a-texture), [translati
 
 ::: info
 
-The models below are using data generation. For more information, see the documentation on generating [item models](../data-generation/item-models).
+The models below are using data generation. For more information, see the documentation on [generating item models](../data-generation/item-models).
 
 :::
 
