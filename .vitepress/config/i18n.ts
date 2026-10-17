@@ -106,25 +106,24 @@ export const getLocaleConfig = () => {
     zh_tw: "zh-TW",
   };
 
-  for (const locale of LOCALES) {
+  for (const l of LOCALES) {
     const intlLocale =
-      intlLocaleOverrides[locale]
-      || locale.replace(/..$/, (m) => m.toUpperCase()).replace("_", "-");
-    const crowdinLocale = crowdinLocaleOverrides[locale] ?? locale.split("_")[0];
+      intlLocaleOverrides[l] || l.replace(/..$/, (m) => m.toUpperCase()).replace("_", "-");
+    const crowdinLocale = crowdinLocaleOverrides[l] ?? l.split("_")[0];
 
-    const resolver = getWebsiteResolver(locale);
-    const intl = new Intl.DisplayNames(intlLocale, {
+    const label = new Intl.DisplayNames(intlLocale, {
       languageDisplay: "standard",
       style: "short",
       type: "language",
-    });
+    })
+      .of(intlLocale)!
+      .replace(/^\p{CWU}/u, (firstChar) => firstChar.toLocaleUpperCase(intlLocale));
 
-    returned[locale === "en_us" ? "root" : locale] = {
+    const resolver = getWebsiteResolver(l);
+
+    returned[l === "en_us" ? "root" : l] = {
       lang: intlLocale,
-      link: locale === "en_us" ? "/" : `/${locale}/`,
-      label: intl
-        .of(intlLocale)!
-        .replace(/^\p{CWU}/u, (firstChar) => firstChar.toLocaleUpperCase(intlLocale)),
+      label,
 
       title: resolver("title"),
       description: resolver("description"),
@@ -186,15 +185,19 @@ export const getLocaleConfig = () => {
           text: resolver("download"),
         },
 
-        editLink: {
-          pattern:
-            locale === "en_us"
-              ? "https://github.com/FabricMC/fabric-docs/edit/main/:path"
-              : `https://crowdin.com/project/fabricmc/${crowdinLocale}`,
-          text: locale === "en_us" ? resolver("edit_github") : resolver("edit_crowdin"),
-        },
+        editLink:
+          l === "en_us"
+            ? {
+                pattern: "https://github.com/FabricMC/fabric-docs/edit/main/:path",
+                text: resolver("edit_github"),
+              }
+            : {
+                pattern: `https://crowdin.com/project/fabricmc/${crowdinLocale}`,
+                text: resolver("edit_crowdin"),
+              },
 
         footer: {
+          // TODO(upstream): if vuejs/vitepress#5390 is merged, use Markdown
           copyright: resolver("footer.copyright").replace(
             "%s",
             [
@@ -222,7 +225,7 @@ export const getLocaleConfig = () => {
           },
           {
             text: resolver("nav.contribute"),
-            link: `${locale === "en_us" ? "" : `/${locale}`}/contributing`,
+            link: `${l === "en_us" ? "" : `/${l}`}/contributing`,
           },
           {
             text: resolver("nav.repo"),
@@ -254,7 +257,7 @@ export const getLocaleConfig = () => {
           code: resolver("404.code"),
           title: resolver("404.title"),
           pooh: resolver("404.title.pooh"),
-          quotes: resolver("404.quotes") as never,
+          quotes: resolver("404.quotes"),
 
           crowdinLinkLabel: resolver("404.crowdin_link.label"),
           crowdinLinkText: resolver("404.crowdin_link"),
@@ -303,7 +306,7 @@ export const getLocaleConfig = () => {
           },
         },
 
-        sidebar: getSidebar(locale),
+        sidebar: getSidebar(l),
 
         sidebarMenuLabel: resolver("sidebar_menu"),
 
