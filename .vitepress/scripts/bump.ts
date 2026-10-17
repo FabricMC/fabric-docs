@@ -6,20 +6,19 @@ import { getSidebar } from "../config/i18n.ts";
 import { AT, LOCALES, VERSION_RE } from "../constants.ts";
 
 const git = (...args: string[]) => {
-  const res = childProcess.spawnSync("git", args, { encoding: "utf8" });
-  if (res.error) {
-    console.error(`Failed to run 'git ${args.join(" ")}'!\n  ${res.error}`);
-    process.exit(1);
+  const returned = childProcess.spawnSync("git", args, { encoding: "utf8" });
+
+  if (returned.error) {
+    throw new Error(`Failed to run 'git ${args.join(" ")}'!`, { cause: returned.error });
   }
 
-  return res;
+  return returned;
 };
 
 process.chdir(AT);
 
 if (git("status", "--porcelain").stdout.toString().trim().length > 0) {
-  console.error("Working directory must be clean!");
-  process.exit(1);
+  throw new Error("Working directory must be clean!");
 }
 
 const oldBuildGradle = fs.readFileSync("./reference/latest/build.gradle", "utf-8");
@@ -28,36 +27,32 @@ console.log(`Current version: 'Minecraft ${oldVersion}'`);
 
 const launcherMetaUrl = "https://piston-meta.mojang.com/mc/game/version_manifest.json";
 const launcherVersions: any = await (await fetch(launcherMetaUrl)).json();
-const newVersion = process.argv[2] || launcherVersions?.latest?.release;
+const newVersion = process.argv[2]?.replace(/[.]0$/, "") || launcherVersions?.latest?.release;
 if (!newVersion) {
-  console.error("Couldn't obtain a valid Minecraft version!");
-  process.exit(1);
-} else if (newVersion === oldVersion || fs.existsSync(`./reference/${newVersion}`)) {
-  console.error(`'Minecraft ${newVersion}' already exists!`);
-  process.exit(1);
-} else if (!VERSION_RE.test(newVersion)) {
-  console.error(`'${newVersion}' does not look like a stable Minecraft version!`);
-  process.exit(1);
+  throw new Error("Couldn't obtain a valid Minecraft version!");
+}
+if (newVersion === oldVersion || fs.existsSync(`./reference/${newVersion}`)) {
+  throw new Error(`'Minecraft ${newVersion}' already exists!`);
+}
+if (!VERSION_RE.test(newVersion)) {
+  throw new Error(`'${newVersion}' does not look like a stable Minecraft version!`);
 }
 console.log(`New version: 'Minecraft ${newVersion}'`);
 
 if (git("rev-parse", "--verify", `refs/heads/port/${newVersion}`).status === 0) {
-  console.error(`Branch 'port/${newVersion}' already exists!`);
-  process.exit(1);
+  throw new Error(`Branch 'port/${newVersion}' already exists!`);
 }
 
 console.log(`Switching to new branch 'port/${newVersion}'...`);
 if (git("switch", "-c", `port/${newVersion}`).status !== 0) {
-  console.error(`Couldn't switch to branch 'port/${newVersion}'!`);
-  process.exit(1);
+  throw new Error(`Couldn't switch to branch 'port/${newVersion}'!`);
 }
 
 const fabricApiUrl = `https://api.modrinth.com/v2/project/fabric-api/version?loaders=["fabric"]&game_versions=["${newVersion}"]&featured=true`;
 const fabricApiVersions: any[] = await (await fetch(fabricApiUrl)).json();
 const fabricApiVersion = fabricApiVersions[0]?.version_number;
 if (!fabricApiVersion) {
-  console.error(`No Fabric API version found for Minecraft ${newVersion}!`);
-  process.exit(1);
+  throw new Error(`No Fabric API version found for Minecraft ${newVersion}!`);
 }
 console.log(`Found Fabric API version '${fabricApiVersion}'`);
 
@@ -103,17 +98,38 @@ console.log("Updating links in content...");
 for (const file of tinyglobby.globSync(`./versions/${oldVersion}/**/*.md`, { onlyFiles: true })) {
   const content = fs
     .readFileSync(file, "utf-8")
-    .replaceAll(/[/]reference[/]latest/g, `/reference/${oldVersion}`);
+    .replaceAll(/[/]reference[/]latest/g, `/reference/${oldVersion}`)
+    .replaceAll("./contributing", "./../contributing");
   fs.writeFileSync(file, content);
 }
+
+console.log("Updating version redirects...");
+const toSemVer = (v: string) => (v.split(".").length === 2 ? `${v}.0` : v);
+const releaseVersions = (launcherVersions.versions as any[])
+  .filter((v) => v.type === "release")
+  .map<string>((v) => v.id);
+const newIndex = releaseVersions.findIndex((v) => v === newVersion);
+const oldIndex = releaseVersions.findIndex((v) => v === oldVersion);
+const newHeadContent = fs
+  .readFileSync("./.vitepress/config/head.ts", "utf-8")
+  .replace(
+    "const versionRedirects: Record<string, string> = {",
+    [
+      "$&",
+      ...(newIndex < oldIndex ? releaseVersions.slice(newIndex, oldIndex) : [newVersion]).map(
+        (v) => `    "${toSemVer(v)}": "${toSemVer(newVersion)}",`
+      ),
+      "",
+    ].join("\n")
+  );
+fs.writeFileSync("./.vitepress/config/head.ts", newHeadContent);
 
 console.log(`Committing 'chore: bump to ${newVersion}'...`);
 if (
   git("add", ".").status !== 0
   || git("commit", "-m", `chore: bump to ${newVersion}`).status !== 0
 ) {
-  console.error(`Couldn't commit as 'chore: bump to ${newVersion}'!`);
-  process.exit(1);
+  throw new Error(`Couldn't commit as 'chore: bump to ${newVersion}'!`);
 }
 
 console.log("DONE! Please complete the version bump manually");
