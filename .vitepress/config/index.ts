@@ -20,15 +20,6 @@ import type { Fabric } from "../types.d.ts";
 import { getBuildTransformHead, getClientTransformHead, pageToVersionsMap } from "./head.ts";
 import { getLocaleConfig } from "./i18n.ts";
 
-const hostname =
-  ENV === "github"
-    ? "https://docs.fabricmc.net/"
-    : ENV === "build"
-      ? "http://fabric-docs.localhost:4173/"
-      : ENV === "dev"
-        ? "http://fabric-docs.localhost:5173/"
-        : `${process.env.DEPLOY_PRIME_URL!}/`;
-
 // https://vitepress.dev/reference/site-config
 // https://www.npmjs.com/package/vitepress-versioning-plugin
 export default defineVersionedConfig(
@@ -102,7 +93,13 @@ export default defineVersionedConfig(
     rewrites: { "translated/:locale/(.*)": ":locale/(.*)" },
 
     sitemap: {
-      hostname,
+      hostname:
+        {
+          dev: "http://fabric-docs.localhost:5173/",
+          build: "http://fabric-docs.localhost:4173/",
+          github: "https://docs.fabricmc.net/",
+          netlify: "https://fabric-docs.netlify.app/",
+        }[ENV] || process.env.DEPLOY_PRIME_URL!,
       transformItems: (items) => {
         const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
         const getFilePath = (url: string) => `${url.replace(/[/]$/, "/index")}.md`;

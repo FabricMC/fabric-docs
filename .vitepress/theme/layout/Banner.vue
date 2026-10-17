@@ -17,6 +17,7 @@ const options = computed(() => data.theme.value.banner);
 const strings = computed(() => {
   switch (env.value) {
     case "github":
+    case "netlify":
       return [];
 
     case "build":
