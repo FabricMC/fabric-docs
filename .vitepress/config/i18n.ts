@@ -107,7 +107,7 @@ export const getLocaleConfig = () => {
   for (const locale of locales) {
     const intlLocale =
       intlLocaleOverrides[locale]
-      ?? locale.replace(/..$/, (m) => m.toUpperCase()).replace("_", "-");
+      || locale.replace(/..$/, (m) => m.toUpperCase()).replace("_", "-");
     const crowdinLocale = crowdinLocaleOverrides[locale] ?? locale.split("_")[0];
 
     const resolver = getWebsiteResolver(locale);

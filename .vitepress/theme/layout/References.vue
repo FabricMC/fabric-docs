@@ -9,13 +9,13 @@ const data = useData<Fabric.ThemeConfig>();
 const options = computed(() => data.theme.value.references);
 
 const resources = computed(() =>
-  Object.entries(data.frontmatter.value.resources ?? {}).map(([href, title]) => {
+  Object.entries(data.frontmatter.value.resources || {}).map(([href, title]) => {
     const newHref = new URL(href, "https://a.com").href.replace("https://a.com", "");
-    return [newHref, title ?? newHref] as [string, string];
+    return [newHref, title || newHref] as [string, string];
   })
 );
 
-const files = computed(() => (data.frontmatter.value.files ?? []) as string[]);
+const files = computed(() => (data.frontmatter.value.files || []) as string[]);
 
 const shortestUniquePaths = computed(() =>
   files.value.map((file, i) => {

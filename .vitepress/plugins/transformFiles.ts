@@ -38,7 +38,7 @@ export const transformFile = (src: string, id: string) => {
 
   const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
   const themeConfig = (
-    config.userConfig.locales![data.localeIndex] ?? config.userConfig.locales!.root
+    config.userConfig.locales![data.localeIndex] || config.userConfig.locales!.root
   ).themeConfig as Fabric.ThemeConfig;
 
   if (data.layout === "home") {
@@ -88,11 +88,11 @@ export const transformFile = (src: string, id: string) => {
   } else {
     // Find files referenced in the page
     const filePathRegex = /(?:^<<< *([^[{#\n]+))|(?:^@\[[^\]]*\]\(([^)]*)\))/gm;
-    const matches = [...src.matchAll(filePathRegex)].map((m) => (m[1] ?? m[2]).trim());
+    const matches = [...src.matchAll(filePathRegex)].map((m) => (m[1] || m[2]).trim());
 
-    matches.push(...(data.files ?? []));
+    matches.push(...(data.files || []));
 
-    data.files = [...new Set(matches)].filter((f) => !(data.filesExclude ?? []).includes(f));
+    data.files = [...new Set(matches)].filter((f) => !(data.filesExclude || []).includes(f));
   }
 
   return matter.stringify(content, data);

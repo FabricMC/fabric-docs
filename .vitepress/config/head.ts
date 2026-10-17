@@ -104,8 +104,8 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
 
   split[0] =
     versionMap[split[0]]
-    ?? versionMap[`${split[0]}.0`]
-    ?? (/^(?!404$)[0-9.]+$/.test(split[0]) ? "" : split[0]);
+    || versionMap[`${split[0]}.0`]
+    || (/^(?!404$)[0-9.]+$/.test(split[0]) ? "" : split[0]);
   if (!split[0] || split[0] === context.latestVersion) split.shift();
 
   const seenPaths = new Set([split.join("/")]);
@@ -147,7 +147,7 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     ["meta", { property: "og:locale", content: ogLocale }],
   ];
 
-  if ((context.lastUpdated ?? 0) > 0) {
+  if ((context.lastUpdated || 0) > 0) {
     returned.push([
       "meta",
       { property: "article:modified_time", content: new Date(context.lastUpdated!).toISOString() },
