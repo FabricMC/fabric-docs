@@ -15,7 +15,7 @@ authors:
 
 ## 准备你的物品类 {#preparing-your-item-ids-class}
 
-我们先创建一个带有类，里面放着我们的物品，这些物品是'ResourceKey'。 一个'ResourceKey'带有这个mod的ID，物品的名称，以及它所注册到的注册表。
+我们先创建一个带有类，里面放着我们的物品，这些物品是'ResourceKey'。一个'ResourceKey'带有这个mod的ID，物品的名称，以及它所注册到的注册表。
 
 我们将实现一个辅助方法，通过传入物品的名称来创建一个 `ResourceKey`；该方法会自动使用一些常量（比如物品注册表以及模组的 ID）来补全剩余的数据。
 
@@ -25,7 +25,7 @@ authors:
 
 ::: tip
 
-Mojang 也是对物品这么做的！ 看看 `ItemIds` 类以了解。
+Mojang 也是对物品这么做的！看看 `ItemIds` 类以了解。
 
 :::
 
@@ -39,7 +39,7 @@ Mojang 也是对物品这么做的！ 看看 `ItemIds` 类以了解。
 
 你可以将这个方法放在叫做 `ModItems` 的类中（也可以是其他你想要的名称）。
 
-Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
+Mojang 也是对物品这么做的！看看 `Items` 类以了解。
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
 
@@ -47,7 +47,7 @@ Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
 
 你现在可以用这个方法注册物品。
 
-物品的注册方法会接收一个 `Item.Properties` 类的实例作为参数。 这个类允许你通过一系列构造器方法配置物品的属性。
+物品的注册方法会接收一个 `Item.Properties` 类的实例作为参数。这个类允许你通过一系列构造器方法配置物品的属性。
 
 ::: tip
 
@@ -63,15 +63,15 @@ Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
 
 `Item::new`会给注册方法传递物品实例，`Item.Properties`是创建`Item`类的实例的一个参数。
 
-可是现在你如果启动你的修改过的客户端，你会发现你的物品根本不存在！ 那是因为你没有静态地初始化你的类。
+可是现在你如果启动你的修改过的客户端，你会发现你的物品根本不存在！那是因为你没有静态地初始化你的类。
 
-要这样做，你需要在类中添加静态的初始化方法，然后在你的[模组的初始化](../getting-started/project-structure#entrypoints)类中调用。 当前，方法不需要里面有任何东西。
+要这样做，你需要在类中添加静态的初始化方法，然后在你的[模组的初始化](../getting-started/project-structure#entrypoints)类中调用。当前，方法不需要里面有任何东西。
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#initialize
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java#initialize
 
-对类调用一个方法会静态初始化，如果还没有加载的话——这意味着所有的 `static` 字段都会计算。 这就是这个占位的 `initialize` 的方法的目的。 这就是这个占位的 `initialize` 的方法的目的。
+对类调用一个方法会静态初始化，如果还没有加载的话——这意味着所有的 `static` 字段都会计算。 这就是这个占位的 `initialize` 的方法的目的。这就是这个占位的 `initialize` 的方法的目的。
 
 ## 将物品添加到创造标签页 {#adding-the-item-to-a-creative-tab}
 
@@ -127,7 +127,7 @@ Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
 
 :::
 
-要为你的物品提供纹理和模型，只需为你的物品创建一个 16x16 的纹理图像并将其保存在 `assets/example-mod/textures/item` 文件夹中。 根据物品的 id 命名纹理文件的名字，但要有 `.png` 扩展名。
+要为你的物品提供纹理和模型，只需为你的物品创建一个 16x16 的纹理图像并将其保存在 `assets/example-mod/textures/item` 文件夹中。根据物品的 id 命名纹理文件的名字，但要有 `.png` 扩展名。
 
 例如，将示例纹理用于 `suspicious_substance.png`。
 
@@ -145,7 +145,7 @@ Mojang 也是对物品这么做的！ 看看 `Items` 类以了解。
 
 #### 逐个分析模型 JSON {#breaking-down-the-model-json}
 
-- `parent`：模型要继承的模型。 在这个例子中，是 `item/generated` 模型。
+- `parent`：模型要继承的模型。在这个例子中，是 `item/generated` 模型。
 - `textures`：为模型定义纹理的地方。 `textures`：为模型定义纹理的地方。 `layer0` 键是模型使用的纹理。
 
 大多物品继承的模型是 `item/generate`，因为这是显示纹理的简单模型。
@@ -163,24 +163,12 @@ Minecraft 不会自动找到物品模型文件的位置，我们需要提供一�
 #### 逐个分析客户端物品 JSON {#breaking-down-the-client-item-json}
 
 - `model`：这是包含对我们模型的引用的属性。
-  - `type`：这是模型的类型。 对于大多数物品，应该为 `minecraft:model`
-  - `model`：这是模型的标识符。 它应该有这种形式：`example-mod:item/item_name`
+  - `type`：这是模型的类型。对于大多数物品，应该为 `minecraft:model`
+  - `model`：这是模型的标识符。它应该有这种形式：`example-mod:item/item_name`
 
 你的物品在游戏内看上去应该是这样：
 
 ![模型正确的物品](/assets/develop/items/first_item_2.png)
-
-## 让物品可堆肥或作燃料 {#making-the-item-compostable-or-a-fuel}
-
-Fabric API 添加了各种注册表，可用于为物品添加额外属性。
-
-例如，要让物品可堆肥，可以使用 `CompostableRegistry`：
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
-
-又如，如果要让物品可作燃料，可以使用 `FuelValueEvents.BUILD` 类。
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
 
 ## 添加基本的合成配方 {#adding-a-basic-crafting-recipe}
 
@@ -195,7 +183,7 @@ Fabric API 添加了各种注册表，可用于为物品添加额外属性。
 
 ## 自定义物品提示 {#custom-tooltips}
 
-如果要让你的物品有自定义的物品提示，需要创建继承了 `Item` 的类，并覆盖 `appendHoverText` 方法。 请注意，此方法已被弃用，因为 Mojang 致力于确保物品行为完全通过组件而不是物品来处理——有关更多信息，请参阅[自定义数据组件](./custom-data-components)。
+如果要让你的物品有自定义的物品提示，需要创建继承了 `Item` 的类，并覆盖 `appendHoverText` 方法。请注意，此方法已被弃用，因为 Mojang 致力于确保物品行为完全通过组件而不是物品来处理——有关更多信息，请参阅[自定义数据组件](./custom-data-components)。
 
 ::: info
 

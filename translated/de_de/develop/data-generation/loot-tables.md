@@ -33,7 +33,7 @@ Beutepools haben **Einträge**, **Bedingungen**, Funktionen, **Rollen** und **Bo
 
 ## Blöcke {#blocks}
 
-Damit Blöcke Items - auch sich selbst - fallen lassen können, müssen wir eine Beutetabelle erstellen. Erstelle eine Klasse, die von `FabricBlockLootTableProvider` erbt:
+Damit Blöcke Items - auch sich selbst - fallen lassen können, müssen wir eine Beutetabelle erstellen. Erstelle eine Klasse, die von `FabricBlockLootSubProvider` erbt:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_provider
 
@@ -47,7 +47,7 @@ Lasst uns ein paar Drops in der Methode `generate` hinzufügen:
 
 ## Truhen {#chests}
 
-Beute von Truhen sind ein wenig komplizierter als Beute von Blöcken. Erstelle eine Klasse, die von `SimpleFabricLootTableProvider` erbt, ähnlich zu dem Beispiel unterhalb **und füge sie zu deinem Pack hinzu**.
+Beute von Truhen sind ein wenig komplizierter als Beute von Blöcken. Erstelle eine Klasse, die von `SimpleFabricLootTableSubProvider` erbt, ähnlich zu dem Beispiel unterhalb **und füge sie zu deinem Packet hinzu**.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_provider
 

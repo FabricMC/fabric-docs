@@ -15,7 +15,7 @@ resources:
 
 ::: warning
 
-依赖项重写旨在让整合包开发者能够控制其使用的模组。 普通玩家不应使用此方法。
+依赖项重写旨在让整合包开发者能够控制其使用的模组。普通玩家不应使用此方法。
 
 在继续之前，建议先了解[模组依赖字段的结构](../../develop/loader/fabric-mod-json#semantic-versioning)。
 
@@ -27,7 +27,7 @@ resources:
 
 ::: tip
 
-如果可能的话，重写依赖应仅作为临时解决方案。 如果该模组仍在积极维护，请考虑在问题追踪器上报告此不兼容性，让上游开发者来处理该问题。
+如果可能的话，重写依赖应仅作为临时解决方案。如果该模组仍在积极维护，请考虑在问题追踪器上报告此不兼容性，让上游开发者来处理该问题。
 
 :::
 
@@ -35,7 +35,7 @@ resources:
 
 :::: info
 
-在本示例中，我们将为 ID 为 `example-mod` 的模组使用以下 `fabric.mod.json`。 你可以随时切换代码块中的标签页，查看依赖项重写如何影响该 `fabric.mod.json`。
+在本示例中，我们将为 ID 为 `example-mod` 的模组使用以下 `fabric.mod.json`。你可以随时切换代码块中的标签页，查看依赖项重写如何影响该 `fabric.mod.json`。
 
 :::details `fabric.mod.json`
 
@@ -98,11 +98,11 @@ resources:
 
 让我们逐行分析。
 
-首先是 `version`，它指定了我们想要使用的依赖重写规范版本。 在编写本文时，最新版本为 `1`。
+首先是 `version`，它指定了我们想要使用的依赖重写规范版本。在编写本文时，最新版本为 `1`。
 
-其次是 `overrides` 对象，它将包含我们针对各个模组的所有依赖项重写。 初始状态下，它包含一个针对 `example-mod` 的空条目，我们可以在其中添加重写内容。
+其次是 `overrides` 对象，它将包含我们针对各个模组的所有依赖项重写。初始状态下，它包含一个针对 `example-mod` 的空条目，我们可以在其中添加重写内容。
 
-模组对象内部的键可以是 5 种依赖类型之一（`depends`、`recommends`、`suggests`、`conflicts`、`breaks`）。 这些键的值必须是一个 JSON 对象。 该 JSON 对象的结构与 [`fabric.mod.json` 依赖对象](./fabric-mod-json#semantic-versioning)完全一致。
+模组对象内部的键可以是 5 种依赖类型之一（`depends`、`recommends`、`suggests`、`conflicts`、`breaks`）。这些键的值必须是一个 JSON 对象。该 JSON 对象的结构与 [`fabric.mod.json` 依赖对象](../../develop/loader/fabric-mod-json#semantic-versioning)完全一致。
 
 键名可以根据需要添加 `+` 或 `-` 前缀（例如 `"+depends"`、`"-breaks"`）。
 
@@ -144,7 +144,7 @@ resources:
 
 == 无前缀
 
-如果键名没有前缀，依赖对象将被完全替换。 **务必小心使用前缀！**
+如果键名没有前缀，依赖对象将被完全替换。**务必小心使用前缀！**
 
 ```json{5}
 {
@@ -163,7 +163,7 @@ resources:
 
 ## 重写依赖项 {#overriding-dependencies}
 
-假设 ID 为 `example-mod` 的模组**严格**依赖于 Minecraft 版本 `26.1`，但我们希望它能在其他 26.1 版本上运行。 看看我们可以怎么做：
+假设 ID 为 `example-mod` 的模组**严格**依赖于 Minecraft 版本 `26.1`，但我们希望它能在其他 26.1 版本上运行。看看我们可以怎么做：
 
 ::: code-group
 
@@ -200,7 +200,7 @@ resources:
 
 :::
 
-如果指定了 `"minecraft"` 依赖（我们知道确实指定了），它现在将被重写。 还有另一种方法可以实现这一点：
+如果指定了 `"minecraft"` 依赖（我们知道确实指定了），它现在将被重写。还有另一种方法可以实现这一点：
 
 ::: code-group
 
@@ -237,11 +237,11 @@ resources:
 
 :::
 
-如上所述，在移除依赖项时，键 `"minecraft"` 的值将被忽略。 如果发现模组 ID 要求为 `minecraft` 的依赖项，它将从目标模组 `example-mod` 中被移除。
+如上所述，在移除依赖项时，键 `"minecraft"` 的值将被忽略。如果发现模组 ID 要求为 `minecraft` 的依赖项，它将从目标模组 `example-mod` 中被移除。
 
-我们也可以重写整个 `depends` 代码块，但能力越大，责任越大。 务必小心。
+我们也可以重写整个 `depends` 代码块，但能力越大，责任越大。务必小心。
 
-除了更改 `minecraft` 依赖外，我们还想移除所有 `suggests` 依赖。 我们可以通过移除 `suggests` 键的前缀来实现，这会将其替换为空对象，从而达到清空的效果。 看起来像这样：
+除了更改 `minecraft` 依赖外，我们还想移除所有 `suggests` 依赖。我们可以通过移除 `suggests` 键的前缀来实现，这会将其替换为空对象，从而达到清空的效果。看起来像这样：
 
 ::: code-group
 

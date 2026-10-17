@@ -17,7 +17,7 @@ Fabric 工具链与 Visual Studio Code 集成，提供了一种快捷的方法�
 
 要在启用调试支持的情况下运行游戏，你需要通过运行 `vscode` Gradle 任务来生成启动目标。
 
-这可以在 Visual Studio Code 中的 Gradle 视图中完成：打开它，然后在 **Tasks** > **`ide`** 中找到 `vscode` 任务。 双击或使用**运行任务**按钮执行该任务。
+这可以在 Visual Studio Code 中的 Gradle 视图中完成：打开它，然后在 **Tasks** > **`ide`** 中找到 `vscode` 任务。双击或使用**运行任务**按钮执行该任务。
 
 ![Gradle 视图中的 vscode 任务](/assets/develop/getting-started/vscode/gradle-vscode.png)
 

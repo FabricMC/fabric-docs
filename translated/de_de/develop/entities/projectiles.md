@@ -4,6 +4,7 @@ description: Lerne, wie man benutzerdefinierte Projektile hinzufügt.
 authors:
   - ayutac
   - cassiancc
+  - CelDaemon
   - ChampionAsh5357
   - dicedpixels
   - Earthcomputer
@@ -134,7 +135,11 @@ Vergiss nicht, ein [Modell](../items/first-item#adding-a-model), eine [Textur](.
 
 <DownloadEntry visualURL="/assets/develop/projectiles/hot_tater_preview.png" downloadURL="/assets/develop/projectiles/hot_tater.png">Textur</DownloadEntry>
 
-Registriere auch die Entität, wie wir es in dem Leitfaden [Erstellen deiner ersten Entität](./first-entity#preparing-your-first-entity) getan haben, indem du als statisches Feld in `ModEntityTypes` hinzufügst. Da Entitäten und Items in getrennten Registrierungen gespeichert sind, verwendet der Entitätstyp einfach denselben Pfad wie das Item, wie beispielsweise bei `snowball` in Vanilla:
+Stelle sicher, dass du die ID der neuen Entität zu `ModEntityTypeIds` hinzufügst:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#hot_tater
+
+Registriere jetzt die Entität, wie wir es in dem Leitfaden [Erstellen deiner ersten Entität](./first-entity#preparing-your-first-entity) getan haben, indem du als statisches Feld in `ModEntityTypes` hinzufügst. Da Entitäten und Items in getrennten Registrierungen gespeichert sind, verwendet der Entitätstyp einfach denselben Pfad wie das Item, wie beispielsweise bei `snowball` in Vanilla:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#hot_tater
 

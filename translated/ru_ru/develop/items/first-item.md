@@ -171,18 +171,6 @@ Minecraft автоматические не узнает, где можно на
 
 ![Предмет с правильной моделью](/assets/develop/items/first_item_2.png)
 
-## Сделать предмет компостируемым или топливом {#making-the-item-compostable-or-a-fuel}
-
-Fabric API предоставляет различные реестры, которые можно использовать для добавления дополнительных свойств вашему предмету.
-
-Например, если вы хотите сделать свой предмет компостируемым, то вы можете использовать `CompostableRegistry`:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
-
-Также если вы хотите сделать ваш предмет топливом, вы можете использовать класс `FuelRegistry`:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
-
 ## Добавление рецепта создания {#adding-a-basic-crafting-recipe}
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->

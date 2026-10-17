@@ -31,14 +31,14 @@ Windows 的 `.exe` 版本不需要另外安裝 Java，因為它會使用官方 M
 
 <!-- #endregion common -->
 
-選擇你想要的 Minecraft 版本，然後點擊 `Install`。 請確認已勾選 `Create Profile`。
+選擇你想要的 Minecraft 版本，然後點擊 `Install`。請確認已勾選 `Create Profile`。
 
 ## 3. 完成設定 {#3-finish-setup}
 
-安裝完成後，開啟 Minecraft Launcher。 接著從版本下拉選單選取 Fabric 設定檔，並點擊開始游戲。
+安裝完成後，開啟 Minecraft Launcher。接著從版本下拉選單選取 Fabric 設定檔，並點擊開始游戲。
 
 ![已選取 Fabric 設定檔的 Minecraft Launcher](/assets/players/installing-fabric/launcher-screen.png)
 
-現在你可以將模組加入遊戲。 請參閱[尋找可信任的模組](../finding-mods)指南以取得相關資訊。
+現在你可以將模組加入遊戲。請參閱[尋找可信任的模組](../finding-mods)指南以取得相關資訊。
 
 如果遇到問題，歡迎到 [Fabric Discord](https://discord.fabricmc.net/) 的 `#player-support` 頻道尋求協助。

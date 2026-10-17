@@ -43,10 +43,10 @@ java -jar fabric-installer.jar
 
 ## 3. セットアップの完了 {#3-finish-setup}
 
-インストールが完了したら、Minecraft ランチャーを起動してください。 次に、バージョンを選択からFabric プロファイルを選択し、Play を押してください。
+インストールが完了したら、Minecraft ランチャーを起動してください。次に、バージョンを選択からFabric プロファイルを選択し、Play を押してください。
 
 ![Fabricプロファイルを選択したMinecraftランチャー](/assets/players/installing-fabric/launcher-screen.png)
 
-ゲームにModを追加できるようになりました。 詳しくは、[信頼できるモッドを見つける](../finding-mods) のガイドを参照してください。
+ゲームにModを追加できるようになりました。詳しくは、[信頼できるモッドを見つける](../finding-mods) のガイドを参照してください。
 
 問題が発生した場合は、[Fabric Discord](https://discord.fabricmc.net/) の`#player-support`チャンネルで遠慮なくサポートを求めてください。

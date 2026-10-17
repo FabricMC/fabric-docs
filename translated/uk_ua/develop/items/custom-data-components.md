@@ -27,8 +27,8 @@ resources:
 ```java
 public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     BuiltInRegistries.DATA_COMPONENT_TYPE,
-    Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
-    DataComponentType.<?>builder().persistent(null).build()
+    ExampleMod.id("my_component"),
+    DataComponentType.<?>builder().persistent(null).networkSynchronized(null).build()
 );
 ```
 
@@ -36,7 +36,7 @@ public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 По-друге, ви повинні надати `Identifier`, що містить призначений ідентифікатор вашого компонента. Це простір назв з ID вашого мода.
 
-Нарешті, у нас є `DataComponentType.Builder`, який створює фактичний екземпляр `DataComponentType`, який реєструється. Тут міститься ще одна важлива деталь, яку нам потрібно буде обговорити: `Codec` вашого компонента. Наразі це `null`, але незабаром ми його також заповнимо.
+Нарешті, у нас є `DataComponentType.Builder`, який створює фактичний екземпляр `DataComponentType`, який реєструється. Тут міститься ще одна важлива деталь, яку нам потрібно обговорити: серіалізація за допомогою `Codec` і `StreamCodec` вашого компонента. Наразі обидва мають значення `null`, але незабаром ми їх заповнимо.
 
 ## Звичайні компоненти даних {#basic-data-components}
 
@@ -46,7 +46,21 @@ public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
 
 <<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#integer_component
 
-Ви бачите, що тепер ми передаємо `<Integer>` як наш загальний тип, вказуючи, що цей компонент зберігатиметься як одне значення `int`. Для нашого кодека ми використовуємо наданий кодек `ExtraCodecs.POSITIVE_INT`. Ми можемо обійтися використанням звичайних кодеків для таких простих компонентів, як цей, але для складніших сценаріїв може знадобитися спеціальний кодек (про це коротко розглянемо пізніше).
+Ви бачите, що тепер ми передаємо `<Integer>` як наш загальний тип, вказуючи, що цей компонент зберігатиметься як одне значення `int`.
+
+Для нашого кодека ми використовуємо наданий кодек `ExtraCodecs.NON_NEGATIVE_INT`. Ми можемо обійтися використанням звичайних кодеків для таких простих компонентів, як цей, але для складніших сценаріїв може знадобитися спеціальний кодек (про це коротко розглянемо пізніше).
+
+Для нашого `StreamCodec` (який надсилає інформацію клієнту) ми використовуємо `ByteBufCodecs.VAR_INT`. VarInt — це метод зберігання цілих чисел із використанням динамічної кількості байтів. Менше ціле число кодуватиметься меншою кількістю байтів, тоді як більше ціле число потребуватиме більше байтів.
+
+::: warning
+
+Не думайте, що ви можете пропустити `networkSynchronized`!
+
+Якщо ви не вкажете `StreamCodec` у такий спосіб, Minecraft натомість створить менш ефективний варіант і все одно синхронізує ваш компонент.
+
+Щоб запобігти синхронізації вашого компонента, вам знадобляться міксини, що виходить за межі цього посібника.
+
+:::
 
 Якщо ви запустите гру, ви зможете ввести таку команду:
 
@@ -248,7 +262,13 @@ public record AdvancedCustomComponent(float temperature, boolean burnt) {
 
 Нарешті, ми викликаємо `apply()` і передаємо конструктор нашого запису. Щоб дізнатися більше про те, як створити кодеки та про складніші варіанти використання, обов’язково прочитайте сторінку [кодеків](../codecs).
 
-Реєстрація складеного компонента аналогічна попередній. Ми просто передаємо наш клас запису як загальний тип, а наш настроюваний `Codec` — методу `codec()`.
+Нам також потрібно буде створити наш `StreamCodec`.
+
+<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#stream_codec
+
+`composite` подібний до `RecordCodecBuilder` тим, що серіалізує кожне поле за допомогою вказаного серіалізатора (у цьому випадку — `StreamCodec`). Однак його набагато легше зрозуміти, ніж `RecordCodecBuilder`. Тут ми просто надаємо `StreamCodec` для кожного поля, а потім — геттер (у вигляді `Function`) для цього поля. Останнім нашим параметром є функція (зазвичай тут передається конструктор), яка приймає всі десеріалізовані поля та повертає наш компонент.
+
+Реєстрація складеного компонента аналогічна попередній. Ми просто передаємо наш клас-запис як узагальнений тип, наш власний `Codec` — у метод `codec()`, а наш власний `StreamCodec` — у метод `networkSynchronized()`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#custom_component
 

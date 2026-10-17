@@ -39,26 +39,26 @@ authors:
 
 `ArmorMaterial` 构造函数按照特定顺序接受以下参数：
 
-| 参数                    | 描述                                                                   |
-| --------------------- | -------------------------------------------------------------------- |
-| `durability`          | 所有盔甲的基础耐久度，用于计算使用该材质的每个盔甲的总耐久度。 这应该是你之前创建的基础耐久度常量。                   |
-| `defense`             | `EquipmentType`（代表每个护甲槽位的枚举）到整数值的映射，表示材质在相应护甲槽位中使用时的防御值。             |
-| `enchantmentValue`    | 使用此材料制作的盔甲的“可附魔性”。                                                   |
-| `equipSound`          | 当你装备使用该材质的盔甲时播放的声音事件的注册表项。 有关声音的更多信息，请参阅[自定义声音](../sounds/custom)页面。 |
-| `toughness`           | 一个浮点值，代表盔甲材质的“韧性”属性——本质上代表盔甲吸收伤害的能力。                                 |
-| `knockbackResistance` | 一个浮点值，代表盔甲材质赋予穿戴者的击退抗性。                                              |
-| `repairIngredient`    | 一个物品标签，代表所有能够用在铁砧中修复此材质的盔甲物品的物品。                                     |
-| `assetId`             | 一个 `EquipmentAsset` 注册表项，这应该是你之前创建的设备资产注册表项常量。                       |
+| 参数                    | 描述                                                                  |
+| --------------------- | ------------------------------------------------------------------- |
+| `durability`          | 所有盔甲的基础耐久度，用于计算使用该材质的每个盔甲的总耐久度。这应该是你之前创建的基础耐久度常量。                   |
+| `defense`             | `EquipmentType`（代表每个护甲槽位的枚举）到整数值的映射，表示材质在相应护甲槽位中使用时的防御值。            |
+| `enchantmentValue`    | 使用此材料制作的盔甲的“可附魔性”。                                                  |
+| `equipSound`          | 当你装备使用该材质的盔甲时播放的声音事件的注册表项。有关声音的更多信息，请参阅[自定义声音](../sounds/custom)页面。 |
+| `toughness`           | 一个浮点值，代表盔甲材质的“韧性”属性——本质上代表盔甲吸收伤害的能力。                                |
+| `knockbackResistance` | 一个浮点值，代表盔甲材质赋予穿戴者的击退抗性。                                             |
+| `repairIngredient`    | 一个物品标签，代表所有能够用在铁砧中修复此材质的盔甲物品的物品。                                    |
+| `assetId`             | 一个 `EquipmentAsset` 注册表项，这应该是你之前创建的设备资产注册表项常量。                      |
 
 我们对修复原材料标签引用定义如下：
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
-为了明确哪些物品可用于铁砧上修复这种材料，我们将创建一个标签，其中包含物品列表。 让我们在物品标签提供程序类中添加一个新标签：
+为了明确哪些物品可用于铁砧上修复这种材料，我们将创建一个标签，其中包含物品列表。让我们在物品标签提供程序类中添加一个新标签：
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#repair_tags
 
-在我们的示例中，我们将使用铜锭作为修复 Guidite 的材料。 如果你想创建自定义的 Guidite 锭，你可以[创建一个自定义物品](./first-item)并将其 ID 添加到标签中。
+在我们的示例中，我们将使用铜锭作为修复 Guidite 的材料。如果你想创建自定义的 Guidite 锭，你可以[创建一个自定义物品](./first-item)并将其 ID 添加到标签中。
 
 现在，你可以在铁砧上修复盔甲了：
 
@@ -72,7 +72,7 @@ authors:
 
 显然，盔甲集并不需要满足每种类型，可以让你的集只有靴或护腿等——原版的海龟壳头盔就是个例子，盔甲集缺了部分槽位。
 
-不像 `ToolMaterial`，`ArmorMaterial` 并不储存物品的耐久度信息。 因此，在注册盔甲物品时需要手动将基础耐久度添加到盔甲物品的 `Item.Properties` 中。
+不像 `ToolMaterial`，`ArmorMaterial` 并不储存物品的耐久度信息。因此，在注册盔甲物品时需要手动将基础耐久度添加到盔甲物品的 `Item.Properties` 中。
 
 这是通过将我们之前创建的 `BASE_DURABILITY` 常量传递到 `Item.Properties` 类中的 `maxDamage` 方法来实现的。
 
@@ -110,7 +110,7 @@ authors:
 
 ### 盔甲纹理 {#armor-textures}
 
-当某个实体穿上您的盔甲时，不会显示任何东西。 这是因为您丢失了一些纹理和设备模型定义。
+当某个实体穿上您的盔甲时，不会显示任何东西。这是因为您丢失了一些纹理和设备模型定义。
 
 ![玩家身上的损坏的盔甲模型](/assets/develop/items/armor_2.png)
 
@@ -118,13 +118,13 @@ authors:
 
 ::: info
 
-请注意，自 26.1 版本起，幼年人形生物的盔甲纹理不再是成年人形生物纹理的缩小版本。 相反，必须单独提供一种纹理。
+请注意，自 26.1 版本起，幼年人形生物的盔甲纹理不再是成年人形生物纹理的缩小版本。相反，必须单独提供一种纹理。
 
 :::
 
 盔甲纹理有三层，都要有。
 
-之前，我们创建了一个名为 `GUIDITE_ARMOR_MATERIAL_KEY` 的 `ResourceKey<EquipmentAsset>` 常量，并将其传递给我们的 `ArmorMaterial` 构造函数。 建议以相似方法命名纹理文件，在我们的例子中，是 `guidite.png`
+之前，我们创建了一个名为 `GUIDITE_ARMOR_MATERIAL_KEY` 的 `ResourceKey<EquipmentAsset>` 常量，并将其传递给我们的 `ArmorMaterial` 构造函数。建议以相似方法命名纹理文件，在我们的例子中，是 `guidite.png`
 
 - `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` — 包含了上身和靴子纹理。
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` — 包含了护腿纹理。
@@ -132,11 +132,11 @@ authors:
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite 盔甲模型纹理</DownloadEntry>
 
-然后，你需要创建一个关联的装备模型定义。 这些会保存在 `/assets/example-mod/equipment/` 文件夹。
+然后，你需要创建一个关联的装备模型定义。这些会保存在 `/assets/example-mod/equipment/` 文件夹。
 
-我们之前创建的 `ResourceKey<EquipmentAsset>` 常量将决定 JSON 文件的名称。 在这种情况下，它的文件名会是 `guidite.json`
+我们之前创建的 `ResourceKey<EquipmentAsset>` 常量将决定 JSON 文件的名称。在这种情况下，它的文件名会是 `guidite.json`
 
-由于我们只计划加入“humanoid” （头盔、胸甲、护腿、靴子等等） 盔甲部件，我们的装备模型定义如下所示：
+由于我们只计划加入“humanoid” （头盔、胸甲、护腿、靴子等等）盔甲部件，我们的装备模型定义如下所示：
 
 <<< @/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json
 
@@ -156,7 +156,7 @@ authors:
 
 :::
 
-建议将盔甲放置在相应的物品标签中。 盔甲部件有各自独立的标签，例如 `ItemTags.CHEST_ARMOR`，这些标签用于附魔。
+建议将盔甲放置在相应的物品标签中。盔甲部件有各自独立的标签，例如 `ItemTags.CHEST_ARMOR`，这些标签用于附魔。
 
 在你的物品标签提供程序中，将以下代码添加到 `addTags` 函数中：
 

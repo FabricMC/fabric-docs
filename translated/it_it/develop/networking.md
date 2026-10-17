@@ -14,6 +14,7 @@ authors:
   - NetUserGet
   - NShak
   - parzivail
+  - skippyall
   - skycatminepokie
   - SolidBlock-cn
   - Voleil
@@ -50,7 +51,7 @@ Un payload sono i dati che vengono inviati in un pacchetto.
 
 :::
 
-Questo può essere fatto creando un `Record` Java con un parametro `BlockPos` che implementi `CustomPacketPayload`.
+Questo può essere fatto creando un `Record` Java con parametri `BlockPos` e `int`, che implementi `CustomPacketPayload`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#summon_lightning_payload
 
@@ -97,7 +98,7 @@ Inviamo pacchetti solo quando l'azione viene avviata sul server, uscendo anticip
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#client_check
 
-Creiamo un'istanza del payload con la posizione dell'utente:
+Creiamo un'istanza del payload con la posizione dell'utente e l'ID dell'entità per il fulmine:
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#payload_instance
 
@@ -127,7 +128,7 @@ In questo caso, definiremo l'azione da attivare all'interno dell'implementazione
 
 Esaminiamo il codice sopra.
 
-Possiamo accedere ai dati dal nostro payload chiamando i metodi getter del Record. In questo caso `payload.pos()`. Che può poi essere usato per ottenere le coordinate `x`, `y` e `z`.
+Possiamo accedere ai dati dal nostro payload chiamando i metodi getter del Record. In questo caso si può usare `payload.pos()` per ottenere le posizioni `x`, `y` e `z`, e `payload.id()` per l'ID dell'entità:
 
 <<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#payload_pos
 

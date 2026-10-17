@@ -10,21 +10,21 @@ resources:
   https://docs.neoforged.net/primer/docs/26.2/: ChampionAsh5357 的 26.1 -> 26.2 Migration Primers
 ---
 
-Minecraft 是不断发展中的游戏，新的版本改变游戏的同时也会影响模组开发者。 本文章包含了将模组更新到最新的 Minecraft 稳定版本需要遵循的通用步骤。
+Minecraft 是不断发展中的游戏，新的版本改变游戏的同时也会影响模组开发者。本文章包含了将模组更新到最新的 Minecraft 稳定版本需要遵循的通用步骤。
 
 ::: info
 
-这些文档讨论的是从 **26.1** 迁移到 **26.2**， 如果在找其他的迁移，使用右上角的下拉菜单切换到目标版本。
+这些文档讨论的是从 **26.1** 迁移到 **26.2**，如果在找其他的迁移，使用右上角的下拉菜单切换到目标版本。
 
 :::
 
 ## 更新构建脚本{#build-script}
 
-首先将你的模组的 `gradle/wrapper/gradle-wrapper.properties`、`gradle.properties` 和 `build.gradle` 更新到最新版本。 如果遇到问题，可以考虑参考[Fabric 示例模组](https://github.com/FabricMC/fabric-example-mod/tree/26.2)。
+首先将你的模组的 `gradle/wrapper/gradle-wrapper.properties`、`gradle.properties` 和 `build.gradle` 更新到最新版本。如果遇到问题，可以考虑参考[Fabric 示例模组](https://github.com/FabricMC/fabric-example-mod/tree/26.2)。
 
 1. 运行以下命令，将 Gradle 更新到最新版：`./gradlew wrapper --gradle-version latest`
-2. 在 `gradle.properties`（推荐）或 `build.gradle` 中找到 Minecraft、Fabric Loader、Fabric Loom 和 Fabric API 的版本。 在 [Fabric Develop 网站](https://fabricmc.net/develop/)找到 Fabric 组件的推荐版本。
-3. 按 IntelliJ IDEA 右上角的刷新按钮刷新 Gradle。 如果按钮不可见，可运行 `./gradlew --refresh-dependencies` 以强制清除缓存。
+2. 在 `gradle.properties`（推荐）或 `build.gradle` 中找到 Minecraft、Fabric Loader、Fabric Loom 和 Fabric API 的版本。在 [Fabric Develop 网站](https://fabricmc.net/develop/)找到 Fabric 组件的推荐版本。
+3. 按 IntelliJ IDEA 右上角的刷新按钮刷新 Gradle。如果按钮不可见，可运行 `./gradlew --refresh-dependencies` 以强制清除缓存。
 
 ## 更新代码{#porting-guides}
 

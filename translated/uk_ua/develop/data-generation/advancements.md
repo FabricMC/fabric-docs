@@ -192,6 +192,6 @@ authors-nogithub:
 
 ## Умови ресурсів {#resource-conditions}
 
-Щоб застосувати [умову ресурсів](../resource-conditions) до досягнення, згенерованого на основі даних, оберніть споживача за допомогою `withConditions` і вкажіть будь-які умови ресурсів, які ви хочете застосувати. Тоді це створить досягнення із застосованими умовами ресурсів:
+Щоб застосувати [умову ресурсів](../resource-conditions) до генерованого даними досягнення, оберніть споживача за допомогою `withConditions` і вкажіть будь-які умови ресурсів, які ви хочете застосувати. Тоді це створить досягнення із застосованими умовами ресурсів:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_conditions
