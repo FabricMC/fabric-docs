@@ -7,13 +7,14 @@ authors:
   - radstevee
   - Thomas1034
 resources:
+  https://fabricmc.net/develop/cli/: Fabric Command Line Tools
   https://fabricmc.net/develop/template/: Fabric Template Mod Generator
   https://fabricmc.net/develop/: Develop with Fabric Website
 ---
 
-Fabric provides an easy way to create a new mod project using the Fabric Template Mod Generator - if you want, you can manually create a new project using the example mod repository, you should refer to the [Manual Project Creation](#manual-project-creation) section.
+There are three ways to create a new mod project: using the [Fabric Template Mod Generator](#using-the-template-mod-generator), by [manually cloning the example mod repository](#manual-project-creation), or using the [Fabric CLI](#using-the-fabric-cli) (advanced users).
 
-## Generating a Project {#generating-a-project}
+## Using the Template Mod Generator {#using-the-template-mod-generator}
 
 You can use the [Fabric Template Mod Generator](https://fabricmc.net/develop/template/) to generate a new project for your mod - you should fill in the required fields, such as the mod name, package name, and the Minecraft version that you want to develop for.
 
@@ -92,3 +93,7 @@ Once the project has been imported, you should modify the project's details to m
 - Make sure to update the versions of Minecraft, the mappings, the Loader and the Loom - all of which can be queried through the [Develop site](https://fabricmc.net/develop/) - to match the versions you wish to target.
 
 You can then change the package name and the mod's main class to match your mod's details.
+
+## Using the Fabric CLI {#using-the-fabric-cli}
+
+If you prefer working from the terminal, the [Fabric command line tools](https://fabricmc.net/develop/cli/) can generate a new mod project for you. Note that the CLI is aimed at advanced users - if you are new to modding, the Template Mod Generator above is the easier path.
