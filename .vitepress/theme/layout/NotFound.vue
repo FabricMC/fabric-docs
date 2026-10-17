@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { useData } from "vitepress";
+import { useMounted } from "@vueuse/core";
+import { useData, useRoute } from "vitepress";
 import { VPLink } from "vitepress/theme";
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 import type { Fabric } from "../../types.d.ts";
@@ -7,7 +8,30 @@ import { useRem } from "../composables/rem.ts";
 
 let i: number = -1;
 const data = useData<Fabric.ThemeConfig>();
+const route = useRoute();
+const mounted = useMounted();
 const rem = useRem();
+
+const localePrefix = computed(() =>
+  data.localeIndex.value === "root" ? "/" : `/${data.localeIndex.value}/`
+);
+
+const hasEnglishPage = computed(() => {
+  if (data.localeIndex.value === "root") {
+    return false;
+  }
+
+  const pageVersions = mounted.value && window.__FD_PAGE_VERSIONS__;
+  if (!pageVersions) {
+    return true;
+  }
+
+  const split = route.path.replace(localePrefix.value, "").split("/").filter(Boolean);
+  const version = /^[0-9]+[.][0-9]+([.][0-9]+)?$/.test(split[0]) ? split.shift()! : "";
+  const purePath = split.join("/");
+
+  return Boolean((pageVersions[purePath] || pageVersions[`${purePath}/`])?.includes(version));
+});
 
 const options = computed(() => {
   const { quotes, pooh, ...options } = data.theme.value.notFound;
@@ -268,28 +292,22 @@ const TEXTURE = [
       <h1>{{ options.title.toLocaleUpperCase(data.lang.value) }}</h1>
       <blockquote>{{ options.quote }}</blockquote>
 
-      <VPLink
-        :href="data.site.value.locales[data.localeIndex.value].link!"
-        :aria-label="options.linkLabel"
-      >
+      <VPLink :href="localePrefix" :aria-label="options.linkLabel">
         {{ options.linkText }}
       </VPLink>
       <br />
-      <VPLink
-        v-if="data.localeIndex.value !== 'root'"
-        :href="data.page.value.relativePath.replace(data.localeIndex.value, 'en_us')"
-        :aria-label="options.englishLinkLabel"
-      >
-        {{ options.englishLinkText }}
-      </VPLink>
-      <br />
-      <VPLink
-        v-if="data.localeIndex.value !== 'root'"
-        :href="data.theme.value.editLink!.pattern as string"
-        :aria-label="options.crowdinLinkLabel"
-      >
-        {{ options.crowdinLinkText }}
-      </VPLink>
+      <template v-if="hasEnglishPage">
+        <VPLink :href="route.path.replace(localePrefix, '')" :aria-label="options.englishLinkLabel">
+          {{ options.englishLinkText }}
+        </VPLink>
+        <br />
+        <VPLink
+          :href="String(data.theme.value.editLink!.pattern)"
+          :aria-label="options.crowdinLinkLabel"
+        >
+          {{ options.crowdinLinkText }}
+        </VPLink>
+      </template>
     </div>
   </div>
 </template>
