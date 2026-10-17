@@ -25,7 +25,7 @@ Dieses Tutorial führt dich Schritt für Schritt durch die Erstellung eines benu
 
 Der erste Schritt bei der Erstellung einer benutzerdefinierten Entität besteht darin, dessen Klasse zu definieren und sie im Spiel zu registrieren.
 
-Wir werden die Klasse `MiniGolemEntity` für unsere Entität erstellen und beginnen damit, ihr Attribute zu geben. [Attribute](attributes) bestimmen verschiedene Eigenschaften, darunter die maximale Gesundheit, die Geschwindigkeit der Bewegung und die Reichweite der Entität.
+Wir werden die Klasse `MiniGolemEntity` für unsere Entität erstellen und beginnen damit, ihr Attribute zu geben. [Attribute](./attributes) bestimmen verschiedene Eigenschaften, darunter die maximale Gesundheit, die Geschwindigkeit der Bewegung und die Reichweite der Entität.
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#registerclass
 
