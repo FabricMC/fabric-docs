@@ -75,7 +75,7 @@ authors:
 
 您的测试现在将在每个构建上运行，包括由 GitHub Actions 等 CI 提供商构建的构建。 但是如果它构建失败了呢？ 我们需要公开上传日志文件，这样我们就可以查看测试报告了。
 
-将下列文本添加进 `.github/workflows/build.yml` 文件中 `./gradlew build` 步骤的下方。
+将下列文本添加进 `.github/workflows/build.yaml` 文件中 `./gradlew build` 步骤的下方。
 
 ```yaml
 - name: Store reports

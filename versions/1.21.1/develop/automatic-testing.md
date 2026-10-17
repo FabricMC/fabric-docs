@@ -77,7 +77,7 @@ This section assumes that you are using the standard GitHub Action workflow incl
 
 Your tests will now run on every build, including those by CI providers such as GitHub Actions. But what if a build fails? We need to upload the logs as an artifact so we can view the test reports.
 
-Add this to your `.github/workflows/build.yml` file, below the `./gradlew build` step.
+Add this to your `.github/workflows/build.yaml` file, below the `./gradlew build` step.
 
 ```yaml
 - name: Store reports

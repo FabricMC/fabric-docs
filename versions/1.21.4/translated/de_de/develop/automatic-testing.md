@@ -75,7 +75,7 @@ In diesem Abschnitt wird davon ausgegangen, dass du den standardmäßigen GitHub
 
 Deine Tests werden nun bei jedem Build ausgeführt, auch bei denen von CI-Anbietern wie GitHub Actions. Was aber, wenn ein Build fehlschlägt? Wir müssen die Logs als Artefakt hochladen, damit wir die Testberichte ansehen können.
 
-Füge dies zu deiner `.github/workflows/build.yml`-Datei hinzu, unterhalb des `./gradlew build` Schrittes.
+Füge dies zu deiner `.github/workflows/build.yaml`-Datei hinzu, unterhalb des `./gradlew build` Schrittes.
 
 ```yaml
 - name: Store reports

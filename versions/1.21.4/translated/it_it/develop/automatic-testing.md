@@ -75,7 +75,7 @@ Questa sezione suppone che stia usando il workflow GitHub Action standard inclus
 
 I tuoi test ora verranno eseguiti ad ogni build, incluse quelle di fornitori CI come GitHub Actions. E se una build fallisce? Dovrai caricare i log come artifact per permetterci di vedere i report del test.
 
-Aggiungi questo al tuo file `.github/workflows/build.yml`, sotto alla fase `./gradlew build`.
+Aggiungi questo al tuo file `.github/workflows/build.yaml`, sotto alla fase `./gradlew build`.
 
 ```yaml
 - name: Store reports
