@@ -5,7 +5,7 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "bump": "tsx ./.vitepress/bump.ts"
+    "bump": "tsx ./.vitepress/scripts/bump.ts"
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "5.3.0",

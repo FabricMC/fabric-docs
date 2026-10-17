@@ -3,7 +3,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
 import * as tinyglobby from "tinyglobby";
-import { getLocaleNames, getSidebar } from "./config/i18n";
+import { getLocaleNames, getSidebar } from "../config/i18n";
 
 const git = (...args: string[]) => {
   const res = crossSpawn.sync("git", args, { encoding: "utf8" });
@@ -14,7 +14,7 @@ const git = (...args: string[]) => {
   return res;
 };
 
-process.chdir(path.resolve(import.meta.dirname, ".."));
+process.chdir(path.resolve(import.meta.dirname, "..", ".."));
 
 if (git("status", "--porcelain").stdout.toString().trim().length > 0) {
   console.error("Working directory must be clean!");
