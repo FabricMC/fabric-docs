@@ -20,4 +20,4 @@ features:
     linkText: 快速上手
 ---
 
-如果想给 Fabric 文档做贡献，可以在 [GitHub](https://github.com/FabricMC/fabric-docs) 找到源代码，以及相关的[贡献指南](./contributing)。
+如果想给 Fabric 文档做贡献，可以在 [GitHub](https://github.com/FabricMC/fabric-docs) 找到源代码，以及相关的[贡献指南](./../contributing)。

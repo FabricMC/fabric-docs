@@ -9,4 +9,4 @@ description: 我們由社群編寫的開發者指南，涵蓋許多內容，從�
 
 請記得：包含本文檔所有代碼的完整模組可在 [GitHub的 `/reference` 資料夾](https://github.com/FabricMC/fabric-docs/tree/main/reference/1.21.8)中找到。
 
-如果你想要為 Fabric 文檔做貢獻，你可以在 [GitHub](https://github.com/FabricMC/fabric-docs)找到原始碼，以及相關的[貢獻指南](../contributing)。
+如果你想要為 Fabric 文檔做貢獻，你可以在 [GitHub](https://github.com/FabricMC/fabric-docs)找到原始碼，以及相關的[貢獻指南](../../contributing)。

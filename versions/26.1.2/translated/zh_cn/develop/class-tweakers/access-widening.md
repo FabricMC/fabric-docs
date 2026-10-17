@@ -31,18 +31,18 @@ authors:
   - YTG1234
 ---
 
-访问加宽是一种[类调整](../class-tweakers)，用于放宽类、方法和字段的访问限制，并将该变更反映到反编译源码中。  
+访问加宽是一种[类调整](./)，用于放宽类、方法和字段的访问限制，并将该变更反映到反编译源码中。
 这包括将它们设为 public、可扩展和/或可变。
 
-访问加宽器条目可以是[传递性的](../class-tweakers/index#transitive-entries)，从而让依赖你的模组的其他模组也能看到这些变更。
+访问加宽器条目可以是[传递性的](./#transitive-entries)，从而让依赖你的模组的其他模组也能看到这些变更。
 
-若只是访问字段或方法，使用 [Mixin 访问器](../mixins/accessors)可能更安全、更简单。  
+若只是访问字段或方法，使用 [Mixin 访问器](../mixins/accessors)可能更安全、更简单。
 但在以下两种情况下，访问器无法满足需求，必须使用访问加宽：
 
 - 你需要访问 `private`、`protected` 或包私有的类
 - 你需要重写 `final` 方法，或继承 `final` 类
 
-不过，与 [Mixin 访问器](https://wiki.fabricmc.net/tutorial:mixin_accessors)不同，[类调整](../class-tweakers)只能作用于原版 Minecraft 类，不能作用于其他模组。
+不过，与 [Mixin 访问器](https://wiki.fabricmc.net/tutorial:mixin_accessors)不同，[类调整](./)只能作用于原版 Minecraft 类，不能作用于其他模组。
 
 ## 访问指令 {#access-directives}
 
@@ -122,7 +122,7 @@ authors:
 
 ### mcsrc.dev {#mcsrc-dev}
 
-对于所有提供[未混淆 JAR](../migrating-mappings/index#whats-going-on-with-mappings) 的版本，也就是 1.21.11 及以上版本，[mcsrc](https://mcsrc.dev) 允许你在浏览器中反编译并浏览 Minecraft 源码，还可以将 Mixin、访问加宽器或访问转换器目标复制到剪贴板。
+对于所有提供[未混淆 JAR](../porting/mappings/#whats-going-on-with-mappings) 的版本，也就是 1.21.11 及以上版本，[mcsrc](https://mcsrc.dev) 允许你在浏览器中反编译并浏览 Minecraft 源码，还可以将 Mixin、访问加宽器或访问转换器目标复制到剪贴板。
 
 若要复制访问加宽器条目，请先导航到你想要修改的类，然后右键点击目标以打开弹出菜单。
 
@@ -155,4 +155,4 @@ authors:
 
 ## 应用更改 {#applying-changes}
 
-若要看到你的更改生效，必须刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。 你所指定的目标元素的访问限制应会相应发生变化。 如果修改没有出现，可以尝试[验证该文件](../class-tweakers/index#validating-the-file)，并检查是否有错误。
+若要看到你的更改生效，必须刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。 你所指定的目标元素的访问限制应会相应发生变化。 如果修改没有出现，可以尝试[验证该文件](./#validating-the-file)，并检查是否有错误。

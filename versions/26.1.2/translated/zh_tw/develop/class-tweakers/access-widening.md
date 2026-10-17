@@ -31,17 +31,17 @@ authors:
   - YTG1234
 ---
 
-存取權限擴寬是[類別調整](../class-tweakers)的一種類型，用於放寬類別、方法與欄位的存取限制，並將該變更反映在反編譯原始碼中。
+存取權限擴寬是[類別調整](./)的一種類型，用於放寬類別、方法與欄位的存取限制，並將該變更反映在反編譯原始碼中。
 這包括將它們設為公開、可擴充及／或可變更。
 
-存取權限擴寬器條目可以是[傳遞性](../class-tweakers/index#transitive-entries)的，讓依賴你的模組的其他模組也能看到這些變更。
+存取權限擴寬器條目可以是[傳遞性](./#transitive-entries)的，讓依賴你的模組的其他模組也能看到這些變更。
 
 若要存取欄位或方法，使用[存取器 Mixin](../mixins/accessors) 通常會更安全也更簡單；但在以下兩種情況中，存取器並不足夠，必須使用存取權限擴寬：
 
 - 如果你需要存取 `private`、`protected` 或套件私有的類別
 - 如果你需要覆寫 `final` 方法，或繼承 `final` 類別
 
-然而，與[存取器 Mixin](https://wiki.fabricmc.net/tutorial:mixin_accessors) 不同，[類別調整](../class-tweakers)只適用於原版 Minecraft 類別，不適用於其他模組。
+然而，與[存取器 Mixin](https://wiki.fabricmc.net/tutorial:mixin_accessors) 不同，[類別調整](./)只適用於原版 Minecraft 類別，不適用於其他模組。
 
 ## 存取指令 {#access-directives}
 
@@ -121,7 +121,7 @@ authors:
 
 ### mcsrc.dev {#mcsrc-dev}
 
-對於所有提供[未混淆 JAR](../migrating-mappings/index#whats-going-on-with-mappings) 的版本，也就是 1.21.11 及以上版本，[mcsrc](https://mcsrc.dev) 可讓你在瀏覽器中反編譯並瀏覽 Minecraft 原始碼，並將 Mixin、存取權限擴寬器或存取轉換器目標複製到剪貼簿。
+對於所有提供[未混淆 JAR](../porting/mappings/#whats-going-on-with-mappings) 的版本，也就是 1.21.11 及以上版本，[mcsrc](https://mcsrc.dev) 可讓你在瀏覽器中反編譯並瀏覽 Minecraft 原始碼，並將 Mixin、存取權限擴寬器或存取轉換器目標複製到剪貼簿。
 
 若要複製存取權限擴寬器條目，請先前往你想修改的類別，然後在目標上按右鍵以開啟快顯選單。
 
@@ -154,4 +154,4 @@ authors:
 
 ## 套用變更 {#applying-changes}
 
-若要看到已套用的變更，你必須重新整理 Gradle 專案並[重新產生原始碼](../getting-started/generating-sources)。 你所指定的元素應會相應地修改其存取限制。 若修改沒有出現，可以嘗試[驗證檔案](../class-tweakers/index#validating-the-file)，並檢查是否出現任何錯誤。
+若要看到已套用的變更，你必須重新整理 Gradle 專案並[重新產生原始碼](../getting-started/generating-sources)。 你所指定的元素應會相應地修改其存取限制。 若修改沒有出現，可以嘗試[驗證檔案](./#validating-the-file)，並檢查是否出現任何錯誤。

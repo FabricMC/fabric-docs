@@ -9,4 +9,4 @@ In der Seitenleiste findest du eine Liste aller verfügbaren Leitfäden. Wenn du
 
 Merke: Ein voll lauffähiger Mod mit all dem Code für diese Dokumentation ist in dem [`/reference` Order auf GitHub](https://github.com/FabricMC/fabric-docs/tree/main/reference/1.21.1) verfügbar.
 
-Wenn du zur Fabric-Dokumentation beitragen möchtest, findest du den Quellcode auf [GitHub](https://github.com/FabricMC/fabric-docs), und die entsprechenden [Beitragsrichtlinien](../contributing).
+Wenn du zur Fabric-Dokumentation beitragen möchtest, findest du den Quellcode auf [GitHub](https://github.com/FabricMC/fabric-docs), und die entsprechenden [Beitragsrichtlinien](../../contributing).

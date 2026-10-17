@@ -24,7 +24,7 @@ Fabric を使って Mod を開発するためには、IntelliJ IDEA を使用し
 
 Minecraft 1.21 を対象にした Mod を開発するには、JDK 21 が必要です。
 
-Java のインストールでお困りの場合、[プレイヤーガイド](../../players/index) 内の Java インストールガイドをご覧になれます。
+Java のインストールでお困りの場合、[プレイヤーガイド](../../players/) 内の Java インストールガイドをご覧になれます。
 
 ## IntelliJ IDEA のインストール {#installing-intellij-idea}
 

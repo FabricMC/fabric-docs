@@ -9,4 +9,4 @@ Controlla la barra laterale per una lista delle guide disponibili. Se cerchi qua
 
 Ricorda: è disponibile una mod completamente funzionante con tutto il codice di questa documentazione nella [cartella `/reference` su GitHub](https://github.com/FabricMC/fabric-docs/tree/main/reference/1.21.8).
 
-Se vuoi contribuire alla Documentazione di Fabric, puoi trovare il codice sorgente su [GitHub](https://github.com/FabricMC/fabric-docs), e le corrispondenti [linee guida per la contribuzione](../contributing).
+Se vuoi contribuire alla Documentazione di Fabric, puoi trovare il codice sorgente su [GitHub](https://github.com/FabricMC/fabric-docs), e le corrispondenti [linee guida per la contribuzione](../../contributing).

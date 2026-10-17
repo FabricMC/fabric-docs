@@ -14,11 +14,11 @@ authors:
   - SolidBlock-cn
 ---
 
-接口注入是一种[类调整](../class-tweakers/)，用于在反编译源码中为 Minecraft 类添加接口实现。
+接口注入是一种[类调整](./)，用于在反编译源码中为 Minecraft 类添加接口实现。
 
 由于该实现会显示在类的反编译源码中，因此在使用接口中的方法时，无需再强制转换为该接口类型。
 
-除此之外，接口注入还可以是[传递性的](../class-tweakers/index#transitive-entries)，这使得库能够更方便地向依赖它们的模组暴露新增的方法。
+除此之外，接口注入还可以是[传递性的](./#transitive-entries)，这使得库能够更方便地向依赖它们的模组暴露新增的方法。
 
 为了演示接口注入，本页的代码片段将使用一个示例：为 `FlowingFluid` 添加一个新的辅助方法。
 
@@ -96,7 +96,7 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 ## 应用更改 {#applying-changes}
 
 若要看到接口实现生效，你必须刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。
-如果修改没有出现，可以尝试[验证](../class-tweakers/index#validating-the-file)该文件，并检查是否有错误。
+如果修改没有出现，可以尝试[验证](./#validating-the-file)该文件，并检查是否有错误。
 
 现在，新增的方法可以直接在被注入接口的类实例上使用：
 

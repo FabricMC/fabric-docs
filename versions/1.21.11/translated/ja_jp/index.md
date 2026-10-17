@@ -20,4 +20,4 @@ features:
     linkText: 始めましょう
 ---
 
-もしFabricのドキュメントに貢献したいなら、 [投稿ガイドライン](./contributing)を参照してください。ソースコードは [GitHub](https://github.com/FabricMC/fabric-docs)にあります。
+もしFabricのドキュメントに貢献したいなら、 [投稿ガイドライン](./../contributing)を参照してください。ソースコードは [GitHub](https://github.com/FabricMC/fabric-docs)にあります。

@@ -18,4 +18,4 @@ features:
     linkText: Zjistit více
 ---
 
-Pokud chcete přispět do dokumentace Fabricu, zdrojový kód najdete na [GitHubu](https://github.com/FabricMC/fabric-docs), a související pokyny pro [přispívání](./contributing).
+Pokud chcete přispět do dokumentace Fabricu, zdrojový kód najdete na [GitHubu](https://github.com/FabricMC/fabric-docs), a související pokyny pro [přispívání](./../contributing).

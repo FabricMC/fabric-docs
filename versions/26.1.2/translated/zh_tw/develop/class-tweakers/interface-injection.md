@@ -14,11 +14,11 @@ authors:
   - SolidBlock-cn
 ---
 
-介面注入是[類別調整](../class-tweakers/)的一種類型，用於在反編譯原始碼中，為 Minecraft 類別加入介面實作。
+介面注入是[類別調整](./)的一種類型，用於在反編譯原始碼中，為 Minecraft 類別加入介面實作。
 
 當介面實作能在類別的反編譯原始碼中看見時，使用其方法時就不需要再轉型為該介面。
 
-此外，介面注入可以是[傳遞性](../class-tweakers/index#transitive-entries)的，讓函式庫能更容易地向依賴它們的模組公開新增的方法。
+此外，介面注入可以是[傳遞性](./#transitive-entries)的，讓函式庫能更容易地向依賴它們的模組公開新增的方法。
 
 為了展示介面注入，本頁的程式碼片段會使用一個範例：我們會為 `FlowingFluid` 新增一個輔助方法。
 
@@ -96,7 +96,7 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 ## 套用變更 {#applying-changes}
 
 若要看到你的介面實作已套用，你必須重新整理 Gradle 專案並[重新產生原始碼](../getting-started/generating-sources)。
-若修改沒有出現，可以嘗試[驗證](../class-tweakers/index#validating-the-file)檔案，並檢查是否出現任何錯誤。
+若修改沒有出現，可以嘗試[驗證](./#validating-the-file)檔案，並檢查是否出現任何錯誤。
 
 現在可以在已注入該介面的類別實例上使用新增的方法：
 

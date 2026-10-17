@@ -18,7 +18,7 @@ Loom은 개발 환경에서 Minecraft와 모드를 설치하는 유틸리티를 
 
 Loom은 _모든_ 버전의 Minecraft: Java Edition을 지원하며, 버전 독립적이기 때문에 심지어 Fabric API에서 "공식" 지원하지 않는 버전에서도 사용할 수 있습니다.
 
-이 페이지는 Loom의 모든 옵션과 기능에 대한 리퍼런스입니다. 모드 개발을 시작하고자 한다면, [시작하기](getting-started/setting-up-a-development-environment) 페이지를 참조하십시오.
+이 페이지는 Loom의 모든 옵션과 기능에 대한 리퍼런스입니다. 모드 개발을 시작하고자 한다면, [시작하기](../getting-started/setting-up-a-development-environment) 페이지를 참조하십시오.
 
 ## 하위 프로젝트를 종속성으로 설정 {#subprojects}
 

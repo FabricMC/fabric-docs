@@ -83,4 +83,4 @@ Fabric Loader 提供 `MappingResolver` API，用于根据模组可能加载的�
 FabricLoader.getInstance().getMappingResolver().mapClassName("intermediary", "net.minecraft.class_5421") // Resolves to `RecipeBookType` on named versions of 1.21.11
 ```
 
-当在混淆处理游戏的非开发环境中启动时，Fabric Loader 会将游戏 JAR [重新映射](../porting/mappings/index#mappings)为中介名。 针对混淆处理游戏设计的模组预期被映射到中介，这将与该环境兼容。 重新映射后的 JAR 会被缓存并保存在 `${gameDir}/.fabric/remappedJars/${minecraftVersion}` 中，以便在多次启动间重复使用。
+当在混淆处理游戏的非开发环境中启动时，Fabric Loader 会将游戏 JAR [重新映射](../porting/mappings/#mappings)为中介名。 针对混淆处理游戏设计的模组预期被映射到中介，这将与该环境兼容。 重新映射后的 JAR 会被缓存并保存在 `${gameDir}/.fabric/remappedJars/${minecraftVersion}` 中，以便在多次启动间重复使用。

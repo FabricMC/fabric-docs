@@ -18,7 +18,7 @@ Loom bietet Hilfsmittel, um Minecraft und Mods in einer Entwicklungsumgebung zu 
 
 Loom unterstützt _alle_ Versionen von Minecraft, auch die, die nicht offiziell von der Fabric API unterstützt werden, da es versionsunabhängig ist.
 
-Diese Seite ist eine Referenz für alle Optionen und Funktionen von Loom. Wenn du gerade erst anfängst, lies bitte die Seite [Erste Schritte](getting-started/setting-up-a-development-environment) durch.
+Diese Seite ist eine Referenz für alle Optionen und Funktionen von Loom. Wenn du gerade erst anfängst, lies bitte die Seite [Erste Schritte](../getting-started/setting-up-a-development-environment) durch.
 
 ## Auf Unterprojekten aufbauen {#subprojects}
 

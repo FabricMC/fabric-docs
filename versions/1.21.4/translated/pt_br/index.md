@@ -18,4 +18,4 @@ features:
     linkText: Guia de Introdução
 ---
 
-Se desejar contribuir à Documentação do Fabric, você pode encontrar o código-fonte no [GitHub](https://github.com/FabricMC/fabric-docs), leia também as [diretrizes de contribuição](./contributing).
+Se desejar contribuir à Documentação do Fabric, você pode encontrar o código-fonte no [GitHub](https://github.com/FabricMC/fabric-docs), leia também as [diretrizes de contribuição](./../contributing).

@@ -18,4 +18,4 @@ features:
     linkText: Ξεκινήστε
 ---
 
-Αν θέλετε να συνεισφέρετε στην Τεκμηρίωση Fabric, μπορείτε να βρείτε τον πηγαίο κώδικα στο [GitHub](https://github.com/FabricMC/fabric-docs), καθώς και τις σχετικές [οδηγίες συνεισφοράς](./contributing).
+Αν θέλετε να συνεισφέρετε στην Τεκμηρίωση Fabric, μπορείτε να βρείτε τον πηγαίο κώδικα στο [GitHub](https://github.com/FabricMC/fabric-docs), καθώς και τις σχετικές [οδηγίες συνεισφοράς](./../contributing).
