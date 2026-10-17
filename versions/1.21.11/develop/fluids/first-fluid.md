@@ -136,7 +136,7 @@ Add the following lines to your `ClientModInitializer` to create a `SimpleFluidR
 
 @[code transcludeWith=:::fluid_texture](@/reference/1.21.11/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
 
-We'll also use the `BlockRenderLayerMap` to set the `ChunkSectionLayer` to transparent, so you can see through the fluid. For more information, see the docs on [Transparency and Tinting](../blocks/transparency-and-tinting).
+We'll also use the `BlockRenderLayerMap` to set the `ChunkSectionLayer` to transparent, so you can see through the fluid. For more information, see the docs on [Transparency and Tinting](../blocks/block-tinting).
 
 @[code transcludeWith=:::fluid_transparency](@/reference/1.21.11/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
 

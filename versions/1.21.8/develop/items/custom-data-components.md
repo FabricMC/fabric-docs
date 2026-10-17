@@ -16,7 +16,7 @@ Along with registering custom components, this page covers the general usage of 
 
 As with anything else in your mod you will need to register your custom component using a `DataComponentType`. This component type takes a generic argument containing the type of your component's value. We will be focusing on this in more detail further down when covering [basic](#basic-data-components) and [advanced](#advanced-data-components) components.
 
-Choose a sensible class to place this in. For this example we're going to make a new package called `component` and a class to contain all of our component types called `ModComponents`. Make sure you call `ModComponents.initialize()` in your [mod's initializer](./getting-started/project-structure#entrypoints).
+Choose a sensible class to place this in. For this example we're going to make a new package called `component` and a class to contain all of our component types called `ModComponents`. Make sure you call `ModComponents.initialize()` in your [mod's initializer](../getting-started/project-structure#entrypoints).
 
 @[code transcludeWith=::1](@/reference/1.21.8/src/main/java/com/example/docs/component/ModComponents.java)
 
@@ -85,15 +85,15 @@ public void appendHoverText(ItemStack stack, TooltipContext context, List<Text> 
 
 As of 1.21.5, `appendHoverText` has been deprecated. It is now recommended to implement `TooltipProvider` as such. This will require the [creation of a custom component class](#advanced-data-components).
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
+@[code transcludeWith=::1](@/reference/1.21.8/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
 
 Then, you can register the `TooltipProvider` via `ComponentTooltipAppenderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
 
-@[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+@[code lang=java transcludeWith=#tooltip_provider](@/reference/1.21.8/src/main/java/com/example/docs/ExampleMod.java)
 
 Alternatively, you can use `ItemTooltipCallback` to replace `appendHoverText`. This is called in `onInitializeClient` in the `ClientModInitializer`.
 
-@[code lang=java transcludeWith=#tooltip_provider_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
+@[code lang=java transcludeWith=#tooltip_provider_client](@/reference/1.21.8/src/client/java/com/example/docs/ExampleModClient.java)
 
 :::
 
