@@ -78,18 +78,21 @@ public class DirtChestMenu extends AbstractContainerMenu {
 			// If the clicked slot is in the container, try moving the item to the player inventory.
 			// When moving into the player's inventory, we iterate over slots in a reversed order; starting from the last hotbar slot to the first inventory slot.
 			if (!this.moveItemStackTo(stack, INVENTORY_START, INVENTORY_END, /* backwards: */ true)) {
-				return ItemStack.EMPTY;
+				return ItemStack.EMPTY; // Nothing changed
 			}
 		} else {
 			// Else, move the item from the player inventory to the container.
 			if (!this.moveItemStackTo(stack, CONTAINER_START, CONTAINER_END, /* backwards: */ false)) {
-				return ItemStack.EMPTY;
+				return ItemStack.EMPTY; // Nothing changed
 			}
 		}
 
+		// At this point, something has changed.
 		if (stack.isEmpty()) {
+			// The whole stack was moved, so we set the slot to empty.
 			slot.setByPlayer(ItemStack.EMPTY);
 		} else {
+			// At least part of the slot was moved. Previous logic handles the amount changes, we just need to update the slot.
 			slot.setChanged();
 		}
 
