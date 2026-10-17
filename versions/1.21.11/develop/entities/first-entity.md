@@ -202,11 +202,11 @@ There's a lot going on here, notice the following key points:
 
 We will store the animation state in our `MiniGolemEntityRenderState` by adding it as a field.
 
-<<< @/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java#animation_state
+<<< @/reference/1.21.11/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java#animation_state
 
 To populate this field, we override `extractRenderState` in the entity renderer and copy the state from our entity.
 
-<<< @/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java#copy_animation_state
+<<< @/reference/1.21.11/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java#copy_animation_state
 
 Finally, let's hook up the animation to the model:
 
