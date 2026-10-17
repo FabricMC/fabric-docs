@@ -296,57 +296,62 @@ const TEXTURE = [
 
 <style scoped>
 .not-found {
-  padding: 4rem 1.5rem 6rem;
-  text-align: center;
   position: relative;
   overflow: hidden;
-}
+  padding: 4rem 1.5rem 6rem;
+  text-align: center;
 
-@media (min-width: 48rem) {
-  .not-found {
+  @media (width >= 48rem) {
     padding: 6rem 2rem 10.5rem;
   }
 }
 
 .yarn {
+  pointer-events: none;
+
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
+
+  overflow: visible;
+
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  overflow: visible;
 }
 
 code {
-  line-height: 4rem;
   font-size: 4rem;
   font-weight: 600;
+  line-height: 4rem;
 }
 
 h1 {
   padding: 0.75rem 0;
-  letter-spacing: 0.125rem;
-  line-height: 1.25rem;
+
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: bold;
+  line-height: 1.25rem;
+  letter-spacing: 0.125rem;
 }
 
 blockquote {
-  margin: 0 auto;
   max-width: 32rem;
+  margin: 0 auto;
+  padding-bottom: 1.25rem;
+
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--vp-c-text-2);
-  padding-bottom: 1.25rem;
 }
 
 .VPLink {
-  margin: 0.5rem;
   display: inline-block;
+
+  margin: 0.5rem;
+  padding: 0.1875rem 1rem;
   border: 1px solid var(--vp-c-brand-1);
   border-radius: 1rem;
-  padding: 0.1875rem 1rem;
+
   font-size: 0.875rem;
   font-weight: 500;
 }

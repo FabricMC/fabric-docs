@@ -5,7 +5,8 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "bump": "node ./.vitepress/scripts/bump.ts"
+    "bump": "node ./.vitepress/scripts/bump.ts",
+    "lint:css": "stylelint .vitepress/theme/**/*.{css,vue} **/*.md"
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "5.3.0",
@@ -17,6 +18,7 @@
     "vue": "3.5.44"
   },
   "devDependencies": {
+    "@csstools/stylelint-formatter-github": "2.0.0",
     "@emnapi/core": "1.11.3",
     "@emnapi/runtime": "1.11.3",
     "@iconify-json/lucide": "1.2.145",
@@ -28,10 +30,18 @@
     "markdownlint": "0.42.0",
     "markdownlint-rule-search-replace": "1.2.0",
     "markdownlint-rule-titlecase": "0.1.0",
+    "postcss-html": "2.0.0",
     "prettier": "3.9.10",
+    "stylelint": "17.16.0",
+    "stylelint-config-clean-order": "10.0.0",
+    "stylelint-config-recommended-vue": "2.0.0",
+    "stylelint-config-standard": "40.0.0",
+    "stylelint-plugin-use-baseline": "1.4.7",
+    "stylelint-use-nesting": "6.0.2",
     "syntax-java-bytecode": "github:mcgambing/Java-Bytecode#578f3e2c6861ac6396492540a987fe05d23b061a",
     "syntax-mcfunction": "github:MinecraftCommands/syntax-mcfunction#51eb8bf4ca04355bb89f5538b7331cb0c0f3df2b",
     "tinyglobby": "0.2.17",
+    "typescript": "6.0.3",
     "vitepress-versioning-plugin": "github:FabricMC/vitepress-versioning-plugin#501312e258b3546349069cf1a0a7f456132c67b0"
   },
   "devEngines": {

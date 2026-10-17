@@ -421,7 +421,7 @@ div.toolbar {
     border: 1px solid var(--vp-code-copy-code-border-color);
     border-radius: 0.25rem;
 
-    color: #808080;
+    color: rgb(128 128 128);
 
     background-color: var(--vp-code-copy-code-bg);
 

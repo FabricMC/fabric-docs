@@ -91,11 +91,12 @@ h2 {
   margin-bottom: 0.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--vp-c-divider);
+
   font-size: 0.75rem;
   font-weight: bold;
   color: var(--vp-c-text-2);
-  letter-spacing: 0.06em;
   text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 li {
@@ -104,16 +105,18 @@ li {
 
 .VPLink {
   display: flex;
-  align-items: flex-start;
-  line-height: 1.5;
   gap: 0.3em;
-  transition: color 0.15s;
-  font-size: 0.75rem;
-  color: var(--vp-c-text-2);
-}
+  align-items: flex-start;
 
-.VPLink:hover {
-  color: var(--vp-c-text-1);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--vp-c-text-2);
+
+  transition: color 0.15s;
+
+  &:hover {
+    color: var(--vp-c-text-1);
+  }
 }
 
 [class^="vpi-"] {
@@ -125,7 +128,7 @@ img {
   margin-top: 1px;
 }
 
-@media (min-width: 80rem) {
+@media (width >= 80rem) {
   .VPDocFooter > h2,
   .VPDocFooter > ul {
     display: none;

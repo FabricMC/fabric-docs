@@ -55,33 +55,34 @@ h2 {
   margin-top: 1.25rem;
   padding-top: 1rem;
   border-top: 1px solid var(--vp-c-divider);
+
   font-size: 0.75rem;
   font-weight: bold;
   color: var(--vp-c-text-2);
-  letter-spacing: 0.06em;
   text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 ul {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-top: 0.5rem;
+  flex-flow: row wrap;
   gap: 0.5rem;
+  align-items: center;
+
+  margin-top: 0.5rem;
 
   a {
     transition: filter 0.2s ease-in-out;
-  }
 
-  a:hover {
-    filter: brightness(120%);
+    &:hover {
+      filter: brightness(120%);
+    }
   }
 
   img {
-    border-radius: 50%;
     width: 2rem;
     height: 2rem;
+    border-radius: 50%;
   }
 }
 
@@ -95,7 +96,7 @@ ul {
   }
 }
 
-@media (min-width: 80rem) {
+@media (width >= 80rem) {
   .content-container > ul {
     display: none;
   }
