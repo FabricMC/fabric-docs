@@ -25,7 +25,9 @@ const shortestUniquePaths = computed(() =>
       const isUnique = files.value.every(
         (other, j) => i === j || other.split("/").slice(-len).join("/") !== current
       );
-      if (isUnique) return current;
+      if (isUnique) {
+        return current;
+      }
     }
     return file;
   })
