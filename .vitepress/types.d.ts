@@ -166,23 +166,6 @@ export namespace Fabric {
   }
 
   export interface VersionOptions {
-    reminder: {
-      /**
-       * @default "This page is written for version **%s**.\nDocumentation for older versions may be incomplete."
-       */
-      oldVersion: string;
-
-      /**
-       * @default "This documentation applies to Minecraft **%s**.\n\nDocumentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar."
-       */
-      oldVersionHome: string;
-
-      /**
-       * @default "This page is written for version **%s**.\nDocumentation for unreleased versions may be incomplete."
-       */
-      futureVersion: string;
-    };
-
     switcher: {
       /**
        * @default "Minecraft %s"
