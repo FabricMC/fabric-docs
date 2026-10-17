@@ -1,4 +1,5 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
+import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
 import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json" with { type: "json" };
@@ -9,7 +10,7 @@ import defineVersionedConfig from "vitepress-versioning-plugin";
 import { AT, ENV, EXCLUDED_LOCALES, EXCLUDED_OLD_VERSIONS, LATEST_VERSION } from "../constants.ts";
 import { transformFile, transformFilesPlugin } from "../plugins/transformFiles.ts";
 import type { Fabric } from "../types.d.ts";
-import { getBuildTransformHead, getClientTransformHead } from "./head.ts";
+import { getBuildTransformHead, getClientTransformHead, pageToVersionsMap } from "./head.ts";
 import { getLocaleConfig } from "./i18n.ts";
 
 const hostname =
@@ -25,6 +26,17 @@ const hostname =
 // https://www.npmjs.com/package/vitepress-versioning-plugin
 export default defineVersionedConfig(
   {
+    buildEnd: (siteConfig) => {
+      fs.writeFileSync(
+        path.join(siteConfig.outDir, "page-versions.json"),
+        JSON.stringify(
+          Object.fromEntries(
+            [...pageToVersionsMap].map(([purePath, versions]) => [purePath, [...versions]])
+          )
+        )
+      );
+    },
+
     // Removes .html from the end of URLs.
     cleanUrls: true,
 
