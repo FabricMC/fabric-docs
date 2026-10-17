@@ -87,11 +87,11 @@ const getFileExtension = (path: string) =>
 <style scoped>
 div,
 h2 {
-  margin-top: 20px;
-  margin-bottom: 8px;
-  padding-top: 16px;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--vp-c-divider);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: bold;
   color: var(--vp-c-text-2);
   letter-spacing: 0.06em;
@@ -99,7 +99,7 @@ h2 {
 }
 
 li {
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
 }
 
 .VPLink {
@@ -108,7 +108,7 @@ li {
   line-height: 1.5;
   gap: 0.3em;
   transition: color 0.15s;
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--vp-c-text-2);
 }
 
@@ -118,14 +118,14 @@ li {
 
 [class^="vpi-"] {
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 0.125rem;
 }
 
 img {
   margin-top: 1px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 80rem) {
   .VPDocFooter > h2,
   .VPDocFooter > ul {
     display: none;

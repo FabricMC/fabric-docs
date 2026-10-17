@@ -52,10 +52,10 @@ const getImageSrc = (author: Author) =>
 
 <style scoped>
 h2 {
-  margin-top: 20px;
-  padding-top: 16px;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--vp-c-divider);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: bold;
   color: var(--vp-c-text-2);
   letter-spacing: 0.06em;
@@ -67,8 +67,8 @@ ul {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 8px;
-  gap: 8px;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
 
   a {
     transition: filter 0.2s ease-in-out;
@@ -80,8 +80,8 @@ ul {
 
   img {
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
   }
 }
 
@@ -91,11 +91,11 @@ ul {
   }
 
   ul {
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 80rem) {
   .content-container > ul {
     display: none;
   }

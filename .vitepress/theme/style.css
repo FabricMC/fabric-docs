@@ -52,7 +52,7 @@ html:has(dialog#fullscreen[open], div.VPLocalSearchBox) {
 
 ::view-transition-group(code-block-view-transition) {
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 0.75rem;
 }
 
 ::view-transition-group(root) {
@@ -74,7 +74,7 @@ div[class*="language-"] button.copy.fullscreen {
   }
 
   + button.copy {
-    right: 64px;
+    right: 4rem;
   }
 }
 
@@ -90,13 +90,13 @@ p[role="doc-subtitle"] {
 }
 
 body:has(.VPFooter:not(.has-sidebar)) .aside-container {
-  padding-bottom: 64px;
+  padding-bottom: 4rem;
 }
 
-@media (min-width: 1525px) {
+@media (min-width: 95.3125rem) {
   .aside-container,
   .aside-curtain {
-    width: 300px !important;
+    width: 18.75rem !important;
   }
 }
 
@@ -137,7 +137,7 @@ body:has(.VPFooter:not(.has-sidebar)) .aside-container {
 
 kbd:not(.DocSearch-Button-Key) {
   background-color: #eee !important;
-  border-radius: 3px;
+  border-radius: 0.1875rem;
   border: 1px solid #b4b4b4;
   box-shadow:
     0 1px 1px rgba(0, 0, 0, 0.2),
@@ -147,7 +147,7 @@ kbd:not(.DocSearch-Button-Key) {
   font-size: 0.85em;
   font-weight: 700;
   line-height: 1;
-  padding: 5px;
+  padding: 0.3125rem;
   white-space: nowrap;
 }
 
@@ -162,8 +162,8 @@ kbd:not(.DocSearch-Button-Key) {
 
 h1 > .VPBadge {
   font-family: var(--vp-font-family-mono);
-  padding: 5px 12px;
-  border-radius: 8px;
+  padding: 0.3125rem 0.75rem;
+  border-radius: 0.5rem;
 }
 
 /* Remove border from headings if that's the first thing in the page */
