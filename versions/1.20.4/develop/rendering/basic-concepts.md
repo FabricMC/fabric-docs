@@ -98,7 +98,7 @@ It's easier to explain how to write to the `BufferBuilder` using a practical exa
 
 We're going to draw vertices at the following points on the HUD (in order):
 
-```txt
+```text
 (20, 20)
 (5, 40)
 (35, 40)

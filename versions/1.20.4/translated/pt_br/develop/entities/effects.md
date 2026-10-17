@@ -42,7 +42,7 @@ Você pode atribuir um nome ao seu efeito e providenciar uma textura de ícone q
 
 O ícone de textura é um PNG de 18x18. Coloque seu ícone personalizado em:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 

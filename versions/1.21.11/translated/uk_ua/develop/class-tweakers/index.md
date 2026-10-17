@@ -24,7 +24,7 @@ authors:
 
 У першому рядку файлу має бути такий заголовок:
 
-```txt
+```text
 classTweaker v1 named
 ```
 

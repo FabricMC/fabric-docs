@@ -54,7 +54,7 @@ Deberás copiar el "absolute path" (dirección absoluta) del jar para el siguien
 
 En tus perfiles de lanzamiento de "Minecraft Client" y/o "Minecraft Server", agrega los siguientes argumentos de VM:
 
-```:no-line-numbers
+```text:no-line-numbers
 -javaagent:"dirección absoluta del jar de librería de mixin aquí"
 ```
 

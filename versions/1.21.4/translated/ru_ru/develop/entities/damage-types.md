@@ -15,7 +15,7 @@ authors:
 будет
 помещён в директорию вашего мода: `data`, в подпапку с названием `damage_type`.
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/data/fabric-docs-reference/damage_type/tater.json
 ```
 
@@ -92,7 +92,7 @@ resources/data/fabric-docs-reference/damage_type/tater.json
 
 Чтобы добавить наш тип урона к одному из этих тегов, мы создаем JSON-файл в пространстве имен `minecraft`.
 
-```:no-line-numbers
+```text:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
 ```
 

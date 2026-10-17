@@ -96,7 +96,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 Мы собираемся нарисовать вершины в следующих точках HUD (по порядку):
 
-```txt
+```text
 (20, 20)
 (5, 40)
 (35, 40)

@@ -21,15 +21,15 @@ Le segnalazioni di crash possono essere trovate nelle seguenti posizioni:
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\crash-reports
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/crash-reports
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/crash-reports
 ```
 
@@ -80,7 +80,7 @@ Quando un mixin causa un crash, esso menzionerà solitamente il mixin nello stac
 
 I metodi mixin conterranno `example-mod$handlerName` nello stack trace, mentre `example-mod` è l'ID della mod, e `handlerName` è il nome del gestore del mixin.
 
-```:no-line-numbers
+```text:no-line-numbers
 ... net.minecraft.class_2248.method_3821$$$example-mod$handlerName() ... // [!code focus]
 ```
 
