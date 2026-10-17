@@ -41,7 +41,7 @@ The official template includes a helper method to easily construct `Identifier`s
 
 <<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#id_helper_usage
 
-The docs make extensive use of this helper. When following examples, make sure to replace references to `ExampleMod` with the name of your own mod initialiser.
+The docs make extensive use of this helper. When following examples, make sure to replace references to `ExampleMod` with the name of your own mod initializer.
 
 ## `src/main/resources` {#src-main-resources}
 
