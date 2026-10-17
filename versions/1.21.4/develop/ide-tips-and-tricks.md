@@ -69,7 +69,7 @@ Creating `Mnemonic Bookmarks` enables you to quickly switch back to those bookma
 ![set Bookmark](/assets/develop/misc/using-the-ide/traversing_05.png)
 
 It is possible to create multiple Bookmark lists at the same time if you need to separate or order them, in the `Bookmarks` window.
-[Breakpoints](./basic-problem-solving#breakpoint) will also be displayed there.
+Breakpoints will also be displayed there.
 
 ![Bookmark window](/assets/develop/misc/using-the-ide/traversing_06.png)
 
