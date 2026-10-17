@@ -1,4 +1,4 @@
-# Available configuration options: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
 config:
   max-one-sentence-per-line:
     ignored_words:
@@ -46,6 +46,7 @@ config:
     # A link to [keyword].
     # [keyword]: <https://docs.fabricmc.net/>
     shortcut: false
+    # A link to [https://docs.fabricmc.net/](https://docs.fabricmc.net/).
     url_inline: false
   MD055:
     style: leading_and_trailing
@@ -88,6 +89,7 @@ config:
         search: [“, ”, ‘, ’]
         replace: ['"', '"', "'", "'"]
         searchScope: text
+      # TODO: revert this rule, use .md extensions. Maybe allow index.md too
       - name: no-file-extension-in-links
         message: "Don't add the file extension to links"
         information: https://vitepress.dev/guide/routing#linking-between-pages
@@ -109,11 +111,11 @@ config:
           - "/^> \\[!WARNING\\]/gm"
           - "/^> \\[!CAUTION\\]/gm"
         replace:
-          - "::: info"
+          - "::: note"
           - "::: tip"
-          - "::: warning IMPORTANT"
+          - "::: important"
           - "::: warning"
-          - "::: danger"
+          - "::: caution"
         searchScope: text
       - name: no-images-in-text
         message: "Don't place images in text"
@@ -122,9 +124,11 @@ config:
       - name: no-invalid-containers
         message: "Don't use invalid containers"
         information: https://vitepress.dev/guide/markdown#custom-containers
-        searchPattern: "/^(:{3,}) (?!(?:info|tip|warning|danger|details|raw|code-group|v-pre|tab|tabs)(?: |$))/gim"
+        searchPattern: "/^(:{3,}) (?!(?:info|prerequisites|note|tip|important|caution|warning|danger|details|raw|code-group|v-pre|tab|tabs)(?: |$))/gim"
         replace: "$1 info "
         searchScope: text
+      # TODO: no-title-for-containers
+      # TODO: invert no-links-to-public. add md-it plugin that removes /public
       - name: no-links-to-public
         message: "Don't add /public to links"
         information: https://vitepress.dev/guide/asset-handling#the-public-directory
@@ -167,6 +171,13 @@ config:
         replace: ""
         searchScope: code
 customRules:
-  # TODO: add      markdownlint-rule-max-one-sentence-per-line/rule.js
+  # TODO: add markdownlint-rule-max-one-sentence-per-line/rule.js
   - ./node_modules/markdownlint-rule-search-replace/rule.js
   - ./node_modules/markdownlint-rule-titlecase/rule.js
+globs:
+  - "**/*.md"
+  - "!.git/**"
+  - "!node_modules/**"
+  - "!README.md"
+  - "!translated/**"
+  - "!versions/**"

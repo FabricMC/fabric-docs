@@ -6,6 +6,8 @@
     "build": "vitepress build",
     "preview": "vitepress preview",
     "bump": "node ./.vitepress/scripts/bump.ts",
+    "format": "prettier --write .",
+    "lint:md": "markdownlint-cli2",
     "lint:css": "stylelint .vitepress/theme/**/*.{css,vue} **/*.md"
   },
   "dependencies": {
@@ -27,7 +29,7 @@
     "@types/node": "26.6.5",
     "gray-matter": "4.0.3",
     "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa25527b2f772d50ca37ae526484c890b8ae",
-    "markdownlint": "0.42.0",
+    "markdownlint-cli2": "0.23.3",
     "markdownlint-rule-search-replace": "1.2.0",
     "markdownlint-rule-titlecase": "0.1.0",
     "postcss-html": "2.0.0",
