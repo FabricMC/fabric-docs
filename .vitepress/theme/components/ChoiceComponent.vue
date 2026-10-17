@@ -2,14 +2,17 @@
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
 import { VPIcon } from "vitepress/theme";
 
-defineProps<{
+/** @deprecated use ::: tabs instead */
+interface ChoiceComponentProps {
   choices: {
     name: string;
     icon?: string;
     color?: string;
     href?: string;
   }[];
-}>();
+}
+
+defineProps<ChoiceComponentProps>();
 </script>
 
 <template>
@@ -52,7 +55,7 @@ li + li {
   height: 100%;
   padding: 1rem;
   border: 1px solid var(--vp-c-border);
-  border-radius: 0.625rem;
+  border-radius: 0.75rem;
 
   font-size: 1.1rem;
   font-weight: 600;
@@ -63,9 +66,9 @@ li + li {
 
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease,
     border-color 0.25s ease,
-    color 0.25s ease;
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 
   [class^="vpi-"] {
     font-size: 3rem;
