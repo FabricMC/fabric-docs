@@ -10,7 +10,7 @@ authors:
   - MildestToucan
 ---
 
-Enum extension is a Mixin feature that can reliably add new entries to an enum.
+Enum extension is a [Mixin](../mixins) feature that can reliably add new entries to an enum.
 
 When targeting Minecraft enums, you can use mixins together with [class tweaking](../class-tweakers) to display new enum entries
 in the decompiled source. If that is set to be [transitive](../class-tweakers/index#transitive-entries), mods that depend on yours will also see your added entries.
