@@ -69,9 +69,9 @@ Der serverseitige Konstruktor wird auf dem Server aufgerufen, und da er den Inha
 
 `quickMoveStack` übernimmt den Shift-Klick auf Items innerhalb des Menüs. Dieses Beispiel bildet das Verhalten von Vanilla Menüs wie Truhen und Spendern nach.
 
-Zuerst müssen wir das Menü in einer neuen Klasse `ModMenuType` registrieren:
+Zuerst müssen wir das Menü in einer neuen Klasse `ModMenuTypes` registrieren:
 
-<<< @/reference/26.1.2/src/main/java/com/example/docs/menu/ModMenuType.java#register_menu
+<<< @/reference/26.1.2/src/main/java/com/example/docs/menu/ModMenuTypes.java#register_menu
 
 Wir können jetzt den Rückgabewert von `createMenu` in der Block-Entität setzen, um unser Menü zu verwenden:
 
