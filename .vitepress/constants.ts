@@ -21,6 +21,10 @@ export const OLD_VERSIONS = tinyglobby
   .globSync("*", { cwd: path.join(AT, "versions"), onlyDirectories: true })
   .map((v) => path.basename(v));
 
+export const EXCLUDED_OLD_VERSIONS = (process.env.EXCLUDED_VERSIONS || "")
+  .split(",")
+  .filter(Boolean);
+
 export const LATEST_VERSION =
   fs
     .readFileSync(path.join(AT, "reference", "latest", "build.gradle"), "utf-8")
