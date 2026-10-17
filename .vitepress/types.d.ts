@@ -43,16 +43,6 @@ export namespace Fabric {
 
   export interface CodeOptions {
     /**
-     * @default "Copied"
-     */
-    copied: string;
-
-    /**
-     * @default "Copy Code"
-     */
-    copy: string;
-
-    /**
      * @default "Full Screen"
      */
     enterFullscreen: string;

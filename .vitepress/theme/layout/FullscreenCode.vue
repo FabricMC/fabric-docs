@@ -8,7 +8,10 @@ import { useIconSpan } from "../composables/iconSpan.ts";
 
 const prefersReducedMotion = usePreferredReducedMotion();
 const data = useData<Fabric.ThemeConfig>();
+const markdown = computed(() => data.site.value.locales[data.localeIndex.value].markdown!);
+
 const options = computed(() => data.theme.value.code);
+const copyOptions = computed(() => markdown.value.codeCopyButton!);
 
 const icon = useIconSpan("lucide:maximize-2");
 
@@ -28,12 +31,14 @@ const loadCodeBlock = async (originalCodeBlock: HTMLDivElement) => {
   }
 
   originalCopyButton.value =
-    originalCodeBlock.querySelector<HTMLButtonElement>("button.copy:not(.fullscreen)") || undefined;
+    originalCodeBlock.querySelector<HTMLButtonElement>("button.copy") || undefined;
 
   const clonedCodeBlock = originalCodeBlock.cloneNode(true) as HTMLDivElement;
   clonedCodeBlock.style.viewTransitionName = "code-block-view-transition";
   clonedCodeBlock.querySelector<HTMLDivElement>("div.line-numbers-wrapper")?.remove();
-  clonedCodeBlock.querySelectorAll<HTMLButtonElement>("button.copy").forEach((b) => b.remove());
+  clonedCodeBlock
+    .querySelectorAll<HTMLButtonElement>("button.copy, button.fullscreen")
+    .forEach((b) => b.remove());
 
   const onViewTransition = () => {
     dialog.value?.querySelector<HTMLDivElement>("div.slot")?.replaceChildren(clonedCodeBlock);
@@ -128,37 +133,27 @@ onContentUpdated(() =>
 
     handleExitFullscreen();
 
-    document.documentElement.style.setProperty(
-      "--vp-code-copy-copied-text-content",
-      JSON.stringify(options.value.copied)
-    );
-
     const codeBlocks = //
       document.querySelectorAll<HTMLDivElement>("div.vp-doc:not(.slot) div[class*='language-']");
 
     for (const codeBlock of codeBlocks) {
-      const originalCopyButton = //
-        codeBlock.querySelector<HTMLButtonElement>("button.copy:not(.fullscreen)");
+      const originalCopyButton = codeBlock.querySelector<HTMLButtonElement>("button.copy");
       if (!originalCopyButton) {
         continue;
       }
 
-      originalCopyButton.title = options.value.copy;
-      originalCopyButton.setAttribute("aria-label", options.value.copy);
-
       const enterFullscreenButton =
-        codeBlock.querySelector<HTMLButtonElement>("button.copy.fullscreen")
+        codeBlock.querySelector<HTMLButtonElement>("button.fullscreen")
         || document.createElement("button");
       enterFullscreenButton.title = options.value.enterFullscreen;
       enterFullscreenButton.setAttribute("aria-label", options.value.enterFullscreen);
-      enterFullscreenButton.className = "copy fullscreen";
+      enterFullscreenButton.className = "fullscreen";
       enterFullscreenButton.innerHTML = icon;
       enterFullscreenButton.onclick = (event) => {
         if (!(event.currentTarget instanceof HTMLButtonElement)) {
           return;
         }
 
-        event.stopImmediatePropagation();
         event.currentTarget.blur();
 
         const codeBlock = event.currentTarget.closest<HTMLDivElement>("div[class*='language-']");
@@ -187,25 +182,25 @@ onUnmounted(() => dialog.value?.close());
   >
     <div class="toolbar">
       <div v-if="originalTabs.length" class="tabs">
-        <template v-for="(tab, i) in originalTabs" :key="i">
+        <template v-for="(t, i) of originalTabs" :key="i">
           <input
             type="radio"
-            :name="`dialog-fullscreen-${tab.name}`"
-            :id="`dialog-fullscreen-${tab.id}`"
-            :checked="tab.checked"
+            :name="`dialog-fullscreen-${t.name}`"
+            :id="`dialog-fullscreen-${t.id}`"
+            :checked="t.checked"
             @change="handleTabChange(i)"
           />
-          <label :for="`dialog-fullscreen-${tab.id}`">{{ tab.labels?.[0]?.textContent }}</label>
+          <label :for="`dialog-fullscreen-${t.id}`">{{ t.labels?.[0]?.textContent }}</label>
         </template>
       </div>
       <button
         class="copy"
         :class="{ copied: isCopied }"
-        :title="options.copy"
-        :aria-label="options.copy"
+        :title="copyOptions.tooltipText"
+        :aria-label="copyOptions.tooltipText"
         @click="handleCopy"
       >
-        <span>{{ options.copied }}</span>
+        <span>{{ copyOptions.copiedText }}</span>
         <VPIcon :icon="isCopied ? 'lucide:clipboard-check' : 'lucide:clipboard'" />
       </button>
       <button
@@ -238,6 +233,7 @@ dialog#fullscreen {
 
   max-width: none;
   max-height: none;
+  padding: 1rem;
   border: none;
 
   background: transparent;
@@ -421,7 +417,7 @@ div.toolbar {
     border: 1px solid var(--vp-code-copy-code-border-color);
     border-radius: 0.25rem;
 
-    color: rgb(128 128 128);
+    color: var(--vp-code-copy-code-active-text);
 
     background-color: var(--vp-code-copy-code-bg);
 
@@ -446,7 +442,7 @@ div.toolbar {
 
       [class^="vpi-"] {
         margin-right: 9px;
-        margin-left: 0.5rem;
+        margin-left: 8px;
       }
 
       span:not([class^="vpi-"]) {
@@ -487,7 +483,7 @@ div.toolbar {
   flex-grow: 1;
 
   border: 1px solid var(--vp-c-divider);
-  border-radius: 0.75rem;
+  border-radius: 0.25rem;
 
   background-color: var(--vp-code-block-bg);
 
@@ -501,14 +497,6 @@ div.toolbar {
     padding-left: 0;
 
     background: transparent;
-
-    span.lang {
-      right: 1.25rem;
-
-      :hover & {
-        opacity: unset;
-      }
-    }
 
     pre {
       overflow: auto;
