@@ -37,13 +37,36 @@ Loom uses multiple different plugin IDs:
 
 ## Depending on Subprojects {#subprojects}
 
-While setting up a multi-project build that depends on another Loom project, you should use the `namedElements` configuration when depending on the other project. By default, a project's "outputs" are remapped to intermediary names. The `namedElements` configuration contains the project outputs that have not been remapped.
+When setting up a multi-project build, you may want to depend on another subproject.
+You can do this using a `project(...)` call, though the arguments depend on the type of environment in use.
+
+### Depending on non-remapped subprojects {#depending-on-non-remapped-subprojects}
+
+For non-remapping Loom, we will pass the path to the subproject but delimited with colons.
+
+For example, a project located at `/examples/hello-world` can be referenced using the path `:examples:hello-world`:
 
 ```gradle
 dependencies {
- implementation project(path: ":name", configuration: "namedElements")
+ implementation project(":examples:hello-world")
 }
 ```
+
+### Depending on remapped subprojects {#depending-on-remapped-subprojects}
+
+With Remapping Loom, project output is remapped to intermediary by default. This results in intermediary
+names being exposed to the dependent project.
+
+To avoid this, we specify the `namedElements` configuration and retrieve the project output without remapping:
+
+
+```gradle
+dependencies {
+ implementation project(path: ":examples:hello-world", configuration: "namedElements")
+}
+```
+
+### Depending on split sources {#depending-on-split-sources}
 
 If you are using split source sets in a multi-project build, you will also need to add a dependency for the other project's client source set.
 
