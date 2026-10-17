@@ -14,7 +14,7 @@ authors:
 
 This page contains a reference for all options present in the `loom` Gradle extension. Please see the [Fabric API DSL](./fabric-api) page for options related to Fabric API specific features.
 
-```groovy
+```gradle
 loom {
  // Set the access widener path, see https://fabricmc.net/wiki/tutorial:accesswideners
  accessWidenerPath = file("src/main/resources/modid.accesswidener")
