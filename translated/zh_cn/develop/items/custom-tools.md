@@ -30,7 +30,7 @@ resources:
 | `enchantmentValue`        | 该`ToolMaterial`在附魔时得到更好附魔的概率。                                                          |
 | `repairItems`             | 任何具有这个标签的物品可以被用来在铁砧中修复该`ToolMaterial`。                                                 |
 
-在本例中，我们将使用与修复盔甲相同的修复物品标签。 我们定义标签引用如下：
+在本例中，我们将使用与修复盔甲相同的修复物品标签。我们定义标签引用如下：
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
@@ -38,11 +38,11 @@ resources:
 
 ### 创建工具材料标签 {#creating-the-tool-material-tag}
 
-针对我们的`incorrectBlocksForDrops`标签，我们可以创建一个类似于原版`minecraft:incorrect_for_*_drops`的标签，用于指定使用该材料挖掘时不会掉落物品的方块。 我们定义标签引用如下：
+针对我们的`incorrectBlocksForDrops`标签，我们可以创建一个类似于原版`minecraft:incorrect_for_*_drops`的标签，用于指定使用该材料挖掘时不会掉落物品的方块。我们定义标签引用如下：
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_incorrect_blocks_tag
 
-接下来，我们使用标签 JSON 文件来定义该标签的具体内容。 这里设定 Guidite 工具可以挖掘木制工具能挖掘的方块，外加铜矿石和深层铜矿石：
+接下来，我们使用标签 JSON 文件来定义该标签的具体内容。这里设定 Guidite 工具可以挖掘木制工具能挖掘的方块，外加铜矿石和深层铜矿石：
 
 <<< @/reference/latest/src/main/resources/data/example-mod/tags/block/incorrect_for_guidite_tool.json
 
@@ -54,7 +54,7 @@ resources:
 
 举例来说，如果我们想创建一个等效于铁制工具、但无法挖掘钻石矿石的工具，其`values`中就需要包含`#minecraft:incorrect_for_iron_tool`以及`#minecraft:diamond_ores`。
 
-如果你希望你的工具材料能够挖掘与现有材料完全相同的方块，你可以在标签定义中直接包含相应的标签，无需进行任何添加或删除。 建议采用此方法，而不是直接将现有的标签当作你材料的`incorrectBlocksForDrops`参数传入，这样能确保用户可以独立配置每种材料的无效方块。
+如果你希望你的工具材料能够挖掘与现有材料完全相同的方块，你可以在标签定义中直接包含相应的标签，无需进行任何添加或删除。建议采用此方法，而不是直接将现有的标签当作你材料的`incorrectBlocksForDrops`参数传入，这样能确保用户可以独立配置每种材料的无效方块。
 
 :::
 
@@ -84,11 +84,11 @@ resources:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_guidite_sword_to_create_tab
 
-你还得添加纹理、物品翻译和物品模型。 然而，对于物品模型，你应该使用 `item/handheld` 模型作为父模型，而非通常的 `item/generaterd`。
+你还得添加纹理、物品翻译和物品模型。然而，对于物品模型，你应该使用 `item/handheld` 模型作为父模型，而非通常的 `item/generaterd`。
 
 ## 资产 {#models}
 
-你还需要添加[纹理](./first-item#adding-a-texture)、[翻译](./first-item#naming-the-item)、[客户端物品](./first-item#creating-the-client-item)和[物品模型](./item-models)。 然而，对于物品模型，你应该使用 `item/handheld` 模型作为父模型，而非通常的 `item/generaterd`。
+你还需要添加[纹理](./first-item#adding-a-texture)、[翻译](./first-item#naming-the-item)、[客户端物品](./first-item#creating-the-client-item)和[物品模型](./item-models)。然而，对于物品模型，你应该使用 `item/handheld` 模型作为父模型，而非通常的 `item/generaterd`。
 
 在这个例子中，我们将为“Guidite Sword”物品定义以下客户端物品、模型和纹理：
 
@@ -98,7 +98,7 @@ resources:
 
 ::: info
 
-该模型可以由数据生成。 更多信息，请参阅有关生成[物品模型](../data-generation/item-models)的文档。
+该模型可以由数据生成。更多信息，请参阅有关生成[物品模型](../data-generation/item-models)的文档。
 
 :::
 
@@ -156,12 +156,12 @@ resources:
 
 :::
 
-建议将工具放置在相应的物品标签中。 工具拥有各自独特的标签，例如 `ItemTags.SWORDS`，这些标签用于附魔能力和其他特定逻辑，例如是否施加横扫伤害。
+建议将工具放置在相应的物品标签中。工具拥有各自独特的标签，例如 `ItemTags.SWORDS`，这些标签用于附魔能力和其他特定逻辑，例如是否施加横扫伤害。
 
 在你的物品标签提供程序中，将以下代码添加到 `addTags` 函数中：
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#sword_tags
 
-这样就差不多了！ 进入游戏后，你应该能在创造模式物品栏菜单的“工具与实用物品”标签页中看到你的工具。
+这样就差不多了！进入游戏后，你应该能在创造模式物品栏菜单的“工具与实用物品”标签页中看到你的工具。
 
 ![物品栏中的成品工具](/assets/develop/items/tools_1.png)

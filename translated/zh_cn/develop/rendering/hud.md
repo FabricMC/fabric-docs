@@ -12,15 +12,15 @@ authors:
 
 Fabric 提供 Hud API 以在 HUD 上渲染和布局元素。
 
-首先，我们需要向 `HudElementRegistry` 注册一个监听器，用于注册你的元素。 每个元素都是一个 `HudElement`。 `HudElement` 实例通常是一个 lambda 表达式，它接受一个 `GuiGraphicsExtractor` 和一个 `DeltaTracker` 实例作为参数。 有关如何使用该 API 的更多详细信息，请参阅 `HudElementRegistry` 及其相关的 Javadoc。
+首先，我们需要向 `HudElementRegistry` 注册一个监听器，用于注册你的元素。每个元素都是一个 `HudElement`。 `HudElement` 实例通常是一个 lambda 表达式，它接受一个 `GuiGraphicsExtractor` 和一个 `DeltaTracker` 实例作为参数。有关如何使用该 API 的更多详细信息，请参阅 `HudElementRegistry` 及其相关的 Javadoc。
 
-GUI 图形可用于访问游戏提供的各种渲染工具，以及原始矩阵堆栈。 你应该查看[绘制到 GUI](./gui-graphics) 页面以了解更多信息。
+GUI 图形可用于访问游戏提供的各种渲染工具，以及原始矩阵堆栈。你应该查看[绘制到 GUI](./gui-graphics) 页面以了解更多信息。
 
 ### Delta Tracker {#delta-tracker}
 
 `DeltaTracker` 类允许你获取当前的 `gameTimeDeltaPartialTick` 值。 `gameTimeDeltaPartialTick` 是上一个游戏刻和下一个游戏刻之间的“过程”。
 
-例如，如果我们假设 200 FPS 场景，游戏大约每 10 帧运行一次新的刻。 每一帧，`gameTimeDeltaPartialTick` 代表上一刻与下一刻之间的距离。 超过 11 帧时，你可能会看到：
+例如，如果我们假设 200 FPS 场景，游戏大约每 10 帧运行一次新的刻。每一帧，`gameTimeDeltaPartialTick` 代表上一刻与下一刻之间的距离。超过 11 帧时，你可能会看到：
 
 |   帧  | `gameTimeDeltaPartialTick` |
 | :--: | -------------------------- |
@@ -38,7 +38,7 @@ GUI 图形可用于访问游戏提供的各种渲染工具，以及原始矩阵�
 
 可以调用 `deltaTracker.getGameTimeDeltaPartialTick(false)` 以检索 `gameTimeDeltaPartialTick`，其中布尔值参数是 `ignoreFreeze`，这实际上只是允许忽略玩家使用 `/tick freeze` 命令的情况。
 
-实际上，只有当动画依赖于 Minecraft 刻时，才应该使用 `gameTimeDeltaPartialTick`。 对于基于时间的动画，请使用 `Util.getMillis()`，它可以测量现实世界的时间。
+实际上，只有当动画依赖于 Minecraft 刻时，才应该使用 `gameTimeDeltaPartialTick`。对于基于时间的动画，请使用 `Util.getMillis()`，它可以测量现实世界的时间。
 
 在本例中，我们将使用 `Util.getMillis()` 线性插入要渲染到 HUD 的正方形的颜色。
 
@@ -46,4 +46,4 @@ GUI 图形可用于访问游戏提供的各种渲染工具，以及原始矩阵�
 
 ![随着时间的推移对颜色进行插值](/assets/develop/rendering/hud-rendering-deltatick.webp)
 
-试试使用 `gameTimeDeltaPartialTick` 并查看运行 `/tick freeze` 命令时动画会发生什么情况。 假设你已向`DeltaTracker#getGameTimeDeltaPartialTick`传递了`false`作为参数，则当`gameTimeDeltaPartialTick`为常数时，你应该会看到动画定住不动。
+试试使用 `gameTimeDeltaPartialTick` 并查看运行 `/tick freeze` 命令时动画会发生什么情况。假设你已向`DeltaTracker#getGameTimeDeltaPartialTick`传递了`false`作为参数，则当`gameTimeDeltaPartialTick`为常数时，你应该会看到动画定住不动。

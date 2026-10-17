@@ -34,8 +34,7 @@ resources:
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#be
 
-除了普通的方块实体方法之外，我们还需要重写 `stillValid` 方法。 此方法将在每个游戏帧调用一次，以检查是否应强制玩家退出菜单。
-我们将使用 `ContainerHelper` 中此方法的默认实现，它会检查我们的方块实体是否仍存在以及玩家是否在交互范围内。
+除了普通的方块实体方法之外，我们还需要重写 `stillValid` 方法。此方法将在每个游戏帧调用一次，以检查是否应强制玩家退出菜单。我们将使用 `ContainerHelper` 中此方法的默认实现，它会检查我们的方块实体是否仍存在以及玩家是否在交互范围内。
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/DirtChestBlockEntity.java#container_still_valid
 
@@ -59,15 +58,15 @@ resources:
 
 ## 创建菜单 {#creating-the-menu}
 
-`createMenu` 要求我们返回一个菜单，但我们还没有为我们的方块创建菜单。 为此，我们将创建一个继承自 `AbstractContainerMenu` 的 `DirtChestMenu` 类：
+`createMenu` 要求我们返回一个菜单，但我们还没有为我们的方块创建菜单。为此，我们将创建一个继承自 `AbstractContainerMenu` 的 `DirtChestMenu` 类：
 
 <<< @/reference/latest/src/main/java/com/example/docs/menu/custom/DirtChestMenu.java#menu
 
-当服务器想要打开菜单时，客户端构造函数就会被调用。 它会创建一个空容器，然后该容器会自动与服务器上的实际容器同步。
+当服务器想要打开菜单时，客户端构造函数就会被调用。它会创建一个空容器，然后该容器会自动与服务器上的实际容器同步。
 
 服务端构造函数在服务器上被调用，因为它知道容器的内容，所以可以直接将其作为参数传递。
 
-`quickMoveStack` 处理菜单中按住 Shift 键点击的物品。 这个示例复现了原版菜单（如箱子和发射器）的行为。
+`quickMoveStack` 处理菜单中按住 Shift 键点击的物品。这个示例复现了原版菜单（如箱子和发射器）的行为。
 
 然后我们需要在一个新的 `ModMenuTypes` 类中注册菜单：
 
@@ -85,12 +84,11 @@ resources:
 
 ## 创建屏幕 {#creating-the-screen}
 
-为了在客户端实际显示容器的内容，我们还需要为菜单创建一个屏幕。
-我们将创建一个继承自 `AbstractContainerScreen` 的新类：
+为了在客户端实际显示容器的内容，我们还需要为菜单创建一个屏幕。我们将创建一个继承自 `AbstractContainerScreen` 的新类：
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/inventory/DirtChestScreen.java#screen
 
-对于这个屏幕的背景，我们直接使用了默认的发射器屏幕纹理，因为我们的泥土箱子使用相同的槽位布局。 或者，你 也可以为 `CONTAINER_TEXTURE` 提供自己的纹理。
+对于这个屏幕的背景，我们直接使用了默认的发射器屏幕纹理，因为我们的泥土箱子使用相同的槽位布局。或者，你 也可以为 `CONTAINER_TEXTURE` 提供自己的纹理。
 
 因为这是一个菜单屏幕，所以我们还需要使用 `MenuScreens#register()` 方法在客户端注册它：
 

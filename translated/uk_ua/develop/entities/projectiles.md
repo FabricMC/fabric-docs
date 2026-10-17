@@ -4,6 +4,7 @@ description: Дізнайтеся, як додати власні снаряди
 authors:
   - ayutac
   - cassiancc
+  - CelDaemon
   - ChampionAsh5357
   - dicedpixels
   - Earthcomputer
@@ -134,7 +135,11 @@ float yd = -Mth.sin((xRot + yOffset) * (float) (Math.PI / 180.0));
 
 <DownloadEntry visualURL="/assets/develop/projectiles/hot_tater_preview.png" downloadURL="/assets/develop/projectiles/hot_tater.png">Текстура</DownloadEntry>
 
-Також зареєструйте сутність — як ми це робили в посібнику [створення вашої першої сутності](./first-entity#preparing-your-first-entity) — додавши її як статичне поле в `ModEntityTypes`. Оскільки сутності та предмети зберігаються в окремих реєстрах, тип сутності просто використовує той самий шлях, що й предмет — як-от стандартна `snowball`:
+Обов'язково додайте ID нової сутності до `ModEntityTypeIds`:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#hot_tater
+
+Зареєструйте сутність, як ми це робили в посібнику [створення вашої першої сутності](./first-entity#preparing-your-first-entity) — додавши її як статичне поле в `ModEntityTypes`. Оскільки сутності та предмети зберігаються в окремих реєстрах, тип сутності просто використовує той самий шлях, що й предмет — як-от стандартна `snowball`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#hot_tater
 

@@ -35,6 +35,14 @@ Hier ist ein Beispiel für einen einfachen `main`-Einstiegspunkt, der eine Nachr
 
 <<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
 
+### ID Helfer {#id-helper}
+
+Die offizielle Vorlage enthält eine Hilfsmethode, mit der sich `Identifier` einfach erstellen lassen. Sie ist über `ExampleMod.id(...)` zugänglich:
+
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#id_helper_usage
+
+In der Dokumentation wird dieser Helfer ausgiebig verwendet. Wenn du die Beispiele nacharbeitest, achte darauf, alle Verweise auf `ExampleMod` durch den Namen deines eigenen Mod-Initialisierers zu ersetzen.
+
 ## `src/main/resources` {#src-main-resources}
 
 Der Ordner `src/main/resources` wird verwendet, um die Ressourcen zu speichern, die deine Mod verwendet, wie Texturen, Modelle und Sounds.

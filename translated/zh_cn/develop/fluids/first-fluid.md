@@ -32,16 +32,16 @@ authors-nogithub:
 
 :::
 
-本示例将介绍如何创建一种酸液流体：站在其中的实体会受到伤害、虚弱并失明。 为此，我们需要两个流体实例，分别用于源状态和流动态；还需要一个液体方块、一个桶物品，以及一个流体标签。
+本示例将介绍如何创建一种酸液流体：站在其中的实体会受到伤害、虚弱并失明。为此，我们需要两个流体实例，分别用于源状态和流动态；还需要一个液体方块、一个桶物品，以及一个流体标签。
 
 ## 创建流体类 {#creating-the-fluid-class}
 
-首先，我们会创建一个抽象类，这里命名为 `AcidFluid`，并让它继承基础的 `FlowingFluid` 类。 随后，我们会重写那些源流体和流动流体都应保持一致的方法。
+首先，我们会创建一个抽象类，这里命名为 `AcidFluid`，并让它继承基础的 `FlowingFluid` 类。随后，我们会重写那些源流体和流动流体都应保持一致的方法。
 
 请特别注意以下方法：
 
-- `animateTick` 用于显示粒子和播放声音。 下面展示的行为基于水：水在流动时会播放声音，并会产生水下气泡粒子。
-- `entityInside` 用于处理实体接触流体时应发生的事情。 我们会以水为基础，使其熄灭实体身上的火焰，同时也让其中的实体受到伤害、虚弱并失明——毕竟这是酸液。
+- `animateTick` 用于显示粒子和播放声音。下面展示的行为基于水：水在流动时会播放声音，并会产生水下气泡粒子。
+- `entityInside` 用于处理实体接触流体时应发生的事情。我们会以水为基础，使其熄灭实体身上的火焰，同时也让其中的实体受到伤害、虚弱并失明——毕竟这是酸液。
 - `canBeReplacedWith` 处理一部分流动逻辑。请注意，`ModFluidTags.ACID` 目前还没有定义，我们会在最后处理它。
 
 把这些内容整合起来后，我们会得到以下类：
@@ -54,25 +54,25 @@ authors-nogithub:
 
 ### 注册流体 {#registering-fluids}
 
-接下来，我们会创建一个用于存储所有流体 ID 的类。 我们称其为 `ModFluidIds`。
+接下来，我们会创建一个用于存储所有流体 ID 的类。我们称其为 `ModFluidIds`。
 
 <<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluidIds.java#register
 
-我们将在一个新的类中使用这些 ID 来注册所有流体实例。 并将其命名为 `ModFluids`。
+我们将在一个新的类中使用这些 ID 来注册所有流体实例。并将其命名为 `ModFluids`。
 
 <<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluids.java#register
 
-和方块一样，你需要确保该类被加载，这样所有包含流体实例的静态字段才会完成初始化。 你可以创建一个空的 `initialize` 方法，并在你的[模组初始化器](../getting-started/project-structure#entrypoints)中调用它，以触发静态初始化。
+和方块一样，你需要确保该类被加载，这样所有包含流体实例的静态字段才会完成初始化。你可以创建一个空的 `initialize` 方法，并在你的[模组初始化器](../getting-started/project-structure#entrypoints)中调用它，以触发静态初始化。
 
 现在，回到 `AcidFluid` 类，添加以下方法，将已注册的流体实例与该流体关联起来：
 
 <<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#sources
 
-到目前为止，我们已经注册了流体的源状态和流动状态。 接下来，还需要为它注册一个桶和一个 `LiquidBlock`。
+到目前为止，我们已经注册了流体的源状态和流动状态。接下来，还需要为它注册一个桶和一个 `LiquidBlock`。
 
 ### 注册流体方块 {#fluid-blocks}
 
-现在，让我们为该流体添加一个液体方块。 某些命令（例如 `setblock`）会需要它，这样你的流体才能存在于世界中。 如果你还没有了解过，建议先阅读[如何创建你的第一个方块](../blocks/first-block)。
+现在，让我们为该流体添加一个液体方块。某些命令（例如 `setblock`）会需要它，这样你的流体才能存在于世界中。如果你还没有了解过，建议先阅读[如何创建你的第一个方块](../blocks/first-block)。
 
 打开你的 `ModBlockIds` 类，并添加以下 `ResourceKey`：
 
@@ -88,7 +88,7 @@ authors-nogithub:
 
 ### 注册桶 {#buckets}
 
-Minecraft 中的流体通常可以装入桶中，因此我们来看看如何为酸液添加一个酸液桶物品。 如果你还没有了解过，建议先阅读[如何创建你的第一个物品](../items/first-item)。
+Minecraft 中的流体通常可以装入桶中，因此我们来看看如何为酸液添加一个酸液桶物品。如果你还没有了解过，建议先阅读[如何创建你的第一个物品](../items/first-item)。
 
 打开你的 `ModItems` 类，并注册以下 `BucketItem`：
 
@@ -98,7 +98,7 @@ Minecraft 中的流体通常可以装入桶中，因此我们来看看如何为�
 
 <<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#bucket
 
-不要忘记，为了正确渲染，物品需要名称为 `acid_bucket` 的翻译、[纹理](../items/first-item#adding-a-texture)、[模型](../items/first-item#adding-a-model)以及[客户端物品](../items/first-item#creating-the-client-item)。 下面提供了一个示例纹理。
+不要忘记，为了正确渲染，物品需要名称为 `acid_bucket` 的翻译、[纹理](../items/first-item#adding-a-texture)、[模型](../items/first-item#adding-a-model)以及[客户端物品](../items/first-item#creating-the-client-item)。下面提供了一个示例纹理。
 
 <DownloadEntry visualURL="/assets/develop/fluids/acid_bucket.png" downloadURL="/assets/develop/fluids/acid_bucket_small.png">纹理</DownloadEntry>
 
@@ -112,7 +112,7 @@ Minecraft 中的流体通常可以装入桶中，因此我们来看看如何为�
 
 :::
 
-由于一个流体在流动状态和静止状态下会被视为两个独立的流体，通常会使用标签来同时检查这两种状态。 我们会在 `data/example-mod/tags/fluid/acid.json` 中创建一个流体标签：
+由于一个流体在流动状态和静止状态下会被视为两个独立的流体，通常会使用标签来同时检查这两种状态。我们会在 `data/example-mod/tags/fluid/acid.json` 中创建一个流体标签：
 
 <<< @/reference/latest/src/main/generated/data/example-mod/tags/fluid/acid.json
 
@@ -136,7 +136,7 @@ Minecraft 还提供了其他标签，用于控制流体的行为：
 
 ::: tip
 
-为简化示例，本演示使用 `BlockTintSources.constant` 为原版水纹理应用一个恒定的绿色色调。 有关 `BlockTintSource` 的更多细节，请参阅[方块着色](../blocks/block-tinting)。
+为简化示例，本演示使用 `BlockTintSources.constant` 为原版水纹理应用一个恒定的绿色色调。有关 `BlockTintSource` 的更多细节，请参阅[方块着色](../blocks/block-tinting)。
 
 :::
 
@@ -144,6 +144,6 @@ Minecraft 还提供了其他标签，用于控制流体的行为：
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid_texture
 
-至此，我们已经具备了在游戏中看到酸液所需的一切！ 你可以使用 `setblock`，也可以使用酸液桶物品，将酸液放置到世界中。
+至此，我们已经具备了在游戏中看到酸液所需的一切！你可以使用 `setblock`，也可以使用酸液桶物品，将酸液放置到世界中。
 
 ![世界中的绿色酸液流体截图](/assets/develop/fluids/acid.png)

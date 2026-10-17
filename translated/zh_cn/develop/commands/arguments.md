@@ -3,13 +3,13 @@ title: 命令参数
 description: 学习如何创建带有复杂参数的命令。
 ---
 
-大多数命令都使用了参数。 有时参数是可选的，也就是说如果你不提供此参数，命令仍能运行。 一个节点可以有多个参数类型，但是注意有可能出现二义性，这是需要避免的。
+大多数命令都使用了参数。有时参数是可选的，也就是说如果你不提供此参数，命令仍能运行。一个节点可以有多个参数类型，但是注意有可能出现二义性，这是需要避免的。
 
 <<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_arg{3}
 
 <<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_arg
 
-在这个例子中，在命令文本 `/command_with_arg` 之后，你需要输入一个整数。 例如，如果运行 `/command_with_arg 3`，会收到反馈消息：
+在这个例子中，在命令文本 `/command_with_arg` 之后，你需要输入一个整数。例如，如果运行 `/command_with_arg 3`，会收到反馈消息：
 
 > 已调用 /command_with_arg，其中 value = 3
 
@@ -21,9 +21,9 @@ description: 学习如何创建带有复杂参数的命令。
 
 <<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_two_args
 
-现在你可以输入一个或者两个整数了。 如果提供了一个整数，那么会打印单个值的反馈文本。 如果提供了两个整数，那么会打印有两个值的反馈文本。
+现在你可以输入一个或者两个整数了。如果提供了一个整数，那么会打印单个值的反馈文本。如果提供了两个整数，那么会打印有两个值的反馈文本。
 
-你可能发现，把类似的执行逻辑指定两次其实没什么必要。 因此，我们可以创建一个在两个执行中都使用的方法。
+你可能发现，把类似的执行逻辑指定两次其实没什么必要。因此，我们可以创建一个在两个执行中都使用的方法。
 
 <<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_common_exec{4,6}
 
@@ -31,7 +31,7 @@ description: 学习如何创建带有复杂参数的命令。
 
 ## 自定义参数类型 {#custom-argument-types}
 
-如果原版没有你想要的参数类型，可以自己创建一个。 为此，创建一个类并继承 `ArgumentType<T>` 接口，其中 `T` 是参数的类型。
+如果原版没有你想要的参数类型，可以自己创建一个。为此，创建一个类并继承 `ArgumentType<T>` 接口，其中 `T` 是参数的类型。
 
 您需要实现 `parse` 这个方法，这个方法会把输入的字符串解析为期望的类型。
 

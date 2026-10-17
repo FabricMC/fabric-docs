@@ -9,7 +9,7 @@ authors:
 
 ## 创建组件{#creating-a-widget}
 
-有很多种创建组件的方式，例如继承 `AbstractWidget`。 这个类提供了许多实用功能，比如控制组件的尺寸和位置，以及接收用户输入事件。事实上这些功能由 `Renderable`、`GuiEventListener`、`NarrationSupplier` 和 `NarratableEntry` 接口规定：
+有很多种创建组件的方式，例如继承 `AbstractWidget`。这个类提供了许多实用功能，比如控制组件的尺寸和位置，以及接收用户输入事件。事实上这些功能由 `Renderable`、`GuiEventListener`、`NarrationSupplier` 和 `NarratableEntry` 接口规定：
 
 - `Renderable` - 用于渲染，需要通过 `addRenderableWidget` 方法将组件注册到屏幕上。
 - `GuiEventListener` - 用于事件，比如处理鼠标点击、按下按键等事件。
@@ -20,7 +20,7 @@ authors:
 
 ## 将组件添加到屏幕{#adding-the-widget-to-the-screen}
 
-与所有组件一样，你需要使用 `Screen` 类提供的 `addRenderableWidget` 方法将其添加到屏幕上。 请确保这一步在 `Screen#init` 方法中完成。
+与所有组件一样，你需要使用 `Screen` 类提供的 `addRenderableWidget` 方法将其添加到屏幕上。请确保这一步在 `Screen#init` 方法中完成。
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#add_custom_widget
 

@@ -130,13 +130,13 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 ### Власний клас блока {#custom-block-class}
 
 Створіть блок `VerticalSlab` з властивостями `FACING` і логічною властивістю `SINGLE`, як у посібнику [станів блоків](../blocks/blockstates). `SINGLE` вкаже, чи є обидві плити.
-Тоді вам слід перевизначити `getOutlineShape` і `getCollisionShape`, щоб контур рендерився правильно, а блок мав правильну форму колізії.
+Тоді вам слід перевизначити `getShape` і `getCollisionShape`, щоб контур рендерився правильно, а блок мав правильну форму колізії.
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_voxels
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_collision
 
-Також замініть метод `canReplace()`, інакше ви не зможете зробити плиту повним блоком.
+Також замініть метод `canBeReplaced()`, інакше ви не зможете зробити плиту повним блоком.
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_replace
 

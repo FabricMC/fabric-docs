@@ -33,7 +33,7 @@ authors-nogithub:
 
 ## Блоки {#blocks}
 
-Щоб з блоків випадали предмети, включаючи себе, нам потрібно створити таблицю здобичі. Створіть клас, який розширює `FabricBlockLootTableProvider`:
+Щоб з блоків випадали предмети, включаючи себе, нам потрібно створити таблицю здобичі. Створіть клас, який розширює `FabricBlockLootSubProvider`:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_provider
 
@@ -47,7 +47,7 @@ authors-nogithub:
 
 ## Скрині {#chests}
 
-Скриня здобичі трохи хитріша, ніж здобич блоків. Створіть клас, який розширює `SimpleFabricLootTableProvider`, подібно до прикладу нижче, **і додайте його до свого пакета**.
+Скриня здобичі трохи хитріша, ніж здобич блоків. Створіть клас, який розширює `SimpleFabricLootTableSubProvider`, подібно до прикладу нижче, **і додайте його до свого пакета**.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_provider
 
