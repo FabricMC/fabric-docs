@@ -6,7 +6,7 @@ import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json" with { typ
 import type { SiteConfig } from "vitepress";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
-import { ENV, EXCLUDED_LOCALES, LATEST_VERSION } from "../constants.ts";
+import { AT, ENV, EXCLUDED_LOCALES, LATEST_VERSION } from "../constants.ts";
 import { transformFile, transformFilesPlugin } from "../plugins/transformFiles.ts";
 import type { Fabric } from "../types.d.ts";
 import { getBuildTransformHead, getClientTransformHead } from "./head.ts";
@@ -31,15 +31,17 @@ export default defineVersionedConfig(
     // Set head tags on the client side
     head: [["script", { "data-gen": "" }, getClientTransformHead()]],
 
-    // Ignore dead links under translated/. Allows builds with incomplete translations
+    // Allow builds with incomplete translations
     ignoreDeadLinks: [
-      (_, filePath) => {
-        const split = filePath.split("/");
+      (link, filePath) => {
+        if (link.startsWith("/assets/")) return true;
+
+        const split = path.relative(AT, filePath).split("/");
         if (split[0] === "versions") {
           split.splice(0, 2);
         }
 
-        return split[0] !== "translated";
+        return split[0] === "translated";
       },
     ],
 
