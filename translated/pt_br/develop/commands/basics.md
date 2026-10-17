@@ -64,7 +64,7 @@ Comandos são registrados dentro do `CommandRegistrationCallback` fornecido pela
 
 ::: info
 
-Para informações sobre como registrar callbacks, por favor, consulte o guia de [Eventos](../events).
+Para informações sobre como registrar callbacks, por favor, consulte o guia de [Eventos](../events/).
 
 :::
 

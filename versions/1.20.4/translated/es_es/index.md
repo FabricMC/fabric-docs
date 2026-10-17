@@ -20,4 +20,4 @@ features:
 search: false
 ---
 
-Si quieres contribuir a la Documentación de Fabric, puedes encontrar el código fuente en [GitHub](https://github.com/FabricMC/fabric-docs), y las [pautas de contribución](./contributing) relevantes.
+Si quieres contribuir a la Documentación de Fabric, puedes encontrar el código fuente en [GitHub](https://github.com/FabricMC/fabric-docs), y las [pautas de contribución](./../contributing) relevantes.

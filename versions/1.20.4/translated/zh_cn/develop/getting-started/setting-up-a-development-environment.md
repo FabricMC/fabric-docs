@@ -26,7 +26,7 @@ search: false
 
 为 Minecraft 1.20.4 开发模组需要 JDK 17。
 
-如果需要安装 Java 方面的帮助，可以参考[玩家指南部分](../../players/index)中的各种 Java 安装指南。
+如果需要安装 Java 方面的帮助，可以参考[玩家指南部分](../../players/)中的各种 Java 安装指南。
 
 ## 安装 IntelliJ IDEA {#installing-intellij-idea}
 

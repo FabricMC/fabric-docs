@@ -20,4 +20,4 @@ features:
     linkText: Започнете
 ---
 
-Ако желаете да допринесете за документацията на Fabric, можете да намерите кодът в [GitHub](https://github.com/FabricMC/fabric-docs), както и съответните [указания за принос](./contributing).
+Ако желаете да допринесете за документацията на Fabric, можете да намерите кодът в [GitHub](https://github.com/FabricMC/fabric-docs), както и съответните [указания за принос](./../contributing).

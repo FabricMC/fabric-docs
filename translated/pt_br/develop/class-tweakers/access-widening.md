@@ -32,17 +32,17 @@ authors:
   - YTG1234
 ---
 
-Access Widener é um tipo de [modificador de classe](../class-tweakers)] usado para flexibilizar o limite de acesso a classes, métodos e campos, refletindo essa mudança no código-fonte descompilado.
+Access Widener é um tipo de [modificador de classe](./)] usado para flexibilizar o limite de acesso a classes, métodos e campos, refletindo essa mudança no código-fonte descompilado.
 Isso inclui tornando-os públicos, estendível e/ou mutável.
 
-Entradas de access widener podem ser [transitivas](../class-tweakers/index#transitive-entries) para fazer mudanças visíveis aos mods dependendo do seu mod.
+Entradas de access widener podem ser [transitivas](./#transitive-entries) para fazer mudanças visíveis aos mods dependendo do seu mod.
 
 Para acessar campos ou métodos, pode ser mais seguro e simples usar [mixins](../mixins/accessors), mas existem duas situações onde accessadores são insuficientes e access wideners são necessários:
 
 - Se você precisa acessar uma classe `private`, `protected` ou package-private
 - Se você precisa sobrescrever um método `final` ou criar uma subclasse da classe `final`
 
-No entanto, ao contrário dos [acessores de mixin](https://wiki.fabricmc.net/tutorial:mixin_accessors), [modificadores de classe](../class-tweakers) apenas funcionam em classes do Minecraft Vanilla, e não em outros mods.
+No entanto, ao contrário dos [acessores de mixin](https://wiki.fabricmc.net/tutorial:mixin_accessors), [modificadores de classe](./) apenas funcionam em classes do Minecraft Vanilla, e não em outros mods.
 
 ## Access Directives {#access-directives}
 
@@ -52,7 +52,7 @@ Depois da palavra-chave vem os parâmetros, normalmente os alvos do widening.
 
 A mesma classe, método ou campo podem ser alvos de múltiplas entradas de access widening, uma em cada linha.
 
-Access directives também podem ser tornadas [transitivas](../class-tweakers/index#transitive-entries) ao adicionar o prefixo `transitive-` antes da base do access directive.
+Access directives também podem ser tornadas [transitivas](./#transitive-entries) ao adicionar o prefixo `transitive-` antes da base do access directive.
 
 ### Accessible {#accessible}
 
@@ -163,7 +163,7 @@ Para ver as suas mudanças aplicadas, você deve recarregar o seu projeto do Gra
 
 ::: tip
 
-Se as modificações não aparecem, você pode tentar [validar o arquivo](../class-tweakers/index#validating-the-file) e verificar se algum erro aparece.
+Se as modificações não aparecem, você pode tentar [validar o arquivo](./#validating-the-file) e verificar se algum erro aparece.
 
 :::
 

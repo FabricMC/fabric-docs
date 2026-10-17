@@ -21,7 +21,7 @@ authors:
 
 ## 类设置 {#class-setup}
 
-首先，创建代表注册表条目的类。它是一个简单的数据容器，用于保存每个魔法技能关联的值（如名称、魔力消耗等）。需要一个 [`Codec`](./codecs) 来对条目进行编码和解码。
+首先，创建代表注册表条目的类。它是一个简单的数据容器，用于保存每个魔法技能关联的值（如名称、魔力消耗等）。需要一个 [`Codec`](../serialization/codecs) 来对条目进行编码和解码。
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#main
 
@@ -41,7 +41,7 @@ authors:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#main
 
-从您的 [模组初始化类](./getting-started/project-structure#entrypoints) 中调用 `ExampleModRegistries.initialize()`。
+从您的 [模组初始化类](../getting-started/project-structure#entrypoints) 中调用 `ExampleModRegistries.initialize()`。
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModDynamicRegistries.java#main
 
@@ -69,7 +69,7 @@ authors:
 
 `DynamicRegistries.registerSynced()` 拥有一个重载，允许传入第二个用来在客户端进行解码的编解码器（Codec）。如果客户端不需要服务端完整条目中的所有字段，这将非常有用。
 
-在我们的示例中，客户端只需要 [`name` 和 `manaCost` 字段](#class-setup)，因此让我们创建一个不包含 `onUseMcFunction` 的 [`Codec`](./codecs)，并将该编解码器传递给 `registerSynced`：
+在我们的示例中，客户端只需要 [`name` 和 `manaCost` 字段](#class-setup)，因此让我们创建一个不包含 `onUseMcFunction` 的 [`Codec`](../serialization/codecs)，并将该编解码器传递给 `registerSynced`：
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#client_codec
 
@@ -145,7 +145,7 @@ JSON 文件用于创建注册表条目。 JSON 结构必须与 [`MagicSkillsRegi
 
 ![魔法技能屏幕示例](/assets/develop/dynamic_registry/magic_skills_screen.png)
 
-了解更多有关创建 [自定义屏幕](./rendering/gui/custom-screens) 和 [自定义控件](./rendering/gui/custom-widgets) 的内容。
+了解更多有关创建 [自定义屏幕](../rendering/gui/custom-screens) 和 [自定义控件](../rendering/gui/custom-widgets) 的内容。
 
 :::
 

@@ -20,4 +20,4 @@ features:
     linkText: Mulakan
 ---
 
-Jika anda ingin menyumbang kepada Dokumentasi Fabric, anda boleh mendapatkan kod sumber di [GitHub](https://github.com/FabricMC/fabric-docs), dan juga [garis panduan sumbangan](./contributing) yang berkaitan.
+Jika anda ingin menyumbang kepada Dokumentasi Fabric, anda boleh mendapatkan kod sumber di [GitHub](https://github.com/FabricMC/fabric-docs), dan juga [garis panduan sumbangan](./../contributing) yang berkaitan.

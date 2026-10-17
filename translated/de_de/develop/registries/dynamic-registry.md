@@ -21,7 +21,7 @@ Lasst uns eine dynamische Registry für ein magisches Fertigkeitensystem erstell
 
 ## Aufbau der Klasse {#class-setup}
 
-Erstelle zunächst die Klasse, die einen Eintrag in der Registry darstellt. Es ist ein einfacher Datenspeicher für Werte, die mit den einzelnen magischen Fähigkeiten verknüpft sind, wie Name, Manakosten usw. Es wird ein [`Codec`](./codecs) benötigt, um den Eintrag zu kodieren oder dekodieren.
+Erstelle zunächst die Klasse, die einen Eintrag in der Registry darstellt. Es ist ein einfacher Datenspeicher für Werte, die mit den einzelnen magischen Fähigkeiten verknüpft sind, wie Name, Manakosten usw. Es wird ein [`Codec`](../serialization/codecs) benötigt, um den Eintrag zu kodieren oder dekodieren.
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#main
 
@@ -41,7 +41,7 @@ Es wird empfohlen, die Registryschlüssel in einer allgemeinen Klasse zu deklari
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#main
 
-Rufe `ExampleModRegistries.initialize()` von deinem [Mod Initialisierer](./getting-started/project-structure#entrypoints) auf.
+Rufe `ExampleModRegistries.initialize()` von deinem [Mod Initialisierer](../getting-started/project-structure#entrypoints) auf.
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModDynamicRegistries.java#main
 
@@ -69,7 +69,7 @@ Die in den folgenden Methoden verwendeten Schlüssel werden über denselben Weg 
 
 `DynamicRegistries.registerSynced()` hat eine Überladung, die einen zweiten Codec für die clientseitige Dekodierung akzeptiert. Dies ist nützlich, wenn der Client nicht jedes Feld des vollständigen Server-Eintrags benötigt.
 
-In unserem Fall benötigen wir auf der Client-Seite nur die [Felder `name` und `manaCost`](#class-setup). Lasst uns also einen [`Codec`](./codecs) erstellen, der `onUseMcFunction` nicht enthält, und übergeben wir diesen Codec an `registerSynced`:
+In unserem Fall benötigen wir auf der Client-Seite nur die [Felder `name` und `manaCost`](#class-setup). Lasst uns also einen [`Codec`](../serialization/codecs) erstellen, der `onUseMcFunction` nicht enthält, und übergeben wir diesen Codec an `registerSynced`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#client_codec
 
@@ -146,7 +146,7 @@ Registryeinträge können für verschiedene Zwecke, wie beispielsweise das Ausf�
 
 ![Beispiel für die Oberfläche für magische Fähigkeiten](/assets/develop/dynamic_registry/magic_skills_screen.png)
 
-Lerne mehr über die Erstellung von [benutzerdefinierten Oberflächen](./rendering/gui/custom-screens) und [benutzerdefinierten Widgets](./rendering/gui/custom-widgets).
+Lerne mehr über die Erstellung von [benutzerdefinierten Oberflächen](../rendering/gui/custom-screens) und [benutzerdefinierten Widgets](../rendering/gui/custom-widgets).
 
 :::
 

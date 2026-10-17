@@ -31,10 +31,10 @@ authors:
   - YTG1234
 ---
 
-Die Zugriffserweiterung ist eine Art von [Klassenoptimierung](../class-tweakers), mit der die Zugriffsbeschränkungen von Klassen, Methoden und Feldern gelockert und diese Änderung im dekompilierten Quellcode widergespiegelt werden.
+Die Zugriffserweiterung ist eine Art von [Klassenoptimierung](./), mit der die Zugriffsbeschränkungen von Klassen, Methoden und Feldern gelockert und diese Änderung im dekompilierten Quellcode widergespiegelt werden.
 Dazu gehört, dass sie öffentlich, erweiterbar und/oder veränderbar sind.
 
-Einträge in Zugriffserweiterern können [transitiv](../class-tweakers/index#transitive-entries) sein, damit Änderungen auch für Mods sichtbar werden, die von deinem Mod abhängen.
+Einträge in Zugriffserweiterern können [transitiv](./#transitive-entries) sein, damit Änderungen auch für Mods sichtbar werden, die von deinem Mod abhängen.
 
 Um auf Felder oder Methoden zuzugreifen, ist es oft sicherer und einfacher, [Zugriffs-Mixins](../mixins/accessors) zu verwenden,
 doch gibt es zwei Situationen, in denen diese Art des Zugriffs nicht ausreicht und eine Zugriffserweiterung erforderlich ist:
@@ -42,7 +42,7 @@ doch gibt es zwei Situationen, in denen diese Art des Zugriffs nicht ausreicht u
 - Wenn du auf eine `private`, `protected` oder package-private Klasse zugreifen musst.
 - Wenn du eine `final`-Methode, eine Unterklasse oder eine `final`-Klasse überschreiben musst.
 
-Im Gegensatz zu [Zugriffs-Mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors) funktioniert die [Klassenoptimierung](../class-tweakers) jedoch nur bei den Standardklassen von Minecraft und nicht bei anderen Mods.
+Im Gegensatz zu [Zugriffs-Mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors) funktioniert die [Klassenoptimierung](./) jedoch nur bei den Standardklassen von Minecraft und nicht bei anderen Mods.
 
 ## Zugriffsrichtlinien {#access-directives}
 
@@ -122,7 +122,7 @@ Das manuelle Schreiben von Einträgen von Zurgriffserweiterern ist zeitaufwendig
 
 ### mcsrc.dev {#mcsrc-dev}
 
-Verfügbar für alle Versionen mit einer [unverschleierten JAR-Datei](../migrating-mappings/index#whats-going-on-with-mappings), nämlich 1.21.11 und höher,
+Verfügbar für alle Versionen mit einer [unverschleierten JAR-Datei](../porting/mappings/#whats-going-on-with-mappings), nämlich 1.21.11 und höher,
 [mcsrc](https://mcsrc.dev) ermöglicht es dir, den Minecraft-Quellcode im Browser zu dekompilieren und zu durchsuchen sowie Mixin-, Zugriffserweiterer- oder Zugriffstransformatoren-Ziele in die Zwischenablage zu kopieren.
 
 Um einen Zugriffserweiterer Eintrag zu kopieren, navigiere zunächst zu der Klasse, die du bearbeiten möchtest, und klicke mit der rechten Maustaste auf das gewünschte Ziel, um das Kontextmenü zu öffnen.
@@ -157,4 +157,4 @@ Du kannst dann den Eintrag in deine Klassenoptimierer Datei einfügen.
 ## Änderungen anwenden {#applying-changes}
 
 Damit deine Änderungen übernommen werden, musst du dein Gradle-Projekt aktualisieren und die [Quellen neu generieren](../getting-started/generating-sources). Die von dir ausgewählten Elemente sollten
-entsprechend deren Zugriffsbeschränkungen angepasst werden. Wenn die Änderungen nicht angezeigt werden, kannst du versuchen, [die Datei zu validieren](../class-tweakers/index#validating-the-file) und zu prüfen, ob irgendwelche Fehler auftreten.
+entsprechend deren Zugriffsbeschränkungen angepasst werden. Wenn die Änderungen nicht angezeigt werden, kannst du versuchen, [die Datei zu validieren](./#validating-the-file) und zu prüfen, ob irgendwelche Fehler auftreten.

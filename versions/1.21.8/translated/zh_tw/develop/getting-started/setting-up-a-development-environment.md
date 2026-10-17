@@ -24,7 +24,7 @@ authors-nogithub:
 
 要開發 Minecraft 1.21 的模組，你需要 JDK 21。
 
-如果你需要安裝 Java 的幫助，可以參考 [player guides section](../../players/index) 中的各種 Java 安裝指南。
+如果你需要安裝 Java 的幫助，可以參考 [player guides section](../../players/) 中的各種 Java 安裝指南。
 
 ## 安裝 IntelliJ IDEA {#installing-intellij-idea}
 

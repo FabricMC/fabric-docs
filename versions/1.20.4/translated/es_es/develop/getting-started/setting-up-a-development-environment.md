@@ -26,7 +26,7 @@ Para empezar a desarollar mods usando Fabric, necesitarás configurar un entorno
 
 Para desarrollar mods para Minecraft 1.20.4, necesitarás JDK 17.
 
-Si necesitas ayuda instalando Java, puedes ver nuestras guías sobre la instalación de Java en la [sección de guías para jugadores](../../players/index)
+Si necesitas ayuda instalando Java, puedes ver nuestras guías sobre la instalación de Java en la [sección de guías para jugadores](../../players/)
 
 ## Instalando IntelliJ IDEA
 

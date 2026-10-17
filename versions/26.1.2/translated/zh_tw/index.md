@@ -20,4 +20,4 @@ features:
     linkText: 開始使用
 ---
 
-如果你想為 Fabric 文件做出貢獻，你可以在 [GitHub](https://github.com/FabricMC/fabric-docs) 找到原始碼，以及相關的[貢獻指南](./contributing)。
+如果你想為 Fabric 文件做出貢獻，你可以在 [GitHub](https://github.com/FabricMC/fabric-docs) 找到原始碼，以及相關的[貢獻指南](./../contributing)。

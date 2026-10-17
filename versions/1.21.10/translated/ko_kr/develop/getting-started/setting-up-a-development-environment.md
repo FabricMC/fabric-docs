@@ -24,7 +24,7 @@ Fabric으로 모드를 개발하려면, 먼저 개발 환경을 설정해야 합
 
 Minecraft 1.21.4의 모드를 개발하려면, JDK(Java Development Kit, Java 개발 키트) 21이상이 필요합니다.
 
-Java 설치에 대한 자세한 방법은 [플레이어 설명서](../../players/index)를 참조하십시오.
+Java 설치에 대한 자세한 방법은 [플레이어 설명서](../../players/)를 참조하십시오.
 
 ## IntelliJ IDEA 설치 {#installing-intellij-idea}
 

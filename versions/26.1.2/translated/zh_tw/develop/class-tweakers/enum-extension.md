@@ -12,7 +12,7 @@ authors:
 
 列舉擴充是 Mixin 的一項功能，可可靠地向列舉新增條目。
 
-當目標是 Minecraft 列舉時，你可以將 Mixin 與[類別調整](../class-tweakers)搭配使用，讓新的列舉條目顯示在反編譯原始碼中。 如果將其設為[傳遞性](../class-tweakers/index#transitive-entries)，依賴你的模組的其他模組也會看到你新增的條目。
+當目標是 Minecraft 列舉時，你可以將 Mixin 與[類別調整](./)搭配使用，讓新的列舉條目顯示在反編譯原始碼中。 如果將其設為[傳遞性](./#transitive-entries)，依賴你的模組的其他模組也會看到你新增的條目。
 
 ::: warning
 
@@ -66,7 +66,7 @@ authors:
 
 如果你的目標是 Minecraft 列舉，可以使用類別調整器條目，在反編譯原始碼中明確修改目標列舉。
 
-若要選擇啟用此功能，請記得使用 Loom 1.16 或以上版本，並將[檔案標頭版本](../class-tweakers/index#file-format)設為 `v2`。
+若要選擇啟用此功能，請記得使用 Loom 1.16 或以上版本，並將[檔案標頭版本](./#file-format)設為 `v2`。
 
 列舉擴充條目的語法如下：
 
@@ -83,7 +83,7 @@ extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 ## 套用變更 {#applying-changes}
 
 你必須重新整理 Gradle 專案並[重新產生原始碼](../getting-started/generating-sources)，才能在反編譯原始碼中看到新增的列舉條目。
-若修改沒有出現，可以嘗試[驗證](../class-tweakers/index#validating-the-file)檔案，並檢查是否出現任何錯誤。
+若修改沒有出現，可以嘗試[驗證](./#validating-the-file)檔案，並檢查是否出現任何錯誤。
 
 ::: info
 
