@@ -1,10 +1,10 @@
-import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
+// @ts-expect-error
+import transclusionsPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
 import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json" with { type: "json" };
 import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json" with { type: "json" };
-import type { SiteConfig } from "vitepress";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
 import {
@@ -21,7 +21,7 @@ import { getBuildTransformHead, getClientTransformHead, pageToVersionsMap } from
 import { getLocaleConfig } from "./i18n.ts";
 
 // https://vitepress.dev/reference/site-config
-// https://www.npmjs.com/package/vitepress-versioning-plugin
+// https://npmx.dev/package/vitepress-versioning-plugin
 export default defineVersionedConfig(
   {
     buildEnd: (siteConfig) => {
@@ -35,7 +35,6 @@ export default defineVersionedConfig(
       );
     },
 
-    // Removes .html from the end of URLs.
     cleanUrls: true,
 
     // Set head tags on the client side
@@ -57,16 +56,13 @@ export default defineVersionedConfig(
       },
     ],
 
-    // Adds a "Last Updated" block to the footer of pages, uses git to determine the last time a page's file was modified.
     lastUpdated: true,
 
     locales: getLocaleConfig(),
 
     markdown: {
       config: (md) => {
-        // Use the snippet plugin for transclusions
-        md.use(snippetPlugin);
-        // Use the tabs plugin for... having tabs?
+        md.use(transclusionsPlugin);
         md.use(tabsMarkdownPlugin);
       },
       container: {
@@ -78,18 +74,20 @@ export default defineVersionedConfig(
           prerequisites: "PREREQUISITES",
         },
       },
+      footnote: false,
       gfmAlerts: false,
       image: { lazyLoad: true },
       languageAlias: { classtweaker: "text", gradle: "groovy" },
       languages: [
-        { ...(mcfunction as any), name: "mcfunction" },
         { ...(bytecode as any), name: "bytecode" },
+        { ...(mcfunction as any), name: "mcfunction" },
       ],
       lineNumbers: true,
       shikiSetup: async (shiki) => {
         await shiki.loadTheme("github-light", "github-dark");
       },
       snippet: { stripRegionMarkers: "all" },
+      toc: false,
     },
 
     rewrites: { "translated/:locale/(.*)": ":locale/(.*)" },
@@ -103,11 +101,10 @@ export default defineVersionedConfig(
           netlify: "https://fabric-docs.netlify.app/",
         }[ENV] || process.env.DEPLOY_PRIME_URL!,
       transformItems: (items) => {
-        const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
         const getFilePath = (url: string) => `${url.replace(/[/]$/, "/index")}.md`;
 
         return items.filter(
-          (i) => !config.rewrites.inv[getFilePath(i.url)]?.startsWith("versions/")
+          (i) => !VITEPRESS_CONFIG.rewrites.inv[getFilePath(i.url)]?.startsWith("versions/")
         );
       },
     },
@@ -126,7 +123,7 @@ export default defineVersionedConfig(
       search: {
         options: {
           _render: async (src, env, md) => {
-            src = transformFile(src, env.path).replace(/<Badge .*> (?={#h1})/, "");
+            src = transformFile(src, env.path);
             const html = await md.renderAsync(src, env);
 
             return env.frontmatter?.search === false ? "" : html;
@@ -140,7 +137,6 @@ export default defineVersionedConfig(
     // Set head tags at build time
     transformHead: getBuildTransformHead(),
 
-    // Versioning plugin configuration.
     versioning: {
       latestVersion: LATEST_VERSION,
       rewrites: { localePrefix: "translated" },
@@ -176,5 +172,5 @@ export default defineVersionedConfig(
       },
     },
   } as Config,
-  path.resolve(import.meta.dirname, "..")
+  path.join(AT, ".vitepress")
 );
