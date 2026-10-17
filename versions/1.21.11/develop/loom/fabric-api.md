@@ -18,7 +18,7 @@ Loom has a DSL to help configure certain aspects of Fabric API such as data gene
 
 For a step-by-step guide on how to use data generation, see the [Data Generation Setup](../data-generation/setup) page. The most basic data generation setup can be configured with the following code:
 
-```groovy
+```gradle
 fabricApi {
  configureDataGeneration()
 }
@@ -26,7 +26,7 @@ fabricApi {
 
 This will create a new run configuration that runs Fabric API with data generation enabled. A range of more advanced options can be configured as shown below:
 
-```groovy
+```gradle
 fabricApi {
  configureDataGeneration {
   // Contains the output directory where generated data files will be stored.
@@ -65,7 +65,7 @@ fabricApi {
 
 As with data generation, you can set up basic testing with the following:
 
-```groovy
+```gradle
 fabricApi {
  configureTests()
 }
@@ -73,7 +73,7 @@ fabricApi {
 
 This will create 2 new run configurations, one for the server side game tests and one for the client side game tests. A range of more advanced options can be configured as shown below:
 
-```groovy
+```gradle
 fabricApi {
  configureTests {
   // Contains a boolean indicating whether a new source set should be created for the tests.
