@@ -1,4 +1,4 @@
-import { DefaultTheme, UserConfig } from "vitepress";
+import { DefaultTheme, SiteData, UserConfig } from "vitepress";
 import { Versioned } from "vitepress-versioning-plugin";
 
 export namespace Fabric {
@@ -222,4 +222,12 @@ export namespace Fabric {
   }
 
   export type Config = UserConfig<ThemeConfig> & Versioned.Config;
+}
+
+declare global {
+  interface Window {
+    __FD_PAGE_VERSIONS__?: Record<string, string[]>;
+    __VP_HASH_MAP__?: Record<string, string>;
+    __VP_SITE_DATA__?: SiteData<Fabric.ThemeConfig>;
+  }
 }
