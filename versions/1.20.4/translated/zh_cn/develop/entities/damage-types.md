@@ -15,7 +15,7 @@ search: false
 
 让我们创建一种叫 _土豆_ 的伤害类型。 让我们创建一种叫 _土豆_ 的伤害类型。 我们先从为你的自定义伤害创建 JSON 文件开始。 这个文件将被放在你的模组的 `data` 目录下的 `damage_type` 子目录。 这个文件将被放在你的模组的 `data` 目录下的 `damage_type` 子目录。
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/data/example-mod/damage_type/tater.json
 ```
 
@@ -85,7 +85,7 @@ resources/data/example-mod/damage_type/tater.json
 
 为了把我们的伤害类型加入这些标签，我们需要在 `minecraft` 命名空间下创建一个 JSON 文件。
 
-```:no-line-numbers
+```text:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
 ```
 

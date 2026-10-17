@@ -13,7 +13,7 @@ Schadensarten definieren die Arten von Schaden, die Entitäten erleiden können.
 
 Lass uns eine benutzerdefinierte Schadensart mit dem Namen _Tater_ erstellen. Wir beginnen mit der Erstellung einer JSON-Datei für deinen benutzerdefinierten Schaden. Diese Datei wird im `data`-Verzeichnis deines Mods in einem Unterverzeichnis mit dem Namen `damage_type` abgelegt.
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/data/example-mod/damage_type/tater.json
 ```
 
@@ -83,7 +83,7 @@ Fügen wir unsere Tater-Schadensart dem Schadensart-Tag `bypasses_armor` hinzu.
 
 Um unsere Schadensart zu einem dieser Tags hinzuzufügen, erstellen wir eine JSON-Datei im Namespace `minecraft`.
 
-```:no-line-numbers
+```text:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
 ```
 

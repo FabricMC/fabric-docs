@@ -40,7 +40,7 @@ Puedes asignar un nombre a tu efecto de estado y proveer una textura de ícono p
 
 El ícono del efecto de estado es una imagen PNG de 18x18 pixeles. Coloca tu ícono personalizado en:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 

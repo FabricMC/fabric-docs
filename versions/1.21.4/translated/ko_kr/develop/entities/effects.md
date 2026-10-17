@@ -37,7 +37,7 @@ authors-nogithub:
 
 상태 효과의 아이콘은 18x18의 PNG 입니다. 사용자 정의 아이콘을 다음 폴더에 넣어 적용할 수 있습니다:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 

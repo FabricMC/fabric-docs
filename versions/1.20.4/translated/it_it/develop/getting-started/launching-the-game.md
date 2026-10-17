@@ -54,7 +54,7 @@ Dovrai copiare il "Percorso Assoluto" del jar per il prossimo passaggio.
 
 Nella tua configurazione di avvio "Client Minecraft " e/o "Server Minecraft", aggiungi ciò che segue all'opzione Argomenti VM:
 
-```:no-line-numbers
+```text:no-line-numbers
 -javaagent:"percorso al jar della libreria mixin qui"
 ```
 
