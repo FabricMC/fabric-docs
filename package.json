@@ -1,7 +1,6 @@
 {
   "name": "fabric-docs",
   "type": "module",
-  "packageManager": "pnpm@11.0.9",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
@@ -37,5 +36,17 @@
     "oxc-minify": "^0.82.3",
     "prettier": "^3.7.4",
     "tsx": "^4.20.6"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.14.0",
+      "onFail": "download"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "22.20.0",
+      "onFail": "warn"
+    }
   }
 }
