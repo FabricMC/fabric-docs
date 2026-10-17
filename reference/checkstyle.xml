@@ -165,5 +165,11 @@
         <module name="AtclauseOrder">
             <property name="tagOrder" value="@param,@return,@throws,@deprecated"/>
         </module>
+
+        <module name="IllegalType">
+            <property name="illegalClassNames" value="var"/>
+            <property name="tokens" value="VARIABLE_DEF"/>
+            <property name="id" value="IllegalTypeVarAsField"/>
+        </module>
     </module>
 </module>

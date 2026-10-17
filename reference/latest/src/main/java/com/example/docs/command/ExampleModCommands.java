@@ -4,6 +4,7 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.mojang.brigadier.tree.CommandNode;
 
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -11,9 +12,11 @@ import net.minecraft.commands.arguments.ResourceArgument;
 import net.minecraft.commands.synchronization.SingletonArgumentInfo;
 import net.minecraft.commands.synchronization.SuggestionProviders;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.permissions.Permissions;
+import net.minecraft.world.entity.EntityType;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
@@ -104,7 +107,7 @@ public class ExampleModCommands implements ModInitializer {
 
 	// #region execute_command_with_suggestions
 	private static int executeCommandWithSuggestions(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
-		var entityType = ResourceArgument.getSummonableEntityType(context, "entity");
+		Holder<EntityType<?>> entityType = ResourceArgument.getSummonableEntityType(context, "entity");
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_suggestions with entity = %s".formatted(entityType.value().toShortString())), false);
 		return 1;
 	}
@@ -171,7 +174,7 @@ public class ExampleModCommands implements ModInitializer {
 
 		// #region redirect_command
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
-			var redirectedBy = dispatcher.register(Commands.literal("redirected_by").executes(ExampleModCommands::executeRedirectedBy));
+			CommandNode<CommandSourceStack> redirectedBy = dispatcher.register(Commands.literal("redirected_by").executes(ExampleModCommands::executeRedirectedBy));
 			dispatcher.register(Commands.literal("to_redirect").executes(ExampleModCommands::executeRedirectedBy).redirect(redirectedBy));
 		});
 		// #endregion redirect_command

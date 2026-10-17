@@ -53,7 +53,7 @@ public class DynamicSoundManager implements SoundInstanceCallback {
 
 	// Finds a SoundInstance from a SoundEvent, if it exists and is currently playing
 	public Optional<AbstractDynamicSoundInstance> getPlayingSoundInstance(SoundEvent soundEvent) {
-		for (var activeSound : this.activeSounds) {
+		for (AbstractDynamicSoundInstance activeSound : this.activeSounds) {
 			// SoundInstances use their SoundEvent's id by default
 			if (activeSound.getIdentifier().equals(soundEvent.location())) {
 				return Optional.of(activeSound);
