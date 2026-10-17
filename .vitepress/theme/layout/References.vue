@@ -11,6 +11,7 @@ const options = computed(() => data.theme.value.references);
 const resources = computed(() =>
   Object.entries(data.frontmatter.value.resources || {}).map(([href, title]) => {
     const newHref = new URL(href, "https://a.com").href.replace("https://a.com", "");
+
     return [newHref, title || newHref] as [string, string];
   })
 );
@@ -29,6 +30,7 @@ const shortestUniquePaths = computed(() =>
         return current;
       }
     }
+
     return file;
   })
 );

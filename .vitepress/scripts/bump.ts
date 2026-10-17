@@ -11,6 +11,7 @@ const git = (...args: string[]) => {
     console.error(`Failed to run 'git ${args.join(" ")}'!\n  ${res.error}`);
     process.exit(1);
   }
+
   return res;
 };
 

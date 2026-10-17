@@ -25,9 +25,11 @@ const currentV = computed(() => {
   if (/^[0-9.]+$/.test(split[0])) {
     return split[0];
   }
+
   if (/^.._..$/.test(split[0]) && /^[0-9.]+$/.test(split[1])) {
     return split[1];
   }
+
   return props.versioningPlugin.latestVersion;
 });
 
