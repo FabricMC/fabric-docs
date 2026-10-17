@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import mediumZoom from "medium-zoom";
-import { inBrowser, useRouter } from "vitepress";
+import { useEventListener } from "@vueuse/core";
+import mediumZoom, { type Zoom } from "medium-zoom";
+import { inBrowser, onContentUpdated, useRouter } from "vitepress";
 import DefaultTheme from "vitepress/theme";
-import { nextTick, watch } from "vue";
+import { nextTick } from "vue";
 import Authors from "./layout/Authors.vue";
 import Banner from "./layout/Banner.vue";
 import FullscreenCode from "./layout/FullscreenCode.vue";
@@ -22,15 +23,24 @@ router.onAfterRouteChange = () => {
   oldScript.parentNode!.replaceChild(newScript, oldScript);
 };
 
-watch(
-  () => router.route.path,
-  () =>
-    nextTick(() => {
-      if (!inBrowser) return;
-      mediumZoom(".main img", { background: "var(--vp-c-bg)" });
-    }),
-  { immediate: true }
-);
+let zoom: Zoom;
+const attachZoom = () => {
+  if (!inBrowser) return;
+
+  zoom ||= mediumZoom({ background: "var(--vp-c-bg)" });
+  zoom.attach(".vp-doc img");
+};
+
+onContentUpdated(attachZoom);
+
+useEventListener("click", (event) => {
+  if (!(event.target instanceof HTMLElement)) return;
+
+  // TODO: reuse this for FabricMC/fabric-docs#663
+  if (event.target.closest(".plugin-tabs--tab")) {
+    nextTick(attachZoom);
+  }
+});
 </script>
 
 <template>
