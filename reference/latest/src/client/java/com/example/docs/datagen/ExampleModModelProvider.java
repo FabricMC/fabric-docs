@@ -111,9 +111,30 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		// #endregion generated
 
 		itemModelGenerator.generateFlatItem(ModItems.MINI_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
-		// #region handheld
+
+		// #region guidite_sword
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
+		// #endregion guidite_sword
+
+		// #region guidite_pickaxe
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		// #endregion guidite_pickaxe
+
+		// #region guidite_axe
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
-		// #endregion handheld
+		// #endregion guidite_axe
+
+		// #region guidite_spear
+		itemModelGenerator.generateSpear(ModItems.GUIDITE_SPEAR);
+		// #endregion guidite_spear
+
+		// #region guidite_hoe
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_HOE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		// #endregion guidite_hoe
+
+		// #region guidite_shovel
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SHOVEL, ModelTemplates.FLAT_HANDHELD_ITEM);
+		// #endregion guidite_shovel
 
 		// #region dyeable
 		itemModelGenerator.generateDyedItem(ModItems.LEATHER_GLOVES, 0xFFA06540);
@@ -174,10 +195,6 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		// #region custom_balloon
 		CustomItemModelGenerator.registerScaled2x(ModItems.BALLOON, itemModelGenerator);
 		// #endregion custom_balloon
-
-		// #region sword
-		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
-		// #endregion sword
 
 		// #region shield
 		// Paths to the vanilla shield and modded shield
