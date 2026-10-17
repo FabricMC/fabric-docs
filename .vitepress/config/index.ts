@@ -100,13 +100,6 @@ export default defineVersionedConfig(
       search: {
         options: {
           _render: async (src, env, md) => {
-            if (
-              env.relativePath.startsWith("translated/")
-              || env.relativePath.startsWith("versions/")
-            ) {
-              return "";
-            }
-
             src = transformFile(src, env.path).replace(/<Badge .*> (?={#h1})/, "");
             const html = await md.renderAsync(src, env);
 
