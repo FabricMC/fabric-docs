@@ -67,7 +67,7 @@ You can create your tool items by using the same classes and functions that we i
 
 == Sword
 
-The float parameters refer to the attack damage of the tool and its attack speed respectively.
+The float parameters refer to the attack damage and attack speed respectively.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 
@@ -83,7 +83,7 @@ The float parameters refer to the attack duration, damage multiplier, delay, dis
 
 == Pickaxe
 
-The float parameters refer to the attack damage of the tool and the attack speed of the tool respectively.
+The float parameters refer to the attack damage and attack speed respectively.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_pickaxe
 
@@ -93,7 +93,7 @@ The float parameters refer to the attack damage of the tool and the attack speed
 
 For axes, you should create an `AxeItem` instead of a generic `Item`. This implements axe-specific right-click actions, and calls the `axe` method of `Item.Properties` automatically.
 
-The float parameters refer to the attack damage of the tool and its attack speed respectively.
+The float parameters refer to the attack damage and attack speed respectively.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_axe
 
@@ -101,9 +101,9 @@ The float parameters refer to the attack damage of the tool and its attack speed
 
 == Shovel
 
-For axes, you should create an `ShovelItem` instead of a generic `Item`. This implements axe-specific right-click actions, and calls the `shovel` method of `Item.Properties` automatically.
+For shovels, you should create a `ShovelItem` instead of a generic `Item`. This implements shovel-specific right-click actions, and calls the `shovel` method of `Item.Properties` automatically.
 
-The float parameters refer to the attack damage of the tool and its attack speed respectively.
+The float parameters refer to the attack damage and attack speed respectively.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_shovel
 
@@ -111,9 +111,9 @@ The float parameters refer to the attack damage of the tool and its attack speed
 
 == Hoe
 
-For hoes, you should create an `HoeItem` instead of a generic `Item`. This implements axe-specific right-click actions, and calls the `hoe` method of `Item.Properties` automatically.
+For hoes, you should create a `HoeItem` instead of a generic `Item`. This implements hoe-specific right-click actions, and calls the `hoe` method of `Item.Properties` automatically.
 
-The float parameters refer to the attack damage of the tool and its attack speed respectively.
+The float parameters refer to the attack damage and attack speed respectively.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_hoe
 
@@ -137,7 +137,7 @@ You will also have to add a [texture](./first-item#adding-a-texture), [translati
 
 ::: info
 
-The models below are using data generation. For more information, see the documentation on [generating item models](../data-generation/item-models).
+The models below are created using data generation. For more information, see the documentation on [generating item models](../data-generation/item-models).
 
 :::
 
