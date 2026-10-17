@@ -1,5 +1,5 @@
 import { LATEST_VERSION } from "../constants.ts";
-import type { Fabric } from "../types.d.ts";
+import type { Config } from "../types.d.ts";
 
 type NewHeadContext = {
   latestVersion: string;
@@ -208,7 +208,7 @@ export const getClientTransformHead = () => {
 
 export const pageToVersionsMap = new Map<string, Set<string>>();
 
-export const getBuildTransformHead = (): Fabric.Config["transformHead"] => (context) => {
+export const getBuildTransformHead = (): Config["transformHead"] => (context) => {
   if (!/(^|[/])translated[/]/.test(context.pageData.filePath)) {
     const version = (context.pageData.frontmatter.version as string) ?? LATEST_VERSION;
     const purePath = (context.pageData.frontmatter.purePath as string) ?? "404";

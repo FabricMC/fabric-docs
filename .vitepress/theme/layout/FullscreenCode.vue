@@ -3,11 +3,11 @@ import { usePreferredReducedMotion } from "@vueuse/core";
 import { onContentUpdated, useData } from "vitepress";
 import { VPIcon } from "vitepress/theme";
 import { computed, nextTick, onUnmounted, ref } from "vue";
-import type { Fabric } from "../../types.d.ts";
+import type { ThemeConfig } from "../../types.d.ts";
 import { useIconSpan } from "../composables/iconSpan.ts";
 
 const prefersReducedMotion = usePreferredReducedMotion();
-const data = useData<Fabric.ThemeConfig>();
+const data = useData<ThemeConfig>();
 const markdown = computed(() => data.site.value.locales[data.localeIndex.value].markdown!);
 
 const options = computed(() => data.theme.value.code);

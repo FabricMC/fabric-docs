@@ -3,10 +3,10 @@ import { useElementSize } from "@vueuse/core";
 import { useData } from "vitepress";
 import { VPLink } from "vitepress/theme";
 import { computed, onMounted, ref, watchEffect } from "vue";
-import type { Fabric } from "../../types.d.ts";
+import type { ThemeConfig } from "../../types.d.ts";
 import { useRem } from "../composables/rem.ts";
 
-const data = useData<Fabric.ThemeConfig>();
+const data = useData<ThemeConfig>();
 const banner = ref<HTMLDivElement>();
 const { height } = useElementSize(banner);
 const rem = useRem();
