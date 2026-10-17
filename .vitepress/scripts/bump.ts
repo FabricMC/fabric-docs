@@ -1,9 +1,9 @@
 import * as childProcess from "node:child_process";
 import * as fs from "node:fs";
-import * as path from "node:path";
 import * as process from "node:process";
 import * as tinyglobby from "tinyglobby";
 import { getLocaleNames, getSidebar } from "../config/i18n.ts";
+import { AT, VERSION_RE } from "../constants.ts";
 
 const git = (...args: string[]) => {
   const res = childProcess.spawnSync("git", args, { encoding: "utf8" });
@@ -14,7 +14,7 @@ const git = (...args: string[]) => {
   return res;
 };
 
-process.chdir(path.resolve(import.meta.dirname, "..", ".."));
+process.chdir(AT);
 
 if (git("status", "--porcelain").stdout.toString().trim().length > 0) {
   console.error("Working directory must be clean!");
@@ -34,7 +34,7 @@ if (!newVersion) {
 } else if (newVersion === oldVersion || fs.existsSync(`./reference/${newVersion}`)) {
   console.error(`'Minecraft ${newVersion}' already exists!`);
   process.exit(1);
-} else if (!/^[0-9]+[.][0-9]+([.][0-9]+)?$/.test(newVersion)) {
+} else if (!VERSION_RE.test(newVersion)) {
   console.error(`'${newVersion}' does not look like a stable Minecraft version!`);
   process.exit(1);
 }

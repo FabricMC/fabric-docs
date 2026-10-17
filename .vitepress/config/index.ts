@@ -1,5 +1,4 @@
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
-import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
 import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json" with { type: "json" };
@@ -7,34 +6,18 @@ import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json" with { typ
 import type { SiteConfig } from "vitepress";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
+import { ENV, LATEST_VERSION } from "../constants.ts";
 import { transformFile, transformFilesPlugin } from "../plugins/transformFiles.ts";
 import type { Fabric } from "../types.d.ts";
 import { getBuildTransformHead, getClientTransformHead } from "./head.ts";
 import { getLocales } from "./i18n.ts";
 
-const latestVersion = fs
-  .readFileSync(
-    path.resolve(import.meta.dirname, "..", "..", "reference", "latest", "build.gradle"),
-    "utf-8"
-  )
-  .match(/def minecraftVersion = "([^"]+)"/)![1];
-
-// https://docs.github.com/en/actions/reference/workflows-and-actions/variables#default-environment-variables
-// https://docs.netlify.com/build/configure-builds/environment-variables/#read-only-variables
-const env = process.env.GITHUB_ACTIONS
-  ? "github"
-  : process.env.NETLIFY
-    ? Number(process.env.REVIEW_ID)
-    : process.env.NODE_ENV === "production"
-      ? "build"
-      : "dev";
-
 const hostname =
-  env === "github"
+  ENV === "github"
     ? "https://docs.fabricmc.net/"
-    : env === "build"
+    : ENV === "build"
       ? "http://fabric-docs.localhost:4173/"
-      : env === "dev"
+      : ENV === "dev"
         ? "http://fabric-docs.localhost:5173/"
         : `${process.env.DEPLOY_PRIME_URL!}/`;
 
@@ -46,7 +29,7 @@ export default defineVersionedConfig(
     cleanUrls: true,
 
     // Set head tags on the client side
-    head: [["script", { "data-gen": "" }, getClientTransformHead(latestVersion)]],
+    head: [["script", { "data-gen": "" }, getClientTransformHead()]],
 
     // Ignore dead links under translated/. Allows builds with incomplete translations
     ignoreDeadLinks: [
@@ -101,11 +84,11 @@ export default defineVersionedConfig(
       "versions/1.21.10",
       "versions/1.21.8",
       "versions/1.21.4",
-      ...(typeof env === "number" ? ["versions"] : []),
+      ...(typeof ENV === "number" ? ["versions"] : []),
     ],
 
     themeConfig: {
-      env,
+      env: ENV,
       externalLinkIcon: true,
       logo: "/logo.png",
       outline: { level: "deep" },
@@ -116,21 +99,18 @@ export default defineVersionedConfig(
             || env.relativePath.startsWith("translated/")
             || env.relativePath.startsWith("versions/")
               ? ""
-              : md.render(
-                  transformFile(src, env.path, latestVersion).replace(/<Badge .*> (?={#h1})/, ""),
-                  env
-                ),
+              : md.render(transformFile(src, env.path).replace(/<Badge .*> (?={#h1})/, ""), env),
         },
         provider: "local",
       },
     },
 
     // Set head tags at build time
-    transformHead: getBuildTransformHead(latestVersion),
+    transformHead: getBuildTransformHead(),
 
     // Versioning plugin configuration.
     versioning: {
-      latestVersion,
+      latestVersion: LATEST_VERSION,
       rewrites: { localePrefix: "translated" },
       sidebars: {
         sidebarContentProcessor: (s) =>
@@ -150,7 +130,7 @@ export default defineVersionedConfig(
     },
 
     vite: {
-      plugins: [transformFilesPlugin(latestVersion)],
+      plugins: [transformFilesPlugin()],
     },
 
     vue: {
