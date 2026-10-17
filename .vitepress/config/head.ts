@@ -1,3 +1,4 @@
+import type { HeadConfig } from "vitepress";
 import { LATEST_VERSION } from "../constants.ts";
 import type { Config } from "../types.d.ts";
 
@@ -15,7 +16,7 @@ type NewHeadContext = {
   siteName: string;
 };
 
-const _getNewHead = (context: NewHeadContext): string | [string, Record<string, string>][] => {
+const _getNewHead = (context: NewHeadContext): string | HeadConfig[] => {
   const versionRedirects: Record<string, string> = {
     "26.2.0": "26.2.0",
 
@@ -97,7 +98,7 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     .replace(/((?<=^|[/])index)?[.](html|md)$/, "");
 
   const split = oldPath.toLowerCase().replaceAll(/[/]+/g, "/").split("/");
-  const localeIndex = /^..[_-]..$/.test(split[0])
+  const localePrefix = /^..[_-]..$/.test(split[0])
     ? `/${split.shift()}/`.replace("/en_us/", "/")
     : "/";
 
@@ -107,7 +108,7 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     || (/^[0-9]+[.][0-9]+([.][0-9]+)?$/.test(split[0]) ? "" : split[0])
   ).replace(/[.]0$/, "");
   if (!split[0] || split[0] === context.latestVersion) {
-    split.shift();
+    split.splice(0, 1);
   }
 
   const seenPaths = new Set([split.join("/")]);
@@ -124,17 +125,17 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     return nextPath;
   }, split.join("/"));
 
-  if (localeIndex.includes("-") || `/${oldPath}` !== `${localeIndex}${newPath}`) {
+  if (localePrefix.includes("-") || `/${oldPath}` !== `${localePrefix}${newPath}`) {
     if (context.isNotFound) {
-      return `${localeIndex.replace("-", "_")}${newPath}${context.search}${context.hash}`;
+      return `${localePrefix.replace("-", "_")}${newPath}${context.search}${context.hash}`;
     }
 
-    console.warn(`${oldPath}: unexpected redirection to '${localeIndex.slice(1)}${newPath}'`);
+    console.warn(`${oldPath}: unexpected redirection to '${localePrefix.slice(1)}${newPath}'`);
   }
 
-  const href = `${context.origin}${localeIndex}${newPath}`;
+  const href = `${context.origin}${localePrefix}${newPath}`;
   const ogLocale =
-    localeIndex.replaceAll("/", "").replace(/..$/, (m) => m.toUpperCase()) || "en_US";
+    localePrefix.replaceAll("/", "").replace(/..$/, (m) => m.toUpperCase()) || "en_US";
 
   const returned: [string, Record<string, string>][] = [
     ["meta", { name: "theme-color", content: "#2275da" }],
@@ -222,7 +223,7 @@ export const getBuildTransformHead = (): Config["transformHead"] => (context) =>
   const returned = _getNewHead({
     latestVersion: LATEST_VERSION,
     pathname: context.pageData.relativePath,
-    origin: context.siteConfig.sitemap!.hostname,
+    origin: context.siteConfig.sitemap!.hostname.replace(/[/]$/, ""),
     hash: "",
     search: "",
     description: context.pageData.description,
