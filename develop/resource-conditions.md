@@ -93,7 +93,7 @@ Succeeds if the registry contains all of the identifiers in `values`. For exampl
 
 ::: info PREREQUISITES
 
-You must first understand [how to create a codec](./codecs) before setting a custom resource condition.
+You must first understand [how to create a codec](./serialization/codecs) before setting a custom resource condition.
 
 :::
 
@@ -103,7 +103,7 @@ To demonstrate this, we'll create a condition that checks the current date. This
 
 ### Preparing Your Condition {#preparing-your-condition}
 
-For simplicity, we'll be creating a helper method that instantiates your resource condition from a name and a [`MapCodec`](./codecs#mapcodec). You should put this method in a class called `ModResourceConditions` (or whatever you want to name it).
+For simplicity, we'll be creating a helper method that instantiates your resource condition from a name and a [`MapCodec`](./serialization/codecs#mapcodec). You should put this method in a class called `ModResourceConditions` (or whatever you want to name it).
 
 ::: tip
 

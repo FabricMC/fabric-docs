@@ -11,7 +11,7 @@ authors:
 Mixins are typically used to modify existing code to produce and tweak behavior. However, Mixin also provides tools for
 accessing inaccessible fields and methods in the form of accessor mixins.
 
-[Class tweakers](../class-tweakers) provides a similar tool in the form of [access wideners](../class-tweakers/access-widening), but
+[Class tweakers](../class-tweakers/) provides a similar tool in the form of [access wideners](../class-tweakers/access-widening), but
 Mixin's accessors do not require reloading Gradle, and can be applied to non-Minecraft targets.
 
 Access widening is still necessary to override final methods or subclass final classes,

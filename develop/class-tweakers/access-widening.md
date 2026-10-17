@@ -32,10 +32,10 @@ authors:
   - YTG1234
 ---
 
-Access widening is a type of [class tweaking](../class-tweakers) used to loosen the access limits of classes, methods and fields and reflect that change in the decompiled source.
+Access widening is a type of [class tweaking](./) used to loosen the access limits of classes, methods and fields and reflect that change in the decompiled source.
 This includes making them public, extendable and/or mutable.
 
-Access widener entries can be [transitive](../class-tweakers/index#transitive-entries) to make changes visible to mods depending on yours.
+Access widener entries can be [transitive](./#transitive-entries) to make changes visible to mods depending on yours.
 
 To access fields or methods, it can be safer and simpler to use [accessor mixins](../mixins/accessors),
 but there are two situations where accessors are insufficient and access widening is necessary:
@@ -43,7 +43,7 @@ but there are two situations where accessors are insufficient and access widenin
 - If you need to access a `private`, `protected` or package-private class
 - If you need to override a `final` method, or subclass a `final` class
 
-However, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors), [class tweaking](../class-tweakers) only works on Vanilla Minecraft classes, and not on other mods.
+However, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors), [class tweaking](./) only works on Vanilla Minecraft classes, and not on other mods.
 
 ## Access Directives {#access-directives}
 
@@ -53,7 +53,7 @@ After the keyword come the parameters, usually the targets of the widening.
 
 The same class, method, or field, can be targeted by multiple access widening entries, one on each line.
 
-Access directives can also be made [transitive](../class-tweakers/index#transitive-entries) by adding the `transitive-` prefix before the base access directive.
+Access directives can also be made [transitive](./#transitive-entries) by adding the `transitive-` prefix before the base access directive.
 
 ### Accessible {#accessible}
 
@@ -166,7 +166,7 @@ modifications.
 
 ::: tip
 
-If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file) and checking if any errors appear.
+If modifications do not appear, you can try [validating the file](./#validating-the-file) and checking if any errors appear.
 
 :::
 

@@ -51,7 +51,7 @@ Now, it's time to write your actual test code. You can assert conditions using `
 
 <<< @/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java#automatic_testing_4
 
-For an explanation of what this code actually does, see [Codecs](./codecs#registry-dispatch).
+For an explanation of what this code actually does, see [Codecs](./serialization/codecs#registry-dispatch).
 
 #### Setting Up Registries {#setting-up-registries}
 

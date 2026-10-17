@@ -21,7 +21,7 @@ Let's create a dynamic registry for a magic skill system.
 
 ## Class Setup {#class-setup}
 
-First, create the class that represents a registry entry. It is a simple data holder for values tied to each magic skill like name, mana cost, etc. A [`Codec`](./codecs) is required to encode and decode the entry.
+First, create the class that represents a registry entry. It is a simple data holder for values tied to each magic skill like name, mana cost, etc. A [`Codec`](../serialization/codecs) is required to encode and decode the entry.
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#main
 
@@ -41,7 +41,7 @@ Declaring the registry keys in a common class is recommended because it will mak
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#main
 
-Call `ExampleModRegistries.initialize()` from your [mod's initializer](./getting-started/project-structure#entrypoints).
+Call `ExampleModRegistries.initialize()` from your [mod's initializer](../getting-started/project-structure#entrypoints).
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModDynamicRegistries.java#main
 
@@ -69,7 +69,7 @@ The keys used in the following methods are made the same way we made the [`MAGIC
 
 `DynamicRegistries.registerSynced()` has an overload that accepts a second codec for client-side decoding. This is useful if the client does not need every field from the full server entry.
 
-In our case, we only need the [`name` and `manaCost` fields](#class-setup) on the client side, so let's create a [`Codec`](./codecs) that doesn't include `onUseMcFunction`, and pass that codec to `registerSynced`:
+In our case, we only need the [`name` and `manaCost` fields](#class-setup) on the client side, so let's create a [`Codec`](../serialization/codecs) that doesn't include `onUseMcFunction`, and pass that codec to `registerSynced`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#client_codec
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#double_codec
@@ -145,7 +145,7 @@ Registry entries can be iterated over for various purposes like UI population. I
 
 ![Magic Skills Screen Example](/assets/develop/dynamic_registry/magic_skills_screen.png)
 
-Learn more about creating [Custom Screens](./rendering/gui/custom-screens) and [Custom Widgets](./rendering/gui/custom-widgets).
+Learn more about creating [Custom Screens](../rendering/gui/custom-screens) and [Custom Widgets](../rendering/gui/custom-widgets).
 
 :::
 
