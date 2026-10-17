@@ -2,8 +2,8 @@
 title: Custom Data Components
 description: Learn how to add custom data to your items using the new 1.20.5 component system.
 authors:
-  - Romejanic
   - ekulxam
+  - Romejanic
 resources:
   https://minecraft.wiki/w/Data_component_format#List_of_components: List of vanilla components - Minecraft Wiki
 ---

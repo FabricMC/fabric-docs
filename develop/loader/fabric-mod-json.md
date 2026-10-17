@@ -5,8 +5,8 @@ authors:
   - cassiancc
   - Deximus-Maximus
   - falseresync
-  - jamieswhiteshirt
   - IMB11
+  - jamieswhiteshirt
   - SolidBlock-cn
 authors-nogithub:
   - skyland1a

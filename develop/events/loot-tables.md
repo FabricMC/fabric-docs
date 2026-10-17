@@ -2,9 +2,9 @@
 title: Loot Table Modifications
 description: A guide for modifying loot tables using events provided by the Fabric API.
 authors:
-  - NotNightSky
-  - its-miroma
   - cassiancc
+  - its-miroma
+  - NotNightSky
 ---
 
 The loot table system determines what items are dropped when a block is broken, an entity is killed, or a chest is opened. Fabric API gives you several ways to modify, replace, and post-process loot tables during loading, and to adjust the final drops at runtime.

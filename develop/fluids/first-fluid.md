@@ -17,8 +17,8 @@ authors:
   - MaxURhino
   - SolidBlock-cn
   - SuperSoupr
-  - Virtuoel
   - UpcraftLP
+  - Virtuoel
 authors-nogithub:
   - alfiejfs
   - salvopelux

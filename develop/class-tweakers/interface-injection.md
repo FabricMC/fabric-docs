@@ -4,8 +4,8 @@ description: Learn how to implement interfaces on Minecraft classes in the decom
 authors-nogithub:
   - salvopelux
 authors:
-  - Daomephsta
   - CelDaemon
+  - Daomephsta
   - Earthcomputer
   - its-miroma
   - Juuxel

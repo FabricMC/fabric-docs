@@ -2,8 +2,8 @@
 title: Custom Fuel
 description: Learn how to create your own fuel items.
 authors:
-  - NotNightSky
   - its-miroma
+  - NotNightSky
 ---
 
 Fuels are the items that can be used in a furnace to smelt ores and cook food. Let's see how we can create our own custom fuel.

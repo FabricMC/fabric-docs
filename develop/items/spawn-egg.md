@@ -2,10 +2,10 @@
 title: Spawn Eggs
 description: Learn how to register a spawn egg item.
 authors:
-  - Earthcomputer
-  - JaaiDead
   - cassiancc
+  - Earthcomputer
   - Fellteros
+  - JaaiDead
   - skycatminepokie
   - VatinMc
   - voidedaries
