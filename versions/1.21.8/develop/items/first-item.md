@@ -99,7 +99,7 @@ For your item to have a proper appearance, it requires:
 ### Adding a Texture {#adding-a-texture}
 
 :::info
-For more information on this topic, see the [Item Models](item-models) page.
+For more information on this topic, see the [Item Models](./item-models) page.
 :::
 
 To give your item a texture and model, simply create a 16x16 texture image for your item and save it in the `assets/mod-id/textures/item` folder. Name the texture file the same as the item's identifier, but with a `.png` extension.

@@ -13,7 +13,7 @@ Armor provides the player with increased defense against attacks from mobs and o
 
 Just like items and blocks, armor materials need to be registered. We will create a `ModArmorMaterials` class to store our custom armor materials for the sake of organization.
 
-You will need to add a static `initialize()` method to this class, and call it from your [mod's initializer](./getting-started/project-structure#entrypoints) so that the materials are registered.
+You will need to add a static `initialize()` method to this class, and call it from your [mod's initializer](../getting-started/project-structure#entrypoints) so that the materials are registered.
 
 ```java
 // Within the ModArmorMaterials class

@@ -11,4 +11,4 @@ Check out the sidebar for a list of all available guides. If you're searching fo
 
 Remember: a fully-working mod with all the code for this documentation is available in the [`/reference` folder on GitHub](https://github.com/FabricMC/fabric-docs/tree/main/reference/1.21.1).
 
-If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines](../contributing).
+If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines](../../contributing).

@@ -16,7 +16,7 @@ Loom has a DSL to help configure certain aspects of Fabric API such as data gene
 
 ## Data Generation {#data-gen}
 
-For a step-by-step guide on how to use data generation, see the [Data Generation Setup](data-generation/setup) page. The most basic data generation setup can be configured with the following code:
+For a step-by-step guide on how to use data generation, see the [Data Generation Setup](../data-generation/setup) page. The most basic data generation setup can be configured with the following code:
 
 ```groovy
 fabricApi {
