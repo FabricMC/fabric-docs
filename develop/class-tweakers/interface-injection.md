@@ -14,12 +14,12 @@ authors:
   - SolidBlock-cn
 ---
 
-Interface injection is a type of [class tweaking](../class-tweakers/) used to add interface implementations on Minecraft classes
+Interface injection is a type of [class tweaking](./) used to add interface implementations on Minecraft classes
 in the decompiled source.
 
 The implementation being visible in the class's decompiled source removes the need to cast to the interface to use its methods.
 
-Additionally, interface injections can be [transitive](../class-tweakers/index#transitive-entries), allowing libraries to more easily
+Additionally, interface injections can be [transitive](./#transitive-entries), allowing libraries to more easily
 expose their added methods to mods that depend on them.
 
 To showcase interface injection, this page's snippets will use an example where we add a new helper method to `FlowingFluid`.
@@ -108,7 +108,7 @@ Make sure to reopen any targeted class from the decompiled source in order to se
 
 ::: tip
 
-If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file) and checking if any errors appear.
+If modifications do not appear, you can try [validating the file](./#validating-the-file) and checking if any errors appear.
 
 :::
 
