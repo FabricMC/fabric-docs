@@ -13,28 +13,38 @@ defineProps<{
 </script>
 
 <template>
-  <div :style="{ '--grid-columns': Math.min(choices.length, 3) }">
-    <VPLink v-for="(c, key) in choices" :href="c.href" :style="{ '--color': c.color }" :key>
-      <VPIcon v-if="c.icon" :icon="c.icon" />
-      {{ c.name }}
-    </VPLink>
-  </div>
+  <ul :style="{ '--grid-columns': Math.min(choices.length, 3) }">
+    <li v-for="(c, key) of choices" :key>
+      <VPLink :href="c.href" :style="{ '--color': c.color }">
+        <VPIcon v-if="c.icon" :icon="c.icon" />
+        {{ c.name }}
+      </VPLink>
+    </li>
+  </ul>
 </template>
 
 <style scoped>
-div {
+ul {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(var(--grid-columns), 1fr);
+  padding: 0;
+  list-style: none;
 }
 
 @media (max-width: 768px) {
-  div {
+  ul {
     grid-template-columns: 1fr;
   }
 }
 
+li + li {
+  margin-top: revert;
+}
+
 .VPLink {
+  width: 100%;
+  height: 100%;
   align-items: center;
   background-color: var(--vp-c-bg-soft);
   border-radius: 10px;

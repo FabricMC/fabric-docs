@@ -33,21 +33,21 @@ const getImageSrc = (author: Author) =>
 </script>
 
 <template>
-  <h2 v-if="authors.length">{{ options.heading }}</h2>
-  <div>
-    <VPLink
-      v-for="author in authors"
-      :key="author.noGitHub ? `${author.name}!` : author.name"
-      :href="author.noGitHub ? undefined : `https://github.com/${author.name}`"
-    >
-      <img
-        :title="author.noGitHub ? options.noGitHub.replace('%s', author.name) : author.name"
-        :src="getImageSrc(author)"
-        :alt="author.name"
-        loading="lazy"
-      />
-    </VPLink>
-  </div>
+  <template v-if="authors.length">
+    <h2>{{ options.heading }}</h2>
+    <ul>
+      <li v-for="author in authors" :key="author.noGitHub ? `${author.name}!` : author.name">
+        <VPLink :href="author.noGitHub ? undefined : `https://github.com/${author.name}`">
+          <img
+            :title="author.noGitHub ? options.noGitHub.replace('%s', author.name) : author.name"
+            :src="getImageSrc(author)"
+            :alt="author.name"
+            loading="lazy"
+          />
+        </VPLink>
+      </li>
+    </ul>
+  </template>
 </template>
 
 <style scoped>
@@ -62,7 +62,7 @@ h2 {
   text-transform: uppercase;
 }
 
-div {
+ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -90,13 +90,13 @@ div {
     display: none;
   }
 
-  div {
+  ul {
     margin-bottom: 16px;
   }
 }
 
 @media (min-width: 1280px) {
-  .content-container > div {
+  .content-container > ul {
     display: none;
   }
 }

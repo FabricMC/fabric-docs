@@ -53,21 +53,33 @@ const getFileExtension = (path: string) =>
 </script>
 
 <template>
-  <h2 v-if="resources.length">{{ options.resources }}</h2>
-  <VPLink v-for="[href, title] in resources" :key="href" :href>
-    <img :src="getImageSrc(href)" alt="" width="16" height="16" />
-    <span>{{ title }}</span>
-  </VPLink>
+  <template v-if="resources.length">
+    <h2>{{ options.resources }}</h2>
+    <ul>
+      <li v-for="[href, title] of resources" :key="href">
+        <VPLink :href>
+          <img :src="getImageSrc(href)" alt="" width="16" height="16" />
+          <span>{{ title }}</span>
+        </VPLink>
+      </li>
+    </ul>
+  </template>
 
-  <h2 v-if="files.length">{{ options.files }}</h2>
-  <VPLink v-for="(f, i) in files" :key="f" :href="getFileHref(f)" :title="getFileTitle(f)" noIcon>
-    <VPIcon :icon="`material-icon-theme:${getFileExtension(f)}`" />
-    <code>
-      <template v-for="(seg, j) in shortestUniquePaths[i].split('/')" :key="j">
-        <template v-if="j !== 0">/<wbr /></template>{{ seg }}
-      </template>
-    </code>
-  </VPLink>
+  <template v-if="files.length">
+    <h2>{{ options.files }}</h2>
+    <ul>
+      <li v-for="(f, i) of files" :key="f">
+        <VPLink :href="getFileHref(f)" :title="getFileTitle(f)" noIcon>
+          <VPIcon :icon="`material-icon-theme:${getFileExtension(f)}`" />
+          <code>
+            <template v-for="(seg, j) of shortestUniquePaths[i].split('/')" :key="j">
+              <template v-if="j !== 0">/<wbr /></template>{{ seg }}
+            </template>
+          </code>
+        </VPLink>
+      </li>
+    </ul>
+  </template>
 
   <div />
 </template>
@@ -86,11 +98,14 @@ h2 {
   text-transform: uppercase;
 }
 
+li {
+  margin-bottom: 4px;
+}
+
 .VPLink {
   display: flex;
   align-items: flex-start;
   line-height: 1.5;
-  margin-bottom: 4px;
   gap: 0.3em;
   transition: color 0.15s;
   font-size: 12px;
@@ -112,7 +127,7 @@ img {
 
 @media (min-width: 1280px) {
   .VPDocFooter > h2,
-  .VPDocFooter > .VPLink {
+  .VPDocFooter > ul {
     display: none;
   }
 }
