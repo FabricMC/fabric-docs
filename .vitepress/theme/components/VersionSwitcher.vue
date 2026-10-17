@@ -1,183 +1,145 @@
 <script setup lang="ts">
-import { useData } from "vitepress";
-import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
-import { VPIcon, VPLink } from "vitepress/theme";
-import { computed, ref } from "vue";
+import { useMounted } from "@vueuse/core";
+import { type DefaultTheme, useData, useRoute } from "vitepress";
+import VPNavMenuGroup from "vitepress/dist/client/theme-default/components/VPNavMenuGroup.vue";
+import { computed } from "vue";
 import type { Fabric } from "../../types.d.ts";
 import { useIconSpan } from "../composables/iconSpan.ts";
 
 const props = defineProps<{
-  versioningPlugin: { versions: string[]; latestVersion: string };
+  h1?: boolean;
   screenMenu?: boolean;
 }>();
 
 const data = useData<Fabric.ThemeConfig>();
+const route = useRoute();
+const mounted = useMounted();
+const icon = useIconSpan("material-icon-theme:minecraft");
 const collator = new Intl.Collator(undefined, { numeric: true });
 
-const env = computed(() => data.theme.value.env);
-const options = computed(() => data.theme.value.version.switcher);
-const currentV = computed(() => {
+const options = computed(() => data.theme.value.version);
+
+const segments = computed(() => {
   if (data.frontmatter.value.version) {
-    return data.frontmatter.value.version as string;
+    return data.frontmatter.value as { version: string; purePath: string };
   }
 
-  const split = data.page.value.relativePath.split("/");
-  if (/^[0-9.]+$/.test(split[0])) {
-    return split[0];
+  const split = route.path.split("/").filter(Boolean);
+  if (split[0] === data.localeIndex.value) {
+    split.splice(0, 1);
   }
 
-  if (/^.._..$/.test(split[0]) && /^[0-9.]+$/.test(split[1])) {
-    return split[1];
-  }
+  const version = /^[0-9]+[.][0-9]+([.][0-9]+)?$/.test(split[0])
+    ? split.shift()!
+    : options.value.latestVersion;
 
-  return props.versioningPlugin.latestVersion;
+  const purePath = split.join("/");
+
+  return { version, purePath };
 });
 
-const icon = useIconSpan("lucide:git-graph");
-const button = computed(
-  () => `<span style="display:flex;align-items:center;gap:4px">${icon} ${currentV.value}</span>`
-);
-
-// TODO: add future versions to the supported pages
 const versions = computed(() =>
-  [
-    props.versioningPlugin.latestVersion,
-    ...(typeof env.value === "number"
-      ? []
-      : props.versioningPlugin.versions.toSorted(collator.compare).reverse()),
-  ].filter((v) => !["1.21.10", "1.21.8", "1.21.4"].includes(v))
+  (
+    (mounted.value && window.__FD_PAGE_VERSIONS__?.[segments.value.purePath])
+    || options.value.allVersions
+  )
+    .map((v) => v || options.value.latestVersion)
+    .toSorted(collator.compare)
+    .toReversed()
 );
 
-const open = ref(false);
-
-/*
-file format:   [[versions/]version/] [translated/locale/] path/to/index.md
-route format:  [locale/] [version/] path/to/
-
-- notice that version and locale are flipped between file and route
-- in the file path, [versions/] isn't added if the version is unreleased
-- [locale/] is not added for pages in English
-- [version/] is not added for the latest version
+/**
+route format: `/[locale/][version/]path/to/[file-name]`
+- `[locale/]` is not added for pages in English
+- `[version/]` is not added for the latest version
+- `[file-name]` is not added for index.md files
 */
-const getRoute = (newVersion: string) => {
-  if (newVersion === data.frontmatter.value.version) {
-    return;
+const getRoute = (v: string) => {
+  if (v === segments.value.version) {
+    return route.hash || "#";
   }
 
-  const split = data.page.value.filePath.split("/");
-  // path segments for each type of version
-  const versionSlices = { latest: 0, future: 1, old: 2 };
-
-  const noVersion = split.slice(versionSlices[data.frontmatter.value.versionType as never]);
-  const neitherVersionNorLocale = noVersion.slice(noVersion[0] === "translated" ? 2 : 0);
-
-  const segments = [
-    "",
-    data.localeIndex.value !== "root" ? data.localeIndex.value : undefined,
-    newVersion !== props.versioningPlugin.latestVersion ? newVersion : undefined,
-    ...neitherVersionNorLocale,
-  ].filter((s) => s !== undefined);
-
-  return segments.join("/").replace(/((?<=^|[/])index)?[.](html|md)$/, "");
+  return `/${[
+    data.localeIndex.value !== "root" && data.localeIndex.value,
+    v !== options.value.latestVersion && v,
+    segments.value.purePath,
+  ]
+    .filter(Boolean)
+    .join("/")}`;
 };
+
+const item = computed(() => ({
+  text: `${icon} ${!props.h1 && props.screenMenu === false ? options.value.switcherTitle : segments.value.version}`,
+  items: [
+    ...versions.value.map((v) => ({
+      text: options.value.switcherLabel.replace("%s", v),
+      link: getRoute(v),
+      activeMatch: v === segments.value.version ? "(?=)" : "(?!)",
+    })),
+    versions.value.length <= 1 && {
+      text: options.value.noOtherVersions,
+      link: "",
+    },
+  ].filter(Boolean) as DefaultTheme.NavItemWithLink[],
+  activeMatch: "(?!)",
+}));
 </script>
 
 <template>
-  <component
-    :is="screenMenu ? 'div' : VPFlyout"
-    :class="{ open }"
-    :button
-    :label="options.label.replace('%s', currentV)"
-  >
-    <button v-if="screenMenu" :aria-expanded="open" @click="open = !open">
-      <span>
-        <VPIcon icon="lucide:git-graph" />
-        {{ options.label.replace("%s", currentV) }}
-      </span>
-      <span class="vpi-plus" />
-    </button>
-
-    <VPLink v-for="v in versions" :key="v" :href="getRoute(v)">{{
-      options.label.replace("%s", v)
-    }}</VPLink>
-    <VPLink v-if="versions.length <= 1">{{ options.none }}</VPLink>
-  </component>
+  <VPNavMenuGroup
+    :item
+    :screen="screenMenu"
+    :class="h1 && ['VPBadge', segments.version === options.latestVersion ? 'info' : 'warning']"
+  />
 </template>
 
 <style scoped>
-div:not(.VPFlyout) {
-  overflow: hidden;
-  height: 3rem;
-  border-bottom: 1px solid var(--vp-c-divider);
-  transition: border-color 0.5s;
-
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 100%;
-    padding: 0.75rem 0.25rem 0.6875rem 0;
-
-    font-size: 0.875rem;
-    font-weight: 500;
-    line-height: 1.5rem;
-    color: var(--vp-c-text-1);
-
-    transition: color 0.25s;
-
-    span {
-      display: flex;
-      gap: 0.25rem;
-      align-items: center;
-    }
-
-    .vpi-plus {
-      transition: transform 0.25s;
-    }
-
-    &:hover {
-      color: var(--vp-c-brand-1);
-    }
-  }
+:deep([class^="vpi-"]:not([class$="-icon"])) {
+  margin-bottom: 1px;
+  font-size: 1.5rem;
+  vertical-align: middle;
 }
 
-.open:not(.VPFlyout) {
-  height: auto;
-  padding-bottom: 0.625rem;
-
-  button {
-    color: var(--vp-c-brand-1);
-  }
-
-  .vpi-plus {
-    transform: rotate(45deg);
-  }
-}
-
-.VPLink {
-  display: block;
-
-  padding: 0 0.75rem;
-  border-radius: 0.375rem;
+:deep(span.VPLink) {
+  padding-inline: 0.75rem;
 
   font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 2rem;
-  color: var(--vp-c-text-1);
-  white-space: nowrap;
-
-  transition:
-    background-color 0.25s,
-    color 0.25s;
-}
-
-span.VPLink {
+  font-weight: normal;
   font-style: italic;
+  color: var(--vp-c-text-1);
 }
 
-a.VPLink:hover {
-  color: var(--vp-c-brand-1);
-  background-color: var(--vp-c-default-soft);
+.VPBadge.VPFlyout {
+  z-index: 1;
+  padding: 0;
+  letter-spacing: 0;
+
+  &:deep(.button) {
+    height: 1.75rem;
+    padding-inline: 0.5rem;
+
+    .text {
+      line-height: revert;
+    }
+  }
+
+  &:deep(.menu) {
+    top: 1.75rem;
+    right: revert;
+
+    ul {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+
+      li {
+        margin-top: 0;
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
 </style>

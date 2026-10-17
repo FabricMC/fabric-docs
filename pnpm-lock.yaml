@@ -163,7 +163,7 @@ settings:
   excludeLinksFromLockfile: false
 
 patchedDependencies:
-  vitepress@2.0.0-alpha.20: 612b8a268013c658e2d637200854430cda0520548937abe789daa35c9d61d915
+  vitepress@2.0.0-alpha.20: c0c3630b5a402d75a3dd13eb197236cdace6a42ef4105b18917d739f24331c6a
 
 importers:
 
@@ -183,10 +183,10 @@ importers:
         version: 1.15.7
       vitepress:
         specifier: 2.0.0-alpha.20
-        version: 2.0.0-alpha.20(patch_hash=612b8a268013c658e2d637200854430cda0520548937abe789daa35c9d61d915)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3)
+        version: 2.0.0-alpha.20(patch_hash=c0c3630b5a402d75a3dd13eb197236cdace6a42ef4105b18917d739f24331c6a)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3)
       vitepress-plugin-tabs:
         specifier: 0.9.1
-        version: 0.9.1(vitepress@2.0.0-alpha.20(patch_hash=612b8a268013c658e2d637200854430cda0520548937abe789daa35c9d61d915)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3))(vue@3.5.44(typescript@6.0.3))
+        version: 0.9.1(vitepress@2.0.0-alpha.20(patch_hash=c0c3630b5a402d75a3dd13eb197236cdace6a42ef4105b18917d739f24331c6a)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3))(vue@3.5.44(typescript@6.0.3))
       vue:
         specifier: 3.5.44
         version: 3.5.44(typescript@6.0.3)
@@ -265,7 +265,7 @@ importers:
         version: 6.0.3
       vitepress-versioning-plugin:
         specifier: github:FabricMC/vitepress-versioning-plugin#501312e258b3546349069cf1a0a7f456132c67b0
-        version: https://codeload.github.com/FabricMC/vitepress-versioning-plugin/tar.gz/501312e258b3546349069cf1a0a7f456132c67b0(vite@8.3.4(@types/node@26.6.5))(vitepress@2.0.0-alpha.20(patch_hash=612b8a268013c658e2d637200854430cda0520548937abe789daa35c9d61d915)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3))
+        version: https://codeload.github.com/FabricMC/vitepress-versioning-plugin/tar.gz/501312e258b3546349069cf1a0a7f456132c67b0(vite@8.3.4(@types/node@26.6.5))(vitepress@2.0.0-alpha.20(patch_hash=c0c3630b5a402d75a3dd13eb197236cdace6a42ef4105b18917d739f24331c6a)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3))
 
 packages:
 
@@ -3199,17 +3199,17 @@ snapshots:
       '@types/node': 26.6.5
       fsevents: 2.3.3
 
-  vitepress-plugin-tabs@0.9.1(vitepress@2.0.0-alpha.20(patch_hash=612b8a268013c658e2d637200854430cda0520548937abe789daa35c9d61d915)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3))(vue@3.5.44(typescript@6.0.3)):
+  vitepress-plugin-tabs@0.9.1(vitepress@2.0.0-alpha.20(patch_hash=c0c3630b5a402d75a3dd13eb197236cdace6a42ef4105b18917d739f24331c6a)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3))(vue@3.5.44(typescript@6.0.3)):
     dependencies:
-      vitepress: 2.0.0-alpha.20(patch_hash=612b8a268013c658e2d637200854430cda0520548937abe789daa35c9d61d915)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3)
+      vitepress: 2.0.0-alpha.20(patch_hash=c0c3630b5a402d75a3dd13eb197236cdace6a42ef4105b18917d739f24331c6a)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3)
       vue: 3.5.44(typescript@6.0.3)
 
-  vitepress-versioning-plugin@https://codeload.github.com/FabricMC/vitepress-versioning-plugin/tar.gz/501312e258b3546349069cf1a0a7f456132c67b0(vite@8.3.4(@types/node@26.6.5))(vitepress@2.0.0-alpha.20(patch_hash=612b8a268013c658e2d637200854430cda0520548937abe789daa35c9d61d915)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3)):
+  vitepress-versioning-plugin@https://codeload.github.com/FabricMC/vitepress-versioning-plugin/tar.gz/501312e258b3546349069cf1a0a7f456132c67b0(vite@8.3.4(@types/node@26.6.5))(vitepress@2.0.0-alpha.20(patch_hash=c0c3630b5a402d75a3dd13eb197236cdace6a42ef4105b18917d739f24331c6a)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3)):
     dependencies:
       vite: 8.3.4(@types/node@26.6.5)
-      vitepress: 2.0.0-alpha.20(patch_hash=612b8a268013c658e2d637200854430cda0520548937abe789daa35c9d61d915)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3)
+      vitepress: 2.0.0-alpha.20(patch_hash=c0c3630b5a402d75a3dd13eb197236cdace6a42ef4105b18917d739f24331c6a)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3)
 
-  vitepress@2.0.0-alpha.20(patch_hash=612b8a268013c658e2d637200854430cda0520548937abe789daa35c9d61d915)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3):
+  vitepress@2.0.0-alpha.20(patch_hash=c0c3630b5a402d75a3dd13eb197236cdace6a42ef4105b18917d739f24331c6a)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3):
     dependencies:
       '@docsearch/css': 4.7.1
       '@docsearch/js': 4.7.1

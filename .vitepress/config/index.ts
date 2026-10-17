@@ -7,7 +7,14 @@ import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json" with { typ
 import type { SiteConfig } from "vitepress";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
-import { AT, ENV, EXCLUDED_LOCALES, EXCLUDED_OLD_VERSIONS, LATEST_VERSION } from "../constants.ts";
+import {
+  ALL_VERSIONS,
+  AT,
+  ENV,
+  EXCLUDED_LOCALES,
+  EXCLUDED_OLD_VERSIONS,
+  LATEST_VERSION,
+} from "../constants.ts";
 import { transformFile, transformFilesPlugin } from "../plugins/transformFiles.ts";
 import type { Fabric } from "../types.d.ts";
 import { getBuildTransformHead, getClientTransformHead, pageToVersionsMap } from "./head.ts";
@@ -119,6 +126,7 @@ export default defineVersionedConfig(
         },
         provider: "local",
       },
+      version: { latestVersion: LATEST_VERSION, allVersions: ALL_VERSIONS },
     },
 
     // Set head tags at build time

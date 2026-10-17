@@ -1,3 +1,16 @@
+diff --git a/dist/client/theme-default/components/VPMenuGroup.vue b/dist/client/theme-default/components/VPMenuGroup.vue
+index 37871ced4361bbf5f3e90c69d8de2840add63ede..91c9ce5908c291a52c98711325ad018b826a1c93 100644
+--- a/dist/client/theme-default/components/VPMenuGroup.vue
++++ b/dist/client/theme-default/components/VPMenuGroup.vue
+@@ -21,7 +21,7 @@ const hasSubGroups = computed(() => props.items.some((item) => !("link" in item)
+     class="VPMenuGroup"
+     :class="{ VPNavScreenMenuGroupSection: screen }"
+   >
+-    <p v-if="text" class="title">{{ text }}</p>
++    <p v-if="text" class="title" v-html="text"></p>
+ 
+     <ul :class="{ 'sub-groups': hasSubGroups }">
+       <template v-for="item in items" :key="JSON.stringify(item)">
 diff --git a/dist/node/chunk-BYTgXTwz.js b/dist/node/chunk-BYTgXTwz.js
 index 94bb6c8ed28caeac6dce3c1bcc7ef6bc01de8955..0d627e1838d47bf40f07157f682d078fbbf3613f 100644
 --- a/dist/node/chunk-BYTgXTwz.js

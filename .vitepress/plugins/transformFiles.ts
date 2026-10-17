@@ -59,8 +59,7 @@ export const transformFile = (src: string, id: string) => {
     if (data.title) {
       newContent.push("<hgroup>");
 
-      const type = versionType === "latest" ? "tip" : "warning";
-      newContent.push(`# ${data.title} <Badge type="${type}">${data.version}</Badge> {#h1}`);
+      newContent.push(`# ${data.title} <VersionSwitcher h1 /> {#h1}`);
 
       if (data.description) {
         newContent.push(`${data.description} {role="doc-subtitle"} `);

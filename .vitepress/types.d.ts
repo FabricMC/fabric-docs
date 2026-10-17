@@ -1,5 +1,6 @@
 import { DefaultTheme, SiteData, UserConfig } from "vitepress";
 import { Versioned } from "vitepress-versioning-plugin";
+import { ALL_VERSIONS, LATEST_VERSION } from "./constants.ts";
 
 export namespace Fabric {
   export interface AuthorsOptions {
@@ -166,17 +167,23 @@ export namespace Fabric {
   }
 
   export interface VersionOptions {
-    switcher: {
-      /**
-       * @default "Minecraft %s"
-       */
-      label: string;
+    allVersions: typeof ALL_VERSIONS;
+    latestVersion: typeof LATEST_VERSION;
 
-      /**
-       * @default "No other versions"
-       */
-      none: string;
-    };
+    /**
+     * @default "Minecraft %s"
+     */
+    switcherLabel: string;
+
+    /**
+     * @default "Select Version"
+     */
+    switcherTitle: string;
+
+    /**
+     * @default "No other versions"
+     */
+    noOtherVersions: string;
   }
 
   export interface Translations {
