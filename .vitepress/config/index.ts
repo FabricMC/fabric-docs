@@ -1,4 +1,3 @@
-import cjkFriendlyPlugin from "markdown-it-cjk-friendly";
 import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import * as fs from "node:fs";
 import * as path from "node:path";
@@ -61,22 +60,17 @@ export default defineVersionedConfig(
     // Adds a "Last Updated" block to the footer of pages, uses git to determine the last time a page's file was modified.
     lastUpdated: true,
 
-    // Reduce the size of the dist by using a separate js file for the metadata.
-    metaChunk: true,
-
     locales: getLocales(),
 
     markdown: {
       config: (md) => {
-        // Use the CJK-friendly plugin to fix emphasis
-        md.use(cjkFriendlyPlugin);
         // Use the snippet plugin for transclusions
         md.use(snippetPlugin);
         // Use the tabs plugin for... having tabs?
         md.use(tabsMarkdownPlugin);
       },
       gfmAlerts: false,
-      image: { lazyLoading: true },
+      image: { lazyLoad: true },
       languageAlias: { classtweaker: "text", gradle: "groovy" },
       languages: [
         { ...(mcfunction as any), name: "mcfunction" },
@@ -86,6 +80,7 @@ export default defineVersionedConfig(
       shikiSetup: async (shiki) => {
         await shiki.loadTheme("github-light", "github-dark");
       },
+      snippet: { stripRegionMarkers: "all" },
     },
 
     rewrites: { "translated/:locale/(.*)": ":locale/(.*)" },

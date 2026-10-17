@@ -1,0 +1,15 @@
+diff --git a/dist/node/chunk-BYTgXTwz.js b/dist/node/chunk-BYTgXTwz.js
+index 94bb6c8ed28caeac6dce3c1bcc7ef6bc01de8955..0d627e1838d47bf40f07157f682d078fbbf3613f 100644
+--- a/dist/node/chunk-BYTgXTwz.js
++++ b/dist/node/chunk-BYTgXTwz.js
+@@ -17334,8 +17334,8 @@ function findRegions(lines, name) {
+ 			if (rawEndName == null) continue;
+ 			let endName = unquote(rawEndName), index = endName ? open.findLastIndex((r) => r.name === endName) : open.findLastIndex((r) => r.marker === marker);
+ 			if (index === -1) continue;
+-			let [closed] = open.splice(index, open.length - index);
+-			closed.name === name && !open.some((r) => r.name === name) && regions.push({
++			let [closed] = open.splice(index, 1);
++			closed.name === name && !open.some((r) => r.name === name && r.start < closed.start) && regions.push({
+ 				start: closed.start,
+ 				end: i,
+ 				marker: closed.marker
