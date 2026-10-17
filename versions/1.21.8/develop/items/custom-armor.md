@@ -54,7 +54,7 @@ We define the repair ingredient tag reference as follows:
 
 In order to specify which items can be used in an anvil to repair this material, we will create a tag which holds a list of items. Let's add the item tag to our Item tag provider class:
 
-<<< @/reference/1.21.8/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#repair_tags
+<<< @/reference/1.21.8/src/client/java/com/example/docs/datagen/FabricDocsReferenceItemTagProvider.java#repair_tags
 
 In our example, we will be using the copper ingot as a repair material for guidite. If you want to create a custom guidite ingot instead, you may [create a custom item](./first-item) and add its ID to the tag.
 
