@@ -6,7 +6,7 @@ import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json" with { typ
 import type { SiteConfig } from "vitepress";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
-import { ENV, LATEST_VERSION } from "../constants.ts";
+import { ENV, EXCLUDED_LOCALES, LATEST_VERSION } from "../constants.ts";
 import { transformFile, transformFilesPlugin } from "../plugins/transformFiles.ts";
 import type { Fabric } from "../types.d.ts";
 import { getBuildTransformHead, getClientTransformHead } from "./head.ts";
@@ -89,6 +89,7 @@ export default defineVersionedConfig(
       "versions/1.21.8",
       "versions/1.21.4",
       ...(typeof ENV === "number" ? ["versions"] : []),
+      ...EXCLUDED_LOCALES.map((l) => `**/translated/${l}`),
     ],
 
     themeConfig: {

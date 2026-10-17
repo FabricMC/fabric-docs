@@ -1,6 +1,7 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
+import * as tinyglobby from "tinyglobby";
 
 export const AT = path.join(import.meta.dirname, "..");
 
@@ -20,3 +21,19 @@ export const LATEST_VERSION =
   fs
     .readFileSync(path.join(AT, "reference", "latest", "build.gradle"), "utf-8")
     .match(/def minecraftVersion = "([^"]+)"/)?.[1] || "";
+
+const ALL_LOCALES = [
+  ...new Set(
+    tinyglobby
+      .globSync("**/translated/*", { cwd: AT, onlyDirectories: true })
+      .map((d) => path.basename(d))
+  ),
+];
+
+export const EXCLUDED_LOCALES = ALL_LOCALES.filter((l) =>
+  ["index.md", "website_translations.json"].some(
+    (f) => !fs.existsSync(path.join(AT, "translated", l, f))
+  )
+);
+
+export const LOCALES = ["en_us", ...ALL_LOCALES.filter((l) => !EXCLUDED_LOCALES.includes(l))];
