@@ -17,22 +17,31 @@ import com.example.docs.dynamic_registries.ExampleModRegistries;
 import com.example.docs.dynamic_registries.MagicSkillsRegistryEntry;
 import com.example.docs.dynamic_registries.MagicSkillsRegistryIds;
 
+// #region main
 public class ExampleModDynamicRegistriesProvider extends FabricDynamicRegistryProvider {
 	public ExampleModDynamicRegistriesProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
+	// #endregion main
 
+	// #region configure
 	@Override
 	protected void configure(HolderLookup.@NonNull Provider registries, @NonNull Entries entries) {
 		entries.addAll(registries.lookupOrThrow(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY));
 	}
+	// #endregion configure
 
+	// #region name
 	@Override
 	public @NonNull String getName() {
 		return "Example Mod Dynamic Registries";
 	}
+	// #endregion name
 
-	public static void bootstrap(BootstrapContext<MagicSkillsRegistryEntry> context) {
+	// #region bootstrap
+	public static void bootstrapMagicSkillsRegistry(BootstrapContext<MagicSkillsRegistryEntry> context) {
+		// #endregion bootstrap
+		// #region entry
 		context.register(
 				MagicSkillsRegistryIds.HEALING_SKILL_ENTRY_ID,
 				new MagicSkillsRegistryEntry(
@@ -41,6 +50,7 @@ public class ExampleModDynamicRegistriesProvider extends FabricDynamicRegistryPr
 						Optional.of(new CacheableFunction(ExampleMod.id("healing_skill_function")))
 				)
 		);
+		// #endregion entry
 		context.register(
 				MagicSkillsRegistryIds.BLAST_SKILL_ENTRY_ID,
 				new MagicSkillsRegistryEntry(
@@ -57,5 +67,9 @@ public class ExampleModDynamicRegistriesProvider extends FabricDynamicRegistryPr
 						Optional.empty()
 				)
 		);
+		// #region bootstrap
 	}
+	// #endregion bootstrap
+	// #region main
 }
+// #endregion main

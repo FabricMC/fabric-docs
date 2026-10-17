@@ -314,6 +314,10 @@ export default [
             link: "/develop/data-generation/translations",
           },
           {
+            text: "develop.data_generation.dynamic_registry",
+            link: "/develop/data-generation/dynamic-registry",
+          },
+          {
             text: "develop.data_generation.models",
             items: [
               {

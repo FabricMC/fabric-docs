@@ -52,6 +52,7 @@
   "develop.commands.suggestions": "Command Suggestions",
   "develop.data_generation": "Data Generation",
   "develop.data_generation.client": "Client Resources",
+  "develop.data_generation.dynamic_registry": "Populate Dynamic Registry",
   "develop.data_generation.server": "Server Resources",
   "develop.data_generation.setup": "Data Generation Setup",
   "develop.data_generation.tags": "Tag Generation",
