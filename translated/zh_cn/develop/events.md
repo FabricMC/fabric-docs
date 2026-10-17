@@ -40,30 +40,6 @@ Fabric API 为 Minecraft 代码库中的重要区域提供事件，许多模组�
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#attack_block_callback_event
 
-### 将物品添加到已存在的战利品表{#adding-items-to-existing-loot-tables}
-
-有时，你可能需要向战利品表中添加物品。 例如，为原版方块或实体添加掉落物。
-
-最简单的解决方案是替换战利品表文件，但这可能会破坏其他模组的兼容性： 如果他们也想修改呢？ 让我们来看看如何在不覆盖战利品表的情况下将物品添加到战利品表中。
-
-我们将会把添加鸡蛋到煤炭矿石的战利品表里。
-
-#### 监听战利品表加载{#listening-to-loot-table-loading}
-
-Fabric API 有一个在加载战利品表时触发的事件，即 `LootTableEvents.MODIFY`。 可以在你的模组的[初始化器](./getting-started/project-structure#entrypoints)中注册回调。 我们还需要检查一下监听的战利品表是否为煤矿石战利品表：
-
-<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_table_events
-
-#### 将物品添加到战利品表{#adding-items-to-the-loot-table}
-
-要添加物品，我们需要在战利品表中添加一个带有物品条目的池。
-
-我们可以使用 `LootPool#lootPool` 来创建一个战利品池，并将其添加到战利品表中。
-
-我们的战利品池中还没有任何物品，因此我们将使用 `#LootItem#lootTableItem` 创建一个物品条目，并将其添加到战利品池中。
-
-<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_pool_builder{5-7}
-
 ## 自定义事件{#custom-events}
 
 游戏中某些区域并没有 Fabric API 提供的事件，因此需要使用 mixin 或者创建自己的事件。

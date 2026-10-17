@@ -40,30 +40,6 @@ Dieses Beispiel registriert einen `AttackBlockCallback`, um dem Spieler Schaden 
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#attack_block_callback_event
 
-### Items zu existierenden Beutetabellen hinzufügen {#adding-items-to-existing-loot-tables}
-
-Manchmal willst du vielleicht Gegenstände zu Beutetabellen hinzufügen. Zum Beispiel, indem du deine Drops zu einem Vanille-Block oder einer Entität hinzufügst.
-
-Die einfachste Lösung, das Ersetzen der Beutetabellen-Datei, kann andere Mods zerstören. Was ist, wenn sie diese auch ändern wollen? Wir sehen uns an, wie du Gegenstände zu Beutetabellen hinzufügen kannst, ohne die Tabelle zu überschreiben.
-
-Wir werden die Beutetabelle für Kohleerz um Eier erweitern.
-
-#### Auf das Laden der Beutetabelle hören {#listening-to-loot-table-loading}
-
-Die Fabric API hat ein Event, das ausgelöst wird, wenn Beutetabellen geladen werden, `LootTableEvents.MODIFY`. Du kannst hierfür einen Callback in deinem [Mod Initialisierer](./getting-started/project-structure#entrypoints) registrieren. Überprüfen wir auch, ob die aktuelle Beutetabelle die Beutetabelle für Kohleerz ist:
-
-<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_table_events
-
-#### Hinzufügen von Items zur Beutetabelle {#adding-items-to-the-loot-table}
-
-Um einen Gegenstand hinzuzufügen, müssen wir der Beutetabelle einen Pool mit einem Eintrag für ein Item hinzufügen.
-
-Wir können einen Pool mit `LootPool#lootPool` erstellen, und ihn zur Beutetabelle hinzufügen.
-
-Unser Pool hat auch noch keine Items, also erstellen wir einen Item-Eintrag mit `LootItem#lootTableItem` und fügen ihn dem Pool hinzu.
-
-<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_pool_builder{5-7}
-
 ## Benutzerdefinierte Events {#custom-events}
 
 In einigen Bereichen des Spiels gibt es keine von der Fabric API bereitgestellten Hooks, so dass du entweder ein Mixin verwenden oder dein eigenes Event erstellen kannst.

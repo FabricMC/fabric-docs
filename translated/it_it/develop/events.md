@@ -40,30 +40,6 @@ Questo esempio registra un `AttackBlockCallback` per danneggiare il giocatore qu
 
 <<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#attack_block_callback_event
 
-### Aggiungere Oggetti alle Loot Table Esistenti {#adding-items-to-existing-loot-tables}
-
-A volte potresti voler aggiungere oggetti alle loot table. Per esempio, fare in modo che un blocco o un'entità vanilla droppi un tuo oggetto.
-
-La soluzione più semplice, sostituire il file della loot table, può rompere altre mod. E se volessero cambiarli anche loro? Daremo un'occhiata a come puoi aggiungere oggetti alle loot table senza sovrascriverle.
-
-Aggiungeremo le uova alla loot table del minerale di carbone.
-
-#### Ascoltare il Caricamento delle Loot Table {#listening-to-loot-table-loading}
-
-L'API di Fabric ha un evento che si attiva quando le loot table sono caricate, `LootTableEvents.MODIFY`. Puoi registrare un callback per quell'evento nell'[initializer della tua mod](./getting-started/project-structure#entrypoints). Controlliamo anche che la loot table corrente sia quella del minerale di carbone:
-
-<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_table_events
-
-#### Aggiungere Oggetti alla Loot Table {#adding-items-to-the-loot-table}
-
-Per aggiungere un oggetto, dovremo aggiungere una pool con una voce oggetto alla loot table.
-
-Possiamo creare una pool con `LootPool#lootPool`, e aggiungerla alla loot table.
-
-La nostra pool non ha ancora un oggetto, quindi dovremo creare una voce oggetto usando `LootItem#lootTableItem` e aggiungerla alla pool.
-
-<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_pool_builder{5-7}
-
 ## Eventi Personalizzati {#custom-events}
 
 Alcune aree del gioco non hanno agganci forniti dall'API di Fabric, quindi dovrai usare un mixin o creare il tuo evento personalizzato.
