@@ -66,6 +66,8 @@ jobs:
         with:
           distribution: temurin
           java-version: 25
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y mesa-vulkan-drivers
       - run: ./gradlew runProductionClientGameTest
         # #endregion automatic_testing_game_test_3
         working-directory: ./reference

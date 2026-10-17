@@ -29,9 +29,7 @@
   "rewards": {
     "experience": 200,
     "function": "example-mod:got_nether_star",
-    "loot": [
-      "example-mod:advancements/collect_nether_star"
-    ],
+    "loot": "example-mod:advancements/collect_nether_star",
     "recipes": [
       "minecraft:beacon"
     ]

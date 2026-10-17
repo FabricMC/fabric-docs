@@ -7,6 +7,8 @@ authors:
   - Drakonkinst
   - JaaiDead
   - PandoricaVi
+resources:
+  https://minecraft.wiki/w/Brewing: Brewing - Minecraft Wiki
 ---
 
 Potions are consumables that grants an entity an effect. A player can brew potions using a Brewing Stand or obtain them
@@ -52,18 +54,24 @@ To create your own potion effect, please see the [Effects](../entities/effects) 
 
 :::
 
-### Registering the Potion {#registering-the-potion}
+### Generating the Recipe {#registering-the-potion}
 
-In our initializer, we will use the `FabricBrewingRecipeRegistryBuilder.BUILD` event to register our potion using the `BrewingRecipeRegistry.registerPotionRecipe` method.
+::: info PREREQUISITES
 
-<<< @/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java#register_recipes
+This guide references data generation for [recipes](../data-generation/recipes).
 
-`addMix` takes 3 parameters:
+:::
 
-- `Holder<Potion> from` - The starting potion, represented by a holder. Usually this can be a Water Bottle or an Awkward Potion.
-- `Item item` - The item which is the main ingredient of the potion.
-- `Holder<Potion> to` - The resultant potion, represented by a holder.
+In a recipe provider's `buildRecipes` method, we will create a new `FabricBrewingProvider` and call `FabricBrewingProvider#buildRecipes` to generate a new potion recipe. This can also be done without datagen, but potions require a large number of JSON files, so datagen is recommended as always.
 
-Once registered, you can brew a Tater potion using a potato.
+`FabricBrewingProvider` provides the `buildMixes` method which handles the actual crafting recipes. You'll call `buildMix` with 3 parameters:
+
+- `Holder<Potion> input` - The starting potion, represented by a holder. Usually this can be a Water Bottle or an Awkward Potion.
+- `Item reagent` - The item which is the main ingredient of the potion.
+- `Holder<Potion> output` - The resultant potion, represented by a holder.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBrewingProvider.java#register_recipes
+
+After you run data generation, you can brew a Tater potion using a potato.
 
 ![Effect in player inventory](/assets/develop/tater-potion.png)

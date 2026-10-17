@@ -55,7 +55,7 @@ public class CounterBlockEntityRenderer implements BlockEntityRenderer<CounterBl
 		matrices.translate(0.5, 1, 0.5);
 		// #endregion translate
 		// #region rotate
-		matrices.mulPose(Axis.XP.rotationDegrees(90));
+		matrices.rotateDegrees(Axis.XP, 90);
 		// #endregion rotate
 		// #region scale
 		matrices.scale(1/18f, 1/18f, 1/18f);
