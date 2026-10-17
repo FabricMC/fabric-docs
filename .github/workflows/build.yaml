@@ -2,7 +2,6 @@ name: Build
 
 on:
   pull_request:
-    types: [opened, ready_for_review, synchronize]
   push:
     branches: [main]
   workflow_dispatch:
@@ -25,7 +24,7 @@ jobs:
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./.vitepress/dist
+          path: .vitepress/dist
 
   mod:
     runs-on: ubuntu-24.04
@@ -36,9 +35,9 @@ jobs:
           distribution: temurin
           java-version: 25
       - run: ./gradlew build --stacktrace --warning-mode fail
-        working-directory: ./reference
+        working-directory: reference
       - run: ./gradlew runDatagen --stacktrace --warning-mode fail
-        working-directory: ./reference
+        working-directory: reference
       - if: failure()
         uses: FabricMCBot/publish-checkstyle-report@4627c82002aa370b6cb2a3140f34c7a8c55a5297
         with:
@@ -63,14 +62,14 @@ jobs:
           java-version: 25
       - run: ./gradlew runProductionClientGameTest
         # #endregion automatic_testing_game_test_3
-        working-directory: ./reference
+        working-directory: reference
         # #region automatic_testing_game_test_3
-      - if: always()
+      - if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
           path: build/run/clientGameTest/screenshots
         # #endregion automatic_testing_game_test_3
-      - if: always()
+      - if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
           path: reference/build/run/clientGameTest/screenshots
