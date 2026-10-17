@@ -66,34 +66,6 @@ In unserem Fall sieht eine gültige Rezeptdatei wie folgt aus:
 
 <<< @/reference/26.1.2/src/main/resources/data/example-mod/recipe/upgrading/diamond_pickaxe.json
 
-## Ein Menü erstellen {#creating-a-menu}
-
-::: info
-
-Weitere Informationen zum Erstellen von Menüs findest du unter unter [Container-Menüs](blocks/container-menus).
-
-:::
-
-Damit wir unser Rezept in dem GUI erstellen können, erstellen wir einen Block mit einem [Menü](./blocks/container-menus):
-
-<<< @/reference/26.1.2/src/main/java/com/example/docs/menu/custom/UpgradingMenu.java#menu
-
-Da gibt es eine Menge zu besprechen! Dieses Menü verfügt über zwei Eingabefelder und ein Ausgabefeld.
-
-Der Eingabecontainer ist eine anonyme Unterklasse von `SimpleContainer`, die bei einer Änderung ihrer Items die Methode `slotsChanged` des Menüs aufruft. In `slotsChanged` erstellen wir dann eine Instanz unserer Rezept-Eingabeklasse und füllen sie mit den beiden Eingabefeldern.
-
-Um zu prüfen, ob es mit einem Rezept übereinstimmt, stellen wir zunächst sicher, dass wir uns auf der Serverebene befinden, da Clients nicht wissen, welche Rezepte vorhanden sind. Anschließend rufen wir den `RecipeManager` über `serverLevel.recipeAccess()` ab.
-
-Wir rufen `serverLevel.recipeAccess().getRecipeFor` mit unseren Rezept-Eingaben auf, um ein Rezept zu erhalten, das den Eingaben entspricht. Wenn ein Rezept gefunden wurde, können wir das Ergebnis zum Ergebniscontainer hinzufügen oder daraus entfernen.
-
-Um zu erkennen, wann der Benutzer das Ergebnis entnimmt, erstellen wir eine anonyme Unterklasse von `Slot`. Die Methode `onTake` unseres Menüs entfernt dann die Eingabeitems.
-
-Um zu verhindern, dass Items gelöscht werden, ist es wichtig, die Eingaben beim Schließen des Bildschirms wieder zurückzusetzen, wie in der Methode `removed` gezeigt.
-
-Du musst auch das Menü zur Registry hinzufügen:
-
-<<< @/reference/26.1.2/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#upgrading_menu_registration
-
 ## Rezeptsynchronisierung {#recipe-synchronization}
 
 ::: info
