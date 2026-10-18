@@ -1,5 +1,7 @@
 package com.example.docs.datagen;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;
@@ -51,8 +53,12 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 
 		translationBuilder.add(Util.makeDescriptionId("effect", ExampleMod.id("tater")), "Tater");
 
-		// You can alternatively use the translationBuilder.add(Path.of("../existing/language/file.json"));
-		// to add translations from an existing language file instead of manually defining them all.
+		// You can also merge translations from an existing language file instead of defining them all manually.
+		try {
+			translationBuilder.add(Path.of("src/client/resources/extra_lang.json"));
+		} catch (IOException e) {
+			throw new RuntimeException("Failed to load extra language file", e);
+		}
 		translationBuilder.add("sound.example-mod.metal_whistle", "Metal Whistle");
 		translationBuilder.add("item.minecraft.potion.effect.tater", "Tater Potion");
 		translationBuilder.add("death.attack.tater", "%1$s died from Tater damage!");

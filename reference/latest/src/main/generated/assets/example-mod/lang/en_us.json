@@ -42,6 +42,7 @@
   "item.example-mod.hot_tater": "Hot Tater",
   "item.example-mod.leather_gloves": "Leather Gloves",
   "item.example-mod.lightning_stick": "Lightning Stick",
+  "item.example-mod.lightning_stick_powered": "Powered Lightning Stick",
   "item.example-mod.mini_golem_spawn_egg": "Mini Golem Spawn Egg",
   "item.example-mod.poisonous_apple": "Poisonous Apple",
   "item.example-mod.quark_gluon_plasma": "Quark-Gluon Plasma",
@@ -56,5 +57,6 @@
   "sound.example-mod.metal_whistle": "Metal Whistle",
   "tag.item.example-mod.repairs_guidite_armor": "Repairs Guidite Armor",
   "tag.item.example-mod.smelly_items": "Smelly Items",
+  "text.example-mod.file_greeting": "Hello from a language file!",
   "text.example-mod.greeting": "Hello there!"
 }
