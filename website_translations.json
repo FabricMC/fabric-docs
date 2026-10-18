@@ -93,5 +93,8 @@
   "version.reminder.old_version_home": "This documentation applies to Minecraft **%s**.\n\nDocumentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.",
   "version.switcher.label": "Minecraft %s",
   "version.switcher.none": "No other versions",
-  "version.switcher.title": "Select Version"
+  "version.switcher.title": "Select Version",
+  "video.warning.title": "Warning",
+  "video.warning.description": "This video contains flashing lights.",
+  "video.warning.button": "Proceed"
 }

@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import "vidstack/player";
-import "vidstack/player/layouts/default";
-import "vidstack/player/styles/default/layouts/video.css";
-import "vidstack/player/styles/default/theme.css";
-import "vidstack/player/ui";
 import { useSlots } from "vue";
+import Player from "./Player.vue";
 
-defineProps<{ src: string }>();
+/** @deprecated use ![title](/path/to/video.webm) instead */
+interface VideoPlayerProps {
+  src: string;
+}
 
-const title = ((useSlots().default?.() ?? [""])[0] as any).children ?? "";
+defineProps<VideoPlayerProps>();
+
+const type = "video";
+
+const title = String(useSlots().default?.()?.[0]?.children || "");
 </script>
 
 <template>
-  <media-player load="visible" view-type="video" stream-type="on-demand" :title :src>
-    <media-provider />
-    <media-video-layout />
-  </media-player>
+  <Player :type :src :title />
 </template>
