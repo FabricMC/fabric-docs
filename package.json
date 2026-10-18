@@ -12,9 +12,10 @@
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "5.3.0",
+    "@videojs/html": "10.1.0",
+    "@videojs/youtube-video": "10.1.0",
     "@vueuse/core": "15.0.0",
     "medium-zoom": "1.1.0",
-    "vidstack": "1.15.7",
     "vitepress": "2.0.0-alpha.20",
     "vitepress-plugin-tabs": "0.9.1",
     "vue": "3.5.44"
