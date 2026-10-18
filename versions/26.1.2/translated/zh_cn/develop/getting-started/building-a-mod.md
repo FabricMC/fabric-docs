@@ -21,7 +21,7 @@ authors:
 },
 {
  name: 'Visual Studio Code',
- icon: 'codicon:vscode',
+ icon: 'simple-icons:visualstudiocode',
  color: '#007ACC',
 },
 ]" />

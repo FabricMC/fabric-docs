@@ -25,7 +25,7 @@ Mod più recenti potrebbero richiedere una versione più moderna del Loader di F
 {
  name: 'Windows',
  href: './windows',
- icon: 'mage:microsoft-windows',
+ icon: 'simple-icons:windows',
  color: '#0078D4',
 },
 {
@@ -36,7 +36,7 @@ Mod più recenti potrebbero richiedere una versione più moderna del Loader di F
 {
  name: 'Linux',
  href: './linux',
- icon: 'codicon:terminal-linux',
+ icon: 'simple-icons:linux',
  color: '#FF9A00',
 },
 ]" />

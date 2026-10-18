@@ -21,7 +21,7 @@ outline: false
   {
     name: 'Visual Studio Code',
     href: './vscode/launching-the-game',
-    icon: 'codicon:vscode',
+    icon: 'simple-icons:visualstudiocode',
     color: '#007ACC',
   },
 ]" />

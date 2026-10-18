@@ -40,7 +40,7 @@ Um mit der Entwicklung von Mods mit Fabric zu beginnen, musst du eine Entwicklun
 {
  name: 'Visual Studio Code',
  href: './vscode/setting-up',
- icon: 'codicon:vscode',
+ icon: 'simple-icons:visualstudiocode',
  color: '#007ACC',
 },
 ]" />
