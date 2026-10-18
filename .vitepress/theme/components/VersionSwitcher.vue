@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Icon, loadIcon } from "@iconify/vue";
-import { computedAsync } from "@vueuse/core";
 import { useData } from "vitepress";
 import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { VPIcon } from "vitepress/theme";
 import { computed, ref } from "vue";
 import { Fabric } from "../../types.d";
+import { useIconSpan } from "../composables/iconSpan";
 
 const props = defineProps<{
   versioningPlugin: { versions: string[]; latestVersion: string };
@@ -26,11 +26,10 @@ const currentV = computed(() => {
   return props.versioningPlugin.latestVersion;
 });
 
-const button = computedAsync(async () => {
-  const iconData = await loadIcon("lucide:git-graph");
-  const icon = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">${iconData.body}</svg>`;
-  return `<span style="display:flex;align-items:center;gap:4px">${icon} ${currentV.value}</span>`;
-});
+const icon = useIconSpan("lucide:git-graph");
+const button = computed(
+  () => `<span style="display:flex;align-items:center;gap:4px">${icon} ${currentV.value}</span>`
+);
 
 // TODO: add future versions to the supported pages
 const versions = computed(() =>
@@ -83,7 +82,7 @@ const getRoute = (newVersion: string) => {
   >
     <button v-if="screenMenu" :aria-expanded="open" @click="open = !open">
       <span>
-        <Icon icon="lucide:git-graph" width="16" height="16" />
+        <VPIcon icon="lucide:git-graph" />
         {{ options.label.replace("%s", currentV) }}
       </span>
       <span class="vpi-plus" />

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
 import { useData } from "vitepress";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { VPIcon } from "vitepress/theme";
 import { computed } from "vue";
 import { Fabric } from "../../types";
 
@@ -43,8 +43,9 @@ const getFileTitle = (path: string) =>
 
 const getFileExtension = (path: string) =>
   path
+    .replace(/^.*(?<=^|[/])fabric.mod.json$/, "minecraft-fabric")
     .replace(/^.*[.]([^.]+)$/, "$1")
-    .replace(/^classtweaker$/, "document")
+    .replace(/^classtweaker$/, "minecraft-fabric")
     .replace(/^md$/, "markdown");
 </script>
 
@@ -57,7 +58,7 @@ const getFileExtension = (path: string) =>
 
   <h2 v-if="files.length">{{ options.files }}</h2>
   <VPLink v-for="(f, i) in files" :key="f" :href="getFileHref(f)" :title="getFileTitle(f)" noIcon>
-    <Icon :icon="`material-icon-theme:${getFileExtension(f)}`" />
+    <VPIcon :icon="`material-icon-theme:${getFileExtension(f)}`" />
     <code>
       <template v-for="(seg, j) in shortestUniquePaths[i].split('/')" :key="j">
         <template v-if="j !== 0">/<wbr /></template>{{ seg }}
@@ -97,7 +98,7 @@ h2 {
   color: var(--vp-c-text-1);
 }
 
-svg {
+[class^="vpi-"] {
   flex-shrink: 0;
   margin-top: 2px;
 }
