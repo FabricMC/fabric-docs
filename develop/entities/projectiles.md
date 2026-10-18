@@ -149,4 +149,4 @@ Finally, let's use the vanilla `ThrownItemRenderer` in the client initializer:
 
 And you're done!
 
-<VideoPlayer src="/assets/develop/projectiles/hot-tater.mp4">A Hot Tater setting a villager on fire</VideoPlayer>
+![A Hot Tater setting a villager on fire](/assets/develop/projectiles/hot-tater.mp4)

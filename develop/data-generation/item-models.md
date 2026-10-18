@@ -193,7 +193,7 @@ To obtain the `Identifier` that is passed in `ItemModelUtils.plainModel()`, alwa
 
 == Preview
 
-<VideoPlayer src="/assets/develop/data-generation/item-model/flashlight_turning_on.webm">Flashlight turning on and off</VideoPlayer>
+![Flashlight turning on and off](/assets/develop/data-generation/item-model/flashlight_turning_on.webm)
 
 ::::
 
