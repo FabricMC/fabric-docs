@@ -15,7 +15,7 @@ import {
   EXCLUDED_OLD_VERSIONS,
   LATEST_VERSION,
 } from "../constants.ts";
-import { downloadImagePlugin } from "../plugins/downloadImage.ts";
+import { createDownloadZips, downloadImagePlugin } from "../plugins/downloadImage.ts";
 import { transformFile, transformFilesPlugin } from "../plugins/transformFiles.ts";
 import { videoImagePlugin } from "../plugins/videoImage.ts";
 import type { Config } from "../types.d.ts";
@@ -27,6 +27,8 @@ import { getLocaleConfig } from "./i18n.ts";
 export default defineVersionedConfig(
   {
     buildEnd: (siteConfig) => {
+      createDownloadZips(siteConfig);
+
       fs.writeFileSync(
         path.join(siteConfig.outDir, "page-versions.json"),
         JSON.stringify(

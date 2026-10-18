@@ -21,6 +21,7 @@
     "vue": "3.5.44"
   },
   "devDependencies": {
+    "@archiver/archiver": "0.3.0",
     "@csstools/stylelint-formatter-github": "2.0.0",
     "@emnapi/core": "1.11.3",
     "@emnapi/runtime": "1.11.3",
@@ -33,6 +34,7 @@
     "markdownlint-cli2": "0.23.3",
     "markdownlint-rule-search-replace": "1.2.0",
     "markdownlint-rule-titlecase": "0.1.0",
+    "p-limit": "7.3.3",
     "postcss-html": "2.0.0",
     "prettier": "3.9.10",
     "stylelint": "17.16.0",

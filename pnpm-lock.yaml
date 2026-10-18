@@ -194,6 +194,9 @@ importers:
         specifier: 3.5.44
         version: 3.5.44(typescript@6.0.3)
     devDependencies:
+      '@archiver/archiver':
+        specifier: 0.3.0
+        version: 0.3.0
       '@csstools/stylelint-formatter-github':
         specifier: 2.0.0
         version: 2.0.0(stylelint@17.16.0(supports-color@10.2.2)(typescript@6.0.3))
@@ -230,6 +233,9 @@ importers:
       markdownlint-rule-titlecase:
         specifier: 0.1.0
         version: 0.1.0
+      p-limit:
+        specifier: 7.3.3
+        version: 7.3.3
       postcss-html:
         specifier: 2.0.0
         version: 2.0.0(postcss@8.5.30)
@@ -271,6 +277,18 @@ importers:
         version: https://codeload.github.com/FabricMC/vitepress-versioning-plugin/tar.gz/501312e258b3546349069cf1a0a7f456132c67b0(vite@8.3.4(@types/node@26.6.5))(vitepress@2.0.0-alpha.20(patch_hash=c0c3630b5a402d75a3dd13eb197236cdace6a42ef4105b18917d739f24331c6a)(@types/node@26.6.5)(postcss@8.5.30)(typescript@6.0.3))
 
 packages:
+
+  '@archiver/archiver@0.3.0':
+    resolution: {integrity: sha512-QM7a1/g1rRyL6JYZEdUouMN7ngm51aFaoaHq7gJKlFJ83HStsViljX3AUgdhBT93oMy9UCdj1+SGisW4t7otzQ==}
+    engines: {node: ^22.12.0 || >=24.0.0}
+
+  '@archiver/tar-stream@0.1.1':
+    resolution: {integrity: sha512-exWmvbQrXrrbM9cQYbKT5RvtyuVcuLqPmwhLsvOQsHeYuJL18VsOemTPVR4ABXhwIViJWf31KveW1K0924z03Q==}
+    engines: {node: ^22.12.0 || >=24.0.0}
+
+  '@archiver/zip-stream@0.1.1':
+    resolution: {integrity: sha512-5DBDQwKJBbtKGblPHC8Xih/bC1CHSEEuRrSiW0YjUCJt7GXGTS/t9QD/BhcCwZZxchzjzQhFm99skIO1KxX91w==}
+    engines: {node: ^22.12.0 || >=24.0.0}
 
   '@babel/code-frame@7.29.7':
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
@@ -1421,6 +1439,10 @@ packages:
   oniguruma-to-es@4.3.6:
     resolution: {integrity: sha512-csuQ9x3Yr0cEIs/Zgx/OEt9iBw9vqIunAPQkx19R/fiMq2oGVTgcMqO/V3Ybqefr1TBvosI6jU539ksaBULJyA==}
 
+  p-limit@7.3.3:
+    resolution: {integrity: sha512-SKgVvDU5TNIxQ4r30U75BNLC6a+6GOEjngrk/ysM5+Zu3oJuk1SC5ApzIzY/7PjCEjoVPMWJ0zho/4QUiEB7TQ==}
+    engines: {node: '>=20'}
+
   parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
     engines: {node: '>=6'}
@@ -1828,10 +1850,23 @@ packages:
     resolution: {integrity: sha512-OTIk8iR8/aCRWBqvxrzxR0hgxWpnYBblY1S5hDWBQfk/VFmJwzmJgQFN3WsoUKHISv2eAwe+PpbUzyL1CKTLXg==}
     engines: {node: ^20.17.0 || >=22.9.0}
 
+  yocto-queue@1.2.2:
+    resolution: {integrity: sha512-4LCcse/U2MHZ63HAJVE+v71o7yOdIe4cZ70Wpf8D/IyjDKYQLV5GD46B+hSTjJsvV5PztjvHoU580EftxjDZFQ==}
+    engines: {node: '>=12.20'}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
+
+  '@archiver/archiver@0.3.0':
+    dependencies:
+      '@archiver/tar-stream': 0.1.1
+      '@archiver/zip-stream': 0.1.1
+
+  '@archiver/tar-stream@0.1.1': {}
+
+  '@archiver/zip-stream@0.1.1': {}
 
   '@babel/code-frame@7.29.7':
     dependencies:
@@ -2940,6 +2975,10 @@ snapshots:
       regex: 6.1.0
       regex-recursion: 6.0.2
 
+  p-limit@7.3.3:
+    dependencies:
+      yocto-queue: 1.2.2
+
   parent-module@1.0.1:
     dependencies:
       callsites: 3.1.0
@@ -3380,5 +3419,7 @@ snapshots:
   write-file-atomic@7.0.1:
     dependencies:
       signal-exit: 4.1.0
+
+  yocto-queue@1.2.2: {}
 
   zwitch@2.0.4: {}
