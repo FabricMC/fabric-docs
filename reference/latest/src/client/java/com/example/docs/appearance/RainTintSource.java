@@ -23,7 +23,7 @@ public record RainTintSource(int color) implements ItemTintSource {
 	// #endregion map_codec
 	// #region tint_source_class
 	public RainTintSource() {
-		this(ARGB.opaque(0x00BFFF)); // Color code in hex format
+		this(0xFF00BFFF); // Color code in hex format
 	}
 	// #endregion tint_source_class
 
@@ -34,7 +34,7 @@ public record RainTintSource(int color) implements ItemTintSource {
 			return ARGB.opaque(this.color);
 		}
 
-		return ARGB.opaque(0xFFEFD5); // Color code in hex format
+		return 0xFFFFEFD5; // Color code in hex format
 	}
 	// #endregion calculate
 	// #region return_codec

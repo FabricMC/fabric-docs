@@ -10,7 +10,6 @@ import net.minecraft.client.renderer.block.FluidModel;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
-import net.minecraft.util.ARGB;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -35,15 +34,15 @@ public class ExampleModAppearanceClient implements ClientModInitializer {
 				BlockState stateBelow = level.getBlockState(pos.below());
 
 				if (stateBelow.is(Blocks.GRASS_BLOCK)) {
-					return ARGB.opaque(0x98FB98); // Color code in hex format
+					return 0xFF98FB98; // Color code in hex format
 				}
 
-				return ARGB.opaque(0xFFDAB9); // Color code in hex format
+				return 0xFFFFDAB9; // Color code in hex format
 			}
 
 			@Override
 			public int color(BlockState state) {
-				return ARGB.opaque(0xFFDAB9); // Color code in hex format
+				return 0xFFFFDAB9; // Color code in hex format
 			}
 		}), ModBlocks.WAXCAP);
 		// #endregion color_provider
@@ -56,7 +55,7 @@ public class ExampleModAppearanceClient implements ClientModInitializer {
 						new Material(Identifier.withDefaultNamespace("block/water_still")),
 						new Material(Identifier.withDefaultNamespace("block/water_flow")),
 						new Material(Identifier.withDefaultNamespace("block/water_overlay")),
-						BlockTintSources.constant(ARGB.opaque(0x075800))
+						BlockTintSources.constant(0xFF075800)
 				)
 		);
 		// #endregion fluid_texture
