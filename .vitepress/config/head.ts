@@ -1,4 +1,4 @@
-import { Fabric } from "../types";
+import type { Fabric } from "../types.d.ts";
 
 type NewHeadContext = {
   latestVersion: string;

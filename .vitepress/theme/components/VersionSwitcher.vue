@@ -1,22 +1,21 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
 import VPFlyout from "vitepress/dist/client/theme-default/components/VPFlyout.vue";
-import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
-import { VPIcon } from "vitepress/theme";
+import { VPIcon, VPLink } from "vitepress/theme";
 import { computed, ref } from "vue";
-import { Fabric } from "../../types.d";
-import { useIconSpan } from "../composables/iconSpan";
+import type { Fabric } from "../../types.d.ts";
+import { useIconSpan } from "../composables/iconSpan.ts";
 
 const props = defineProps<{
   versioningPlugin: { versions: string[]; latestVersion: string };
   screenMenu?: boolean;
 }>();
 
-const data = useData();
+const data = useData<Fabric.ThemeConfig>();
 const collator = new Intl.Collator(undefined, { numeric: true });
 
-const env = computed(() => data.theme.value.env as Fabric.EnvOptions);
-const options = computed(() => (data.theme.value.version as Fabric.VersionOptions).switcher);
+const env = computed(() => data.theme.value.env);
+const options = computed(() => data.theme.value.version.switcher);
 const currentV = computed(() => {
   if (data.frontmatter.value.version) return data.frontmatter.value.version as string;
 

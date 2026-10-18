@@ -1,8 +1,8 @@
 /// <reference types="vitepress/client" />
-import { type Theme } from "vitepress";
+import type { Theme } from "vitepress";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import DefaultTheme from "vitepress/theme";
-import { type Component } from "vue";
+import type { Component } from "vue";
 import Layout from "./Layout.vue";
 import "./style.css";
 

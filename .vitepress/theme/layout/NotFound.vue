@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
-import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { VPLink } from "vitepress/theme";
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
-import { Fabric } from "../../types.d";
+import type { Fabric } from "../../types.d.ts";
 
 let i: number = -1;
-const data = useData();
+const data = useData<Fabric.ThemeConfig>();
 
 const options = computed(() => {
-  const { quotes, pooh, ...options } = data.theme.value.notFound as Fabric.NotFoundOptions;
+  const { quotes, pooh, ...options } = data.theme.value.notFound;
   if (i === -1) i = Math.floor(Math.random() * quotes.length);
   if (i === quotes.length - 1) options.title = pooh;
   options.quote = quotes[i];
@@ -263,7 +263,7 @@ const TEXTURE = [
       <br />
       <VPLink
         v-if="data.localeIndex.value !== 'root'"
-        :href="(data.theme.value as Fabric.ThemeConfig).editLink!.pattern as string"
+        :href="data.theme.value.editLink!.pattern as string"
         :aria-label="options.crowdinLinkLabel"
       >
         {{ options.crowdinLinkText }}

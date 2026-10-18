@@ -2,15 +2,15 @@ import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
-import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json";
-import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json";
-import { SiteConfig } from "vitepress";
+import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json" with { type: "json" };
+import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json" with { type: "json" };
+import type { SiteConfig } from "vitepress";
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
 import defineVersionedConfig from "vitepress-versioning-plugin";
-import { transformFile, transformFilesPlugin } from "../plugins/transformFiles";
-import { Fabric } from "../types.d";
-import { getBuildTransformHead, getClientTransformHead } from "./head";
-import { getLocales } from "./i18n";
+import { transformFile, transformFilesPlugin } from "../plugins/transformFiles.ts";
+import type { Fabric } from "../types.d.ts";
+import { getBuildTransformHead, getClientTransformHead } from "./head.ts";
+import { getLocales } from "./i18n.ts";
 
 const latestVersion = fs
   .readFileSync(

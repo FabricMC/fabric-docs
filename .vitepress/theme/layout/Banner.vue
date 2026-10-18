@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { useElementSize } from "@vueuse/core";
 import { useData } from "vitepress";
-import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { VPLink } from "vitepress/theme";
 import { computed, ref, watch } from "vue";
-import { Fabric } from "../../types.d";
+import type { Fabric } from "../../types.d.ts";
 
-const data = useData();
+const data = useData<Fabric.ThemeConfig>();
 const banner = ref<HTMLElement>();
 const { height } = useElementSize(banner);
 
-const env = computed(() => data.theme.value.env as Fabric.EnvOptions);
-const options = computed(() => data.theme.value.banner as Fabric.BannerOptions);
+const env = computed(() => data.theme.value.env);
+const options = computed(() => data.theme.value.banner);
 
 const strings = computed(() => {
   switch (env.value) {

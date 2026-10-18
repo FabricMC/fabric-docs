@@ -3,12 +3,12 @@ import { usePreferredReducedMotion } from "@vueuse/core";
 import { onContentUpdated, useData } from "vitepress";
 import { VPIcon } from "vitepress/theme";
 import { computed, nextTick, onUnmounted, ref } from "vue";
-import { Fabric } from "../../types";
-import { useIconSpan } from "../composables/iconSpan";
+import type { Fabric } from "../../types.d.ts";
+import { useIconSpan } from "../composables/iconSpan.ts";
 
 const prefersReducedMotion = usePreferredReducedMotion();
-const data = useData();
-const options = computed(() => data.theme.value.code as Fabric.CodeOptions);
+const data = useData<Fabric.ThemeConfig>();
+const options = computed(() => data.theme.value.code);
 
 const icon = useIconSpan("lucide:maximize-2");
 

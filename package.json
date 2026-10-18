@@ -5,7 +5,7 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "bump": "tsx ./.vitepress/scripts/bump.ts"
+    "bump": "node ./.vitepress/scripts/bump.ts"
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "5.3.0",
@@ -22,9 +22,7 @@
     "@iconify-json/lucide": "1.2.145",
     "@iconify-json/material-icon-theme": "1.2.72",
     "@iconify-json/simple-icons": "1.2.100",
-    "@types/cross-spawn": "6.0.6",
     "@types/node": "26.6.5",
-    "cross-spawn": "7.0.6",
     "gray-matter": "4.0.3",
     "markdown-it-vuepress-code-snippet-enhanced": "github:IMB11/md-it-enhanced-snippets#dfb9fa25527b2f772d50ca37ae526484c890b8ae",
     "markdownlint": "0.42.0",
@@ -34,7 +32,6 @@
     "syntax-java-bytecode": "github:mcgambing/Java-Bytecode#578f3e2c6861ac6396492540a987fe05d23b061a",
     "syntax-mcfunction": "github:MinecraftCommands/syntax-mcfunction#51eb8bf4ca04355bb89f5538b7331cb0c0f3df2b",
     "tinyglobby": "0.2.17",
-    "tsx": "4.23.15",
     "vitepress-versioning-plugin": "github:FabricMC/vitepress-versioning-plugin#501312e258b3546349069cf1a0a7f456132c67b0"
   },
   "devEngines": {

@@ -1,12 +1,12 @@
-import * as crossSpawn from "cross-spawn";
+import * as childProcess from "node:child_process";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
 import * as tinyglobby from "tinyglobby";
-import { getLocaleNames, getSidebar } from "../config/i18n";
+import { getLocaleNames, getSidebar } from "../config/i18n.ts";
 
 const git = (...args: string[]) => {
-  const res = crossSpawn.sync("git", args, { encoding: "utf8" });
+  const res = childProcess.spawnSync("git", args, { encoding: "utf8" });
   if (res.error) {
     console.error(`Failed to run 'git ${args.join(" ")}'!\n  ${res.error}`);
     process.exit(1);
