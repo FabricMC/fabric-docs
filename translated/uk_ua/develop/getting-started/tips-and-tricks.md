@@ -20,7 +20,7 @@ authors:
 {
  name: 'Visual Studio Code',
  href: './vscode/tips-and-tricks',
- icon: 'codicon:vscode',
+ icon: 'simple-icons:visualstudiocode',
  color: '#007ACC',
 },
 ]" />

@@ -25,7 +25,7 @@ Neuere Mods benötigen möglicherweise eine neuere Version des Fabric Loader um 
 {
  name: 'Windows',
  href: './windows',
- icon: 'mage:microsoft-windows',
+ icon: 'simple-icons:windows',
  color: '#0078D4',
 },
 {
@@ -36,7 +36,7 @@ Neuere Mods benötigen möglicherweise eine neuere Version des Fabric Loader um 
 {
  name: 'Linux',
  href: './linux',
- icon: 'codicon:terminal-linux',
+ icon: 'simple-icons:linux',
  color: '#FF9A00',
 },
 ]" />
