@@ -44,3 +44,9 @@ To start developing mods with Fabric, you will need to set up a development envi
     color: '#007ACC',
   },
 ]" />
+
+::: tip
+
+When you open your mod project in your IDE, it should automatically load the project's Gradle configuration and perform the necessary setup tasks. If you receive a notification talking about a Gradle build script, click the `Import Gradle Project` button.
+
+:::

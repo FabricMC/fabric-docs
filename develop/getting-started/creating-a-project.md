@@ -8,10 +8,11 @@ authors:
   - Thomas1034
 resources:
   https://fabricmc.net/develop/template/: Fabric Template Mod Generator
+  https://fabricmc.net/develop/cli/: Fabric CLI Documentation
   https://fabricmc.net/develop/: Develop with Fabric Website
 ---
 
-Fabric provides an easy way to create a new mod project using the Fabric Template Mod Generator - if you want, you can manually create a new project using the example mod repository, you should refer to the [Manual Project Creation](#manual-project-creation) section.
+There are a few ways to create a new mod project: the [Fabric Template Mod Generator](#generating-a-project) (recommended if you're just getting started), the [Fabric CLI](#using-the-fabric-cli), or [manually from the example mod repository](#manual-project-creation).
 
 ## Generating a Project {#generating-a-project}
 
@@ -55,6 +56,28 @@ An example of a "good" path may be: `C:\Projects\YourProjectName`
 
 :::
 
+## Using the Fabric CLI {#using-the-fabric-cli}
+
+::: info PREREQUISITES
+
+You will need [Node.js 22 or higher](https://nodejs.org/) installed to use the Fabric CLI.
+
+:::
+
+If you prefer working from the command line - for example, if you create many mods - you can generate a new project using the [Fabric CLI](https://fabricmc.net/develop/cli/):
+
+```sh
+npx @fabricmc/cli init
+```
+
+This will walk you through the same options as the Template Mod Generator and create a new project in the current directory. You can also install the CLI globally with `npm install -g @fabricmc/cli` and then run `fabric init`.
+
+::: warning
+
+The CLI is aimed at power users who are comfortable with the command line and installing Node.js. If you're just getting started, the Template Mod Generator above is the easier option.
+
+:::
+
 ## Manual Project Creation {#manual-project-creation}
 
 ::: info PREREQUISITES
@@ -74,14 +97,6 @@ git clone https://github.com/FabricMC/fabric-example-mod.git example-mod
 This will clone the repository into a new folder called `example-mod`.
 
 You should then delete the `.git` folder from the cloned repository, and then open the project. If the `.git` folder does not appear, you should enable the display of hidden files in your file manager.
-
-### Setting Up Your IDE {#setting-up}
-
-Once you've opened the project in your IDE, it should automatically load the project's Gradle configuration and perform the necessary setup tasks.
-
-If you receive a notification talking about a Gradle build script, you should click the `Import Gradle Project` button.
-
-For more information, please check out the [Setting Up Your IDE](./setting-up) page.
 
 ### Modifying the Template {#modifying-the-template}
 
