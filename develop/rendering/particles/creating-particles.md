@@ -87,7 +87,7 @@ You can test your particle by using the `/particle` command with your mod id and
 /particle example-mod:sparkle_particle ~ ~1 ~
 ```
 
-<VideoPlayer src="/assets/develop/rendering/particles/sparkle-particle-video-showcase.mp4">Finished Sparkle Particle Example</VideoPlayer>
+<VideoPlayer src="/assets/develop/rendering/particles/sparkle-particle-video-showcase.webm">Finished Sparkle Particle Example</VideoPlayer>
 
 ::: info
 
