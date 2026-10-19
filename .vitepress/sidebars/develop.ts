@@ -175,6 +175,7 @@ export const DEVELOP_SIDEBAR: SidebarItem = {
             "/advancements",
             "/enchantments",
             "/loot-tables",
+            "/painting-variant",
             "/recipes",
             "/tags",
             {

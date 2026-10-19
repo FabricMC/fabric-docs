@@ -41,6 +41,12 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		// #region datagen_tags_register
 		pack.addProvider(ExampleModItemTagProvider::new);
 		// #endregion datagen_tags_register
+
+		// #region datagen_painting_register
+		pack.addProvider(ExampleModPaintingVariantProvider::new);
+		pack.addProvider(ExampleModPaintingTagProvider::new);
+		// #endregion datagen_painting_register
+
 		pack.addProvider(ExampleModEnchantmentTagProvider::new);
 
 		// #region datagen_recipes_register
