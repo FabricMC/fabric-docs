@@ -5,12 +5,10 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 1
+          },
           "name": "minecraft:diamond"
         },
         {
@@ -18,7 +16,7 @@
           "name": "minecraft:diamond_sword"
         }
       ],
-      "rolls": 2.0
+      "rolls": 2
     }
   ]
 }

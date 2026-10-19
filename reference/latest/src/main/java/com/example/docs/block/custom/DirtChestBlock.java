@@ -1,6 +1,5 @@
 package com.example.docs.block.custom;
 
-import com.mojang.serialization.MapCodec;
 import org.jspecify.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
@@ -19,11 +18,6 @@ public class DirtChestBlock extends BaseEntityBlock {
 	// #endregion block
 	public DirtChestBlock(Properties properties) {
 		super(properties);
-	}
-
-	@Override
-	protected MapCodec<? extends BaseEntityBlock> codec() {
-		return simpleCodec(DirtChestBlock::new);
 	}
 
 	// #region use

@@ -1,0 +1,11 @@
+{
+  "type": "example-mod:smithing_enchanting",
+  "template": "minecraft:netherite_upgrade_smithing_template",
+  "base": "minecraft:netherite_sword",
+  "addition": "minecraft:nether_star",
+  "enchantments": {
+    "minecraft:sharpness": 10,
+    "minecraft:smite": 10,
+    "minecraft:bane_of_arthropods": 10
+  }
+}

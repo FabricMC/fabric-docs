@@ -44,6 +44,12 @@ An advancement is made up a few different components. Along with the requirement
 
 Here's a simple advancement for getting a dirt block:
 
+::: tip
+
+This is a root advancement, so we use `rootDisplay` to set the background of the advancement. Advancements with parents use `display`.
+
+:::
+
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_simple_advancement
 
 ::: details JSON Output
@@ -85,6 +91,14 @@ We can attach rewards to our advancements, which will be granted when a player c
 There are multiple other reward types available:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward_types
+
+::: warning
+
+A temporary workaround is used here to avoid the game crashing due to the loot table not being generated.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#terrible_workaround
+
+:::
 
 ## Custom Criteria {#custom-criteria}
 

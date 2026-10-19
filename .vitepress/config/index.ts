@@ -103,6 +103,7 @@ export default defineVersionedConfig(
 
     srcExclude: [
       "README.md",
+      "versions/26.2",
       "versions/1.21.10",
       "versions/1.21.8",
       "versions/1.21.4",
