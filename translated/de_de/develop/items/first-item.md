@@ -170,18 +170,6 @@ Dein Item sollte nun im Spiel wie folgt aussehen:
 
 ![Item mit dem korrektem Modell](/assets/develop/items/first_item_2.png)
 
-## Das Item kompostierbar oder zu einem Brennstoff machen {#making-the-item-compostable-or-a-fuel}
-
-Die Fabric API bietet verschiedene Register, die verwendet werden können, um zusätzliche Eigenschaften zu deinen Items hinzuzufügen.
-
-Wenn du zum Beispiel dein Item kompostierbar machen willst, kannst du die `CompostableRegistry` verwenden:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
-
-Alternativ, wenn du dein Item zu einem Brennstoff machen willst, kannst du das Event `FuelValueEvents.BUILD` verwenden:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
-
 ## Hinzufügen eines einfachen Craftingrezepts {#adding-a-basic-crafting-recipe}
 
 <!-- In the future, an entire section on recipes and recipe types should be created. For now, this suffices. -->

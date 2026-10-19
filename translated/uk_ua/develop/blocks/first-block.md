@@ -1,6 +1,6 @@
 ---
 title: Створення вашого першого блока
-description: Навчіться як створювати власні блоки в Minecraft.
+description: Дізнайтеся, як створити власні блоки в Minecraft.
 authors:
   - bluebear94
   - cassiancc

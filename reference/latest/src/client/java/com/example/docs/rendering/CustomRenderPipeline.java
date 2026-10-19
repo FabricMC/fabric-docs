@@ -96,7 +96,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		matrices.pushPose();
 		matrices.translate(-camera.x, -camera.y, -camera.z);
 
-		final var builder = stagedBuffer.getVertexBuilder(draw);
+		final VertexConsumer builder = stagedBuffer.getVertexBuilder(draw);
 
 		this.renderFilledBox(matrices.last().pose(), builder, this.waypointState.x(), this.waypointState.y(), this.waypointState.z(), this.waypointState.x() + 1, this.waypointState.y() + 1, this.waypointState.z() + 1, this.waypointState.r(), this.waypointState.g(), this.waypointState.b(), this.waypointState.a());
 

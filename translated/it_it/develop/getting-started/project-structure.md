@@ -35,6 +35,14 @@ Ecco un esempio di un entrypoint `main` molto semplice che logga un messaggio al
 
 <<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
 
+### Metodo ausiliario per ID {#id-helper}
+
+Il modello ufficiale include un metodo ausiliario che si può usare per creare gli `Identifier`. È accessibile tramite `ExampleMod.id(...)`:
+
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#id_helper_usage
+
+Questo metodo sarà usato frequentemente nella documentazione. Mentre segui un esempio, assicurati di far riferimento al nome del tuo initializer, invece di `ExampleMod`.
+
 ## `src/main/resources` {#src-main-resources}
 
 Nella cartella `src/main/resources` si memorizzano le risorse che la tua mod usa, come texture, modelli, e suoni.

@@ -1,5 +1,5 @@
 ---
-title: Installation de Fabric sur linux
+title: Installation de Fabric sous Linux
 description: Guide étape par étape pour l'installation de Fabric sous Linux.
 authors:
   - Benonardo

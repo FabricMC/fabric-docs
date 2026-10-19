@@ -9,7 +9,7 @@ prev:
 next: false
 ---
 
-学习如何翻阅生成的源代码非常重要，这样你才能调试并理解 Minecraft 的内部工作原理。 这里我们概述了一些常见的 IDE 用法。
+学习如何翻阅生成的源代码非常重要，这样你才能调试并理解 Minecraft 的内部工作原理。这里我们概述了一些常见的 IDE 用法。
 
 ## 搜索 Minecraft 类 {#searching-for-a-minecraft-class}
 
@@ -33,7 +33,7 @@ next: false
 
 ::: info
 
-如果上述函数无法按预期工作，很可能是源文件没有正确附加。 这通常可以通过清理工作区缓存来修复。
+如果上述函数无法按预期工作，很可能是源文件没有正确附加。这通常可以通过清理工作区缓存来修复。
 
 - 单击状态栏中的**显示 Java 状态菜单**按钮。
 
@@ -49,13 +49,13 @@ next: false
 
 ## 查看字节码 {#viewing-bytecode}
 
-在编写 mixins 时，查看字节码是必要的。 然而，Visual Studio Code 缺乏对字节码查看的原生支持，而添加此功能的几个扩展可能无法正常工作。
+在编写 mixins 时，查看字节码是必要的。然而，Visual Studio Code 缺乏对字节码查看的原生支持，而添加此功能的几个扩展可能无法正常工作。
 
 在这种情况下，你可以使用 Java 的内置 `javap` 来查看字节码。
 
 - **定位 Minecraft JAR 的路径：**
 
-  打开资源管理器视图，展开 **Java Projects** 部分。 展开项目树中的 **Reference Libraries** 节点，并找到名称中包含 `minecraft-` 的 JAR 文件。 右键单击该 JAR 文件并复制完整路径。
+  打开资源管理器视图，展开 **Java Projects** 部分。展开项目树中的 **Reference Libraries** 节点，并找到名称中包含 `minecraft-` 的 JAR 文件。右键单击该 JAR 文件并复制完整路径。
 
   它可能看起来像这样：
 

@@ -86,21 +86,19 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		// #endregion model_animation
 		if (state.dancingAnimationState.isStarted()) {
 			this.dancing.apply(state.dancingAnimationState, state.ageInTicks);
-		} else {
-			// ... the leg swing animation code from before
-			// #region dancing_animation
-			// #region model_animation
-			this.head.xRot = state.xRot * Mth.RAD_TO_DEG;
-			this.head.yRot = state.yRot * Mth.RAD_TO_DEG;
-			float limbSwingAmplitude = state.walkAnimationSpeed;
-			float limbSwingAnimationProgress = state.walkAnimationPos;
-			this.leftLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f + Mth.PI) * 1.4f * limbSwingAmplitude;
-			this.rightLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f) * 1.4f * limbSwingAmplitude;
-			// #endregion model_animation
-			// #endregion dancing_animation
+			return;
 		}
+		// ... the leg swing animation code from before
+		// #region dancing_animation
 		// #region model_animation
+		this.head.xRot = state.xRot * Mth.RAD_TO_DEG;
+		this.head.yRot = state.yRot * Mth.RAD_TO_DEG;
+		float limbSwingAmplitude = state.walkAnimationSpeed;
+		float limbSwingAnimationProgress = state.walkAnimationPos;
+		this.leftLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f + Mth.PI) * 1.4f * limbSwingAmplitude;
+		this.rightLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f) * 1.4f * limbSwingAmplitude;
+		// #endregion dancing_animation
 	}
 	// #endregion dancing_animation
+	// #endregion model_animation
 }
-// #endregion model_animation

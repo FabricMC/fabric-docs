@@ -65,4 +65,4 @@ Minecraft Development 插件为使用 Fabric 开发模组提供支持，是要�
 
 ### 关于创建项目 {#about-creating-a-project}
 
-虽然可以使用此插件创建项目，但不建议这样做，因为模板经常会过期。 你可以考虑按照[创建项目](../creating-a-project)中的说明使用 Fabric 模板模组生成器。
+虽然可以使用此插件创建项目，但不建议这样做，因为模板经常会过期。你可以考虑按照[创建项目](../creating-a-project)中的说明使用 Fabric 模板模组生成器。

@@ -10,22 +10,21 @@ resources:
   https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg: 标准美式键盘布局
 ---
 
-Minecraft 使用按键映射来处理来自像键盘、鼠标之类的外围设置的用户输入，
-许多这些按键映射都可以通过设置菜单来配置。
+Minecraft 使用按键映射来处理来自像键盘、鼠标之类的外围设置的用户输入，许多这些按键映射都可以通过设置菜单来配置。
 
 借助 Fabric API 可以创建自己的自定义按键映射，并在自己的模组中进行反应。
 
-按键映射仅存在于客户端， 这意味着按键映射的注册和反应都仅应在客户端完成。 因此可以使用**客户端初始化器**（client initializer）。
+按键映射仅存在于客户端，这意味着按键映射的注册和反应都仅应在客户端完成。因此可以使用**客户端初始化器**（client initializer）。
 
 ## 创建按键映射 {#creating-a-key-mapping}
 
 按键映射包含两部分：按键的映射，以及其属于的分类。
 
-先开始创建一个分类。 分类定义了一组会在设置菜单中显示在一起的按键映射。
+先开始创建一个分类。分类定义了一组会在设置菜单中显示在一起的按键映射。
 
 <<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#category
 
-然后，创建一个按键映射。 我们将使用 Fabric API 的 `KeyMappingHelper` 来注册按键映射。
+然后，创建一个按键映射。我们将使用 Fabric API 的 `KeyMappingHelper` 来注册按键映射。
 
 <<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#key_mapping
 
@@ -47,7 +46,7 @@ Minecraft 使用按键映射来处理来自像键盘、鼠标之类的外围设�
 
 你会需要为按键映射以及分类提供翻译。
 
-分类名称的翻译键是 `key.category.<namespace>.<path>` 的形式。 创建按键映射时，按键映射的翻译键会是你提供的。
+分类名称的翻译键是 `key.category.<namespace>.<path>` 的形式。创建按键映射时，按键映射的翻译键会是你提供的。
 
 可以手动添加翻译键，也可借助[数据生成](./data-generation/translations)。
 
@@ -67,7 +66,7 @@ Minecraft 使用按键映射来处理来自像键盘、鼠标之类的外围设�
 <<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#client_tick_event
 
 每次按下映射的按键时，都会在游戏内聊天中打印“
-Key press detected in the world”的信息。 记住，按住此键会反复向聊天栏输出消息，所以如果这个逻辑只需要触发一次，可能需要实现保护机制。
+Key press detected in the world”的信息。记住，按住此键会反复向聊天栏输出消息，所以如果这个逻辑只需要触发一次，可能需要实现保护机制。
 
 ![聊天栏内的消息](/assets/develop/key-mappings/key_mapping_pressed.png)
 
@@ -81,7 +80,7 @@ Key press detected in the world”的信息。 记住，按住此键会反复向
 
 <<< @/reference/latest/src/client/java/com/example/docs/keymapping/ExampleModKeyMappingsClient.java#helper_methods
 
-这会检查当前屏幕是 `TitleScreen` 还是 `CreativeModeInventoryScreen`。 如果是这样，我们会根据身处世界内还是世界外来实现两种截然不同的行为：
+这会检查当前屏幕是 `TitleScreen` 还是 `CreativeModeInventoryScreen`。如果是这样，我们会根据身处世界内还是世界外来实现两种截然不同的行为：
 
 - 换句话说，当玩家不在游戏世界中时，它会将“ Key press detected in the title screen”记录到控制台。
 - 否则，如果在游戏世界中按下该键，它会向游戏内聊天发送“ Key press detected in the GUI with a world open, closing screen”的消息，并关闭屏幕。

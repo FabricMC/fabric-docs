@@ -20,6 +20,12 @@ You'll start with a call to `AttachmentRegistry.create`. The following example c
 
 <<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#string
 
+::: warning
+
+`AttachmentRegistry.create...` calls run in static initializers, so the containing class must be loaded by referencing it from your `ModInitializer.onInitialize` function. If it never loads, the attachments are never registered and persistence will break.
+
+:::
+
 `AttachmentRegistry` contains a few methods for creating basic Data Attachments, including:
 
 - `AttachmentRegistry.create()`: Creates a Data Attachment. Restarting the game will clear the Attachment.

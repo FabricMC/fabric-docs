@@ -1,5 +1,7 @@
 package com.example.docs.datagen;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;
@@ -13,6 +15,7 @@ import com.example.docs.block.ModBlocks;
 import com.example.docs.enchantment.ModEnchantments;
 import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.ModItems;
+import com.example.docs.item.armor.GuiditeArmorMaterial;
 
 // #region datagen_translations_provider
 public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
@@ -50,8 +53,16 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 
 		translationBuilder.add(Util.makeDescriptionId("effect", ExampleMod.id("tater")), "Tater");
 
-		// You can alternatively use the translationBuilder.add(Path.of("../existing/language/file.json"));
-		// to add translations from an existing language file instead of manually defining them all.
+		// #region datagen_translations_existing
+		try {
+			Path existingLanguageFile = packOutput.getModContainer()
+					.findPath("assets/example-mod/lang/en_us.existing.json")
+					.orElseThrow();
+			translationBuilder.add(existingLanguageFile);
+		} catch (IOException e) {
+			throw new RuntimeException("Failed to add existing language file", e);
+		}
+		// #endregion datagen_translations_existing
 		translationBuilder.add("sound.example-mod.metal_whistle", "Metal Whistle");
 		translationBuilder.add("item.minecraft.potion.effect.tater", "Tater Potion");
 		translationBuilder.add("death.attack.tater", "%1$s died from Tater damage!");
@@ -97,6 +108,10 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		// #region gamerule_name
 		translationBuilder.add(ExampleMod.id("bad_vision"), "Bad Vision");
 		// #endregion gamerule_name
+		// #region tag_name
+		translationBuilder.add(ExampleModItemTagProvider.SMELLY_ITEMS, "Smelly Items");
+		// #endregion tag_name
+		translationBuilder.add(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR, "Repairs Guidite Armor");
 		// #region datagen_translations_provider
 	}
 }

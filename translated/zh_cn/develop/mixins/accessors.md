@@ -8,7 +8,7 @@ authors:
   - MildestToucan
 ---
 
-Mixin 通常用于修改现有代码以生成和调整行为。 然而，Mixin 同样提供了以访问器 Mixin 的形式，来访问无法直接访问的字段和方法的工具。
+Mixin 通常用于修改现有代码以生成和调整行为。然而，Mixin 同样提供了以访问器 Mixin 的形式，来访问无法直接访问的字段和方法的工具。
 
 [类修改器](../class-tweakers) 以 [访问拓宽器](../class-tweakers/access-widening) 的形式提供了类似的工具，但 Mixin 的访问器不需要重新加载 Gradle，并且可以应用于非 Minecraft 目标。
 
@@ -16,10 +16,9 @@ Mixin 通常用于修改现有代码以生成和调整行为。 然而，Mixin �
 
 ## 创建访问器接口 {#creating-the-accessor-interface}
 
-访问器 Mixin 必须始终是一个接口，且只能包含带有 `@Accessor` 或 `@Invoker` 注解的方法。 该接口必须像其他 Mixin 类一样，使用 `@Mixin` 注解进行标记。
+访问器 Mixin 必须始终是一个接口，且只能包含带有 `@Accessor` 或 `@Invoker` 注解的方法。该接口必须像其他 Mixin 类一样，使用 `@Mixin` 注解进行标记。
 
-按照惯例，访问器接口通常以其目标类名加上 `Accessor` 后缀来命名，并放置在 Mixin 包下的 `accessor` 子包中。
-例如 `your.package.mixin.accessor`
+按照惯例，访问器接口通常以其目标类名加上 `Accessor` 后缀来命名，并放置在 Mixin 包下的 `accessor` 子包中。例如 `your.package.mixin.accessor`
 
 ## 字段访问器 {#field-accessors}
 

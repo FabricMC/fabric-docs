@@ -54,3 +54,13 @@ If you want to add a tag, use `addOptionalTag`, as the tag's contents may not be
 To forcefully add a tag and ignore the broken format, use `forceAddTag`.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_build
+
+## Translating Tags {#translating-tags}
+
+Tags created by your mod should have translations, so that other mods - such as recipe viewers - can properly display the tag's name. If one of your tags is missing a translation, you may see a warning similar to the following in your logs:
+
+> Dev warning - Untranslated Item Tags detected. Please translate your item tags so other mods such as recipe viewers can properly display your tag's name.
+
+We can follow the [Translation Generation guide](./translations) to add a translation for our tag. We can use the same translation builder and pass the `TagKey` and the display name:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#tag_name

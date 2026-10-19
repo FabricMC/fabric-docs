@@ -43,6 +43,12 @@ Along with creating raw translations, translations from `Identifier`s, and copyi
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
 
+You can also merge in translations from a JSON file that already lives in your mod. Place that file somewhere outside the generated directory, then pass it to `translationBuilder.add`:
+
+<<< @/reference/latest/src/main/resources/assets/example-mod/lang/en_us.existing.json
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_existing
+
 ## Using Translations {#using-translations}
 
 Generated translations take the place of a lot of translations added in other tutorials, but you can also use them anywhere you use a `Component` object. In our example, if we wanted to allow resource packs to translate our greeting, we use `Component.translatable` instead of `Component.literal`:

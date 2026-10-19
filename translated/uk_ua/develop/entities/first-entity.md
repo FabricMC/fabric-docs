@@ -29,6 +29,10 @@ resources:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#registerclass
 
+Нашій новій сутності потрібен ID; створіть новий клас із назвою `ModEntityTypeIds` і додайте ключ ресурсу для сутності:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#ids
+
 Щоби зареєструвати свою сутність, рекомендується створити окремий клас `ModEntityTypes`, у якому ви будете реєструвати будь-які типи сутностей, установлювати їхні розміри та реєструвати їхні атрибути.
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types

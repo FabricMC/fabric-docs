@@ -14,6 +14,7 @@ authors:
   - NetUserGet
   - NShak
   - parzivail
+  - skippyall
   - skycatminepokie
   - SolidBlock-cn
   - Voleil
@@ -50,7 +51,7 @@ Eine Payload sind die Daten, die innerhalb eines Pakets gesendet werden.
 
 :::
 
-Dies kann durch das Erstellen eines Java `Record` mit einem `BlockPos`-Parameter, der `CustomPacketPayload` implementiert, gelöst werden.
+Dies kann durch das Erstellen eines Java `Record` mit einem `BlockPos`- und einem `int`-Parameter, der `CustomPacketPayload` implementiert, gelöst werden.
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#summon_lightning_payload
 
@@ -97,7 +98,7 @@ Wir senden nur Pakete, wenn die Aktion auf dem Server initiiert wird, indem wir 
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#client_check
 
-Wir erstellen eine Instanz des Payloads mit der Position des Users:
+Wir erstellen eine Instanz des Payload mit der Position des Benutzers und der Entitäts-ID für den Blitz:
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#payload_instance
 
@@ -129,7 +130,7 @@ In diesem Fall definieren wir die auszulösende Aktion innerhalb der Implementie
 
 Schauen wir uns den obigen Code an.
 
-Wir können auf die Daten aus unserem Payload zugreifen, indem wir die Getter-Methoden des Records aufrufen. In diesem Fall `payload.pos()`. Welche genutzt werden können, um die `x`,- `y`- und `z`-Positionen abzurufen.
+Wir können auf die Daten aus unserem Payload zugreifen, indem wir die Getter-Methoden des Records aufrufen. In diesem Fall kann `payload.pos()` verwendet werden, um die `x`-, `y`- und `z`-Positionen und `payload.id()` um die Entitäts-ID abzurufen:
 
 <<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#payload_pos
 

@@ -18,7 +18,7 @@ resources:
 
 ## 准备你的方块ID类{#preparing-your-block-id-classes}
 
-如果你已经完成了[创建你的第一个物品](../items/first-item)那么这个过程你会觉得非常熟悉——你需要创建类来存放你的 `Block`的标识符。 带有物品的方块，其 ID 以`BlockItemId`的形式存储；而没有物品的方块，则将其 ID 存储为 `ResourceKey`。
+如果你已经完成了[创建你的第一个物品](../items/first-item)那么这个过程你会觉得非常熟悉——你需要创建类来存放你的 `Block`的标识符。带有物品的方块，其 ID 以`BlockItemId`的形式存储；而没有物品的方块，则将其 ID 存储为 `ResourceKey`。
 
 这些对方块的引用被用于 [标签生成](../data-generation/tags)。
 
@@ -26,25 +26,25 @@ resources:
 
 == 带方块物品的方块
 
-你可以将这个方法放在叫做 `ModBlockItemIds` 的类中（也可以是其他你想要的名称）。 这个类包含了所有确实拥有方块物品的方块。
+你可以将这个方法放在叫做 `ModBlockItemIds` 的类中（也可以是其他你想要的名称）。这个类包含了所有确实拥有方块物品的方块。
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#first_block
 
 ::: tip
 
-Mojang对方块也是这么做的！ 看看 `BlockItemIds` 类以了解。
+Mojang对方块也是这么做的！看看 `BlockItemIds` 类以了解。
 
 :::
 
 == 不带方块物品的方块
 
-我们将创建一个用于生成 `ResourceKey` 的方法，并将其放在一个名为 `ModBlockIds` 的类中（也可以是其他你想要的名称）。 这个类专门用来存放那些没有对应方块物品的方块。
+我们将创建一个用于生成 `ResourceKey` 的方法，并将其放在一个名为 `ModBlockIds` 的类中（也可以是其他你想要的名称）。这个类专门用来存放那些没有对应方块物品的方块。
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#first_block
 
 ::: tip
 
-Mojang对方块也是这么做的！ 你可以参考 `BlockIds` 类来获取一些灵感。
+Mojang对方块也是这么做的！你可以参考 `BlockIds` 类来获取一些灵感。
 
 :::
 
@@ -60,7 +60,7 @@ Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 
 
 ::: warning
 
-下面显示的两个 `register()` 重载函数在你的 `ModBlocks` 类中都是**必需的**。 包含物品的方块的重载方法内部会调用不包含物品的方块的重载方法。 如果缺少任何一个重载，你的代码将无法编译。
+下面显示的两个 `register()` 重载函数在你的 `ModBlocks` 类中都是**必需的**。包含物品的方块的重载方法内部会调用不包含物品的方块的重载方法。如果缺少任何一个重载，你的代码将无法编译。
 
 :::
 
@@ -86,7 +86,7 @@ Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 
 
 ::: info
 
-如果你不了解什么是静态初始化，它指的是在类中初始化静态字段的过程。 这一过程会在类被 JVM 加载时执行，且在任何类实例创建之前完成。
+如果你不了解什么是静态初始化，它指的是在类中初始化静态字段的过程。这一过程会在类被 JVM 加载时执行，且在任何类实例创建之前完成。
 
 :::
 
@@ -117,7 +117,7 @@ Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 
 
 由于 `BlockItem` 是自动创建和注册的，要将其添加到创造模式标签页中，必须使用 `Block.asItem()` 方法来获得 `BlockItem` 实例。
 
-对于这个例子，我们将方块添加到 `BUILDING_BLOCKS` 标签页。 如果是要将方块添加到自定义的创造模式标签页，参见[自定义创造模式标签页](../items/custom-creative-tabs)。
+对于这个例子，我们将方块添加到 `BUILDING_BLOCKS` 标签页。如果是要将方块添加到自定义的创造模式标签页，参见[自定义创造模式标签页](../items/custom-creative-tabs)。
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#add_to_creative_tab
 
@@ -149,11 +149,11 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">纹理</DownloadEntry>
 
-要在游戏中显示纹理，必须创建一个方块模型，该模型可在 `assets/example-mod/models/block/condensed_dirt.json` 文件中的 "Condensed Dirt" 方块中找到。 对于这个方块，我们将使用 `block/cube_all` 模型类型。
+要在游戏中显示纹理，必须创建一个方块模型，该模型可在 `assets/example-mod/models/block/condensed_dirt.json` 文件中的 "Condensed Dirt" 方块中找到。对于这个方块，我们将使用 `block/cube_all` 模型类型。
 
 <<< @/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json
 
-为了让方块显示在物品栏中，你需要创建一个指向方块模型的[客户端物品](../items/first-item#creating-the-client-item)。 在本例中，“Condensed Dirt”方块的客户端物品可在 `assets/example-mod/items/condensed_dirt.json` 中找到。
+为了让方块显示在物品栏中，你需要创建一个指向方块模型的[客户端物品](../items/first-item#creating-the-client-item)。在本例中，“Condensed Dirt”方块的客户端物品可在 `assets/example-mod/items/condensed_dirt.json` 中找到。
 
 <<< @/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json
 
@@ -163,7 +163,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 :::
 
-载入游戏，你可能会发现模型还是缺失。 这是因为，你还需要添加方块状态定义。
+载入游戏，你可能会发现模型还是缺失。这是因为，你还需要添加方块状态定义。
 
 ## 创建方块状态定义{#creating-the-block-state-definition}
 
@@ -171,7 +171,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 示例方块没有复杂的方块状态，只需要定义一项。
 
-这个方块应该位于 `assets/example-mod/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
+这个方块应该位于 `assets/example-mod/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
 
 <<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json
 

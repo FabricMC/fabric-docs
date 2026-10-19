@@ -29,6 +29,10 @@ Wir werden die Klasse `MiniGolemEntity` für unsere Entität erstellen und begin
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#registerclass
 
+Unsere neue Entität benötigt eine ID; erstelle ine neue Klasse namens `ModEntityTypeIds` und füge einen Ressourcenschlüssel für die Entität hinzu:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#ids
+
 Um deine Entitäten zu registrieren, empfiehlt es sich, eine eigene Klasse mit dem Namen `ModEntityTypes` zu erstellen, in der du alle Entitätstypen registrierst, deren Größe festlegst und deren Attribute registrierst.
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
