@@ -37,7 +37,7 @@ public class EntityAttributesGameTest implements CustomTestMethodInvoker {
 
 	@GameTest
 	void testModifyingAttributes(GameTestHelper helper, LivingEntity entity) {
-		var attribute = entity.getAttribute(ModAttributes.AGGRO_RANGE);
+		AttributeInstance attribute = entity.getAttribute(ModAttributes.AGGRO_RANGE);
 		assertNotNull(attribute, helper, Component.literal("Expected AGGRO_RANGE attribute to be present"));
 
 		// #region modifying_entity_attributes

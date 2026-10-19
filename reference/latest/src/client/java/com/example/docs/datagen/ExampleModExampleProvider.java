@@ -33,7 +33,7 @@ public abstract class ExampleModExampleProvider implements DataProvider {
 	}
 
 	private Map<String, JsonElement> collect() {
-		final var elements = new HashMap<String, JsonElement>();
+		final HashMap<String, JsonElement> elements = new HashMap<>();
 
 		for (final Submitter submitter : this.submitters) {
 			submitter.submit((name, elem) -> {
@@ -48,9 +48,9 @@ public abstract class ExampleModExampleProvider implements DataProvider {
 
 	@Override
 	public CompletableFuture<?> run(CachedOutput cache) {
-		final var elements = this.collect();
+		final Map<String, JsonElement> elements = this.collect();
 
-		final var paths = this.output.createPathProvider(PackOutput.Target.REPORTS, this.directory);
+		final PackOutput.PathProvider paths = this.output.createPathProvider(PackOutput.Target.REPORTS, this.directory);
 
 		return CompletableFuture.allOf(
 						elements.entrySet().stream().map(x ->
