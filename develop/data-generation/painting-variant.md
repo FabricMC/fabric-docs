@@ -66,7 +66,7 @@ Now, simply run data generation, and your new painting variant will be available
 
 ## Assets {#assets}
 
-The texture of the variant is scaled to fill the painting size, so its aspect ratio must match `width:height` (that is, a 2×1 variant needs a 2:1 texture, or it will look stretched).
+The texture of the variant is scaled to fill the painting size, so its aspect ratio must match `width:height` (for example, a 1×1 variant needs a 1:1 texture, or it will look stretched).
 
 Now, after creating the painting variant, we will be adding the painting variant texture in `assets/example-mod/textures/painting/` directory with the same name as the asset id, which in this case will be `miroma.png`:
 
