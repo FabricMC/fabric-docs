@@ -27,13 +27,29 @@ public class ModItemIds {
 	public static final ResourceKey<Item> GUIDITE_BOOTS = create("guidite_boots");
 	// #endregion create_armor_items
 
-	// #region axe
+	// #region guidite_pickaxe
+	public static final ResourceKey<Item> GUIDITE_PICKAXE = create("guidite_pickaxe");
+	// #endregion guidite_pickaxe
+
+	// #region guidite_axe
 	public static final ResourceKey<Item> GUIDITE_AXE = create("guidite_axe");
-	// #endregion axe
+	// #endregion guidite_axe
 
 	// #region guidite_sword
 	public static final ResourceKey<Item> GUIDITE_SWORD = create("guidite_sword");
 	// #endregion guidite_sword
+
+	// #region guidite_spear
+	public static final ResourceKey<Item> GUIDITE_SPEAR = create("guidite_spear");
+	// #endregion guidite_spear
+
+	// #region guidite_shovel
+	public static final ResourceKey<Item> GUIDITE_SHOVEL = create("guidite_shovel");
+	// #endregion guidite_shovel
+
+	// #region guidite_hoe
+	public static final ResourceKey<Item> GUIDITE_HOE = create("guidite_hoe");
+	// #endregion guidite_hoe
 
 	// #region poisonous_apple
 	public static final ResourceKey<Item> POISONOUS_APPLE = create("poisonous_apple");
