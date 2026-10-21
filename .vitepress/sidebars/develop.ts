@@ -314,10 +314,6 @@ export default [
             link: "/develop/data-generation/translations",
           },
           {
-            text: "develop.data_generation.dynamic_registry",
-            link: "/develop/data-generation/dynamic-registry",
-          },
-          {
             text: "develop.data_generation.models",
             items: [
               {
@@ -346,6 +342,10 @@ export default [
           {
             text: "develop.data_generation.loot_tables",
             link: "/develop/data-generation/loot-tables",
+          },
+          {
+            text: "develop.data_generation.dynamic_registry",
+            link: "/develop/data-generation/dynamic-registry",
           },
           {
             text: "develop.data_generation.recipes",

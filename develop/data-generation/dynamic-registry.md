@@ -42,7 +42,7 @@ Add the provider to the `onInitializeDataGenerator()` method which is in the cla
 
 ### Bootstraps {#bootstraps}
 
-Create a bootstrap method for each dynamic registry you have, and for each method parameter's generic type use that [registry's entry](../registries/dynamic-registry#class-setup) class.
+Create a bootstrap method for each dynamic registry you have with a parameter of type `BootstrapContext<T>`, and for each method parameter's generic type use that [registry's entry](../registries/dynamic-registry#class-setup) class. For our example, the class is [MagicSkillsRegistryEntry](../registries/dynamic-registry#class-setup)
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDynamicRegistriesProvider.java#bootstrap
 
