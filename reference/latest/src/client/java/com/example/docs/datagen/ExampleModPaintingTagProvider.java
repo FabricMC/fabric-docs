@@ -21,7 +21,7 @@ public class ExampleModPaintingTagProvider extends FabricTagsProvider<PaintingVa
 		// endregion setup
 		// region builder_entry
 		builder(PaintingVariantTags.PLACEABLE)
-				.addOptional(ExampleModPaintingVariantProvider.miroma);
+				.add(ExampleModPaintingVariantProvider.miroma);
 		// endregion builder_entry
 		// region setup
 	}

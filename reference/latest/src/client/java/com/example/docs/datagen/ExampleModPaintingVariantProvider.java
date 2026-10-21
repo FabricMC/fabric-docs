@@ -5,6 +5,7 @@ import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.ResourceKey;
@@ -31,6 +32,10 @@ public class ExampleModPaintingVariantProvider extends FabricDynamicRegistryProv
 
 	@Override
 	protected void configure(HolderLookup.Provider registries, FabricDynamicRegistryProvider.Entries entries) {
+		entries.addAll(registries.lookupOrThrow(Registries.PAINTING_VARIANT));
+	}
+
+	public static void bootstrap(BootstrapContext<PaintingVariant> context) {
 		// endregion setup
 		// region variant
 		PaintingVariant variant = new PaintingVariant(
@@ -41,9 +46,10 @@ public class ExampleModPaintingVariantProvider extends FabricDynamicRegistryProv
 				Optional.of(Component.literal("NotNightSky").withColor(TextColor.GRAY))
 		);
 		// endregion variant
-		// region entry
-		entries.add(miroma, variant);
-		// endregion entry
+
+		// region register
+		context.register(miroma, variant);
+		// endregion register
 		// region setup
 	}
 

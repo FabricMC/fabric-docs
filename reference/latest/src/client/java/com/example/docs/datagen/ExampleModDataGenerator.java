@@ -98,6 +98,10 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 			registerable.register(ExampleModDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
 
+		// #region datagen_painting_bootstrap
+		registryBuilder.add(Registries.PAINTING_VARIANT, ExampleModPaintingVariantProvider::bootstrap);
+		// #endregion datagen_painting_bootstrap
+
 		// #region datagen_world_registries
 		registryBuilder.add(Registries.CONFIGURED_FEATURE, ExampleModWorldConfiguredFeatures::configure);
 		registryBuilder.add(Registries.PLACED_FEATURE, ExampleModWorldPlacedFeatures::configure);

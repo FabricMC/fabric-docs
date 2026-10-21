@@ -1,8 +1,5 @@
 {
   "values": [
-    {
-      "id": "example-mod:miroma",
-      "required": false
-    }
+    "example-mod:miroma"
   ]
 }

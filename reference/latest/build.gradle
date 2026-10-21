@@ -17,15 +17,6 @@ loom {
 
 	accessWidenerPath = file("src/main/resources/example-mod.classtweaker")
 
-	runs {
-		client {
-			vmArgs "-Xms1G"
-		}
-		server {
-			vmArgs "-Xms1G"
-		}
-	}
-
 }
 // #endregion classtweaker_setup_gradle
 
