@@ -1,9 +1,10 @@
 ---
 title: Painting Variant
-description: A guide to adding new painting variants.
+description: A guide to adding paintings with datagen.
 authors:
   - NotNightSky
   - its-miroma
+  - ChampionAsh5357
 ---
 
 <!---->
@@ -14,7 +15,9 @@ Make sure you've completed the [datagen setup](./setup) process first.
 
 :::
 
-Paintings are decorative items that players can place on walls. Each painting is defined by a painting variant, which specifies its dimensions, texture asset, and optionally a title and author.
+Paintings are decorative items that players can place on walls.
+
+Each painting is defined by a painting variant, which specifies its dimensions, texture asset, and optionally a title and author.
 
 This guide covers how to add new painting variants with data generation and how to make them placeable in-game.
 
@@ -42,23 +45,27 @@ Remember to add them all to your pack in your `DataGeneratorEntrypoint` within t
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_painting_register
 
+And add the `ExampleModPaintingVariantProvider`'s `bootstrap` method within the `buildRegistry` method:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_painting_bootstrap
+
 ## Adding a Painting Variant and Tag {#adding-a-painting-variant-and-tag}
 
 In our `ExampleModPaintingVariantProvider`, we will make a new resource key for the painting variant:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModPaintingVariantProvider.java#resource_key
 
-Now, we will need to create a new painting variant inside the `configure` method:
+Now, we will need to create a new painting variant inside the `bootstrap` method:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModPaintingVariantProvider.java#variant
 
 Here, the parameters width and height are in blocks (1–16), the identifier is the asset id used to locate the texture, and title/author are `Optional<Component>`.
 
-After creating the variant we will need to add it to the variant registry inside `configure`:
+After creating the variant we will need to register it into the `bootstrap`'s context:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModPaintingVariantProvider.java#entry
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModPaintingVariantProvider.java#register
 
-Finally, we will add our variant to `PaintingVariantTags.PLACEABLE` tag. This tag is required for the painting to be placed with the Painting item, and it's also what adds the variant to the creative inventory.
+Finally, in our `ExampleModPaintingTagProvider` we will add our variant to `PaintingVariantTags.PLACEABLE` tag. This tag is required for the painting to be placed with the Painting item, and it's also what adds the variant to the creative inventory.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModPaintingTagProvider.java#builder_entry
 
@@ -74,7 +81,7 @@ Example texture:
 
 <DownloadEntry visualURL="/assets/develop/data-generation/miroma.png" downloadURL="/assets/develop/data-generation/miroma.png">Variant Texture</DownloadEntry>
 
-In-Game the painting variant can be obtained by either cycling though all the variants or searching the painting title in the creative menu.
+In-game, the painting variant can be obtained by either cycling though all the variants or searching the painting title in the creative menu.
 
 ![Painting Variant](/assets/develop/data-generation/painting.png)
 
