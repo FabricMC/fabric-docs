@@ -29,7 +29,7 @@ public class ExampleModParticles implements ModInitializer {
 				if (level.isClientSide()) {
 					// #region client_send_particles
 					// Determine positions (in this case, from a previous BlockPos variable)
-					// (Adding 0.5 to the BlockPos to make sure it's centered)
+					// (Adding 0.5 to the BlockPos to make sure it's centered in the block)
 					double x = blockPos.getX() + 0.5;
 					double y = blockPos.getY() + 0.5;
 					double z = blockPos.getZ() + 0.5;
@@ -43,7 +43,8 @@ public class ExampleModParticles implements ModInitializer {
 					// #endregion
 				} else if (level instanceof ServerLevel serverLevel) {
 					// #region server_send_particles
-					// Determine positions (in this case, from a previous BlockPos variable - adding 0.5 to make sure it's centered)
+					// Determine positions (in this case, from a previous BlockPos variable)
+					// (Adding 0.5 to the BlockPos to make sure it's centered in the block)
 					double x = blockPos.getX() + 0.5;
 					double y = blockPos.getY() + 0.5;
 					double z = blockPos.getZ() + 0.5;
