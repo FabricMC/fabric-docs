@@ -22,6 +22,13 @@ public class ExampleModDynamicRegistriesProvider extends FabricDynamicRegistryPr
 	public ExampleModDynamicRegistriesProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
+
+	@Override
+	@NonNull
+	public String getName() {
+		return "Example Mod Dynamic Registries";
+	}
+
 	// #endregion main
 
 	// #region configure
@@ -30,13 +37,6 @@ public class ExampleModDynamicRegistriesProvider extends FabricDynamicRegistryPr
 		entries.addAll(registries.lookupOrThrow(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY));
 	}
 	// #endregion configure
-
-	// #region name
-	@Override
-	public @NonNull String getName() {
-		return "Example Mod Dynamic Registries";
-	}
-	// #endregion name
 
 	// #region bootstrap
 	public static void bootstrapMagicSkillsRegistry(BootstrapContext<MagicSkillsRegistryEntry> context) {

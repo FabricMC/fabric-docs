@@ -15,24 +15,9 @@ Make sure you've completed the [datagen setup](./setup) process first, and you k
 
 ## Dynamic Registry Provider {#dynamic-registry-provider}
 
-Create a class that extends the `FabricDynamicRegistryProvider`.
+Create a class that extends the `FabricDynamicRegistryProvider` and override the `getName()` method to provide a unique name for your dynamic registry provider.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDynamicRegistriesProvider.java#main
-
-### Name {#name}
-
-Override the `getName()` method and provide a unique name for your dynamic registry provider.
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDynamicRegistriesProvider.java#name
-
-### Configure {#configure}
-
-Override the `configure()` method and add your registry key to the entries using the `entries.addAll()` method.
-This tells the datagen provider to take all entries from this particular registry and include them in the generated datapack.
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDynamicRegistriesProvider.java#configure
-
-If you have more than one dynamic registry, you can add more registry keys using the `entries.addAll()` method multiple times.
 
 ### Registering The Provider {#registering-the-provider}
 
@@ -40,7 +25,16 @@ Add the provider to the `onInitializeDataGenerator()` method in the class that i
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_dynamic_registries
 
-### Bootstraps {#bootstraps}
+### Configure {#configure}
+
+Override the `configure()` method of the provider class and add your registry key to the entries using the `entries.addAll()` method.
+This tells the datagen provider to take all entries from this particular registry and include them in the generated datapack.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDynamicRegistriesProvider.java#configure
+
+If you have more than one dynamic registry, you can add more registry keys using the `entries.addAll()` method multiple times.
+
+## Bootstraps {#bootstraps}
 
 Create a bootstrap method for each dynamic registry you have with a parameter of type `BootstrapContext<T>`, and for each method parameter's generic type use that [registry's entry](../registries/dynamic-registry#class-setup) class. For our example, the class is [MagicSkillsRegistryEntry](../registries/dynamic-registry#class-setup)
 
@@ -53,7 +47,7 @@ and the second parameter is an instance of [registry's entry](../registries/dyna
 
 If you have more entries, add them in the same way.
 
-### Registry Builder {#registry-builder}
+## Registry Builder {#registry-builder}
 
 In your mod's data generator entry point class override the `buildRegistry` method and use the `RegistrySetBuilder` parameter to link all your dynamic registries with the registry's bootstrap method using the `add()` method.
 The first parameter in the `add()` method takes the [registry key](../registries/dynamic-registry#registering-the-registry) and the second parameter takes the bootstrap method reference.
