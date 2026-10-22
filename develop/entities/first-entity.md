@@ -2,6 +2,7 @@
 title: Creating Your First Entity
 description: Learn how to register a simple entity and how to give it goals, render, model, and animate it.
 authors:
+  - An16og
   - cassiancc
   - CelDaemon
   - Earthcomputer
