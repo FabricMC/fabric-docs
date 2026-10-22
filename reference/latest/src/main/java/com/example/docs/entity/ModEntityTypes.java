@@ -37,7 +37,7 @@ public class ModEntityTypes {
 		return Registry.register(BuiltInRegistries.ENTITY_TYPE, key, builder.build(key));
 	}
 
-	private static <T extends LivingEntity> EntityType<T> register(ResourceKey<EntityType<?>> key, EntityType.Builder<T> builder, AttributeSupplier.Builder attributes) {
+	private static <T extends LivingEntity> EntityType<T> registerLiving(ResourceKey<EntityType<?>> key, EntityType.Builder<T> builder, AttributeSupplier.Builder attributes) {
 		EntityType<T> type = register(key, builder);
 		FabricDefaultAttributeRegistry.register(type, attributes);
 		return type;
