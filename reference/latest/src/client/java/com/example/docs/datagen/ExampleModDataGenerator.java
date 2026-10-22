@@ -85,8 +85,10 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 	// #endregion datagen_setup_generator
 
 	// #region datagen_enchantments_bootstrap
+	// #region datagen_magic_skills_dynamic_registries_bootstrap
 	@Override
 	public void buildRegistry(RegistrySetBuilder registryBuilder) {
+		// #endregion datagen_magic_skills_dynamic_registries_bootstrap
 		// #endregion datagen_enchantments_bootstrap
 		registryBuilder.add(Registries.DAMAGE_TYPE, registerable -> {
 			registerable.register(ExampleModDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
@@ -98,13 +100,15 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		// #endregion datagen_world_registries
 
 		// #region datagen_magic_skills_dynamic_registries_bootstrap
-		registryBuilder.add(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY, ExampleModDynamicRegistriesProvider::bootstrap);
+		registryBuilder.add(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY, ExampleModDynamicRegistriesProvider::bootstrapMagicSkillsRegistry);
 		// #endregion datagen_magic_skills_dynamic_registries_bootstrap
 
 		// #region datagen_enchantments_bootstrap
 		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
+		// #region datagen_magic_skills_dynamic_registries_bootstrap
 	}
 	// #endregion datagen_enchantments_bootstrap
+	// #endregion datagen_magic_skills_dynamic_registries_bootstrap
 
 	// #region datagen_setup_generator
 }
