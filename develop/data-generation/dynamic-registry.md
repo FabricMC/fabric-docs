@@ -9,7 +9,7 @@ authors:
 
 ::: info PREREQUISITES
 
-Make sure you've completed the [datagen setup](./setup) process first, and you know what a [dynamic registry](../registries/dynamic-registry) is.
+Make sure you've completed the [datagen setup](./setup) process and have followed the [dynamic registry](../registries/dynamic-registry) docs first.
 
 :::
 
@@ -49,8 +49,8 @@ If you have more entries, add them in the same way.
 
 ## Registry Builder {#registry-builder}
 
-In your mod's data generator entry point class override the `buildRegistry` method and use the `RegistrySetBuilder` parameter to link all your dynamic registries with the registry's bootstrap method using the `add()` method.
-The first parameter in the `add()` method takes the [registry key](../registries/dynamic-registry#registering-the-registry) and the second parameter takes the bootstrap method reference.
+In your mod's data generator entrypoint, override the `buildRegistry` method and use the `RegistrySetBuilder` parameter to link all your dynamic registries with the registry's bootstrap method using the `add()` method.
+The first parameter in the `add()` method takes the [registry key](../registries/dynamic-registry#registering-the-registry) and the second parameter takes a reference to the bootstrap method we created earlier.
 
 This is how the generator knows which method to use to actually populate that registry.
 
