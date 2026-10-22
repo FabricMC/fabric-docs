@@ -15,7 +15,7 @@ To begin, create and register a `ParticleType` in your [mod's initializer](../..
 
 <<< @/reference/latest/src/main/java/com/example/docs/particle/ExampleModParticles.java#entrypoint
 
-The "sparkle_particle" path is for the Sprite Set JSON file that stores the particle's textures. You will be creating a new JSON file with that exact name soon.
+The "sparkle_particle" path is for the Sprite Set JSON file that stores the particle's texture paths. You will be creating a new JSON file with that exact name soon.
 
 ## Particle Provider Registration {#particle-provider-registration}
 
@@ -40,7 +40,7 @@ You can see all available Particle Providers by viewing all the implementations 
 
 After the registrations, we need to give our particle some textures.
 
-All particle textures should be put in the `assets/example-mod/textures/particle` folder. Textures are normally 16x16 pixels, but Vanilla sometimes uses 8x8 or 32x32.
+All particle textures should be put in the `assets/example-mod/textures/particle` folder. Textures are normally 16x16 pixels, but any multiple of 8 will also work.
 
 For this example, we have 6 sparkle textures named `sparkle_1` through `sparkle_6`.
 <DownloadEntry visualURL="/assets/develop/rendering/particles/sparkle_textures_big.png" downloadURL="/assets/develop/rendering/particles/sparkle_particle_textures.zip">Particle Textures</DownloadEntry>
@@ -55,7 +55,9 @@ In this folder, create a new JSON file with the same name as your particle's `Id
 
 <<< @/reference/latest/src/main/resources/assets/example-mod/particles/sparkle_particle.json
 
-You can use vanilla textures too, just add `minecraft:<vanilla_texture_file_name>` as a texture path to the `textures` array.
+Entries are searched for in the `assets/example-mod/textures/particle` folder.
+
+You can also use vanilla particle textures by adding `minecraft:<texture_file_name>` to the `textures` array, which will search the `assets/minecraft/textures/particle` folder.
 
 == Template Sprite Set
 
@@ -101,7 +103,7 @@ If you type it in chat, the particle will spawn inside the player, and you'll li
 
 What good is a particle if you can't spawn it from code?
 
-There are two methods to spawn a particle depending on your [networking context](../../networking) via `ClientLevel#addParticle()` and `ServerLevel#sendParticles()`. Most commonly, you'll be spawning particles from the client side.
+There are two methods to spawn a particle depending on your [networking context](../../networking) via `ClientLevel#addParticle()` and `ServerLevel#sendParticles()`. Most commonly, you'll be spawning particles with the client method.
 
 For both methods, you'll pass the `ParticleType` you want to spawn along with other parameters for positioning and velocities.
 
@@ -115,13 +117,13 @@ For both methods, you'll pass the `ParticleType` you want to spawn along with ot
 
 == Server Side
 
-`ServerLevel#sendParticles()` will send a packet telling clients to add particles to their worlds, taking in a `ParticleType`, position, count, maximum random travel distance, and maximum random speed.
+`ServerLevel#sendParticles()` will send a packet telling clients to add particles to their worlds, taking in a `ParticleType`, position, count, random travel distances, and random speed (applied to the velocities).
 
 <<< @/reference/latest/src/main/java/com/example/docs/particle/ExampleModParticles.java#server_send_particles
 
 This method's parameters are more tuned towards spawning multiple particles with positional & velocity variations (e.g., the fishing rod's water particles).
 
-Note that calling `Level#addParticle()` on the `ServerLevel` will not do anything.
+If you're sending multiple particles at once, it's better to create your own [packet](../../networking#an-introduction-to-networking) which spawns all the particles via `ClientLevel#addParticle()`. This can help reduce lag by sending a single packet with less data while achieving the same effect.
 
 :::
 

@@ -50,11 +50,11 @@ public class ExampleModParticles implements ModInitializer {
 					double z = blockPos.getZ() + 0.5;
 					// Determine count
 					int count = 2;
-					// Determine maximum random distance from the initial position
+					// Determine the random distance from the initial position
 					double distX = 0.25;
 					double distY = 0.25;
 					double distZ = 0.25;
-					// Determine maximum random speed used for the velocities
+					// Determine the random speed used for the velocities
 					double speed = 0.15;
 					// Send our particle by passing our ParticleType
 					serverLevel.sendParticles(ExampleModParticles.SPARKLE_PARTICLE, x, y, z, count, distX, distY, distZ, speed); // [!code highlight]
