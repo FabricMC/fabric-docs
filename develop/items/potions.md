@@ -43,7 +43,7 @@ hold this. Note the use of `Registry.registerForHolder`, as, like mob effects, m
 
 We pass an instance of `MobEffectInstance`, which takes 3 parameters:
 
-- `Holder<MobEffect> effect` - An effect, represented as a holder. We use our custom effect here. Alternatively you can access vanilla effects
+- `Holder<MobEffect> effect` - An effect, represented as a holder. We use our custom effect here. Alternatively, you can access vanilla effects
   through vanilla's `MobEffects` class.
 - `int duration` - Duration of the effect in game ticks.
 - `int amplifier` - An amplifier for the effect. For example, Haste II would have an amplifier of 1.
@@ -66,7 +66,7 @@ In a recipe provider's `buildRecipes` method, we will create a new `FabricBrewin
 
 `FabricBrewingProvider` provides the `buildMixes` method which handles the actual crafting recipes. You'll call `buildMix` with 3 parameters:
 
-- `Holder<Potion> input` - The starting potion, represented by a holder. Usually this can be a Water Bottle or an Awkward Potion.
+- `Holder<Potion> input` - The starting potion, represented by a holder. Potions created from Awkward Potions may wish to use `buildStartMix` instead, which also generates the expected Water Bottle->Mundane Potion recipe for your reagent.
 - `Item reagent` - The item which is the main ingredient of the potion.
 - `Holder<Potion> output` - The resultant potion, represented by a holder.
 
