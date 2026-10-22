@@ -21,6 +21,7 @@ on:
       - "*_translations.json"
       - "crowdin.yaml"
       - "!README.md"
+      - "!contributing.md"
       - "!translated/**"
       - "!versions/**"
   workflow_dispatch:
