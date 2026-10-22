@@ -1,5 +1,5 @@
 ---
-title: Populate Dynamic Registry
+title: Dynamic Registry Population
 description: A guide to populate a dynamic registry with datagen.
 authors:
   - Jimmy474
@@ -28,15 +28,15 @@ Override the `getName()` method and provide a unique name for your dynamic regis
 ### Configure {#configure}
 
 Override the `configure()` method and add your registry key to the entries using the `entries.addAll()` method.
-The `entries.addAll()` method tells the datagen provider to take all entries from this particular registry and include them in the generated datapack.
+This tells the datagen provider to take all entries from this particular registry and include them in the generated datapack.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDynamicRegistriesProvider.java#configure
 
-You can add more registry keys to the entries if you have more than one dynamic registry using the `entries.addAll()` method multiple times.
+If you have more than one dynamic registry, you can add more registry keys using the `entries.addAll()` method multiple times.
 
 ### Registering The Provider {#registering-the-provider}
 
-Add the provider to the `onInitializeDataGenerator()` method which is in the class that implements `DataGeneratorEntryPoint`.
+Add the provider to the `onInitializeDataGenerator()` method in the class that implements `DataGeneratorEntryPoint`.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_dynamic_registries
 
