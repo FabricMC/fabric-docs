@@ -2,6 +2,7 @@
 title: Creating Your First Entity
 description: Learn how to register a simple entity and how to give it goals, render, model, and animate it.
 authors:
+  - An16og
   - cassiancc
   - CelDaemon
   - Earthcomputer
@@ -33,11 +34,11 @@ Our new entity needs an ID; create a new class called `ModEntityTypeIds` and add
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#ids
 
-To register your entity, it's recommended to create a separate class, `ModEntityTypes`, where you register any and all entity types, set their sizes, and register their attributes.
+To register your entity, it's recommended to create a separate class, `ModEntityTypes`, where you register any and all entity types, set their sizes, and pass their attributes directly into the registration method:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
 
-Call `registerModEntityTypes` and `registerAttributes` in your [mod's initializer](../getting-started/project-structure#entrypoints):
+Call `initialize` in your [mod's initializer](../getting-started/project-structure#entrypoints) to trigger the class loading and register your entities:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
 

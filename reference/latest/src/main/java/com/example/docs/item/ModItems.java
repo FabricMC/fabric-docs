@@ -30,6 +30,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ShieldItem;
+import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.BlocksAttacks;
@@ -108,6 +109,7 @@ public class ModItems {
 	);
 	// #endregion create_armor_items
 	public static final Item LIGHTNING_STICK = register(ModItemIds.LIGHTNING_STICK, LightningStick::new, new Item.Properties());
+
 	// #region guidite_sword
 	public static final Item GUIDITE_SWORD = register(
 			ModItemIds.GUIDITE_SWORD,
@@ -115,6 +117,47 @@ public class ModItems {
 			new Item.Properties().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
 	);
 	// #endregion guidite_sword
+
+	// #region guidite_pickaxe
+	public static final Item GUIDITE_PICKAXE = register(
+			ModItemIds.GUIDITE_PICKAXE,
+			Item::new,
+			new Item.Properties().pickaxe(GUIDITE_TOOL_MATERIAL, 2.0F, -1.0F)
+	);
+	// #endregion guidite_pickaxe
+
+	// #region guidite_axe
+	public static final Item GUIDITE_AXE = register(
+			ModItemIds.GUIDITE_AXE,
+			settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings),
+			new Item.Properties()
+	);
+	// #endregion guidite_axe
+
+	// #region guidite_spear
+	public static final Item GUIDITE_SPEAR = register(
+			ModItemIds.GUIDITE_SPEAR,
+			Item::new,
+			new Item.Properties().spear(GUIDITE_TOOL_MATERIAL, 2.8f, 0.3f, 1.4f, 1.1f, 2.0f, 1.1f, 0.15f, 0.25f, 0.45f)
+	);
+	// #endregion guidite_spear
+
+	// #region guidite_shovel
+	public static final Item GUIDITE_SHOVEL = register(
+			ModItemIds.GUIDITE_SHOVEL,
+			settings -> new ShovelItem(GUIDITE_TOOL_MATERIAL, 1.0F, -1.0F, settings),
+			new Item.Properties()
+	);
+	// #endregion guidite_shovel
+
+	// #region guidite_hoe
+	public static final Item GUIDITE_HOE = register(
+			ModItemIds.GUIDITE_HOE,
+			settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, 2.0F, -1.0F, settings),
+			new Item.Properties()
+	);
+	// #endregion guidite_hoe
+
 	// #region shield
 	public static final Item GUIDITE_SHIELD = register(
 					ModItemIds.GUIDITE_SHIELD,
@@ -247,13 +290,6 @@ public class ModItems {
 
 	public static final Item RUBY = register(ModItemIds.RUBY, Item::new, new Item.Properties());
 
-	// #region axe
-	public static final Item GUIDITE_AXE = register(
-					ModItemIds.GUIDITE_AXE,
-					settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings),
-					new Item.Properties());
-	// #endregion axe
-
 	public static final Item LEATHER_GLOVES = register(ModItemIds.LEATHER_GLOVES, Item::new, new Item.Properties());
 
 	public static final Item FLASHLIGHT = register(ModItemIds.FLASHLIGHT, settings -> new Item(settings) {
@@ -311,7 +347,11 @@ public class ModItems {
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
 				.register((creativeTab) -> {
 					creativeTab.accept(ModItems.GUIDITE_SWORD);
+					creativeTab.accept(ModItems.GUIDITE_PICKAXE);
 					creativeTab.accept(ModItems.GUIDITE_AXE);
+					creativeTab.accept(ModItems.GUIDITE_SPEAR);
+					creativeTab.accept(ModItems.GUIDITE_HOE);
+					creativeTab.accept(ModItems.GUIDITE_SHOVEL);
 				});
 		// #endregion add_guidite_sword_to_create_tab
 
