@@ -77,7 +77,7 @@ This will allow you to preview your changes locally at `localhost:5173` and will
 pnpm dev
 ```
 
-Now you can open and browse the website from the browser by visiting `http://localhost:5173`.
+Now you can open and browse the website from the browser by visiting [`http://localhost:5173`](http://localhost:5173).
 
 #### Building the Website {#building-the-website}
 
