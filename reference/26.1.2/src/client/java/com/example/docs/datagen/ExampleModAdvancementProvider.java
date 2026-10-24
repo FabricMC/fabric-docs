@@ -49,7 +49,7 @@ import com.example.docs.enchantment.ModEnchantments;
 
 // #region datagen_advancements_provider_start
 public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
-	protected ExampleModAdvancementProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+	public ExampleModAdvancementProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(output, registryLookup);
 	}
 
