@@ -7,6 +7,7 @@ authors:
   - ChampionAsh5357
   - IMB11
   - its-miroma
+  - NotNightSky
 resources:
   https://docs.neoforged.net/docs/items/tools/: Werkzeuge - NeoForge Docs (ausgenommen Neo exklusive)
 ---
@@ -62,23 +63,63 @@ Wenn du möchtest, dass dein Werkzeug dieselben Blöcke abbaut wie ein bereits v
 
 Du kannst deine Werkzeug-Items erstellen, indem du dieselben Klassen und Funktionen verwendest, die wir in dem Leitfaden [Dein erstes Item erstellen](./first-item) implementiert haben:
 
+:::: tabs
+
+== Schwert
+
+Der float-Parameter bezieht sich jeweils auf den Angriffsschaden und die Angriffsgeschwindigkeit.
+
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
-Die beiden Float-Werte (1f, 1f) beziehen sich auf den Angriffsschaden des Werkzeugs bzw. die Angriffsgeschwindigkeit des Werkzeugs.
+== Speer
 
-Für Schaufeln, Äxte und Hacken solltest du statt eines generischen `Item` ein `ShovelItem`, `AxeItem` oder `HoeItem` erstellen, da diese werkzeugspezifische Rechtsklick-Aktionen implementieren:
+Die float-Parameter beziehen sich auf die Angriffsdauer, den Schadensmultiplikator, die Verzögerung, den Zeitpunkt des Absteigens vom Speer, den Schwellenwert für das Absteigen, den Zeitpunkt des Rückstoßes, den Rückstoß-Schwellenwert, den Zeitpunkt des Schadens und den Schadens-Schwellenwert.
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#axe
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_spear
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_spear
 
-::: info
+== Spitzhacke
 
-`ShovelItem`, `AxeItem` und `HoeItem` rufen in ihren Konstruktoren die Methode `shovel`, `axe` oder `hoe` von `Item.Properties` auf.
+Der float-Parameter bezieht sich jeweils auf den Angriffsschaden und die Angriffsgeschwindigkeit.
 
-:::
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_pickaxe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_pickaxe
+
+== Axt
+
+Für Äxte solltest du ein `AxeItem` anstelle eines generischen `Item` erstellen. Dies implementiert axspezifische Rechtsklick-Aktionen und ruft automatisch die Methode `axe` von `Item.Properties` auf.
+
+Der float-Parameter bezieht sich jeweils auf den Angriffsschaden und die Angriffsgeschwindigkeit.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_axe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_axe
+
+== Schaufel
+
+Für Schaufeln solltest du ein `ShovelItem` anstelle eines generischen `Item` erstellen. Dadurch werden Schaufel-spezifische Rechtsklick-Aktionen implementiert, und die Methode `shovel` von `Item.Properties` wird automatisch aufgerufen.
+
+Der float-Parameter bezieht sich jeweils auf den Angriffsschaden und die Angriffsgeschwindigkeit.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_shovel
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_shovel
+
+== Hacke
+
+Für Hacken solltest du ein `HoeItem` anstelle eines generischen `Item` erstellen. Dadurch werden Hacken-spezifische Rechtsklick-Aktionen implementiert, und die Methode `hoe` von `Item.Properties` wird automatisch aufgerufen.
+
+Der float-Parameter bezieht sich jeweils auf den Angriffsschaden und die Angriffsgeschwindigkeit.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_hoe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_hoe
+
+::::
 
 Vergiss nicht, sie zu einem Kreativtab hinzuzufügen, wenn du vom Kreativinventar aus auf sie zugreifen willst!
 
@@ -88,65 +129,49 @@ Du musst auch eine Textur, eine Itemübersetzung und ein Itemmodell hinzufügen.
 
 ## Assets {#models}
 
-Du wirst auch eine [Textur](./first-item#adding-a-texture), [eine Übersetzung](./first-item#naming-the-item), [ein Client Item](./first-item#creating-the-client-item) und [ein Itemmodell](./item-models) hinzufügen müssen. Für das Itemmodell solltest du jedoch anstelle von dem üblichen `item/generated` das Modell `item/handheld` als übergeordnetes Modell verwenden.
-
-In diesem Beispiel werden wir das folgende Client Item, Modell und die folgende Textur für das Item "Guidite Sword" definieren:
-
 :::: tabs
-
-== Quellcode
-
-::: info
-
-Das Modell kann datengeneriert werden. Weitere Informationen findest du in der Dokumentation zur Erstellung von [Itemmodellen](../data-generation/item-models).
-
-:::
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#sword
-
-== Client Item
-
-`generated/assets/example-mod/items/guidite_sword.json`
-
-<<< @/reference/latest/src/main/generated/assets/example-mod/items/guidite_sword.json
-
-== Item-Modell
-
-`generated/assets/example-mod/models/item/guidite_sword.json`
-
-<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json
-
-== Textur
-
-<DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Guidite Sword Textur</DownloadEntry>
 
 ::::
 
-Ein ähnliches Muster gilt für das Item "Guidite Axe".
+Du wirst auch eine [Textur](./first-item#adding-a-texture), [eine Übersetzung](./first-item#naming-the-item), [ein Client Item](./first-item#creating-the-client-item) und [ein Itemmodell](./item-models) hinzufügen müssen. Für das Itemmodell solltest du jedoch anstelle von dem üblichen `item/generated` das Modell `item/handheld` als übergeordnetes Modell verwenden.
+
+::: info
+
+Die folgenden Modelle wurden mithilfe der Datengenerierung erstellt. Weitere Informationen findest du in der Dokumentation zum Thema [Erstellen von Itemmodellen](../data-generation/item-models).
+
+:::
 
 ::: tabs
 
-== Quellcode
+== Schwert
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#handheld
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_sword
 
-== Client Item
+== Speer
 
-`generated/assets/example-mod/items/guidite_axe.json`
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_spear
 
-<<< @/reference/latest/src/main/generated/assets/example-mod/items/guidite_axe.json
+== Spitzhacke
 
-== Item-Modell
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_pickaxe
 
-`generated/assets/example-mod/models/item/guidite_axe.json`
+== Axt
 
-<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_axe.json
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
 
-== Textur
+== Schaufel
 
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/guidite_axe_big.png" downloadURL="/assets/develop/data-generation/item-model/guidite_axe.png">Guidite-Axt-Textur</DownloadEntry>
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_shovel
+
+== Hacke
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_hoe
 
 :::
+
+Hier sind alle in diesem Leitfaden verwendeten Beispieltexturen:
+
+<DownloadEntry downloadURL="/assets/develop/items/tools.zip">Guidite-Werkzeugtexturen</DownloadEntry>
 
 ## Werkzeugitems taggen {#tags}
 
@@ -160,7 +185,7 @@ Es wird außerdem empfohlen, dein Werkzeug in den entsprechenden Item Tags einzu
 
 Füge die folgenden Zeilen zu `addTags` in deinem Item Tag Provider hinzu:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#sword_tags
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#tool_tags
 
 Das war's dann auch schon! Im Spiel solltest du deine Werkzeuge in der Registerkarte "Tools and Utilities" im Kreativ Inventar Menü sehen.
 

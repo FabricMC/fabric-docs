@@ -20,6 +20,12 @@ API вкладення даних, наданий API Fabric, дозволяє �
 
 <<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#string
 
+::: warning
+
+Виклики `AttachmentRegistry.create...` виконуються в статичних ініціалізаторах, тому відповідний клас має бути завантажений шляхом звернення до нього з вашої функції `ModInitializer.onInitialize`. Якщо завантаження не відбувається, вкладення не реєструються і механізм збереження стану не працюватиме.
+
+:::
+
 `AttachmentRegistry` містить кілька методів для створення основних укладених даних, зокрема:
 
 - `AttachmentRegistry.create()`: створює вкладення даних. Перезапуск гри очистить вкладення.
