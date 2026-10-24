@@ -205,7 +205,7 @@ settings
 
 - **structure_override** :- List of structure sets to use. Can be an ID of structure set, a structure set tag, or a list of structure set IDs.
 
-Here are the following changes that need to be made inorder to use the flat generator.
+Here are the following changes that need to be made in order to use the flat generator.
 
 <!-- prettier-ignore -->
 ```java
