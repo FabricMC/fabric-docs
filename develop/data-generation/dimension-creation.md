@@ -272,9 +272,8 @@ additional fields :
 └── scale :- (Optional, default is 2) Value between 0 and 62.
 ```
 
-- **biomes** :- an ID, or a tag with #, or an array containing IDs.
-
-- **scale** :- Determines the size of the checkerboard grid. A scale of 0 means each cell of the grid is one chunk wide. is Value^2 chunks.
+- **biomes** :- an identifier of a biome, a tag prefixed with `#`, or an array of identifiers.
+- **scale** :- Determines the size of the checkerboard grid. Each cell of the grid is `2 ** scale` chunks wide; that is, a `scale` of `0` gives 1-chunk wide cells, and increasing `scale` by 1 doubles the side length.
 
 Here are the following changes that need to be made in order to use the checkerboard biome source.
 
