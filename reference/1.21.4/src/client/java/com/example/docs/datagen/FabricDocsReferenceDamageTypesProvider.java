@@ -21,7 +21,7 @@ public class FabricDocsReferenceDamageTypesProvider {
 	public static final DamageType TATER_DAMAGE_TYPE = new DamageType("tater", DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0.1f);
 
 	public static class TaterDamageTypeTagGenerator extends FabricTagProvider<DamageType> {
-		TaterDamageTypeTagGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+		public TaterDamageTypeTagGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 			super(output, Registries.DAMAGE_TYPE, registriesFuture);
 		}
 
@@ -34,7 +34,7 @@ public class FabricDocsReferenceDamageTypesProvider {
 	public static class TaterDamageTypesGenerator implements DataProvider {
 		private final PackOutput.PathProvider path;
 
-		TaterDamageTypesGenerator(FabricDataOutput fabricDataOutput) {
+		public TaterDamageTypesGenerator(FabricDataOutput fabricDataOutput) {
 			path = fabricDataOutput.createPathProvider(PackOutput.Target.DATA_PACK, "damage_type/");
 		}
 
