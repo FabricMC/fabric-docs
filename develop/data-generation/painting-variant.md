@@ -59,21 +59,21 @@ Now, we will need to create a new painting variant inside the `bootstrap` method
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModPaintingVariantProvider.java#variant
 
-Here, the parameters width and height are in blocks (1–16), the identifier is the asset id used to locate the texture, and title/author are `Optional<Component>`.
+Here, the parameters width and height are in blocks (1–16), the `Identifier` is the asset id used to locate the texture, and title/author are `Optional<Component>`.
 
-After creating the variant we will need to register it into the `bootstrap`'s context:
+After creating the variant, we will need to register it into the `bootstrap`'s context:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModPaintingVariantProvider.java#register
 
-Finally, in our `ExampleModPaintingTagProvider` we will add our variant to `PaintingVariantTags.PLACEABLE` tag. This tag is required for the painting to be placed with the Painting item, and it's also what adds the variant to the creative inventory.
+Finally, in our `ExampleModPaintingTagProvider` we will add our variant to `PaintingVariantTags.PLACEABLE` tag. This tag is required for the painting to be placed by the Painting item, and it's also what adds the variant to the creative inventory.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModPaintingTagProvider.java#builder_entry
 
-Now, simply run data generation, and your new painting variant will be available in-game without texture that is.
+Now, simply run data generation, and your new painting variant will be available in-game. However, it still needs a texture.
 
 ## Assets {#assets}
 
-The texture of the variant is scaled to fill the painting size, so its aspect ratio must match `width:height` (for example, a 1×1 variant needs a 1:1 texture, or it will look stretched).
+The texture of the variant is scaled to fill the painting size, so its aspect ratio must match `width:height` (for example, a 1x1 variant needs a 1:1 texture, or it will look stretched).
 
 Now, after creating the painting variant, we will be adding the painting variant texture in `assets/example-mod/textures/painting/` directory with the same name as the asset id, which in this case will be `miroma.png`:
 
