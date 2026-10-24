@@ -26,7 +26,7 @@ import com.example.docs.advancement.UseToolCriterion;
 
 // :::datagen-advancements:provider-start
 public class FabricDocsReferenceAdvancementProvider extends FabricAdvancementProvider {
-	protected FabricDocsReferenceAdvancementProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+	public FabricDocsReferenceAdvancementProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(output, registryLookup);
 	}
 
