@@ -43,6 +43,12 @@ authors-nogithub:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
 
+Ви також можете інтегрувати переклади з JSON-файлу, який уже міститься у вашому моді. Розмістіть цей файл десь за межами згенерованої директорії, а потім передайте його в `translationBuilder.add`:
+
+<<< @/reference/latest/src/main/resources/assets/example-mod/lang/en_us.existing.json
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_existing
+
 ## Використання перекладу {#using-translations}
 
 Згенеровані переклади замінюють багато перекладів, доданих в інших посібниках, але ви також можете використовувати їх усюди, де використовуєте об’єкт `Component`. У нашому прикладі, якщо ми хочемо дозволити пакетам ресурсів перекладати наше привітання, ми використовуємо `Component.translatable` замість `Component.literal`:

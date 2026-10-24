@@ -2,6 +2,7 @@
 title: Deine erste Entität erstellen
 description: Lerne, wie man eine einfache Entität registriert, ihr Ziele gibt, sie rendert, modelliert und animiert.
 authors:
+  - An16og
   - cassiancc
   - CelDaemon
   - Earthcomputer
@@ -33,11 +34,11 @@ Unsere neue Entität benötigt eine ID; erstelle ine neue Klasse namens `ModEnti
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#ids
 
-Um deine Entitäten zu registrieren, empfiehlt es sich, eine eigene Klasse mit dem Namen `ModEntityTypes` zu erstellen, in der du alle Entitätstypen registrierst, deren Größe festlegst und deren Attribute registrierst.
+Um deine Entität zu registrieren, wird empfohlen, eine eigene Klasse namens `ModEntityTypes` zu erstellen, in der du alle Entitätstypen registrierst, deren Größe festlegst und deren Attribute direkt an die Registrierungsmethode übergibst:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
 
-Rufe `registerModEntityTypes` und `registerModEntityTypes` in deinem [Mod Initialisierer](../getting-started/project-structure#entrypoints) auf:
+Rufe `initialize` in deinem [Mod-Initialisierer](../getting-started/project-structure#entrypoints) auf, um das Laden der Klasse auszulösen und deine Entitäten zu registrieren:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
 

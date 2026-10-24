@@ -17,13 +17,13 @@ description: Вопросы о Fabric, часто задаваемые игро�
 
 :::
 
-Большинство авторов публикуют свои моды на [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) и [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods&gameVersionTypeId=4), однако некоторые могут размещать их на своих личных сайтах или на других платформах, таких как репозитории GitHub.
+Большинство авторов публикуют свои моды на [Modrinth](https://modrinth.com/discover/mods?g=categories:fabric) и [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods&gameVersionTypeId=4), однако некоторые могут размещать их на своих личных сайтах или на других платформах, таких как репозитории GitHub.
 
 ## Где я могу найти готовые сборки на Fabric? {#where-can-i-find-pre-made-fabric-modpacks}
 
 Вы можете найти готовые сборки модов на основе Fabric на множестве платформ, таких как:
 
-- [Modrinth](https://modrinth.com/modpacks?g=categories:%27fabric%27)
+- [Modrinth](https://modrinth.com/discover/modpacks?g=categories:fabric)
 - [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks&gameVersionTypeId=4)
-- [Feed The Beast](https://www.feed-the-beast.com/ftb-app)
+- [Feed The Beast](https://www.feed-the-beast.com/modpacks)
 - [Technic](https://www.technicpack.net/modpacks)
