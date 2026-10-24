@@ -276,7 +276,7 @@ additional fields :
 
 - **scale** :- Determines the size of the checkerboard grid. A scale of 0 means each cell of the grid is one chunk wide. is Value^2 chunks.
 
-Here are the following changes that need to be made inorder to use the checkerboard biome source.
+Here are the following changes that need to be made in order to use the checkerboard biome source.
 
 <!-- prettier-ignore -->
 ```java
