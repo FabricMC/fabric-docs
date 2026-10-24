@@ -28,7 +28,7 @@ The creation of Dimensions is broken down into 2 parts:
 
 ::: info INFO
 
-A dimension may or may not have a custom biome. i.e, the user can choose to have singular or multiple vanilla biome.
+A dimension may or may not have custom biomes; it could contain one or more vanilla biomes.
 
 :::
 
