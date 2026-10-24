@@ -34,7 +34,7 @@ A dimension may or may not have a custom biome. i.e, the user can choose to have
 
 ## Dimension Type Provider {#dimensiontypeprovider}
 
-::: info INFO
+::: info
 
 It is not mandatory to create a Dimension Type. i.e, Minecraft's dimension types like `minecraft:overworld` and `minecraft:the_nether` and `minecraft:the_end` can also be used. To skip the dimension type creation jump to [Level Stem](#levelstemprovider).
 
