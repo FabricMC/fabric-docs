@@ -19,7 +19,7 @@ import com.example.docs.item.armor.GuiditeArmorMaterial;
 
 // #region datagen_translations_provider
 public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
-	protected ExampleModEnglishLangProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+	public ExampleModEnglishLangProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
 		super(dataOutput, "en_us", registryLookup);
 	}

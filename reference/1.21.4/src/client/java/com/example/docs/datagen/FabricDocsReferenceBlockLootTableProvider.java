@@ -14,7 +14,7 @@ import com.example.docs.block.ModBlocks;
 
 // :::datagen-loot-tables:block-provider
 public class FabricDocsReferenceBlockLootTableProvider extends FabricBlockLootTableProvider {
-	protected FabricDocsReferenceBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+	public FabricDocsReferenceBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(dataOutput, registryLookup);
 	}
 
