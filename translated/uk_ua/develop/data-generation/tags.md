@@ -54,3 +54,13 @@ Fabric надає кілька постачальників допоміжних
 Щоб примусово додати теґ і ігнорувати несправний формат, використовуйте `forceAddTag`.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_build
+
+## Переклад теґів {#translating-tags}
+
+Теґи, створені вашим модом, повинні мати переклади, щоб інші моди — наприклад, переглядачі рецептів — могли правильно показувати назву теґу. Якщо для одного з ваших теґів відсутній переклад, у журналах може з’явитися попередження, подібне до наведеного нижче:
+
+> Dev warning - Untranslated Item Tags detected. Please translate your item tags so other mods such as recipe viewers can properly display your tag's name.Попередження розробки — Виявлено неперекладений теґ предмета. Будь ласка, перекладіть теґи ваших предметів, щоб інші моди — наприклад, переглядачі рецептів — могли правильно показати назви теґів.
+
+Ми можемо скористатися [посібником з генерації перекладів](./translations), щоб додати переклад для нашого теґу. Ми можемо скористатися тим самим конструктором перекладів і передати `TagKey` та показувану назву:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#tag_name

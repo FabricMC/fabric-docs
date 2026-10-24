@@ -17,13 +17,13 @@ description: 플레이어와 서버 관리자를 위한 질문과 답변.
 
 :::
 
-대부분의 모드 개발자는 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 또는 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods&gameVersionTypeId=4) 에 모드를 업로드 하지만, 몇몇 사람들은 개인 웹사이트나 GitHub 레포지토리 등 같은 다른 플랫폼에 모드를 업로드하는 경우도 있습니다.
+대부분의 모드 개발자는 [Modrinth](https://modrinth.com/discover/mods?g=categories:fabric) 또는 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4)에 자신의 모드를 게시합니다.
 
 ## Fabric 모드팩은 어디에서 찾을 수 있나요? {#where-can-i-find-pre-made-fabric-modpacks}
 
 먼저 생성된 Fabric 모드팩은 다음과 같이 여러 플랫폼에서 찾을 수 있습니다:
 
-- [Modrinth](https://modrinth.com/modpacks?g=categories:%27fabric%27)
+- [Modrinth](https://modrinth.com/discover/modpacks?g=categories:fabric)
 - [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks&gameVersionTypeId=4)
-- [Feed The Beast](https://www.feed-the-beast.com/ftb-app)
+- [Feed The Beast](https://www.feed-the-beast.com/modpacks)
 - [Technic](https://www.technicpack.net/modpacks)

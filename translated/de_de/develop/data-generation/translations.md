@@ -43,6 +43,12 @@ Neben der Erstellung von Rohübersetzungen, Übersetzungen aus einem `Identifier
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
 
+Du kannst auch Übersetzungen aus einer JSON-Datei übernehmen, die sich bereits in deinem Mod befindet. Lege diese Datei an einem Ort außerhalb des generierten Verzeichnisses ab und übergebe sie anschließend an `translationBuilder.add`:
+
+<<< @/reference/latest/src/main/resources/assets/example-mod/lang/en_us.existing.json
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_existing
+
 ## Nutzen von Übersetzungen {#using-translations}
 
 Generierte Übersetzungen ersetzen viele Übersetzungen, die in anderen Tutorials hinzugefügt wurden, aber du kannst sie auch überall dort verwenden, wo du ein `Component`-Objekt verwendest. In unserem Beispiel, wenn wir Ressourcenpaketen erlauben wollen unsere Begrüßung zu übersetzen, nutzen wir `Component.translatable` anstelle von `Component.literal`:
