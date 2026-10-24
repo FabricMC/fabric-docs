@@ -20,7 +20,7 @@ import com.example.docs.ExampleMod;
 public class ExampleModPaintingVariantProvider extends FabricDynamicRegistryProvider {
 	// endregion setup
 	// region resource_key
-	public static final ResourceKey<PaintingVariant> miroma = ResourceKey.create(
+	public static final ResourceKey<PaintingVariant> MIROMA = ResourceKey.create(
 			Registries.PAINTING_VARIANT,
 			ExampleMod.id("miroma")
 	);
@@ -41,14 +41,14 @@ public class ExampleModPaintingVariantProvider extends FabricDynamicRegistryProv
 		PaintingVariant variant = new PaintingVariant(
 				1,
 				1,
-				ExampleMod.id("miroma"),
+				MIROMA.identifier(),
 				Optional.of(Component.literal("A Wise Man").withColor(TextColor.YELLOW)),
 				Optional.of(Component.literal("NotNightSky").withColor(TextColor.GRAY))
 		);
 		// endregion variant
 
 		// region register
-		context.register(miroma, variant);
+		context.register(MIROMA, variant);
 		// endregion register
 		// region setup
 	}
