@@ -123,7 +123,7 @@ The code below will create a dimension with the same noise map as the overworld 
 
 @[code lang=java transcludeWith=:::datagen-dimension:dimensionStemCustomization](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDimensionStemProvider.java)
 
-::: info TIP
+::: tip
 
 To use custom noise map settings instead of vanilla Overworld noise, replace `NoiseGeneratorSettings.OVERWORLD` with your own registered `ResourceKey<NoiseGeneratorSettings>`.
 
