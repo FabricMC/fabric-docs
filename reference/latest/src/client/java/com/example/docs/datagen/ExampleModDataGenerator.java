@@ -68,7 +68,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ExampleModWorldgenProvider::new);
 		// #endregion add_worldgen_provider
 
-    // :::datagen-world:biome-provider
+   		// :::datagen-world:biome-provider
 		pack.addProvider(ExampleModBiomeProvider::new);
 		// :::datagen-world:biome-provider
 

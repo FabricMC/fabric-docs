@@ -193,17 +193,17 @@ settings
 └── structure_overrides : (optional, defaults to all the structure set).
 ```
 
-- **layers** :- This is a list that is read from top to bottom. Height is how many Y levels will the block span.
-  - **_height_** :- The height of the layer. i.e, how many blocks tall the layer is.
-  - **_block_** :- The block ID.
+- **layers**: This is a list that is read from top to bottom. Height is how many Y levels will the block span.
+  - **_height_**: The height of the layer. i.e, how many blocks tall the layer is.
+  - **_block_**: The block ID.
 
-- **biomes** :- The ID of the single biome in the world. In this guide, the ID is `examplemod:tater_biome` for which we use `TATER_BIOME_KEY`.
+- **biomes**: The ID of the single biome in the world. In this guide, the ID is `examplemod:tater_biome` for which we use `TATER_BIOME_KEY`.
 
-- **lakes** :- Whether to generate lava lakes. If set to true, then lava lakes (lake_lava_underground and lake_lava_surface) generate even in biomes where lakes don't normally generate.
+- **lakes**: Whether to generate lava lakes. If set to true, then lava lakes (lake_lava_underground and lake_lava_surface) generate even in biomes where lakes don't normally generate.
 
-- **features** :- Whether to generate biome-specific placed features.
+- **features**: Whether to generate biome-specific placed features.
 
-- **structure_override** :- List of structure sets to use. Can be an ID of structure set, a structure set tag, or a list of structure set IDs.
+- **structure_override**: List of structure sets to use. Can be an ID of structure set, a structure set tag, or a list of structure set IDs.
 
 Here are the following changes that need to be made in order to use the flat generator.
 
@@ -243,15 +243,15 @@ This generator has the following JSON structure.
 
 ```Text
 generator
-├── settings :- Settings for noise generator.
-└── biome_source :- Settings determining the biome layout.
-    └── type :- The biome source type as a resource location.
+├── settings: Settings for noise generator.
+└── biome_source: Settings determining the biome layout.
+    └── type: The biome source type as a resource location.
     └── additional fields
 ```
 
-- **settings** :- Settings for the noise generator. One noise settings (an ID, or a new NBT compound tag noise settings definition).
-- **biome_source** :- Settings determining the biome layout.
-  - **_type_** :- The biome source type as a resource location.
+- **settings**: Settings for the noise generator. One noise settings (an ID, or a new NBT compound tag noise settings definition).
+- **biome_source**: Settings determining the biome layout.
+  - **_type_**: The biome source type as a resource location.
 
 The code shown earlier in [Advanced Configuration](#advanced-configuration) is an example of how to use the noise generator. It uses the default overworld noise settings and a fixed biome source.
 So next on we are going to take a look at the available biome sources.
@@ -268,12 +268,12 @@ This biome source has the following JSON structure.
 
 ```Text
 additional fields :
-├── biomes :- Any number of biome(s).
-└── scale :- (Optional, default is 2) Value between 0 and 62.
+├── biomes: Any number of biome(s).
+└── scale: (Optional, default is 2) Value between 0 and 62.
 ```
 
-- **biomes** :- an identifier of a biome, a tag prefixed with `#`, or an array of identifiers.
-- **scale** :- Determines the size of the checkerboard grid. Each cell of the grid is `2 ** scale` chunks wide; that is, a `scale` of `0` gives 1-chunk wide cells, and increasing `scale` by 1 doubles the side length.
+- **biomes**: an identifier of a biome, a tag prefixed with `#`, or an array of identifiers.
+- **scale**: Determines the size of the checkerboard grid. Each cell of the grid is `2 ** scale` chunks wide; that is, a `scale` of `0` gives 1-chunk wide cells, and increasing `scale` by 1 doubles the side length.
 
 Here are the following changes that need to be made in order to use the checkerboard biome source.
 
@@ -310,10 +310,10 @@ This biome source has the following JSON structure.
 
 ```Text
 additional fields :
-└── biome :- One biome ID.
+└── biome: One biome ID.
 ```
 
-- **biome** :- The single biome to use.
+- **biome**: The single biome to use.
 
 The code shown at first in [Advanced Configuration](#advanced-configuration) is an example of how to use a fixed biome source with overworld noise settings.
 
@@ -325,19 +325,19 @@ This biome source has the following JSON structure.
 
 ```Text
 additional fields :
-└── preset :- A reference to a parameter list.
+└── preset: A reference to a parameter list.
 or
-└── biomes :- (Require atleast one entry) List of biome parameter point.
+└── biomes: (Require atleast one entry) List of biome parameter point.
     └── A parameter point.
-        ├── biome :- one biome ID.
-        └── parameters :- the parameters of this entry.
+        ├── biome: one biome ID.
+        └── parameters: the parameters of this entry.
 ```
 
-- **preset** :- The default parameter lists are overworld and nether.
+- **preset**: The default parameter lists are overworld and nether.
 
-- **biomes** :- Biomes can appear in more than one parameter point.
-  - **_biome_** :- The biome used at this parameter point.
-  - **_parameters_** :- Noise parameter for the biome.
+- **biomes**: Biomes can appear in more than one parameter point.
+  - **_biome_**: The biome used at this parameter point.
+  - **_parameters_**: Noise parameter for the biome.
 
 Here are the following changes that need to be made inorder to use the multi-noise biome source.
 
@@ -387,11 +387,11 @@ Before heading on lets first create the noise settings provider class with the b
 
 @[code lang=java transcludeWith=:::datagen-dimension:noiseSettingsProvider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModNoiseSettingsProvider.java)
 
-There are three major components of the Noise settings. These are :-
+There are three major components of the Noise settings. These are:
 
-- **Noise** :- It contains fields such as `min_y`, `size_horizontal`, `size_vertical`, etc.
-- **Noise Router** :- It routes density functions to noise parameters used for world generation.
-- **Surface rules** :- It is a type of decision tree. Using a combination of sequences and conditions, it can implement checks to place the right blocks in the right places.
+- **Noise**: It contains fields such as `min_y`, `size_horizontal`, `size_vertical`, etc.
+- **Noise Router**: It routes density functions to noise parameters used for world generation.
+- **Surface rules**: It is a type of decision tree. Using a combination of sequences and conditions, it can implement checks to place the right blocks in the right places.
 
 #### Noise {#noise}
 
@@ -419,7 +419,7 @@ those variables in the next headings.
 
 #### Noise Router {#noise-router}
 
-As stated in the Minecraft Wiki,
+As stated in the [Minecraft Wiki](https://minecraft.wiki/w/Noise_router),
 
 > The noise router is a collection of density functions. Density functions compute a value for each block position. They are used for terrain generation, biome layout, aquifers, ore veins, and more. A noise router is a part of a dimension's noise settings.
 

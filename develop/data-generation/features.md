@@ -37,7 +37,7 @@ In the `configure` method, we will call `addAll` to ensure all the files for our
 
 Then add this provider to your `DataGeneratorEntrypoint` class within the `onInitializeDataGenerator` method:
 
-@[code lang=java transcludeWith=:::datagen-world:provider-features](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add_worldgen_provider
 
 Next, make a class for your configured features and a class for your placed features. These don't need to extend anything.
 
