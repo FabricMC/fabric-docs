@@ -99,7 +99,7 @@ Now it is time to create the Level Stem.
 
 ## Level Stem Provider {#levelstemprovider}
 
-::: warning WARNING
+::: info
 
 The feature to generate a DimensionStem/LevelStem is only available for Fabric API version `0.151.0+26.1.2` and up.
 
