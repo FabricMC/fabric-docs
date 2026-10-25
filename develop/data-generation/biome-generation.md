@@ -24,7 +24,7 @@ To change what biomes can spawn in the overworld in minecraft you will need\* a 
 :::
 
 The most popular libraries are [Biolith](https://github.com/TerraformersMC/Biolith) and [Terrablender](https://github.com/glitchfiend/terrablender).
-In this guide we are going to be using Biolith because it is lighter-weight and more simple to use than Terrablender.
+In this guide, we'll use Biolith because it is more lightweight and simpler to use than Terrablender.
 
 ## Getting Started With Biolith {#getting-started-biolith}
 
