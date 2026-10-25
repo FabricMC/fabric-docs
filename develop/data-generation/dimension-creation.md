@@ -444,7 +444,7 @@ noise_router
 └── ridges:
 ```
 
-For the explanation of the above fields, you can refer to the [Noise Router](https://minecraft.wiki/w/Noise_router#JSON_format).
+For the explanation of the above fields, you can refer to the [Minecraft Wiki](https://minecraft.wiki/w/Noise_router#JSON_format).
 
 Now we will add the custom noise router in the bootstrap method.
 
@@ -454,11 +454,11 @@ Remember to add this above the `customNoiseSettings` variable not below!
 
 #### Surface Rules {#surface-rules}
 
-As stated in the Minecraft Wiki,
+As stated in the [Minecraft Wiki](https://minecraft.wiki/w/Material_rule#JSON_format),
 
 > A surface rule is a type of decision tree. Using a combination of sequences and conditions, it can implement checks to place the right blocks in the right places.
 
-For every surface condition, you can refer to the [Surface Rule](https://minecraft.wiki/w/Surface_rule#JSON_format) and `net.minecraft.world.level.levelgen.SurfaceRules` class.
+For every surface condition, you can refer to back the [Minecraft Wiki](https://minecraft.wiki/w/Surface_rule#JSON_format) and the `net.minecraft.world.level.levelgen.SurfaceRules` class.
 
 Now we will add the custom surface rule variable.
 
