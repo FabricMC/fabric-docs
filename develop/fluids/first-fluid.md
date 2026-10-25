@@ -19,6 +19,7 @@ authors:
   - SuperSoupr
   - Virtuoel
   - UpcraftLP
+  - NotNightSky
 authors-nogithub:
   - alfiejfs
   - salvopelux
@@ -140,7 +141,7 @@ For simplicity, this demo uses `BlockTintSources.constant` to apply a constant g
 
 :::
 
-Add the following lines to your `ClientModInitializer` to create a `FluidModel.Unbaked`, that takes in three `Material`s for the textures—one for the still source, one for the flowing fluid, and one for the fluid overlay—and a block tint source for the color to tint it with.
+Add the following lines to your `ClientModInitializer` to create a `FluidModel.Unbaked`. It takes in three `Material`s for the textures—one for the still source, one for the flowing fluid, and one for the fluid overlay—and a block tint source for the color to tint it with.
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid_texture
 
