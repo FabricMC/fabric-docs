@@ -11,7 +11,7 @@ authors:
 
 ::: info PREREQUISITES
 
-Make sure you've completed the [datagen setup](./setup) and the [tag generation](./tags) process and first.
+Make sure you've completed the [datagen setup](./setup) and the [tag generation](./tags) process first.
 
 :::
 
