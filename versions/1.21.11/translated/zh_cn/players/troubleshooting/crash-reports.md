@@ -9,7 +9,7 @@ authors:
 
 ::: tip
 
-如果在查找崩溃原因时遇到任何困难，可以在 [Fabric Discord](https://discord.fabricmc.net/) 的 `#player-support` 或 `#server-admin-support` 频道中寻求帮助。
+如果在查找崩溃原因时遇到任何困难，可以在 [Fabric Discord](https://discord.fabricmc.net/) 的 `#player-support` 或 `#mc-server-support` 频道中寻求帮助。
 
 :::
 
@@ -47,7 +47,7 @@ authors:
 
 :::details 显示崩溃报告
 
-<<< @/public/assets/players/crash-report-example.log
+<<< @/public/assets/players/crash-report-example.log{txt}
 
 :::
 
@@ -67,12 +67,6 @@ authors:
 利用上面链接的崩溃示例，我们可以分析崩溃报告并找到崩溃原因，包括导致崩溃的模组。
 
 在这个情形中，`---- Minecraft Crash Report ----` 部分中的堆栈跟踪最重要，因为包含导致崩溃的主要错误。
-
-:::details 显示错误详情
-
-<<< @/public/assets/players/crash-report-example.log{7}
-
-:::
 
 堆栈跟踪中提到了大量模组，因此很难指出原因，不过，首先要做的是查找导致崩溃的模组。
 

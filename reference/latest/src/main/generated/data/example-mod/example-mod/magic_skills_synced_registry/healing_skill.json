@@ -1,0 +1,5 @@
+{
+  "mana_cost": 4785,
+  "name": "Healing Skill",
+  "on_use_mc_function": "example-mod:healing_skill_function"
+}

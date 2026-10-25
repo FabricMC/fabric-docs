@@ -38,7 +38,7 @@ Wenn der Datengenerator aktiviert ist, solltest du eine "Data Generation" Laufko
 
 Zuerst müssen wir den Datengenerator in der Datei `build.gradle` aktivieren.
 
-@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+@[code transcludeWith=datagen_setup_configure](@/reference/build.gradle)
 
 Als nächstes, benötigen wir eine Klasse für den Einstiegspunkt. Dies ist dort, wo unser Datengenerator startet. Platziere diese irgendwo in dem `client` Packet - dieses Beispiel platziert diese in `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
 

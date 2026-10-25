@@ -25,7 +25,7 @@ Stelle sicher, dass du den Prozess der [Einrichtung der Datengenerierung](./setu
 
 Zuerst werden wir unseren **Provider** vorbereiten. Denke daran, dass es die Provider sind, die die Daten für uns generieren. Erstelle eine Klasse, die von `FabricLanguageProvider` erbt und fülle die Basismethoden aus:
 
-@[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_provider
 
 ::: tip
 
@@ -35,13 +35,19 @@ Du wirst für jede Sprache, die du generieren möchtest, einen eigenen Provider 
 
 Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEntrypoint` in der `onInitializeDataGenerator` Methode hinzu.
 
-@[code lang=java transcludeWith=:::datagen-translations:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_translations_register
 
 ## Erstellen von Übersetzungen {#creating-translations}
 
 Neben der Erstellung von Rohübersetzungen, Übersetzungen aus einem `Identifier`en und dem Kopieren aus einer bereits existierenden Datei (durch die Übergabe eines `Path`), gibt es Hilfsmethoden für die Übersetzung von Items, Blöcken, Tags, Statistiken, Entitäten, Mobeffekten, Kreativtabs, Entitätsattributen und Verzauberungen. Rufe einfach `add` beim `translationBuilder` auf und gebe an, was du übersetzen willst und in zu was es übersetzt werden soll:
 
-@[code lang=java transcludeWith=:::datagen-translations:build](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
+
+Du kannst auch Übersetzungen aus einer JSON-Datei übernehmen, die sich bereits in deinem Mod befindet. Lege diese Datei an einem Ort außerhalb des generierten Verzeichnisses ab und übergebe sie anschließend an `translationBuilder.add`:
+
+<<< @/reference/latest/src/main/resources/assets/example-mod/lang/en_us.existing.json
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_existing
 
 ## Nutzen von Übersetzungen {#using-translations}
 

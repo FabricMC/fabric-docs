@@ -19,7 +19,7 @@ authors:
 
 ## Створення екрана {#creating-a-screen}
 
-Щоб створити екран, вам потрібно розширити клас `Screen` і перевизначити метод `init` — ви також можете перевизначити метод `extractRenderState`, але переконайтеся, що викликаєте його суперметод, інакше він не рендеритиме тло, віджети тощо.
+Щоб створити екран, вам потрібно розширити клас `Screen` і перевизначити метод `init`, ви також можете перевизначити метод `extractRenderState`, але переконайтеся, що викликаєте його суперметод, інакше він не рендеритиме тло, віджети тощо.
 
 Ви повинні взяти до відома, що:
 
@@ -30,16 +30,16 @@ authors:
 
 Як приклад, ми можемо створити простий екран із кнопкою та міткою над нею.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#screen
 
 ![Власний екран 1](/assets/develop/rendering/gui/custom-1-example.png)
 
 ## Відкриття екрана {#opening-the-screen}
 
-Ви можете відкрити екран за допомогою методу `setScreen` `Minecraft` — ви можете зробити це з багатьох місць, таких як призначення клавіш, команда або обробник клієнтських пакетів.
+Ви можете відкрити екран за допомогою методу `setScreen` з `Gui` — це можна зробити з багатьох місць, наприклад, через призначену клавіші, команду або обробник клієнтських пакетів.
 
 ```java
-Minecraft.getInstance().setScreen(
+Minecraft.getInstance().gui.setScreen(
   new CustomScreen(Component.empty())
 );
 ```
@@ -49,18 +49,18 @@ Minecraft.getInstance().setScreen(
 Якщо ви хочете закрити екран, просто встановіть для екрана значення `null`:
 
 ```java
-Minecraft.getInstance().setScreen(null);
+Minecraft.getInstance().gui.setScreen(null);
 ```
 
-Якщо ви хочете, було гарно та повернутися до попереднього екрана, ви можете передати поточний екран у конструктор `CustomScreen` і зберегти його в полі, а потім використовувати його для повернення до попереднього екрана, коли викликається метод `close`.
+Якщо ви хочете, щоб було гарно та повернення до попереднього екрана, ви можете передати поточний екран у конструктор `CustomScreen` і зберегти його в полі, а потім використовувати його для повернення до попереднього екрана, коли викликається метод `close`.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#return_to_previous_screen
 
 Тепер, відкриваючи власний екран, ви можете передати поточний екран як другий аргумент, тож коли ви викличете `CustomScreen#close`, він повернеться до попереднього екрана.
 
 ```java
-Screen currentScreen = Minecraft.getInstance().currentScreen;
-Minecraft.getInstance().setScreen(
+Screen currentScreen = Minecraft.getInstance().gui.screen();
+Minecraft.getInstance().gui.setScreen(
   new CustomScreen(Component.empty(), currentScreen)
 );
 ```

@@ -7,7 +7,7 @@ authors:
 next: false
 ---
 
-Questa guida ti spiegherà come installare Java 21 su Windows.
+Questa guida ti spiegherà come installare Java 25 su Windows.
 
 Il Launcher di Minecraft ha la sua versione di Java installata, quindi questa sezione è rilevante solo se vuoi usare l'installer `.jar` di Fabric, oppure se vuoi usare il `.jar` del Server di Minecraft.
 
@@ -27,15 +27,15 @@ Se il comando funziona correttamente, vedrai qualcosa come questo. Se il comando
 
 ::: warning
 
-Per usare Minecraft 1.21.11, ti servirà almeno Java 21 installato.
+Per usare Minecraft 26.1, ti servirà almeno Java 25 installato.
 
-Se questo comando mostra una versione inferiore a 21, allora dovrai aggiornare la versione di Java già esistente; continua a seguire questa pagina.
+Se questo comando mostra una versione inferiore a 25, allora dovrai aggiornare la versione di Java già esistente; continua a seguire questa pagina.
 
 :::
 
-## 2. Scarica l'Installer per Java 21 {#2-download-the-java-installer}
+## 2. Scarica l'Installer per Java 25 {#2-download-the-java-installer}
 
-Per installare Java 21, dovrai scaricare l'installer da [Adoptium](https://adoptium.net/temurin/releases?version=21&os=windows&arch=any&mode=filter).
+Per installare Java 25, dovrai scaricare l'installer da [Adoptium](https://adoptium.net/temurin/releases?version=25&os=windows&arch=any&mode=filter).
 
 Dovrai scaricare la versione `Windows Installer (.msi)`:
 
@@ -47,12 +47,12 @@ La maggior parte dei computer moderni ha un sistema operativo a 64-bit. Se non s
 
 ## 3. Esegui l'Installer! {#3-run-the-installer}
 
-Segui le istruzioni per installare Java 21. Quando arrivi a questa pagina, dovresti selezionare "L'intera funzionalità verrà installata sul disco rigido locale" per le seguenti funzionalità:
+Segui le istruzioni per installare Java 25. Quando arrivi a questa pagina, dovresti selezionare "L'intera funzionalità verrà installata sul disco rigido locale" per le seguenti funzionalità:
 
 - `Imposta JAVA_HOME come variabile d'ambiente` - Questo verrà aggiunto al tuo PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Installer Java 21 con "Set JAVA_HOME variable" e "JavaSoft (Oracle) registry keys" evidenziati](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Installer Java 25 con "Set JAVA_HOME variable" e "JavaSoft (Oracle) registry keys" evidenziati](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 Quando hai finito, puoi cliccare su `Avanti` e continuare con l'installazione.
 
@@ -64,9 +64,9 @@ A volte i programmi di Windows potrebbero non rilevare che Java è stato install
 
 :::
 
-## 4. Verifica che Java 21 Sia Installato {#4-verify-that-java-is-installed}
+## 4. Verifica che Java 25 Sia Installato {#4-verify-that-java-is-installed}
 
-Quando l'installazione è stata completata, puoi verificare che Java 21 è installato aprendo il prompt dei comandi e scrivendo `java -version`.
+Quando l'installazione è stata completata, puoi verificare che Java 25 è installato aprendo il prompt dei comandi e scrivendo `java -version`.
 
 Se il comando funziona correttamente, vedrai qualcosa simile a quello mostrato prima, dove è mostrata la versione di Java:
 

@@ -7,6 +7,9 @@
     "translated/**": true,
     "versions/**": true
   },
+  "markdown.copyFiles.destination": {
+    "*": "public/assets/${documentRelativeDirName}/${documentBaseName}/${fileName}"
+  },
   "markdownlint.lintWorkspaceGlobs": [
     "**/*.md",
     "!node_modules/**",
@@ -16,5 +19,7 @@
   ],
   "cSpell.words": [
     "Biolith"
-  ]
+  ],
+  "markdown.validate.enabled": true,
+  "sarif-viewer.connectToGithubCodeScanning": "off"
 }

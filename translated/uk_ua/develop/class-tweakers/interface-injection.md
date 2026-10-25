@@ -5,6 +5,7 @@ authors-nogithub:
   - salvopelux
 authors:
   - Daomephsta
+  - CelDaemon
   - Earthcomputer
   - its-miroma
   - Juuxel
@@ -15,9 +16,9 @@ authors:
 
 Упровадження інтерфейсу — це тип [твікінгу класу](../class-tweakers/), який використовується для додавання реалізацій інтерфейсу до класів Minecraft у декомпільованому джерелі.
 
-Реалізація, яка є видимою в декомпільованому вихідному коді класу, усуває необхідність приведення до інтерфейсу для використання його методів.
+Реалізація, яка є видимою в декомпільованому початковому коді класу, усуває необхідність приведення до інтерфейсу для використання його методів.
 
-Крім того, упровадження інтерфейсу можуть бути [прохідними](../class-tweakers/index#transitive-entries), що дозволяє бібліотекам легше надавати додані методи модам, які залежать від них.
+Крім того, упровадження інтерфейсу можуть бути [транзитивними](../class-tweakers/index#transitive-entries), що дозволяє бібліотекам легше надавати додані методи модам, які залежать від них.
 
 Щоб продемонструвати впровадження інтерфейсу, фрагменти цієї сторінки використовуватимуть приклад, де ми додаємо новий допоміжний метод до `FlowingFluid`.
 
@@ -25,7 +26,7 @@ authors:
 
 У пакеті, який не є вашим пакетом міксина, створіть інтерфейс, який ви хочете додати:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface-injection-example-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface_injection_example_interface
 
 У нашому випадку ми викидаємо усталено, оскільки ми плануємо реалізувати метод через міксин.
 
@@ -47,7 +48,7 @@ authors:
 
 Щоб створити перевизначення методів інтерфейсу в цільовому класі, вам слід використовувати міксин, який реалізує інтерфейс і націлений на клас, у який ви хочете впровадити інтерфейс.
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface-injection-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface_injection_example_mixin
 
 Перевизначення буде додано до цільового класу під час виконання, але не буде видно в декомпільованому джерелі, навіть якщо ви використовуєте твікер класу, щоб зробити реалізацію інтерфейсу видимою.
 
@@ -63,7 +64,7 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 Для нашого прикладу інтерфейсу запис буде таким:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_example_entry{classtweaker:no-line-numbers}
 
 ### Загальні інтерфейси {#generic-interfaces}
 
@@ -84,21 +85,29 @@ inject-interface    <targetClassName>    <injectedInterfaceName>
 
 Отже, щоб додати інтерфейс:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface-injection-generic-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface_injection_generic_interface
 
 із загальним `<? extends String, Boolean[]>`
 
 Запис твікера класу буде таким:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_generic_interface_entry{classtweaker:no-line-numbers}
 
 ## Застосування змін {#applying-changes}
 
-Щоб побачити внесені реалізації інтерфейсу, оновіть проєкт Gradle за допомогою [перегенерування джерел](../getting-started/generating-sources).
-Якщо зміни не показано, ви можете спробувати [перевірити](../class-tweakers/index#validating-the-file) файл та перевірити на наявність помилок.
+Щоб побачити внесені реалізації інтерфейсу, оновіть проєкт Gradle з [перегенеруванням джерел](../getting-started/generating-sources).
+Обов'язково знову відкрийте цільовий клас із декомпільованого початкового коду, щоб побачити внесені зміни.
+
+::: tip
+
+Якщо зміни не показано, ви можете спробувати [перевірити файл](../class-tweakers/index#validating-the-file) та перевірити на наявність помилок.
+
+:::
+
+<!---->
 
 Додані методи тепер можна використовувати в екземплярах класу, в який було впроваджено інтерфейс:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface-injection-using-added-method
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface_injection_using_added_method
 
 Ви також можете перевизначити методи в підкласах цільового впровадження інтерфейсу, якщо це необхідно.

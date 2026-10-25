@@ -15,9 +15,9 @@ Un `SuggestionProvider` viene usato per creare una lista di suggerimenti che ver
 
 Per usare un provider di suggerimenti, devi chiamare il metodo `suggests` nel costruttore di argomenti. Questo metodo accetta un `SuggestionProvider` e restituisce il costruttore di argomenti modificato con l'aggiunta del suggestion provider.
 
-@[code java highlight={4} transcludeWith=:::command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_suggestions{4}
 
-@[code java transcludeWith=:::execute_command_with_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_suggestions
 
 ## Provider di Suggerimenti Predefiniti {#built-in-suggestion-providers}
 
@@ -36,13 +36,13 @@ Se un provider predefinito non soddisfa i tuoi requisiti, puoi creare il tuo pro
 
 Per questo esempio, creeremo un provider di suggerimenti che suggerisce tutti i nomi utente dei giocatori sul server.
 
-@[code java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/PlayerSuggestionProvider.java#suggestion_provider
 
 Per usare questo provider di suggerimenti, passeresti semplicemente una sua istanza al metodo `.suggests` nel costruttore di comandi.
 
-@[code java highlight={4} transcludeWith=:::command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_custom_suggestions{4}
 
-@[code java transcludeWith=:::execute_command_with_custom_suggestions](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_custom_suggestions
 
 Ovviamente, i provider di suggerimenti possono essere più complessi, siccome possono anche leggere il contesto dei comandi per fornire suggerimenti basati sullo stato del comando - per esempio quali argomenti sono già stati forniti.
 

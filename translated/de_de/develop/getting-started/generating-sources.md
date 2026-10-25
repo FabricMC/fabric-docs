@@ -4,7 +4,6 @@ description: Ein Leitfad zur Generierung des Minecraft Quellcodes.
 authors:
   - dicedpixels
   - its-miroma
-outline: false
 ---
 
 ## Deine Entwicklungsumgebung wählen {#choose-your-ide}

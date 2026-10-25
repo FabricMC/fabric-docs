@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Fabric Dokumentation
-  tagline: Die offizielle kuratierte Dokumentation für Fabric,<br />einem Modding-Werkzeugkasten für Minecraft.
+  tagline: Die offizielle kuratierte Dokumentation für Fabric, einer Modding-Toolchain für Minecraft.
 
 features:
   - title: Leitfäden für Spieler

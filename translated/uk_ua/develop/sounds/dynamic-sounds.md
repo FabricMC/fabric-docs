@@ -80,7 +80,7 @@ Reaper поставляється з уже обладнаним еквалай�
 
 ### Порівняння {#comparison}
 
-Порівняймо вихідний файл з очищеною версією.
+Порівняймо початковий файл з очищеною версією.
 
 Ви можете почути чітке дзижчання та звуковий сигнал, можливо, від електричного елемента механізму, в оригінальному звуці.
 
@@ -134,7 +134,7 @@ Reaper поставляється з уже обладнаним еквалай�
 
 Майте на увазі, що це буде відтворено лише на конкретному клієнті, який виконував цю частину коду.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java#simple_sound_instance
 
 ::: warning
 
@@ -157,18 +157,18 @@ Reaper поставляється з уже обладнаним еквалай�
 
 Тож, щоб скористатися цими утилітами, просто створіть новий клас для свого спеціального `SoundInstance` і розширте його з `MovingSoundInstance`.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/CustomSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/instance/CustomSoundInstance.java#custom_sound_instance
 
 Використання власного екземпляра `Entity` або `BlockEntity` замість основного екземпляра `LivingEntity` може дати вам ще більше контролю, наприклад, на основі методу `tick()` на методи доступу, але вам не обов’язково потрібно посилання на таке джерело звуку. Натомість ви також можете отримати доступ до `BlockPos` з іншого місця або навіть встановити його вручну лише один раз у конструкторі.
 
 Просто майте на увазі, що всі об’єкти, на які посилаються, у `SoundInstance` є версіями з боку клієнта.
 У певних ситуаціях властивості логічної сутності на стороні сервера можуть відрізнятися від властивостей на стороні клієнта.
-Якщо ви помітили, що ваші значення не збігаються, переконайтеся, що ваші значення синхронізовано з пакетами S2C `EntityDataAccessor`, `BlockEntity` сутності або повними спеціальними мережевими пакетами S2C.
+Якщо ви помітили, що ваші значення не збігаються, переконайтеся, що ваші значення синхронізовано з клієнтськими пакетами `EntityDataAccessor`, `BlockEntity` сутності або з повними власними клієнтськими мережевими пакетами.
 
 Після того, як ви закінчили створювати свій власний `SoundInstance`, його можна використовувати будь-де, якщо його було виконано на стороні клієнта за допомогою менеджера звуку.
 Таким же чином ви також можете зупинити настроюваний `SoundInstance` вручну, якщо необхідно.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModDynamicSound.java#custom_sound_instance
 
 Звуковий цикл тепер відтворюватиметься лише для клієнта, який запустив цей SoundInstance. У цьому випадку звук буде слідувати за самим `LocalPlayer`.
 
@@ -226,7 +226,7 @@ Reaper поставляється з уже обладнаним еквалай�
 
 Надалі ми використовуватимемо спеціальний інтерфейс під назвою `DynamicSoundSource`. Він реалізований у всіх класах, які хочуть використовувати цю функціональність динамічного звуку, як-от ваш власний `BlockEntity`, сутності або навіть, за допомогою міксинів, у вже наявних класах, як-от `Zombie`. В основному він представляє лише необхідні дані джерела звуку.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java)
+<<< @/reference/latest/src/main/java/com/example/docs/sound/DynamicSoundSource.java#dynamic_sound_source
 
 Після створення цього інтерфейсу обов’язково реалізуйте його також у необхідних класах.
 
@@ -247,7 +247,7 @@ Reaper поставляється з уже обладнаним еквалай�
 
 - Фаза `STARTING`: звук спочатку тихий, але повільно голоснішає
 - Фаза `RUNNING`: звук працює нормально
-- Фаза `ENDING`: звук починається з вихідної гучності та повільно тихішає, поки не стихне
+- Фаза `ENDING`: звук починається з початкової гучності та повільно тихішає, поки не стихне
 
 Технічно простого переліку з фазами може бути достатньо.
 
@@ -259,7 +259,7 @@ public enum TransitionState {
 
 Але коли ці значення надсилаються через мережу, ви можете визначити для них `Identifier` або навіть додати інші власні значення.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java)
+<<< @/reference/latest/src/main/java/com/example/docs/sound/TransitionState.java#transition_state
 
 ::: info
 
@@ -274,7 +274,7 @@ public enum TransitionState {
 
 Цей інтерфейс використовується як зворотний виклик. Наразі нам потрібен лише метод `onFinished`, але ви можете додати власні методи, якщо вам потрібно надіслати також інші сигнали від об’єкта `SoundInstance`.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/SoundInstanceCallback.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/instance/SoundInstanceCallback.java#sound_instance_callback
 
 Упровадьте цей інтерфейс у будь-якому класі, який повинен мати можливість обробляти вхідні сигнали, наприклад, `AbstractDynamicSoundInstance`, який ми незабаром створимо, і створимо функціональні можливості в самому спеціальному `SoundInstance`.
 
@@ -294,39 +294,39 @@ public enum TransitionState {
 - голдери такт для відстеження прогресу поточного звуку.
 - зворотний виклик, який надсилає сигнал назад до `DynamicSoundManager` для остаточного очищення, коли `SoundInstance` фактично завершено
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#class_fields
 
 Потім установіть початкові, усталені значення для спеціального `SoundInstance` у конструкторі абстрактного класу.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#constructor
 
 Після завершення роботи конструктора вам потрібно дозволити `SoundInstance` відтворюватися.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#can_start
 
 Тепер настає важлива частина цього динамічного `SoundInstance`. На основі поточного такту екземпляра він може застосовувати різні значення та поведінку.
 
-@[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#tick
 
 Як бачите, ми ще не застосували тут модуляцію гучності та висоти. Ми застосовуємо лише спільну поведінку.
 Таким чином, у цьому класі `AbstractDynamicSoundInstance` ми надаємо лише базову структуру та інструменти для підкласів, які можуть самі вирішувати, який тип звукової модуляції вони насправді хочуть застосувати.
 
 Отже, розгляньмо кілька прикладів таких методів модуляції звуку.
 
-@[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#modulation
 
 Як бачите, нормалізовані значення в поєднанні з лінійною інтерполяцією (lerp) допомагають формувати значення відповідно до бажаних меж аудіо.
 Майте на увазі, що якщо ви додаєте кілька методів, які змінюють одне й те саме значення, вам потрібно буде спостерігати та коригувати, як вони працюють разом один з одним.
 
 Тепер нам просто потрібно додати решту службових методів, і ми закінчили з класом `AbstractDynamicSoundInstance`.
 
-@[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/AbstractDynamicSoundInstance.java#other
 
 ### Приклад реалізації `SoundInstance` {#example-soundinstance-implementation}
 
 Якщо ми подивимося на фактичний спеціальний клас `SoundInstance`, який походить від новоствореного `AbstractDynamicSoundInstance`, нам потрібно лише подумати про умови, які призведуть до зупинки звуку та яку звукову модуляцію ми хочемо застосувати.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/instance/EngineSoundInstance.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/instance/EngineSoundInstance.java#engine_sound_instance
 
 ### Клас `DynamicSoundManager` {#dynamicsoundmanager-class}
 
@@ -335,7 +335,7 @@ public enum TransitionState {
 Цей новий клас `DynamicSoundManager` керуватиме спеціальними `SoundInstances`, тому він також буде доступний лише для клієнта. Крім того, клієнт повинен дозволити існування лише одному екземпляру цього класу. Кілька звукових менеджерів для одного клієнта не мають особливого сенсу та ще більше ускладнюють взаємодію.
 Отже, використаймо [«Singleton Design Pattern»](https://refactoring.guru/design-patterns/singleton/java/example).
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java#sound_manager_structure
 
 Отримавши правильну базову структуру, ви можете додати методи, необхідні для взаємодії зі звуковою системою.
 
@@ -343,16 +343,16 @@ public enum TransitionState {
 - зупинення звуку
 - перевірка, чи відтворюється звук
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java)
+<<< @/reference/latest/src/client/java/com/example/docs/sound/DynamicSoundManager.java#sound_manager_methods
 
 Замість того, щоб мати лише список усіх `SoundInstances`, які зараз відтворюються, ви також можете відстежувати, які звуки відтворюють джерела звуку.
 Наприклад, двигун, який має два звуки двигуна одночасно, не матиме сенсу, тоді як кілька двигунів, які відтворюють відповідні звуки двигуна, є дійсним крайнім випадком. Заради простоти ми щойно створили `List<AbstractDynamicSoundInstance>`, але в багатьох випадках `HashMap` `DynamicSoundSource` і `AbstractDynamicSoundInstance` може бути кращим вибором.
 
 ### Використання розширеної системи звуків {#using-the-advanced-sound-system}
 
-Щоб використовувати цю систему звуків, просто скористайтеся методами `DynamicSoundManager` або `SoundInstance`. Використання `onStartedTrackingBy` і `onStoppedTrackingBy` від об’єктів або просто спеціальної мережі S2C, тепер ви можете запускати та зупиняти власні динамічні `SoundInstance`.
+Щоб використовувати цю систему звуків, просто скористайтеся методами `DynamicSoundManager` або `SoundInstance`. Використовуючи `onStartedTrackingBy` і `onStoppedTrackingBy` з сутностей або за допомогою [власних мереж, прив’язаних до клієнта](../networking#receiving-a-packet-on-the-client), тепер ви можете запускати та зупиняти власні динамічні `SoundInstance`.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/network/ReceiveS2C.java)
+<<< @/reference/latest/src/client/java/com/example/docs/network/ClientboundSoundReceiver.java#handle_packet
 
 Кінцевий продукт може регулювати свою гучність на основі звукової фази, щоб згладити переходи та змінити висоту на основі значення стресу, яке надходить від джерела звуку.
 

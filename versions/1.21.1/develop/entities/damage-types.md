@@ -72,7 +72,7 @@ Now whenever a living entity steps on our custom block, it'll take 5 damage (2.5
 You can define a death message for the damage type in the format of `death.attack.<message_id>` in our
 mod's `en_us.json` file.
 
-@[code lang=json transclude={4-4}](@/reference/1.21.1/src/main/resources/assets/example-mod/lang/en_us.json)
+@[code lang=json transclude={5-5}](@/reference/1.21.1/src/main/generated/assets/example-mod/lang/en_us.json)
 
 Upon death from our damage type, you'll see the following death message:
 

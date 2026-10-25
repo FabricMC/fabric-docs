@@ -3,6 +3,8 @@ title: Renderer dei Blocchi-Entità
 description: Impara come vivacizzare il rendering con i renderer di blocchi-entità.
 authors:
   - natri0
+resources:
+  https://docs.neoforged.net/docs/blockentities/ber/: BlockEntityRenderer - NeoForge Docs
 ---
 
 A volte non basta usare il formato del modello di Minecraft. Se devi aggiungere del rendering dinamico all'aspetto del tuo blocco, dovrai usare un `BlockEntityRenderer`.
@@ -17,26 +19,26 @@ Nel creare un `BlockEntityRenderer` per il `CounterBlockEntity`, è importante i
 
 Prima di tutto, dobbiamo creare un `BlockEntityRenderState` per il nostro `CounterBlockEntity` per contenere i dati che verrano usati per il rendering. In questo caso, sarà necessario che i `clicks` siano disponibili durante il rendering
 
-@[code transcludeWith=::render-state](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java#render_state
 
 Poi creiamo un `BlockEntityRenderer` per il nostro `CounterBlockEntity`.
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#renderer_structure
 
-La nuova classe ha un costruttore con un `BlockEntityRendererProvider.Context` come parametro. Il `Context` ha alcune utilità per il rendering, come l'`ItemRenderer` o il `TextRenderer`.
+La nuova classe ha un costruttore con un `BlockEntityRendererProvider.Context` come parametro. Il `Context` ha alcune utilità per il rendering, come l'`ItemRenderer` o il `Font`.
 Inoltre, includendo un costruttore come questo, è possibile usare il costruttore come interfaccia funzionale per la `BlockEntityRendererProvider`:
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java#register_block_entity_renderer
 
-Sovrascriveremo alcuni metodi per impostare lo stato di rendering, oltre al metodo `render` dove verrà impostata la logica di rendering.
+Sovrascriveremo alcuni metodi per impostare lo stato di rendering, oltre al metodo `submit` dove verrà impostata la logica di rendering.
 
 `createRenderState` può essere usato per inizializzare lo stato di rendering.
 
-@[code transclude={31-34}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#create_render_state
 
 `extractRenderState` può essere usato per aggiornare lo stato di rendering con i dati dell'entità.
 
-@[code transclude={36-42}](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#extract_render_state
 
 Dovresti registrare i renderer dei blocchi-entità nella tua classe `ClientModInitializer`.
 
@@ -44,7 +46,7 @@ Dovresti registrare i renderer dei blocchi-entità nella tua classe `ClientModIn
 
 ## Disegnare su Blocchi {#drawing-on-blocks}
 
-Ora che abbiamo un renderer, possiamo disegnare. Il metodo `render` viene chiamato ad ogni frame, ed è qui che la magia del rendering avviene.
+Ora che abbiamo un renderer, possiamo disegnare. Il metodo `submit` viene chiamato ad ogni frame, ed è qui che la magia del rendering avviene.
 
 ### Orientarsi {#moving-around}
 
@@ -53,7 +55,7 @@ Anzitutto, dobbiamo bilanciare e ruotare il testo in modo che sia sul lato super
 ::: info
 
 Come suggerisce il nome, il `PoseStack` è uno _stack_, il che significa che puoi inserirci (push) ed estrarne (pop) le trasformazioni.
-Una buona regola di base è inserirne uno nuovo all'inizio del metodo `render` ed estrarlo alla fine, in modo che il rendering di un blocco non influenzi gli altri.
+Una buona regola di base è inserirne uno nuovo all'inizio del metodo `submit` ed estrarlo alla fine, in modo che il rendering di un blocco non influenzi gli altri.
 
 Si possono trovare maggiori informazioni riguardo al `PoseStack` nell'[articolo sui Concetti Base del Rendering](../rendering/basic-concepts).
 
@@ -69,9 +71,7 @@ Quindi dobbiamo inizialmente spostare il testo a metà del blocco sugli assi X e
 
 Questo si fa con una sola chiamata a `translate`:
 
-```java
-matrices.translate(0.5, 1, 0.5);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#translate
 
 Ecco che abbiamo completato la _tranlazione_, mancano la _rotazione_ e la _scala_.
 
@@ -79,36 +79,32 @@ Per impostazione predefinita il testo viene disegnato sul piano XY, quindi dobbi
 
 ![Blocco verde nel punto centrale in alto, orientato verso l'alto](/assets/develop/blocks/block_entity_renderer_3.png)
 
-Il `PoseStack` non ha una funzione `rotate`, invece dobbiamo usare `multiply` e `Axis.XP`:
+Il `PoseStack` non ha una funzione `rotate`, invece dobbiamo usare `mulPose` e `Axis.XP`:
 
-```java
-matrices.multiply(Axis.XP.rotationDegrees(90));
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#rotate
 
-Ora il testo è nella posizione corretta, ma è troppo grande. Il `BlockEntityRenderer` mappa l'intero blocco ad un cubo `[-0.5, 0.5]`, mentre il `TextRenderer` usa come coordinate Y `[0, 9]`. Per questo dobbiamo rimpicciolirlo di un fattore di 18:
+Ora il testo è nella posizione corretta, ma è troppo grande. Il `BlockEntityRenderer` mappa l'intero blocco ad un cubo `[-0.5, 0.5]`, mentre il `Font` usa come coordinate Y `[0, 9]`. Per questo dobbiamo rimpicciolirlo di un fattore di 18:
 
-```java
-matrices.scale(1/18f, 1/18f, 1/18f);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#scale
 
 Ora la trasformazione completa ha questo aspetto:
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#transformations
 
 ### Disegnare Testo {#drawing-text}
 
-Come detto prima, il `Context` passato nel costruttore del nostro renderer ha un `TextRenderer` che possiamo usare per misurare il testo (`width`), che è utile per centrarelo.
+Come detto prima, il `Context` passato nel costruttore del nostro renderer ha un `Font` che possiamo usare per misurare il testo (`width`), che è utile per centrarelo.
 
-Per disegnare il testo, dovremo fornire i dati necessari alla coda di renderizzazione. Siccome stiamo disegnando del testo, possiamo usare il metodo `submitText` fornito attraverso l'istanza di `OrderedRenderCommandQueue` passata nel metodo `render`.
+Per disegnare il testo, dovremo fornire i dati necessari alla coda di renderizzazione. Siccome stiamo disegnando del testo, possiamo usare il metodo `submitText` fornito attraverso l'istanza di `SubmitNodeCollector` passata nel metodo `submit`.
 
-@[code transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#drawing_text
 
 Il metodo `submitText` prende molti parametri, ma i più importanti sono:
 
 - la `FormattedCharSequence` da disegnare;
 - Le sue coordinate `x` e `y`;
 - Il valore RGB di `color`;
-- La `Matrix4f` che descrive come deve essere trasformato (per ottenerne una da un `PoseStack`, possiamo usare `.last().pose()` per ottenere la `Matrix4f` per la voce in cima).
+- il `PoseStack` che descrive come deve essere trasformato.
 
 Dopo tutto questo lavoro, eccone il risultato:
 

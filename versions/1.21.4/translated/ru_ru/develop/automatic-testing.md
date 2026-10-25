@@ -21,7 +21,7 @@ authors:
 
 Сначала нам необходимо добавить Fabric Loader JUnit в среду разработки. Добавьте следующее в блок зависимостей в `build.gradle`:
 
-@[code lang=groovy transcludeWith=:::automatic-testing:1](@/reference/build.gradle)
+@[code lang=groovy transcludeWith=automatic_testing_1](@/reference/build.gradle)
 
 Затем нам нужно указать Gradle использовать Fabric Loader JUnit для тестирования. Это можно сделать, добавив следующий код в `build.gradle`:
 

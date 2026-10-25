@@ -20,15 +20,15 @@ As with anything else in your mod you will need to register your custom componen
 
 Choose a sensible class to place this in. For this example we're going to make a new package called `component` and a class to contain all of our component types called `ModComponents`. Make sure you call `ModComponents.initialize()` in your [mod's initializer](../getting-started/project-structure#entrypoints).
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#mod_components
 
 This is the basic template to register a component type:
 
 ```java
 public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     BuiltInRegistries.DATA_COMPONENT_TYPE,
-    Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
-    DataComponentType.<?>builder().persistent(null).build()
+    ExampleMod.id("my_component"),
+    DataComponentType.<?>builder().persistent(null).networkSynchronized(null).build()
 );
 ```
 
@@ -36,7 +36,7 @@ There are a few things here worth noting. On the first and fourth lines, you can
 
 Secondly, you must provide an `Identifier` containing the intended ID of your component. This is namespaced with your mod's ID.
 
-Lastly, we have a `DataComponentType.Builder` that creates the actual `DataComponentType` instance that's being registered. This contains another crucial detail we will need to discuss: your component's `Codec`. This is currently `null` but we will also fill it in soon.
+Lastly, we have a `DataComponentType.Builder` that creates the actual `DataComponentType` instance that's being registered. This contains another crucial detail we will need to discuss: serialization via your component's `Codec` and `StreamCodec`. These are both currently `null`, but we will also fill them in soon.
 
 ## Basic Data Components {#basic-data-components}
 
@@ -44,9 +44,23 @@ Basic data components (like `minecraft:damage`) consist of a single data value, 
 
 As an example, let's create an `Integer` value that will track how many times the player has right-clicked while holding our item. Let's update our component registration to the following:
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#integer_component
 
-You can see that we're now passing `<Integer>` as our generic type, indicating that this component will be stored as a single `int` value. For our codec, we are using the provided `ExtraCodecs.POSITIVE_INT` codec. We can get away with using basic codecs for simple components like this, but more complex scenarios might require a custom codec (this will be covered briefly later on).
+You can see that we're now passing `<Integer>` as our generic type, indicating that this component will be stored as a single `int` value.
+
+For our codec, we are using the provided `ExtraCodecs.NON_NEGATIVE_INT` codec. We can get away with using basic codecs for simple components like this, but more complex scenarios might require a custom codec (this will be covered briefly later on).
+
+For our `StreamCodec` (sending the information to the client), we're using `ByteBufCodecs.VAR_INT`. A VarInt is a method of storing integers using a dynamic number of bytes. A smaller integer will be encoded in less bytes, while a larger integer will require more bytes.
+
+::: warning
+
+Do not think you can skip `networkSynchronized`!
+
+If you do not specify a `StreamCodec` in this manner, Minecraft will instead construct a more inefficient one and sync your component anyway.
+
+To prevent your component from being synced, you will need mixins, which is outside the scope of this tutorial.
+
+:::
 
 If you start the game, you should be able to enter a command like this:
 
@@ -58,7 +72,7 @@ When you run the command, you should receive the item containing the component. 
 
 Let's add a new item which will increase the counter each time it is right clicked. You should read the [Custom Item Interactions](./custom-item-interactions) page which will cover the techniques we will use in this guide.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java#item
 
 Remember as usual to register the item in your `ModItems` class.
 
@@ -89,15 +103,15 @@ public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisp
 
 As of 1.21.5, `appendHoverText` has been deprecated. It is now recommended to implement `TooltipProvider` as such. This will require the [creation of a custom component class](#advanced-data-components).
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java#component_with_tooltip
 
 Then, you can register the `TooltipProvider` via `ItemComponentTooltipProviderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
 
-@[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#tooltip_provider
 
 Alternatively, you can use `ItemTooltipCallback` to replace `appendHoverText`. This is called in `onInitializeClient` in the `ClientModInitializer`.
 
-@[code lang=java transcludeWith=#tooltip_provider_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#tooltip_provider_client
 
 :::
 
@@ -136,7 +150,7 @@ There are three solutions we can use to address this problem.
 
 When you register your item and pass a `Item.Properties` object to your item constructor, you can also provide a list of default components that are applied to all new items. If we go back to our `ModItems` class, where we register the `CounterItem`, we can add a default value for our custom component. Add this so that new items display a count of `0`.
 
-@[code transcludeWith=::\_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#counter
 
 When a new item is created, it will automatically apply our custom component with the given value.
 
@@ -168,7 +182,7 @@ boolean exists = stack.has(ModComponents.CLICK_COUNT_COMPONENT);
 
 We're going to go with the third option. So along with adding a default component value, we'll also check if the component is present on the stack and only show the tooltip if it is.
 
-@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java#fixed_append_hover_text
 
 Start the game again and hover over the item without the component, you should see that it displays "Used 0 times" and no longer crashes the game.
 
@@ -200,7 +214,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 Let's set up a new `use()` method to read the old click count, increase it by one, and then set the updated click count.
 
-@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java#use
 
 Now try starting the game and right-clicking with the Counter item in your hand. If you open up your inventory and look at the item again you should see that the usage number has gone up by the amount of times you've clicked it.
 
@@ -240,7 +254,7 @@ public record AdvancedCustomComponent(float temperature, boolean burnt) {
 
 Since we are defining a custom data structure, there won't be a pre-existing `Codec` for our use case like with the [basic component](#basic-data-components). This means we're going to have to construct our own codec. Let's define one in our record class using a `RecordCodecBuilder` which we can reference once we register the component. For more details on using a `RecordCodecBuilder` you can refer to [this section of the Codecs page](../codecs#merging-codecs-for-record-like-classes).
 
-@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#codec
 
 You can see that we are defining a list of custom fields based on the primitive `Codec` types. However, we are also telling it what our fields are called using `fieldOf()`, and then using `forGetter()` to tell the game which attribute of our record to populate.
 
@@ -248,9 +262,15 @@ You can also define optional fields by using `optionalFieldOf()` and passing a d
 
 Finally, we call `apply()` and pass our record's constructor. For more details on how to construct codecs and more advanced use cases, be sure to read the [Codecs](../codecs) page.
 
-Registering a composite component is similar to before. We just pass our record class as the generic type, and our custom `Codec` to the `codec()` method.
+We will also need to construct our `StreamCodec`.
 
-@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#stream_codec
+
+`composite` is similar to `RecordCodecBuilder` in that it serializes each field with the given serializer (in this case, `StreamCodec`) specified. However, it is much easier to understand than `RecordCodecBuilder`. Here, we're simply providing a `StreamCodec` for each field, then the getter (as a `Function`) for that field. Our last parameter is a function (usually the constructor is provided here) that takes all the deserialized fields and yields our component.
+
+Registering a composite component is similar to before. We just pass our record class as the generic type, our custom `Codec` to the `codec()` method, and our custom `StreamCodec` to the `networkSynchronized()` method.
+
+<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#custom_component
 
 Now start the game. Using the `/give` command, try applying the component. Composite component values are passed as an object enclosed with `{}`. If you put blank curly brackets, you'll see an error telling you that the required key `temperature` is missing.
 
@@ -300,8 +320,8 @@ Now you can store custom data on an `ItemStack`. Use responsibly!
 
 Since we have a custom component class, we're able to implement `TooltipProvider` as such and avoid the deprecated `appendHoverText method.`
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#advanced_custom_component
 
 Then, you can register the `TooltipProvider` via `ItemComponentTooltipProviderRegistry`. This is called in `onInitialize` in the `ModInitializer`.
 
-@[code lang=java transcludeWith=#advanced_tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#advanced_tooltip_provider

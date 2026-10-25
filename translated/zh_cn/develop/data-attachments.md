@@ -6,13 +6,19 @@ authors:
   - DennisOchulor
 ---
 
-数据附加 API 是 Fabric API 中一项近期推出的实验性功能， 允许开发者轻松地将任意数据附加到实体、方块实体、Level 和区块。 附加的数据可以通过 [Codec](./codecs) 和流 [Codec](./codecs) 进行存储和同步，因此在使用前你应该熟悉这些 Codec。
+Fabric API 提供的数据附件 API 允许开发者轻松地将任意数据附加到实体、方块实体、Level 和区块。 附加的数据可以通过[编解码器](./codecs)和[流编解码器](https://docs.neoforged.net/docs/networking/streamcodecs/)进行存储和同步，因此在使用前你 应该熟悉这些编解码器。
+
+::: info
+
+对于不与任何特定 Level 关联的服务器级数据，Fabric 提供了通过 `Level.globalAttachments()` 或 `MinecraftServer.globalAttachments()` 获取的  `GlobalAttachments`。
+
+:::
 
 ## 创建数据附加 {#creating-attachments}
 
 首先，你需要调用 `AttachmentRegistry.create` 方法。 以下示例创建一个基本数据附加，不会在重启后同步或保留。
 
-@[code lang=java transcludeWith=:::string](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#string
 
 `AttachmentRegistry` 包含一些用于创建基本数据附加的方法，包括：
 
@@ -26,7 +32,7 @@ authors:
 
 如果需要数据附加在服务器和客户端之间既持久又同步，可以使用 `create` 方法设置此行为，允许通过 `builder` 链来配置。 例如：
 
-@[code lang=java transcludeWith=:::pos](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#pos
 
 上面的例子会同步给每位玩家，但可能不适用于你的使用例。 这是一些其他默认的谓词，但你也可以通过引用 `AttachmentSyncPredicate` 类来构建自己的。
 
@@ -40,7 +46,7 @@ authors:
 
 还可以设置为即使是目标死后或[转化](https://zh.minecraft.wiki/w/生物转化)后也维持，调用 `copyOnDeath` 方法即可。
 
-@[code lang=java transcludeWith=:::persistent](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#persistent
 
 ## 从数据附加中读取{#reading-attachments}
 
@@ -92,7 +98,7 @@ entity.removeAttached(EXAMPLE_STRING_ATTACHMENT);
 
 不过，你可以将其拆分为多个字段，并使用一个辅助类来组织，实现复杂些的附加。 例如，如果需要两个有关玩家的体力值的字段，可以像这样：
 
-@[code lang=java transcludeWith=:::stamina](@/reference/latest/src/main/java/com/example/docs/attachment/Stamina.java)
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/Stamina.java#stamina
 
 辅助类可以这样使用：
 

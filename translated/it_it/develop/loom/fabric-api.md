@@ -18,7 +18,7 @@ Loom ha un DSL (Linguaggio Specifico del Dominio) che permette di configurare ce
 
 Per una guida passo passo su come usare la generazione dei dati, guarda la pagina [Data Generation Setup](../data-generation/setup). La configurazione di generazione di dati più basilare si può configurare con il codice seguente:
 
-```groovy
+```gradle
 fabricApi {
  configureDataGeneration()
 }
@@ -26,7 +26,7 @@ fabricApi {
 
 Questo creerà una nuova configurazione d'avvio che esegue l'API di Fabric attivando la generazione di dati. Una serie di opzioni più avanzate si può configurare come visto qua sotto:
 
-```groovy
+```gradle
 fabricApi {
  configureDataGeneration {
   // Contains the output directory where generated data files will be stored.
@@ -65,7 +65,7 @@ fabricApi {
 
 Come per la generazione di dati, puoi configurare test basilari con ciò che segue:
 
-```groovy
+```gradle
 fabricApi {
  configureTests()
 }
@@ -73,7 +73,7 @@ fabricApi {
 
 Questo creerà due nuove configurazioni d'avvio, una per i test nel gioco lato server e una per quelli lato client. Una serie di opzioni più avanzate si può configurare come visto qua sotto:
 
-```groovy
+```gradle
 fabricApi {
  configureTests {
   // Contains a boolean indicating whether a new source set should be created for the tests.

@@ -7,7 +7,7 @@ authors:
 next: false
 ---
 
-Это руководство поможет вам установить Java 21 на Windows.
+Это руководство проведёт вас через процесс установки Java 25 на Windows.
 
 Это руководство понадобится вам, если вы хотите использовать установщик на основе `.jar` Fabric'а, или если вы используете `.jar` сервера Minecraft.
 
@@ -27,15 +27,15 @@ next: false
 
 ::: warning
 
-Чтобы использовать Minecraft 1.21.10, вам понадобится как минимум Java 21.
+Чтобы использовать Minecraft 26.1, вам потребуется как минимум установленная Java 25.
 
-Если эта команда отображает версию ниже 21, вам необходимо обновить существующую установку Java; продолжайте читать эту страницу.
+Если эта команда показывает версию ниже 25, вам потребуется обновить текущую установку Java; продолжайте читать эту страницу.
 
 :::
 
-## 2. Загрузите установщик Java 21 {#2-download-the-java-installer}
+## 2. Скачайте установщик Java 25 {#2-download-the-java-installer}
 
-Чтобы установить Java 21, вам необходимо загрузить установщик с сайта [Adoptium](https://adoptium.net/temurin/releases?version=21&os=windows&arch=any&mode=filter).
+Чтобы установить Java 25, вам нужно скачать установщик с [Adoptium](https://adoptium.net/temurin/releases?version=25&os=windows&arch=any&mode=filter).
 
 Вам нужно скачать версию `Windows Installer (.msi)`:
 
@@ -47,12 +47,12 @@ next: false
 
 ## 3. Запустите установщик! {#3-run-the-installer}
 
-Следуйте указаниям программы установки, чтобы установить Java 21. Когда вы дойдёте до этой страницы, вы должны выбрать "Entire feature will be installed on local hard drive" для следующих функций:
+Следуйте инструкциям установщика, чтобы установить Java 25. Когда вы дойдёте до этой страницы, вы должны выбрать "Entire feature will be installed on local hard drive" для следующих функций:
 
 - `Set JAVA_HOME environment variable` - будет добавлено в PATH.
 - `JavaSoft (Oracle) registry keys`
 
-![Установщик Java 21 c выделенными "Set JAVA_HOME variable" и "JavaSoft (Oracle) registry keys"](/assets/players/installing-java/windows-wizard-screenshot.png)
+![Установщик Java 25 с выделенными параметрами «Set JAVA_HOME variable» и "JavaSoft (Oracle) registry keys"](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 После того как вы закончите это, вы можете нажать `Next` и продолжить установку.
 
@@ -64,9 +64,9 @@ Windows не всегда сообщает другим программам о 
 
 :::
 
-## 4. Убедитесь, что Java 21 установлена {#4-verify-that-java-is-installed}
+## 4. Проверьте, что Java 25 установлена {#4-verify-that-java-is-installed}
 
-После завершения установки, вы можете проверить что Java 21 установлена открытием командного запроса заново и ввести `java -version`.
+После завершения установки вы можете проверить, установлена ли Java 25, снова открыв командную строку и введя `java -version`.
 
 Если команда будет выполнена успешно, вы увидите что-то вроде показанного ранее, где отображается версия Java:
 

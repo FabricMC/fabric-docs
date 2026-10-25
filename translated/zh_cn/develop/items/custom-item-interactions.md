@@ -44,14 +44,20 @@ InteractionResult.SUCCESS.heldItemTransformedTo().success(heldStack);
 
 假设你想制作一个在玩家面前召唤闪电束的物品，这显然需要创建一个自定义的物品类。
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#item
 
 `use` 事件可能是最有用的事件之一：你可以利用这个事件来召唤闪电。下面的代码实现了在玩家面向的方向前 10 个方块的位置生成闪电。
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#use
 
 同样的，你需要注册物品，并添加模型和纹理。
 
 正如你所见，闪电应该在你（玩家）面前 10 个方块远处产生。
+
+:::warning 癫痫发作警告！
+
+以下视频包含视觉效果和持续闪光，可能会对光敏性癫痫患者或其他光敏人群造成影响。
+
+:::
 
 <VideoPlayer src="/assets/develop/items/custom_items_0.webm">使用闪电棒</VideoPlayer>

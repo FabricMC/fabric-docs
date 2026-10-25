@@ -2,7 +2,14 @@
 title: Tools and Weapons
 description: Learn how to create your own tools and configure their properties.
 authors:
+  - bluebear94
+  - cassiancc
+  - ChampionAsh5357
   - IMB11
+  - its-miroma
+  - NotNightSky
+resources:
+  https://docs.neoforged.net/docs/items/tools/: Tools - NeoForge Docs (except Neo exclusives)
 ---
 
 Tools are essential for survival and progression, allowing players to gather resources, construct buildings, and defend themselves.
@@ -11,45 +18,175 @@ Tools are essential for survival and progression, allowing players to gather res
 
 You can create a tool material by instantiating a new `ToolMaterial` object and storing it in a field that can be used later to create the tool items that use the material.
 
-@[code transcludeWith=:::guidite_tool_material](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_tool_material
 
 The `ToolMaterial` constructor accepts the following parameters, in this specific order:
 
-| Parameter                 | Description                                                                                                                                                         |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `incorrectBlocksForDrops` | If a block is in the incorrectBlocksForDrops tag, it means that when you use a tool made from this `ToolMaterial` on that block, the block will not drop any items. |
-| `durability`              | The durability of all tools that are of this `ToolMaterial`.                                                                                                        |
-| `speed`                   | The mining speed of the tools that are of this `ToolMaterial`.                                                                                                      |
-| `attackDamageBonus`       | The additional attack damage of the tools that are of this `ToolMaterial` will have.                                                                                |
-| `enchantmentValue`        | The "Enchantability" of tools which are of this `ToolMaterial`.                                                                                                     |
-| `repairItems`             | Any items within this tag can be used to repair tools of this `ToolMaterial` in an anvil.                                                                           |
+| Parameter                 | Description                                                                                                                                                           |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `incorrectBlocksForDrops` | If a block is in the `incorrectBlocksForDrops` tag, it means that when you use a tool made from this `ToolMaterial` on that block, the block will not drop any items. |
+| `durability`              | The durability of all tools that are of this `ToolMaterial`.                                                                                                          |
+| `speed`                   | The mining speed of the tools that are of this `ToolMaterial`.                                                                                                        |
+| `attackDamageBonus`       | The additional attack damage of the tools that are of this `ToolMaterial` will have.                                                                                  |
+| `enchantmentValue`        | The "Enchantability" of tools which are of this `ToolMaterial`.                                                                                                       |
+| `repairItems`             | Any items within this tag can be used to repair tools of this `ToolMaterial` in an anvil.                                                                             |
 
-For this example, we will use the same repair item we will be using for armor. We define the tag reference as follows:
+For this example, we will use the same repair item tag we will be using for armor. We define the tag reference as follows:
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
 If you're struggling to determine balanced values for any of the numerical parameters, you should consider looking at the vanilla tool material constants, such as `ToolMaterial.STONE` or `ToolMaterial.DIAMOND`.
 
-## Creating Tool Items {#creating-tool-items}
+### Creating the Tool Material Tag {#creating-the-tool-material-tag}
 
-Using the same utility function as in the [Creating Your First Item](./first-item) guide, you can create your tool items:
+For our `incorrectBlocksForDrops` tag, we can create a tag similar to vanilla's `minecraft:incorrect_for_*_drops` tags, which determines the blocks that will **not** drop when mined with the material. Let's define the tag reference as follows:
 
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_incorrect_blocks_tag
 
-The two float values (`1f, 1f`) refer to the attack damage of the tool and the attack speed of the tool respectively.
+Next, we define the tag's contents using a tag JSON. Let's make Guidite tools be able to mine the same blocks as wooden tools, plus Copper Ore and Deepslate Copper Ore:
+
+<<< @/reference/latest/src/main/resources/data/example-mod/tags/block/incorrect_for_guidite_tool.json
+
+Note that this example inherits from a weaker tool material and _removes_ entries that our stronger material can mine, inheriting all the other blocks that wood cannot.
+
+::: tip
+
+We could also do the reverse: inherit from a stronger tool and _append_ additional blocks that Guidite tools are unfit for.
+
+As an example, if we wanted to create a tool that worked like iron but couldn't mine Diamond Ore, `values` would need to contain `#minecraft:incorrect_for_iron_tool` and `#minecraft:diamond_ores`.
+
+If you want to make your tool material mine the same blocks as an existing one, you can include the respective tag in your tag's definition without any additions or removals. This is recommended over passing the existing tag as your material's `incorrectBlocksForDrops` so that users can configure the incorrect blocks for each of the materials independently.
+
+:::
+
+## Registering Tool Items {#registering-tool-items}
+
+You can create your tool items by using the same classes and functions that we implemented in the [Creating Your First Item](./first-item) guide:
+
+:::: tabs
+
+== Sword
+
+The float parameters refer to the attack damage and attack speed respectively.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
+
+== Spear
+
+The float parameters refer to the attack duration, damage multiplier, delay, dismount time, dismount threshold, knockback time, knockback threshold, damage time, and damage threshold respectively.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_spear
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_spear
+
+== Pickaxe
+
+The float parameters refer to the attack damage and attack speed respectively.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_pickaxe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_pickaxe
+
+== Axe
+
+For axes, you should create an `AxeItem` instead of a generic `Item`. This implements axe-specific right-click actions, and calls the `axe` method of `Item.Properties` automatically.
+
+The float parameters refer to the attack damage and attack speed respectively.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_axe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_axe
+
+== Shovel
+
+For shovels, you should create a `ShovelItem` instead of a generic `Item`. This implements shovel-specific right-click actions, and calls the `shovel` method of `Item.Properties` automatically.
+
+The float parameters refer to the attack damage and attack speed respectively.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_shovel
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_shovel
+
+== Hoe
+
+For hoes, you should create a `HoeItem` instead of a generic `Item`. This implements hoe-specific right-click actions, and calls the `hoe` method of `Item.Properties` automatically.
+
+The float parameters refer to the attack damage and attack speed respectively.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_hoe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_hoe
+
+::::
 
 Remember to add them to a creative tab if you want to access them from the creative inventory!
 
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_guidite_sword_to_create_tab
 
 You will also have to add a texture, item translation and item model. However, for the item model, you'll want to use the `item/handheld` model as your parent instead of the usual `item/generated`.
 
-For this example, I will be using the following model and texture for the "Guidite Sword" item:
+## Assets {#models}
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
+:::: tabs
 
-<DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Texture</DownloadEntry>
+::::
 
-That's pretty much it! If you go in-game you should see your tool item(s) in the tools tab of the creative inventory menu.
+You will also have to add a [texture](./first-item#adding-a-texture), [translation](./first-item#naming-the-item), [client item](./first-item#creating-the-client-item), and [item model](./item-models). However, for the item model, you'll want to use the `item/handheld` model as your parent instead of the usual `item/generated`.
+
+::: info
+
+The models below are created using data generation. For more information, see the documentation on [generating item models](../data-generation/item-models).
+
+:::
+
+::: tabs
+
+== Sword
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_sword
+
+== Spear
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_spear
+
+== Pickaxe
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_pickaxe
+
+== Axe
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
+
+== Shovel
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_shovel
+
+== Hoe
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_hoe
+
+:::
+
+Here are all the example textures used in this guide:
+
+<DownloadEntry downloadURL="/assets/develop/items/tools.zip">Guidite Tool Textures</DownloadEntry>
+
+## Tagging Tool Items {#tags}
+
+::: info PREREQUISITES
+
+For more information, see the documentation on generating [item tags](../data-generation/tags).
+
+:::
+
+It's also recommended to place your tool in the appropriate item tags. Tools have their own individual tags, such as `ItemTags.SWORDS`, which are used for enchantability and other specific logic, like whether to apply sweeping damage.
+
+In your item tag provider, add the following lines to `addTags`:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#tool_tags
+
+That's pretty much it! If you go in-game you should see your tools in the "Tools and Utilities" tab of the creative inventory menu.
 
 ![Finished tools in inventory](/assets/develop/items/tools_1.png)

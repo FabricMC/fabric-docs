@@ -2,33 +2,50 @@
 title: Erstellen deines ersten Gegenstands
 description: Erfahren, wie man einen einfachen Gegenstand registriert und wie man ihn texturiert, modelliert und benennt.
 authors:
+  - cassiancc
   - dicedpixels
   - Earthcomputer
   - IMB11
   - RaphProductions
 ---
 
-Auf dieser Seite werden einige wichtige Konzepte im Zusammenhang mit Objekten vorgestellt und erklärt, wie diese registriert, texturiert, modelliert und benannt werden können.
+Auf dieser Seite werden einige zentrale Konzepte im Zusammenhang mit Items vorgestellt und wie du diese registrieren, texturieren, modellieren und benennen kannst.
 
-Für alle, die es nicht wissen: In Minecraft wird alles in Registern gespeichert, und Gegenstände bilden da keine Ausnahme.
+Falls du es noch nicht weißt: In Minecraft wird alles in Registern gespeichert, und Items bilden hier keine Ausnahme.
 
-## Vorbereitung Ihrer Gegenstände Klasse {#preparing-your-items-class}
+## Deine Item ID-Klassen vorbereiten {#preparing-your-item-ids-classes}
 
-Um die Registrierung von Elementen zu vereinfachen, kann eine Methode erstellt werden, die eine Zeichenfolgenkennung, einige Element-Eigenschaften und eine Factory zum Erstellen der `Item`-Instanz akzeptiert.
+Wir beginnen mit der Erstellung einer Klasse, die den Namen unseres Items enthält, der als `ResourceKey` gespeichert ist. Ein `ResourceKey` enthält den Namen des Mods, den Namen des Items und das Register, für das er bestimmt ist.
 
-Diese Methode erstellt einen Gegenstand mit der angegebenen Kennung und registriert ihn in der Gegenstandsregistrierung des Spiels.
+Wir werden eine Hilfsmethode implementieren, die anhand des Namens eines Items einen `ResourceKey` erstellt; die restlichen Daten, wie beispielsweise das Item-Register und die Mod-ID, werden dabei mit Konstanten ergänzt.
 
-Diese Methode kann in eine Klasse namens „ModItems“ (oder einen beliebigen anderen Namen) eingefügt werden.
+Diese Referenz auf das Item wird für [Datengenerierung von Tags](../data-generation/tags) verwendet.
 
-Mojang macht das auch mit ihren Gegenständen! Als Inspiration dient die Klasse „Items“.
+Diese Methode kann in eine Klasse namens `ModItemIds` (oder einen beliebigen anderen Namen) eingefügt werden.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+::: tip
 
-Beachte, dass wir `T` verwenden, einen [generischen Typ](https://docs.oracle.com/javase/tutorial/java/generics/types.html), der `Item` erweitert. Dadurch können wir dieselbe Methode `register` zum Registrieren aller Arten von Elementen verwenden, die `Item` erweitern. Wir verwenden außerdem eine [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) für die Factory, mit der wir festlegen können, wie unser Element unter Berücksichtigung der Elementeigenschaften erstellt werden soll.
+Mojang macht das auch mit ihren Items! Sieh dir die Klasse `ItemIds` für eine Inspiration an.
+
+:::
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#mod_item_ids_class
+
+## Deine Items Klasse vorbereiten {#preparing-your-items-class}
+
+Um die Registrierung von Items zu vereinfachen, kannst du eine Methode erstellen, die einen Ressourcenschlüssel, einige Item-Eigenschaften und eine Factory zur Erstellung der `Item`-Instanz akzeptiert.
+
+Mit dieser Methode wird ein Item mit dem angegebenen Schlüssel erstellt und im Item-Register des Spiels registriert.
+
+Du kannst diese Methode in eine Klasse namens `ModItems` (oder wie immer du die Klasse nennen willst) einfügen.
+
+Mojang macht das auch mit ihren Items! Sieh dir die Klasse `Items` als Inspiration an.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
 
 ## Ein Item registrieren {#registering-an-item}
 
-Mit der Methode kannst du nun ein Item registrieren.
+Du kannst jetzt mithilfe dieser Methode ein Item registrieren.
 
 Die Methode register nimmt eine Instanz von der Klasse `Item.InteractionResult` als Parameter entgegen. Mit dieser Klasse kannst du die Eigenschaften des Items mit Hilfe verschiedener Erstellungsmethoden konfigurieren.
 
@@ -40,7 +57,9 @@ Dies funktioniert nicht, wenn du das Item als beschädigungsfähig markiert hast
 
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#suspicious_substance
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#suspicious_substance
 
 `Item::new` weist die Funktion register an, eine Instanz von Item aus einer Instanz von `Item.Properties` zu erzeugen, indem sie den Item-Konstruktor (`new Item(...)`) aufruft, der eine Instanz von `Item.Properties` als Parameter entgegennimmt.
 
@@ -48,9 +67,9 @@ Wenn du nun jedoch versuchst, den modifizierten Client auszuführen, kannst du s
 
 Um dies zu tun, kannst du eine öffentliche, statische Methode zur initialisierung deiner Klasse hinzufügen und diese in deiner [Mod-Initialisierer](./getting-started/project-structure#entrypoints) Klasse aufrufen. Derzeit benötigt diese Methode keine Inhalte.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#initialize
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java#initialize
 
 Der Aufruf einer Methode einer Klasse initialisiert diese statisch, wenn sie nicht vorher geladen wurde - das bedeutet, dass alle `static` Felder ausgewertet werden. Dafür ist diese Dummy-Methode `initialize` gedacht.
 
@@ -66,7 +85,7 @@ Für ein Beispiel, in dem wir dieses Item zu dem Zutaten `CreativeModeTab` hinzu
 
 Dies kann in der Methode `initialize` deiner Itemklasse geschehen.
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_to_creative_tab
 
 Wenn du das Spiel lädst, kannst du sehen, dass unser Item registriert wurde und sich in der Gruppe der Zutaten im Kreativtab befindet:
 
@@ -122,7 +141,7 @@ Wenn du das Spiel neu startest/ladest, solltest du sehen, dass das Item immer no
 
 Erzeuge das Modell JSON im Ordner `assets/example-mod/models/item`, mit dem gleichen Namen wie das Element; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json
 
 #### Das Modell JSON niederbrechen {#breaking-down-the-model-json}
 
@@ -139,7 +158,7 @@ Minecraft weiß nicht automatisch, wo die Dateien deiner Item-Modelle zu finden 
 
 Erstelle das JSON für das Client Item im Verzeichnis `assets/example-mod/items`, mit demselben Dateinamen wie der Bezeichner des Items: `suspicious_substance.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json
 
 #### Das Client Item JSON aufschlüsseln {#breaking-down-the-client-item-json}
 
@@ -150,18 +169,6 @@ Erstelle das JSON für das Client Item im Verzeichnis `assets/example-mod/items`
 Dein Item sollte nun im Spiel wie folgt aussehen:
 
 ![Item mit dem korrektem Modell](/assets/develop/items/first_item_2.png)
-
-## Das Item kompostierbar oder zu einem Brennstoff machen {#making-the-item-compostable-or-a-fuel}
-
-Die Fabric API bietet verschiedene Register, die verwendet werden können, um zusätzliche Eigenschaften zu deinen Items hinzuzufügen.
-
-Wenn du zum Beispiel dein Item kompostierbar machen willst, kannst du die `CompostableRegistry` verwenden:
-
-@[code transcludeWith=:::\_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
-
-Alternativ, wenn du dein Item zu einem Brennstoff machen willst, kannst du das Event `FuelValueEvents.BUILD` verwenden:
-
-@[code transcludeWith=:::\_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Hinzufügen eines einfachen Craftingrezepts {#adding-a-basic-crafting-recipe}
 
@@ -184,7 +191,7 @@ In diesem Beispiel wird die Klasse `LightningStick` verwendet, die auf der Seite
 
 :::
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#custom_tooltip
 
 Jeder Aufruf von `accept()` fügt dem Tooltip eine Zeile hinzu.
 

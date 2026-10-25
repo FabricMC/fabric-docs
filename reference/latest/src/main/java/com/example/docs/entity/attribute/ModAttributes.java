@@ -10,7 +10,7 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import com.example.docs.ExampleMod;
 
 public class ModAttributes {
-	// :::attributes
+	// #region attributes
 	public static final Holder<Attribute> AGGRO_RANGE = register(
 			"aggro_range",
 			8.0,
@@ -18,18 +18,18 @@ public class ModAttributes {
 			Double.MAX_VALUE,
 			false
 	);
-	// :::attributes
+	// #endregion attributes
 
-	// :::initialize
+	// #region initialize
 	public static void initialize() {
 	}
-	// :::initialize
+	// #endregion initialize
 
-	// :::register
+	// #region register
 	private static Holder<Attribute> register(
 			String name, double defaultValue, double minValue, double maxValue, boolean syncedWithClient
 	) {
-		Identifier identifier = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
+		Identifier identifier = ExampleMod.id(name);
 		Attribute entityAttribute = new RangedAttribute(
 				identifier.toLanguageKey(),
 				defaultValue,
@@ -39,5 +39,5 @@ public class ModAttributes {
 
 		return Registry.registerForHolder(BuiltInRegistries.ATTRIBUTE, identifier, entityAttribute);
 	}
-	// :::register
+	// #endregion register
 }

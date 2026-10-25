@@ -9,7 +9,7 @@ authors:
 
 ::: tip
 
-Falls du Schwierigkeiten hast, den Grund für einen Absturz herauszufinden, frage im [Fabric Discord](https://discord.fabricmc.net/) im Kanal `#player-support` oder `#server-admin-support` nach Hilfe.
+Falls du Schwierigkeiten hast, den Grund für einen Absturz herauszufinden, frage im [Fabric Discord](https://discord.fabricmc.net/) im Kanal `#player-support` oder `#mc-server-support` nach Hilfe.
 
 :::
 
@@ -47,7 +47,7 @@ Für diesen Leitfaden werden wir [diesen Crash-Report](/assets/players/crash-rep
 
 :::details Absturzbericht anzeigen
 
-<<< @/public/assets/players/crash-report-example.log
+<<< @/public/assets/players/crash-report-example.log{txt}
 
 :::
 
@@ -67,12 +67,6 @@ Da wir jetzt alle Abschnitte des Absturzberichts kennengelernt haben, können wi
 Mit dem obigen verwiesenen Beispiel können wir den Absturzbericht analysieren und die Ursache für den Absturz herausfinden und welche Mods den Absturz verursachen.
 
 Der Stack-Trace im Abschnitt `---- Minecraft Crash Report ----` ist in diesem Fall am wichtigsten, da er den Hauptfehler enthält, der den Absturz verursacht hat.
-
-:::details Fehler anzeigen
-
-<<< @/public/assets/players/crash-report-example.log{7}
-
-:::
 
 Mit der Anzahl an Mods, die sich in diesem Stacktrace befinden, kann es schwierig sein, den Schuldigen zu finden, aber das Erste, was zu tun ist, ist die Mod zu finden, die den Absturz verursacht.
 

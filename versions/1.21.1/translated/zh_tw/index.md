@@ -18,8 +18,4 @@ features:
     linkText: 開始使用
 ---
 
-::: warning
-您目前正在瀏覽 Minecraft 1.21.1 的文件。如果您正在尋找其他版本，請從導覽列的下拉式選單中選擇。
-:::
-
 如果你想為 Fabric 文件做出貢獻，你可以在 [GitHub](https://github.com/FabricMC/fabric-docs) 找到原始碼，以及相關的[貢獻指南](./contributing)。

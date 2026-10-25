@@ -5,9 +5,9 @@ description: Дізнайтеся, як створювати команди зі
 
 Аргументи використовуються в більшості команд. Іноді вони можуть бути необов’язковими, тобто якщо ви не надасте аргумент, команда також буде виконана. Один нод може мати кілька типів аргументів, але майте на увазі, що існує можливість двозначність, якої слід уникати.
 
-@[code lang=java highlight={3} transcludeWith=:::command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_arg{3}
 
-@[code lang=java transcludeWith=:::execute_command_with_arg](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_arg
 
 У цьому випадку після тексту команди `/command_with_arg` слід ввести ціле число. Наприклад, якщо ви
 запустіть `/command_with_arg 3`, ви отримаєте повідомлення зворотного зв'язку:
@@ -18,18 +18,18 @@ description: Дізнайтеся, як створювати команди зі
 
 Потім ми додаємо необов'язковий другий аргумент:
 
-@[code lang=java highlight={3,5} transcludeWith=:::command_with_two_args](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_two_args{3,5}
 
-@[code lang=java transcludeWith=:::execute_command_with_two_args](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_with_two_args
 
 Зараз ви можете написати одне або два цілих числа. Якщо ви надаєте одне число — відповідь з одним значенням буде надрукована. Якщо ви надаєте два чиста — відповідь з двома значеннями буде надрукована.
 
 Ви можете вважати непотрібним вказувати подібні виконання двічі. Таким чином, ми можемо створити метод, який буде використовуватися в
 обидва виконання.
 
-@[code lang=java highlight={4,6} transcludeWith=:::command_with_common_exec](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#command_with_common_exec{4,6}
 
-@[code lang=java transcludeWith=:::execute_common](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_common
 
 ## Власні типи аргументу {#custom-argument-types}
 
@@ -39,7 +39,7 @@ description: Дізнайтеся, як створювати команди зі
 
 Наприклад, ви можете створити тип аргументу, який аналізує `BlockPos` із рядка в такому форматі: `{x, y, z}`
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/command/BlockPosArgumentType.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/BlockPosArgumentType.java#custom_argument_types
 
 ### Реєстрація спеціальних типів аргументів {#registering-custom-argument-types}
 
@@ -51,15 +51,15 @@ description: Дізнайтеся, як створювати команди зі
 
 Ви можете зареєструвати власний тип аргументу в методі `onInitialize` вашого [ініціалізатора мода](../getting-started/project-structure#entrypoints) за допомогою класу `ArgumentTypeRegistry`:
 
-@[code lang=java transcludeWith=:::register_custom_arg](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#register_custom_arg
 
 ### Використання спеціальних типів аргументів {#using-custom-argument-types}
 
 Ми можемо використовувати наш власний тип аргументу в команді, передавши його екземпляр у метод `.argument` у конструкторі команд.
 
-@[code lang=java highlight={3} transcludeWith=:::custom_arg_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#custom_arg_command{3}
 
-@[code lang=java highlight={2} transcludeWith=:::execute_custom_arg_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_custom_arg_command{2}
 
 Виконуючи команду, ми можемо перевірити, чи працює тип аргументу:
 

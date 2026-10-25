@@ -2,26 +2,83 @@
 title: Deinen ersten Block erstellen
 description: Lerne, wie du deinen ersten benutzerdefinierten Block in Minecraft erstellen kannst.
 authors:
+  - bluebear94
+  - cassiancc
   - CelDaemon
   - Earthcomputer
   - IMB11
   - its-miroma
   - xEobardThawne
+  - NotNightSky
 resources:
   https://docs.neoforged.net/docs/blocks/: Blöcke - NeoForge Docs
 ---
 
 Blöcke sind die Baublöcke von Minecraft (kein Wortspiel beabsichtigt) - genau wie alles andere in Minecraft, werden sie in Registern gespeichert.
 
+## Deine Block ID-Klassen vorbereiten {#preparing-your-block-id-classes}
+
+Wenn du die Seite [Dein Erstes Item erstellen](../items/first-item) bereits durchgearbeitet hast, wird dir dieser Vorgang sehr vertraut vorkommen - du musst Klassen erstellen, um die Identifikatoren deiner `Block`s zu halten. Die IDs von Blöcken mit Items werden als `BlockItemId`s gespeichert, während diese ohne ihre als `ResourceKey` speichern.
+
+Diese Verweise auf den Block werden für [die Datengenerierung von Block Tags](../data-generation/tags) verwendet.
+
+:::: tabs
+
+== Blöcke mit Items
+
+Wir fügen eine Methode in eine Klasse namens `ModBlockItemIds` ein (oder wie auch immer du die Klasse nennen möchtest). Diese Klasse beinhaltet alle Blöcke, die Block-Items enthalten.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#first_block
+
+::: tip
+
+Mojang macht dies auch mit ihren Blöcken! Sieh dir die Klasse `BlockItemIds` für eine Inspiration an.
+
+:::
+
+== Blöcke ohne Items
+
+Wir fügen eine Methode, die einen `ResourceKey` erstellt, in eine Klasse namens `ModBlockIds` (oder wie auch immer du die Klasse nennen möchtest) ein. Diese Klasse beinhaltet alle Blöcke, die keine Block-Items enthalten.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#first_block
+
+::: tip
+
+Mojang macht dies auch mit ihren Blöcken! Sieh dir die Klasse `BlockIds` für eine Inspiration an.
+
+:::
+
+::::
+
 ## Deine Blockklasse vorbereiten {#preparing-your-blocks-class}
 
-Wenn du die Seite [Dein erstes Item erstellen](../items/first-item) abgeschlossen hast, wird dir dieser Prozess sehr vertraut vorkommen - Du musst eine Methode erstellen, die deinen Block und sein Block-Item registriert.
+Die Registrierung von Blöcken ähnelt ebenfalls der [Registrierung von Items](../items/first-item#registering-an-item): Wir werden nun zwei Überladungen der Methode `register()` erstellen, mit denen deine Blöcke registriert werden, eine für Blöcke mit Items und eine für Blöcke ohne Items.
 
-Du solltest diese Methode in eine Klasse mit dem Namen `ModBlocks` (oder wie auch immer du sie nennen willst) einfügen.
+Du solltest diese Methoden in eine Klasse mit dem Namen `ModBlocks` (oder wie auch immer du sie nennen willst) einfügen.
 
 Mojang macht etwas sehr ähnliches mit Vanilleblöcken; Sie können sich die Klasse `Blocks` ansehen, um zu sehen, wie sie es machen.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+::: warning
+
+Beide unten aufgeführten Überladungen von `register()` sind in deiner Klasse `ModBlocks` **erforderlich**. Die Überladung für Blöcke mit Items ruft intern die Überladung für Blöcke ohne Items auf. Fehlt eine der beiden Überladungen, lässt sich dein Code nicht kompilieren.
+
+:::
+
+::: tabs
+
+== Blöcke mit Items
+
+Blöcke mit Items verwenden einen Paramter `BlockItemId`, der die ID sowohl des Blocks als auch seines Items enthält.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block_item
+
+== Blöcke ohne Items
+
+Blöcke ohne Items verwenden einen Parameter `ResourceKey`, der die ID des Blocks enthält.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block
+
+:::
 
 Genau wie bei den Items musst du sicherstellen, dass die Klasse geladen ist, damit alle statischen Felder, die Ihre Blockinstanzen enthalten, initialisiert werden.
 
@@ -33,19 +90,13 @@ Wenn du nicht weißt, was statische Initialisierung ist, ist es der Prozess der 
 
 :::
 
-```java
-public class ModBlocks {
-    // ...
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#static_initialization
 
-    public static void initialize() {}
-}
-```
-
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java#initialize
 
 ## Erstellen und Registrieren deines Blocks {#creating-and-registering-your-block}
 
-Ähnlich wie Items nehmen Blöcke in ihrem Konstruktor die Klasse `BlockBehavior.Properties` auf, die Eigenschaften des Blocks festlegt, wie z.B. seine Soundeffekte und die Abbauebene.
+Ähnlich wie Items nehmen Blöcke in ihrem Konstruktor die Klasse `BlockBehaviour.Properties` entgegen, die Eigenschaften des Blocks festlegt, wie z.B. seine Soundeffekte und die Abbauebene.
 
 Wir werden hier nicht alle Optionen behandeln - Du kannst die Klasse selbst ansehen, um die verschiedenen Optionen zu sehen, die selbsterklärend sein sollten.
 
@@ -56,13 +107,11 @@ Als Beispiel werden wir einen einfachen Block erstellen, der die Eigenschaften v
 
 ::: tip
 
-Du kannst auch `BlockBehavior.Properties.ofFullCopy(ofFullCopy block)` verwenden, um die Einstellungen eines bestehenden Blocks zu kopieren. In diesem Fall hätten wir auch `Blocks.DIRT` verwenden können, um die Einstellungen von Erde zu kopieren, aber für das Beispiel verwenden wir den Builder.
+Du kannst auch `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)` verwenden, um die Einstellungen eines bestehenden Blocks zu kopieren. In diesem Fall hätten wir auch `Blocks.DIRT` verwenden können, um die Einstellungen von Erde zu kopieren, aber für Beispielzwecke verwenden wir den Builder.
 
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
-
-Um das Blockitem automatisch zu erstellen, können wir dem Parameter `shouldRegisterItem` der Methode `register`, die wir im vorherigen Schritt erstellt haben, `true` übergeben.
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_dirt
 
 ### Dein Blockitem zu einem Kreativtab hinzufügen {#adding-your-block-s-item-to-a-creative-tab}
 
@@ -70,7 +119,7 @@ Da das `BlockItem` automatisch erstellt und registriert wird, musst du, um es zu
 
 Für dieses Beispiel werden wir den Block zu dem Tab `BUILDING_BLOCKS` hinzufügen. Um den Block stattdessen zu einem benutzerdefinierten Kreativtab hinzuzufügen, siehe [benuterdefinierte Kreativtabs](../items/custom-creative-tabs).
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#add_to_creative_tab
 
 Du solltest dies innerhalb deiner `initialize()`-Funktion deiner Klasse hinzufügen.
 
@@ -102,11 +151,11 @@ Alle Blocktexturen befinden sich im Ordner `assets/example-mod/textures/block` -
 
 Damit die Textur im Spiel angezeigt wird, musst du ein Blockmodell erstellen, das in der Datei `assets/example-mod/models/block/condensed_dirt.json` für den "Condensed Dirt"-Block gefunden werden kann. Für diesen Block werden wir den Modelltyp `block/cube_all` verwenden.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json
 
 Damit der Block in deinem Inventar angezeigt wird, musst du ein [Client Item](../items/first-item#creating-the-client-item) erstellen, das auf dein Blockmodell verweist. Für dieses Beispiel kann das Client Item für den "Condensed Dirt" Block unter `assets/example-mod/items/condensed_dirt.json` gefunden werden.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json
 
 ::: tip
 
@@ -124,7 +173,7 @@ Für den Beispielblock, der keinen komplexen Blockzustand hat, ist nur ein Eintr
 
 Diese Datei sollte sich im Ordner `assets/example-mod/blockstates` befinden, und ihr Name sollte mit der Block-ID übereinstimmen, die bei der Registrierung des Blocks in der Klasse `ModBlocks` verwendet wurde. Wenn die Block-ID beispielsweise `condensed_dirt` lautet, sollte die Datei `condensed_dirt.json` heißen.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json
 
 ::: tip
 
@@ -146,7 +195,7 @@ Für ein besseres Verständnis der Beutetabellen kannst du dir die Seite [Minecr
 
 :::
 
-@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
+<<< @/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json
 
 Diese Beutetabelle enthält einen einzelnen Gegenstand, der fallen gelassen wird, wenn der Block abgebaut wird und wenn er durch eine Explosion gesprengt wird.
 
@@ -165,7 +214,7 @@ Der Inhalt der Datei ist recht einfach - es handelt sich um eine Liste von Eleme
 
 In diesem Beispiel wird der Block "Condensed Dirt" zum Tag `shovel` hinzugefügt.
 
-@[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+<<< @/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json
 
 Wenn du möchtest, dass ein Tool zum Abbau des Blocks erforderlich ist, musst du die Blockeinstellungen um den Zusatz `.requiresCorrectToolForDrops()` erweitern und das entsprechende Mining-Tag hinzufügen.
 

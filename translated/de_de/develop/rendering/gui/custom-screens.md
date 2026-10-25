@@ -19,7 +19,7 @@ Du kannst deine eigenen Oberflächen erstellen, um benutzerdefinierte Inhalte, e
 
 ## Eine Oberfläche erstellen {#creating-a-screen}
 
-Um eine Oberfläche zu erstellen, musst du von der Klasse `Screen` erben und die Methode `init` überschreiben - optional kannst du auch die Methode `extractRenderState` überschreiben -, aber achte darauf, die entsprechende Supermethode aufzurufen, da sonst der Hintergrund, die Widgets usw. nicht gerendert werden.
+Um eine Oberfläche zu erstellen, musst du die Klasse `Screen` erweitern und die Methode `init` überschreiben - optional kannst du auch die Methode `extractRenderState` überschreiben, aber stekke scher die entsprechende Super-Methode aufzurufen, sonst wird der Hintergrund, die Widgets usw. nicht gerendert werden.
 
 Folgendes solltest du beachten:
 
@@ -30,16 +30,16 @@ Folgendes solltest du beachten:
 
 Als Beispiel können wir eine einfache Oberfläche erstellen, der eine Schaltfläche und eine Beschriftung darüber enthält.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#screen
 
 ![Benutzerdefinierte Oberfläche 1](/assets/develop/rendering/gui/custom-1-example.png)
 
 ## Die Oberfläche öffnen {#opening-the-screen}
 
-Du kannst die Oberfläche mit der Methode `setScreen` von der Klasse `Minecraft` öffnen - du kannst dies von vielen Stellen aus tun, wie zum Beispiel einer Tastenbindung, einem Befehl oder einem Client-Paket-Handler.
+Du kannst die Oberfläche mit der Methode `setScreen` von `Gui` öffnen - du kannst dies von vielen Stellen aus tun, wie zum Beispiel einer Tastenbindung, einem Befehl oder einem Client-Paket-Handler.
 
 ```java
-Minecraft.getInstance().setScreen(
+Minecraft.getInstance().gui.setScreen(
   new CustomScreen(Component.empty())
 );
 ```
@@ -49,18 +49,18 @@ Minecraft.getInstance().setScreen(
 Wenn du eine Oberfläche schließen möchtest, setze die Oberfläche einfach auf `null`:
 
 ```java
-Minecraft.getInstance().setScreen(null);
+Minecraft.getInstance().gui.setScreen(null);
 ```
 
-Wenn du ausgefallen sein und zum vorherigen Bildschirm zurückkehren willst, kannst du die aktuelle Oberfläche an den `CustomScreen`-Konstruktor übergeben und ihn in einem Attribut speichern und ihn dann verwenden, um zum vorherigen Bildschirm zurückzukehren, wenn die Methode `close` aufgerufen wird.
+Wenn du ausgefallen sein und zum vorherigen Bildschirm zurückkehren willst, kannst du die aktuelle Oberfläche an den `CustomScreen`-Konstruktor übergeben und ihn in einem Feld speichern und ihn dann verwenden, um zum vorherigen Bildschirm zurückzukehren, wenn die Methode `close` aufgerufen wird.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#return_to_previous_screen
 
 Jetzt kannst du beim Öffnen der benutzerdefinierten Oberfläche den aktuellen Bildschirm als zweites Argument übergeben - wenn du also `CustomScreen#close` aufrufst, wird er zur vorherigen Oberfläche zurückkehren.
 
 ```java
-Screen currentScreen = Minecraft.getInstance().currentScreen;
-Minecraft.getInstance().setScreen(
+Screen currentScreen = Minecraft.getInstance().gui.screen();
+Minecraft.getInstance().gui.setScreen(
   new CustomScreen(Component.empty(), currentScreen)
 );
 ```

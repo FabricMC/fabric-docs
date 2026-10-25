@@ -6,6 +6,7 @@ authors:
   - dicedpixels
   - Draylar
   - JamiesWhiteShirt
+  - Jimmy474
   - Juuxel
   - liach
   - mkpoli
@@ -37,7 +38,7 @@ API Fabric надає події для важливих областей у к�
 
 У цьому прикладі реєструється `AttackBlockCallback`, щоб завдати шкоди гравцеві, коли він потрапляє в блоки, з яких не випадає предмет під час видобутку вручну.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#attack_block_callback_event
 
 ### Додавання предметів до наявних таблиць здобичі {#adding-items-to-existing-loot-tables}
 
@@ -49,19 +50,19 @@ API Fabric надає події для важливих областей у к�
 
 #### Прослуховування завантаження таблиці здобичі {#listening-to-loot-table-loading}
 
-API Fabric має подію, яка запускається під час завантаження таблиць здобичі, `LootTableEvents.MODIFY`. Ви можете зареєструвати зворотний виклик для нього в [ініціалізаторі мода](./getting-started/project-structure#entrypoints). Також перевірмо, чи поточна таблиця здобичі є таблицею здобичі вугільної руди.
+API Fabric має подію, яка запускається під час завантаження таблиць здобичі, `LootTableEvents.MODIFY`. Ви можете зареєструвати зворотний виклик для нього в [ініціалізаторі мода](./getting-started/project-structure#entrypoints). Також перевірмо, чи поточна таблиця здобичі є таблицею вугільної руди:
 
-@[code lang=java transclude={38-40}](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_table_events
 
 #### Додавання предметів до таблиці здобичі {#adding-items-to-the-loot-table}
 
-У таблицях здобичі предмети зберігаються в _записах пулу здобичі_, а записи зберігаються в _пулах здобичі_. Щоб додати предмет, нам потрібно буде додати пул із записом предмета до таблиці здобичі.
+Щоб додати предмет, нам потрібно буде додати пул із записом предмета до таблиці здобичі.
 
-Ми можемо створити пул за допомогою `LootPool#builder` і додати його до таблиці здобичі.
+Ми можемо створити пул за допомогою `LootPool#lootPool` і додати його до таблиці здобичі.
 
-У нашому пулі також немає предметів, тому ми зробимо запис про елемент за допомогою `ItemEntry#builder` і додамо його до пулу.
+У нашому пулі ще немає предметів, тому ми зробимо запис про предмет за допомогою `LootItem#lootTableItem` і додамо його до пулу.
 
-@[code highlight={6-7} transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#loot_pool_builder{5-7}
 
 ## Власні події {#custom-events}
 
@@ -79,40 +80,46 @@ API Fabric має подію, яка запускається під час за
 
 Для нашої реалізації `Event` ми виберемо використання події на основі масиву. Масив міститиме всі слухачі подій, які прослуховують подію.
 
-Наша реалізація буде викликати слухачі подій по черзі, доки один із них не поверне `ActionResult.PASS`. Це означає, що слухач може сказати «_скасувати це_», «_затвердити це_» або «_не хвилюйтеся, залиште це наступному слухачу події_», використовуючи його значення, що повертається.
+Наша реалізація буде викликати слухачі подій по черзі, доки один із них не поверне `InteractionResult.PASS`. Це означає, що слухач може сказати «_скасувати це_», «_затвердити це_» або «_байдуже, передати це наступному слухачу подій_», використовуючи значення, що повертається.
 
-Використання `ActionResult` як значення, що повертається, є звичайним способом змусити обробники подій співпрацювати таким чином.
+Використання `InteractionResult` як значення, що повертається, є звичайним способом змусити обробники подій співпрацювати таким чином.
 
 Вам потрібно буде створити інтерфейс, який має екземпляр `Event` і метод для реалізації відповіді. Основні налаштування для зворотного виклику стрижки овець:
 
-@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#sheep_shear_callback
 
 Розгляньмо це глибше. Коли виклик викликається, ми повторюємо всі слухачі:
 
-@[code lang=java transclude={21-22}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#listener_iterator
 
-Потім ми викликаємо наш метод (у цьому випадку `interact`) для слухача, щоб отримати його відповідь:
+Для кожного слухача ми викликаємо `interact`, щоб отримати відповідь слухача. Ось сигнатура `interact`, яку ми оголосили в цьому інтерфейсі:
 
-@[code lang=java transclude={33-33}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#interact_method
 
-Якщо слухач каже, що ми повинні скасувати (`ActionResult.FAIL`) або повністю завершити (`ActionResult.SUCCESS`), функція зворотного виклику повертає результат і завершує цикл. `ActionResult.PASS` переходить до наступного слухача, і в більшості випадків має завершуватися успішно, якщо більше не зареєстровано слухачів:
+Якщо слухач каже, що ми повинні скасувати (повернувши `FAIL`) або повністю завершити (`SUCCESS`), зворотний виклик повертає результат і завершує цикл.
 
-@[code lang=java transclude={25-30}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+`InteractionResult.PASS` переходить до наступного слухача, доки не будуть викликані всі слухачі й нарешті не буде повернено `PASS`:
 
-Ми можемо додати коментарі Javadoc у верхній частині класів зворотного виклику, щоб документувати, що робить кожен `ActionResult`. У нашому випадку це може бути:
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#return_value
 
-@[code lang=java transclude={9-16}](@/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java)
+Ми можемо додати коментарі Javadoc у верхній частині класів зворотного виклику, щоб документувати, що робить кожен `InteractionResult`. У нашому випадку це може бути:
+
+<<< @/reference/latest/src/main/java/com/example/docs/event/SheepShearCallback.java#javadoc_comment
 
 ### Запуск події з міксина {#triggering-the-event-from-a-mixin}
 
-Тепер у нас є основна структура подій, але нам потрібно його запустити. Оскільки ми хочемо, щоб подія викликалася, коли гравець намагається підстригти вівцю, ми викликаємо подію `invoker` у `SheepEntity#interactMob`, коли викликається `sheared()` (тобто вівцю можна стригти, якщо гравець тримає ножиці):
+Тепер у нас є основна структура подій, але нам потрібно його запустити. Оскільки ми хочемо, щоб подія викликалася, коли гравець намагається підстригти вівцю, ми викликаємо подію `invoker` у `Sheep#mobInteract`, коли викликається `shear()` (тобто вівцю можна стригти, якщо гравець тримає ножиці):
 
-@[code lang=java transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/mixin/event/SheepEntityMixin.java)
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/event/SheepMixin.java#sheep_mixin
 
 ### Створення тестової реалізації {#creating-a-test-implementation}
 
-Тепер нам потрібно перевірити нашу подію. Ви можете зареєструвати слухача у своєму методі ініціалізації (або в іншій області, якщо хочете) і додати туди спеціальну логіку. Ось приклад, коли замість вовни випадає діамант:
+Тепер нам потрібно перевірити нашу подію. Ви можете зареєструвати слухача у своєму методі ініціалізації (або в іншій області, якщо хочете) і додати туди спеціальну логіку.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java)
+Ось приклад, коли замість вовни випадає діамант:
+
+<<< @/reference/latest/src/main/java/com/example/docs/event/ExampleModEvents.java#sheep_shear_callback_event
 
 Якщо ви входите в гру і стрижете вівцю, замість вовни повинен випасти діамант.
+
+<!-- TODO: maybe adding a video of a sheep dropping diamonds? -->

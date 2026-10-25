@@ -1,0 +1,50 @@
+package com.example.docs.attachment;
+
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.resources.Identifier;
+
+import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentTarget;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
+
+import com.example.docs.ExampleMod;
+
+// #region stamina
+public class Stamina {
+	private static final AttachmentType<Integer> CURRENT_STAMINA = AttachmentRegistry.create(
+					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "current_stamina"),
+					builder -> builder.syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.all())
+	);
+	private static final AttachmentType<Integer> MAX_STAMINA = AttachmentRegistry.create(
+					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "max_stamina"),
+					builder -> builder.syncWith(ByteBufCodecs.INT, AttachmentSyncPredicate.all())
+	);
+
+	public static StaminaData get(AttachmentTarget target) {
+		return new StaminaData(target);
+	}
+
+	public record StaminaData(AttachmentTarget target) {
+		public int getCurrentStamina() {
+			return this.target.getAttachedOrElse(CURRENT_STAMINA, 0);
+		}
+
+		public int decrementCurrentStamina() {
+			return this.target.modifyAttached(CURRENT_STAMINA, currentStamina -> currentStamina-1);
+		}
+
+		public void setCurrentStamina(int value) {
+			this.target.setAttached(CURRENT_STAMINA, value);
+		}
+
+		public int getMaxStamina() {
+			return this.target.getAttachedOrElse(MAX_STAMINA, 0);
+		}
+
+		public void setMaxStamina(int value) {
+			this.target.setAttached(MAX_STAMINA, value);
+		}
+	}
+}
+// #endregion stamina

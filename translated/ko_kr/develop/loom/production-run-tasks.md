@@ -18,7 +18,7 @@ authors:
 
 서버와 클라이언트 작업 모두 동일한 `AbstractProductionRunTask` 클래스를 상속합니다. 다시 말해, 두 작업 모두 다음과 같은 옵션을 공유하게 됩니다:
 
-```groovy
+```gradle
 tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask) {
     // A collection of mod jars that will be used when running the game. The mods must be remapped to run with intermediary names.
     // This uses a Gradle ConfigurableFileCollection allowing the files to come from a variety of sources.
@@ -47,7 +47,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
 
 배포 환경에서 서버 실행 작업은 Fabric 웹사이트에 다운로드할 수 있는 동일한 실행기를 이용하기 때문에, 실제 배포 환경과 거의 유사하다고 볼 수 있습니다.
 
-```groovy
+```gradle
 tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask) {
     // The version of the Fabric Installer to use. This must be specified.
     installerVersion = "1.0.1"
@@ -66,7 +66,7 @@ tasks.register("prodServer", net.fabricmc.loom.task.prod.ServerProductionRunTask
 
 ## 클라이언트 {#client}
 
-```groovy
+```gradle
 tasks.register("prodClient", net.fabricmc.loom.task.prod.ClientProductionRunTask) {
     // Whether to use XVFB to run the game, using a virtual framebuffer. This is useful for headless CI environments.
     // Defaults to true only on Linux and when the "CI" environment variable is set.

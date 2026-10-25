@@ -1,9 +1,10 @@
 package com.example.docs.datagen;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.resources.Identifier;
 import net.minecraft.util.Util;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
@@ -14,41 +15,58 @@ import com.example.docs.block.ModBlocks;
 import com.example.docs.enchantment.ModEnchantments;
 import com.example.docs.entity.ModEntityTypes;
 import com.example.docs.item.ModItems;
+import com.example.docs.item.armor.GuiditeArmorMaterial;
 
-// :::datagen-translations:provider
+// #region datagen_translations_provider
 public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
-	protected ExampleModEnglishLangProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+	public ExampleModEnglishLangProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
 		super(dataOutput, "en_us", registryLookup);
 	}
 
 	@Override
 	public void generateTranslations(HolderLookup.Provider holderLookup, TranslationBuilder translationBuilder) {
-		// :::datagen-translations:provider
-		// :::datagen-translations:build
+		// #endregion datagen_translations_provider
+		// #region datagen_translations_build
 		translationBuilder.add("text.example-mod.greeting", "Hello there!");
-		// :::datagen-translations:build
+		// #endregion datagen_translations_build
 		translationBuilder.add(ModItems.GUIDITE_HELMET, "Guidite Helmet");
 		translationBuilder.add(ModItems.GUIDITE_CHESTPLATE, "Guidite Chestplate");
 		translationBuilder.add(ModItems.GUIDITE_LEGGINGS, "Guidite Leggings");
 		translationBuilder.add(ModItems.GUIDITE_BOOTS, "Guidite Boots");
 		translationBuilder.add(ModItems.GUIDITE_SWORD, "Guidite Sword");
+		translationBuilder.add(ModItems.GUIDITE_PICKAXE, "Guidite Pickaxe");
+		translationBuilder.add(ModItems.GUIDITE_AXE, "Guidite Axe");
+		translationBuilder.add(ModItems.GUIDITE_SPEAR, "Guidite Spear");
+		translationBuilder.add(ModItems.GUIDITE_SHOVEL, "Guidite Shovel");
+		translationBuilder.add(ModItems.GUIDITE_HOE, "Guidite Hoe");
+		translationBuilder.add(ModItems.GUIDITE_SHIELD, "Guidite Shield");
 		translationBuilder.add(ModItems.SUSPICIOUS_SUBSTANCE, "Suspicious Substance");
 		translationBuilder.add(ModItems.MINI_GOLEM_SPAWN_EGG, "Mini Golem Spawn Egg");
 		translationBuilder.add(ModItems.ACID_BUCKET, "Acid Bucket");
 		translationBuilder.add(ModItems.RUBY, "Ruby");
-		translationBuilder.add(ModItems.GUIDITE_AXE, "Guidite Axe");
 		translationBuilder.add(ModItems.LEATHER_GLOVES, "Leather Gloves");
 		translationBuilder.add(ModItems.FLASHLIGHT, "Flashlight");
 		translationBuilder.add(ModItems.BALLOON, "Balloon");
 		translationBuilder.add(ModItems.ENHANCED_HOE, "Enhanced Hoe");
 		translationBuilder.add(ModItems.DIMENSIONAL_CRYSTAL, "Dimensional Crystal");
 		translationBuilder.add(ModItems.THROWING_KNIVES, "Throwing Knives");
+		translationBuilder.add(ModItems.QUARK_GLUON_PLASMA, "Quark-Gluon Plasma");
+		translationBuilder.add(ModItems.BONE_MARROW, "Bone Marrow");
+		translationBuilder.add(ModItems.HOT_TATER, "Hot Tater");
 
-		translationBuilder.add(Util.makeDescriptionId("effect", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater")), "Tater");
+		translationBuilder.add(Util.makeDescriptionId("effect", ExampleMod.id("tater")), "Tater");
 
-		// You can alternatively use the translationBuilder.add(Path.of("../existing/language/file.json"));
-		// to add translations from an existing language file instead of manually defining them all.
+		// #region datagen_translations_existing
+		try {
+			Path existingLanguageFile = packOutput.getModContainer()
+					.findPath("assets/example-mod/lang/en_us.existing.json")
+					.orElseThrow();
+			translationBuilder.add(existingLanguageFile);
+		} catch (IOException e) {
+			throw new RuntimeException("Failed to add existing language file", e);
+		}
+		// #endregion datagen_translations_existing
 		translationBuilder.add("sound.example-mod.metal_whistle", "Metal Whistle");
 		translationBuilder.add("item.minecraft.potion.effect.tater", "Tater Potion");
 		translationBuilder.add("death.attack.tater", "%1$s died from Tater damage!");
@@ -85,16 +103,20 @@ public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
 		translationBuilder.add("key.category.example-mod.custom_category", "Example Mod Custom Category");
 		translationBuilder.add("key.example-mod.send_to_chat", "Send to Chat");
 
-		// :::gamerule-description
+		// #region gamerule_description
 		translationBuilder.add(
-						Util.makeDescriptionId("gamerule", Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision")),
+						Util.makeDescriptionId("gamerule", ExampleMod.id("bad_vision")),
 						"Gives every player the blindness effect" // A short description of the game rule
 		);
-		// :::gamerule-description
-		// :::gamerule-name
-		translationBuilder.add(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision"), "Bad Vision");
-		// :::gamerule-name
-		// :::datagen-translations:provider
+		// #endregion gamerule_description
+		// #region gamerule_name
+		translationBuilder.add(ExampleMod.id("bad_vision"), "Bad Vision");
+		// #endregion gamerule_name
+		// #region tag_name
+		translationBuilder.add(ExampleModItemTagProvider.SMELLY_ITEMS, "Smelly Items");
+		// #endregion tag_name
+		translationBuilder.add(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR, "Repairs Guidite Armor");
+		// #region datagen_translations_provider
 	}
 }
-// :::datagen-translations:provider
+// #endregion datagen_translations_provider

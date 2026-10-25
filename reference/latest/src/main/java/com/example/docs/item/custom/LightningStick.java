@@ -7,7 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -15,15 +15,16 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 
-// :::1
+// #region item
 public class LightningStick extends Item {
 	public LightningStick(Properties properties) {
 		super(properties);
 	}
+	// #endregion item
 
-	// :::1
-	// :::2
+	// #region use
 	@Override
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		// Ensure we don't spawn the lightning only on the client.
@@ -35,20 +36,20 @@ public class LightningStick extends Item {
 		BlockPos frontOfPlayer = user.blockPosition().relative(user.getDirection(), 10);
 
 		// Spawn the lightning bolt.
-		LightningBolt lightningBolt = new LightningBolt(EntityType.LIGHTNING_BOLT, level);
-		lightningBolt.setPos(frontOfPlayer.getCenter());
+		LightningBolt lightningBolt = new LightningBolt(EntityTypes.LIGHTNING_BOLT, level);
+		lightningBolt.setPos(new Vec3(frontOfPlayer));
 		level.addFreshEntity(lightningBolt);
 
 		return InteractionResult.SUCCESS;
 	}
-	// :::2
+	// #endregion use
 
-	// :::3
+	// #region custom_tooltip
 	@Override
 	public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay displayComponent, Consumer<Component> textConsumer, TooltipFlag type) {
 		textConsumer.accept(Component.translatable("itemTooltip.example-mod.lightning_stick").withStyle(ChatFormatting.GOLD));
 	}
-	// :::3
-	// :::1
+	// #endregion custom_tooltip
+	// #region item
 }
-// :::1
+// #endregion item

@@ -1,0 +1,110 @@
+package com.example.docs.datagen;
+
+// #region datagen_recipes_provider
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.resources.Identifier;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CookingBookCategory;
+import net.minecraft.world.item.crafting.Ingredient;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
+
+import com.example.docs.ExampleMod;
+import com.example.docs.item.ModItems;
+
+public class ExampleModRecipeProvider extends FabricRecipeProvider {
+	public ExampleModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+		super(output, registriesFuture);
+	}
+
+	@Override
+	protected RecipeProvider createRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput exporter) {
+		return new RecipeProvider(registryLookup, exporter) {
+			@Override
+			public void buildRecipes() {
+				HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
+				// #endregion datagen_recipes_provider
+				// #region datagen_recipes_shapeless
+
+				shapeless(RecipeCategory.BUILDING_BLOCKS, Items.DIRT) // You can also specify an int to produce more than one
+						.requires(Items.COARSE_DIRT) // You can also specify an int to require more than one, or a tag to accept multiple things
+						// Create an advancement that gives you the recipe
+						.unlockedBy(getHasName(Items.COARSE_DIRT), has(Items.COARSE_DIRT))
+						.save(output);
+				// #endregion datagen_recipes_shapeless
+				// #region datagen_recipes_shaped
+				shaped(RecipeCategory.MISC, Items.CRAFTING_TABLE, 4)
+						.pattern("ll")
+						.pattern("ll")
+						.define('l', ItemTags.LOGS) // 'l' means "any log"
+						.group("multi_bench") // Put it in a group called "multi_bench" - groups are shown in one slot in the recipe book
+						.unlockedBy(getHasName(Items.CRAFTING_TABLE), has(Items.CRAFTING_TABLE))
+						.save(output);
+				shaped(RecipeCategory.MISC, Items.LOOM, 4)
+						.pattern("ww")
+						.pattern("ll")
+						.define('w', ItemTags.WOOL) // 'w' means "any wool"
+						.define('l', ItemTags.LOGS)
+						.group("multi_bench")
+						.unlockedBy(getHasName(Items.LOOM), has(Items.LOOM))
+						.save(output);
+				doorBuilder(Items.OAK_DOOR, Ingredient.of(Items.OAK_BUTTON)) // Using a helper method!
+						.unlockedBy(getHasName(Items.OAK_BUTTON), has(Items.OAK_BUTTON))
+						.save(output);
+				// #endregion datagen_recipes_shaped
+				// #region datagen_recipes_smelting
+				oreSmelting(
+						List.of(Items.GLASS_BOTTLE), // Inputs
+						RecipeCategory.MISC, // Category
+						CookingBookCategory.MISC, // Category
+						Items.GLASS, // Output
+						0.1f, // Experience
+						300, // Cooking time
+						"glass_bottle_to_glass" // group
+				);
+				// #endregion datagen_recipes_smelting
+
+				// #region datagen_recipes_conditions
+				shapeless(RecipeCategory.BUILDING_BLOCKS, Items.SAND)
+						.requires(ItemTags.SAND)
+						.unlockedBy(getHasName(Items.SAND), has(Items.SAND))
+						.save(withConditions(output, ResourceConditions.tagsPopulated(ItemTags.DIRT))); // Instead of providing the output directly, wrap it with withConditions
+				// #endregion datagen_recipes_conditions
+
+				// #region datagen_recipes_smoking
+				SimpleCookingRecipeBuilder.smoking(
+						Ingredient.of(Items.WATER_BUCKET), // Input
+						RecipeCategory.MISC, // Category (MISC for smoking recipes)
+						Items.BUCKET, // Output
+						0.35f, // Experience
+						100 // Cooking Time
+				)
+						.unlockedBy(getHasName(Items.WATER_BUCKET), has(Items.WATER_BUCKET)) // You can specify how this recipe is unlocked here.
+						.save(output, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "water_bucket_to_bucket").toString()); // Then save the recipe with your modid and the recipe name.
+				// #endregion datagen_recipes_smoking
+				// #region datagen_recipes_dye
+				dyedItem(ModItems.LEATHER_GLOVES, "leather_gloves");
+				// #endregion datagen_recipes_dye
+				// #region datagen_recipes_provider
+			}
+		};
+	}
+
+	@Override
+	public String getName() {
+		return "ExampleModRecipeProvider";
+	}
+}
+// #endregion datagen_recipes_provider

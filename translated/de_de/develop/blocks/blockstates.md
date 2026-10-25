@@ -26,7 +26,7 @@ Minecraft verfügt bereits über einige benutzerdefinierte Klassen, mit denen ma
 
 Die Vanilla `RotatedPillarBlock` Klasse erlaubt, dass der Block in der X, Y oder Z Axe platziert werden kann.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_oak_log
 
 Säulenblöcke haben zwei Texturen, oben und an der Seite - sie verwenden das Modell `block/cube_column`.
 
@@ -41,7 +41,7 @@ Da der Säulenblock zwei Positionen hat, eine horizontale und eine vertikale, m�
 
 Ein Beispiel der Datei `condensed_oak_log_horizontal.json`:
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_oak_log_horizontal.json
 
 ::: info
 
@@ -57,7 +57,7 @@ Als nächstes müssen wir eine Blockzustand-Datei erstellen. Die Blockzustand-Da
 - `axis=y` - Wenn der Block entlang der Y-Achse platziert wird, verwenden wir das normale vertikale Modell.
 - `axis=z` - Wenn der Block entlang der Z-Achse platziert wird, drehen wir das Modell so, dass es in die positive Z-Richtung zeigt.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_oak_log.json
 
 Wie immer musst du eine Übersetzung für deinen Block und ein Objektmodell erstellen, das einem der beiden Modelle übergeordnet ist.
 
@@ -73,21 +73,21 @@ Dieses Beispiel wird eine einzigartiges boolesche Eigenschaft mit dem Namen `act
 
 Zunächst musst du die Eigenschaft selbst erstellen - da es sich um eine boolesche Eigenschaft handelt, wird die Methode `BooleanProperty.create` verwendet.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#block
 
 Als Nächstes müssen wir die Eigenschaft mit der Methode `createBlockStateDefinition` an den Blockzustand-Manager anhängen. Du musst die Methode überschreiben, um auf den Builder zuzugreifen:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#block_state_definition
 
 Außerdem musst du im Konstruktor deines benutzerdefinierten Blocks einen Standardzustand für die Eigenschaft `activated` festlegen.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#constructor
 
 ### Die Eigenschaft nutzen {#using-the-property}
 
 In diesem Beispiel wird die boolesche Eigenschaft `activated` umgeschaltet, wenn der Spieler mit dem Block interagiert. Hierfür können wir die Methode `useWithoutItem` überschreiben:
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#on_use
 
 ### Die Eigenschaft visualisieren {#visualizing-the-property}
 
@@ -103,7 +103,7 @@ Wenn du mehrere Eigenschaften bei einem Block hast, musst du alle möglichen Kom
 
 Da es für diesen Block nur zwei mögliche Varianten gibt, da er nur eine Eigenschaft hat (`activated`), sieht der Blockzustand JSON etwa so aus:
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/prismarine_lamp.json
 
 ::: tip
 
@@ -115,9 +115,11 @@ Da es sich bei dem Beispielblock um eine Lampe handelt, müssen wir auch dafür 
 
 Du kannst die Methode `lightLevel` verwenden, um die vom Block ausgestrahlte Lichtstärke einzustellen. Wir können eine statische Methode in der Klasse `PrismarineLampBlock` erstellen, um die Lichtstärke auf der Grundlage der Eigenschaft `activated` zurückzugeben, und sie als Methodenreferenz an die Methode `lightLevel` übergeben:
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#get_luminance
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#prismarine_lamp
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#prismarine_lamp
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 

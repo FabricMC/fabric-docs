@@ -8,7 +8,7 @@ import net.minecraft.core.registries.Registries;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 
-// :::datagen-world:provider
+// #region datagen_world_provider
 public class ExampleModWorldgenProvider extends FabricDynamicRegistryProvider {
 	public ExampleModWorldgenProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
@@ -16,15 +16,15 @@ public class ExampleModWorldgenProvider extends FabricDynamicRegistryProvider {
 
 	@Override
 	protected void configure(HolderLookup.Provider registries, Entries entries) {
-		// :::datagen-world:provider
+		// #region worldgen_add_entries
 		entries.addAll(registries.lookupOrThrow(Registries.CONFIGURED_FEATURE));
 		entries.addAll(registries.lookupOrThrow(Registries.PLACED_FEATURE));
-		// :::datagen-world:provider
+		// #endregion worldgen_add_entries
 	}
 
 	@Override
 	public String getName() {
-		return "";
+		return "World Generation";
 	}
 }
-// :::datagen-world:provider
+// #endregion datagen_world_provider

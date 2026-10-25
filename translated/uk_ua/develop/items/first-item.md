@@ -2,6 +2,7 @@
 title: Створення вашого першого предмета
 description: Дізнайтеся, як зареєструвати простий предмет, як текстурувати, моделювати та називати його.
 authors:
+  - cassiancc
   - dicedpixels
   - Earthcomputer
   - IMB11
@@ -12,19 +13,35 @@ authors:
 
 Якщо ви не знаєте, все в Minecraft зберігається в реєстрах, і предмети не є винятком.
 
+## Підготовка класу ID ваших предметів {#preparing-your-item-ids-classes}
+
+Почнемо зі створення класу, який містить назву нашого предмета, що зберігається як `ResourceKey`. `ResourceKey` містить назву мода, назву предмета та реєстр, до якого він належить.
+
+Ми реалізуємо допоміжний метод, який створює `ResourceKey` на основі назви предмета; він заповнюватиме решту даних константами, такими як реєстр предмета та ID мода.
+
+Ці посилання на предмет використовуються для [генерованих даними теґів предметів](../data-generation/tags).
+
+Ви можете помістити цей метод у клас під назвою `ModItemIds` (або будь-яку іншу назву класу).
+
+::: tip
+
+Mojang також робить це зі своїми предметами! Перегляньте клас `ItemIds` для натхнення.
+
+:::
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#mod_item_ids_class
+
 ## Клас підготовки предметів {#preparing-your-items-class}
 
-Щоб спростити реєстрацію предметів, ви можете створити метод, який приймає ідентифікатор рядка, деякі властивості предмета та фабрику для створення екземпляра `Item`.
+Щоб спростити реєстрацію предметів, можна створити метод, який приймає ключ ресурсів, певні властивості предмета та фабрику для створення екземпляра `Item`.
 
-Цей метод створить предмет із наданим ідентифікатором і зареєструє його в реєстрі предметів гри.
+Цей метод створить предмет із наданим ключем і зареєструє його в реєстрі предметів гри.
 
 Ви можете помістити цей метод у клас під назвою `ModItems` (або будь-яку іншу назву класу).
 
 Mojang також робить це зі своїми предметами! Щоб отримати натхнення, перегляньте клас `Items`.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
-
-Зверніть увагу, як ми використовуємо `T`, [загальний тип](https://docs.oracle.com/javase/tutorial/java/generics/types.html), який розширює `Item`. Це дозволяє нам використовувати той самий метод `register` для реєстрації будь-якого типу предмета, який розширює `Item`. Ми також використовуємо [`функцію`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) для фабрики, яка дозволяє нам вказати, як ми хочемо створити наш предмет відповідно до властивостей предмета.
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
 
 ## Реєстрація предмета {#registering-an-item}
 
@@ -40,7 +57,9 @@ Mojang також робить це зі своїми предметами! Що
 
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#suspicious_substance
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#suspicious_substance
 
 `Item::new` повідомляє функції реєстратору створити екземпляр `Item` з `Item.Properties` шляхом виклику конструктора `Item` (`new Item(...)`), який приймає `Item.Properties` як параметр.
 
@@ -48,11 +67,11 @@ Mojang також робить це зі своїми предметами! Що
 
 Для цього ви можете додати загальнодоступний статичний метод ініціалізації до свого класу та викликати його з класу [ініціалізатора мода](../getting-started/project-structure#entrypoints). Наразі цей метод не потребує нічого всередині.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#initialize
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java#initialize
 
-Виклик методу в класі статично ініціалізує його, якщо він не був попередньо завантажений — це означає, що всі `статичні` поля оцінюються. Ось для чого цей фіктивний метод `ініціалізації`.
+Виклик методу в класі статично ініціалізує його, якщо він не був попередньо завантажений — це означає, що всі `static` поля оцінюються. Ось для чого цей фіктивний метод `initialize`.
 
 ## Додавання предмета до вкладки творчості {#adding-the-item-to-a-creative-tab}
 
@@ -64,9 +83,9 @@ Mojang також робить це зі своїми предметами! Що
 
 Для прикладу ми додамо цей предмет до інгредієнтів `CreativeModeTab`, вам потрібно буде використовувати події вкладки творчості Fabric API, зокрема `CreativeModeTabEvents.modifyOutputEvent`
 
-Це можна зробити за допомогою методу `ініціалізації` вашого класу предметів.
+Це можна зробити за допомогою методу `initialize` вашого класу предметів.
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_to_creative_tab
 
 Завантажуючись у гру, ви можете побачити, що наш предмет зареєстровано та знаходиться на вкладці «Інгредієнти»:
 
@@ -122,7 +141,7 @@ Mojang також робить це зі своїми предметами! Що
 
 Створіть модель JSON у теці `assets/example-mod/models/item` з такою самою назвою, як і предмет; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json
 
 #### Розбираємо модель JSON {#breaking-down-the-model-json}
 
@@ -139,7 +158,7 @@ Minecraft не визначає автоматично, де можна знай
 
 Створіть JSON клієнтського предмета в `assets/example-mod/items` з тим же ім’ям файлу, що й ідентифікатор предмета: `suspicious_substance.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json
 
 #### Розбір JSON клієнтського предмета {#breaking-down-the-client-item-json}
 
@@ -150,18 +169,6 @@ Minecraft не визначає автоматично, де можна знай
 Тепер ваш предмет у грі має виглядати так:
 
 ![Предмет із правильною моделлю](/assets/develop/items/first_item_2.png)
-
-## Зробити предмет компостованим або паливом {#making-the-item-compostable-or-a-fuel}
-
-Fabric API надає різні реєстри, які можна використовувати для додавання додаткових властивостей до вашого предмета.
-
-Наприклад, якщо ви хочете зробити свій предмет компостованим, ви можете використати `CompostableRegistry`:
-
-@[code transcludeWith=:::\_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
-
-Крім того, якщо ви хочете зробити свій предмет паливом, ви можете використати подію `FuelValueEvents.BUILD`:
-
-@[code transcludeWith=:::\_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
 
 ## Додання звичайних рецептів майстрування {#adding-a-basic-crafting-recipe}
 
@@ -184,7 +191,7 @@ Fabric API надає різні реєстри, які можна викори�
 
 :::
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#custom_tooltip
 
 Кожен виклик `accept()` додаватиме один рядок до підказки.
 

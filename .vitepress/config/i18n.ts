@@ -77,7 +77,9 @@ export const getLocales = () => {
   };
 
   for (const locale of locales) {
-    const intlLocale = intlLocaleOverrides[locale] ?? locale.replace("_", "-");
+    const intlLocale =
+      intlLocaleOverrides[locale]
+      ?? locale.replace(/..$/, (m) => m.toUpperCase()).replace("_", "-");
     const crowdinLocale = crowdinLocaleOverrides[locale] ?? locale.split("_")[0];
 
     const resolver = getResolver("website_translations.json", locale);
@@ -114,6 +116,14 @@ export const getLocales = () => {
           },
         },
 
+        code: {
+          copied: resolver("code.copied"),
+          copy: resolver("code.copy"),
+          enterFullscreen: resolver("code.enter_fullscreen"),
+          exitFullscreen: resolver("code.exit_fullscreen"),
+          wrap: resolver("code.wrap"),
+        },
+
         darkModeSwitchLabel: resolver("mode_switcher"),
 
         darkModeSwitchTitle: resolver("mode_dark"),
@@ -128,8 +138,11 @@ export const getLocales = () => {
         },
 
         editLink: {
-          pattern: "https://github.com/FabricMC/fabric-docs/edit/main/:path",
-          text: resolver("github_edit"),
+          pattern:
+            locale === "en_us"
+              ? "https://github.com/FabricMC/fabric-docs/edit/main/:path"
+              : `https://crowdin.com/project/fabricmc/${crowdinLocale}`,
+          text: locale === "en_us" ? resolver("edit_github") : resolver("edit_crowdin"),
         },
 
         footer: {
@@ -194,7 +207,6 @@ export const getLocales = () => {
           pooh: resolver("404.title.pooh"),
           quotes: resolver("404.quotes") as never,
 
-          crowdinLocale,
           crowdinLinkLabel: resolver("404.crowdin_link.label"),
           crowdinLinkText: resolver("404.crowdin_link"),
 
@@ -248,6 +260,8 @@ export const getLocales = () => {
 
         siteTitle: resolver("title"),
 
+        skipToContentLabel: resolver("skip_to_content"),
+
         socialLinks: [
           {
             icon: "github",
@@ -268,9 +282,9 @@ export const getLocales = () => {
 
         version: {
           reminder: {
-            latestVersion: resolver("version.reminder.latest_version"),
             oldVersion: resolver("version.reminder.old_version"),
-            newVersion: resolver("version.reminder.new_version"),
+            oldVersionHome: resolver("version.reminder.old_version_home"),
+            futureVersion: resolver("version.reminder.future_version"),
           },
 
           switcher: {

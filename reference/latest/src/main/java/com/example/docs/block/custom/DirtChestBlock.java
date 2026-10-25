@@ -14,9 +14,9 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import com.example.docs.block.entity.custom.DirtChestBlockEntity;
 
-// :::block
+// #region block
 public class DirtChestBlock extends BaseEntityBlock {
-	// :::block
+	// #endregion block
 	public DirtChestBlock(Properties properties) {
 		super(properties);
 	}
@@ -26,7 +26,7 @@ public class DirtChestBlock extends BaseEntityBlock {
 		return simpleCodec(DirtChestBlock::new);
 	}
 
-	// :::use
+	// #region use
 	@Override
 	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
 		if (!level.isClientSide() && level.getBlockEntity(pos) instanceof DirtChestBlockEntity dirtChest) {
@@ -35,16 +35,16 @@ public class DirtChestBlock extends BaseEntityBlock {
 
 		return InteractionResult.SUCCESS;
 	}
-	// :::use
+	// #endregion use
 
-	// :::block
+	// #region block
 	@Override
 	public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
 		return new DirtChestBlockEntity(pos, state);
 	}
-	// :::block
+	// #endregion block
 
-	// :::block
+	// #region block
 	// ...
 }
-// :::block
+// #endregion block

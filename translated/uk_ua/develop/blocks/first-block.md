@@ -1,27 +1,84 @@
 ---
 title: Створення вашого першого блока
-description: Навчіться як створювати власні блоки в Minecraft.
+description: Дізнайтеся, як створити власні блоки в Minecraft.
 authors:
+  - bluebear94
+  - cassiancc
   - CelDaemon
   - Earthcomputer
   - IMB11
   - its-miroma
   - xEobardThawne
+  - NotNightSky
 resources:
   https://docs.neoforged.net/docs/blocks/: Блоки — Документація NeoForge
 ---
 
 Блоки є будівельними блоками Minecraft (без каламбуру) — як і все інше в Minecraft, вони зберігаються в реєстрах.
 
+## Підготовка класів ID блоків {#preparing-your-block-id-classes}
+
+Якщо ви вже виконали кроки, описані на сторінці [створення вашого першого предмета](../items/first-item), цей процес здасться вам дуже знайомим: вам потрібно буде створити класи для зберігання ID ваших блоків. ID для блоків із предметами зберігаються як `BlockItemId`, тоді як блоки без них зберігають їх як `ResourceKey`.
+
+Ці посилання на блок використовуються для [генерованих даними теґів блоків](../data-generation/tags).
+
+:::: tabs
+
+== Блоки з предметами
+
+Ми розмістимо метод у класі з назвою `ModBlockItemIds` (або будь-якою іншою назвою на ваш розсуд). Цей клас містить усі блоки, що мають відповідні предмети блоків.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#first_block
+
+::: tip
+
+Mojang теж так робить зі своїми блоками! Перегляньте клас `BlockItemIds` для натхнення.
+
+:::
+
+== Блоки без предметів
+
+Ми розмістимо метод, що створює `ResourceKey`, у класі з назвою `ModBlockIds` (або будь-якою іншою назвою на ваш розсуд). Цей клас містить усі блоки, що не мають відповідні предмети блоків.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#first_block
+
+::: tip
+
+Mojang теж так робить зі своїми блоками! Перегляньте клас `BlockIds` для натхнення.
+
+:::
+
+::::
+
 ## Підготовка вашого класу блоків {#preparing-your-blocks-class}
 
-Якщо ви завершили сторінку [створення свого першого предмета](../items/first-item), цей процес здасться вам дуже знайомим — вам потрібно буде створити метод, який реєструє ваш блок і його блок-предмет.
+Реєстрація блоків також схожа на [реєстрацію предметів](../items/first-item#registering-an-item): ми створимо дві перевантажені версії методу `register()` для реєстрації ваших блоків — одну для блоків, що мають відповідні предмети, та іншу для блоків без них.
 
-Вам слід помістити цей метод у клас під назвою `ModBlocks` (або як ви хочете його назвати).
+Вам слід розмістити ці методи в класі з назвою `ModBlocks` (або будь-якою іншою назвою на ваш розсуд).
 
 Mojang робить щось надзвичайно подібне з усталеними блоками; ви можете звернутися до класу `Blocks`, щоб побачити, як вони це роблять.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+::: warning
+
+Обидві наведені нижче перевантаження методу `register()` є **обов’язковими** у вашому класі `ModBlocks`. Перевантаження для блоків з предметами внутрішньо викликає перевантаження для блоків без предметів. Якщо бракує будь-якого з перевантажень, ваш код не скомпілюється.
+
+:::
+
+::: tabs
+
+== Блоки з предметами
+
+Блоки з предметами використовують параметр `BlockItemId`, який містить ID як самого блока, так і відповідного йому предмета.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block_item
+
+== Блоки без предметів
+
+Блоки без предметів використовують параметр `ResourceKey`, що містить ID блока.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block
+
+:::
 
 Як і з предметами, вам потрібно переконатися, що клас завантажено, щоб усі статичні поля, що містять екземпляри вашого блока, були ініціалізовані.
 
@@ -33,19 +90,13 @@ Mojang робить щось надзвичайно подібне з устал
 
 :::
 
-```java
-public class ModBlocks {
-    // ...
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#static_initialization
 
-    public static void initialize() {}
-}
-```
-
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java#initialize
 
 ## Створення та реєстрація вашого блока {#creating-and-registering-your-block}
 
-Подібно до предметів, блоки приймають у своєму конструкторі клас `BlockBehavior.Properties`, який визначає властивості блока, такі як його звукові ефекти та рівень добування.
+Подібно до предметів, блоки приймають у своєму конструкторі клас `BlockBehaviour.Properties`, який визначає властивості блока, такі як його звукові ефекти та рівень добування.
 
 Ми не будемо розглядати всі варіанти тут — ви можете самостійно переглянути клас, щоб побачити різні варіанти, які мають бути зрозумілими.
 
@@ -56,13 +107,11 @@ public class ModBlocks {
 
 ::: tip
 
-Ви також можете використовувати `BlockBehavior.Properties.ofFullCopy(BlockBehavior block)`, щоб скопіювати налаштування блока що існує, у цьому випадку ми могли б використати `Blocks.DIRT`, щоб скопіювати налаштування ґрунту, але для прикладу ми скористаємося конструктором.
+Ви також можете використовувати `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)`, щоб скопіювати налаштування блока що існує, у цьому випадку ми могли б використати `Blocks.DIRT`, щоб скопіювати налаштування ґрунту, але для прикладу ми скористаємося конструктором.
 
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
-
-Щоб автоматично створити блок-предмет ми можемо передати `true` параметру `shouldRegisterItem` методу `register`, який ми створили на попередньому кроці.
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_dirt
 
 ### Додавання предмета блока до вкладки творчості {#adding-your-block-s-item-to-a-creative-tab}
 
@@ -70,7 +119,7 @@ public class ModBlocks {
 
 Для цього прикладу ми додамо блок на вкладку `BUILDING_BLOCKS`. Щоб замість цього додати блок на вкладку спеціального оголошення, перегляньте [власні вкладки творчості](../items/custom-creative-tabs).
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#add_to_creative_tab
 
 Ви повинні розмістити це у функції `initialize()` вашого класу.
 
@@ -82,7 +131,7 @@ public class ModBlocks {
 
 ## Додання перекладу для блока {#adding-block-translations}
 
-Щоб додати переклад, ви повинні створити ключ перекладу у своєму файлі перекладу — `assets/example-mod/lang/en_us.json`, це англійська, для української створіть `uk_ua.json`.
+Щоб додати переклад, ви повинні створити ключ перекладу у своєму файлі перекладу — `assets/example-mod/lang/en_us.json` (`uk_ua.json` для української).
 
 Minecraft використовуватиме цей переклад в інвентарі творчості та інших місцях, де показано його назву, наприклад у повідомленнях команд.
 
@@ -102,11 +151,11 @@ Minecraft використовуватиме цей переклад в інве
 
 Щоб текстура промальовувалася в грі, ви повинні створити модель блока, яку можна знайти у файлі `assets/example-mod/models/block/condensed_dirt.json` для блока «Condensed Dirt». Для цього блока ми будемо використовувати тип моделі `block/cube_all`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json
 
 Щоб блок позувався у вашому інвентарі, вам потрібно буде створити [клієнтський предмет](../items/first-item#creating-the-client-item), який вказує на вашу модель блока. Для цього прикладу клієнтського предмета для блока «Condensed Dirt» можна знайти за адресою `assets/example-mod/items/condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json
 
 ::: tip
 
@@ -124,7 +173,7 @@ Minecraft використовуватиме цей переклад в інве
 
 Цей файл має міститися в папці `assets/example-mod/blockstates`, а його ім’я має збігатися з ID блока, використаним під час реєстрації вашого блока в класі `ModBlocks`. Наприклад, якщо ID блока `condensed_dirt`, файл повинен мати назву `condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json
 
 ::: tip
 
@@ -146,7 +195,7 @@ Minecraft використовуватиме цей переклад в інве
 
 :::
 
-@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
+<<< @/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json
 
 Ця таблиця здобичі забезпечує випадіння одного предмета з блока, коли блок ламаний або підірваний вибухом.
 
@@ -165,7 +214,7 @@ Minecraft використовуватиме цей переклад в інве
 
 Цей приклад додає блок «Condensed Dirt» до теґу `shovel`.
 
-@[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+<<< @/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json
 
 Якщо ви бажаєте, щоб для добування блока був потрібний інструмент, додайте `.requiresCorrectToolForDrops()` до налаштувань блока, а також додайте відповідний теґ рівня добування.
 

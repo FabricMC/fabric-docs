@@ -3,7 +3,7 @@ declare module "markdown-it-vuepress-code-snippet-enhanced" {
   export default snippetPlugin;
 }
 
-declare module "virtual:fabric-docs:latest-version" {
-  const latestVersion: string;
-  export default latestVersion;
+declare module "*.css" {
+  const content: any;
+  export default content;
 }

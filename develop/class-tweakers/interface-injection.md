@@ -5,6 +5,7 @@ authors-nogithub:
   - salvopelux
 authors:
   - Daomephsta
+  - CelDaemon
   - Earthcomputer
   - its-miroma
   - Juuxel
@@ -27,7 +28,7 @@ To showcase interface injection, this page's snippets will use an example where 
 
 In a package that is not your mixin package, create the interface you'd like to inject:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface-injection-example-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/BucketEmptySoundGetter.java#interface_injection_example_interface
 
 In our case, we'll throw by default since we plan to implement the method through a mixin.
 
@@ -53,7 +54,7 @@ you do not need to use a mixin to inject the interface, the [class tweaker entry
 To create overrides of the interface's methods in the target class, you should use a mixin that implements the interface and targets the class
 you want to inject the interface into.
 
-<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface-injection-example-mixin
+<<< @/reference/latest/src/main/java/com/example/docs/mixin/class_tweakers/FlowingFluidMixin.java#interface_injection_example_mixin
 
 The overrides will be added to the target class at runtime, but will not appear in the decompiled source even if you use class tweaker to make the
 interface implementation visible.
@@ -70,7 +71,7 @@ For class tweaking, classes and interfaces use their [internal names](../mixins/
 
 For our example interface, the entry would be:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-example-entry
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_example_entry{classtweaker:no-line-numbers}
 
 ### Generic Interfaces {#generic-interfaces}
 
@@ -92,21 +93,29 @@ The signature format is:
 
 So to inject the interface:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface-injection-generic-interface
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/GenericInterface.java#interface_injection_generic_interface
 
 with the generics `<? extends String, Boolean[]>`
 
 The class tweaker entry would be:
 
-<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface-injection-generic-interface-entry
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#interface_injection_generic_interface_entry{classtweaker:no-line-numbers}
 
 ## Applying Changes {#applying-changes}
 
-To see your interface implementation applied, you must refresh your Gradle project by [regenerating sources](../getting-started/generating-sources).
-If modifications do not appear, you can try [validating](../class-tweakers/index#validating-the-file) the file and checking if any errors appear.
+To see your interface implementation applied, you must refresh your Gradle project and [regenerate sources](../getting-started/generating-sources).
+Make sure to reopen any targeted class from the decompiled source in order to see the modifications.
+
+::: tip
+
+If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file) and checking if any errors appear.
+
+:::
+
+<!---->
 
 The added methods can now be used on instances of the class the interface was injected into:
 
-<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface-injection-using-added-method
+<<< @/reference/latest/src/main/java/com/example/docs/interface_injection/ExampleModInterfaceInjection.java#interface_injection_using_added_method
 
 You can also override the methods in subclasses of the interface injection target if needed.

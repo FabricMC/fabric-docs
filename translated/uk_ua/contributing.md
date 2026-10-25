@@ -42,7 +42,7 @@ description: Інструкції щодо додавання до докуме�
 1. [Форк репозиторію GitHub](https://github.com/FabricMC/fabric-docs/fork)
 2. Створіть нову гілку у вашому форку
 3. Унесіть зміни в цю гілку
-4. Відкрийте запит на зміни у вихідному репозиторію
+4. Відкрийте запит на зміни в початковому репозиторії
 
 Ви можете прочитати більше про [потік GitHub](https://docs.github.com/en/get-started/using-github/github-flow).
 
@@ -200,10 +200,10 @@ authors:
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
 
 :::
 

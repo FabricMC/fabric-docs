@@ -30,21 +30,23 @@ import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import com.example.docs.component.ModComponents;
 import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
 
-//#entrypoint
+// #region entrypoint
 public class ExampleMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final String MOD_ID = "example-mod";
+	// #region create_logger
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	// #endregion create_logger
 
-	//#entrypoint
-	//#particle_register_main
+	// #endregion entrypoint
+	// #region particle_register_main
 	// This DefaultParticleType gets called when you want to use your particle in code.
 	public static final SimpleParticleType SPARKLE_PARTICLE = FabricParticleTypes.simple();
 
-	//#particle_register_main
-	//#entrypoint
+	// #endregion particle_register_main
+	// #region entrypoint
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -52,37 +54,41 @@ public class ExampleMod implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
-		//#entrypoint
+		// #endregion entrypoint
 
-		//#particle_register_main
+		@SuppressWarnings("unused")
+		// #region id_helper_usage
+		Identifier id = ExampleMod.id("my_path");
+		// #endregion id_helper_usage
+
+		// #region particle_register_main
 		// Register our custom particle type in the mod initializer.
-		Registry.register(BuiltInRegistries.PARTICLE_TYPE, Identifier.fromNamespaceAndPath(MOD_ID, "sparkle_particle"), SPARKLE_PARTICLE);
-		//#particle_register_main
-		// :::datagen-world:biome-modifications
+		Registry.register(BuiltInRegistries.PARTICLE_TYPE, ExampleMod.id("sparkle_particle"), SPARKLE_PARTICLE);
+		// #endregion particle_register_main
+		// #region datagen_world_biome_modifications
 		// Spawns everywhere in the overworld
 		BiomeModifications.addFeature(
 				BiomeSelectors.foundInOverworld(),
 				GenerationStep.Decoration.UNDERGROUND_ORES,
 				ExampleModWorldPlacedFeatures.DIAMOND_BLOCK_ORE_PLACED_KEY
 		);
-		// :::datagen-world:biome-modifications
+		// #endregion datagen_world_biome_modifications
 
-		// :::datagen-world:selective-biome-modifications
+		// #region datagen_world_selective_biome_modifications
 		// Spawns in forest biomes only
 		BiomeModifications.addFeature(
 				BiomeSelectors.tag(BiomeTags.IS_FOREST),
 				GenerationStep.Decoration.VEGETAL_DECORATION,
 				ExampleModWorldPlacedFeatures.DIAMOND_TREE_PLACED_KEY
 		);
-		// :::datagen-world:selective-biome-modifications
-		//#entrypoint
+		// #endregion datagen_world_selective_biome_modifications
 
-		// #tooltip_provider
+		// #region tooltip_provider
 		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.COMPONENT_WITH_TOOLTIP);
-		// #tooltip_provider
-		// #advanced_tooltip_provider
+		// #endregion tooltip_provider
+		// #region advanced_tooltip_provider
 		ItemComponentTooltipProviderRegistry.addAfter(DataComponents.DAMAGE, ModComponents.ADVANCED_CUSTOM_COMPONENT);
-		// #advanced_tooltip_provider
+		// #endregion advanced_tooltip_provider
 
 		// :::world-gen-biomes:overworld-addition
 		ResourceKey<Biome> taterBiomeResourceKey = ResourceKey.create(
@@ -124,5 +130,11 @@ public class ExampleMod implements ModInitializer {
 							Climate.Parameter.span(-0.5f, 1.0f),
 							0L));
 		// :::world-gen-biomes:nether-addition-fabricapi
+		// #region entrypoint
+	}
+
+	public static Identifier id(String path) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 }
+// #endregion entrypoint

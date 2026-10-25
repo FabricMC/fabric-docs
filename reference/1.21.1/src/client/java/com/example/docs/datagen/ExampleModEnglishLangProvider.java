@@ -10,7 +10,7 @@ import com.example.docs.item.ModItems;
 
 // :::datagen-translations:provider
 public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
-	protected ExampleModEnglishLangProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+	public ExampleModEnglishLangProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		// Specifying en_us is optional, as it's the default language code
 		super(dataOutput, "en_us", registryLookup);
 	}

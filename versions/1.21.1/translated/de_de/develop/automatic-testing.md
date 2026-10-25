@@ -21,7 +21,7 @@ Da Minecraft Modding auf Laufzeit-Bytecode-Modifikationswerkzeuge wie Mixin ange
 
 Zuerst müssen wir Fabric Loader JUnit zu der Entwicklungsumgebung hinzufügen. Füge folgendes zu deinem Dependencies-Block in deiner `build.gradle`-Datei hinzu:
 
-@[code lang=groovy transcludeWith=:::automatic-testing:1](@/reference/build.gradle)
+@[code lang=groovy transcludeWith=automatic_testing_1](@/reference/build.gradle)
 
 Dann müssen wir Gradle anweisen, Fabric Loader JUnit zum Testen zu verwenden. Du kannst dies tun, indem du den folgenden Code zu deiner `build.gradle`-Datei hinzufügst:
 

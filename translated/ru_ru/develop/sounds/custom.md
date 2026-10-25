@@ -3,6 +3,8 @@ title: Создание своих звуков
 description: Вы научите добавлять и использовать новые звуки с реестром.
 authors:
   - JR1811
+resources:
+  https://www.audacityteam.org/: Скачать Audacity
 ---
 
 ## Создание своих звуков {#creating-custom-sounds}
@@ -31,7 +33,7 @@ authors:
 
 Продолжите создание файла `resources/assets/example-mod/sounds.json`, если он еще не существует, и добавьте свой звук в записи звуков.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/sounds.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/sounds.json
 
 Запись подписи предоставляет больше контекста для игрока. Название субтитров используется в языковых файлах в каталоге `resources/assets/example-mod/lang` и будет отображаться, если в игре включена настройка субтитров и воспроизводится этот пользовательский звук.
 
@@ -50,11 +52,11 @@ Registry.register(BuiltInRegistries.SOUND_EVENT, Identifier.fromNamespaceAndPath
 
 Добавьте два новых метода для ранее созданного класса помощника. Первый регистрирует все звуки и используется для инициализации этого класса на первом месте. После этого вы можете добавить в новый статический класс `SoundEvent` нужные переменные.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
+<<< @/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java#custom_sounds
 
 Таким образом, инициализатору мода достаточно реализовать только одну строку для регистрации всех пользовательских SoundEvents.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java)
+<<< @/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java#example_mod_sounds
 
 ## Используйте собственные SoundEvent'ы {#using-the-custom-soundevent}
 

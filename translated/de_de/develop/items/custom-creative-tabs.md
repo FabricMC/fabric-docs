@@ -12,9 +12,9 @@ Kreativtabs, auch bekannt als Item Gruppen, sind Tabs im Kreativmenü, die Items
 
 Einen Kreativtab zu erstellen ist recht einfach. Erstelle einfach ein neues statisches finales Feld in deiner Item-Klasse, um den Kreativtab und einen Ressourcenschlüssel dafür zu speichern. Du kannst dann den `FabricCreativeModeTab.builder` verwenden, um den Kreativtab zu erstellen und Items zu ihm hinzuzufügen:
 
-@[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_creative_tab
 
-@[code transcludeWith=:::\_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#register_creative_tab
 
 Du solltest sehen, dass die Kreativgruppe jetzt im Kreativinventar ist. Er ist jedoch noch nicht übersetzt - du musst deiner Übersetzungsdatei einen Übersetzungsschlüssel hinzufügen - ähnlich wie bei der Übersetzung deines ersten Items.
 

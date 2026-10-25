@@ -3,13 +3,13 @@ package com.example.docs.recipe;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeInput;
 
-// :::recipeInput
+// #region recipe_input
 public record UpgradingRecipeInput(ItemStack baseItem, ItemStack upgradeItem) implements RecipeInput {
 	@Override
 	public ItemStack getItem(int index) {
 		return switch (index) {
-			case 0 -> baseItem;
-			case 1 -> upgradeItem;
+			case 0 -> this.baseItem;
+			case 1 -> this.upgradeItem;
 			default -> ItemStack.EMPTY;
 		};
 	}
@@ -19,4 +19,4 @@ public record UpgradingRecipeInput(ItemStack baseItem, ItemStack upgradeItem) im
 		return 2;
 	}
 }
-// :::recipeInput
+// #endregion recipe_input

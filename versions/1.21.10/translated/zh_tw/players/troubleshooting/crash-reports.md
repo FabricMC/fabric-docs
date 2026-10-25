@@ -6,7 +6,7 @@ authors:
 ---
 
 :::tip
-如果你在尋找崩潰原因時遇到任何困難，你可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#server-admin-support` 頻道中尋求幫助。
+如果你在尋找崩潰原因時遇到任何困難，你可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#mc-server-support` 頻道中尋求幫助。
 :::
 
 崩潰報告是排解遊戲或伺服器問題的非常重要的一部分。 它們包含了關於崩潰的大量資訊，可以幫助你找到崩潰的原因。
@@ -43,7 +43,7 @@ authors:
 
 :::details 崩潰報告
 
-<<< @/public/assets/players/crash-report-example.log{log}
+<<< @/public/assets/players/crash-report-example.log{txt}
 
 :::
 
@@ -63,12 +63,6 @@ authors:
 使用上面連結的範例，我們可以分析崩潰報告，找出崩潰的原因，包括導致崩潰的模組。
 
 `---- Minecraft Crash Report ----`，報告的摘要。 這個部分包含導致崩潰的主要錯誤、發生時間以及相關的堆疊追蹤。 這是崩潰報告中最重要的部分，因為堆疊追蹤通常包含導致崩潰的模組的參考。 這個部分包含導致崩潰的主要錯誤、發生時間以及相關的堆疊追蹤。 這是崩潰報告中最重要的部分，因為堆疊追蹤通常包含導致崩潰的模組的參考。 這個部分包含導致崩潰的主要錯誤、發生時間以及相關的堆疊追蹤。 這是崩潰報告中最重要的部分，因為堆疊追蹤通常包含導致崩潰的模組的參考。 這個部分包含導致崩潰的主要錯誤、發生時間以及相關的堆疊追蹤。 這是崩潰報告中最重要的部分，因為堆疊追蹤通常包含導致崩潰的模組的參考。
-
-:::details 展示錯誤詳情
-
-<<< @/public/assets/players/crash-report-example.log{7 log}
-
-:::
 
 由於堆疊追蹤中提到了大量的模組，要指出責任者可能有些困難，但首先要做的是尋找導致崩潰的模組。
 

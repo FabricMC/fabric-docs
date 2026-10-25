@@ -73,4 +73,4 @@ After specifying the file location in your `build.gradle` file, make sure to rel
 
 By default, class tweaker will ignore entries referencing modification targets that cannot be found. To check if all the classes, fields and methods specified in the file are valid, run the `validateAccessWidener` Gradle task.
 
-Errors will point out any invalid entry, but they can be about which part of an entry is invalid.
+Errors will point out any invalid entry, but they can be unspecific about which part of an entry is invalid.

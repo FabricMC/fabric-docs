@@ -43,7 +43,7 @@ public class ModBlocks {
 
 ## Erstellen und Registrieren deines Blocks {#creating-and-registering-your-block}
 
-Ähnlich wie Items nehmen Blöcke in ihrem Konstruktor die Klasse `BlockBehavior.Properties` auf, die Eigenschaften des Blocks festlegt, wie z.B. seine Soundeffekte und die Abbauebene.
+Ähnlich wie Items nehmen Blöcke in ihrem Konstruktor die Klasse `BlockBehaviour.Properties` auf, die Eigenschaften des Blocks festlegt, wie z.B. seine Soundeffekte und die Abbauebene.
 
 Wir werden hier nicht alle Optionen behandeln - Du kannst die Klasse selbst ansehen, um die verschiedenen Optionen zu sehen, die selbsterklärend sein sollten.
 
@@ -54,7 +54,7 @@ Als Beispiel werden wir einen einfachen Block erstellen, der die Eigenschaften v
 
 ::: tip
 
-Du kannst auch `BlockBehavior.Properties.ofFullCopy(ofFullCopy block)` verwenden, um die Einstellungen eines bestehenden Blocks zu kopieren. In diesem Fall hätten wir auch `Blocks.DIRT` verwenden können, um die Einstellungen von Erde zu kopieren, aber für das Beispiel verwenden wir den Builder.
+Du kannst auch `BlockBehaviour.Properties.ofFullCopy(ofFullCopy block)` verwenden, um die Einstellungen eines bestehenden Blocks zu kopieren. In diesem Fall hätten wir auch `Blocks.DIRT` verwenden können, um die Einstellungen von Erde zu kopieren, aber für das Beispiel verwenden wir den Builder.
 
 :::
 

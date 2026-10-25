@@ -2,7 +2,20 @@
   "required": true,
   "package": "com.example.docs.mixin",
   "compatibilityLevel": "JAVA_25",
-  "mixins": ["ExampleMixin", "event.SheepEntityMixin", "class_tweakers.FlowingFluidMixin"],
+  "mixins": [
+    "ExampleMixin",
+    "accessor.ClientboundCustomPayloadPacketAccessor",
+    "accessor.IdentifierAccessor",
+    "accessor.InventoryAccessor",
+    "accessor.ShulkerBoxBlockAccessor",
+    "accessor.SlotDisplayAccessor",
+    "class_tweakers.ConversionTypeMixin",
+    "class_tweakers.FlowingFluidMixin",
+    "class_tweakers.IllagerSpellMixin",
+    "class_tweakers.RecipeBookTypeMixin",
+    "class_tweakers.RecipeCategoryMixin",
+    "event.SheepMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   },

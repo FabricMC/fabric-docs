@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Документація Fabric
-  tagline: Офіційна документація для Fabric,<br />інструментарію модифікації для Minecraft.
+  tagline: Офіційна документація для Fabric, інструментарію модифікацій для Minecraft.
 
 features:
   - title: Посібник для гравців
@@ -20,4 +20,4 @@ features:
     linkText: Розпочати
 ---
 
-Якщо ви хочете зробити свій внесок у документацію Fabric, ви можете знайти вихідний код на [GitHub](https://github.com/FabricMC/fabric-docs), а також відповідні [правила внеску](./contributing).
+Якщо ви хочете зробити свій внесок у документацію Fabric, ви можете знайти початковий код на [GitHub](https://github.com/FabricMC/fabric-docs), а також відповідні [правила внеску](./contributing).

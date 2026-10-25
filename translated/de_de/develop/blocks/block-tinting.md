@@ -12,7 +12,7 @@ Schauen wir uns einmal an, wie wir das Aussehen eines Blocks verändern können.
 
 In diesem Beispiel registrieren wir einen Block. Wenn du mit diesem Vorgang nicht vertraut bist, lies bitte zuerst die Informationen zur [Registrierung eines Blocks](./first-block).
 
-@[code lang=java transcludeWith=:::waxcap-tinting](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#waxcap_tinting
 
 Stelle sicher, folgendes hinzuzufügen:
 
@@ -34,7 +34,7 @@ Verwenden wir diese API, um eine Färbung zu registrieren, sodass unser Waxcap-B
 
 Registriere deinen Block in deinem **Client Initialisierer** zusammen mit der entsprechenden Logik in der `ColorProviderRegistry`.
 
-@[code lang=java transcludeWith=:::color_provider](@/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#color_provider
 
 Nun wird der Block entsprechend seiner Position eingefärbt.
 

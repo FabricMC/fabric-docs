@@ -22,7 +22,7 @@ resources/data/example-mod/damage_type/tater.json
 
 Ha la struttura seguente:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json
 
 Questo tipo di danno personalizzato causa un aumento di 0.1 nel livello di esaurimento ([exhaustion level](https://minecraft.wiki/w/Hunger#Exhaustion_level_increase)) ogni volta che il giocatore prende danno, quando il danno è causato da una fonte vivente che non sia un giocatore (per esempio un blocco). Inoltre, la quantità di danno subita cambierà a seconda della difficoltà del mondo
 
@@ -38,7 +38,7 @@ Quando abbiamo bisogno di accedere al nostro tipo di danno personalizzato tramit
 
 La `ResourceKey` può essere ottenuta nel modo seguente:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/ExampleModDamageTypes.java#damage_type
 
 ### Usare i Tipi di Danno {#using-damage-types}
 
@@ -48,15 +48,15 @@ Puoi fare override di `stepOn` per infliggere questo danno.
 
 Cominciamo creando una `DamageSource` del nostro tipo di danno personalizzato.
 
-@[code lang=java transclude={22-26}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java#create_damage_source
 
-Poi, chiamiamo `entity.damage()` con la nostra `DamageSource` e con una quantità.
+Poi, chiamiamo `entity.hurtServer()` con il livello attuale, la nostra `DamageSource`, e con una quantità.
 
-@[code lang=java transclude={27-27}](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java#hurt_entity
 
 L'intera implementazione del blocco:
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/damage/TaterBlock.java#complete_block
 
 Ora quando un'entità vivente calpesta il nostro blocco personalizzato, subirà 5 di danno (2.5 cuori) usando il nostro tipo di danno personalizzato.
 
@@ -82,7 +82,7 @@ Puoi trovare tipi di danno già esistenti in `data/minecraft/tags/damage_type`.
 
 ::: info
 
-Affidati alla [Minecraft Wiki](https://minecraft.wiki/w/Tag#Damage_types) per una lista completa dei tag dei tipi di danno.
+Affidati alla [Minecraft Wiki](https://minecraft.wiki/w/Damage_type_tag_(Java_Edition)) per una lista completa dei tag dei tipi di danno.
 
 :::
 
@@ -96,6 +96,6 @@ data/minecraft/tags/damage_type/bypasses_armor.json
 
 Con il contenuto seguente:
 
-@[code lang=json](@/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json)
+<<< @/reference/latest/src/main/generated/data/minecraft/tags/damage_type/bypasses_armor.json
 
 Assicurati che il tuo tag non sostituisca il tag esistente impostando la chiave `replace` a `false`.

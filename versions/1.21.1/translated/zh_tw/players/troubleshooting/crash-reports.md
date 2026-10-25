@@ -6,7 +6,7 @@ authors:
 ---
 
 :::tip
-如果你在尋找崩潰原因時遇到任何困難，你可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#server-admin-support` 頻道中尋求幫助。
+如果你在尋找崩潰原因時遇到任何困難，你可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#mc-server-support` 頻道中尋求幫助。
 :::
 
 崩潰報告是排解遊戲或伺服器問題的非常重要的一部分。 它們包含了關於崩潰的大量資訊，可以幫助你找到崩潰的原因。
@@ -65,10 +65,6 @@ authors:
 崩潰報告是排解遊戲或伺服器問題的非常重要的一部分。 它們包含了關於崩潰的大量資訊，可以幫助你找到崩潰的原因。 `---- Minecraft Crash Report ----` 部分中的堆棧跟踪在這種情況下最重要，因為它包含導致崩潰的主要錯誤。 在這個案例中，錯誤是 `java.lang.NullPointerException: Cannot invoke "net.minecraft.class_2248.method_9539()" because "net.minecraft.class_2248.field_10540" is null`。 在這個案例中，錯誤是 `java.lang.NullPointerException: Cannot invoke "net.minecraft.class_2248.method_9539()" because "net.minecraft.class_2248.field_10540" is null`。 在這個案例中，錯誤是 `java.lang.NullPointerException: Cannot invoke "net.minecraft.class_2248.method_9539()" because "net.minecraft.class_2248.field_10540" is null`。
 
 由於堆疊追蹤中提到了大量的模組，要指出責任者可能有些困難，但首先要做的是尋找導致崩潰的模組。
-
-<!-- TODO: show part of this file -->
-
-<<< @/public/assets/players/crash-report-example.log{8-9,14-15 log}
 
 在這種情況下，導致崩潰的模組是 `snownee`，因為它是堆疊追蹤中首先提到的模組。
 

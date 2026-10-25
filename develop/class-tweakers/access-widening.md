@@ -5,8 +5,10 @@ authors-nogithub:
   - lightningtow
   - siglong
 authors:
+  - An-m1654
   - Ayutac
   - cassiancc
+  - CelDaemon
   - cootshk
   - Earthcomputer
   - florensie
@@ -35,7 +37,7 @@ This includes making them public, extendable and/or mutable.
 
 Access widener entries can be [transitive](../class-tweakers/index#transitive-entries) to make changes visible to mods depending on yours.
 
-To access fields or methods, it can be safer and simpler to use [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors),
+To access fields or methods, it can be safer and simpler to use [accessor mixins](../mixins/accessors),
 but there are two situations where accessors are insufficient and access widening is necessary:
 
 - If you need to access a `private`, `protected` or package-private class
@@ -45,7 +47,13 @@ However, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_acces
 
 ## Access Directives {#access-directives}
 
-Access widener entries start with one of three directive keywords to specify the type of modification to apply.
+Access widener entries start with one of three base directive keywords to specify the type of modification to apply.
+
+After the keyword come the parameters, usually the targets of the widening.
+
+The same class, method, or field, can be targeted by multiple access widening entries, one on each line.
+
+Access directives can also be made [transitive](../class-tweakers/index#transitive-entries) by adding the `transitive-` prefix before the base access directive.
 
 ### Accessible {#accessible}
 
@@ -58,18 +66,16 @@ Making a method or field accessible also makes its class accessible.
 
 ### Extendable {#extendable}
 
-`extendable` can target classes and methods:
+`extendable` can target classes and methods only:
 
-- Classes are made public and non-final
-- Methods are made protected and non-final
+- Classes are made public and non-final.
+- Methods are made non-final, and protected if originally private.
 
 Making a method extendable also makes its class extendable.
 
 ### Mutable {#mutable}
 
 `mutable` can make a field non-final.
-
-To make a private final field both accessible and mutable, you must make two separate entries in the file.
 
 ## Specifying Targets {#specifying-targets}
 
@@ -87,7 +93,7 @@ Format:
 
 Example:
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:classes:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening_examples_classes
 
 == Methods
 
@@ -99,7 +105,7 @@ Format:
 
 Example:
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:methods:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening_examples_methods
 
 == Fields
 
@@ -111,7 +117,7 @@ Format:
 
 Example:
 
-@[code lang=classtweaker:no-line-numbers transcludeWith=:::accesswidening-examples:fields:::](@/reference/latest/src/main/resources/example-mod.classtweaker)
+<<< @/reference/latest/src/main/resources/example-mod.classtweaker#accesswidening_examples_fields
 
 :::
 
@@ -121,7 +127,6 @@ Manually writing access widener entries is time-consuming and prone to human err
 
 ### mcsrc.dev {#mcsrc-dev}
 
-Available for all versions with an [unobfuscated JAR](../migrating-mappings/index#whats-going-on-with-mappings), namely 1.21.11 and above,
 [mcsrc](https://mcsrc.dev) allows you to decompile and navigate Minecraft source in the browser and copy Mixin, access widener or access transformer targets to clipboard.
 
 To copy an access widener entry, first navigate to the class which you want to modify, and right-click on your target to open the popup menu.
@@ -155,6 +160,14 @@ You can then paste the entry in your class tweaker file.
 
 ## Applying Changes {#applying-changes}
 
-To see your changes applied, you must refresh your Gradle project by [regenerating sources](../getting-started/generating-sources). The elements you targeted should
-have their access limits modified accordingly. If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file)
-and checking if any errors appear.
+To see your changes applied, you must refresh your Gradle project and [regenerate sources](../getting-started/generating-sources). The elements you targeted should
+have their access limits modified accordingly. Make sure to reopen any targeted class from the decompiled source in order to see the
+modifications.
+
+::: tip
+
+If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file) and checking if any errors appear.
+
+:::
+
+<!---->

@@ -36,7 +36,7 @@ authors-nogithub:
 
 По-перше, нам потрібно ввімкнути datagen у файлі `build.gradle`.
 
-@[code lang=groovy transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+@[code lang=groovy transcludeWith=datagen_setup_configure](@/reference/build.gradle)
 
 Далі нам потрібен клас точки входу. Ось де починається наш datagen. Розмістіть це десь у пакеті `client` - у цьому прикладі це розміщено в `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
 

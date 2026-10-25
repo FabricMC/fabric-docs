@@ -40,6 +40,33 @@ export namespace Fabric {
     };
   }
 
+  export interface CodeOptions {
+    /**
+     * @default "Copied"
+     */
+    copied: string;
+
+    /**
+     * @default "Copy Code"
+     */
+    copy: string;
+
+    /**
+     * @default "Full Screen"
+     */
+    enterFullscreen: string;
+
+    /**
+     * @default "Exit Full Screen"
+     */
+    exitFullscreen: string;
+
+    /**
+     * @default "Toggle Wrap Code"
+     */
+    wrap: string;
+  }
+
   export interface DownloadOptions {
     /**
      * Set custom text for download button.
@@ -56,11 +83,6 @@ export namespace Fabric {
      * @default "404"
      */
     code: string;
-
-    /**
-     * The locale's code on Crowdin
-     */
-    crowdinLocale: string;
 
     /**
      * Set aria label for Crowdin link.
@@ -146,19 +168,19 @@ export namespace Fabric {
   export interface VersionOptions {
     reminder: {
       /**
-       * @default "This page is written for version %s."
-       */
-      latestVersion: string;
-
-      /**
-       * @default "This page is written for version %s.\nDocumentation for older versions may be incomplete."
+       * @default "This page is written for version **%s**.\nDocumentation for older versions may be incomplete."
        */
       oldVersion: string;
 
       /**
-       * @default "This page is written for version %s.\nDocumentation for unreleased versions may be incomplete."
+       * @default "This documentation applies to Minecraft **%s**.\n\nDocumentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar."
        */
-      newVersion: string;
+      oldVersionHome: string;
+
+      /**
+       * @default "This page is written for version **%s**.\nDocumentation for unreleased versions may be incomplete."
+       */
+      futureVersion: string;
     };
 
     switcher: {
@@ -186,6 +208,7 @@ export namespace Fabric {
   export interface ThemeConfig extends Versioned.ThemeConfig {
     authors: AuthorsOptions;
     banner: BannerOptions;
+    code: CodeOptions;
     download: DownloadOptions;
     env: EnvOptions;
     notFound: NotFoundOptions;

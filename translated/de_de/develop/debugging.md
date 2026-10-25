@@ -19,17 +19,23 @@ Der einfachste und schnellste Weg, um Probleme zu lokalisieren ist das Logging z
 
 Werte können dort zur Laufzeit ausgegeben werden, wodurch der Entwickler über den aktuellen Status des Codes informiert wird und Änderungen und potenzielle Fehler leicht analysiert werden können.
 
-In der `ModInitializer`-implementierenden Einstiegsklasse des Mods wird standardmäßig ein `LOGGER` definiert, um die gewünschte Ausgabe auf die Konsole zu schreiben.
+Du kannst einen Logger mithilfe der `LoggerFactory` erstellen, die einen Namen entgegennimmt, der im Log neben den ausgegebenen Nachrichten angezeigt wird:
 
-@[code lang=java transcludeWith=:::problems:basic-logger-definition](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#create_logger
+
+::: tip
+
+Der von der [Mod-Vorlage](./getting-started/creating-a-project) generierte Initialisierer stellt einen Standard-Logger bereit, der deine Mod-ID verwendet.
+
+:::
 
 Wenn du an irgendeiner Stelle im Code einen Wert für etwas wissen musst, benutze diesen `LOGGER`, indem du einen `String` an seine Methoden übergibst.
 
-@[code lang=java transcludeWith=:::problems:using-logger](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems_using_logger
 
 Der Logger unterstützt mehrere Modi zur Ausgabe von Text auf die Konsole. Je nachdem, welchen Modus du verwendest, wird die protokollierte Zeile in verschiedenen Farben angezeigt.
 
-@[code lang=java transcludeWith=:::problems:log-levels](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems_log_levels
 
 ::: info
 
@@ -39,7 +45,7 @@ Alle Logger-Modi unterstützen mehrere Überladungen. Auf diese Weise kannst du 
 
 Stellen wir beispielsweise sicher, dass bei der Verwendung des `TestItem` für eine Entität deren aktueller Status in der Konsole ausgegeben wird.
 
-@[code lang=java transcludeWith=:::problems:logger-usage-example](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems_logger_usage_example
 
 ![Konsole mit protokollierter Ausgabe](/assets/develop/debugging/debug_01.png)
 
@@ -71,15 +77,15 @@ Die Debug-Protokollstufe ist standardmäßig ausgeblendet, kann jedoch in der En
 
 Erstelle dazu die Konfigurationsdatei `log4j-dev.xml` im Stammverzeichnis deines Projekts und fügen den folgenden Inhalt hinzu. Ersetze den Wert im Attribut `name` durch die Mod-ID deines Mods. Diese Konfiguration ermöglicht es, Debug-Protokolle aus deinem Mod in der Konsole anzuzeigen.
 
-@[code lang=xml](@/reference/latest/log4j-dev.xml)
+<<< @/reference/latest/log4j-dev.xml
 
 Weise dann in der Datei `build.gradle` Loom an, unsere neue Konfiguration zu verwenden.
 
-@[code lang=java transcludeWith=:::debug-logging](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#debug_logging
 
 Wenn wir nun Debug-Protokollmeldungen senden, können wir diese in der Konsole sehen.
 
-@[code lang=java transcludeWith=:::problems:debug-logging](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems_debug_logging
 
 ![Konsole, die einen Debug-Protokolleintrag anzeigt](/assets/develop/debugging/debug_log.png)
 
@@ -238,7 +244,7 @@ Um das Beispiel von vorhin abzuschließen, lasst uns der Anweisung eine Bedingun
 
 Wende die Korrekturen an und nutze Hotswapping, um die Änderungen im Spiel sofort zu sehen.
 
-@[code lang=java transcludeWith=:::problems:breakpoints](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems_breakpoints
 
 ## Logs und Abstürze {#logs-and-crashes}
 

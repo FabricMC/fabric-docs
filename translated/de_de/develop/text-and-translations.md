@@ -86,7 +86,7 @@ Wenn du darauf verweisen willst, was in unserem Fall der Angreifer ist, würdest
 
 Wie bereits erwähnt, kann Text mit dem Text Codec in JSON serialisiert werden. Weitere Informationen über Codecs findest du auf der Seite [Codec](./codecs).
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#component_to_string
 
 Dadurch wird JSON erzeugt, das in Datenpaketen, Befehlen und an anderen Stellen verwendet werden kann, die das JSON-Format von Text anstelle von literalen oder übersetzbarem Text akzeptieren.
 
@@ -94,7 +94,7 @@ Dadurch wird JSON erzeugt, das in Datenpaketen, Befehlen und an anderen Stellen 
 
 Um ein JSON-Textobjekt in eine tatsächliche `Component`-Klasse zu deserialisieren, ist ebenfalls der Codec zu verwenden.
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#string_to_component
 
 ## Formatieren von Text {#formatting-text}
 

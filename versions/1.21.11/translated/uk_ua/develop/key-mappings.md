@@ -29,10 +29,10 @@ Minecraft обробляє введення користувачами з пер
 
 ::: info
 
-Зауважте, що назви маркерів ключів (`GLFW.GLFW_KEY_*`) припускаються [стандартний макет США](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg).
+Зауважте, що назви маркерів ключів (`InputConstants.KEY_*`) припускаються [стандартний макет США](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg).
 
 Це означає, що якщо ви використовуєте макет AZERTY, натискання <kbd>A</kbd> призведе до
-`GLFW.GLFW_KEY_Q`.
+`InputConstants.KEY_Q`.
 
 :::
 

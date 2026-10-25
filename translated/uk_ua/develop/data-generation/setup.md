@@ -24,25 +24,25 @@ authors-nogithub:
 
 ### Під час створення проєкту {#enabling-data-generation-at-project-creation}
 
-Найпростіший спосіб увімкнути datagen — під час створення проєкту. Поставте прапорець «Data Generation» під час використання [генератора шаблона](https://fabricmc.net/develop/template/).
+Найпростіший спосіб увімкнути генерацію даних — під час створення проєкту. Поставте прапорець «Data Generation» під час використання [генератора шаблона](https://fabricmc.net/develop/template/).
 
 ![Позначене поле «Data Generation» у генераторі шаблонf](/assets/develop/data-generation/data_generation_setup_01.png)
 
 ::: tip
 
-Якщо datagen увімкнено, ви повинні мати налаштування запуску «Генерація даних» і завдання Gradle `runDatagen`.
+Якщо генерацію даних увімкнено, ви повинні мати налаштування запуску «Генерація даних» і завдання Gradle `runDatagen`.
 
 :::
 
 ### Власноруч {#manually-enabling-data-generation}
 
-По-перше, нам потрібно ввімкнути datagen у файлі `build.gradle`.
+По-перше, нам потрібно ввімкнути генерацію даних у файлі `build.gradle`.
 
-@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+<<< @/reference/build.gradle#datagen_setup_configure
 
 Далі нам потрібен клас точки входу. Ось де починається наша генерація даних. Розмістіть це десь у пакеті `client` — у цьому прикладі це розміщено в `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
 
-@[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_setup_generator
 
 Нарешті, нам потрібно повідомити Fabric про точку входу в нашому `fabric.mod.json`:
 
@@ -75,11 +75,11 @@ authors-nogithub:
 
 Усередині методу `onInitializeDataGenerator` вашої точки входу даних нам потрібно створити `Pack`. Пізніше ви додасте **постачальників**, які додадуть згенеровані дані в цей `Pack`.
 
-@[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_setup_pack
 
 ## Запуск генерації даних {#running-data-generation}
 
-Щоб запустити datagen, використовуйте налаштування запуску у вашій IDE або запустіть `./gradlew runDatagen` у консолі. Згенеровані файли буде створено в `src/main/generated`.
+Щоб запустити генерацію даних, використовуйте налаштування запуску у вашій IDE або запустіть `./gradlew runDatagen` у консолі. Згенеровані файли буде створено в `src/main/generated`.
 
 ## Наступні кроки {#next-steps}
 

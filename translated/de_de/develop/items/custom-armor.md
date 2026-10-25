@@ -2,7 +2,9 @@
 title: Benutzerdefinierte Rüstung
 description: Lerne, wie du deine eigenen Rüstungssets erstellst.
 authors:
+  - cassiancc
   - IMB11
+  - NotNightSky
 ---
 
 Die Rüstung bietet dem Spieler eine bessere Verteidigung gegen Angriffe von Mobs und anderen Spielern.
@@ -17,15 +19,15 @@ Für dieses Beispiel werden wir eine Klasse `GuiditeArmorMaterial` erstellen, um
 
 Diese Konstante wird in der Methode `Item.Properties#maxDamage(int damageValue)` verwendet, wenn wir unsere Rüstungsitems erstellen. Sie wird auch als Parameter im Konstruktor `ArmorMaterial` benötigt, wenn wir später unser `ArmorMaterial`-Objekt erstellen.
 
-@[code transcludeWith=:::base_durability](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#base_durability
 
 Wenn du Schwierigkeiten hast, eine ausgewogene Grundhaltbarkeit zu bestimmen, kannst du dich an den Instanzen der Vanilla-Rüstungsmaterialien orientieren, die du in dem Interface `ArmorMaterials` findest.
 
-### Ausrüstungs Asset Registry Key {#equipment-asset-registry-key}
+### Ausrüstungs Asset Ressourcenschlüssel {#equipment-asset-resource-key}
 
-Obwohl wie unser `ArmorMaterial` nirgendwo registrieren müssen, sollte man generell alle Registerschlüssel als Konstanten speichern, da das Spiel diese nutzen wird, um die relevanten Texturen für unsere Rüstung zu finden.
+Obwohl wir unser `ArmorMaterial` nirgendwo registrieren müssen, sollte man generell alle Ressourcenschlüssel als Konstanten speichern, da das Spiel diese nutzen wird, um die relevanten Texturen für unsere Rüstung zu finden.
 
-@[code transcludeWith=:::material_key](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#material_key
 
 Wir werden dies später an den Konstruktor `ArmorMaterial` übergeben.
 
@@ -33,7 +35,7 @@ Wir werden dies später an den Konstruktor `ArmorMaterial` übergeben.
 
 Um unser Material zu erstellen, müssen wir eine neue Instanz des `ArmorMaterial`-Record erstellen, wobei die Grundhaltbarkeit und die Konstanten der Material-Registrierungsschlüssel hier verwendet werden.
 
-@[code transcludeWith=:::guidite_armor_material](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#guidite_armor_material
 
 Der `ArmorMaterial`-Konstruktor akzeptiert die folgenden Parameter, in dieser spezifischen Reihenfolge:
 
@@ -50,7 +52,17 @@ Der `ArmorMaterial`-Konstruktor akzeptiert die folgenden Parameter, in dieser sp
 
 Wir definieren die Referenz für die Bestandteile der Reparatur wie folgt:
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
+
+Um festzulegen, welche Items in einem Amboss zur Reparatur dieses Materials verwendet werden können, erstellen wir ein Tag, das eine Liste von Items enthält. Lasst uns ein neues Tag zu unserer ItemTag-Provider-Klasse hinzufügen:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#repair_tags
+
+In unserem Beispiel werden wir den Kupferbarren als Reparaturmaterial für die Guidite verwenden. Wenn du stattdessen einen benutzerdefinierten Guidite-Barren erstellen möchtest, kannst du [ein benutzerdefiniertes Item erstellen](./first-item) und dessen ID zum Tag hinzufügen.
+
+Jetzt kannst du unsere Rüstungen an Ambossen reparieren:
+
+![Reparatur der Guidite-Rüstung auf einem Amboss](/assets/develop/items/mending_guidite.png)
 
 Wenn du Schwierigkeiten hast, die Werte für einen der Parameter zu bestimmen, kannst du die Vanilla-Instanzen von `ArmorMaterial` zu Rate ziehen, die in dem Interface `ArmorMaterials` zu finden sind.
 
@@ -64,7 +76,9 @@ Im Gegensatz zu `ToolMaterial` speichert `ArmorMaterial` keine Informationen üb
 
 Dies wird erreicht, indem die Konstante `BASE_DURABILITY`, die wir zuvor erstellt haben, an die Methode `maxDamage` in der Klasse `Item.Properties` übergeben wird.
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#create_armor_items
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items
 
 Außerdem musst du [die Items einem Kreativtab hinzufügen](./custom-creative-tabs), wenn du möchtest, dass sie über das Inventar zugänglich sind.
 
@@ -88,7 +102,7 @@ Du benötigst JSON-Modelldateien für alle Gegenstände, nicht nur für den Helm
 
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json
 
 Wie du sehen kannst, sollten die Rüstungsitems im Spiel geeignete Modelle haben:
 
@@ -100,20 +114,23 @@ Wenn eine Entität deine Rüstung trägt, wird nichts angezeigt. Das liegt daran
 
 ![Kaputtes Rüstungsmodell an einem Spieler](/assets/develop/items/armor_2.png)
 
-Es gibt zwei Schichten für die Rüstungstextur, beide müssen vorhanden sein.
+![Kaputtes Rüstungsmodell eines Baby-Humanoid](/assets/develop/items/armor_2_1.png)
+
+::: info
+
+Beachte, dass die Rüstungstextur für Baby-Humanoide seit Version 26.1 nicht mehr eine verkleinerte Version der Textur für erwachsene Humanoide ist. Stattdessen handelt es sich um eine Textur, die getrennt bereitgestellt werden muss.
+
+:::
+
+Es gibt drei Schichten für die Rüstungstextur, die vorhanden sein müssen.
 
 Zuvor haben wir eine Konstante `ResourceKey<EquipmentAsset>` mit dem Namen `GUIDITE_ARMOR_MATERIAL_KEY` erstellt, die wir an unseren `ArmorMaterial`-Konstruktor übergeben haben. Es wird empfohlen, die Textur ähnlich zu benennen, in unserem Fall also `guidite.png`
 
 - `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` - Enthält Oberkörper- und Stiefeltexturen.
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` - Enthält Hosentexturen.
+- `assets/example-mod/textures/entity/equipment/humanoid_baby/guidite.png` - Enthält die Textur für den Baby-Humanoid.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Rüstungsmodell-Texturen</DownloadEntry>
-
-::: tip
-
-Wenn du von einer älteren Version des Spiels auf 1.21.11 aktualisierst, ist der Ordner `humanoid` der Ort, an dem deine Rüstungstextur `layer0.png` liegt, und der Ordner `humanoid_leggings` ist der Ort, an dem deine Rüstungstextur `layer1.png` liegt.
-
-:::
 
 Als Nächstes musst du eine Definition für ein zugehöriges Ausrüstungsmodell erstellen. Diese gehören in den Ordner `/assets/example-mod/equipment/`.
 
@@ -121,10 +138,26 @@ Die Konstante `ResourceKey<EquipmentAsset>`, die wir zuvor erstellt haben, besti
 
 Da wir nur "Humanoide" Rüstungsteile (Helm, Brustpanzer, Hose, Stiefel usw.) hinzufügen wollen , werden die Definitionen der Ausrüstungsmodelle wie folgt aussehen:
 
-@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json
 
 Wenn die Texturen und die Definition des Rüstungsmodell vorhanden sind, solltest du in der Lage sein, deine Rüstung auf den Entitäten zu sehen, die sie tragen:
 
 ![Funktionierendes Rüstungsmodell an einem Spieler](/assets/develop/items/armor_3.png)
 
+![Funktionierendes Rüstungsmodell eines Baby-Humanoid](/assets/develop/items/armor_3_1.png)
+
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
+
+## Rüstungsitems taggen {#tags}
+
+:::info VORAUSSETZUNGEN
+
+Weitere Informationen findest du in der Dokumentation zur Erstellung von [Item Tags](../data-generation/tags).
+
+:::
+
+Es wird außerdem empfohlen, deine Rüstung in den entsprechenden Item Tags einzuordnen. Rüstungsteile haben eigene Tags, wie beispielsweise `ItemTags.CHEST_ARMOR`, die für die Verzauberbarkeit verwendet werden.
+
+Füge die folgenden Zeilen zu `addTags` in deinem Item Tag Provider hinzu:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#armor_tags

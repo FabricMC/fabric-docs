@@ -6,7 +6,7 @@ authors:
 ---
 
 :::tip
-Se hai difficoltà nel trovare la causa del crash, puoi chiedere aiuto nel [Discord di Fabric](https://discord.gg/v6v4pMv) nei canali `#player-support` o `#server-admin-support`.
+Se hai difficoltà nel trovare la causa del crash, puoi chiedere aiuto nel [Discord di Fabric](https://discord.gg/v6v4pMv) nei canali `#player-support` o `#mc-server-support`.
 :::
 
 Le segnalazioni di crash, o degli arresti anomali, sono una parte molto importante della risoluzione di problemi con il tuo gioco o server. Contengono molte informazioni riguardanti il crash, e ti possono aiutare a trovare la causa del crash.
@@ -43,7 +43,7 @@ Per questa guida, useremo [questa segnalazione di crash](/assets/players/crash-r
 
 :::details Segnalazioni dei Crash
 
-<<< @/public/assets/players/crash-report-example.log{log}
+<<< @/public/assets/players/crash-report-example.log{txt}
 
 :::
 
@@ -63,12 +63,6 @@ Ora che sappiamo cos'è ciascuna sezione della segnalazione di crash, possiamo i
 Usando l'esempio del link sopra, possiamo analizzare la segnalazione di crash e trovare la causa del crash, incluse le mod che l'hanno causato.
 
 Lo stack trace nella sezione `---- Minecraft Crash Report ----` è il più importante in questo caso, poiché contiene l'errore principale che ha causato il crash.
-
-:::details Mostra Errore
-
-<<< @/public/assets/players/crash-report-example.log{7 log}
-
-:::
 
 Con la quantità di mod menzionata nello stack trace, può essere difficile puntare il dito, ma la prima cosa da fare è cercare la mod che ha causato il crash.
 

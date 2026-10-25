@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Fabric Dokumentace
-  tagline: Oficiální dokumentace pro Fabric,<br />modovací toolchain pro Minecraft.
+  tagline: Oficiální dokumentace pro Fabric, modovací toolchain pro Minecraft.
 
 features:
   - title: Hráčské Návody
@@ -19,11 +19,5 @@ features:
     link: /cs_cz/1.21.11/develop/
     linkText: Zjistit více
 ---
-
-::: warning
-This documentation applies to Minecraft 1.21.11.
-
-Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
-:::
 
 Pokud chcete přispět do dokumentace Fabricu, zdrojový kód najdete na [GitHubu](https://github.com/FabricMC/fabric-docs), a související pokyny pro [přispívání](./contributing).

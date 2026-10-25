@@ -10,7 +10,21 @@ authors-nogithub:
 resources:
   https://github.com/FabricMC: FabricMC Organization on GitHub
   https://github.com/FabricMC/fabric-docs/tree/main/reference/latest: ExampleMod referenced by these docs
+  https://java-programming.mooc.fi/: "University of Helsinki: Java Programming MOOC"
+  https://dev.java/learn/: "Java Platform Group at Oracle: Learn Java"
+  https://www.codecademy.com/learn/learn-java: "Codecademy: Learn Java"
+  https://www.coursera.org/specializations/java-programming: "Duke University (via Coursera): Java Programming and Software Engineering Fundamentals"
+  https://www.youtube.com/watch?v=A74TOX803D0: "freeCodeCamp (YouTube): Java Programming for Beginners"
+  https://javabook.mccue.dev/: "Modern Java (Online textbook)"
 ---
+
+<!-- markdownlint-configure-file { MD033: { allowed_elements: [script, ul, li, a ] } } -->
+
+<script setup lang="ts">
+import { useData } from "vitepress";
+
+const javaResources = Object.entries(useData().frontmatter.value.resources).slice(2);
+</script>
 
 Fabric is a lightweight modding toolchain for Minecraft: Java Edition, designed to be simple and easy-to-use. It allows developers to apply modifications ("mods") to the vanilla game, to add new features or change existing mechanics.
 
@@ -30,10 +44,11 @@ Before you start modding with Fabric, you need to have some understanding of dev
 
 Here are some resources that might help you familiarize with Java and OOP:
 
-- [W3: Java Tutorials](https://www.w3schools.com/java/)
-- [Codecademy: Learn Java](https://www.codecademy.com/learn/learn-java)
-- [W3: Java OOP](https://www.w3schools.com/java/java_oop.asp)
-- [Medium: Introduction to OOP](https://medium.com/@Adekola_Olawale/beginners-guide-to-object-oriented-programming-a94601ea2fbd)
+<ul>
+  <li v-for="[url, title] in javaResources" :key="url">
+    <a :href="url" target="_blank" rel="noreferrer">{{ title }}</a>
+  </li>
+</ul>
 
 ## What Does Fabric Offer? {#what-does-fabric-offer}
 

@@ -1,8 +1,10 @@
 ---
 title: Власні обладунки
-description: Навчіться створювати власні обладунки.
+description: Дізнайтеся, як створювати власні обладунки.
 authors:
+  - cassiancc
   - IMB11
+  - NotNightSky
 ---
 
 Обладунки забезпечує гравцеві підвищений захист від атак мобів та інших гравців.
@@ -17,15 +19,15 @@ authors:
 
 Ця константа буде використовуватися в методі `Item.Properties#maxDamage(int damageValue)` під час створення наших предметів обладунків, вона також потрібна як параметр у конструкторі `ArmorMaterial`, коли ми створимо наш об’єкт `ArmorMaterial` пізніше.
 
-@[code transcludeWith=:::base_durability](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#base_durability
 
 Якщо вам важко визначити збалансовану базову міцність, ви можете звернутися до екземплярів матеріалу обладунків усталеного кольору, знайденого в інтерфейсі `ArmorMaterials`.
 
-### Ключ реєстру активів обладнання {#equipment-asset-registry-key}
+### Ключ ресурсів спорядження {#equipment-asset-resource-key}
 
-Попри те, що нам не потрібно реєструвати наш `ArmorMaterial` в жодних реєстрах, загалом добре зберігати будь-які ключі реєстру як константи, оскільки гра використовуватиме це для пошуку відповідних текстур для наших обладунків.
+Попри те, що нам не потрібно реєструвати наш `ArmorMaterial` в жодних реєстрах, загалом добре зберігати будь-які ключі ресурсів як константи, оскільки гра використовуватиме це для пошуку відповідних текстур для наших обладунків.
 
-@[code transcludeWith=:::material_key](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#material_key
 
 Пізніше ми передамо це конструктору `ArmorMaterial`.
 
@@ -33,7 +35,7 @@ authors:
 
 Щоб створити наш матеріал, нам потрібно створити новий екземпляр запису `ArmorMaterial`, тут використовуватимуться базова міцність і константи ключа реєстру матеріалів.
 
-@[code transcludeWith=:::guidite_armor_material](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#guidite_armor_material
 
 Конструктор `ArmorMaterial` приймає такі параметри в такому конкретному порядку:
 
@@ -50,7 +52,17 @@ authors:
 
 Ми визначаємо посилання на теґ компонента лагодження таким чином:
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
+
+Щоб визначити, які предмети можна використовувати на ковадлі для лагодження цього матеріалу, ми створимо теґ, що містить список предметів. Додаймо новий теґ до нашого теґу предметів постачальника класу:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#repair_tags
+
+У нашому прикладі ми використовуватимемо мідний злиток як матеріал лагодження для гайдиту. Якщо ж ви хочете створити власний злиток гайдиту, ви можете [створити власний предмет](./first-item) і додати його ID до теґу.
+
+Тепер ви зможете лагодити наші обладунки на ковадлах:
+
+![Лагодження гайдитових обладунку на ковадлі](/assets/develop/items/mending_guidite.png)
 
 Якщо вам важко визначити значення для будь-якого з параметрів, ви можете проконсультуватися з екземплярами `ArmorMaterial`, які можна знайти в інтерфейсі `ArmorMaterials`.
 
@@ -64,7 +76,9 @@ authors:
 
 Це досягається шляхом передачі створеної нами раніше константи `BASE_DURABILITY` в метод `maxDamage` у класі `Item.Properties`.
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#create_armor_items
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items
 
 Вам також потрібно буде [додати предмети до вкладок творчості](./custom-creative-tabs), якщо ви хочете, щоб вони були доступні з інвентарю.
 
@@ -88,7 +102,7 @@ authors:
 
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json
 
 Як бачите, в грі предмети обладунків повинні мати відповідні моделі:
 
@@ -100,20 +114,23 @@ authors:
 
 ![Модель зламаних обладунків на гравці](/assets/develop/items/armor_2.png)
 
-Є два шари для текстури обладунків, обидва повинні бути присутніми.
+![Зламана модель обладунків на дитячій гуманоїдній моделі](/assets/develop/items/armor_2_1.png)
+
+::: info
+
+Зауважте, що починаючи з версії 26.1, текстура обладунків для дитячих гуманоїдних моделей більше не є зменшеною копією текстури для дорослих. Натомість це текстура, яку потрібно надати окремо.
+
+:::
+
+Текстура обладунків складається з трьох шарів, які обов'язково мають бути присутніми.
 
 Раніше ми створили константу `ResourceKey<EquipmentAsset>` під назвою `GUIDITE_ARMOR_MATERIAL_KEY`, яку ми передали в наш конструктор `ArmorMaterial`. Рекомендується так само назвати текстуру, тому в нашому випадку це `guidite.png`
 
 - `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` — містить текстури верхньої частини тіла та чоботів.
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` — містить текстури наголінників.
+- `assets/example-mod/textures/entity/equipment/humanoid_baby/guidite.png` — містить текстуру для дитячої гуманоїдної моделі.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Текстури моделі обладунків Guidite</DownloadEntry>
-
-::: tip
-
-Якщо ви оновлюєте старішу версію гри до 1.21.11, у теці `humanoid` буде ваша текстура обладунків `layer0.png`, а в теці `humanoid_leggings` — ваша текстура обладунків `layer1.png`.
-
-:::
 
 Далі вам потрібно буде створити пов’язане визначення моделі обладнання. Вони знаходяться в теці `/assets/example-mod/equipment/`.
 
@@ -121,10 +138,26 @@ authors:
 
 Оскільки ми плануємо додати лише «гуманоїдні» (шолом, нагрудник, наголінники, чоботи тощо) обладунків, наше визначення моделі обладнання виглядатиме так:
 
-@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json
 
 З наявністю текстур і визначення моделі спорядження ви зможете бачити свої обладунки на сутностях, які її носять:
 
 ![Робоча модель обладунків на гравці](/assets/develop/items/armor_3.png)
 
+![Робоча модель обладунків на дитячій гуманоїдній моделі](/assets/develop/items/armor_3_1.png)
+
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
+
+## Додавання предметів обладунків до теґу {#tags}
+
+:::info ПЕРЕДУМОВИ
+
+Щоб отримати додаткові відомості, перегляньте документацію щодо створення [теґів предмета](../data-generation/tags).
+
+:::
+
+Також рекомендується розміщувати обладунки у відповідних теґах предметів. Частинки обладунків мають власні індивідуальні теґи, як-от `ItemTags.CHEST_ARMOR`, що використовуються для визначення можливості накладання чарів.
+
+У вашому постачальнику теґів предмета додайте такі рядки до `addTags`:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#armor_tags

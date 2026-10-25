@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Documentação do Fabric
-  tagline: A documentação oficial para o Fabric,<br />um conjunto de ferramentas para mods de Minecraft.
+  tagline: A documentação oficial para o Fabric, um conjunto de ferramentas para mods de Minecraft.
 
 features:
   - title: Guias do Jogador
@@ -19,11 +19,5 @@ features:
     link: /pt_br/1.21.11/develop/
     linkText: Guia de Introdução
 ---
-
-::: warning
-This documentation applies to Minecraft 1.21.11.
-
-Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
-:::
 
 Se desejar contribuir à Documentação do Fabric, você pode encontrar o código-fonte no [GitHub](https://github.com/FabricMC/fabric-docs), leia também as [diretrizes de contribuição](./contributing).

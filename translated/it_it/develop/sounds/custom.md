@@ -33,7 +33,7 @@ Aggiungi un nuovo percorso `resources/assets/example-mod/sounds` per i suoni del
 
 Se non esiste ancora, crea il file `resources/assets/example-mod/sounds.json` e aggiungici i tuoi suoni.
 
-@[code lang=json](@/reference/latest/src/main/resources/assets/example-mod/sounds.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/sounds.json
 
 La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nome del sottotitolo è usato nei file di lingua nel percorso `resources/assets/example-mod/lang` e verrà visualizzato se l'impostazione dei sottotitoli nel gioco è attiva e se questo suono personalizzato viene riprodotto.
 
@@ -42,8 +42,8 @@ La voce subtitle fornisce un contesto più approfondito per il giocatore. Il nom
 Per aggiungere il suono personalizzato alla mod, registra un SoundEvent nell'[initializer della tua mod](../getting-started/project-structure#entrypoints).
 
 ```java
-Registry.register(BuiltInRegistries.SOUND_EVENT, Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle"),
-        SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle")));
+Registry.register(BuiltInRegistries.SOUND_EVENT, ExampleMod.id("metal_whistle"),
+        SoundEvent.createVariableRangeEvent(ExampleMod.id("metal_whistle")));
 ```
 
 ## Ripulire il Disordine {#cleaning-up-the-mess}
@@ -52,11 +52,11 @@ A seconda di quante voci ci sono nella Registry, le cose potrebbero presto sfugg
 
 Aggiungi due nuovi metodi alla classe ausiliaria appena creata. Uno che registra tutti i suoni, e uno che viene usato per inizializzare questa classe in primo luogo. Dopo di che, puoi comodamente aggiungere nuovi attributi `SoundEvent` statici personalizzati a seconda delle necessità.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java)
+<<< @/reference/latest/src/main/java/com/example/docs/sound/CustomSounds.java#custom_sounds
 
 Facendo così, basta che l'initializer della tua mod implementi una riga sola per registrare tutti i SoundEvent personalizzati.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java)
+<<< @/reference/latest/src/main/java/com/example/docs/sound/ExampleModSounds.java#example_mod_sounds
 
 ## Usare il SoundEvent Personalizzato {#using-the-custom-soundevent}
 

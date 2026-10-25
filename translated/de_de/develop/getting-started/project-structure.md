@@ -3,16 +3,13 @@ title: Projektstruktur
 description: Ein Überblick über die Struktur eines Fabric-Mod-Projekts.
 authors:
   - IMB11
-resources:
-  https://wiki.fabricmc.net/documentation:fabric_mod_json: fabric.mod.json v1 Spezifikation - Fabric Wiki
-  https://github.com/FabricMC/fabric-loom/blob/dev/1.15/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java: Quellcode für die fabric.mod.json v1 Spezifikation
 ---
 
 Auf dieser Seite wird die Struktur eines Fabric-Mod-Projekts und der Zweck der einzelnen Dateien und Ordner im Projekt erläutert.
 
 ## `fabric.mod.json` {#fabric-mod-json}
 
-Die Datei `fabric.mod.json` ist die Hauptdatei, die deine Mod für den Fabric Loader beschreibt. Sie enthält Informationen wie die ID der Mod, die Version und die Abhängigkeiten.
+Die Datei [`fabric.mod.json`](../loader/fabric-mod-json) ist die Hauptdatei, die deinen Mod dem Fabric Loader beschreibt. Sie enthält Informationen wie die ID der Mod, die Version und die Abhängigkeiten.
 
 Die wichtigsten Felder in der Datei `fabric.mod.json` sind:
 
@@ -23,17 +20,9 @@ Die wichtigsten Felder in der Datei `fabric.mod.json` sind:
 - `depends`: Die Mods, von denen deine Mod abhängt.
 - `mixins`: Die Mixins, die deine Mod bereitstellt.
 
-Nachfolgend siehst du ein Beispiel der `fabric.mod.json` Datei, does ist die `fabric.mod.json` Datei des Mods, der diese Dokumentationsseite antreibt.
-
-:::details `fabric.mod.json` des Beispiel-Mods
-
-@[code lang=json](@/reference/latest/src/main/resources/fabric.mod.json)
-
-:::
-
 ## Einstiegspunkte {#entrypoints}
 
-Wie bereits erwähnt, enthält die Datei `fabric.mod.json` ein Feld namens `entrypoints` - dieses Feld wird verwendet, um die Einstiegspunkte anzugeben, die deine Mod bereitstellt.
+Wie bereits zuvor erwähnt, enthält die Datei [`fabric.mod.json`](../loader/fabric-mod-json) ein Feld mit dem Namen `entrypoints` - dieses Feld wird verwendet, um die Einstiegspunkte anzugeben, die dein Mod bereitstellt.
 
 Der Template-Mod-Generator erstellt standardmäßig sowohl einen `main`- als auch einen `client`-Einstiegspunkt:
 
@@ -44,7 +33,15 @@ Diese Einstiegspunkte werden jeweils aufgerufen, wenn das Spiel beginnt.
 
 Hier ist ein Beispiel für einen einfachen `main`-Einstiegspunkt, der eine Nachricht an die Konsole ausgibt, wenn das Spiel startet:
 
-@[code lang=java transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
+
+### ID Helfer {#id-helper}
+
+Die offizielle Vorlage enthält eine Hilfsmethode, mit der sich `Identifier` einfach erstellen lassen. Sie ist über `ExampleMod.id(...)` zugänglich:
+
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#id_helper_usage
+
+In der Dokumentation wird dieser Helfer ausgiebig verwendet. Wenn du die Beispiele nacharbeitest, achte darauf, alle Verweise auf `ExampleMod` durch den Namen deines eigenen Mod-Initialisierers zu ersetzen.
 
 ## `src/main/resources` {#src-main-resources}
 

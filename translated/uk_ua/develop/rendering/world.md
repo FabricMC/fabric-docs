@@ -24,7 +24,7 @@ authors:
 
 Як згадувалося в [концепціях рендера](./basic-concepts), останні оновлення Minecraft працюють над розділенням рендера на дві фази: «вилучення» та «малювання».
 
-Усі дані, необхідні для рендера, збираються під час фази «вилучення». Це включає, наприклад, запис у буферизований конструктор. Запис вершин у буферизований конструктор через `buffer.addVertex` є частиною фази «вилучення». Зауважте, що попри те, що багато методів мають префікс `draw` або `render`, їх слід викликати під час фази «вилучення». Ви повинні додати всі елементи, які ви хочете рендерити на цьому етапі.
+Усі дані, необхідні для рендера, збираються під час фази «вилучення». Це включає, наприклад, доступ до даних світу. Зауважте, що попри те, що багато методів мають префікс `draw` або `render`, їх слід викликати під час фази «вилучення». Ви повинні додати всі елементи, які ви хочете рендерити на цьому етапі.
 
 Після завершення фази «вилучення» починається фаза «малювання», і створено буферизований конструктор. Під час цієї фази буферизований конструктор промальовування на екрані. Кінцева мета цього розділення «вилучення» та «малювання» полягає в тому, щоб дозволити малювати попередній кадр паралельно з вилученням наступного кадру, покращуючи продуктивність.
 
@@ -38,41 +38,41 @@ authors:
 
 Ми визначаємо власний конвеєр рендера в класі:
 
-@[code lang=java transcludeWith=:::custom-pipelines:define-pipeline](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_define_pipeline
 
 ### Фаза вилучення {#extraction-phase}
 
 Спочатку ми реалізуємо фазу «вилучення». Ми можемо викликати цей метод під час фази «вилучення», щоб додати маршрутну точку для рендера.
 
-@[code lang=java transcludeWith=:::custom-pipelines:extraction-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_extraction_phase
 
-Зауважте, що розмір, який використовується в конструкторі `BufferAllocator`, залежить від конвеєра рендера, який ви використовуєте. У нашому випадку це `RenderType.SMALL_BUFFER_SIZE`.
-
-Якщо ви хочете рендерити кілька маршрутних точок, викликайте цей метод кілька разів. Переконайтеся, що ви робите це під час фази «вилучення», ПЕРЕД початком фази «малювання», на якій будується конструктор буферів.
+Якщо ви хочете рендерити кілька маршрутних точок, змініть `waypointState` на список і додайте кілька станів рендера маршрутних точок. Переконайтеся, що ви робите це під час фази «вилучення», ПЕРЕД початком фази «малювання», на якій будується конструктор буферів.
 
 ### Стани рендера {#render-states}
 
-Зауважте, що у наведеному вище коді ми зберігаємо `BufferBuilder` у полі. Це тому, що нам це потрібно на етапі «малювання». У цьому випадку `BufferBuilder` — це наш «стан рендера» або «вилучені дані». Якщо вам потрібні додаткові дані під час фази «малювання», вам слід створити спеціальний клас стану рендера для зберігання `BufferedBuilder` і будь-яких додаткових даних рендера, які вам потрібні.
+Зауважте, що у наведеному вище коді ми зберігаємо `WaypointRenderState` у полі. Це тому, що нам це потрібно на етапі «малювання». У цьому випадку `WaypointRenderState` — це наш «стан рендера» або «видобуті дані». Якщо вам потрібні додаткові дані (тобто зі світу) під час фази «малювання», ви повинні додати їх до свого спеціального класу стану рендера.
 
 ### Фаза малювання {#drawing-phase}
 
-Тепер ми реалізуємо етап «малювання». Це слід викликати після того, як усі маршрутні точки, які ви хочете рендерити, були додані до `BufferBuilder` під час фази «вилучення».
+Тепер ми реалізуємо етап «малювання». Це слід викликати після того, як усі маршрутні точки, які ви хочете рендерити, були додані до `waypointState` під час фази «вилучення».
 
-@[code lang=java transcludeWith=:::custom-pipelines:drawing-phase](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_drawing_phase
+
+Зауважте, що розмір, який використовується в конструкторі `StagedVertexBuffer`, залежить від конвеєра рендера, який ви використовуєте. У нашому випадку це `RenderType.SMALL_BUFFER_SIZE`.
 
 ### Очищення {#cleaning-up}
 
 Нарешті, нам потрібно очистити ресурси, коли ігровий рендер закінчено. `GameRenderer#close` має викликати цей метод, і для цього вам наразі потрібно вставити в `GameRenderer#close` за допомогою міксина.
 
-@[code lang=java transcludeWith=:::custom-pipelines:clean-up](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_clean_up
 
-@[code lang=java](@/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java)
+<<< @/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java
 
 ### Остаточний код {#final-code}
 
 Об'єднавши всі описані вище кроки, ми отримаємо простий клас, який рендерить маршрутну точку на `(0, 100, 0)` через стіни.
 
-@[code lang=java](@/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java
 
 Не забудьте також про `GameRendererMixin`! Ось результат:
 

@@ -18,7 +18,6 @@ authors:
   - TelepathicGrunt
 authors-nogithub:
   - siglong
-outline: false
 ---
 
 ## Установлення JDK 25 {#install-jdk-25}

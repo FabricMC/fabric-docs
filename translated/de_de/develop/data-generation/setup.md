@@ -38,11 +38,11 @@ Wenn der Datengenerator aktiviert ist, solltest du eine "Data Generation" Laufko
 
 Zuerst müssen wir den Datengenerator in der Datei `build.gradle` aktivieren.
 
-@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+<<< @/reference/build.gradle#datagen_setup_configure
 
 Als nächstes, benötigen wir eine Klasse für den Einstiegspunkt. Dies ist dort, wo unser Datengenerator startet. Platziere diese irgendwo in dem `client` Packet - dieses Beispiel platziert diese in `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`.
 
-@[code lang=java transcludeWith=:::datagen-setup:generator](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_setup_generator
 
 Schließlich müsen wir Fabric in der `fabric.mod.json` über den Einstiegspunkt informieren:
 
@@ -75,7 +75,7 @@ Schließe IntelliJ und öffne es erneut, um eine Laufkonfiguration für den Date
 
 Innerhalb der Methode `onInitializeDataGenerator` deines Einstiegspunktes für die Datengenerierung müssen wir ein `Pack` erstellen. Später fügst du **Provider** hinzu, die generierte Daten in dieses `Pack` einfügen.
 
-@[code lang=java transcludeWith=:::datagen-setup:pack](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_setup_pack
 
 ## Ausführen der Datengenerierung {#running-data-generation}
 

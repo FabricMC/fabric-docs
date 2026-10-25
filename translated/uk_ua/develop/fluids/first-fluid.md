@@ -46,49 +46,57 @@ authors-nogithub:
 
 Зібравши все це разом, ми отримаємо наступний клас:
 
-@[code transcludeWith=:::abstractFluid](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#abstract_fluid
 
 Усередині `AcidFluid` ми створимо два підкласи для рідин `Source` і `Flowing`.
 
-@[code transcludeWith=:::fluidSubclasses](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#fluid_subclasses
 
 ### Реєстрація рідин {#registering-fluids}
 
-Далі ми створимо клас для реєстрації всіх екземплярів рідини. Ми назвемо це `ModFluids`.
+Далі ми створимо клас для зберігання всіх ID рідини. Ми назвемо це `ModFluidIds`.
 
-@[code transcludeWith=:::register](@/reference/latest/src/main/java/com/example/docs/fluid/ModFluids.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluidIds.java#register
+
+Ми використаємо ці ID в новому класі, щоб зареєструвати всі екземпляри рідини. Ми назвемо це `ModFluids`.
+
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluids.java#register
 
 Як і з блоками, вам потрібно переконатися, що клас завантажено, щоб усі статичні поля, що містять екземпляри вашої рідини, були ініціалізовані. Ви можете зробити це, створивши фіктивний метод `initialize`, який можна викликати в [ініціалізаторі мода](../getting-started/project-structure#entrypoints), щоб запустити статичну ініціалізацію.
 
 Тепер поверніться до класу `AcidFluid` і додайте ці методи, щоб зв’язати зареєстровані екземпляри рідини з цією рідиною:
 
-@[code transcludeWith=:::sources](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#sources
 
-Наразі ми зареєстрували вихідний стан рідини та її текучий стан. Далі нам потрібно буде зареєструвати відро та `LiquidBlock` для нього.
+Наразі ми зареєстрували початковий стан рідини та її текучий стан. Далі нам потрібно буде зареєструвати відро та `LiquidBlock` для нього.
 
 ### Реєстрація блоків рідини {#fluid-blocks}
 
-Тепер додаймо блок рідини для нашої рідини. Це потрібно деяким командам, таким як `setblock`, щоб ваша рідина могла існувати у світі. Якщо ви ще цього не зробили, вам слід поглянути на [як створити свій перший блок](../blocks/first-block).
+Тепер додаймо блок рідини для нашої рідини. Це потрібно деяким командам, таким як `setblock`, щоб ваша рідина могла існувати у світі. Якщо ви ще цього не зробили, вам слід поглянути на те, [як створити свій перший блок](../blocks/first-block).
 
-Відкрийте свій клас `ModBlocks` і зареєструйте наступний `LiquidBlock`:
+Відкрийте свій клас `ModBlockIds` і додайте такий `ResourceKey`:
 
-@[code transcludeWith=:::acid](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#acid
+
+Потім відкрийте клас `ModBlocks` і зареєструйте наведений нижче `LiquidBlock`, використовуючи цей ключ:
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#acid
 
 Потім змініть цей метод у `AcidFluid`, щоб пов’язати ваш блок із рідиною:
 
-@[code transcludeWith=:::legacyBlock](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#legacy_block
 
 ### Реєстрація відер {#buckets}
 
-Рідини в Minecraft зазвичай переносяться у відрах, тому подивімося, як ми можемо додати предмет для відра кислоти. Якщо ви ще цього не зробили, вам слід поглянути на [як створити свій перший предмет](../items/first-item).
+Рідини в Minecraft зазвичай переносяться у відрах, тому подивімося, як ми можемо додати предмет для відра кислоти. Якщо ви ще цього не зробили, вам слід поглянути на те, [як створити свій перший предмет](../items/first-item).
 
 Відкрийте свій клас `ModItems` і зареєструйте наступний `BucketItem`:
 
-@[code transcludeWith=:::acid_bucket](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#acid_bucket
 
 Потім змініть цей метод у `AcidFluid`, щоб пов’язати ваше відро з рідиною:
 
-@[code transcludeWith=:::bucket](@/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java)
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/custom/AcidFluid.java#bucket
 
 Не забувайте, що предмети вимагають перекладу, [текстури](../items/first-item#adding-a-texture), [моделі](../items/first-item#adding-a-model) та [клієнтського предмета](../items/first-item#creating-the-client-item) з назвою `acid_bucket` для правильного рендера. Приклад текстури наведено нижче.
 
@@ -134,8 +142,8 @@ Minecraft також надає інші теґи для контролю пов
 
 Додайте наступні рядки до свого `ClientModInitializer`, щоб створити `FluidModel.Unbaked`, який приймає два `Material` для текстур — один для нерухомого джерела та один для текучої рідини, а також відтінок кольору блока джерела, яким його потрібно відтінити.
 
-@[code transcludeWith=:::fluid_texture](@/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid_texture
 
-На цей час у нас є все, що нам потрібно, щоб побачити кислоту у грі! Ви можете використовувати `setblock` або предмет відра кислоти, щоб розмістити кислоту у світі.
+Наразі у нас є все, що нам потрібно, щоб побачити кислоту у грі! Ви можете використовувати `setblock` або предмет відра кислоти, щоб розмістити кислоту у світі.
 
 ![Знімок екрана зеленої рідини кислоти у світі](/assets/develop/fluids/acid.png)

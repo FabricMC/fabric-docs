@@ -18,29 +18,29 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-// :::custom-constructor
+// #region custom_constructor
 public class VerticalSlabBlock extends Block {
-	// :::custom-constructor
+	// #endregion custom_constructor
 
-	// :::custom-properties
+	// #region custom_properties
 	public static final BooleanProperty SINGLE = BooleanProperty.create("single");
 	public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
-	// :::custom-properties
-	// :::custom-voxels
+	// #endregion custom_properties
+	// #region custom_voxels
 	public static final VoxelShape NORTH_SHAPE = Block.box(0.0, 0.0, 0.0, 16.0, 16.0, 8.0);
 	public static final VoxelShape SOUTH_SHAPE = Block.box(0.0, 0.0, 8.0, 16.0, 16.0, 16.0);
 	public static final VoxelShape WEST_SHAPE = Block.box(0.0, 0.0, 0.0, 8.0, 16.0, 16.0);
 	public static final VoxelShape EAST_SHAPE = Block.box(8.0, 0.0, 0.0, 16.0, 16.0, 16.0);
-	// :::custom-voxels
+	// #endregion custom_voxels
 
-	// :::custom-constructor
+	// #region custom_constructor
 	public VerticalSlabBlock(Properties settings) {
 		super(settings);
 	}
 
-	// :::custom-constructor
+	// #endregion custom_constructor
 
-	// :::custom-collision
+	// #region custom_collision
 	@Override
 	protected VoxelShape getBlockSupportShape(BlockState state, BlockGetter level, BlockPos pos) {
 		boolean type = state.getValue(SINGLE);
@@ -71,9 +71,9 @@ public class VerticalSlabBlock extends Block {
 	protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		return this.getBlockSupportShape(state, level, pos);
 	}
-	// :::custom-collision
+	// #endregion custom_collision
 
-	// :::custom-replace
+	// #region custom_replace
 	@Override
 	protected boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
 		Direction direction = state.getValue(FACING);
@@ -86,9 +86,9 @@ public class VerticalSlabBlock extends Block {
 
 		return false;
 	}
-	// :::custom-replace
+	// #endregion custom_replace
 
-	// :::custom-placement
+	// #region custom_placement
 	@Override
 	@Nullable
 	public BlockState getStateForPlacement(BlockPlaceContext ctx) {
@@ -113,15 +113,15 @@ public class VerticalSlabBlock extends Block {
 			return state2.setValue(FACING, direction);
 		}
 	}
-	// :::custom-placement
+	// #endregion custom_placement
 
-	// :::custom-append
+	// #region custom_append
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(SINGLE, FACING);
 	}
-	// :::custom-append
+	// #endregion custom_append
 
-	// :::custom-constructor
+	// #region custom_constructor
 }
-// :::custom-constructor
+// #endregion custom_constructor

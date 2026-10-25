@@ -21,7 +21,7 @@ resources:
 
 Найпростіший спосіб створити об’єкт `Component` — створити літерал. Це просто рядок, який промальовуватиметься як є, усталено без жодного форматування.
 
-Вони створюються за допомогою методів `Component.nullToEmpty або `Component.literal`, які обидва діють трохи по різному. `Component.nullToEmpty`приймає нульові значення як вхідні дані та повертає екземпляр`Component`. На відміну від цього, `Component.literal`не повинен мати нульовий вхід, але повертає`MutableComponent`, це підклас `Component\`, який можна легко стилізувати та об’єднувати. Про це пізніше.
+Вони створюються за допомогою методів `Component.nullToEmpty` або `Component.literal`, які обидва діють трохи по різному. `Component.nullToEmpty` приймає нульові значення як вхідні дані та повертає екземпляр `Component`. На відміну від цього, `Component.literal` не повинен мати нульовий вхід, але повертає `MutableComponent`, це підклас `Component`, який можна легко стилізувати та об’єднувати. Про це пізніше.
 
 ```java
 Component literal = Component.nullToEmpty("Hello, world!");
@@ -86,7 +86,7 @@ Component translatable = Component.translatable("example-mod.text.whack.item", v
 
 Як згадувалося раніше, ви можете серіалізувати текст у JSON за допомогою текстового кодека. Додаткову інформацію про кодеки див. сторінку [кодеків](./codecs).
 
-@[code transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#component_to_string
 
 Це створює JSON, який можна використовувати в пакетах даних, командах та інших місцях, які приймають формат тексту JSON замість літерального або перекладаного тексту.
 
@@ -94,7 +94,7 @@ Component translatable = Component.translatable("example-mod.text.whack.item", v
 
 Крім того, щоб десеріалізувати текстовий об’єкт JSON у справжній клас `Component`, знову скористайтеся кодеком.
 
-@[code transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#string_to_component
 
 ## Форматування тексту {#formatting-text}
 

@@ -1,6 +1,7 @@
 package com.example.docs.item;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 import net.minecraft.core.Registry;
@@ -8,13 +9,15 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.BlockTags;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.AxeItem;
@@ -26,14 +29,19 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.ShieldItem;
+import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.component.BlocksAttacks;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BannerPatternLayers;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
@@ -50,69 +58,130 @@ import com.example.docs.item.armor.GuiditeArmorMaterial;
 import com.example.docs.item.custom.CounterItem;
 import com.example.docs.item.custom.LightningStick;
 import com.example.docs.networking.basic.LightningTaterItem;
+import com.example.docs.projectile.HotTaterItem;
 
-// :::1
+// #region mod_items_class
 public class ModItems {
-	// :::1
+	// #endregion mod_items_class
 
-	// :::guidite_tool_material
+	// #region guidite_incorrect_blocks_tag
+	public static final TagKey<Block> INCORRECT_FOR_GUIDITE_TOOL = TagKey.create(Registries.BLOCK,
+			ExampleMod.id("incorrect_for_guidite_tool"));
+	// #endregion guidite_incorrect_blocks_tag
+
+	// #region guidite_tool_material
 	public static final ToolMaterial GUIDITE_TOOL_MATERIAL = new ToolMaterial(
-			BlockTags.INCORRECT_FOR_WOODEN_TOOL,
-			455,
-			5.0F,
-			1.5F,
-			22,
-			GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR
+			INCORRECT_FOR_GUIDITE_TOOL, // incorrect blocks for drops
+			455, // durability
+			5.0F, // speed
+			1.5F, // attack damage bonus
+			22, // enchantment value
+			GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR // repair items
 	);
-	// :::guidite_tool_material
+	// #endregion guidite_tool_material
 
-	// :::6
+	// #region create_armor_items
 	public static final Item GUIDITE_HELMET = register(
-			"guidite_helmet",
+			ModItemIds.GUIDITE_HELMET,
 			Item::new,
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.HELMET)
 					.durability(ArmorType.HELMET.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
-	public static final Item GUIDITE_CHESTPLATE = register("guidite_chestplate",
+	public static final Item GUIDITE_CHESTPLATE = register(
+			ModItemIds.GUIDITE_CHESTPLATE,
 			Item::new,
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.CHESTPLATE)
 					.durability(ArmorType.CHESTPLATE.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 
 	public static final Item GUIDITE_LEGGINGS = register(
-			"guidite_leggings",
+			ModItemIds.GUIDITE_LEGGINGS,
 			Item::new,
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.LEGGINGS)
 					.durability(ArmorType.LEGGINGS.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 
 	public static final Item GUIDITE_BOOTS = register(
-			"guidite_boots",
+			ModItemIds.GUIDITE_BOOTS,
 			Item::new,
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.BOOTS)
 					.durability(ArmorType.BOOTS.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
-	// :::6
-	public static final Item LIGHTNING_STICK = register("lightning_stick", LightningStick::new, new Item.Properties());
-	// :::7
+	// #endregion create_armor_items
+	public static final Item LIGHTNING_STICK = register(ModItemIds.LIGHTNING_STICK, LightningStick::new, new Item.Properties());
+
+	// #region guidite_sword
 	public static final Item GUIDITE_SWORD = register(
-			"guidite_sword",
+			ModItemIds.GUIDITE_SWORD,
 			Item::new,
 			new Item.Properties().sword(GUIDITE_TOOL_MATERIAL, 1f, 1f)
 	);
-	// :::7
-	// :::_13
+	// #endregion guidite_sword
+
+	// #region guidite_pickaxe
+	public static final Item GUIDITE_PICKAXE = register(
+			ModItemIds.GUIDITE_PICKAXE,
+			Item::new,
+			new Item.Properties().pickaxe(GUIDITE_TOOL_MATERIAL, 2.0F, -1.0F)
+	);
+	// #endregion guidite_pickaxe
+
+	// #region guidite_axe
+	public static final Item GUIDITE_AXE = register(
+			ModItemIds.GUIDITE_AXE,
+			settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings),
+			new Item.Properties()
+	);
+	// #endregion guidite_axe
+
+	// #region guidite_spear
+	public static final Item GUIDITE_SPEAR = register(
+			ModItemIds.GUIDITE_SPEAR,
+			Item::new,
+			new Item.Properties().spear(GUIDITE_TOOL_MATERIAL, 2.8f, 0.3f, 1.4f, 1.1f, 2.0f, 1.1f, 0.15f, 0.25f, 0.45f)
+	);
+	// #endregion guidite_spear
+
+	// #region guidite_shovel
+	public static final Item GUIDITE_SHOVEL = register(
+			ModItemIds.GUIDITE_SHOVEL,
+			settings -> new ShovelItem(GUIDITE_TOOL_MATERIAL, 1.0F, -1.0F, settings),
+			new Item.Properties()
+	);
+	// #endregion guidite_shovel
+
+	// #region guidite_hoe
+	public static final Item GUIDITE_HOE = register(
+			ModItemIds.GUIDITE_HOE,
+			settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, 2.0F, -1.0F, settings),
+			new Item.Properties()
+	);
+	// #endregion guidite_hoe
+
+	// #region shield
+	public static final Item GUIDITE_SHIELD = register(
+					ModItemIds.GUIDITE_SHIELD,
+					ShieldItem::new,
+					new Item.Properties().durability(336)
+									.component(DataComponents.BANNER_PATTERNS, BannerPatternLayers.EMPTY)
+									.repairable(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR)
+									.equippableUnswappable(EquipmentSlot.OFFHAND)
+									.delayedComponent(DataComponents.BLOCKS_ATTACKS, (context) -> new BlocksAttacks(0.25F, 1.0F, List.of(new BlocksAttacks.DamageReduction(90.0F, Optional.empty(), 0.0F, 1.0F)), new BlocksAttacks.ItemDamageFunction(3.0F, 1.0F, 1.0F), Optional.of(context.getOrThrow(DamageTypeTags.BYPASSES_SHIELD)), Optional.of(SoundEvents.SHIELD_BLOCK), Optional.of(SoundEvents.SHIELD_BREAK)))
+									.component(DataComponents.BREAK_SOUND, SoundEvents.SHIELD_BREAK)
+	);
+	// #endregion shield
+	// #region counter
 	public static final Item COUNTER = register(
-			"counter",
+			ModItemIds.COUNTER,
 			CounterItem::new,
 			new Item.Properties()
 					// Initialize the click count component with a default value of 0
 					.component(ModComponents.CLICK_COUNT_COMPONENT, 0)
 	);
-	// :::_13
-	// :::9
+	// #endregion counter
+	// #region custom_creative_tab
 	public static final ResourceKey<CreativeModeTab> CUSTOM_CREATIVE_TAB_KEY = ResourceKey.create(
-			BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "creative_tab")
+			BuiltInRegistries.CREATIVE_MODE_TAB.key(), ExampleMod.id("creative_tab")
 	);
 	public static final CreativeModeTab CUSTOM_CREATIVE_TAB = FabricCreativeModeTab.builder()
 			.icon(() -> new ItemStack(ModItems.GUIDITE_SWORD))
@@ -120,10 +189,11 @@ public class ModItems {
 			.displayItems((params, output) -> {
 				output.accept(ModItems.SUSPICIOUS_SUBSTANCE);
 				output.accept(ModItems.POISONOUS_APPLE);
-				// :::9
+				// #endregion custom_creative_tab
 				output.accept(ModItems.ACID_BUCKET);
 				output.accept(ModItems.COUNTER);
 				output.accept(ModItems.LIGHTNING_TATER);
+				output.accept(ModItems.HOT_TATER);
 				output.accept(ModItems.TEST_ITEM);
 				output.accept(ModItems.GUIDITE_SWORD);
 				output.accept(ModItems.GUIDITE_HELMET);
@@ -131,12 +201,12 @@ public class ModItems {
 				output.accept(ModItems.GUIDITE_LEGGINGS);
 				output.accept(ModItems.GUIDITE_CHESTPLATE);
 				output.accept(ModItems.LIGHTNING_STICK);
-				// :::9
+				// #region custom_creative_tab
 
 				// The tab builder also accepts Blocks
 				output.accept(ModBlocks.CONDENSED_DIRT);
 				output.accept(ModBlocks.CONDENSED_OAK_LOG);
-				// :::9
+				// #endregion custom_creative_tab
 				output.accept(ModBlocks.PRISMARINE_LAMP);
 				output.accept(ModBlocks.STEEL_BLOCK);
 				output.accept(ModBlocks.PIPE_BLOCK);
@@ -144,6 +214,7 @@ public class ModItems {
 				output.accept(ModBlocks.DIRT_CHEST_BLOCK);
 				output.accept(ModBlocks.COUNTER_BLOCK);
 				output.accept(ModBlocks.ENGINE_BLOCK);
+				output.accept(ModBlocks.FRIENDS_BLOCK);
 				output.accept(ModBlocks.RUBY_BLOCK);
 				output.accept(ModBlocks.RUBY_STAIRS);
 				output.accept(ModBlocks.RUBY_SLAB);
@@ -153,7 +224,7 @@ public class ModItems {
 				output.accept(ModBlocks.VERTICAL_OAK_LOG_SLAB);
 				output.accept(ModBlocks.WAXCAP);
 				output.accept(ModBlocks.TATER_BLOCK);
-				// :::9
+				// #region custom_creative_tab
 
 				// And custom ItemStacks
 				ItemStack stack = new ItemStack(Items.SEA_PICKLE);
@@ -162,8 +233,8 @@ public class ModItems {
 				output.accept(stack);
 			})
 			.build();
-	// :::9
-	// :::5
+	// #endregion custom_creative_tab
+	// #region custom_food
 	public static final Consumable POISON_FOOD_CONSUMABLE_COMPONENT = Consumables.defaultFood()
 			// The duration is in ticks, 20 ticks = 1 second
 			.onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.POISON, 6 * 20, 1), 1.0f))
@@ -171,35 +242,57 @@ public class ModItems {
 	public static final FoodProperties POISON_FOOD_COMPONENT = new FoodProperties.Builder()
 			.alwaysEdible()
 			.build();
-	// :::5
+	// #endregion custom_food
 
-	// :::poisonous_apple
+	// #region poisonous_apple
 	public static final Item POISONOUS_APPLE = register(
-			"poisonous_apple",
+			ModItemIds.POISONOUS_APPLE,
 			Item::new,
 			new Item.Properties().food(POISON_FOOD_COMPONENT, POISON_FOOD_CONSUMABLE_COMPONENT)
 	);
-	// :::poisonous_apple
+	// #endregion poisonous_apple
 
-	// :::2
-	public static final Item SUSPICIOUS_SUBSTANCE = register("suspicious_substance", Item::new, new Item.Properties());
-	// :::2
+	// #region suspicious_substance
+	public static final Item SUSPICIOUS_SUBSTANCE = register(ModItemIds.SUSPICIOUS_SUBSTANCE, Item::new, new Item.Properties());
+	// #endregion suspicious_substance
 
-	// :::custom_entity_spawn_egg
+	// #region quark_gluon_plasma
+	public static final Item QUARK_GLUON_PLASMA = register(
+			ModItemIds.QUARK_GLUON_PLASMA,
+			Item::new,
+			new Item.Properties()
+	);
+	// #endregion quark_gluon_plasma
+
+	// #region bone_marrow
+	public static final Item BONE_MARROW = register(
+			ModItemIds.BONE_MARROW,
+			Item::new,
+			new Item.Properties()
+	);
+	// #endregion bone_marrow
+
+	// #region custom_entity_spawn_egg
 	public static final Item MINI_GOLEM_SPAWN_EGG = register(
-			"mini_golem_spawn_egg",
+			ModItemIds.MINI_GOLEM_SPAWN_EGG,
 			SpawnEggItem::new,
 			new Item.Properties().spawnEgg(ModEntityTypes.MINI_GOLEM)
 	);
-	// :::custom_entity_spawn_egg
+	// #endregion custom_entity_spawn_egg
 
-	public static final Item RUBY = register("ruby", Item::new, new Item.Properties());
+	// #region hot_tater
+	public static final Item HOT_TATER = register(
+			ModItemIds.HOT_TATER,
+			HotTaterItem::new,
+			new Item.Properties().stacksTo(16)
+	);
+	// #endregion hot_tater
 
-	public static final Item GUIDITE_AXE = register("guidite_axe", settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings), new Item.Properties());
+	public static final Item RUBY = register(ModItemIds.RUBY, Item::new, new Item.Properties());
 
-	public static final Item LEATHER_GLOVES = register("leather_gloves", Item::new, new Item.Properties());
+	public static final Item LEATHER_GLOVES = register(ModItemIds.LEATHER_GLOVES, Item::new, new Item.Properties());
 
-	public static final Item FLASHLIGHT = register("flashlight", settings -> new Item(settings) {
+	public static final Item FLASHLIGHT = register(ModItemIds.FLASHLIGHT, settings -> new Item(settings) {
 		@Override
 		public InteractionResult use(Level level, Player user, InteractionHand hand) {
 			user.startUsingItem(hand);
@@ -207,25 +300,22 @@ public class ModItems {
 		}
 	}, new Item.Properties());
 
-	public static final Item BALLOON = register("balloon", Item::new, new Item.Properties());
+	public static final Item BALLOON = register(ModItemIds.BALLOON, Item::new, new Item.Properties());
 
-	public static final Item ENHANCED_HOE = register("enhanced_hoe", settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Properties());
+	public static final Item ENHANCED_HOE = register(ModItemIds.ENHANCED_HOE, settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Properties());
 
-	public static final Item DIMENSIONAL_CRYSTAL = register("dimensional_crystal", Item::new, new Item.Properties());
+	public static final Item DIMENSIONAL_CRYSTAL = register(ModItemIds.DIMENSIONAL_CRYSTAL, Item::new, new Item.Properties());
 
-	public static final Item THROWING_KNIVES = register("throwing_knives", Item::new, new Item.Properties().stacksTo(3));
+	public static final Item THROWING_KNIVES = register(ModItemIds.THROWING_KNIVES, Item::new, new Item.Properties().stacksTo(3));
 
-	public static final Item LIGHTNING_TATER = register("lightning_tater", LightningTaterItem::new, new Item.Properties());
+	public static final Item LIGHTNING_TATER = register(ModItemIds.LIGHTNING_TATER, LightningTaterItem::new, new Item.Properties());
 
-	public static final Item TEST_ITEM = register("test_item", TestItem::new, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).component(DataComponents.CUSTOM_NAME, Component.literal("[Use on Stone Block]")));
+	public static final Item TEST_ITEM = register(ModItemIds.TEST_ITEM, TestItem::new, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).component(DataComponents.CUSTOM_NAME, Component.literal("[Use on Stone Block]")));
 
-	// :::1
-	public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
-		// Create the item key.
-		ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
-
+	// #region mod_items_class
+	public static Item register(ResourceKey<Item> itemKey, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
 		// Create the item instance.
-		T item = itemFactory.apply(settings.setId(itemKey));
+		Item item = itemFactory.apply(settings.setId(itemKey));
 
 		// Register the item.
 		Registry.register(BuiltInRegistries.ITEM, itemKey, item);
@@ -233,17 +323,17 @@ public class ModItems {
 		return item;
 	}
 
-	// :::1
+	// #endregion mod_items_class
 
-	// :::3
+	// #region initialize
 	public static void initialize() {
-		// :::3
-		// :::4
+		// #endregion initialize
+		// #region add_to_creative_tab
 		// Get the event for modifying entries in the ingredients group.
 		// And register an event handler that adds our suspicious item to the ingredients group.
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS)
 				.register((creativeTab) -> creativeTab.accept(ModItems.SUSPICIOUS_SUBSTANCE));
-		// :::4
+		// #endregion add_to_creative_tab
 
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
 				.register((creativeTab) -> {
@@ -253,21 +343,33 @@ public class ModItems {
 					creativeTab.accept(ModItems.GUIDITE_CHESTPLATE);
 				});
 
-		// :::8
+		// #region add_guidite_sword_to_create_tab
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
-				.register((creativeTab) -> creativeTab.accept(ModItems.GUIDITE_SWORD));
-		// :::8
+				.register((creativeTab) -> {
+					creativeTab.accept(ModItems.GUIDITE_SWORD);
+					creativeTab.accept(ModItems.GUIDITE_PICKAXE);
+					creativeTab.accept(ModItems.GUIDITE_AXE);
+					creativeTab.accept(ModItems.GUIDITE_SPEAR);
+					creativeTab.accept(ModItems.GUIDITE_HOE);
+					creativeTab.accept(ModItems.GUIDITE_SHOVEL);
+				});
+		// #endregion add_guidite_sword_to_create_tab
 
-		// :::_12
+		// #region add_guidite_shield_to_create_tab
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT)
+				.register((creativeTab) -> creativeTab.accept(ModItems.GUIDITE_SHIELD));
+		// #endregion add_guidite_shield_to_create_tab
+
+		// #region register_creative_tab
 		// Register the group.
 		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, CUSTOM_CREATIVE_TAB_KEY, CUSTOM_CREATIVE_TAB);
-		// :::_12
+		// #endregion register_creative_tab
 
-		// :::spawn_egg_creative_tab
+		// #region spawn_egg_creative_tab
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS).register(creativeTab -> {
 			creativeTab.accept(ModItems.MINI_GOLEM_SPAWN_EGG);
 		});
-		// :::spawn_egg_creative_tab
+		// #endregion spawn_egg_creative_tab
 		CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY).register(creativeTab -> {
 			creativeTab.accept(ModItems.RUBY);
 			creativeTab.accept(ModItems.GUIDITE_AXE);
@@ -279,33 +381,45 @@ public class ModItems {
 			creativeTab.accept(ModItems.THROWING_KNIVES);
 		});
 
-		// :::_10
-		// Add the suspicious substance to the composting registry with a 30% chance of increasing the composter's level.
-		CompostableRegistry.INSTANCE.add(ModItems.SUSPICIOUS_SUBSTANCE, 0.3f);
-		// :::_10
+		// #region glucon_to_creative_tab
+		CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY).register(creativeTab -> {
+			creativeTab.accept(ModItems.QUARK_GLUON_PLASMA);
+		});
+		// #endregion glucon_to_creative_tab
 
-		// :::_11
-		// Add the suspicious substance to the registry of fuels, with a burn time of 30 seconds.
+		// #region bone_marrow_in_creative_tab
+		CreativeModeTabEvents.modifyOutputEvent(CUSTOM_CREATIVE_TAB_KEY).register(creativeTab -> {
+			creativeTab.accept(ModItems.BONE_MARROW);
+		});
+		// #endregion bone_marrow_in_creative_tab
+
+		// #region compostable_item
+		// Add the bone marrow to the composting registry with a 100% chance of increasing the composter's level.
+		CompostableRegistry.INSTANCE.add(ModItems.BONE_MARROW, 1.0f);
+		// #endregion compostable_item
+
+		// #region fuel_item
 		// Remember, Minecraft deals with logical based-time using ticks.
 		// 20 ticks = 1 second.
 		FuelValueEvents.BUILD.register((builder, context) -> {
-			builder.add(ModItems.SUSPICIOUS_SUBSTANCE, 30 * 20);
+			builder.add(ModItems.QUARK_GLUON_PLASMA, 120 * 20);
 		});
-		// :::_11
-		// :::3
-	}
-	// :::3
+		// #endregion fuel_item
 
-	// :::acid_bucket
+		// #region initialize
+	}
+	// #endregion initialize
+
+	// #region acid_bucket
 	public static final Item ACID_BUCKET = register(
-			"acid_bucket",
+			ModItemIds.ACID_BUCKET,
 			props -> new BucketItem(ModFluids.ACID_STILL, props),
 			new Item.Properties()
 					.craftRemainder(Items.BUCKET)
 					.stacksTo(1)
 	);
-	// :::acid_bucket
+	// #endregion acid_bucket
 
-	// :::1
+	// #region mod_items_class
 }
-// :::1
+// #endregion mod_items_class

@@ -4,41 +4,83 @@ import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
+import net.minecraft.references.BlockItemIds;
+import net.minecraft.references.ItemIds;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 
 import com.example.docs.ExampleMod;
+import com.example.docs.item.ModItemIds;
+import com.example.docs.item.armor.GuiditeArmorMaterial;
 
-// :::datagen-tags:provider
+// #region datagen_tags_provider
 public class ExampleModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
-	// :::datagen-tags:provider
-	// :::datagen-tags:tag-key
-	public static final TagKey<Item> SMELLY_ITEMS = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "smelly_items"));
-	// :::datagen-tags:tag-key
-	// :::datagen-tags:provider
+	// #endregion datagen_tags_provider
+	// #region datagen_tags_tag_key
+	public static final TagKey<Item> SMELLY_ITEMS = TagKey.create(Registries.ITEM, ExampleMod.id("smelly_items"));
+	// #endregion datagen_tags_tag_key
+	// #region datagen_tags_provider
 	public ExampleModItemTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 
 	@Override
 	protected void addTags(HolderLookup.Provider wrapperLookup) {
-		// :::datagen-tags:provider
-		// :::datagen-tags:build
-		valueLookupBuilder(SMELLY_ITEMS)
-				.add(Items.SLIME_BALL)
-				.add(Items.ROTTEN_FLESH)
+		// #endregion datagen_tags_provider
+		// #region datagen_tags_build
+		builder(SMELLY_ITEMS)
+				.add(ItemIds.SLIME_BALL)
+				.add(ItemIds.ROTTEN_FLESH)
 				.addOptionalTag(ItemTags.DIRT)
-				.add(Items.OAK_PLANKS)
+				.add(BlockItemIds.OAK_PLANKS)
 				.forceAddTag(ItemTags.BANNERS)
 				.setReplace(true);
-		// :::datagen-tags:build
-		// :::datagen-tags:provider
+		// #endregion datagen_tags_build
+
+		// #region shield_tags
+		builder(ConventionalItemTags.SHIELD_TOOLS)
+						.add(ModItemIds.GUIDITE_SHIELD);
+		builder(ItemTags.DURABILITY_ENCHANTABLE)
+						.add(ModItemIds.GUIDITE_SHIELD);
+		// #endregion shield_tags
+
+		// #region tool_tags
+		builder(ItemTags.SWORDS)
+				.add(ModItemIds.GUIDITE_SWORD);
+		builder(ItemTags.PICKAXES)
+				.add(ModItemIds.GUIDITE_PICKAXE);
+		builder(ItemTags.AXES)
+				.add(ModItemIds.GUIDITE_AXE);
+		builder(ItemTags.SPEARS)
+				.add(ModItemIds.GUIDITE_SPEAR);
+		builder(ItemTags.HOES)
+				.add(ModItemIds.GUIDITE_HOE);
+		builder(ItemTags.SHOVELS)
+				.add(ModItemIds.GUIDITE_SHOVEL);
+		// #endregion tool_tags
+
+		// #region armor_tags
+		builder(ItemTags.HEAD_ARMOR)
+				.add(ModItemIds.GUIDITE_HELMET);
+		builder(ItemTags.CHEST_ARMOR)
+				.add(ModItemIds.GUIDITE_CHESTPLATE);
+		builder(ItemTags.LEG_ARMOR)
+				.add(ModItemIds.GUIDITE_LEGGINGS);
+		builder(ItemTags.FOOT_ARMOR)
+				.add(ModItemIds.GUIDITE_BOOTS);
+		// #endregion armor_tags
+
+		// #region repair_tags
+		builder(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR)
+				.add(ItemIds.COPPER_INGOT);
+		// #endregion repair_tags
+
+		// #region datagen_tags_provider
 	}
 }
-// :::datagen-tags:provider
+// #endregion datagen_tags_provider

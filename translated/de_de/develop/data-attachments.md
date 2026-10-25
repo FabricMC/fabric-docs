@@ -18,7 +18,7 @@ Für serverweite Daten, die nicht an ein bestimmtes Level gebunden sind, stellt 
 
 Du beginnst mit einem Aufruf von `AttachmentRegistry.create`. Das folgende Beispiel erstellt einen einfachen Datenanhang, der nicht über Neustarts hinweg synchronisiert und persistent bleibt.
 
-@[code lang=java transcludeWith=:::string](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#string
 
 `AttachmentRegistry` enthält einige Methoden zum Erstellen grundlegender Datenanhänge, darunter:
 
@@ -32,7 +32,7 @@ Das Verhalten jeder Methode kann auch mit dem Parameter `builder` von `create` n
 
 Wenn du möchtest, dass ein Datenanhang sowohl persistent ist als auch zwischen Server und Clients synchronisiert wird, kannst du dieses Verhalten mit der Methode `create` festlegen, die die Konfiguration über eine `builder`-Kette ermöglicht. Zum Beispiel:
 
-@[code lang=java transcludeWith=:::pos](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#pos
 
 Das obige Beispiel synchronisiert mit jedem Spieler, aber das passt möglicherweise nicht zu deinem Anwendungsfall. Hier sind einige weitere Standardprädikate, aber du kannst auch eigene bauen, indem du auf die Klasse `AttachmentSyncPredicate` verweist.
 
@@ -46,7 +46,7 @@ Datenanhänge können auch so eingestellt werden, dass sie über Neustarts des S
 
 Mit der Methode `copyOnDeath` können sie so eingestellt werden, dass sie auch nach dem Tod oder der [Konvertierung](https://minecraft.wiki/w/Mob_conversion) des Ziels bestehen bleiben.
 
-@[code lang=java transcludeWith=:::persistent](@/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java)
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#persistent
 
 ## Lesen von einem Datenanhang {#reading-attachments}
 
@@ -98,7 +98,7 @@ Obwohl Datenanhänge jede Art von Daten speichern können, für die ein Codec ge
 
 Stattdessen kannst du komplexere Anhänge erstellen, indem du sie in mehrere Felder aufteilst und mit einer Hilfsklasse organisierst. Wenn du beispielsweise zwei Felder benötigst, die sich auf die Kondition eines Spielers beziehen, kannst du etwa Folgendes erstellen:
 
-@[code lang=java transcludeWith=:::stamina](@/reference/latest/src/main/java/com/example/docs/attachment/Stamina.java)
+<<< @/reference/latest/src/main/java/com/example/docs/attachment/Stamina.java#stamina
 
 Diese Hilfsklasse kann dann wie folgt verwendet werden:
 

@@ -13,11 +13,11 @@ Assicurati di eseguire il metodo `playSound()` sul lato del server logico quando
 
 In questo esempio, i metodi `interactLivingEntity()` e `useOn()` per un oggetto interattivo personalizzato sono usati per riprodurre un suono "piazzando blocco di rame" e un suono "predone".
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java#interact
 
 Il metodo `playSound()` è usato con l'oggetto `LivingEntity`. Solo il SoundEvent, il volume e il tono devono essere specificati. Puoi anche usare il metodo `playSound()` dall'istanza del livello per avere un livello di controllo più alto.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CustomSoundItem.java#use_on
 
 ### SoundEvent e SoundCategory {#soundevent-and-soundcategory}
 

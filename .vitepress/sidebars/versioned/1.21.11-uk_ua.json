@@ -371,11 +371,11 @@
         },
         {
           "text": "Портування до знімків 26.1",
-          "link": "/uk_ua/26.1/develop/porting/",
+          "link": "/uk_ua/develop/porting/26.1",
           "items": [
             {
               "text": "Fabric API",
-              "link": "/uk_ua/26.1/develop/porting/fabric-api"
+              "link": "/uk_ua/develop/porting/26.1/fabric-api"
             }
           ]
         },

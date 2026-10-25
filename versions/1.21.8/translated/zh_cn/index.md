@@ -18,8 +18,4 @@ features:
     linkText: 快速上手
 ---
 
-::: warning
-您目前正在查看适用于 Minecraft 1.21.8 的文档。如果您正在寻找其他版本，请从导航栏上的下拉菜单中选择。
-:::
-
 如果想给 Fabric 文档做贡献，可以在 [GitHub](https://github.com/FabricMC/fabric-docs) 找到源代码，以及相关的[贡献指南](./contributing)。

@@ -52,6 +52,16 @@ We define the repair ingredient tag reference as follows:
 
 @[code transcludeWith=:::repair_tag](@/reference/1.21.11/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
 
+In order to specify which items can be used in an anvil to repair this material, we will create a tag which holds a list of items. Let's add the item tag to our Item tag provider class:
+
+<<< @/reference/1.21.11/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#repair_tags
+
+In our example, we will be using the copper ingot as a repair material for guidite. If you want to create a custom guidite ingot instead, you may [create a custom item](./first-item) and add its ID to the tag.
+
+Now, you'll be able to repair our armor in anvils:
+
+![Repairing Guidite Armor in an Anvil](/assets/develop/items/mending_guidite.png)
+
 If you're struggling to determine values for any of the parameters, you can consult the vanilla `ArmorMaterial` instances which can be found in the `ArmorMaterials` interface.
 
 ## Creating the Armor Items {#creating-the-armor-items}

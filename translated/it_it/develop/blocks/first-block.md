@@ -2,6 +2,7 @@
 title: Creare il Tuo Primo Blocco
 description: Impara come creare il tuo primo blocco personalizzato in Minecraft.
 authors:
+  - bluebear94
   - CelDaemon
   - Earthcomputer
   - IMB11
@@ -21,7 +22,7 @@ Dovresti mettere questo metodo in una classe chiamata `ModBlocks` (o qualsiasi a
 
 Mojang fa qualcosa di simile con i suoi blocchi vanilla; informati riguardo alla classe `Blocks` per sapere come fanno loro.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block
 
 Proprio come per gli oggetti, dovrai assicurarti che la classe sia caricata, in modo che tutti gli attributi statici contenenti le istanze dei tuoi blocchi siano inizializzati.
 
@@ -33,19 +34,13 @@ Se non sai cos'è l'inizializzazione statica, essa è il processo d'inizializzaz
 
 :::
 
-```java
-public class ModBlocks {
-    // ...
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#static_initialization
 
-    public static void initialize() {}
-}
-```
-
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java#initialize
 
 ## Creare e Registrare il Tuo Blocco {#creating-and-registering-your-block}
 
-In maniera del tutto simile agli oggetti, i blocchi prendono la classe `BlockBehavior.Properties` nel costruttore. La classe indica proprietà specifiche del blocco, come i suoi effetti sonori e il livello di estrazione.
+In maniera del tutto simile agli oggetti, i blocchi prendono la classe `BlockBehaviour.Properties` nel costruttore. La classe indica proprietà specifiche del blocco, come i suoi effetti sonori e il livello di estrazione.
 
 Non tratteremo tutte le opzioni qui—puoi vedere la classe da solo per capirne le varie opzioni, che dovrebbero essere chiaramente comprensibili.
 
@@ -56,11 +51,11 @@ Per questo esempio, creeremo un blocco semplice, con le proprietà della terra m
 
 ::: tip
 
-Puoi anche usare `BlockBehavior.Properties.ofFullCopy(BlockBehavior block)` per copiare le impostazioni di un blocco esistente, in questo caso avremmo potuto usare `Blocks.DIRT` per copiare le impostazioni della terra, ma per questo esempio useremo il costruttore.
+Puoi anche usare `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)` per copiare le impostazioni di un blocco esistente, in questo caso avremmo potuto usare `Blocks.DIRT` per copiare le impostazioni della terra, ma per questo esempio useremo il costruttore.
 
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_dirt
 
 Per creare l'oggetto del blocco in automatico, possiamo passare `true` al parametro `shouldRegisterItem` del metodo `register` che abbiamo creato nel passaggio precedente.
 
@@ -70,7 +65,7 @@ Poiché il `BlockItem` viene creato e registrato in automatico, per aggiungerlo 
 
 Per questo esempio, aggiungeremo il blocco alla scheda `BUILDING_BLOCKS`. Per aggiungerlo invece a una scheda personalizzata, consulta [Schede d'inventario personalizzate](../items/custom-creative-tabs).
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#add_to_creative_tab
 
 Dovresti mettere questo nella funzione `initialize()` della tua classe.
 
@@ -102,11 +97,11 @@ Tutte le texture dei blocchi si trovano nella cartella `assets/example-mod/textu
 
 Per far apparire la texture nel gioco, devi creare il modello del blocco, che si trova nel file `assets/example-mod/models/block/condensed_dirt.json` per il blocco di "Terra Condensata". Per questo blocco useremo il tipo di modello `block/cube_all`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json
 
 Perché il blocco sia mostrato nell'inventario, dovrai creare un [Oggetto per il Client](../items/first-item#creating-the-client-item) che punti al modello del tuo blocco. Per questo esempio, l'oggetto per il client del blocco "Terra Condensata" si trova in `assets/example-mod/items/condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json
 
 ::: tip
 
@@ -124,7 +119,7 @@ Per il blocco di esempio, che non ha stati complessi, basta una sola voce nella 
 
 Questo file si dovrebbe trovare nella cartella `assets/example-mod/blockstates`, e il suo nome  dovrebbe combaciare con l'ID del blocco usato quando hai registrato il blocck nella classe `ModBlocks`. Per esempio, se l'ID è `condensed_dirt`, il file dovrebbe chiamarsi `condensed_dirt.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json
 
 ::: tip
 
@@ -146,7 +141,7 @@ Per comprendere le loot table nel profondo, fai riferimento alla pagina [Minecra
 
 :::
 
-@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
+<<< @/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json
 
 Questa loot table fornisce un solo drop come oggetto del blocco quando viene rotto, o distrutto da un'esplosione.
 
@@ -165,7 +160,7 @@ I contenuti del file sono piuttosto semplici - è una lista di oggetti da aggiun
 
 Questo esempio aggiunge il blocco "Terra Condensata" al tag `shovel`.
 
-@[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+<<< @/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json
 
 Se desideri che un'utensile sia necessario per minare il blocco, dovrai aggiungere `.requiresCorrectToolForDrops()` alle impostazioni del tuo blocco, oltre che aggiungere il tag del livello di scavo appropriato.
 

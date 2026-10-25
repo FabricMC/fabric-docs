@@ -68,16 +68,20 @@ If you cannot use the Fabric Template Mod Generator, you can create a new projec
 Firstly, clone the example mod repository using Git:
 
 ```sh
-git clone https://github.com/FabricMC/fabric-example-mod/ example-mod
+git clone https://github.com/FabricMC/fabric-example-mod.git example-mod
 ```
 
 This will clone the repository into a new folder called `example-mod`.
 
 You should then delete the `.git` folder from the cloned repository, and then open the project. If the `.git` folder does not appear, you should enable the display of hidden files in your file manager.
 
+### Setting Up Your IDE {#setting-up}
+
 Once you've opened the project in your IDE, it should automatically load the project's Gradle configuration and perform the necessary setup tasks.
 
-Again, as previously mentioned, if you receive a notification talking about a Gradle build script, you should click the `Import Gradle Project` button.
+If you receive a notification talking about a Gradle build script, you should click the `Import Gradle Project` button.
+
+For more information, please check out the [Setting Up Your IDE](./setting-up) page.
 
 ### Modifying the Template {#modifying-the-template}
 
@@ -85,6 +89,6 @@ Once the project has been imported, you should modify the project's details to m
 
 - Modify the project's `gradle.properties` file to change the `maven_group` and `archive_base_name` properties to match your mod's details.
 - Modify the `fabric.mod.json` file to change the `id`, `name`, and `description` properties to match your mod's details.
-- Make sure to update the versions of Minecraft, the mappings, the Loader and the Loom - all of which can be queried through <https://fabricmc.net/develop/> - to match the versions you wish to target.
+- Make sure to update the versions of Minecraft, the mappings, the Loader and the Loom - all of which can be queried through the [Develop site](https://fabricmc.net/develop/) - to match the versions you wish to target.
 
-You can obviously change the package name and the mod's main class to match your mod's details.
+You can then change the package name and the mod's main class to match your mod's details.

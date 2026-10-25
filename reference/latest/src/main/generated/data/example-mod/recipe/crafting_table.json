@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "multi_bench",
   "key": {
     "l": "#minecraft:logs"

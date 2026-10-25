@@ -27,7 +27,7 @@ resources:
 
 Основна частина нашого коду буде передана в подію `apply()`, яка викликається, коли виконується критерій для роботи вашого зачарування. Пізніше ми налаштуємо цей `Effect`, щоб він викликався, коли сутність уражена, а поки що напишімо простий код, щоб вразити ціль блискавкою.
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/enchantment/effect/LightningEnchantmentEffect.java)
+<<< @/reference/latest/src/main/java/com/example/docs/enchantment/effect/LightningEnchantmentEffect.java#entrypoint
 
 Тут змінна `amount` вказує на значення, масштабоване до рівня зачарування. Ми можемо використовувати це, щоб змінити ефективність зачарування залежно від рівня. У коді вище ми використовуємо рівень зачарування, щоб визначити, скільки ударів блискавки породжується.
 
@@ -35,13 +35,13 @@ resources:
 
 Як і будь-який інший компонент вашого мода, нам доведеться додати цей `EnchantmentEffect` до реєстру Minecraft. Для цього додайте клас `ModEnchantmentEffects` (або будь-яку іншу назву) і допоміжний метод для реєстрації зачарування. Обов’язково викликайте `registerModEnchantmentEffects()` у вашому головному класі, який містить метод `onInitialize()`.
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantmentEffects.java)
+<<< @/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantmentEffects.java#entrypoint
 
 ## Створення зачарування {#creating-the-enchantment}
 
 Тепер у нас є ефект зачарування! Останнім кроком є ​​створення зачарування, яке застосовує наш спеціальний ефект. Ми можемо зробити це за допомогою керованої даними системи зачарування, просто додавши файл JSON до ресурсів нашого мода.
 
-Створіть файл JSON у теці `data/example-mod/enchantments`. Ім’я цього файлу буде ID зачарування: `thundering.json` стане `example-mod:thundering`.
+Створіть файл JSON у теці `data/example-mod/enchantment`. Ім’я цього файлу буде ID зачарування: `thundering.json` стане `example-mod:thundering`.
 
 ::: info
 
@@ -53,9 +53,9 @@ resources:
 
 У цьому прикладі ми використаємо наступне визначення зачарування, щоб додати зачарування `thundering` за допомогою нашого спеціального `lightning_effect`:
 
-@[code](@/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json)
+<<< @/reference/latest/src/main/generated/data/example-mod/enchantment/thundering.json
 
-Ви також повинні додати переклади до свого файлу `en_us.json` (для української створіть `uk_ua.json`), щоб надати своєму зачаруванню читабельну назву:
+Ви також повинні додати переклади до свого файлу `en_us.json` (`uk_ua.json` для української), щоб надати своєму зачаруванню читабельну назву:
 
 ```json
 "enchantment.example-mod.thundering": "Thundering",

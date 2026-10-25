@@ -20,15 +20,15 @@ Wie bei allem anderen in deinem Mod musst du deine benutzerdefinierte Komponente
 
 Wähle eine sinnvolle Klasse, in der du dies unterbringen kannst. Für dieses Beispiel werden wir ein neues Paket namens `component` und eine Klasse erstellen, die alle unsere Komponententypen enthält und `ModComponents` heißt. Stelle sicher, dass du `ModComponents.initialize()` in deinem [Mod-Initialisierer](../getting-started/project-structure#entrypoints) aufrufst.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#mod_components
 
 Dies ist die grundlegende Vorlage für die Registrierung eines Component Typs:
 
 ```java
 public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     BuiltInRegistries.DATA_COMPONENT_TYPE,
-    Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
-    DataComponentType.<?>builder().persistent(null).build()
+    ExampleMod.id("my_component"),
+    DataComponentType.<?>builder().persistent(null).networkSynchronized(null).build()
 );
 ```
 
@@ -36,7 +36,7 @@ Hier gibt es einige Dinge zu beachten. In der ersten und vierten Zeile ist ein `
 
 Zweitens musst du einen `Identifier` angeben, der die beabsichtigte ID deiner Komponente enthält. Diese ist mit der Mod-ID deines Mods verknüpft.
 
-Schließlich haben wir einen `DataComponentType.Builder`, der die eigentliche Instanz von `DataComponentType` erstellt, die registriert wird. Dies enthält ein weiteres wichtiges Detail, das wir besprechen müssen: den `Codec`. deiner Komponente. Dies ist derzeit `null`, aber wir werden es auch bald befüllen.
+Schließlich haben wir einen `DataComponentType.Builder`, der die eigentliche Instanz von `DataComponentType` erstellt, die registriert wird. Dies enthält ein weiteres wichtiges Detail, das wir besprechen müssen: Serialisierung über `Codec`und `StreamCodec` deiner Komponente. Diese sind beide derzeit `null`, aber wir werden sie auch bald befüllen.
 
 ## Einfache Datenkomponenten {#basic-data-components}
 
@@ -44,9 +44,23 @@ Einfache Datenkomponenten (wie `minecraft:damage`) bestehen aus einzelnen Datenw
 
 Als Beispiel wollen wir einen `Integer`-Wert erstellen, der festhält, wie oft der Spieler mit der rechten Maustaste geklickt hat, während er unseren Gegenstand hielt. Aktualisieren wir unsere Komponentenregistrierung wie folgt:
 
-@[code transcludeWith=::2](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#integer_component
 
-Du kannst sehen, dass wir jetzt `<Integer>` als unseren generischen Typ übergeben, was anzeigt, dass diese Komponente als ein einzelner `int` Wert gespeichert wird. Für unseren Codec verwenden wir den mitgelieferten `DataComponents.POSITIVE_INT` Codec. Für einfache Komponenten wie diese können wir mit einfachen Codecs auskommen, aber komplexere Szenarien erfordern möglicherweise einen benutzerdefinierten Codec (dies wird später kurz behandelt).
+Du kannst sehen, dass wir jetzt `<Integer>` als unseren generischen Typ übergeben, was anzeigt, dass diese Komponente als ein einzelner `int` Wert gespeichert wird.
+
+Für unseren Codec verwenden wir den mitgelieferten `ExtraCodecs.NON_NEGATIVE_INT` Codec. Für einfache Komponenten wie diese können wir mit einfachen Codecs auskommen, aber komplexere Szenarien erfordern möglicherweise einen benutzerdefinierten Codec (dies wird später kurz behandelt).
+
+Für unseren `StreamCodec` (die Information zum Client senden), verwenden wir `ByteBufCodecs.VAR_INT`. Ein VarInt ist eine Methode, Integer mit einer dynamischen Anzahl an Bytes zu speichern. Ein kleinerer Integer wird in weniger Bytes kodiert, während ein größerer Integer mehr Bytes benötigt.
+
+::: warning
+
+Glaube nicht daran, du könntest `networkSynchronized` überspringen!
+
+Wenn du auf diese Weise keinen `StreamCodec` angibst, erstellt Minecraft stattdessen einen weniger effizienten und synchronisiert deine Komponente trotzdem.
+
+Um zu verhindern, dass deine Komponente synchronisiert wird, benötigst du Mixins, was jedoch den Rahmen dieses Tutorials sprengen würde.
+
+:::
 
 Wenn du das Spiel startest, solltest du einen Befehl wie diesen eingeben können:
 
@@ -58,7 +72,7 @@ Wenn du den Befehl ausführst, solltest du das Element erhalten, das die Kompone
 
 Fügen wir ein neues Item hinzu, das den Zähler jedes Mal erhöht, wenn es mit der rechten Maustaste angeklickt wird. Du solltest die Seite [Benutzerdefinierte Iteminteraktionen](./custom-item-interactions) lesen, die die Techniken behandelt, die wir in diesem Leitfaden verwenden werden.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java#item
 
 Denke wie üblich daran, das Item in deiner Klasse `ModItems` zu registrieren.
 
@@ -89,15 +103,15 @@ public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisp
 
 Ab Version 1.21.5 ist `appendHoverText` veraltet. Es wird nun empfohlen, `TooltipProvider` wie folgt zu implementieren. Dies erfordert die [Erstellung einer benutzerdefinierten Komponentenklasse](#advanced-data-components).
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/ComponentWithTooltip.java#component_with_tooltip
 
 Dann kannst du den `TooltipProvider` über die `ItemComponentTooltipProviderRegistry` registrieren. Dies wird in `onInitialize` im `ModInitializer` aufgerufen.
 
-@[code lang=java transcludeWith=#tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#tooltip_provider
 
 Alternativ kannst du `ItemTooltipCallback` verwenden, um `appendHoverText` zu ersetzen. Dies wird in `onInitializeClient` im `ClientModInitializer` aufgerufen.
 
-@[code lang=java transcludeWith=#tooltip_provider_client](@/reference/latest/src/client/java/com/example/docs/ExampleModClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/ExampleModClient.java#tooltip_provider_client
 
 :::
 
@@ -136,7 +150,7 @@ Es gibt drei Lösungen, mit denen wir dieses Problem angehen können.
 
 Wenn du deinen Artikel registrierst und ein `Item.Properties`-Objekt an deinen Item Konstruktor übergibst, kannst du auch eine Liste von Standardkomponenten angeben, die auf alle neuen Items angewendet werden. Wenn wir zu unserer Klasse `ModItems` zurückkehren, wo wir das `CounterItem`, registrieren, können wir einen Standardwert für unsere benutzerdefinierte Komponente hinzufügen. Füge dies hinzu, damit bei neuen Einträgen die Anzahl `0` angezeigt wird.
 
-@[code transcludeWith=::\_13](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#counter
 
 Wenn ein neues Item erstellt wird, wird automatisch unsere benutzerdefinierte Komponente mit dem angegebenen Wert angewendet.
 
@@ -168,7 +182,7 @@ boolean exists = stack.has(ModComponents.CLICK_COUNT_COMPONENT);
 
 Wir fahren mit der dritten Option fort. Wir fügen also nicht nur einen Standardkomponentenwert hinzu, sondern prüfen auch, ob die Komponente auf dem Stack vorhanden ist, und zeigen den Tooltip nur an, wenn dies der Fall ist.
 
-@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java#fixed_append_hover_text
 
 Starte das Spiel erneut und fahre mit dem Mauszeiger über das Item ohne die Komponente. Du solltest sehen, dass er "Used 0 times" anzeigt und das Spiel nicht mehr abstürzt.
 
@@ -200,7 +214,7 @@ int oldValue = stack.set(ModComponents.CLICK_COUNT_COMPONENT, newValue);
 
 Richten wir eine neue Methode `use()` ein, um die alte Klickzahl zu lesen, sie um eins zu erhöhen und dann die aktualisierte Klickzahl zu setzen.
 
-@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/CounterItem.java#use
 
 Versuche nun, das Spiel zu starten und klicke mit der rechten Maustaste auf das Counter-Item in deiner Hand. Wenn du dein Inventar öffnest und dir das Item noch einmal ansiehst, solltest du sehen, dass die Nutzungszahl um die Anzahl der Klicks gestiegen ist, die du darauf gemacht hast.
 
@@ -240,7 +254,7 @@ public record AdvancedCustomComponent(float temperature, boolean burnt) {
 
 Da wir eine benutzerdefinierte Datenstruktur definieren, gibt es für unseren Anwendungsfall keinen bereits vorhandenen `Codec` wie bei den [einfachen Komponenten](#basic-data-components). Das bedeutet, dass wir unseren eigenen Codec konstruieren müssen. Definieren wir einen in unsere Record-Klasse mit einem `RecordCodecBuilder`, auf den wir verweisen können, sobald wir die Komponente registrieren. Weitere Einzelheiten zur Verwendung eines `RecordCodecBuilder` findest du in [diesem Abschnitt der Codecs-Seite](../codecs#merging-codecs-for-record-like-classes).
 
-@[code transcludeWith=::codec](@/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#codec
 
 Du kannst sehen, dass wir eine Liste von benutzerdefinierten Feldern auf der Grundlage der primitiven `Codec`-Typen definieren. Wir teilen dem Spiel jedoch auch mit, wie unsere Felder heißen, indem wir `fieldOf()` verwenden und dann `forGetter()` benutzen, um dem Spiel mitzuteilen, welches Attribut unseres Datensatzes es füllen soll.
 
@@ -248,9 +262,15 @@ Du kannst auch optionale Felder definieren, indem du `optionalFieldOf()` verwend
 
 Schließlich rufen wir `apply()` auf und übergeben den Konstruktor unseres Datensatzes. Weitere Einzelheiten über die Erstellung von Codecs und fortgeschrittene Anwendungsfälle findest du auf der Seite [Codecs](../codecs).
 
-Die Registrierung einer zusammengesetzten Komponente ist ähnlich wie zuvor. Wir übergeben einfach unsere Record-Klasse als generischen Typ und unseren benutzerdefinierten `Codec` an die Methode `codec()`.
+Außerdem müssen wir unseren `StreamCodec` konstruieren.
 
-@[code transcludeWith=::3](@/reference/latest/src/main/java/com/example/docs/component/ModComponents.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#stream_codec
+
+`composite` ähnelt `RecordCodecBuilder` insofern, als es jedes Feld mit dem angegebenen Serialisierer (in diesem Fall `StreamCodec`) serialisiert. Es ist jedoch viel leichter zu verstehen als einen `RecordCodecBuilder`. Hier stellen wir einfach für jedes Feld einen `StreamCodec` bereit und anschließend für dieses Feld den Getter (als `Function`). Unser letzter Parameter ist eine Funktion (in der Regel wird hier der Konstruktor angegeben), die alle deserialisierten Felder entgegennimmt und unsere Komponente zurückgibt.
+
+Die Registrierung einer zusammengesetzten Komponente ist ähnlich wie zuvor. Wir übergeben einfach unsere Record-Klasse als generischen Typ, unseren benutzerdefinierten `Codec` an die Methode `codec()` und unseren benutzerdefinierten `StreamCodec` an die Methode `networkSynchronized()`.
+
+<<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#custom_component
 
 Starte jetzt das Spiel. Versuche, die Komponente mit dem Befehl `/give` anzuwenden. Zusammengesetzte Komponentenwerte werden als ein mit `{}` umschlossenes Objekt übergeben. Wenn du leere geschweifte Klammern einfügst, wird eine Fehlermeldung angezeigt, die besagt, dass der erforderliche Schlüssel `temperature` fehlt.
 
@@ -300,8 +320,8 @@ Jetzt kannst du benutzerdefinierte Daten an einem `ItemStack` speichern. Nutze d
 
 Da wir über eine benutzerdefinierte Komponentenklasse haben, können wir `TooltipProvider` direkt implementieren und so die veraltete Methode `appendHoverText` vermeiden.
 
-@[code transcludeWith=::1](@/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java)
+<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#advanced_custom_component
 
 Dann kannst du den `TooltipProvider` über die `ItemComponentTooltipProviderRegistry` registrieren. Dies wird in `onInitialize` im `ModInitializer` aufgerufen.
 
-@[code lang=java transcludeWith=#advanced_tooltip_provider](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#advanced_tooltip_provider

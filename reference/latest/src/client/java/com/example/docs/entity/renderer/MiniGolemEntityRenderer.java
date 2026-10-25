@@ -10,9 +10,9 @@ import com.example.docs.entity.model.MiniGolemEntityModel;
 import com.example.docs.entity.model.ModEntityModelLayers;
 import com.example.docs.entity.state.MiniGolemEntityRenderState;
 
-//:::renderer
+// #region renderer
 public class MiniGolemEntityRenderer extends MobRenderer<MiniGolemEntity, MiniGolemEntityRenderState, MiniGolemEntityModel> {
-	private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "textures/entity/mini_golem.png");
+	private static final Identifier TEXTURE = ExampleMod.id("textures/entity/mini_golem.png");
 
 	public MiniGolemEntityRenderer(EntityRendererProvider.Context context) {
 		super(context, new MiniGolemEntityModel(context.bakeLayer(ModEntityModelLayers.MINI_GOLEM)), 0.375f); // 0.375 shadow radius
@@ -22,18 +22,20 @@ public class MiniGolemEntityRenderer extends MobRenderer<MiniGolemEntity, MiniGo
 	public MiniGolemEntityRenderState createRenderState() {
 		return new MiniGolemEntityRenderState();
 	}
-	//:::renderer
+	// #endregion renderer
 
+	// #region copy_animation_state
 	@Override
 	public void extractRenderState(MiniGolemEntity entity, MiniGolemEntityRenderState state, float tickProgress) {
 		super.extractRenderState(entity, state, tickProgress);
 		state.dancingAnimationState.copyFrom(entity.dancingAnimationState);
 	}
-	//:::renderer
+	// #endregion copy_animation_state
+	// #region renderer
 
 	@Override
 	public Identifier getTextureLocation(MiniGolemEntityRenderState state) {
 		return TEXTURE;
 	}
 }
-//:::renderer
+// #endregion renderer

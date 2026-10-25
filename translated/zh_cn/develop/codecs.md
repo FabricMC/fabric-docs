@@ -2,8 +2,14 @@
 title: Codec
 description: 一份用于理解和使用 Mojang 的 codec 系统以序列化和反序列化对象的全面指南。
 authors:
+  - CelDaemon
   - enjarai
   - Syst3ms
+resources:
+  https://docs.neoforged.net/docs/datastorage/codecs/: Codecs - NeoForge 文档
+  https://docs.neoforged.net/docs/networking/streamcodecs/: Stream Codecs - NeoForge 文档
+  https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec: 非官方 DFU JavaDocs
+  https://forge.gemwire.uk/wiki/Codecs: Codecs - Forge 社区 Wiki
 ---
 
 codec 是用于简单地解析 Java 对象的系统，被包含在 Minecraft 所包含的 Mojang 的 DataFixerUpper (DFU) 库中。 在模组环境中，可用作读写 JSON 时 GSON 和 Jankson 的替代方案，尽管因为 Mojang 正在重写许多旧代码以使用 codec，codec 开始变量越来越重要。
@@ -20,34 +26,19 @@ codec 的基本用法是将对象与特定格式之间进行序列化和反序�
 
 现在，假设我们要把一个 `BlockPos` 对象序列化成 JSON 再反序列化回对象。 我们可以分别使用 `BlockPos.CODEC` 中的静态方法 `Codec#encodeStart` 和 `Codec#parse`。
 
-```java
-BlockPos pos = new BlockPos(1, 2, 3);
+::: code-group
 
-// 序列化该 BlockPos 为 JsonElement
-DataResult<JsonElement> result = BlockPos.CODEC.encodeStart(JsonOps.INSTANCE, pos);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#encode_blockpos[Java]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/serialize_blockpos.json[Output]
+
+:::
 
 使用 codec 时，返回的结果为 `DataResult` 的形式。 这是个包装，可以代表成功或者失败。 有几种方式使用：如果只想要我们序列化的值， `DataResult#result` 会简单返回一个包含我们的值的 `Optional` ，而 `DataResult#resultOrPartial` 还允许我们提供一个函数来处理可能发生的任何错误。 后者对于自定义数据包资源尤其有用，因为我们希望在记录错误的同时避免对其他部分产生干扰。
 
 现在，让我们提取序列化数据，并将其反序列化为 `BlockPos` 对象：
 
-```java
-// 实际编写 Mod 时，你当然应当妥善处理空的 Optional
-JsonElement json = result.resultOrPartial(LOGGER::error).orElseThrow();
-
-// 此处获取到的 JSON 值，它应对应 `[1, 2, 3]`，
-// 这是 BlockPos Codec 所使用的格式。
-LOGGER.info("Serialized BlockPos: {}", json);
-
-// 现在将 JsonElement 反序列化回 BlockPos
-DataResult<BlockPos> result = BlockPos.CODEC.parse(JsonOps.INSTANCE, json);
-
-// 同样，直接从 result 中获取值
-BlockPos pos = result.resultOrPartial(LOGGER::error).orElseThrow();
-
-// 可以看到，我们已成功完成 BlockPos 的序列化与反序列化！
-LOGGER.info("Deserialized BlockPos: {}", pos)；
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#parse_blockpos
 
 ### 内置的 codec {#built-in-codecs}
 
@@ -59,33 +50,11 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 现在我们已经知道如何使用 codec，让我们看看我们如何构建自己的 codec。 假设我们有以下类，希望从 JSON 文件中反序列化其实例：
 
-```java
-public class CoolBeansClass {
-
-    private final int beansAmount;
-    private final Item beanType;
-    private final List<BlockPos> beanPositions;
-
-    public CoolBeansClass(int beansAmount, Item beanType, List<BlockPos> beanPositions) {...}
-
-    public int getBeansAmount() { return this.beansAmount; }
-    public Item getBeanType() { return this.beanType; }
-    public List<BlockPos> getBeanPositions() { return this.beanPositions; }
-}
-```
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean_class
 
 相应的 JSON 文件可能如下所示：
 
-```json
-{
-  "beans_amount": 5,
-  "bean_type": "beanmod:mythical_beans",
-  "bean_positions": [
-    [1, 2, 3],
-    [4, 5, 6]
-  ]
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/cool_beans.json
 
 我们可以通过将多个较小的 codec 组合在一起，为该类构建一个大型 codec。 在这种情况下，我们的每个字段都需要：
 
@@ -99,9 +68,15 @@ public class CoolBeansClass {
 
 `Codec#listOf` 可用于创建任意 codec 的列表版本。
 
-```java
-Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
-```
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list_codec[Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#list_codec_data[Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/list_codec.json[Output]
+
+:::
 
 应该注意的是，以这种方式创建的 codec 总是会反序列化为一个 `ImmutableList`。 如果需要的是可变的列表，可以利用 [xmap](#mutually-convertible-types) 在反序列化期间转换为可变列表。
 
@@ -111,14 +86,15 @@ Codec<List<BlockPos>> listCodec = BlockPos.CODEC.listOf();
 
 来看看如何为我们的 `CoolBeansClass` 创建一个 codec：
 
-```java
-public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-    Codec.INT.fieldOf("beans_amount").forGetter(CoolBeansClass::getBeansAmount),
-    BuiltInRegistries.ITEM.byNameCodec().fieldOf("bean_type").forGetter(CoolBeansClass::getBeanType),
-    BlockPos.CODEC.listOf().fieldOf("bean_positions").forGetter(CoolBeansClass::getBeanPositions)
-    // 最多可以在这里声明 16 个字段
-).apply(instance, CoolBeansClass::new));
-```
+::: code-group
+
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CoolBeansClass.java#bean_codec[Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#bean_codec_data[Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/cool_beans.json[Output]
+
+:::
 
 在 group 中的每一行指定 codec、字段名称和 getter 方法。 调用 `Codec#fieldOf` 是为将 codec 转换为 [map codec](#mapcodec)，调用 `forGetter` 则是指定了从类的实例中检索字段值的 getter 方法。 同时，调用 `apply` 则指定了用于创建新实例的构造函数。 注意 group 中的字段的顺序应与构造函数中参数的顺序相同。
 
@@ -131,17 +107,11 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 
 这种创建 `MapCodec` 的特殊方式本质上是在一个映射中封装源 codec 的值，并使用给定的字段名作为键。 例如，一个 `Codec<BlockPos>` 序列化为 JSON 时看起来像是这样：
 
-```json
-[1, 2, 3]
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/plain_codec.json
 
 但当使用 `BlockPos.CODEC.fieldOf("pos")` 转换为 `MapCodec<BlockPos>` 时，看起来像是这样：
 
-```json
-{
-  "pos": [1, 2, 3]
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map_codec.json
 
 虽然 map codec 最常见的用途是与其他 map codec 合并以构造一个完整类字段的 codec，如前文的[合并用于类似 Record 类的 codec](#merging-codecs-for-record-like-classes) 章节所述，但也可以通过使用 `MapCodec#codec` 再次转换成常规的 codec，这将保持封装输入值的相同行为。
 
@@ -149,13 +119,27 @@ public static final Codec<CoolBeansClass> CODEC = RecordCodecBuilder.create(inst
 
 `Codec#optionalFieldOf` 可用于创建一个可选的 map codec。 反序列化过程中，当特定字段不存在于容器中时，反序列化为一个空的 `Optional`，或指定的默认值。
 
-```java
-// 无默认值
-MapCodec<Optional<BlockPos>> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos");
+::: code-group
 
-// 有默认值
-MapCodec<BlockPos> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPos.ZERO);
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional_field[Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#optional_field_data[Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/optional_field.json[Output]
+
+:::
+
+`optionalFieldOf` 方法的第二个参数可用于传入默认值。
+
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default_field[Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#default_field_data[Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/default_field.json[Output]
+
+:::
 
 要注意，如果字段存在，但其值无效，若字段的值无效则字段会完全无法反序列化。
 
@@ -165,18 +149,27 @@ MapCodec<BlockPos> optionalCodec = BlockPos.CODEC.optionalFieldOf("pos", BlockPo
 
 `MapCodec.unitCodec` 可用于创建一个无论输入什么都总是反序列化为常量值的 codec。 序列化时什么也不做。
 
-```java
-Codec<Integer> theMeaningOfCodec = MapCodec.unitCodec(42);
-```
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#unit_codec[Codec]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/unit.json[Output]
+
+:::
 
 #### 数值范围{#numeric-ranges}
 
 `Codec.intRange` 及其伙伴 `Codec.floatRange` 和 `Codec.doubleRange` 可用于创建只接受在指定的**包含两端的**范围内的数字值的 codec， 这适用于序列化和反序列化。
 
-```java
-// 不能大于 2
-Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
-```
+::: code-group
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric_range[Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#numeric_range_data[Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/numeric_range.json[Output]
+
+:::
 
 #### Pair{#pair}
 
@@ -184,28 +177,15 @@ Codec<Integer> amountOfFriendsYouHave = Codec.intRange(0, 2);
 [记录Codec](#merging-codecs-for-record-like-classes)。
 结果的 codec 将序列化为结合了两个使用的 codec 字段的 map。
 
-例如，运行这些代码：
+::: code-group
 
-```java
-// 创建两个单独的装箱的 codec
-Codec<Integer> firstCodec = Codec.INT.fieldOf("i_am_number").codec();
-Codec<Boolean> secondCodec = Codec.BOOL.fieldOf("this_statement_is_false").codec();
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair_codec[Codec]
 
-// 将其合并为 pair codec
-Codec<Pair<Integer, Boolean>> pairCodec = Codec.pair(firstCodec, secondCodec);
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#pair_codec_data[Input]
 
-// 用它序列化数据
-DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of(23, true));
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/pair.json[Output]
 
-将输出该 JSON：
-
-```json
-{
-  "i_am_number": 23,
-  "this_statement_is_false": true
-}
-```
+:::
 
 #### Either{#either}
 
@@ -218,25 +198,15 @@ DataResult<JsonElement> result = pairCodec.encodeStart(JsonOps.INSTANCE, Pair.of
 
 由于 JSON 和 NBT 的限制，使用的键的 codec _必须_序列化为字符串。 这包括类型自身不是字符串但会序列化为字符串的 codec，例如 `Identifier.CODEC`。 看看下面的例子：
 
-```java
-// 创建一个用于 ID 到整数映射的 codec
-Codec<Map<Identifier, Integer>> mapCodec = Codec.unboundedMap(Identifier.CODEC, Codec.INT);
+::: code-group
 
-// 使用它来序列化数据
-DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
-    Identifier.fromNamespaceAndPath("example", "number"), 23,
-    Identifier.fromNamespaceAndPath("example", "the_cooler_number"), 42
-));
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map_codec[Codec]
 
-将输出该 JSON：
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#map_codec_data[Input]
 
-```json
-{
-  "example:number": 23,
-  "example:the_cooler_number": 42
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/map.json[Output]
+
+:::
 
 正如你所见，因为 `Identifier.CODEC` 直接序列化到字符串，所以这样做有效。 对于不序列化为字符串的简单对象，可以通过使用 [xmap及其相关函数](#mutually-convertible-types-and-you) 来转换它们以达到类似的效果。
 
@@ -248,18 +218,15 @@ DataResult<JsonElement> result = mapCodec.encodeStart(JsonOps.INSTANCE, Map.of(
 
 `BlockPos` 已有 codec，但让我们假装它不存在。 我们可以基于 `Vec3d` 的 codec 这样为它创建一个：
 
-```java
-Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
-    // 转换 Vec3d 到 BlockPos
-    vec -> new BlockPos(vec.x, vec.y, vec.z),
-    // 转换 BlockPos 到 Vec3d
-    pos -> new Vec3d(pos.getX(), pos.getY(), pos.getZ())
-);
+::: code-group
 
-// 当转换一个存在的类 （比如 `X`）到您自己的类 (`Y`)
-// 最好是在 `Y` 类中添加 `toX` 和静态的 `fromX` 方法
-// 并且使用在您的 `xmap` 调用中使用方法引用
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert_xmap[Codec]
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#convert_xmap_data[Input]
+
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/xmap.json[Output]
+
+:::
 
 #### flatComapMap、comapFlatMap 与 flatXMap{#flatcomapmap-comapflatmap-flatxmap}
 
@@ -268,25 +235,7 @@ Codec<BlockPos> blockPosCodec = Vec3d.CODEC.xmap(
 以原版的 `Identifier` 为例。 虽然所有 Identifier 都能转换为字符串，但并非所有字符串都是有效的 Identifier，因此使用 xmap 意味着在转换失败时会抛出难以处理的异常。
 正因如此，其内置 codec 实际上是对 `Codec.STRING` 应用了 `comapFlatMap`，很好地展示了如何使用它：
 
-```java
-public class Identifier {
-    public static final Codec<Identifier> CODEC = Codec.STRING.comapFlatMap(
-        Identifier::validate, Identifier::toString
-    );
-
-    // ...
-
-    public static DataResult<Identifier> validate(String id) {
-        try {
-            return DataResult.success(Identifier.parse(id));
-        } catch (InvalidIdentifierException e) {
-            return DataResult.error("Not a valid identifier: " + id + " " + e.getMessage());
-        }
-    }
-
-    // ...
-}
-```
+<<< @/reference/latest/src/main/java/com/example/docs/codec/Identifier.java#identifier_flatmap
 
 虽然这些方法非常有用，但方法名称有点让人困惑，所以这里有一个表格帮助你记住应该使用哪一个：
 
@@ -307,46 +256,31 @@ public class Identifier {
 - 一个 `BeanType<T extends Bean>` 类或 record，代表 bean 的类型并可返回它的 codec。
 - 一个在 `Bean` 中可以用于检索其 `BeanType<?>` 的函数。
 - 一个 `Identifier` 到 `BeanType<?>` 的 map 或注册表
-- 一个基于该注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.core.Registry`，那么可以简单地调用  `Registry#getCodec`。
+- 一个基于该注册表的 `Codec<BeanType<?>>`。 如果你使用 `net.minecraft.core.Registry`，那么可以简单地调用  `Registry#byNameCodec`。
 
 有了这些，就可以创建一个 bean 的注册表分派 codec。
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/Bean.java)
+::: code-group
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanType.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#registry_dispatch[Codec]
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java)
+<<< @/reference/latest/src/main/java/com/example/docs/codec/Bean.java#bean_interface[Bean]
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java)
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanType.java#bean_type_record[BeanType]
 
-@[code transcludeWith=:::](@/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/codec/StringyBean.java#stringy_bean_class[StringyBean]
 
-```java
-// 现在我们可以创建一个用于 bean 类型的 codec
-// 基于之前创建的注册表
-Codec<BeanType<?>> beanTypeCodec = BeanType.REGISTRY.getCodec();
+<<< @/reference/latest/src/main/java/com/example/docs/codec/CountingBean.java#counting_bean_class[CountingBean]
 
-// 基于那个，这是我们用于 bean 的注册表分派 codec！
-// 第一个参数是这个 bean 类型的字段名
-// 当省略时默认是 "type"。
-Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
-```
+<<< @/reference/latest/src/main/java/com/example/docs/codec/BeanTypes.java#bean_types_class[BeanTypes]
+
+:::
 
 我们的新 codec 将会像这样将 bean 类序列化为 JSON，仅抓取与特定类型相关的字段：
 
-```json
-{
-  "type": "example:stringy_bean",
-  "stringy_string": "This bean is stringy!"
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/stringy_bean.json
 
-```json
-{
-  "type": "example:counting_bean",
-  "counting_number": 42
-}
-```
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/counting_bean.json
 
 ### 递归 codec{#recursive-codecs}
 
@@ -354,45 +288,18 @@ Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::
 
 例如，让我们尝试序列化单链列表。 列表是由一组节点的表示的，这些节点既包含一个值，也包含对列表中下一个节点的引用。 然后列表由其第一个节点表示，遍历列表是通过跟随下一个节点来完成的，直到没有剩余节点。 以下是存储整数的节点的简单实现。
 
-```java
-public record ListNode(int value, ListNode next) {}
-```
+<<< @/reference/latest/src/main/java/com/example/docs/codec/ListNode.java#node_record
 
 我们无法通过普通方法为此构建 codec，因为对 `next` 字段要使用什么 codec？ 我们需要一个 `Codec<ListNode>`，这就是我们还在构建的！ `Codec#recursive` 能让我们使用看上去像魔法的 lambda 来达到这点。
 
-```java
-Codec<ListNode> codec = Codec.recursive(
-  "ListNode", // codec的名称
-  selfCodec -> {
-    // 这里，`selfCodec` 代表 `Codec<ListNode>`，就像已经构造好了一样
-    // 这个 lambda 应该返回我们从一开始就想要使用的 codec，
-    // 通过 `selfCodec` 引用自身
-    return RecordCodecBuilder.create(instance ->
-      instance.group(
-        Codec.INT.fieldOf("value").forGetter(ListNode::value),
-         // `next`字段将使用自己 codec 递归处理
-        Codecs.createStrictOptionalFieldCodec(selfCodec, "next", null).forGetter(ListNode::next)
-      ).apply(instance, ListNode::new)
-    );
-  }
-);
-```
+::: code-group
 
-序列化的 `ListNode` 可能看起来像这样：
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive_codec[Codec]
 
-```json
-{
-  "value": 2,
-  "next": {
-    "value": 3,
-    "next": {
-      "value": 5
-    }
-  }
-}
-```
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModCodecExampleProvider.java#recursive_codec_data[Input]
 
-## 参考{#references}
+<<< @/reference/latest/src/main/generated/reports/example-mod/codec_examples/recursive.json[Output]
 
-- 关于 codec 及相关 API 的更全面的文档，可以在[非官方 DFU JavaDoc](https://kvverti.github.io/Documented-DataFixerUpper/snapshot/com/mojang/serialization/Codec) 中找到。
-- 本指南的总体结构受到了 [Forge 社区 Wiki 关于 Codec 的页面](https://forge.gemwire.uk/wiki/Codecs)的重大启发，这是对同一主题的更具 Forge 特色的解读。
+:::
+
+<!---->

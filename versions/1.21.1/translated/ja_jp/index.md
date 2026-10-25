@@ -18,8 +18,4 @@ features:
     linkText: 始めましょう
 ---
 
-::: warning
-現在、Minecraft 1.21.1 のドキュメントを表示しています。別のバージョンをお探しの場合は、ナビゲーションバーのドロップダウンから選択してください。
-:::
-
 もしFabricのドキュメントに貢献したいなら、 [投稿ガイドライン](./contributing)を参照してください。ソースコードは [GitHub](https://github.com/FabricMC/fabric-docs)にあります。

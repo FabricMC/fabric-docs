@@ -42,7 +42,10 @@ const getFileTitle = (path: string) =>
   path.replace(/^@[/]reference[/][^/]+[/]/, "").replace("com/example/docs", "...");
 
 const getFileExtension = (path: string) =>
-  path.replace(/^.*[.]([^.]+)$/, "$1").replace(/^classtweaker$/, "document");
+  path
+    .replace(/^.*[.]([^.]+)$/, "$1")
+    .replace(/^classtweaker$/, "document")
+    .replace(/^md$/, "markdown");
 </script>
 
 <template>

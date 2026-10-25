@@ -8,7 +8,7 @@ search: false
 ---
 
 :::tip
-如果你在查找崩溃原因时遇到困难，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#server-admin-support` 频道中寻求帮助。
+如果你在查找崩溃原因时遇到困难，可以在 [Fabric Discord](https://discord.gg/v6v4pMv) 的 `#player-support` 或 `#mc-server-support` 频道中寻求帮助。
 :::
 
 崩溃报告是解决游戏或服务器问题的重要部分。 它包含大量关于崩溃的信息，可以帮助你找到崩溃的原因。 它包含大量关于崩溃的信息，可以帮助你找到崩溃的原因。

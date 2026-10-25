@@ -53,6 +53,14 @@ export default [
             link: "/develop/items/food",
           },
           {
+            text: "develop.items.custom_fuel",
+            link: "/develop/items/custom-fuel",
+          },
+          {
+            text: "develop.items.custom_compostable",
+            link: "/develop/items/custom-compostable",
+          },
+          {
             text: "develop.items.potions",
             link: "/develop/items/potions",
           },
@@ -67,6 +75,10 @@ export default [
           {
             text: "develop.items.custom_armor",
             link: "/develop/items/custom-armor",
+          },
+          {
+            text: "develop.items.custom_shields",
+            link: "/develop/items/custom-shields",
           },
         ],
       },
@@ -134,6 +146,10 @@ export default [
         text: "develop.blocks.block_tinting",
         link: "/develop/blocks/block-tinting",
       },
+      {
+        text: "develop.blocks.workstations",
+        link: "/develop/blocks/workstations",
+      },
     ],
   },
   {
@@ -153,6 +169,12 @@ export default [
       {
         text: "develop.entities.first_entity",
         link: "/develop/entities/first-entity",
+        items: [
+          {
+            text: "develop.entities.projectiles",
+            link: "/develop/entities/projectiles",
+          },
+        ],
       },
       {
         text: "develop.entities.attributes",
@@ -165,6 +187,20 @@ export default [
       {
         text: "develop.entities.damage_types",
         link: "/develop/entities/damage-types",
+      },
+    ],
+  },
+  {
+    text: "develop.events",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.events.introduction",
+        link: "/develop/events/",
+      },
+      {
+        text: "develop.events.loot_tables",
+        link: "/develop/events/loot-tables",
       },
     ],
   },
@@ -201,6 +237,20 @@ export default [
       {
         text: "develop.commands.suggestions",
         link: "/develop/commands/suggestions",
+      },
+    ],
+  },
+  {
+    text: "develop.recipes",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.recipes.custom_recipe_types",
+        link: "/develop/recipes/custom-recipe-types",
+      },
+      {
+        text: "develop.recipes.extending_vanilla_recipes",
+        link: "/develop/recipes/extending-vanilla-recipes",
       },
     ],
   },
@@ -327,20 +377,30 @@ export default [
     ],
   },
   {
+    text: "develop.registries",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.registries.dynamic_registries",
+        link: "/develop/registries/dynamic-registry",
+      },
+    ],
+  },
+  {
     text: "develop.serialization",
     collapsed: true,
     items: [
       {
-        text: "develop.misc.codecs",
-        link: "/develop/codecs",
+        text: "develop.serialization.codecs",
+        link: "/develop/serialization/codecs",
       },
       {
-        text: "develop.misc.data_attachments",
-        link: "/develop/data-attachments",
+        text: "develop.serialization.data_attachments",
+        link: "/develop/serialization/data-attachments",
       },
       {
-        text: "develop.misc.saved_data",
-        link: "/develop/saved-data",
+        text: "develop.serialization.saved_data",
+        link: "/develop/serialization/saved-data",
       },
     ],
   },
@@ -350,7 +410,7 @@ export default [
     items: [
       {
         text: "develop.loom.introduction",
-        link: "/develop/loom",
+        link: "/develop/loom/",
       },
       {
         text: "develop.loom.fabric_api",
@@ -375,6 +435,20 @@ export default [
     ],
   },
   {
+    text: "develop.loader",
+    collapsed: true,
+    items: [
+      {
+        text: "develop.loader.index",
+        link: "/develop/loader/",
+      },
+      {
+        text: "develop.loader.fabric.mod.json",
+        link: "/develop/loader/fabric-mod-json",
+      },
+    ],
+  },
+  {
     text: "develop.porting",
     collapsed: true,
     items: [
@@ -384,7 +458,7 @@ export default [
         items: [
           {
             text: "develop.porting.fabric_api",
-            link: "/develop/porting/fabric-api",
+            link: "/26.1/develop/porting/fabric-api",
           },
         ],
       },
@@ -394,11 +468,11 @@ export default [
         items: [
           {
             text: "develop.porting.mappings.loom",
-            link: "/develop/porting/mappings/loom",
+            link: "/1.21.11/develop/porting/mappings/loom",
           },
           {
             text: "develop.porting.mappings.ravel",
-            link: "/develop/porting/mappings/ravel",
+            link: "/1.21.11/develop/porting/mappings/ravel",
           },
         ],
       },
@@ -411,6 +485,10 @@ export default [
       {
         text: "develop.mixins.bytecode",
         link: "/develop/mixins/bytecode",
+      },
+      {
+        text: "develop.mixins.accessors",
+        link: "/develop/mixins/accessors",
       },
     ],
   },
@@ -430,6 +508,10 @@ export default [
         text: "develop.class_tweakers.interface_injection",
         link: "/develop/class-tweakers/interface-injection",
       },
+      {
+        text: "develop.class_tweakers.enum_extension",
+        link: "/develop/class-tweakers/enum-extension",
+      },
     ],
   },
   {
@@ -437,36 +519,36 @@ export default [
     collapsed: true,
     items: [
       {
-        text: "develop.misc.events",
-        link: "/develop/events",
-      },
-      {
-        text: "develop.misc.game_rules",
-        link: "/develop/game-rules",
-      },
-      {
-        text: "develop.misc.text_and_translations",
-        link: "/develop/text-and-translations",
-      },
-      {
-        text: "develop.misc.networking",
-        link: "/develop/networking",
-      },
-      {
-        text: "develop.misc.key_mappings",
-        link: "/develop/key-mappings",
+        text: "develop.misc.automatic_testing",
+        link: "/develop/automatic-testing",
       },
       {
         text: "develop.misc.debugging",
         link: "/develop/debugging",
       },
       {
-        text: "develop.misc.automatic_testing",
-        link: "/develop/automatic-testing",
+        text: "develop.misc.game_rules",
+        link: "/develop/game-rules",
       },
       {
-        text: "develop.misc.custom_recipe_types",
-        link: "/develop/custom-recipe-types",
+        text: "develop.misc.key_mappings",
+        link: "/develop/key-mappings",
+      },
+      {
+        text: "develop.misc.networking",
+        link: "/develop/networking",
+      },
+      {
+        text: "develop.misc.resource_conditions",
+        link: "/develop/resource-conditions",
+      },
+      {
+        text: "develop.misc.statistics",
+        link: "/develop/statistics",
+      },
+      {
+        text: "develop.misc.text_and_translations",
+        link: "/develop/text-and-translations",
       },
     ],
   },

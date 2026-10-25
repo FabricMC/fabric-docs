@@ -25,7 +25,7 @@ Assicurati di aver prima completato il processo di [configurazione della datagen
 
 Anzitutto, creeremo il nostro **fornitore**. Ricorda: i fornitori sono ciò che ci genera effettivamente i dati. Crea una classe che estenda `FabricLanguageProvider` e compilane i metodi di base:
 
-@[code lang=java transcludeWith=:::datagen-translations:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_provider
 
 ::: tip
 
@@ -35,13 +35,13 @@ Ti servirà un fornitore diverso per ogni lingua che vorrai generare (per esempi
 
 Per completare la configurazione, aggiungi questo fornitore alla tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transcludeWith=:::datagen-translations:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_translations_register
 
 ## Creare Traduzioni {#creating-translations}
 
 Oltre a creare traduzioni crude, traduzioni da `Identifier`, e copiarli da un altro file esistente (passando un `Path`), ci sono metodi ausiliari per tradurre oggetti, blocchi, tag, statistiche, entità, effetti dei mob, schede dell'inventario, attributi di entità, e incantesimi. Basta chiamare `add` sul `translationBuilder` con ciò che vuoi tradurre e ciò a cui dovrebbe essere tradotto:
 
-@[code lang=java transcludeWith=:::datagen-translations:build](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
 
 ## Usare le Traduzioni {#using-translations}
 

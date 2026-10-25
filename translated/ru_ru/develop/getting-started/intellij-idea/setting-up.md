@@ -23,6 +23,10 @@ prev:
 next:
   text: Открытие проекта в IntelliJ IDEA
   link: ./opening-a-project
+resources:
+  https://www.jetbrains.com/idea/download/: Скачать IntelliJ IDEA от JetBrains
+  https://www.jetbrains.com/help/idea/getting-started.html: Начало работы с IntelliJ IDEA
+  https://plugins.jetbrains.com/plugin/8327-minecraft-development: Плагин Minecraft Development — JB Marketplace
 ---
 
 <!---->
@@ -35,7 +39,13 @@ next:
 
 ## Установка IntelliJ IDEA {#installing-intellij-idea}
 
-Если у вас не установлена IntelliJ IDEA, вы можете загрузить ее с [официального сайта](https://www.jetbrains.com/idea/download/) - выполните шаги по установке для вашей ОС.
+::: warning
+
+Для моддинга версии 26.1 требуется IntelliJ IDEA 2025.3 или новее.
+
+:::
+
+Если у вас не установлен IntelliJ IDEA **или версия ниже 2025.3**, вы можете скачать его с [официального сайта](https://www.jetbrains.com/idea/download/) — следуйте инструкциям по установке для вашей операционной системы.
 
 ![Страница загрузки IntelliJ IDEA](/assets/develop/getting-started/idea-download.png)
 

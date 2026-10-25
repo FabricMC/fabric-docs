@@ -9,7 +9,7 @@ import net.minecraft.sounds.SoundEvent;
 
 import com.example.docs.sound.instance.SoundInstanceCallback;
 
-// :::1
+// #region sound_manager_structure
 public class DynamicSoundManager implements SoundInstanceCallback {
 	// An instance of the client to use Minecraft's default SoundManager
 	private static final Minecraft client = Minecraft.getInstance();
@@ -33,9 +33,9 @@ public class DynamicSoundManager implements SoundInstanceCallback {
 
 		return instance;
 	}
-	// :::1
+	// #endregion sound_manager_structure
 
-	// :::2
+	// #region sound_manager_methods
 	// Plays a sound instance, if it doesn't already exist in the list
 	public <T extends AbstractDynamicSoundInstance> void play(T soundInstance) {
 		if (this.activeSounds.contains(soundInstance)) return;
@@ -53,7 +53,7 @@ public class DynamicSoundManager implements SoundInstanceCallback {
 
 	// Finds a SoundInstance from a SoundEvent, if it exists and is currently playing
 	public Optional<AbstractDynamicSoundInstance> getPlayingSoundInstance(SoundEvent soundEvent) {
-		for (var activeSound : this.activeSounds) {
+		for (AbstractDynamicSoundInstance activeSound : this.activeSounds) {
 			// SoundInstances use their SoundEvent's id by default
 			if (activeSound.getIdentifier().equals(soundEvent.location())) {
 				return Optional.of(activeSound);
@@ -62,9 +62,9 @@ public class DynamicSoundManager implements SoundInstanceCallback {
 
 		return Optional.empty();
 	}
-	// :::2
+	// #endregion sound_manager_methods
 
-	// :::1
+	// #region sound_manager_structure
 
 	// This is where the callback signal of a finished custom SoundInstance will arrive.
 	// For now, we can just stop and remove the sound from the list, but you can add
@@ -74,4 +74,4 @@ public class DynamicSoundManager implements SoundInstanceCallback {
 		this.stop(soundInstance);
 	}
 }
-// :::1
+// #endregion sound_manager_structure

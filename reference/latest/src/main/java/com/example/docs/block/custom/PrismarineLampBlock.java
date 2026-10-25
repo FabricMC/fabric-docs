@@ -12,28 +12,27 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
-// :::1
+// #region block
 public class PrismarineLampBlock extends Block {
 	public static final BooleanProperty ACTIVATED = BooleanProperty.create("activated");
-
-	// :::1
-	// :::3
+	// #endregion block
+	// #region constructor
 	public PrismarineLampBlock(Properties settings) {
 		super(settings);
 
 		// Set the default state of the block to be deactivated.
 		registerDefaultState(defaultBlockState().setValue(ACTIVATED, false));
 	}
-	// :::3
+	// #endregion constructor
 
-	// :::2
+	// #region block_state_definition
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		builder.add(ACTIVATED);
 	}
-	// :::2
+	// #endregion block_state_definition
 
-	// :::4
+	// #region on_use
 	@Override
 	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
 		if (!player.getAbilities().mayBuild) {
@@ -52,9 +51,9 @@ public class PrismarineLampBlock extends Block {
 			return InteractionResult.SUCCESS;
 		}
 	}
-	// :::4
+	// #endregion on_use
 
-	// :::5
+	// #region get_luminance
 	public static int getLuminance(BlockState currentBlockState) {
 		// Get the value of the "activated" property.
 		boolean activated = currentBlockState.getValue(PrismarineLampBlock.ACTIVATED);
@@ -62,8 +61,8 @@ public class PrismarineLampBlock extends Block {
 		// Return a light level if activated = true
 		return activated ? 15 : 0;
 	}
-	// :::5
+	// #endregion get_luminance
 
-	// :::1
+	// #region block
 }
-// :::1
+// #endregion block

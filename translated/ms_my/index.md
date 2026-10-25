@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Dokumentasi Fabric
-  tagline: Dokumentasi rasmi yang dikurasi untuk Fabric,<br />sebuah rangkaian alat pengubahsuaian untuk Minecraft.
+  tagline: Dokumentasi rasmi yang dikurasi untuk Fabric, sebuah rangkaian alat pengubahsuaian untuk Minecraft.
 
 features:
   - title: Panduan Pemain

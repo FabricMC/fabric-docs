@@ -5,7 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -21,7 +21,7 @@ import com.example.docs.networking.basic.GiveGlowingEffectServerboundPayload;
 public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		// :::client_global_receiver
+		// #region client_global_receiver
 		ClientPlayNetworking.registerGlobalReceiver(ClientboundSummonLightningPayload.TYPE, (payload, context) -> {
 			ClientLevel level = context.client().level;
 
@@ -29,17 +29,24 @@ public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 				return;
 			}
 
+			// #region payload_pos
 			BlockPos lightningPos = payload.pos();
-			LightningBolt entity = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
+			int id = payload.id();
+			// #endregion payload_pos
+
+			// #region lightning_bolt
+			LightningBolt entity = EntityTypes.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
 
 			if (entity != null) {
+				entity.setId(id);
 				entity.setPos(lightningPos.getX(), lightningPos.getY(), lightningPos.getZ());
 				level.addEntity(entity);
 			}
+			// #endregion lightning_bolt
 		});
-		// :::client_global_receiver
+		// #endregion client_global_receiver
 
-		// :::use_entity_callback
+		// #region use_entity_callback
 		UseEntityCallback.EVENT.register((player, level, hand, entity, hitResult) -> {
 			if (!level.isClientSide()) {
 				return InteractionResult.PASS;
@@ -48,14 +55,19 @@ public class ExampleModNetworkingBasicClient implements ClientModInitializer {
 			ItemStack usedItemStack = player.getItemInHand(hand);
 
 			if (entity instanceof LivingEntity && usedItemStack.is(Items.POISONOUS_POTATO) && hand == InteractionHand.MAIN_HAND) {
+				// #region payload
 				GiveGlowingEffectServerboundPayload payload = new GiveGlowingEffectServerboundPayload(hitResult.getEntity().getId());
+				// #endregion payload
+
+				// #region send
 				ClientPlayNetworking.send(payload);
+				// #endregion send
 
 				return InteractionResult.SUCCESS;
 			}
 
 			return InteractionResult.PASS;
 		});
-		// :::use_entity_callback
+		// #endregion use_entity_callback
 	}
 }

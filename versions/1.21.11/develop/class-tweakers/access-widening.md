@@ -7,6 +7,7 @@ authors-nogithub:
 authors:
   - Ayutac
   - cassiancc
+  - CelDaemon
   - cootshk
   - Earthcomputer
   - florensie
@@ -127,7 +128,6 @@ Manually writing access widener entries is time-consuming and prone to human err
 
 ### mcsrc.dev {#mcsrc-dev}
 
-Available for all versions with an [unobfuscated JAR](../migrating-mappings/index#whats-going-on-with-mappings) namely 1.21.11 and above,
 [mcsrc](https://mcsrc.dev) allows you to decompile and navigate Minecraft source in the browser and copy Mixin, access widener or access transformer targets to clipboard.
 The names of classes, methods and fields on [mcsrc](https://mcsrc.dev) will align with [Mojang Mappings](../migrating-mappings/index#mappings).
 
@@ -176,6 +176,6 @@ You can copy it and then paste the entry in your class tweaker file.
 
 ## Applying Changes {#applying-changes}
 
-To see your changes applied, you must refresh your Gradle project by [regenerating sources](../getting-started/generating-sources). The elements you targeted should
+To see your changes applied, you must refresh your Gradle project and [regenerate sources](../getting-started/generating-sources). The elements you targeted should
 have their access limits modified accordingly. If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file)
 and checking if any errors appear.

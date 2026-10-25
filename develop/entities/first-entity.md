@@ -2,12 +2,13 @@
 title: Creating Your First Entity
 description: Learn how to register a simple entity and how to give it goals, render, model, and animate it.
 authors:
+  - An16og
   - cassiancc
+  - CelDaemon
   - Earthcomputer
   - JaaiDead
   - skycatminepokie
   - SzczurekYT
-  - voidedaries
 resources:
   https://docs.neoforged.net/docs/entities/: Entities - NeoForge Docs
   https://www.desmos.com/calculator/9r6lh5knfu: Entity Walk Animation - Desmos
@@ -27,11 +28,19 @@ The first step in creating a custom entity is defining its class and registering
 
 We'll create the class `MiniGolemEntity` for our entity, and start by giving it attributes. [Attributes](attributes) decide various things including the maximum health, movement speed, and tempt range of the entity.
 
-@[code transcludeWith=:::registerclass](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#registerclass
 
-To register your entity, it's recommended to create a separate class, `ModEntityTypes`, where you register any and all entity types, set their sizes, and register their attributes.
+Our new entity needs an ID; create a new class called `ModEntityTypeIds` and add a resource key for the entity:
 
-@[code transcludeWith=:::types](@/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#ids
+
+To register your entity, it's recommended to create a separate class, `ModEntityTypes`, where you register any and all entity types, set their sizes, and pass their attributes directly into the registration method:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
+
+Call `initialize` in your [mod's initializer](../getting-started/project-structure#entrypoints) to trigger the class loading and register your entities:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
 
 ## Adding Goals {#adding-goals}
 
@@ -39,7 +48,7 @@ Goals are the system that handle an entity's objective/aim, providing them with 
 
 To add goals to the entity, you need to create a `registerGoals` method in your entity's class that defines the goals for the entity.
 
-@[code transcludeWith=:::goals](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#goals
 
 ::: info
 
@@ -62,7 +71,7 @@ Entity rendering is always handled on the client side. The server manages the en
 
 Rendering has multiple steps involving their own classes, but we'll start with the `EntityRenderState` class.
 
-@[code transcludeWith=:::entitystate](@/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java#entitystate
 
 Data stored on the render state is used to determine how the entity is visually represented, including animation states such as movement and idle behaviors.
 
@@ -78,11 +87,11 @@ Mismatched mappings can cause errors when integrating Blockbench generated code.
 
 :::
 
-@[code transcludeWith=:::model1](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model1
 
 The `MiniGolemEntityModel` class defines the visual model for a Mini Golem entity. It extends `EntityModel`, specifying how the entity's body parts (body, head, left leg, and right leg) are named.
 
-@[code transcludeWith=:::model_texture_data](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model_texture_data
 
 This method defines the Mini Golem's 3D model by creating its body, head, and legs as cuboids, setting their positions and texture mappings, and returning a `LayerDefinition` for rendering.
 
@@ -96,11 +105,11 @@ Higher Y values in the model correspond to the **bottom** of the entity. This is
 
 We'll now need to create a `ModEntityModelLayers` class in the client package. This entity only has a single texture layer, but other entities may use multiple - think of the secondary skin layer on entities like the `Player` or a `Spider`'s eyes.
 
-@[code transcludeWith=:::model_layer](@/reference/latest/src/client/java/com/example/docs/entity/model/ModEntityModelLayers.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/ModEntityModelLayers.java#model_layer
 
 This class must then be initialized in the mod's client initializer.
 
-@[code transcludeWith=::register_client](@/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java#register_client
 
 ### Setting up the Texture {#setting-up-texture}
 
@@ -120,19 +129,19 @@ For example purposes, you can use this texture for `assets/example-mod/textures/
 
 A entity's renderer enables you to view your entity in-game. We'll create a new class, `MiniGolemEntityRenderer`, which will tell Minecraft what texture, model, and entity render state to use for this entity.
 
-@[code transcludeWith=:::renderer](@/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java#renderer
 
 This is also where the shadow radius is set, for this entity that will be `0.375f`.
 
 This renderer must then be registered in the mod's client initializer.
 
-@[code transcludeWith=::register_renderer](@/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/ExampleModCustomEntityClient.java#register_renderer
 
 ### Adding Walking Animations {#walking-animations}
 
 The following code can be added to the `MiniGolemEntityModel` class to give the entity a walking animation.
 
-@[code transcludeWith=:::model_animation](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#model_animation
 
 To start, apply the yaw and pitch to the head model part.
 
@@ -164,7 +173,7 @@ Sometimes you need data from the server-side entity to be synced with the client
 
 In our case we want our entity to dance every so often, so we need to create a dancing state that is synchronized between the clients so that it can be animated later. However, the dancing cooldown need not be synced with the client because the animation is triggered by the server.
 
-@[code transcludeWith=:::datatracker](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#datatracker
 
 As you can see we added a tick method to control the dancing state.
 
@@ -172,7 +181,7 @@ As you can see we added a tick method to control the dancing state.
 
 For persistent data that can be saved after the game is closed, we will override the `addAdditionalSaveData` and `readAdditionalSaveData` methods in `MiniGolemEntity`. We can use this to store the amount of time remaining in the dancing animation.
 
-@[code transcludeWith=:::savedata](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#savedata
 
 Now, whenever the entity is loaded, it will restore the state that it was left in.
 
@@ -180,13 +189,13 @@ Now, whenever the entity is loaded, it will restore the state that it was left i
 
 The first step to adding an animation to the entity is adding the animation state in the entity class. We'll create an animation state that will be used to make the entity dance.
 
-@[code transcludeWith=:::dancing_animation](@/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#dancing_animation
 
 We have overridden the `onSyncedDataUpdated` method. This gets called whenever synched data is updated both the server and the client. The if-statement checks whether the synched data that was updated is the dancing synched data.
 
 Now, we'll move on to animation itself. We will create the `MiniGolemAnimations` class, and add an `AnimationDefinition` to define how the animation will be applied to the entity.
 
-@[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/animation/MiniGolemAnimations.java#dancing_animation
 
 There's a lot going on here, notice the following key points:
 
@@ -199,9 +208,17 @@ There's a lot going on here, notice the following key points:
   - We have used linear interpolation, which is the simplest and changes the value (in our case rotation of the model part) at a constant rate from one keyframe to the next. Vanilla also provides Catmull-Rom spline interpolation, which produces a smoother transition between keyframes.
   - Modders can also create custom interpolation types.
 
+To make our animation state available to the renderer, we will store a copy of it in our `MiniGolemEntityRenderState`.
+
+<<< @/reference/latest/src/client/java/com/example/docs/entity/state/MiniGolemEntityRenderState.java#animation_state
+
+To perform the copy, we override `extractRenderState` in the entity renderer.
+
+<<< @/reference/latest/src/client/java/com/example/docs/entity/renderer/MiniGolemEntityRenderer.java#copy_animation_state
+
 Finally, let's hook up the animation to the model:
 
-@[code transcludeWith=:::dancing_animation](@/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java)
+<<< @/reference/latest/src/client/java/com/example/docs/entity/model/MiniGolemEntityModel.java#dancing_animation
 
 When the animation is playing we apply the animation, otherwise we use the old leg animation code.
 

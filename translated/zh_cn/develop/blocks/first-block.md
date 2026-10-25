@@ -2,24 +2,83 @@
 title: 创建你的第一个方块
 description: 学习如何在 Minecraft 中创建你的第一个自定义方块。
 authors:
+  - bluebear94
+  - cassiancc
   - CelDaemon
   - Earthcomputer
   - IMB11
   - its-miroma
   - xEobardThawne
+  - NotNightSky
+resources:
+  https://docs.neoforged.net/docs/blocks/: Blocks - NeoForge 文档
 ---
 
 方块是构成 Minecraft 的基本组成“块”（并非有意双关）——与 Minecraft 中的所有事物一样，它们存储在注册表中。
 
+## 准备你的方块ID类{#preparing-your-block-id-classes}
+
+如果你已经完成了[创建你的第一个物品](../items/first-item)那么这个过程你会觉得非常熟悉——你需要创建类来存放你的 `Block`的标识符。带有物品的方块，其 ID 以`BlockItemId`的形式存储；而没有物品的方块，则将其 ID 存储为 `ResourceKey`。
+
+这些对方块的引用被用于 [标签生成](../data-generation/tags)。
+
+:::: tabs
+
+== 带方块物品的方块
+
+你可以将这个方法放在叫做 `ModBlockItemIds` 的类中（也可以是其他你想要的名称）。这个类包含了所有确实拥有方块物品的方块。
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#first_block
+
+::: tip
+
+Mojang对方块也是这么做的！看看 `BlockItemIds` 类以了解。
+
+:::
+
+== 不带方块物品的方块
+
+我们将创建一个用于生成 `ResourceKey` 的方法，并将其放在一个名为 `ModBlockIds` 的类中（也可以是其他你想要的名称）。这个类专门用来存放那些没有对应方块物品的方块。
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#first_block
+
+::: tip
+
+Mojang对方块也是这么做的！你可以参考 `BlockIds` 类来获取一些灵感。
+
+:::
+
+::::
+
 ## 准备你的方块类 {#preparing-your-blocks-class}
 
-如果你已经完成了[创建你的第一个物品](../items/first-item)，那么这一过程会非常熟悉——你会需要创建一个注册方块以及方块物品的方法。
+方块注册与[物品注册](../items/first-item#registering-an-item)类似：我们现在将创建两个 `register()` 方法的重载版本来注册你的方块，一个用于注册包含物品的方块，另一个用于注册不包含物品的方块。
 
-你应该把这个方块放在叫做 `ModBlocks` 的类中（也可以是其他你想要的名称）。
+你应该把这些方法放在一个名为 `ModBlocks` 的类中（或者你想叫它什么名字都行）。
 
 Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 `Blocks` 类看看他们是怎么做的。
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+::: warning
+
+下面显示的两个 `register()` 重载函数在你的 `ModBlocks` 类中都是**必需的**。包含物品的方块的重载方法内部会调用不包含物品的方块的重载方法。如果缺少任何一个重载，你的代码将无法编译。
+
+:::
+
+::: tabs
+
+== 带方块物品的方块
+
+带有方块物品的方块会使用一个 `BlockItemId` 参数，该参数同时包含了方块及其物品的 ID。
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block_item
+
+== 不带方块物品的方块
+
+没有方块物品的方块则使用 `ResourceKey` 参数，该参数仅包含方块的 ID。
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block
+
+:::
 
 像物品一样，你需要确保类被加载，这样所有包含方块实体的静态字段都会初始化。
 
@@ -27,23 +86,17 @@ Mojang 对原版方块的处理方法和这个也非常相似，你可以参考 
 
 ::: info
 
-如果你不了解什么是静态初始化，它指的是在类中初始化静态字段的过程。 这一过程会在类被 JVM 加载时执行，且在任何类实例创建之前完成。
+如果你不了解什么是静态初始化，它指的是在类中初始化静态字段的过程。这一过程会在类被 JVM 加载时执行，且在任何类实例创建之前完成。
 
 :::
 
-```java
-public class ModBlocks {
-    // ...
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#static_initialization
 
-    public static void initialize() {}
-}
-```
-
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ExampleModBlocks.java#initialize
 
 ## 创建并注册你的方块{#creating-and-registering-your-block}
 
-和物品类似，方块会在构造函数中接收一个 `BlockBehavior.Properties` 类，指定了方块的属性，例如其声音效果和挖掘等级。
+和物品类似，方块会在构造函数中接收一个 `BlockBehaviour.Properties` 类，指定了方块的属性，例如其声音效果和挖掘等级。
 
 这里不会把所有选项都提到：可以查看类本身来看看各种选项，应该都是不言自明的。
 
@@ -54,21 +107,19 @@ public class ModBlocks {
 
 ::: tip
 
-可以使用 `BlockBehavior.Properties.ofFullCopy(BlockBehavior block)` 来复制现有方块的设置，在本例中，我们本可以使用 `Blocks.DIRT` 来复制泥土的设置，但出于演示目的，我们将使用构建器。
+可以使用 `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)` 来复制现有方块的设置，在本例中，我们本可以使用 `Blocks.DIRT` 来复制泥土的设置，但出于演示目的，我们将使用构建器。
 
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
-
-为了自动创建方块物品，我们可以向在上一步创建的 `register` 方法的 `shouldRegisterItem` 参数中传入 true。
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_dirt
 
 ### 将你的方块的物品添加到创造模式标签页 {#adding-your-block-s-item-to-a-creative-tab}
 
 由于 `BlockItem` 是自动创建和注册的，要将其添加到创造模式标签页中，必须使用 `Block.asItem()` 方法来获得 `BlockItem` 实例。
 
-对于这个例子，我们将方块添加到 `BUILDING_BLOCKS` 标签页。 如果是要将方块添加到自定义的创造模式标签页，参见[自定义创造模式标签页](../items/custom-item-groups)。
+对于这个例子，我们将方块添加到 `BUILDING_BLOCKS` 标签页。如果是要将方块添加到自定义的创造模式标签页，参见[自定义创造模式标签页](../items/custom-creative-tabs)。
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#add_to_creative_tab
 
 你应将其置于类的 `initialize()` 函数中。
 
@@ -98,13 +149,13 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 <DownloadEntry visualURL="/assets/develop/blocks/first_block_1.png" downloadURL="/assets/develop/blocks/first_block_1_small.png">纹理</DownloadEntry>
 
-要在游戏中显示纹理，必须创建一个方块模型，该模型可在 `assets/example-mod/models/block/condensed_dirt.json` 文件中的 "Condensed Dirt" 方块中找到。 对于这个方块，我们将使用 `block/cube_all` 模型类型。
+要在游戏中显示纹理，必须创建一个方块模型，该模型可在 `assets/example-mod/models/block/condensed_dirt.json` 文件中的 "Condensed Dirt" 方块中找到。对于这个方块，我们将使用 `block/cube_all` 模型类型。
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/block/condensed_dirt.json
 
-为了让方块显示在物品栏中，你需要创建一个指向方块模型的[客户端物品](../items/first-item#creating-the-client-item)。 在本例中，“Condensed Dirt”方块的客户端物品可在 `assets/example-mod/items/condensed_dirt.json` 中找到。
+为了让方块显示在物品栏中，你需要创建一个指向方块模型的[客户端物品](../items/first-item#creating-the-client-item)。在本例中，“Condensed Dirt”方块的客户端物品可在 `assets/example-mod/items/condensed_dirt.json` 中找到。
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/condensed_dirt.json
 
 ::: tip
 
@@ -112,7 +163,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 :::
 
-载入游戏，你可能会发现模型还是缺失。 这是因为，你还需要添加方块状态定义。
+载入游戏，你可能会发现模型还是缺失。这是因为，你还需要添加方块状态定义。
 
 ## 创建方块状态定义{#creating-the-block-state-definition}
 
@@ -120,9 +171,9 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 示例方块没有复杂的方块状态，只需要定义一项。
 
-这个方块应该位于 `assets/example-mod/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。 例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
+这个方块应该位于 `assets/example-mod/blockstates` 文件夹内，名字应该匹配在 `ModBlocks` 类中注册方块时使用的方块 ID。例如，方块 ID 是 `condensed_dirt`，那么文件名称就是 `condensed_dirt.json`。
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/blockstates/condensed_dirt.json
 
 ::: tip
 
@@ -144,7 +195,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 :::
 
-@[code](@/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json)
+<<< @/reference/latest/src/main/resources/data/example-mod/loot_tables/blocks/condensed_dirt.json
 
 这个战利品表提供了方块在被破坏以及被爆炸破坏时掉落的单个方块物品。
 
@@ -163,7 +214,7 @@ Minecraft 会在创造模式物品栏中，以及其他显示方块名称的地�
 
 这个例子会将“Condensed Dirt”方块添加到 `shovel` 标签中。
 
-@[code](@/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json)
+<<< @/reference/latest/src/main/resources/data/minecraft/tags/mineable/shovel.json
 
 如果希望此方块应使用工具来挖掘，则需要在方块设置中添加`.requiresCorrectToolForDrops()`，并添加相应的挖掘标签。
 

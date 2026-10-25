@@ -3,7 +3,7 @@ title: 贡献指南
 description: Fabric 文档贡献指南
 ---
 
-此网站使用 [VitePress](https://vitepress.dev/) 从多个 Markdown 文件生成静态 HTML 网页。 你应该熟悉 [VitePress 支持的 Markdown 扩展](https://vitepress.dev/guide/markdown#features)。
+此网站使用 [VitePress](https://vitepress.dev/) 从多个 Markdown 文件生成静态 HTML 网页。你应该熟悉 [VitePress 支持的 Markdown 扩展](https://vitepress.dev/guide/markdown#features)。
 
 贡献此网站有三种方法：
 
@@ -61,12 +61,12 @@ git clone https://github.com/your-username/fabric-docs.git
 
 #### 安装依赖项 {#install-dependencies}
 
-如果希望在本地预览你的更改，你需要安装 [Node.js 18 或更高版本](https://nodejs.org/en/)。
+如果希望在本地预览更改，你需要安装 [Node.js 18 或更高版本](https://nodejs.org/zh-cn/) 和 [pnpm](https://pnpm.io/)。
 
 之后，确保使用以下命令安装所有依赖项：
 
 ```sh
-npm install
+pnpm install
 ```
 
 #### 运行开发服务器 {#run-the-development-server}
@@ -74,7 +74,7 @@ npm install
 这将允许你在本地预览 `localhost:5173` 的更改，并在你进行更改时自动重新加载页面。
 
 ```sh
-npm run dev
+pnpm dev
 ```
 
 现在你可以通过访问 `http://localhost:5173` 在浏览器中打开和浏览网站。
@@ -84,7 +84,7 @@ npm run dev
 这将编译所有 Markdown 文件为静态 HTML 文件，并将它们放置在 `.vitepress/dist` ：
 
 ```sh
-npm run build
+pnpm build
 ```
 
 #### 预览已构建的网站 {#previewing-the-built-website}
@@ -92,7 +92,7 @@ npm run build
 这将启动一个本地服务器，监听端口 `4173` ，并提供 `.vitepress/dist` 中的内容：
 
 ```sh
-npm run preview
+pnpm preview
 ```
 
 #### 打开 Pull Request {#opening-a-pull-request}
@@ -109,9 +109,9 @@ git push
 
 ### 2. <Badge type="tip">stage:expansion</Badge> 按需扩展指南 {#2-guidance-for-expansion-if-needed}
 
-如果文档团队认为你的 pull request 可以进行扩展，团队中的某成员会在你的 pull request 上添加 <Badge type="tip">stage:expansion</Badge> 标签，并附上一条评论说明他们认为你可以扩展的内容。 如果你同意这个建议，你可以对 pull request 进行扩展。
+如果文档团队认为你的 pull request 可以进行扩展，团队中的某成员会在你的 pull request 上添加 <Badge type="tip">stage:expansion</Badge> 标签，并附上一条评论说明他们认为你可以扩展的内容。如果你同意这个建议，你可以对 pull request 进行扩展。
 
-如果你不希望扩展你的 pull request，但愿意日后让别人来扩展，你应该在 [Issues 页面](https://github.com/FabricMC/fabric-docs/issues)创建一个 issue 并解释你认为可以扩展的内容。 然后文档团队会向你的 PR 添加 <Badge type="tip">help-wanted</Badge> 标签。
+如果你不希望扩展你的 pull request，但愿意日后让别人来扩展，你应该在 [Issues 页面](https://github.com/FabricMC/fabric-docs/issues)创建一个 issue 并解释你认为可以扩展的内容。然后文档团队会向你的 PR 添加 <Badge type="tip">help-wanted</Badge> 标签。
 
 ### 3. <Badge type="tip">stage:verification</Badge> 内容验证 {#3-content-verification}
 
@@ -144,7 +144,7 @@ git push
 
 :::
 
-## 风格指南 {#style-guidelines}
+## 样式指南 {#style-guidelines}
 
 如果你有任何疑问，可以在 [Fabric Discord](https://discord.fabricmc.net/) 或通过 GitHub Discussions 提问。
 
@@ -156,7 +156,7 @@ git push
 
 每个页面在元数据头中必须有一个 `title` 和一个 `description` 。
 
-记得在 Markdown 文件的元数据头中将你的 GitHub 用户名添加到 `authors` ！ 这样我们才能正确地署上你的名字。
+记得在 Markdown 文件的元数据头中将你的 GitHub 用户名添加到 `authors` ！这样我们才能正确地署上你的名字。
 
 ```yaml
 ---
@@ -179,7 +179,7 @@ authors:
 
 ### 在示例模组中放置代码 {#place-code-within-the-example-mod}
 
-如果你创建或修改包含代码的页面，请将代码放置在示例模组中的适当位置（位于存储库的 `/reference` 文件夹中）。 然后，使用 [VitePress 提供的代码片段功能](https://vitepress.dev/guide/markdown#import-code-snippets)嵌入代码。
+如果你创建或修改包含代码的页面，请将代码放置在示例模组中的适当位置（位于存储库的 `/reference` 文件夹中）。然后，使用 [VitePress 提供的代码片段功能](https://vitepress.dev/guide/markdown#import-code-snippets)嵌入代码。
 
 例如，要突出显示来自模组的 `ExampleMod.java` 文件的第 15-21 行：
 
@@ -200,10 +200,10 @@ authors:
 ::: code-group
 
 ```md
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
 ```
 
-@[code transcludeWith=#entrypoint](@/reference/latest/src/main/java/com/example/docs/ExampleMod.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#entrypoint
 
 :::
 
@@ -225,7 +225,7 @@ authors:
 
 ### 使用相对链接！ {#use-relative-links}
 
-这是因为版本管理系统会处理链接，在链接中预先添加版本号。 如果你使用绝对链接，链接中不会添加版本号。
+这是因为版本管理系统会处理链接，在链接中预先添加版本号。如果你使用绝对链接，链接中不会添加版本号。
 
 你也不应该在链接中添加文件扩展名。
 

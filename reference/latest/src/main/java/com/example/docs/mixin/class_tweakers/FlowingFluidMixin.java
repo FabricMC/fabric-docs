@@ -12,7 +12,7 @@ import net.minecraft.world.level.material.Fluid;
 
 import com.example.docs.interface_injection.BucketEmptySoundGetter;
 
-// #region interface-injection-example-mixin
+// #region interface_injection_example_mixin
 @Mixin(FlowingFluid.class)
 abstract class FlowingFluidMixin extends Fluid implements BucketEmptySoundGetter {
 	@Override
@@ -20,4 +20,4 @@ abstract class FlowingFluidMixin extends Fluid implements BucketEmptySoundGetter
 		return Optional.of(this.is(FluidTags.LAVA) ? SoundEvents.BUCKET_EMPTY_LAVA : SoundEvents.BUCKET_EMPTY);
 	}
 }
-// #endregion interface-injection-example-mixin
+// #endregion interface_injection_example_mixin

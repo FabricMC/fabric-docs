@@ -11,7 +11,7 @@ authors:
 
 `net.fabricmc.loom.task.FabricModJsonV1Task` — це завдання, яке можна використовувати для створення дійсного файлу `fabric.mod.json` для вашого мода. Це просте завдання, яке виводить файл, ви повинні налаштувати свій сценарій збірки, щоб включити файл у ваші ресурси модів, як вважаєте за потрібне.
 
-```groovy
+```gradle
 tasks.register("generateModJson", net.fabricmc.loom.task.FabricModJsonV1Task) {
     outputFile = file("fabric.mod.json")
 
@@ -22,7 +22,7 @@ tasks.register("generateModJson", net.fabricmc.loom.task.FabricModJsonV1Task) {
 }
 ```
 
-Наведений вище приклад є найпростішим використанням завдання, у якому буде створено файл `fabric.mod.json` із зазначеним ID мода та версією. Блок `json` підтримує всі поля, визначені в [схемі JSON мода Fabric](https://wiki.fabricmc.net/documentation:fabric_mod_json). Див. [FabricModJsonV1Spec](https://github.com/FabricMC/fabric-loom/blob/dev/1.12/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java), щоб отримати повний список підтримуваних властивостей.
+Наведений вище приклад є найпростішим використанням завдання, у якому буде створено файл `fabric.mod.json` із зазначеним ID мода та версією. Блок `json` підтримує всі поля, визначені в [схемі JSON мода Fabric](../loader/fabric-mod-json).
 
 ## Завантаження завдання {#download-task}
 
@@ -30,7 +30,7 @@ tasks.register("generateModJson", net.fabricmc.loom.task.FabricModJsonV1Task) {
 
 Наприклад, щоб завантажити файл із певної URL-адреси та зберегти його в `out.txt` у каталозі проєкту:
 
-```groovy
+```gradle
 tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
     url = "https://example.com/file.txt"
     output = file("out.txt")
@@ -39,7 +39,7 @@ tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
 
 Ви також можете вказати очікуваний хеш SHA-1, який використовуватиметься для перевірки цілісності завантаженого файлу, а також максимальний вік, коли вимагатиметься повторне завантаження, коли файл більше не буде свіжим:
 
-```groovy
+```gradle
 tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
     url = "https://example.com/file.txt"
     output = file("out.txt")
@@ -52,7 +52,7 @@ tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
 
 `net.fabricmc.loom.task.tool.ModEnigmaTask` — це розширене завдання, яке можна використовувати для запуску [Enigma](https://github.com/FabricMC/Enigma) у файлі мапінгів. Це можна використовувати для генерації javadoc, наданого модом.
 
-```groovy
+```gradle
 tasks.register("enigma", net.fabricmc.loom.task.tool.ModEnigmaTask) {
     mappingsFile = file("mappings.mapping")
 }
@@ -62,7 +62,7 @@ tasks.register("enigma", net.fabricmc.loom.task.tool.ModEnigmaTask) {
 
 `net.fabricmc.loom.task.ValidateMixinNameTask` — це завдання, яке можна використовувати для перевірки відповідності назви класу міксина назві цільового класу.
 
-```groovy
+```gradle
 tasks.register('validateMixinNames', net.fabricmc.loom.task.ValidateMixinNameTask) {
     source(sourceSets.main.output)
 }

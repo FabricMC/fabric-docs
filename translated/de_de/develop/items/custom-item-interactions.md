@@ -44,14 +44,20 @@ Ein hervorragendes Beispiel für die Verwendung dieser Events findet sich auf de
 
 Angenommen, du möchtest ein Item erstellen, das einen Blitz vor dem Spieler herbeiruft - dann musst du eine benutzerdefinierte Klasse erstellen.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#item
 
 Das `use`-Event ist wahrscheinlich das nützlichste von allen - du kannst dieses Event benutzen, um unseren Blitz zu erschaffen, du solltest ihn 10 Blöcke vor dem Spieler spawnen, in dessen Richtung er schaut.
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#use
 
 Wie üblich solltest du deine Items registrieren, ein Modell und eine Textur hinzufügen.
 
 Wie du sehen kannst, sollte der Blitz 10 Blöcke vor dir - dem Spieler - erscheinen.
+
+:::warning WARNUNG: KANN ANFÄLLE AUSLÖSEN!
+
+Das folgende Video enthält Bildmaterial und anhaltende Lichtblitze, die bei Personen, die anfällig für photosensitive Epilepsie sind oder unter anderen Lichtempfindlichkeiten leiden, Beschwerden auslösen können.
+
+:::
 
 <VideoPlayer src="/assets/develop/items/custom_items_0.webm">Den Blitzstick benutzen</VideoPlayer>

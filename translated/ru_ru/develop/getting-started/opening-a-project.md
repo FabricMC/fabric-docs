@@ -8,7 +8,6 @@ authors:
   - its-miroma
   - radstevee
   - Thomas1034
-outline: false
 ---
 
 ## Выберите свою IDE {#choose-your-ide}

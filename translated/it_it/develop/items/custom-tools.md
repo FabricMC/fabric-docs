@@ -11,7 +11,7 @@ Gli utensili sono essenziali per la sopravvivenza e l'avanzamento, poiché perme
 
 Puoi creare un materiale degli utensili istanziando un nuovo oggetto `ToolMaterial` e memorizzandolo in un attributo da usare dopo per creare gli oggetti degli utensili che usano il materiale.
 
-@[code transcludeWith=:::guidite_tool_material](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_tool_material
 
 Il costruttore di `ToolMaterial` accetta i parametri seguenti, in questo ordine:
 
@@ -26,7 +26,7 @@ Il costruttore di `ToolMaterial` accetta i parametri seguenti, in questo ordine:
 
 Per questo esempio, useremo lo stesso oggetto di riparo che useremo per l'armatura. Definiamo il riferimento di tag come segue:
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
 Se fai fatica a determinare valori adatti per ciascuno dei parametri numerici, considera le costanti dei materiali di utensili vanilla, tra cui `ToolMaterial.STONE` o `ToolMaterial.DIAMOND`.
 
@@ -34,19 +34,19 @@ Se fai fatica a determinare valori adatti per ciascuno dei parametri numerici, c
 
 Con la stessa funzione di utilità della guida [Creare il Tuo Primo Oggetto](./first-item), puoi creare gli oggetti dei tuoi utensili:
 
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
 I due valori float (`1f, 1f`) fanno riferimento al danno in attacco dell'utensile e alla sua velocità d'attacco rispettivamente.
 
 Ricorda di aggiungerli a una scheda se vuoi accedere ad essi dall'inventario in Creativa!
 
-@[code transcludeWith=:::8](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_guidite_sword_to_create_tab
 
 Dovrai anche aggiungere una texture, una traduzione e un modello per l'oggetto. Tuttavia, per i modelli, dovrai usare il modello `item/handheld` come genitore, invece del solito `item/generated`.
 
 Per questo esempio, useremo il modello e la texture seguenti per l'oggetto "Spada di Guidite":
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json
 
 <DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Texture</DownloadEntry>
 

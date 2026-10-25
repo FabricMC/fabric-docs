@@ -16,17 +16,17 @@ Loom 有一个 DSL 来帮助配置 Fabric API 的某些方面，例如数据生�
 
 ## 数据生成 {#data-gen}
 
-有关如何使用数据生成的分步指南，请参阅[数据生成设置](../data-generation/setup)页面。 最基本的数据生成设置可以用以下代码来配置：
+有关如何使用数据生成的分步指南，请参阅[数据生成设置](../data-generation/setup)页面。最基本的数据生成设置可以用以下代码来配置：
 
-```groovy
+```gradle
 fabricApi {
  configureDataGeneration()
 }
 ```
 
-这将创建一个新的运行配置，运行启用了数据生成的 Fabric API。 可以配置一系列更高级的选项，如下所示：
+这将创建一个新的运行配置，运行启用了数据生成的 Fabric API。可以配置一系列更高级的选项，如下所示：
 
-```groovy
+```gradle
 fabricApi {
  configureDataGeneration {
   // Contains the output directory where generated data files will be stored.
@@ -65,15 +65,15 @@ fabricApi {
 
 与数据生成一样，你可以使用以下命令设置基本测试：
 
-```groovy
+```gradle
 fabricApi {
  configureTests()
 }
 ```
 
-这将创建 2 个新的运行配置，一个用于服务器端游戏测试，一个用于客户端游戏测试。 可以配置一系列更高级的选项，如下所示：
+这将创建 2 个新的运行配置，一个用于服务器端游戏测试，一个用于客户端游戏测试。可以配置一系列更高级的选项，如下所示：
 
-```groovy
+```gradle
 fabricApi {
  configureTests {
   // Contains a boolean indicating whether a new source set should be created for the tests.

@@ -5,7 +5,7 @@ layout: home
 
 hero:
   name: Fabric 文件
-  tagline: Fabric 的官方精選文件，<br />這是 Minecraft 的一個模組製作工具鏈。
+  tagline: Fabric 的官方精選文件，這是 Minecraft 的一個模組製作工具鏈。
 
 features:
   - title: 玩家指南
@@ -19,11 +19,5 @@ features:
     link: /zh_tw/1.21.11/develop/
     linkText: 開始使用
 ---
-
-::: warning
-This documentation applies to Minecraft 1.21.11.
-
-Documentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar.
-:::
 
 如果你想為 Fabric 文件做出貢獻，你可以在 [GitHub](https://github.com/FabricMC/fabric-docs) 找到原始碼，以及相關的[貢獻指南](./contributing)。

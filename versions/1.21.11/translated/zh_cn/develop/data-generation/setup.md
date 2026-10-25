@@ -38,7 +38,7 @@ authors-nogithub:
 
 首先，我们需要在 `build.gradle` 文件中启用 datagen。
 
-@[code transcludeWith=:::datagen-setup:configure](@/reference/build.gradle)
+@[code transcludeWith=datagen_setup_configure](@/reference/build.gradle)
 
 接下来，我们需要一个入口点类。 这是我们的数据生成的起点。 将其放在 `client` 包中的某个位置——本示例将其放在 `src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java`。
 

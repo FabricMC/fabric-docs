@@ -16,13 +16,13 @@ Es gibt mehrere Möglichkeiten, eine Widget-Klasse zu erstellen, beispielsweise 
 - `NarrationSupplier` - für die Barrierefreiheit - Erforderlich, um dein Widget für Bildschirmleser und andere Barrierefreiheitstools zugänglich zu machen.
 - `NarratableEntry` - für die Auswahl - Erforderlich, wenn du dein Widget mit der <kbd>Tab</kbd>-Taste auswählbar machen willst - dies hilft auch bei der Barrierefreiheit.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java#widget
 
 ## Das Widget zur Oberfläche hinzufügen {#adding-the-widget-to-the-screen}
 
 Wie alle Widgets musst du es mit der Methode `addRenderableWidget`, die von der Klasse `Screen` bereitgestellt wird, zum Bildschirm hinzufügen. Stelle sicher, dass du dies in der Methode `init` machst.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomScreen.java#add_custom_widget
 
 ![Ein benutzerdefiniertes Widget in einer Oberfläche](/assets/develop/rendering/gui/custom-widget-example.png)
 
@@ -32,6 +32,6 @@ Du kannst Ereignisse wie Mausklicks und Tastendrücke behandeln, indem du die Me
 
 Du kannst zum Beispiel dafür sorgen, dass das Widget die Farbe wechselt, wenn man mit dem Mauszeiger darüber fährt, indem du die Methode `isHovered()` verwendest, die von der Klasse `AbstractWidget` bereitgestellt wird:
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/screens/CustomWidget.java#on_hover_event
 
 ![Hover-Event Beispiel](/assets/develop/rendering/gui/custom-widget-events.webp)

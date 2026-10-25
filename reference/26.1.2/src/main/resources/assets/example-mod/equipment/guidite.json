@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "example-mod:guidite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "example-mod:guidite"
+      }
+    ]
+  }
+}

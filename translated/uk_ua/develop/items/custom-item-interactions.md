@@ -1,6 +1,6 @@
 ---
 title: Власні інтерактивні предмети
-description: Прочитайте про те, як створювати предмети з використанням вбудованих усталених подій.
+description: Дізнайтеся, як створити предмети з використанням вбудованих усталених подій.
 authors:
   - IMB11
 ---
@@ -44,14 +44,20 @@ InteractionResult.SUCCESS.heldItemTransformedTo().success(heldStack);
 
 Скажімо, ви хочете створити предмет, який викликає блискавку перед гравцем — вам потрібно буде створити спеціальний клас.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#item
 
-Подія `використання` є, мабуть, найкориснішою з усіх — ви можете використовувати цю подію, щоб створити нашу блискавку, вам слід створити її за 10 блоків перед гравцями, спрямованими обличчям.
+Подія `use` є, мабуть, найкориснішою з усіх — ви можете використовувати цю подію, щоб створити нашу блискавку, вам слід створити її за 10 блоків перед гравцями, спрямованими обличчям.
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#use
 
 Як зазвичай, вам слід зареєструвати свою річ, додати модель і текстуру.
 
 Як бачите, блискавка повинна створитися в 10 блоках від вас — гравцем.
+
+:::warning УВАГА, МОЖЕ СПРИЧИНИТИ НАПАД!
+
+Це відео містить візуальні ефекти та тривале миготіння світла, що може вплинути на людей, схильних до фотосенситивної епілепсії або інших видів фоточутливості.
+
+:::
 
 <VideoPlayer src="/assets/develop/items/custom_items_0.webm">Використання палиці блискавки</VideoPlayer>

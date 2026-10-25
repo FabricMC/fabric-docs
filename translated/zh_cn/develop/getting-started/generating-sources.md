@@ -4,7 +4,6 @@ description: 生成 Minecraft 源代码的指南。
 authors:
   - dicedpixels
   - its-miroma
-outline: false
 ---
 
 ## 选择你的 IDE {#choose-your-ide}

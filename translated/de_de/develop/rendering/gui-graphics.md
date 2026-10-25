@@ -17,7 +17,7 @@ Die Klasse `GuiGraphicsExtractor` kann verwendet werden, um auf einfache Weise *
 
 Du kannst die Methode `GuiGraphicsExtractor.fill(...)` verwenden, um ein gefülltes Rechteck zu zeichnen.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_rectangle
 
 ![Ein Rechteck](/assets/develop/rendering/draw-context-rectangle.png)
 
@@ -25,7 +25,7 @@ Du kannst die Methode `GuiGraphicsExtractor.fill(...)` verwenden, um ein gefüll
 
 Nehmen wir an, wir wollen das Rechteck, das wir gerade gezeichnet haben, umranden. Wir können die Methode `GuiGraphicsExtractor.GuiGraphicsExtractor(...)` verwenden, um die Umrandung zu zeichnen.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_outline
 
 ![Ein Rechteck mit einer Umrandung](/assets/develop/rendering/draw-context-rectangle-border.png)
 
@@ -33,7 +33,7 @@ Nehmen wir an, wir wollen das Rechteck, das wir gerade gezeichnet haben, umrande
 
 Wir können die Methoden `GuiGraphicsExtractor.horizontalLine(...)` und `GuiGraphicsExtractor.verticalLine(...)` verwenden, um Linien zu zeichnen.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_line
 
 ![Linien](/assets/develop/rendering/draw-context-lines.png)
 
@@ -51,7 +51,7 @@ Scheren-Regionen können verschachtelt werden! Stelle sicher, dass du den Schere
 
 Um den Scheren-Manager zu aktivieren, verwende einfach die Methode `GuiGraphicsExtractor.enableScissor(...)`. Um den Scheren-Manager zu deaktivieren, verwende die Methode `GuiGraphicsExtractor.disableScissor()`.
 
-@[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#scissor
 
 [Scheren-Region in Aktion](/assets/develop/rendering/draw-context-scissor.png)
 
@@ -67,7 +67,7 @@ Im Allgemeinen wird empfohlen, dass man die Überladung verwendet, die die Param
 
 Du musst auch angeben, welche Render-Pipeline deine Textur verwenden soll. Für einfache Texturen wird dies normalerweise immer `RenderPipelines.GUI_TEXTURED` sein.
 
-@[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_entire_texture
 
 ![Beispiel für das Zeichnen einer ganzen Textur](/assets/develop/rendering/draw-context-whole-texture.png)
 
@@ -81,7 +81,7 @@ Nehmen wir diese Textur als Beispiel.
 
 Wenn wir nur einen Bereich zeichnen wollen, der die Lupe enthält, können wir die folgenden Werte `u`, `v`, `regionWidth` und `regionHeight` verwenden:
 
-@[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_portion_of_texture
 
 ![Textur der Region](/assets/develop/rendering/draw-context-region-texture.png)
 
@@ -97,6 +97,6 @@ Minecraft 1.21.6 und höher ändert die Textfarbe von RGB zu ARGB. Die Übergabe
 
 :::
 
-@[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_text
 
 ![Einen Text zeichnen](/assets/develop/rendering/draw-context-text.png)

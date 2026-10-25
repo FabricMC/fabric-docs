@@ -9,15 +9,15 @@ import net.minecraft.world.item.Item;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 
-// :::datagen-advancements:entrypoint
+// #region datagen_advancements_entrypoint
 public class ExampleModDatagenAdvancement implements ModInitializer {
 	@Override
 	public void onInitialize() {
-		// :::datagen-advancements:entrypoint
-		// :::datagen-advancements:call-init
+		// #endregion datagen_advancements_entrypoint
+		// #region datagen_advancements_call_init
 		ModCriteria.init();
-		// :::datagen-advancements:call-init
-		// :::datagen-advancements:entrypoint
+		// #endregion datagen_advancements_call_init
+		// #region datagen_advancements_entrypoint
 		HashMap<Item, Integer> tools = new HashMap<>();
 
 		PlayerBlockBreakEvents.AFTER.register(((level, player, blockPos, blockState, blockEntity) -> {
@@ -27,18 +27,18 @@ public class ExampleModDatagenAdvancement implements ModInitializer {
 				Integer usedCount = tools.getOrDefault(item, 0);
 				usedCount++;
 				tools.put(item, usedCount);
-				// :::datagen-advancements:entrypoint
-				// :::datagen-advancements:trigger-criterion
+				// #endregion datagen_advancements_entrypoint
+				// #region datagen_advancements_trigger_criterion
 				ModCriteria.USE_TOOL.trigger(serverPlayer);
-				// :::datagen-advancements:trigger-criterion
-				// :::datagen-advancements:trigger-new-criterion
+				// #endregion datagen_advancements_trigger_criterion
+				// #region datagen_advancements_trigger_new_criterion
 				ModCriteria.PARAMETERIZED_USE_TOOL.trigger(serverPlayer, usedCount);
-				// :::datagen-advancements:trigger-new-criterion
-				// :::datagen-advancements:entrypoint
+				// #endregion datagen_advancements_trigger_new_criterion
+				// #region datagen_advancements_entrypoint
 
 				serverPlayer.sendSystemMessage(Component.nullToEmpty("You've used \"" + item + "\" as a tool " + usedCount + " times!"));
 			}
 		}));
 	}
 }
-// :::datagen-advancements:entrypoint
+// #endregion datagen_advancements_entrypoint

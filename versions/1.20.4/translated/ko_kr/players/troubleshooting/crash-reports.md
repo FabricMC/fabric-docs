@@ -8,7 +8,7 @@ search: false
 ---
 
 :::tip
-충돌의 원인을 찾는 데 어려움이 있으시다면, [Fabric Discord (영어)](https://discord.gg/v6v4pMv) 의 `#player-support` 또는 `#server-admin-support` 채널에 도움을 요청할 수 있습니다.
+충돌의 원인을 찾는 데 어려움이 있으시다면, [Fabric Discord (영어)](https://discord.gg/v6v4pMv) 의 `#player-support` 또는 `#mc-server-support` 채널에 도움을 요청할 수 있습니다.
 :::
 
 충돌 보고서는 게임 또는 서버의 문제를 해결하기 위해 굉장히 중요한 부분 중 하나입니다. 이러한 충돌 보고서는 충돌에 관련된 많은 정보를 포함하고 있으며, 충돌의 원인을 찾는 데 도움이 됩니다.

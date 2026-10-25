@@ -45,7 +45,7 @@ public class ModBlocks {
 
 ## Creating And Registering Your Block {#creating-and-registering-your-block}
 
-Similarly to items, blocks take a `BlockBehavior.Properties` class in their constructor, which specifies properties about the block, such as its sound effects and mining level.
+Similarly to items, blocks take a `BlockBehaviour.Properties` class in their constructor, which specifies properties about the block, such as its sound effects and mining level.
 
 We will not cover all the options here: you can view the class yourself to see the various options, which should be self-explanatory.
 
@@ -56,7 +56,7 @@ For example purposes, we will be creating a simple block that has the properties
 
 ::: tip
 
-You can also use `BlockBehavior.Properties.ofFullCopy(BlockBehavior block)` to copy the settings of an existing block, in this case, we could have used `Blocks.DIRT` to copy the settings of dirt, but for example purposes we'll use the builder.
+You can also use `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)` to copy the settings of an existing block, in this case, we could have used `Blocks.DIRT` to copy the settings of dirt, but for example purposes we'll use the builder.
 
 :::
 

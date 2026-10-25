@@ -2,6 +2,7 @@
 title: Генерація теґів
 description: Інструкція з налаштування генерації теґів за допомогою генерації даних.
 authors:
+  - cassiancc
   - CelDaemon
   - IMB11
   - skycatminepokie
@@ -14,7 +15,7 @@ authors-nogithub:
 
 :::info ПЕРЕДУМОВИ
 
-Спершу переконайтеся, що ви виконали процес [налаштування datagen](./setup).
+Спершу переконайтеся, що ви виконали процес [налаштування генерації даних](./setup).
 
 :::
 
@@ -28,7 +29,7 @@ Fabric надає кілька постачальників допоміжних
 
 Нехай ваша IDE заповнить необхідний код, а потім замініть параметр конструктора `resourceKey` на `ResourceKey` для вашого типу:
 
-@[code lang=java transcludeWith=:::datagen-tags:provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_provider
 
 ::: tip
 
@@ -38,18 +39,28 @@ Fabric надає кілька постачальників допоміжних
 
 Щоб завершити налаштування, додайте цього постачальника до своєї `DataGeneratorEntrypoint` у методі `onInitializeDataGenerator`.
 
-@[code lang=java transcludeWith=:::datagen-tags:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_tags_register
 
 ## Створення теґу {#creating-a-tag}
 
 Тепер, коли ви створили постачальника, нумо додамо до нього теґ. Спочатку створіть `TagKey<T>`:
 
-@[code lang=java transcludeWith=:::datagen-tags:tag-key](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_tag_key
 
-Потім викличте `getOrCreateTagBuilder` всередині методу `configure` вашого постачальника. Звідти ви можете додавати окремі предмети, додавати інші теґи або змусити цей теґ замінити вже наявні теґи.
+Далі викличте `builder` усередині методу `configure` вашого постачальника. Звідти ви можете додавати окремі ID предметів, додавати інші теґи або змусити цей теґ замінити вже наявні теґи.
 
-Якщо ви хочете додати теґ, використовуйте `addOptionalTag`, оскільки вміст теґу може не завантажуватися під час створення datagen. Якщо ви впевнені, що теґ завантажено, викличте `addTag`.
+Якщо ви хочете додати теґ, використовуйте `addOptionalTag`, оскільки вміст теґу може не завантажуватися під час створення генерації даних. Якщо ви впевнені, що теґ завантажено, викличте `addTag`.
 
 Щоб примусово додати теґ і ігнорувати несправний формат, використовуйте `forceAddTag`.
 
-@[code lang=java transcludeWith=:::datagen-tags:build](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_build
+
+## Переклад теґів {#translating-tags}
+
+Теґи, створені вашим модом, повинні мати переклади, щоб інші моди — наприклад, переглядачі рецептів — могли правильно показувати назву теґу. Якщо для одного з ваших теґів відсутній переклад, у журналах може з’явитися попередження, подібне до наведеного нижче:
+
+> Dev warning - Untranslated Item Tags detected. Please translate your item tags so other mods such as recipe viewers can properly display your tag's name.Попередження розробки — Виявлено неперекладений теґ предмета. Будь ласка, перекладіть теґи ваших предметів, щоб інші моди — наприклад, переглядачі рецептів — могли правильно показати назви теґів.
+
+Ми можемо скористатися [посібником з генерації перекладів](./translations), щоб додати переклад для нашого теґу. Ми можемо скористатися тим самим конструктором перекладів і передати `TagKey` та показувану назву:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#tag_name

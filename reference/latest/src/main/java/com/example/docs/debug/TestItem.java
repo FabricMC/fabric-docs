@@ -15,48 +15,48 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 
+import com.example.docs.ExampleMod;
+
 public class TestItem extends Item {
 	public TestItem(Properties settings) {
 		super(settings);
 	}
 
-	// ::::::problems:logger-usage-example
+	// #region problems_logger_usage_example
 	@Override
 	public InteractionResult interactLivingEntity(ItemStack stack, Player user, LivingEntity entity, InteractionHand hand) {
 		Level level = user.level();
 
-		// ::::::problems:logger-usage-example
+		// #endregion problems_logger_usage_example
 		if (level.isClientSide()) {
-			// :::problems:using-logger
-			ExampleModDebug.LOGGER.info("You interacted with an entity!");
-			// :::problems:using-logger
+			// #region problems_using_logger
+			ExampleMod.LOGGER.info("You interacted with an entity!");
+			// #endregion problems_using_logger
 		}
+		// #region problems_logger_usage_example
+		// Extra parameters will be interpolated into the format string
+		ExampleMod.LOGGER.info(
+				"Is Client World: {} | Health: {} / {} | The item was used with the {}",
+				level.isClientSide(), entity.getHealth(), entity.getMaxHealth(), hand
+		);
 
-		// ::::::problems:logger-usage-example
-
-		// Values are used in a String to provide more information in the console
-		String output = "Is Client World: %s | Health: %s / %s | The item was used with the %s"
-				.formatted(user.level().isClientSide(), entity.getHealth(), entity.getMaxHealth(), hand.name());
-
-		ExampleModDebug.LOGGER.info(output);
-
-		if (!user.level().isClientSide()) {
+		if (!level.isClientSide()) {
 			// you can log non-critical issues differently as a warning
-			ExampleModDebug.LOGGER.warn("Don't touch that!");
+			ExampleMod.LOGGER.warn("Don't touch that!");
 
 			// The LOGGER can print the Stacktrace too in addition to the logging message
 			if (stack.getCount() > 1) {
 				IllegalArgumentException exception = new IllegalArgumentException("Only one item is allowed");
-				ExampleModDebug.LOGGER.error("Error while interacting with an entity", exception);
+				ExampleMod.LOGGER.error("Error while interacting with an entity", exception);
 				throw exception;
 			}
 		}
 
 		return InteractionResult.SUCCESS;
 	}
-	// ::::::problems:logger-usage-example
+	// #endregion problems_logger_usage_example
 
-	// :::problems:breakpoints
+	// #region problems_breakpoints
 	@Override
 	public InteractionResult useOn(UseOnContext context) {
 		Level level = context.getLevel();
@@ -78,5 +78,5 @@ public class TestItem extends Item {
 
 		return InteractionResult.PASS;
 	}
-	// :::problems:breakpoints
+	// #endregion problems_breakpoints
 }

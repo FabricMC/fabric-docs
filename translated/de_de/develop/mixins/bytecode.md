@@ -148,7 +148,7 @@ Dies gilt für Minecraft 26.1 und höher, da diese Versionen nicht verschleiert 
 
 Genau wie native Assembler-Sprachen Prozessorregister verwenden, nutzt Java-Bytecode den Operandenstapel, um temporäre Werte zu speichern.
 
-Wie bei jedem [Stapel](https://en.wikipedia.org/wiki/Stack_\(abstract_data_type\)) werden Werte oben auf den Stapel gelegt ("gepusht") und oben vom Stack entfernt ("gepoppt"). Stellen dir das wie einen Stapel Teller vor: Wenn du einen Teller auf den Stapel legst, legst du ihn oben drauf, und wenn du einen brauchst, nehme den obersten. Eine solche Datenstruktur wird als _Last-In, First-Out_ bezeichnet, da die zuletzt auf den Stapel geschobene "Platte" als erste wieder entfernt wird.
+Wie bei jedem [Stapel](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) werden Werte oben auf den Stapel gelegt ("gepusht") und oben vom Stack entfernt ("gepoppt"). Stellen dir das wie einen Stapel Teller vor: Wenn du einen Teller auf den Stapel legst, legst du ihn oben drauf, und wenn du einen brauchst, nehme den obersten. Eine solche Datenstruktur wird als _Last-In, First-Out_ bezeichnet, da die zuletzt auf den Stapel geschobene "Platte" als erste wieder entfernt wird.
 
 Schauen wir uns noch einmal das vorherige Beispiel `getX` an:
 

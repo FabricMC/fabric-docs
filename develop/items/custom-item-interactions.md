@@ -44,14 +44,20 @@ A great example of these events being used can be found in the [Playing Sounds](
 
 Let's say you want to make an item that summons a lightning bolt in front of the player - you would need to create a custom class.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#item
 
 The `use` event is probably the most useful out of them all - you can use this event to spawn our lightning bolt, you should spawn it 10 blocks in front of the players facing direction.
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#use
 
 As usual, you should register your item, add a model and texture.
 
 As you can see, the lightning bolt should spawn 10 blocks in front of you - the player.
+
+::: warning SEIZURE TRIGGER WARNING!
+
+The following video contains visuals and sustained flashing lighting that may affect those who are susceptible to photosensitive epilepsy or have other photosensitivities.
+
+:::
 
 <VideoPlayer src="/assets/develop/items/custom_items_0.webm">Using the Lightning Stick</VideoPlayer>

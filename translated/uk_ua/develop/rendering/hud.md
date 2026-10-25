@@ -42,7 +42,7 @@ Fabric надає API Hud для рендера та накладення еле
 
 У цьому прикладі ми використаємо `Util.getMillis()` для лінійної інтерполяції кольору квадрата, який рендериться на HUD.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java#hud
 
 ![Зміна кольору з часом](/assets/develop/rendering/hud-rendering-deltatick.webp)
 

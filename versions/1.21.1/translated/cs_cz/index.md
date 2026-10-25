@@ -18,8 +18,4 @@ features:
     linkText: Zjistit více
 ---
 
-::: warning
-Právě prohlížíte dokumentaci pro Minecraft 1.21.1. Pokud hledáte jinou verzi, vyberte ji z seznamu na navigačním panelu.
-:::
-
 If you want to contribute to the Fabric Documentation, you can find the source code on [GitHub](https://github.com/FabricMC/fabric-docs), and the relevant [contribution guidelines](./contributing).

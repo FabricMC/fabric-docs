@@ -19,24 +19,26 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
-//:::registerclass
+import com.example.docs.entity.attribute.ModAttributes;
+
+// #region registerclass
 public class MiniGolemEntity extends PathfinderMob {
-	//:::registerclass
+	// #endregion registerclass
 
-	//:::datatracker
+	// #region datatracker
 	private static final EntityDataAccessor<Boolean> DANCING = SynchedEntityData.defineId(MiniGolemEntity.class, EntityDataSerializers.BOOLEAN);
-	//:::datatracker
+	// #endregion datatracker
 
-	//:::dancing_animation
+	// #region dancing_animation
 	public final AnimationState dancingAnimationState = new AnimationState();
 
-	//:::dancing_animation
+	// #endregion dancing_animation
 
-	//:::datatracker
+	// #region datatracker
 	private int dancingTimeLeft;
-	//:::datatracker
+	// #endregion datatracker
 
-	//:::registerclass
+	// #region registerclass
 	public MiniGolemEntity(Level world) {
 		this(ModEntityTypes.MINI_GOLEM, world);
 	}
@@ -45,15 +47,20 @@ public class MiniGolemEntity extends PathfinderMob {
 		super(entityType, world);
 	}
 
-	public static AttributeSupplier.Builder createCubeAttributes() {
+	// #region attributes
+	public static AttributeSupplier.Builder createMiniGolemAttributes() {
 		return PathfinderMob.createMobAttributes()
+				// #endregion registerclass
+				.add(ModAttributes.AGGRO_RANGE, 8.0)
+				// #region registerclass
 				.add(Attributes.MAX_HEALTH, 5)
 				.add(Attributes.TEMPT_RANGE, 10)
 				.add(Attributes.MOVEMENT_SPEED, 0.3);
 	}
-	//:::registerclass
+	// #endregion attributes
+	// #endregion registerclass
 
-	//:::goals
+	// #region goals
 	@Override
 	protected void registerGoals() {
 		this.goalSelector.addGoal(0, new TemptGoal(this, 1, Ingredient.of(Items.WHEAT), false));
@@ -61,9 +68,9 @@ public class MiniGolemEntity extends PathfinderMob {
 		this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Cow.class, 4));
 		this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
 	}
-	//:::goals
+	// #endregion goals
 
-	//:::datatracker
+	// #region datatracker
 
 	@Override
 	protected void defineSynchedData(SynchedEntityData.Builder builder) {
@@ -78,52 +85,52 @@ public class MiniGolemEntity extends PathfinderMob {
 	private void setDancing(boolean dancing) {
 		entityData.set(DANCING, dancing);
 	}
-	//:::datatracker
+	// #endregion datatracker
 
-	//:::dancing_animation
+	// #region dancing_animation
 	@Override
 	public void onSyncedDataUpdated(EntityDataAccessor<?> data) {
 		super.onSyncedDataUpdated(data);
 
 		if (data == DANCING) {
-			dancingAnimationState.animateWhen(isDancing(), this.tickCount);
+			this.dancingAnimationState.animateWhen(this.isDancing(), this.tickCount);
 		}
 	}
-	//:::dancing_animation
-	//:::datatracker
+	// #endregion dancing_animation
+	// #region datatracker
 
 	@Override
 	public void tick() {
 		super.tick();
 
 		if (!level().isClientSide()) {
-			if (isDancing()) {
-				if (dancingTimeLeft-- <= 0) {
-					setDancing(false);
+			if (this.isDancing()) {
+				if (this.dancingTimeLeft-- <= 0) {
+					this.setDancing(false);
 				}
 			} else {
 				if (this.random.nextInt(1000) == 0) {
-					setDancing(true);
-					dancingTimeLeft = 100 + this.random.nextInt(100);
+					this.setDancing(true);
+					this.dancingTimeLeft = 100 + this.random.nextInt(100);
 				}
 			}
 		}
 	}
-	//:::datatracker
+	// #endregion datatracker
 
-	//:::savedata
+	// #region savedata
 
 	@Override
 	protected void addAdditionalSaveData(ValueOutput valueOutput) {
 		super.addAdditionalSaveData(valueOutput);
-		valueOutput.putInt("dancing_time_left", dancingTimeLeft);
+		valueOutput.putInt("dancing_time_left", this.dancingTimeLeft);
 	}
 
 	@Override
 	protected void readAdditionalSaveData(ValueInput valueInput) {
 		super.readAdditionalSaveData(valueInput);
-		dancingTimeLeft = valueInput.getInt("dancing_time_left").orElse(0);
-		setDancing(dancingTimeLeft > 0);
+		this.dancingTimeLeft = valueInput.getInt("dancing_time_left").orElse(0);
+		this.setDancing(this.dancingTimeLeft > 0);
 	}
-	//:::savedata
+	// #endregion savedata
 }

@@ -19,17 +19,23 @@ authors:
 
 Там можуть друкуватися значення під час виконання, інформуючи розробника про поточний стан коду та полегшуючи аналіз змін і потенційних помилок.
 
-У класі точки входу мода, що реалізує `ModInitializer`, усталено визначено `LOGGER` для друку бажаного виводу на консоль.
+Ви можете створити журналювальник за допомогою `LoggerFactory`, який приймає назву, яке буде показано в журналі поряд із надрукованими повідомленнями:
 
-@[code lang=java transcludeWith=:::problems:basic-logger-definition](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ExampleMod.java#create_logger
+
+::: tip
+
+Ініціалізатор, згенерований [шаблоном мода](./getting-started/creating-a-project), забезпечує усталений журналювальник, використовуючи ваш ID мода.
+
+:::
 
 Щоразу, коли вам потрібно знати значення для чогось у будь-якому місці коду, використовуйте цей `LOGGER`, передавши `String` його методам.
 
-@[code lang=java transcludeWith=:::problems:using-logger](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems_using_logger
 
 Журналювальник (Logger) підтримує кілька режимів друку тексту на консолі. Залежно від режиму, який ви використовуєте, зареєстрований рядок показується різними кольорами.
 
-@[code lang=java transcludeWith=:::problems:log-levels](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems_log_levels
 
 ::: info
 
@@ -39,7 +45,7 @@ authors:
 
 Наприклад, переконаймося, що коли `TestItem` використовується для сутності, він виводить її поточний стан на консоль.
 
-@[code lang=java transcludeWith=:::problems:logger-usage-example](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems_logger_usage_example
 
 ![Консоль показує журнальовані результати](/assets/develop/debugging/debug_01.png)
 
@@ -71,15 +77,15 @@ authors:
 
 Для цього створіть файл налаштування `log4j-dev.xml` у кореневому каталозі вашого проєкту та додайте наступний вміст. Обов’язково замініть значення в атрибуті `name` на modid вашого мода. Це налаштування дозволяє показувати журнали налагодження з вашого мода на консолі.
 
-@[code lang=xml](@/reference/latest/log4j-dev.xml)
+<<< @/reference/latest/log4j-dev.xml
 
 Потім у `build.gradle` скажіть Loom використовувати наше нове налаштування.
 
-@[code lang=java transcludeWith=:::debug-logging](@/reference/latest/build.gradle)
+<<< @/reference/latest/build.gradle#debug_logging
 
 Тепер, коли ми надсилаємо повідомлення журналу налагодження, ми зможемо бачити їх у консолі.
 
-@[code lang=java transcludeWith=:::problems:debug-logging](@/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/ExampleModDebug.java#problems_debug_logging
 
 ![Консоль показує запис журналу налагодження](/assets/develop/debugging/debug_log.png)
 
@@ -171,7 +177,7 @@ public class TestItem extends Item {
 
 :::
 
-Якщо ви завершили поточну перевірку, ви можете натиснути зелену кнопку `Відновити програму` (<kbd>F9</kbd>). Це розморозить екземпляр Minecraft, і можна буде проводити подальше тестування, доки не буде досягнуто іншої точки зупину. Але поки що продовжмо дивитися на вікно `Debug`.
+Якщо ви завершили поточну перевірку, ви можете натиснути зелену кнопку `Resume Program` (<kbd>F9</kbd>). Це розморозить екземпляр Minecraft, і можна буде проводити подальше тестування, доки не буде досягнуто іншої точки зупину. Але поки що продовжмо дивитися на вікно `Debug`.
 
 Угорі ви можете побачити всі запущені екземпляри. Якщо обидва запущені, ви можете перемкнутися між екземпляром клієнта та сервером. Нижче ви маєте дії з налагодження та керування. Ви також можете перейти до перегляду `консолі`, якщо вам потрібно переглянути журнали.
 
@@ -238,7 +244,7 @@ IntelliJ повідомить вас, якщо «швидка зміна» бу�
 
 Застосуйте виправлення та використовуйте гарячу заміну, щоб миттєво побачити зміни в грі.
 
-@[code lang=java transcludeWith=:::problems:breakpoints](@/reference/latest/src/main/java/com/example/docs/debug/TestItem.java)
+<<< @/reference/latest/src/main/java/com/example/docs/debug/TestItem.java#problems_breakpoints
 
 ## Журнали та збої {#logs-and-crashes}
 

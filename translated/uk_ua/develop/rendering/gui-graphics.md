@@ -17,7 +17,7 @@ authors:
 
 Щоб намалювати прямокутник із заливкою, можна використати метод `GuiGraphicsExtractor.fill(...)`.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_rectangle
 
 ![Прямокутник](/assets/develop/rendering/draw-context-rectangle.png)
 
@@ -25,7 +25,7 @@ authors:
 
 Скажімо, ми хочемо окреслити прямокутник, який ми щойно намалювали. Ми можемо використати метод `GuiGraphicsExtractor.outline(...)`, щоб намалювати контур.
 
-@[code lang=java transcludeWith=:::2](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_outline
 
 ![Прямокутник з межею](/assets/develop/rendering/draw-context-rectangle-border.png)
 
@@ -33,7 +33,7 @@ authors:
 
 Ми можемо використовувати методи `GuiGraphicsExtractor.horizontalLine(...)` і `GuiGraphicsExtractor.verticalLine(...)` для малювання ліній.
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_line
 
 ![Лінії](/assets/develop/rendering/draw-context-lines.png)
 
@@ -51,7 +51,7 @@ authors:
 
 Щоб увімкнути менеджер ножиць, просто скористайтеся методом `GuiGraphicsExtractor.enableScissor(…)`. Так само, щоб вимкнути менеджер ножиць, скористайтеся методом `GuiGraphicsExtractor.disableScissor()`.
 
-@[code lang=java transcludeWith=:::4](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#scissor
 
 ![Область ножиць у дії](/assets/develop/rendering/draw-context-scissor.png)
 
@@ -67,7 +67,7 @@ authors:
 
 Вам також потрібно буде вказати, який конвеєр рендера використовуватиме ваша текстура. Для базових текстур зазвичай завжди буде `RenderPipelines.GUI_TEXTURED`.
 
-@[code lang=java transcludeWith=:::5](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_entire_texture
 
 ![Приклад малювання всієї текстури](/assets/develop/rendering/draw-context-whole-texture.png)
 
@@ -81,7 +81,7 @@ authors:
 
 Якщо ми хочемо намалювати лише область, яка містить збільшувальне скло, ми можемо використовувати наступні значення `u`, `v`, `regionWidth` і `regionHeight`:
 
-@[code lang=java transcludeWith=:::6](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_portion_of_texture
 
 ![Текстура області](/assets/develop/rendering/draw-context-region-texture.png)
 
@@ -97,6 +97,6 @@ Minecraft 1.21.6 і вище змінює колір тексту на ARGB за
 
 :::
 
-@[code lang=java transcludeWith=:::7](@/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/DrawContextExampleScreen.java#draw_text
 
 ![Малювання тексту](/assets/develop/rendering/draw-context-text.png)

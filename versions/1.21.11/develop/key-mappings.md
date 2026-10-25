@@ -32,11 +32,11 @@ our key mapping at the same time.
 
 ::: info
 
-Note that the names of the key tokens (`GLFW.GLFW_KEY_*`) assume
+Note that the names of the key tokens (`InputConstants.KEY_*`) assume
 a [standard US layout](https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg).
 
 This means that if you're using an AZERTY layout, pressing on <kbd>A</kbd> would yield
-`GLFW.GLFW_KEY_Q`.
+`InputConstants.KEY_Q`.
 
 :::
 

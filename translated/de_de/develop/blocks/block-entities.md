@@ -2,6 +2,7 @@
 title: Block Entitäten
 description: Lerne, wie du Block Entitäten für deine benutzerdefinierten Blöcke erstellst.
 authors:
+  - CelDaemon
   - natri0
 resources:
   https://docs.neoforged.net/docs/blockentities/: Blockentitäten - NeoForge Docs
@@ -16,16 +17,16 @@ Als Beispiel werden wir einen Block erstellen, der zählt, wie oft er mit der re
 
 Damit Minecraft die neuen Block Entitäten erkennt und lädt, müssen wir einen Block Entität Typen erstellen. Das machen wir, indem wir die `BlockEntity` Klasse erweitern und in einer neuen `ModBlockEntities` Klasse registrieren.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#block_entity
 
 Wenn eine `BlockEntity` registriert wird, gibt es einen `BlockEntityType` zurück, wie bei dem `COUNTER_BLOCK_ENTITY`, welches wir oben benutzt haben:
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/entity/ModBlockEntities.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/ModBlockEntities.java#register_block_entity
 
 ::: tip
 
 Man beachte, dass der Konstruktor von der `CounterBlockEntity` zwei Parameter benötigt, der Konstruktor von der `BlockEntity` jedoch drei: den `BlockEntityType`, `BlockPos` und den `BlockState`.
-Wenn wir den `BlockEntityType` nicht hart kodiert hätten, würde die Klasse `ModBlockEntities` nicht kompiliert werden! Das liegt daran, dass die `BlockEntityFactory`, die ein funktionales Interface ist, eine Funktion beschreibt, die nur zwei Parameter benötigt, genau wie unser Konstruktor.
+Wenn wir den `BlockEntityType` nicht hart kodiert hätten, würde die Klasse `ModBlockEntities` nicht kompiliert werden! Das liegt daran, dass der `FabricBlockEntityTypeBuilder`, der ein funktionales Interface ist, eine Funktion beschreibt, die nur zwei Parameter benötigt, genau wie unser Konstruktor.
 
 :::
 
@@ -37,34 +38,36 @@ Um als Nächstes die Blockentität zu nutzen, brauchen wir einen Block, der `Ent
 
 Es gibt zwei Wege, um dies zu erreichen:
 
-- Einen Block erstellen, der von `BaseEntityBlock` erbt und die Methode `createBlockEntity` implementiert
-- Einen Block erstellen, der `EntityBlock` implementiert und die Methode `createBlockEntity` überschreibt
+- Einen Block erstellen, der von `BaseEntityBlock` erbt und die Methode `newBlockEntity` implementiert
+- Einen Block erstellen, der `EntityBlock` implementiert und die Methode `newBlockEntity` überschreibt
 
 Wir werden in diesem Beispiel den ersten Weg nutzen, da `BaseEntityBlock` ein paar nützliche Hilfsfunktionen bietet.
 
 :::
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java#block
 
 Die Verwendung von `BaseEntityBlock` als übergeordnete Klasse bedeutet, dass wir auch die Methode `createCodec` implementieren müssen, was relativ einfach ist.
 
-Im Gegensatz zu Blöcken, die Singletons sind, wird für jede Instanz des Blocks eine neue Blockentität erstellt. Dies geschieht mit der Methode `createBlockEntity`, die die Position und den `BlockState` entgegennimmt und ein `BlockEntity` zurückgibt, oder `null`, wenn es keins geben sollte.
+Im Gegensatz zu Blöcken, die Singletons sind, wird für jede Instanz des Blocks eine neue Blockentität erstellt. Dies geschieht mit der Methode `newBlockEntity`, die die Position und den `BlockState` entgegennimmt und ein `BlockEntity` zurückgibt, oder `null`, wenn es keins geben sollte.
 
-Vergiss nicht, den Block in der Klasse `ModBlocks` zu registrieren, genau wie in der Anleitung [Deinen ersten Block erstellen](../blocks/first-block):
+Vergiss nicht einen Schlüssel zu `ModBlockItemIds` hinzuzufügen und den Block in der Klasse `ModBlocks` zu registrieren, genau wie in dem Leitfaden [Deinen ersten Block erstellen](../blocks/first-block):
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#counter_block
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#counter_block
 
 ## Nutzen der Block Entität {#using-the-block-entity}
 
 Jetzt, da wir eine Blockentität haben, können wir sie verwenden, um die Anzahl der Rechtsklicks auf den Block zu speichern. Dafür werden wir der Klasse `CounterBlockEntity` ein Feld `clicks` hinzufügen:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#clicks
 
 Die Methode `setChanged`, die in `incrementClicks` verwendet wird, teilt dem Spiel mit, dass die Daten dieser Entität aktualisiert wurden; dies wird nützlich sein, wenn wir die Methoden hinzufügen, um den Zähler zu serialisieren und ihn aus der Speicherdatei zurückzuladen.
 
 Als Nächstes müssen wir dieses Feld jedes Mal erhöhen, wenn der Block mit der rechten Maustaste angeklickt wird. Dies geschieht indem die Methode `useWithoutItem` in der Klasse `CounterBlock` überschrieben wird:
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java#use
 
 Da die `BlockEntity` nicht an die Methode übergeben wird, verwenden wir `level.getBlockEntity(pos)`, und wenn die `BlockEntity` nicht gültig ist, kehren wir aus der Methode zurück.
 
@@ -82,13 +85,13 @@ Es gibt auch Methoden für primitive Datentypen, wie z. B. `getInt`, `getShort`,
 
 Die Serialisierung erfolgt mit der Methode `saveAdditional`:
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#saving
 
 Hier fügen wir die Felder hinzu, die in dem übergebenen `ValueOutput` gespeichert werden sollen: Im Fall des Zählerblocks ist es das Feld `clicks`.
 
 Das Lesen funktioniert ähnlich, indem du die zuvor gespeicherten Werte aus dem `ValueInput` abrufst und in den Feldern der BlockEntity speicherst:
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#loading
 
 Wenn wir nun speichern und das Spiel neu laden, sollte der Zählerblock dort weitermachen, wo er beim Speichern aufgehört hat.
 
@@ -99,9 +102,23 @@ Obwohl `saveAdditional` und `loadAdditional` das Speichern und Laden auf und von
 
 Um dies zu beheben, überschreiben wir `getUpdateTag`:
 
-@[code transcludeWith=:::7](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#get_update_tag
 
 Wenn sich nun ein Spieler anmeldet oder in einen Chunk geht, in dem der Block vorhanden ist, sieht er sofort den korrekten Zählerwert.
+
+## Daten synchronisieren {#syncing-data}
+
+Während neue Spieler, die den Block laden, die korrekte Anzahl sehen, wird diese für andere Spieler, die die Interaktion beobachten, nicht aktualisiert. Dieses Phänomen wird als Desynchronisation bezeichnet und tritt auf, wenn der Server seinen Status aktualisiert hat, die Clients jedoch nicht.
+
+Um dies zu beheben, können wir Pakete zur Aktualisierung von Block-Entitäten verwenden. Überschreibe die Methode `getUpdatePacket` und gib ein Paket zurück, das die Daten des Blocks aus unserer Methode `getUpdateTag` enthält.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#update_packet
+
+Überschreibe anschließend `setChanged` so, dass die Daten bei jeder Änderung der Block-Entität gesendet werden.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#broadcast_update
+
+Andere Spieler sollten nun sehen können, wie sich die Zahl ändert.
 
 ## Ticker {#tickers}
 
@@ -109,19 +126,19 @@ Das Interface `EntityBlock` definiert auch eine Methode namens `getTicker`, mit 
 
 Die Methode `getTicker` sollte auch prüfen, ob der übergebene `BlockEntityType` derselbe ist wie der, den wir verwenden, und wenn ja, die Funktion zurückgeben, die bei jedem Tick aufgerufen wird. Glücklicherweise gibt es eine Hilfsfunktion, die diese Prüfung in `BaseEntityBlock` durchführt:
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/custom/CounterBlock.java#tickers
 
 `CounterBlockEntity::tick` ist ein Verweis auf die statische Methode `tick`, die wir in der Klasse `CounterBlockEntity` erstellen sollten. Eine solche Strukturierung ist nicht erforderlich, aber es ist eine gute Praxis, um den Code sauber und übersichtlich zu halten.
 
 Nehmen wir an, wir wollen, dass der Zähler nur alle 10 Ticks (2 Mal pro Sekunde) erhöht werden kann. Wir können dies tun, indem wir der Klasse `CounterBlockEntity` ein Feld `ticksSinceLast` hinzufügen und es bei jedem Tick erhöhen:
 
-@[code transcludeWith=:::5](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#tickers
 
 Vergiss nicht, dieses Feld zu serialisieren und zu deserialisieren!
 
 Jetzt können wir `ticksSinceLast` verwenden, um zu prüfen, ob der Zähler in `incrementClicks` erhöht werden kann:
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java)
+<<< @/reference/latest/src/main/java/com/example/docs/block/entity/custom/CounterBlockEntity.java#ticks_since_last
 
 ::: tip
 

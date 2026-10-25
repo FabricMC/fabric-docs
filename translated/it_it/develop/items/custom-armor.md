@@ -17,7 +17,7 @@ Per questo esempio, creeremo una classe `GuiditeArmorMaterial` che memorizzi i n
 
 Questa costante verrà usata nel metodo `Item.Properties#maxDamage(int damageValue)` quando si creano gli oggetti della nostra armatura, ed è anche necessaria come parametro nel costruttore `ArmorMaterial` quando creeremo successivamente il nostro oggetto `ArmorMaterial`.
 
-@[code transcludeWith=:::base_durability](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#base_durability
 
 Se fai fatica a determinare una durabilità di base bilanciata, puoi far riferimento alle istanze dei materiali di armature vanilla che trovi nell'interfaccia `ArmorMaterials`.
 
@@ -25,7 +25,7 @@ Se fai fatica a determinare una durabilità di base bilanciata, puoi far riferim
 
 Anche se non dobbiamo registrare il nostro `ArmorMaterial` in alcuna registry, è in genere buona pratica memorizzare le chiavi di registry come costanti, poiché il gioco userà queste per trovare le texture adatte alla nostra armatura.
 
-@[code transcludeWith=:::material_key](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#material_key
 
 Dopo passeremo questo al costruttore di `ArmorMaterial`.
 
@@ -33,7 +33,7 @@ Dopo passeremo questo al costruttore di `ArmorMaterial`.
 
 Per creare il nostro materiale, dobbiamo creare una nuova istanza del record `ArmorMaterial`, in cui useremo le costanti di durabilità di base e chiave di registry del materiale.
 
-@[code transcludeWith=:::guidite_armor_material](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#guidite_armor_material
 
 Il costruttore di `ArmorMaterial` accetta i parametri seguenti, in questo ordine:
 
@@ -50,7 +50,7 @@ Il costruttore di `ArmorMaterial` accetta i parametri seguenti, in questo ordine
 
 Definiamo il riferimento di tag dell'ingrediente di riparo come segue:
 
-@[code transcludeWith=:::repair_tag](@/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
 Se fai fatica a determinare valori adatti per ciascuno di questi parametri, puoi consultare le istanze dei `ArmorMaterial` vanilla che trovi nell'interfaccia `ArmorMaterials`.
 
@@ -64,7 +64,7 @@ A differenza di `ToolMaterial`, `ArmorMaterial` non memorizza alcuna informazion
 
 Questo si ottiene passando la costante `BASE_DURABILITY` che abbiamo creato sopra nel metodo `maxDamage` nella classe `Item.Properties`.
 
-@[code transcludeWith=:::6](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items
 
 Dovrai anche [aggiungere gli oggetti a una scheda](./custom-creative-tabs) se vorrai che essi siano accessibili dall'inventario.
 
@@ -88,7 +88,7 @@ Ti serviranno modelli in file JSON per tutti gli oggetti, non solo l'elmo, stess
 
 :::
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_helmet.json
 
 Come puoi notare, gli oggetti dell'armatura avranno i modelli appropriati nel gioco:
 
@@ -121,7 +121,7 @@ La costante `ResourceKey<EquipmentAsset>` creata più sopra determinerà il nome
 
 Poiché vogliamo solo aggiungere i pezzi d'armatura "umanoidi" (elmo, corazza, gambiere, stivali...), la definizione del nostro modello indossato sarà come segue:
 
-@[code](@/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json)
+<<< @/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json
 
 Quando sia le texture sia le definizioni dei modelli indossati sono presenti, dovresti poter vedere la tua armatura sulle entità che la indossano:
 

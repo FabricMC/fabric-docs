@@ -12,9 +12,9 @@ authors:
 
 Додати вкладку творчості досить просто. Просто створіть нове статичне кінцеве поле у ​​своєму класі предметів, щоб зберегти вкладку творчості та ключ ресурсу для неї. Потім ви можете використовувати `FabricCreativeModeTab.builder`, щоб створити вкладку та додати до неї предмети:
 
-@[code transcludeWith=:::9](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_creative_tab
 
-@[code transcludeWith=:::\_12](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#register_creative_tab
 
 Ви повинні побачити нову вкладку творчості у меню інвентарю творчості. Однак він не перекладений — ви повинні додати ключ перекладу до вашого файлу перекладів — подібно до того, як ви переклали свій перший предмет.
 

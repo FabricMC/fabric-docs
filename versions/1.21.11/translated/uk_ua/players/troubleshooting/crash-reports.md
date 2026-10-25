@@ -9,7 +9,7 @@ authors:
 
 ::: tip
 
-Якщо у вас виникли труднощі з пошуком причини збою, ви можете звернутися за допомогою до [Discord Fabric](https://discord.fabricmc.net/) в каналах `#player-support` або `#server-admin-support`.
+Якщо у вас виникли труднощі з пошуком причини збою, ви можете звернутися за допомогою до [Discord Fabric](https://discord.fabricmc.net/) в каналах `#player-support` або `#mc-server-support`.
 
 :::
 
@@ -47,7 +47,7 @@ authors:
 
 :::details Показати звіт про збої
 
-<<< @/public/assets/players/crash-report-example.log
+<<< @/public/assets/players/crash-report-example.log{txt}
 
 :::
 
@@ -67,12 +67,6 @@ authors:
 Використовуючи наведений вище приклад, ми можемо проаналізувати звіт про збій і знайти причину збою, включно з модами, які спричинили збій.
 
 Трасування стека в розділі `---- Minecraft Crash Report ----` є найважливішим у цьому випадку, оскільки воно містить основну помилку, яка спричинила збій.
-
-:::details Показати помилку
-
-<<< @/public/assets/players/crash-report-example.log{7}
-
-:::
 
 Через кількість модів, згаданих у трасуванні стека, може бути важко вказати пальцем, але перше, що потрібно зробити, це знайти мод, який спричинив збій.
 

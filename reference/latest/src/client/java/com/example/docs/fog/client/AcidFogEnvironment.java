@@ -12,8 +12,8 @@ import net.minecraft.world.level.material.FogType;
 
 import com.example.docs.fog.ExampleModFogTypes;
 
-//TODO Fabric Fog API
-// :::environment
+// TODO: Fabric Fog API
+// #region environment
 public class AcidFogEnvironment extends FogEnvironment {
 	@Override
 	public void setupFog(FogData data, Camera camera, ClientLevel level, float renderDistance, DeltaTracker delta) {
@@ -31,4 +31,4 @@ public class AcidFogEnvironment extends FogEnvironment {
 		return 0x075800;
 	}
 }
-// :::environment
+// #endregion environment

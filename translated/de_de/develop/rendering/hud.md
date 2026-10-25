@@ -42,7 +42,7 @@ In der Praxis solltest du `gameTimeDeltaPartialTick` nur verwenden, wenn deine A
 
 In diesem Beispiel werden wir `Util.getMillis()` verwenden, um die Farbe eines Quadrats, das auf dem HUD gerendert wird, linear zu interpolieren.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java)
+<<< @/reference/latest/src/client/java/com/example/docs/rendering/HudRenderingEntrypoint.java#hud
 
 ![Eine Farbe im im Laufe der Zeit überblenden](/assets/develop/rendering/hud-rendering-deltatick.webp)
 

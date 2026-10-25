@@ -4,9 +4,8 @@ import java.util.function.Function;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamily;
-import net.minecraft.resources.Identifier;
+import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -26,184 +25,189 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 
-import com.example.docs.ExampleMod;
 import com.example.docs.block.custom.CounterBlock;
 import com.example.docs.block.custom.DirtChestBlock;
 import com.example.docs.block.custom.DuplicatorBlock;
 import com.example.docs.block.custom.EngineBlock;
+import com.example.docs.block.custom.FriendsBlock;
 import com.example.docs.block.custom.PrismarineLampBlock;
+import com.example.docs.block.custom.UpgradingBlock;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.damage.TaterBlock;
 import com.example.docs.fluid.ModFluids;
 
-// :::1
+// #region first_block
+// #region first_block_item
+// #region static_initialization
 public class ModBlocks {
-	// :::1
+	// #endregion static_initialization
+	// #endregion first_block
+	// #endregion first_block_item
 
-	// :::acid
+	// #region acid
 	public static final Block ACID = register(
-			"acid",
+			ModBlockIds.ACID,
 			(props) -> new LiquidBlock(ModFluids.ACID_STILL, props),
-			BlockBehaviour.Properties.ofFullCopy(Blocks.WATER),
-			false
+			BlockBehaviour.Properties.ofFullCopy(Blocks.WATER)
 	);
-	// :::acid
+	// #endregion acid
 
-	// :::2
+	// #region condensed_dirt
 	public static final Block CONDENSED_DIRT = register(
-			"condensed_dirt",
+			ModBlockItemIds.CONDENSED_DIRT,
 			Block::new,
-			BlockBehaviour.Properties.of().sound(SoundType.GRASS),
-			true
+			BlockBehaviour.Properties.of().sound(SoundType.GRASS)
 	);
-	// :::2
+	// #endregion condensed_dirt
 
-	// :::3
+	// #region condensed_oak_log
 	public static final Block CONDENSED_OAK_LOG = register(
-			"condensed_oak_log",
+			ModBlockItemIds.CONDENSED_OAK_LOG,
 			RotatedPillarBlock::new,
-			BlockBehaviour.Properties.of().sound(SoundType.WOOD),
-			true
+			BlockBehaviour.Properties.of().sound(SoundType.WOOD)
 	);
-	// :::3
+	// #endregion condensed_oak_log
 
-	// :::4
+	// #region counter_block
+	public static final Block COUNTER_BLOCK = register(
+			ModBlockItemIds.COUNTER_BLOCK,
+			CounterBlock::new,
+			BlockBehaviour.Properties.of()
+	);
+	// #endregion counter_block
+
+	public static final Block DIRT_CHEST_BLOCK = register(
+			ModBlockItemIds.DIRT_CHEST_BLOCK, DirtChestBlock::new, BlockBehaviour.Properties.of()
+	);
+
+	public static final Block DUPLICATOR_BLOCK = register(
+			ModBlockItemIds.DUPLICATOR_BLOCK, DuplicatorBlock::new, BlockBehaviour.Properties.of()
+	);
+
+	public static final Block ENGINE_BLOCK = register(
+			ModBlockItemIds.ENGINE_BLOCK,
+			EngineBlock::new,
+			BlockBehaviour.Properties.of()
+	);
+
+	public static final Block FRIENDS_BLOCK = register(
+			ModBlockItemIds.FRIENDS_BLOCK, FriendsBlock::new, BlockBehaviour.Properties.of()
+	);
+
+	public static final Block PIPE_BLOCK = register(
+			ModBlockItemIds.PIPE_BLOCK, Block::new, BlockBehaviour.Properties.of()
+	);
+
+	// #region prismarine_lamp
 	public static final Block PRISMARINE_LAMP = register(
-			"prismarine_lamp",
+			ModBlockItemIds.PRISMARINE_LAMP,
 			PrismarineLampBlock::new,
 			BlockBehaviour.Properties.of()
 					.sound(SoundType.LANTERN)
-					.lightLevel(PrismarineLampBlock::getLuminance),
-			true
+					.lightLevel(PrismarineLampBlock::getLuminance)
 	);
-	// :::4
-
-	public static final ResourceKey<Block> ENGINE_BLOCK_KEY = ResourceKey.create(
-			Registries.BLOCK,
-			Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "engine")
-	);
-	public static final Block ENGINE_BLOCK = register(
-			"engine",
-			EngineBlock::new,
-			BlockBehaviour.Properties.of().setId(ENGINE_BLOCK_KEY),
-			true
-	);
-
-	// :::5
-	public static final Block COUNTER_BLOCK = register(
-			"counter_block",
-			CounterBlock::new,
-			BlockBehaviour.Properties.of(),
-			true
-	);
-	// :::5
-
-	public static final Block STEEL_BLOCK = register(
-			"steel_block", RotatedPillarBlock::new, BlockBehaviour.Properties.of(), true
-	);
-	public static final Block PIPE_BLOCK = register(
-			"pipe_block", Block::new, BlockBehaviour.Properties.of(), true
-	);
+	// #endregion prismarine_lamp
 
 	public static final Block RUBY_BLOCK = register(
-			"ruby_block", Block::new, BlockBehaviour.Properties.of(), true
+			ModBlockItemIds.RUBY_BLOCK, Block::new, BlockBehaviour.Properties.of()
 	);
 	public static final Block RUBY_STAIRS = register(
-			"ruby_stairs", settings -> new StairBlock(RUBY_BLOCK.defaultBlockState(), settings), BlockBehaviour.Properties.of(), true
+			ModBlockItemIds.RUBY_STAIRS, settings -> new StairBlock(RUBY_BLOCK.defaultBlockState(), settings), BlockBehaviour.Properties.of()
 	);
 	public static final Block RUBY_SLAB = register(
-			"ruby_slab", SlabBlock::new, BlockBehaviour.Properties.of(), true
+			ModBlockItemIds.RUBY_SLAB, SlabBlock::new, BlockBehaviour.Properties.of()
 	);
 	public static final Block RUBY_FENCE = register(
-			"ruby_fence", FenceBlock::new, BlockBehaviour.Properties.of(), true
+			ModBlockItemIds.RUBY_FENCE, FenceBlock::new, BlockBehaviour.Properties.of()
 	);
 
 	public static final Block RUBY_DOOR = register(
-			"ruby_door", settings -> new DoorBlock(BlockSetType.STONE, settings), BlockBehaviour.Properties.of(), true
+			ModBlockItemIds.RUBY_DOOR, settings -> new DoorBlock(BlockSetType.STONE, settings), BlockBehaviour.Properties.of()
 	);
 	public static final Block RUBY_TRAPDOOR = register(
-			"ruby_trapdoor", settings -> new TrapDoorBlock(BlockSetType.STONE, settings), BlockBehaviour.Properties.of(), true
+			ModBlockItemIds.RUBY_TRAPDOOR, settings -> new TrapDoorBlock(BlockSetType.STONE, settings), BlockBehaviour.Properties.of()
 	);
 
-	public static final Block VERTICAL_OAK_LOG_SLAB = register(
-			"vertical_oak_log_slab", VerticalSlabBlock::new, BlockBehaviour.Properties.of(), true
-	);
-
-	// :::family-declaration
+	// #region family_declaration
 	public static final BlockFamily RUBY_FAMILY =
 			new BlockFamily.Builder(ModBlocks.RUBY_BLOCK)
-			.stairs(ModBlocks.RUBY_STAIRS)
-			.slab(ModBlocks.RUBY_SLAB)
-			.fence(ModBlocks.RUBY_FENCE)
-			.getFamily();
-	// :::family-declaration
+					.stairs(ModBlocks.RUBY_STAIRS)
+					.slab(ModBlocks.RUBY_SLAB)
+					.fence(ModBlocks.RUBY_FENCE)
+					.getFamily();
+	// #endregion family_declaration
 
-	public static final Block DUPLICATOR_BLOCK = register(
-			"duplicator", DuplicatorBlock::new, BlockBehaviour.Properties.of(), true
-	);
-
-	public static final Block DIRT_CHEST_BLOCK = register(
-			"dirt_chest", DirtChestBlock::new, BlockBehaviour.Properties.of(), true
+	public static final Block STEEL_BLOCK = register(
+			ModBlockItemIds.STEEL_BLOCK, RotatedPillarBlock::new, BlockBehaviour.Properties.of()
 	);
 
 	public static final Block TATER_BLOCK = register(
-					"tater", TaterBlock::new, BlockBehaviour.Properties.of(), true
+			ModBlockItemIds.TATER_BLOCK, TaterBlock::new, BlockBehaviour.Properties.of()
 	);
 
-	// :::waxcap-tinting
+	// #region workstation
+	public static final Block UPGRADING_BLOCK = register(
+			ModBlockItemIds.UPGRADING_BLOCK, UpgradingBlock::new, BlockBehaviour.Properties.of()
+	);
+	// #endregion workstation
+
+	public static final Block VERTICAL_OAK_LOG_SLAB = register(
+			ModBlockItemIds.VERTICAL_OAK_LOG_SLAB, VerticalSlabBlock::new, BlockBehaviour.Properties.of()
+	);
+
+	// #region waxcap_tinting
 	public static final Block WAXCAP = register(
-			"waxcap",
+			ModBlockItemIds.WAXCAP,
 			Block::new,
 			BlockBehaviour.Properties.of()
 					.noCollision()
 					.instabreak()
-					.offsetType(BlockBehaviour.OffsetType.XYZ),
-			true
+					.offsetType(BlockBehaviour.OffsetType.XYZ)
 	);
-	// :::waxcap-tinting
+	// #endregion waxcap_tinting
 
-	// :::1
-	private static Block register(String name, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties settings, boolean shouldRegisterItem) {
-		// Create a registry key for the block
-		ResourceKey<Block> blockKey = keyOfBlock(name);
+	// #region first_block
+	private static Block register(ResourceKey<Block> id, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties properties) {
 		// Create the block instance
-		Block block = blockFactory.apply(settings.setId(blockKey));
+		Block block = blockFactory.apply(properties.setId(id));
 
-		// Sometimes, you may not want to register an item for the block.
-		// Eg: if it's a technical block like `minecraft:moving_piston` or `minecraft:end_gateway`
-		if (shouldRegisterItem) {
-			// Items need to be registered with a different type of registry key, but the ID
-			// can be the same.
-			ResourceKey<Item> itemKey = keyOfItem(name);
-
-			BlockItem blockItem = new BlockItem(block, new Item.Properties().setId(itemKey).useBlockDescriptionPrefix());
-			Registry.register(BuiltInRegistries.ITEM, itemKey, blockItem);
-		}
-
-		return Registry.register(BuiltInRegistries.BLOCK, blockKey, block);
+		return Registry.register(BuiltInRegistries.BLOCK, id, block);
 	}
+	// #endregion first_block
 
-	private static ResourceKey<Block> keyOfBlock(String name) {
-		return ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+	// #region first_block_item
+	private static Block register(BlockItemId id, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties properties) {
+		// Create the block instance
+		Block block = register(id.block(), blockFactory, properties);
+
+		// Create the block item instance
+		BlockItem blockItem = new BlockItem(block, new Item.Properties().useBlockDescriptionPrefix().setId(id.item()));
+		Registry.register(BuiltInRegistries.ITEM, id.item(), blockItem);
+
+		return block;
 	}
+	// #endregion first_block_item
 
-	private static ResourceKey<Item> keyOfItem(String name) {
-		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
-	}
-	// :::1
-
+	// #region static_initialization
 	public static void initialize() {
+		// #endregion static_initialization
 		setupItemGroups();
+		// #region static_initialization
 	}
+	// #endregion static_initialization
 
 	public static void setupItemGroups() {
-		// :::6
+		// #region add_to_creative_tab
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register((creativeTab) -> {
 			creativeTab.accept(ModBlocks.CONDENSED_DIRT.asItem());
 		});
-		// :::6
+		// #endregion add_to_creative_tab
 	}
 
-	// :::1
+	// #region first_block
+	// #region first_block_item
+	// #region static_initialization
 }
-// :::1
+// #endregion static_initialization
+// #endregion first_block
+// #endregion first_block_item

@@ -6,7 +6,6 @@ authors:
   - dicedpixels
   - its-miroma
   - JR1811
-outline: false
 ---
 
 ## Выберите свою IDE {#choose-your-ide}

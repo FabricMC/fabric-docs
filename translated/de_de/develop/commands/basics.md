@@ -80,7 +80,7 @@ Der Callback hat drei Parameter:
 
 Im Mod-Initialisierer registrieren wir nur einen einfachen Befehl:
 
-@[code lang=java transcludeWith=:::test_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#test_command
 
 In der Methode `sendSuccess()` ist der erste Parameter der zu sendende Text, der ein `Supplier<Component>` ist, um zu vermeiden, dass `Component`-Objekte instanziert werden, wenn sie nicht benötigt werden.
 
@@ -102,17 +102,17 @@ Ab diesem Punkt werden wir die Logik, die in den an `.executes()`-Builder überg
 
 Falls gewünscht, kannst du auch dafür sorgen, dass ein Befehl nur unter bestimmten Umständen registriert wird, zum Beispiel nur in der dedizierten Umgebung:
 
-@[code lang=java highlight={2} transcludeWith=:::dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#dedicated_command{2}
 
-@[code lang=java transcludeWith=:::execute_dedicated_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_dedicated_command
 
 ### Befehlsanforderungen {#command-requirements}
 
 Angenommen, du hast einen Befehl, den nur Moderatoren ausführen können sollen. An dieser Stelle kommt die Methode `requires()` ins Spiel. Die Methode `requires()` hat ein Argument vom Typ `Predicate<S>`, das einen `CommandSourceStack` bereitstellt, mit dem getestet und festgestellt wird, ob die `CommandSource` den Befehl ausführen kann.
 
-@[code lang=java highlight={3} transcludeWith=:::required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#required_command{3}
 
-@[code lang=java transcludeWith=:::execute_required_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_required_command
 
 Dieser Befehl wird nur ausgeführt, wenn die Quelle des Befehls mindestens ein Moderator ist, einschließlich Befehlsblöcke. Andernfalls ist der Befehl nicht registriert.
 
@@ -122,21 +122,21 @@ Dies hat den Nebeneffekt, dass dieser Befehl in der <kbd>Tab</kbd>-Vervollständ
 
 Um einen Unterbefehl hinzuzufügen, registriere den ersten buchstäblichen Knoten des Befehls ganz normal. Um einen Unterbefehl zu haben, musst du den nächsten buchstäblichen Knoten an den bestehenden Knoten anhängen.
 
-@[code lang=java highlight={3} transcludeWith=:::sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#sub_command_one{3}
 
-@[code lang=java transcludeWith=:::execute_sub_command_one](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_sub_command_one
 
 Ähnlich wie die Argumente können auch die Unterbefehlsknoten auf optional gesetzt werden. Im folgenden Fall sind sowohl `/command_two` als auch `/command_two sub_command_two` gültig.
 
-@[code lang=java highlight={2,8} transcludeWith=:::sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#sub_command_two{2,8}
 
-@[code lang=java transcludeWith=:::execute_command_sub_command_two](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_command_sub_command_two
 
 ## Client-Befehle {#client-commands}
 
 Ebenso stellt die Fabric-API das Event `ClientCommandRegistrationCallback` im Paket `net.fabricmc.fabric.api.client.command.v2` bereit, mit dem clientseitige Befehle registriert werden können, wobei die Standardklasse `Commands` durch die entsprechende Klasse `ClientCommands` ersetzt wird. Der Code sollte nur im clientseitigen Code vorhanden sein.
 
-@[code lang=java transcludeWith=:::1](@/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java)
+<<< @/reference/latest/src/client/java/com/example/docs/client/command/ExampleModClientCommands.java#register_command
 
 ## Befehlsumleitungen {#command-redirects}
 
@@ -148,9 +148,9 @@ Brigadier [wird nur Befehlsknoten mit Argumenten umleiten](https://github.com/Mo
 
 :::
 
-@[code lang=java transcludeWith=:::redirect_command](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#redirect_command
 
-@[code lang=java transcludeWith=:::execute_redirected_by](@/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java)
+<<< @/reference/latest/src/main/java/com/example/docs/command/ExampleModCommands.java#execute_redirected_by
 
 ## FAQ {#faq}
 

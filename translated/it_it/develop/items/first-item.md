@@ -22,7 +22,7 @@ Puoi mettere questo metodo in una classe chiamata `Moditems` (o qualunque nome i
 
 Anche Mojang fa lo stesso per i suoi oggetti! Prendi ispirazione dalla classe `Items`.
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
 
 Nota che stiamo usando `T`, un [tipo generico](https://docs.oracle.com/javase/tutorial/java/generics/types.html) che estende `Item`. Questo ci permette di usare lo stesso metodo `register` per registrare qualsiasi tipo di oggetto che estenda `Item`. Stiamo anche usando una [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) per la fabbrica, che ci consentirà di specificare come vogliamo creare il nostro articolo date le proprietà.
 
@@ -40,7 +40,7 @@ Questo non funzionerà se hai segnato un oggetto come danneggiabile, poiché la 
 
 :::
 
-@[code transcludeWith=:::2](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#suspicious_substance
 
 `Item::new` dice alla funzione di registrazione di creare un'istanza `Item` con `Item.Properties` chiamando il costruttore `Item` (`new Item(...)`), che accetta `Item.Properties` come parametro.
 
@@ -48,9 +48,9 @@ Tuttavia, provando ora ad eseguire il client modificato, noterai che il nostro o
 
 Per fare questo puoi aggiungere un metodo `initialize` pubblico e statico alla tua classe e richiamarlo dall'[initializer della tua mod](../getting-started/project-structure#entrypoints). Per ora il metodo non deve contenere nulla.
 
-@[code transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#initialize
 
-@[code transcludeWith=:::1](@/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ExampleModItems.java#initialize
 
 Chiamare un metodo su una classe la inizializza staticamente se non è mai stata caricata prima - questo significa che tutti gli attributi `static` vengono calcolati. Questo è il motivo di questo metodo `initialize` fasullo.
 
@@ -62,11 +62,11 @@ Se volessi aggiungere l'oggetto a una scheda in Creativa personalizzata, consult
 
 :::
 
-Per questo esempio, aggiungeremo questo oggetto alla `CreativeModeTab` degli ingredienti, dovrai usare gli eventi delle schede d'inventario dall'API di Fabric - in particolare `ItemGroupEvents.modifyEntriesEvent`
+Per questo esempio, aggiungeremo questo oggetto alla `CreativeModeTab` degli ingredienti, dovrai usare gli eventi delle schede d'inventario dall'API di Fabric - in particolare `CreativeModeTabEvents.modifyOutputEvent`
 
 Questo si può fare nel metodo `initialize` della tua classe degli oggetti.
 
-@[code transcludeWith=:::4](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#add_to_creative_tab
 
 Appena caricato il gioco, vedrai che il nostro oggetto è stato registrato, ed è nella scheda Ingredienti:
 
@@ -122,7 +122,7 @@ Creeremo un semplice modello `item/generated`, che accetti come input solo una t
 
 Crea il modello JSON nella cartella `assets/example-mod/models/item`, con lo stesso nome dell'oggetto; `suspicious_substance.json`
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/suspicious_substance.json
 
 #### Comprendere il Modello in JSON {#breaking-down-the-model-json}
 
@@ -139,7 +139,7 @@ Minecraft non sa in automatico dove i file dei modelli dei tuoi oggetti si trovi
 
 Crea l'oggetto del client in `assets/example-mod/items`, e come nome del file l'identifier dell'oggetto: `suspicious_substance.json`.
 
-@[code](@/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json)
+<<< @/reference/latest/src/main/generated/assets/example-mod/items/suspicious_substance.json
 
 #### Comprendere il JSON dell'oggetto del client {#breaking-down-the-client-item-json}
 
@@ -155,13 +155,13 @@ Il tuo oggetto dovrebbe ora avere questo aspetto nel gioco:
 
 L'API di Fabric fornisce varie registry che si possono usare per aggiungere altre proprietà al tuo oggetto.
 
-Per esempio, per rendere il tuo oggetto compostabile, puoi usare la `CompostingChanceRegistry`:
+Per esempio, per rendere il tuo oggetto compostabile, puoi usare la `CompostableRegistry`:
 
-@[code transcludeWith=:::\_10](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
 
-In alternativa, se vuoi rendere il tuo oggetto combustibile, puoi usare l'evento `FuelRegistryEvents.BUILD`:
+In alternativa, se vuoi rendere il tuo oggetto combustibile, puoi usare l'evento `FuelValueEvents.BUILD`:
 
-@[code transcludeWith=:::\_11](@/reference/latest/src/main/java/com/example/docs/item/ModItems.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
 
 ## Aggiungere una Ricetta Basilare {#adding-a-basic-crafting-recipe}
 
@@ -176,7 +176,7 @@ Per maggiori informazioni sul formato delle ricette, consulta queste risorse:
 
 ## Tooltip Personalizzati {#custom-tooltips}
 
-Se vuoi che il tuo oggetto abbia un tooltip personalizzato, dovrai creare una classe che estenda `Item` e faccia override del metodo `appendHoverText`.
+Se vuoi che il tuo oggetto abbia un tooltip personalizzato, dovrai creare una classe che estenda `Item` e faccia override del metodo `appendHoverText`. Nota che questo metodo è deprecato, poiché Mojang sta lavorando per assicurare che il comportamento degli oggetti sia gestito interamente via componenti, piuttosto che via oggetti - per maggiori informazioni, vedere [Componenti di dati personalizzati](./custom-data-components).
 
 ::: info
 
@@ -184,7 +184,7 @@ Questo esempio usa la classe `LightningStick` creata nella pagina [Interazioni P
 
 :::
 
-@[code lang=java transcludeWith=:::3](@/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java)
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#custom_tooltip
 
 Ogni chiamata ad `accept()` aggiungerà una linea al tooltip.
 
