@@ -118,7 +118,7 @@ Because a fluid is considered two separate blocks in its flowing and still state
 
 ::: tip
 
-Minecraft also provider other tags to control the behavior of fluids:
+Minecraft also provides other tags to control the behavior of fluids:
 
 - If you need your mod's fluid to behave like water (water fog, absorbed by sponges, swimmable, slows entities...), considering adding it to the `minecraft:water` fluid tag.
 - If you need it to behave like lava (lava fog, swimmable by Striders/Ghasts, slows entities...), consider adding it to the `minecraft:lava` fluid tag.
@@ -140,7 +140,7 @@ For simplicity, this demo uses `BlockTintSources.constant` to apply a constant g
 
 :::
 
-Add the following lines to your `ClientModInitializer` to create a `FluidModel.Unbaked`, that takes in two `Material`s for the textures—one for the still source and one for the flowing fluid—and a block tint source for the color to tint it with.
+Add the following lines to your `ClientModInitializer` to create a `FluidModel.Unbaked`, that takes in three `Material`s for the textures—one for the still source, one for the flowing fluid and one for the fluid overlay—and a block tint source for the color to tint it with.
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid_texture
 
