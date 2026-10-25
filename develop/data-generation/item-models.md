@@ -86,7 +86,7 @@ Handheld item models are generally used by tools and weapons (axes, swords, trid
 
 == Source Code
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#handheld
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
 
 == Client Item
 
