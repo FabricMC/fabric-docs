@@ -36,7 +36,7 @@ This example will cover the creation of an acid fluid that hurts, weakens, and b
 
 ## Creating the Fluid Class {#creating-the-fluid-class}
 
-We'll start by creating an abstract class, in this case called `AcidFluid`, that extends the baseline `FlowingFluid` class. Then, we'll override any the methods that should be the same for both the source and the flowing fluid.
+We'll start by creating an abstract class, in this case called `AcidFluid`, that extends the baseline `FlowingFluid` class. Then, we'll override any methods that should be the same for both the source and the flowing fluid.
 
 Pay special attention to the following methods:
 
@@ -140,7 +140,7 @@ For simplicity, this demo uses `BlockTintSources.constant` to apply a constant g
 
 :::
 
-Add the following lines to your `ClientModInitializer` to create a `FluidModel.Unbaked`, that takes in three `Material`s for the textures—one for the still source, one for the flowing fluid and one for the fluid overlay—and a block tint source for the color to tint it with.
+Add the following lines to your `ClientModInitializer` to create a `FluidModel.Unbaked`, that takes in three `Material`s for the textures—one for the still source, one for the flowing fluid, and one for the fluid overlay—and a block tint source for the color to tint it with.
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid_texture
 
