@@ -79,7 +79,7 @@ Succeeds if the specified `registry` contains all tags in `values`. For example,
 
 ### Features Enabled {#features-enabled}
 
-Succeeds if all [feature flags](https://minecraft.wiki/w/Experiments#Java_Edition) in `features` are enabled. For example, the following will succeed if both `minecraft:vanilla` and `minecraft:redstone_experiments` are enabled:
+Succeeds if all [feature flags](https://minecraft.wiki/w/Experiments#Java_Edition) in `features` are enabled. For example, the following will succeed if both `minecraft:vanilla` and `minecraft:minecart_improvements` are enabled:
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/features_enabled.json
 
