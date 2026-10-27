@@ -79,11 +79,14 @@ dependencies {
 
 For years, a common source of server crashes had been mods accidentally calling client-only code when installed on a server. Newer Loom and Loader versions provide an option to require all client code to be moved into its own source set. This is to stop the problem at compile time, but the build will still result in a single jar file which works on either side.
 
-The following snippet from a `build.gradle` file shows how you can enable this for your mod. As your mod will now be split across two source sets, you will need to use the new DSL to define your mod's source sets. This enables Fabric Loader to group your mod's classpath together. This is also useful for some other complex multi-project setups.
+The following snippet from a `build.gradle` file shows how you can enable this for your mod:
+
+<<< @/reference/build.gradle#split_sources
+
+As your mod will now be split across two source sets, you will need to use the new DSL to define your mod's source sets. This enables Fabric Loader to group your mod's classpath together. This is also useful for some other complex multi-project setups.
 
 Minecraft 1.18 (1.19 recommended), Loader 0.14 and Loom 1.0 or later are required to split the client and common code.
 
-<<< @/reference/build.gradle#split_sources
 
 ## Resolving Issues {#issues}
 
