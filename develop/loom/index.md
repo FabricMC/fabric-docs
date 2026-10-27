@@ -108,7 +108,7 @@ Loom is designed to work out-of-the-box, by simply setting up a workspace in you
 
 ## Caches {#caches}
 
-- `${GRADLE_HOME}/caches/fabric-loom`: The user cache, a cache shared by all Loom projects for a user. Used to cache Minecraft assets, jars, merged jars, intermediary jars and mapped jars
+- `${GRADLE_USER_HOME}/caches/fabric-loom`: The user cache, a cache shared by all Loom projects for a user. Used to cache Minecraft assets, jars, merged jars, intermediary jars and mapped jars
 - `.gradle/loom-cache`: The root project persistent cache, a cache shared by a project and its subprojects. Used to cache remapped mods, as well as generated included mod jars
 - `**/build/loom-cache`: The (sub)projects' build cache
 
