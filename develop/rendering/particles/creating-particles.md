@@ -143,10 +143,4 @@ If you're sending multiple particles at once, consider [creating your own packet
 
 :::
 
-::: tip
-
-You can also spawn vanilla particles by using a `ParticleType` from the `ParticleTypes` class!
-
-:::
-
 <!---->

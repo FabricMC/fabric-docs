@@ -25,9 +25,7 @@ public class ExampleMod implements ModInitializer {
 	// #region create_logger
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	// #endregion create_logger
-	// #endregion entrypoint
 
-	// #region entrypoint
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
