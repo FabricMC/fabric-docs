@@ -9,7 +9,7 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleProviderRegistry;
 public class ExampleModParticlesClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		// Registers a ParticleProvider telling your ParticleType which Particle Class to use
+		// Registers a ParticleProvider telling your ParticleType which particle class to use
 		// For this example, we use the end rod particle's logic via EndRodParticle.Provider::new
 		ParticleProviderRegistry.getInstance().register(ExampleModParticles.SPARKLE_PARTICLE, EndRodParticle.Provider::new);
 	}

@@ -48,33 +48,11 @@ Next, we need to create a Sprite Set JSON file and place it under the `assets/ex
 
 The JSON file should be named just like your particle's `Identifier` path from the `ParticleType` registration (in our case `sparkle_particle.json`).
 
-In the file, add the paths to the textures you want to use:
-
-::: tabs
-
-== Sparkle Sprite Set Example
+In that file, add the paths to the textures you want to use in a `textures` array:
 
 <<< @/reference/latest/src/main/resources/assets/example-mod/particles/sparkle_particle.json
 
 Entries will be matched to texture files in the `assets/example-mod/textures/particle` folder.
-
-You can also use vanilla particle textures by adding `minecraft:texture_path`.
-
-== Template Sprite Set
-
-<!-- prettier-ignore-start -->
-```json
-{
-  "textures": [
-
-  ]
-}
-```
-<!-- prettier-ignore-end -->
-
-A blank template that you can copy-paste into your Sprite Set JSON file.
-
-:::
 
 Because we chose to use `EndRodParticle`'s logic, it will animate our particle by cycling through the textures in the sprite set throughout its lifetime.
 
@@ -82,7 +60,9 @@ Not all particle classes do this: a few classes, including `CritParticle` and `F
 
 ::: tip
 
-You can "extend" the duration that one specific texture is shown by repeating it multiple times in the sprite set!
+You can use vanilla particle textures by using `minecraft:texture_path`.
+
+You can also "extend" the duration that one specific texture is shown by repeating it multiple times in the sprite set!
 
 :::
 
@@ -108,19 +88,24 @@ If you type it in chat, the particle will spawn at the player's location, and yo
 
 ## Spawning Particles in Code {#spawning-particles-in-code}
 
-We have successfully added the particle. Now, let's see how we can spawn it with code.
+We have successfully added the particle, now let's see how we can spawn it with code.
 
 There are two methods to spawn a particle, depending on your [networking side](../../networking): via `ClientLevel#addParticle()` and `ServerLevel#sendParticles()`. Most commonly, you'll be spawning particles with the client method.
 
 For both methods, you'll pass the `ParticleType` you want to spawn, along with some other parameters.
 
-You can use a custom particle type, or you can also spawn vanilla particles by referencing the `ParticleTypes` class!
+You can use a custom particle type, or you can also spawn vanilla particles by referencing the `ParticleTypes` class! Note that some particles will ignore the passed x, y, and z velocities in favor of generating their own.
 
 ::: tabs
 
 == Client Side
 
-`ClientLevel#addParticle()` will add a particle on the client side. It takes in a `ParticleType`, three parameters for the position, and three more for the velocities:
+`ClientLevel#addParticle()` will add a particle on the client side.
+It takes in some simple parameters:
+
+- The `ParticleType` of the particle to spawn.
+- Three parameters for the starting x, y, and z position.
+- Three parameters for the x, y, and z velocities.
 
 <<< @/reference/latest/src/main/java/com/example/docs/particle/ExampleModParticles.java#client_send_particles
 
@@ -129,11 +114,11 @@ You can use a custom particle type, or you can also spawn vanilla particles by r
 `ServerLevel#sendParticles()` will [send a packet](../../networking#why-is-networking-important) telling clients to add particles to their worlds.
 It takes in a few parameters:
 
-- The `ParticleType` of our particle,
-- Three parameters for the starting position
-- A count of particles to be spawned
-- Three parameters for the random distance the particle should travel
-- A speed parameter, which I don't understand how it works
+- The `ParticleType` of the particle to spawn.
+- Three parameters for the starting x, y, and z position.
+- A count of particles to be spawned.
+- Three parameters for the random x, y, and z distances the particle(s) should travel.
+- A random speed parameter which is a varying multiplier of the x, y, and z velocities.
 
 <<< @/reference/latest/src/main/java/com/example/docs/particle/ExampleModParticles.java#server_send_particles
 
