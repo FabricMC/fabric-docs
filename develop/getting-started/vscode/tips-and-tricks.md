@@ -23,7 +23,7 @@ Once sources are generated, it should be possible for you to search or view Mine
 
 **Go to Definition** (<kbd>F12</kbd>): From source code, navigate to a class definition by <kbd>Ctrl</kbd> + clicking on its name, or by right-clicking it and selecting "Go to Definition".
 
-**Go to Implementations** (Ctrl + F12): From source code, navigate to a class implementation by selecting it and pressing Ctrl + F12, or by right-clicking it and selecting "Go to Implementations".
+**Go to Implementations** (<kbd>Ctrl + F12</kbd>): From source code, navigate to a class implementation by selecting it and pressing <kbd>Ctrl</kbd>+<kbd>F12</kbd>, or by right-clicking it and selecting "Go to Implementations".
 
 ![Go to Definition](/assets/develop/getting-started/vscode/go-to-definition.png)
 
