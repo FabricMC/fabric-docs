@@ -3,7 +3,6 @@ package com.example.docs.saveddata;
 import com.mojang.serialization.Codec;
 
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
 
@@ -55,18 +54,12 @@ public class SavedBlockData extends SavedData {
 	// #endregion basic_structure
 	// #region method
 	public static SavedBlockData getSavedBlockData(MinecraftServer server) {
-		// This could be either the overworld or another dimension.
-		ServerLevel level = server.getLevel(ServerLevel.OVERWORLD);
-
-		if (level == null) {
-			return new SavedBlockData(); // Return a new instance if the level is null.
-		}
-
+		// See `Level#getDataStorage()` for `Level`-specific data. Our example is global.
 		// The first time the following 'computeIfAbsent' function is called, it creates a new 'SavedBlockData'
 		// instance and stores it inside the 'DimensionDataStorage'.
 		// Subsequent calls to 'computeIfAbsent' returns the saved 'SavedBlockData' NBT on disk to the Codec in our type,
 		// using the Codec to decode the NBT into our saved data.
-		return level.getDataStorage().computeIfAbsent(TYPE);
+		return server.getDataStorage().computeIfAbsent(TYPE);
 	}
 	// #endregion method
 	// #region basic_structure
