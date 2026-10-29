@@ -65,7 +65,7 @@ In there you can jump to the files, which you have already visited and open tool
 If you need to check out either the definition or the usage of variables, methods, classes, and other things, you can press <kbd>⌘/CTRL</kbd>+<kbd>Left Click / B</kbd>, or use <kbd>Middle Click</kbd> (press the mouse wheel) on their name. This way you can avoid long scrolling sessions or a manual
 search for a definition which is located in another file.
 
-You can also use <kbd>⌘/CTRL</kbd>+<kbd>⌥/Shift</kbd>+<kbd>Left Click / B</kbd> to view all the implementations of a class or interface.
+You can also use <kbd>⌘/CTRL</kbd>+<kbd>⌥/Alt</kbd>+<kbd>Left Click / B</kbd> to view all the implementations of a class or interface.
 
 ### Bookmarks {#bookmarks}
 
