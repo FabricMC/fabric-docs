@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Content-Signal: search=yes, ai-train=no
 
 Sitemap: https://docs.fabricmc.net/sitemap.xml 
