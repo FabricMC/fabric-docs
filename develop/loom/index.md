@@ -87,7 +87,6 @@ As your mod will now be split across two source sets, you will need to use the n
 
 Minecraft 1.18 (1.19 recommended), Loader 0.14 and Loom 1.0 or later are required to split the client and common code.
 
-
 ## Resolving Issues {#issues}
 
 Loom and/or Gradle can sometimes fail due to corrupted cache files. Running `./gradlew build --refresh-dependencies` will force Gradle and Loom to re-download and recreate all files. This may take a few minutes, but is usually enough to resolve cache-related issues.
