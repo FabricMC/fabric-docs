@@ -25,4 +25,10 @@ authors:
     icon: 'codicon:vscode',
     color: '#007ACC',
   },
+  {
+    name: 'Zed',
+    href: './zed/opening-a-project',
+    icon: 'simple-icons:zedindustries',
+    color: '#282C34',
+  },
 ]" />
