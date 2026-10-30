@@ -37,15 +37,37 @@ Loom uses multiple different plugin IDs:
 
 ## Depending on Subprojects {#subprojects}
 
-While setting up a multi-project build that depends on another Loom project, you should use the `namedElements` configuration when depending on the other project. By default, a project's "outputs" are remapped to intermediary names. The `namedElements` configuration contains the project outputs that have not been remapped.
+When setting up a multi-project build, you may want to depend on another subproject.
+You can do this using a `project(...)` call, though the arguments depend on the type of environment in use.
+
+### Depending on Non-Remapped Subprojects {#depending-on-non-remapped-subprojects}
+
+For non-remapping Loom, we will pass the path to the subproject but delimited with colons.
+
+For example, a project located at `/examples/hello-world` can be referenced like this:
 
 ```gradle
 dependencies {
- implementation project(path: ":name", configuration: "namedElements")
+ implementation project(":examples:hello-world")
 }
 ```
 
-If you are using split source sets in a multi-project build, you will also need to add a dependency for the other project's client source set.
+### Depending on Remapped Subprojects {#depending-on-remapped-subprojects}
+
+With remapping Loom, project output is remapped to intermediary by default. This results in intermediary
+names being exposed to the dependent project.
+
+To avoid this, we specify the `namedElements` configuration and retrieve the project output without remapping:
+
+```gradle
+dependencies {
+ implementation project(path: ":examples:hello-world", configuration: "namedElements")
+}
+```
+
+### Depending on Split Sources {#depending-on-split-sources}
+
+If you are using [split source sets](#split-sources) in a multi-project build, you will also need to add a dependency for the other project's client source set.
 
 ```gradle
 dependencies {
@@ -57,11 +79,13 @@ dependencies {
 
 For years, a common source of server crashes had been mods accidentally calling client-only code when installed on a server. Newer Loom and Loader versions provide an option to require all client code to be moved into its own source set. This is to stop the problem at compile time, but the build will still result in a single jar file which works on either side.
 
-The following snippet from a `build.gradle` file shows how you can enable this for your mod. As your mod will now be split across two source sets, you will need to use the new DSL to define your mod's source sets. This enables Fabric Loader to group your mod's classpath together. This is also useful for some other complex multi-project setups.
-
-Minecraft 1.18 (1.19 recommended), Loader 0.14 and Loom 1.0 or later are required to split the client and common code.
+The following snippet from a `build.gradle` file shows how you can enable this for your mod:
 
 <<< @/reference/build.gradle#split_sources
+
+As your mod will now be split across two source sets, you will need to use the new DSL to define your mod's source sets. This enables Fabric Loader to group your mod's classpath together. This is also useful for some other complex multi-project setups.
+
+Minecraft 1.18 (1.19 recommended), Loader 0.14 and Loom 1.0 or later are required to split the client and common code.
 
 ## Resolving Issues {#issues}
 
@@ -83,7 +107,7 @@ Loom is designed to work out-of-the-box, by simply setting up a workspace in you
 
 ## Caches {#caches}
 
-- `${GRADLE_HOME}/caches/fabric-loom`: The user cache, a cache shared by all Loom projects for a user. Used to cache Minecraft assets, jars, merged jars, intermediary jars and mapped jars
+- `${GRADLE_USER_HOME}/caches/fabric-loom`: The user cache, a cache shared by all Loom projects for a user. Used to cache Minecraft assets, jars, merged jars, intermediary jars and mapped jars
 - `.gradle/loom-cache`: The root project persistent cache, a cache shared by a project and its subprojects. Used to cache remapped mods, as well as generated included mod jars
 - `**/build/loom-cache`: The (sub)projects' build cache
 
