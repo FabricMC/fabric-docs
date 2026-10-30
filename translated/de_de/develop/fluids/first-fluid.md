@@ -19,6 +19,7 @@ authors:
   - SuperSoupr
   - Virtuoel
   - UpcraftLP
+  - NotNightSky
 authors-nogithub:
   - alfiejfs
   - salvopelux
@@ -140,7 +141,7 @@ Der Einfachheit halber verwendet diese Demo `BlockTintSources.constant`, um der 
 
 :::
 
-Füge die folgenden Zeilen zu deinem `ClientModInitializer` hinzu, um ein `FluidModel.Unbaked` zu erstellen, das zwei `Material` für die Texturen – eines für die ruhende Quelle und eines für die fließende Flüssigkeit – sowie eine Blockfärbungs-Quelle für die Farbe, mit der es eingefärbt werden soll, verwendet.
+Füge die folgenden Zeilen zu deinem `ClientModInitializer` hinzu, um ein `FluidModel.Unbaked` zu erstellen. Es nimmt drei `Material`-Objekte für die Texturen entgegen – eines für die ruhige Quelle, eines für die fließende Flüssigkeit und eines für die Flüssigkeitsüberlagerung – sowie eine Blockfarbquelle für die Farbe, mit der es eingefärbt werden soll.
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid_texture
 

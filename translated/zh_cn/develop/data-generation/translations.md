@@ -43,6 +43,12 @@ authors-nogithub:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
 
+你也可以将翻译内容从模组中已有的 JSON 文件合并进来。将该文件放置在生成目录之外的某个位置，然后将其传给 `translationBuilder.add`：
+
+<<< @/reference/latest/src/main/resources/assets/example-mod/lang/en_us.existing.json
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_existing
+
 ## 使用翻译 {#using-translations}
 
 生成的翻译取代了其他教程中添加的许多翻译，但你也可以在任何使用 `Component` 对象的地方使用。在我们的示例中，如果我们想允许资源包翻译我们的问候语，我们使用 `Component.translatable` 而不是 \`Component.literal：

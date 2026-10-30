@@ -19,6 +19,7 @@ authors:
   - SuperSoupr
   - Virtuoel
   - UpcraftLP
+  - NotNightSky
 authors-nogithub:
   - alfiejfs
   - salvopelux
@@ -140,7 +141,7 @@ Minecraft 还提供了其他标签，用于控制流体的行为：
 
 :::
 
-将以下代码行添加到你的 `ClientModInitializer` 中，以创建一个 `FluidModel.Unbaked`。它会接收两个用于纹理的 `Material`：一个用于静止的源流体，另一个用于流动流体；同时还会接收一个方块着色源，用于指定要应用的颜色。
+在你的 `ClientModInitializer` 中添加以下代码行，以创建一个 `FluidModel.Unbaked`。它接收三个用于纹理的 `Material`——一个对应静态源，一个对应流动流体，另一个对应流体叠加层——以及一个用于提供着色源的方块色调对象，以此为流体进行染色。
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid_texture
 

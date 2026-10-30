@@ -15,6 +15,22 @@ Le pozioni sono oggetti consumabili che conferiscono un effetto a un'entità. Un
 
 Proprio come gli oggetti e i blocchi, le pozioni devono essere registrate.
 
+## Preparare la classe degli ID delle pozioni {#preparing-your-potion-id-class}
+
+Se hai già completato la pagina [Creare il Tuo Primo Oggetto](../items/first-item), questo processo ti sembrerà molto familiare - dovrai creare delle classi dove memorizzare gli `Identifier` delle tue pozioni, come `ResourceKey`.
+
+Questi riferimenti alle pozioni saranno usati per la [data-generazione dei tag delle pozioni](../data-generation/tags).
+
+Puoi mettere questo metodo in una classe chiamata `ModPotionIds` (o qualsiasi altro nome).
+
+::: tip
+
+Anche Mojang fa lo stesso per le loro pozioni! Prendi ispirazione dalla classe `PotionIds`.
+
+:::
+
+<<< @/reference/latest/src/main/java/com/example/docs/potion/ModPotionIds.java#mod_potion_ids_class
+
 ### Creare la Pozione {#creating-the-potion}
 
 Iniziamo dichiarando un attributo che conterrà la tua istanza `Potion`. Useremo direttamente una classe che implementi `ModInitializer` per conservarla. Nota che abbiamo usato `Registry.registerForHolder` perché, come per gli effetti dei mob, la maggior parte dei metodi vanilla legati alle pozioni le richiedono in holder.

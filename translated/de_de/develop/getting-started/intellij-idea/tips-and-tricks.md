@@ -62,7 +62,7 @@ Dort kannst du zu den Dateien springen, die du bereits besucht hast, und Werkzeu
 
 Wenn du die Definition oder Verwendung von Variablen, Methoden, Klassen und anderen Elementen überprüfen möchtest, kannst du <kbd>⌘/STRG</kbd>+<kbd>Linksklick / B</kbd> drücken oder <kbd>Mittlerer Mausklick</kbd> (Mausrad drücken) auf deren Namen verwenden. Auf diese Weise vermeidest du langes Scrollen oder eine manuelle Suche nach einer Definition, die sich in einer anderen Datei befindet.
 
-Du kannst außerdem <kbd>⌘/STRG</kbd>+<kbd>⌥/Shift</kbd>+<kbd>Linklsklick / B</kbd> verwenden, um alle Implementationen einer Klasse oder eines Interfaces zu sehen.
+Du kannst außerdem <kbd>⌘/STRG</kbd>+<kbd>⌥/Alt</kbd>+<kbd>Linklsklick / B</kbd> verwenden, um alle Implementationen einer Klasse oder eines Interfaces zu sehen.
 
 ### Lesezeichen {#bookmarks}
 

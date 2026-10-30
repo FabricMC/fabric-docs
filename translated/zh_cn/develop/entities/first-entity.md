@@ -2,6 +2,7 @@
 title: 创建你的第一个实体
 description: 学习如何注册一个简单的实体，并为其添加目标、渲染器、模型和动画。
 authors:
+  - An16og
   - cassiancc
   - CelDaemon
   - Earthcomputer
@@ -33,11 +34,11 @@ resources:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#ids
 
-若要注册你的实体，建议创建一个单独的 `ModEntityTypes` 类，用于注册所有实体类型、设置它们的尺寸，并注册它们的属性。
+若要注册实体，建议创建一个独立的类（例如 `ModEntityTypes`），在该类中注册所有实体类型，设置其尺寸，并将它们的属性直接传入注册方法：
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
 
-在你的[模组初始化器](../getting-started/project-structure#entrypoints)中调用 `registerModEntityTypes` 和 `registerAttributes`：
+在你的[模组初始化程序](../getting-started/project-structure#entrypoints)中调用 `initialize`，以触发类加载并注册你的实体：
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
 
