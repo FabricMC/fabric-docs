@@ -86,7 +86,7 @@ Handgehaltene Itemmodelle werden in der Regel für Werkzeuge und Waffen (Äxte, 
 
 == Quellcode
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#handheld
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
 
 == Client Item
 

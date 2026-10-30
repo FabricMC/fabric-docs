@@ -56,7 +56,7 @@ resources:
 
 ### 访问保存的数据 {#accessing-saved-data}
 
-如前所述，保存数据可以关联到一个作用域，比如当前世界。在这种情况下，我们的数据将是世界数据的一部分。我们可以获取世界的 `DimensionDataStorage` 来添加和修改我们的数据。
+如前所述，保存数据可以关联到一个作用域，比如当前世界。在这种情况下，我们的数据将是全局的。我们可以获取服务器的 `DimensionDataStorage` 来添加和修改我们的数据。在使用 `Level` 作用域时，你需要调用 `Level` 对象上的 `getDataStorage` 方法，而不是 `MinecraftServer` 对象上的该方法。
 
 我们把这个逻辑放到一个工具方法中。
 

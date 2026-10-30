@@ -130,13 +130,13 @@ Tutti gli attributi e i metodi di questa parte del tutorial sono dichiarati in u
 ### Classe dei Blocchi Personalizzati {#custom-block-class}
 
 Crea un blocco `VerticalSlab` con una proprietà `FACING` e una proprietà booleana `SINGLE`, come nel tutorial degli [Stati dei Blocchi](../blocks/blockstates). `SINGLE` indicherà se ci sono entrambe le lastre.
-Poi dovresti fare override di `getOutlineShape` e `getCollisionShape`, cosicché il contorno sia renderizzato correttamente, e il blocco abbia la forma di collisione corretta.
+Poi dovresti fare override di `getShape` e `getCollisionShape`, cosicché il contorno sia renderizzato correttamente e il blocco abbia la forma di collisione corretta.
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_voxels
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_collision
 
-Fai anche override del metodo `canReplace()`, altrimenti non potresti rendere la lastra un blocco intero.
+Fai anche override del metodo `canBeReplaced()`, altrimenti non potresti rendere la lastra un blocco intero.
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_replace
 

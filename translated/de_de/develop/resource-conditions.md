@@ -79,7 +79,7 @@ Erfolgreich, wenn die angegebene `registry` alle Tags in `values` enthält. Beis
 
 ### Aktivierte Funktionen {#features-enabled}
 
-Ist erfolgreich, wenn alle [Funktions-Flags](https://minecraft.wiki/w/Experiments#Java_Edition) in `features` aktiviert sind. Beispielsweise ist Folgendes erfolgreich, wenn sowohl `minecraft:vanilla` als auch `minecraft:redstone_experiments` aktiviert sind:
+Ist erfolgreich, wenn alle [Funktions-Flags](https://minecraft.wiki/w/Experiments#Java_Edition) in `features` aktiviert sind. Beispielsweise ist Folgendes erfolgreich, wenn sowohl `minecraft:vanilla` als auch `minecraft:minecart_improvements` aktiviert sind:
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/features_enabled.json
 

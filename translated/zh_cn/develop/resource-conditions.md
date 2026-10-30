@@ -80,7 +80,7 @@ Fabric API 提供了九种内置条件供你的模组使用。
 
 ### 功能启用 {#features-enabled}
 
-若 `features` 中的所有[功能开关](https://minecraft.wiki/w/Experiments#Java_Edition)都已启用，则成功。例如，如果 `minecraft:vanilla` 和 `minecraft:redstone_experiments` 都启用，以下内容将成功：
+若 `features` 中的所有[功能开关](https://minecraft.wiki/w/Experiments#Java_Edition)都已启用，则成功。例如，如果 `minecraft:vanilla` 和 `minecraft:minecart_improvements` 都启用，以下内容将成功：
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/features_enabled.json
 
