@@ -5,6 +5,7 @@ authors:
   - cassiancc
   - CelDaemon
   - its-miroma
+  - Jimmy474
   - JonyBoy19
   - Wind292
 ---
@@ -13,7 +14,7 @@ authors:
 
 ::: info PREREQUISITES
 
-Make sure you've completed the [datagen setup](./setup) process first.
+Make sure you've completed the [datagen setup](./setup) process first, and you understand [Dynamic Registry Population](./dynamic-registry.md) using datagen.
 
 :::
 
@@ -27,33 +28,16 @@ The generation for features of Minecraft worlds is broken down into 3 parts:
 
 ## Setup {#setup}
 
-First, we need to make our provider. Create a class that extends `FabricDynamicRegistryProvider` inside of the `main` package and fill out the base methods:
+Creating new configured features and placement features is done in the same way as [Dynamic Registry Population](./dynamic-registry.md), so create a similar class and configure it to use the `Registries.CONFIGURED_FEATURE` and `Registries.PLACED_FEATURE` instead of the custom key.
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#datagen_world_provider
 
-In the `configure` method, we will call `addAll` to ensure all the files for our features is generated.
-
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#worldgen_add_entries
-
-Then add this provider to your `DataGeneratorEntrypoint` class within the `onInitializeDataGenerator` method:
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add_worldgen_provider
-
-Next, make a class for your configured features and a class for your placed features. These don't need to extend anything.
-
-The configured feature class and placed feature class should both have a public method to register and define your features. Its argument, that we called `context`, should be a `BootstrapContext<ConfiguredFeature<?, ?>>` for the configured feature, or a `BootstrapContext<PlacedFeature>` for the placed feature.
-
-In your `DataGeneratorEntrypoint` class, add the lines below to your `buildRegistry` method, replacing the method name with what you chose:
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_world_registries
-
-If you don't already have the `buildRegistry` method, create it and annotate it with an `@Override`.
+The `bootstrap` method for these two registries can become big quickly, so putting them in their own separate classes is recommended.
+The `T` of `BootstrapContext<T>` should be `ConfiguredFeature<?, ?>` for configured features and `PlacedFeature` for placed features.
 
 ## Configured Features {#configured-features}
 
 To make a feature naturally spawn in our world, we should start by defining a configured feature in our configured features class.
-
-Before we can do anything, let's create the configured features class inside of the `main` package, and declare a `configure` method:
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configure_features_class
 
@@ -69,11 +53,11 @@ The second argument to the `Identifier` (`diamond_block_vein` in this example) i
 
 ### Ores {#ores}
 
-Next, we'll make a `RuleTest` inside the `configure` method that controls which blocks your feature can replace. For example, this `RuleTest` allows the replacement of every block with the tag `DEEPSLATE_ORE_REPLACEABLES`:
+Next, we'll make a `RuleTest` inside the `bootstrap` method that controls which blocks your feature can replace. For example, this `RuleTest` allows the replacement of every block with the tag `DEEPSLATE_ORE_REPLACEABLES`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ruletest
 
-Next, also inside the `configure` method, we need to create the `OreConfiguration`, which tells the game what to replace blocks with.
+Next, also inside the `bootstrap` method, we need to create the `OreConfiguration`, which tells the game what to replace blocks with.
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ore_feature_config
 
@@ -81,13 +65,13 @@ You can have multiple cases in the list for different variants. For example, let
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_multi_ore_feature_config
 
-Lastly, we need to register our configured feature to our game inside the `configure` method!
+Lastly, we need to register our configured feature to our game inside the `bootstrap` method!
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_conf_feature_register
 
 ### Trees {#trees}
 
-To make a custom tree, you need to first create a `TreeConfiguration` inside the `configure` method:
+To make a custom tree, you need to first create a `TreeConfiguration` inside the `bootstrap` method:
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_feature_config
 
@@ -107,7 +91,7 @@ You can use the built-in placers for the Trunk and Foliage from the vanilla tree
 
 :::
 
-Next, we need to register our tree by adding the following line to the `configure` method of `ExampleModWorldConfiguredFeatures`.
+Next, we need to register our tree by adding the following line to the `bootstrap` method of `ExampleModWorldConfiguredFeatures`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_register
 
@@ -115,11 +99,9 @@ Next, we need to register our tree by adding the following line to the `configur
 
 The next step in adding a feature to the game is creating its Placement Feature.
 
-Let's create the placed features class inside of the `main` package, and give it a `configure` method like before:
-
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_placed_features_class
 
-In your placed features class's `configure` method, create a variable like the one below:
+In your placed features class's `bootstrap` method, create a variable like the one below:
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_conf_feature_register
 
@@ -129,7 +111,7 @@ In your placed features class, define the key for your placed feature:
 
 ### Placement Modifiers {#placement-modifiers}
 
-Next, we need to define our Placement Modifiers inside the `configure` method, which are attributes that you set when spawning the feature. These can be anything: from the spawn frequency, to the starting `y` level. You can have as few or as many modifiers as you like.
+Next, we need to define our Placement Modifiers inside the `bootstrap` method, which are attributes that you set when spawning the feature. These can be anything: from the spawn frequency, to the starting `y` level. You can have as few or as many modifiers as you like.
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_placement_modifiers
 
@@ -155,7 +137,7 @@ Trees and other surface structures should include the modifier `PlacedFeatures.W
 
 :::
 
-Now that we have the modifiers, we can register our placed feature in the `configure` method:
+Now that we have the modifiers, we can register our placed feature in the `bootstrap` method:
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldPlacedFeatures.java#datagen_world_register_placed_feature
 

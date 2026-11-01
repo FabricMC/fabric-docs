@@ -95,8 +95,8 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		});
 
 		// #region datagen_world_registries
-		registryBuilder.add(Registries.CONFIGURED_FEATURE, ExampleModWorldConfiguredFeatures::configure);
-		registryBuilder.add(Registries.PLACED_FEATURE, ExampleModWorldPlacedFeatures::configure);
+		registryBuilder.add(Registries.CONFIGURED_FEATURE, ExampleModWorldConfiguredFeatures::bootstrapConfiguredFeatures);
+		registryBuilder.add(Registries.PLACED_FEATURE, ExampleModWorldPlacedFeatures::bootstrapPlacedFeatures);
 		// #endregion datagen_world_registries
 
 		// #region datagen_magic_skills_dynamic_registries_bootstrap
@@ -104,7 +104,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		// #endregion datagen_magic_skills_dynamic_registries_bootstrap
 
 		// #region datagen_enchantments_bootstrap
-		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
+		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrapEnchantments);
 		// #region datagen_magic_skills_dynamic_registries_bootstrap
 	}
 	// #endregion datagen_enchantments_bootstrap
