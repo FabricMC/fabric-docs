@@ -44,6 +44,7 @@ All particle textures should be put in the `assets/example-mod/textures/particle
 For this example, we have prepared 6 sparkle textures named `sparkle_1` through `sparkle_6`:
 
 <DownloadEntry visualURL="/assets/develop/rendering/particles/sparkle_textures_big.png" downloadURL="/assets/develop/rendering/particles/sparkle_particle_textures.zip">Particle Textures</DownloadEntry>
+
 Next, we need to create a Sprite Set JSON file and place it under the `assets/example-mod/particles` folder _(notice the extra "s" in the folder name!)_.
 
 The JSON file should be named just like your particle's `Identifier` path from the `ParticleType` registration (in our case `sparkle_particle.json`).
