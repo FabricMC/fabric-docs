@@ -24,6 +24,11 @@ Once your mod is ready for testing, you're able to export it into a JAR file whi
     icon: 'codicon:vscode',
     color: '#007ACC',
   },
+  {
+    name: 'Zed',
+    icon: 'simple-icons:zedindustries',
+    color: '#282C34',
+  },
 ]" />
 
 ## Building in the Terminal {#terminal}
