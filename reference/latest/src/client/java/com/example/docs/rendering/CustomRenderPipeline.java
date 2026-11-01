@@ -48,7 +48,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	private static final Vector4f COLOR_MODULATOR = new Vector4f(1f, 1f, 1f, 1f);
 	private static final Vector3f MODEL_OFFSET = new Vector3f();
 	private static final Matrix4f TEXTURE_MATRIX = new Matrix4f();
-	private static final StagedVertexBuffer stagedBuffer = new StagedVertexBuffer(() -> "Waypoints Buffer", RenderType.SMALL_BUFFER_SIZE);
+	private static final StagedVertexBuffer STAGED_BUFFER = new StagedVertexBuffer(() -> "Waypoints Buffer", RenderType.SMALL_BUFFER_SIZE);
 
 	// #endregion custom_pipelines_drawing_phase
 
@@ -74,19 +74,19 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		assert formatBinding != null;
 
 		PrimitiveTopology primitive = renderPipeline.getPrimitiveTopology();
-		StagedVertexBuffer.Draw draw = stagedBuffer.appendDraw(formatBinding, primitive, primitive == PrimitiveTopology.QUADS ? RenderSystem.getProjectionType().vertexSorting() : null);
+		StagedVertexBuffer.Draw draw = STAGED_BUFFER.appendDraw(formatBinding, primitive, primitive == PrimitiveTopology.QUADS ? RenderSystem.getProjectionType().vertexSorting() : null);
 
 		this.renderWaypoint(context, draw);
 
-		stagedBuffer.upload();
+		STAGED_BUFFER.upload();
 
-		StagedVertexBuffer.ExecuteInfo info = stagedBuffer.getExecuteInfo(draw);
+		StagedVertexBuffer.ExecuteInfo info = STAGED_BUFFER.getExecuteInfo(draw);
 
 		if (info != null) {
 			draw(Minecraft.getInstance(), info, renderPipeline);
 		}
 
-		stagedBuffer.endFrame();
+		STAGED_BUFFER.endFrame();
 	}
 
 	private void renderWaypoint(LevelRenderContext context, StagedVertexBuffer.Draw draw) {
@@ -96,7 +96,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		matrices.pushPose();
 		matrices.translate(-camera.x, -camera.y, -camera.z);
 
-		final VertexConsumer builder = stagedBuffer.getVertexBuilder(draw);
+		final VertexConsumer builder = STAGED_BUFFER.getVertexBuilder(draw);
 
 		this.renderFilledBox(matrices.last().pose(), builder, this.waypointState.x(), this.waypointState.y(), this.waypointState.z(), this.waypointState.x() + 1, this.waypointState.y() + 1, this.waypointState.z() + 1, this.waypointState.r(), this.waypointState.g(), this.waypointState.b(), this.waypointState.a());
 
@@ -173,7 +173,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 	// #region custom_pipelines_clean_up
 	public static void close() {
-		stagedBuffer.close();
+		STAGED_BUFFER.close();
 	}
 	// #endregion custom_pipelines_clean_up
 
