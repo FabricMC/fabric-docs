@@ -17,7 +17,7 @@ public class ModItemIds {
 	public static final ResourceKey<Item> COUNTER = create("counter");
 	// #endregion counter
 
-	// #region create_armor_items
+	// #region create_armor_items_humanoid
 	public static final ResourceKey<Item> GUIDITE_HELMET = create("guidite_helmet");
 
 	public static final ResourceKey<Item> GUIDITE_CHESTPLATE = create("guidite_chestplate");
@@ -25,7 +25,13 @@ public class ModItemIds {
 	public static final ResourceKey<Item> GUIDITE_LEGGINGS = create("guidite_leggings");
 
 	public static final ResourceKey<Item> GUIDITE_BOOTS = create("guidite_boots");
-	// #endregion create_armor_items
+	// #endregion create_armor_items_humanoid
+
+	// #region create_armor_items_non_humanoid
+	public static final ResourceKey<Item> GUIDITE_HORSE_ARMOR = create("guidite_horse_armor");
+
+	public static final ResourceKey<Item> GUIDITE_NAUTILUS_ARMOR = create("guidite_nautilus_armor");
+	// #endregion create_armor_items_non_humanoid
 
 	// #region guidite_pickaxe
 	public static final ResourceKey<Item> GUIDITE_PICKAXE = create("guidite_pickaxe");

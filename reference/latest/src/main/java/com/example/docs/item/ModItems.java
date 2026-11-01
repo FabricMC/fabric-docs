@@ -80,34 +80,45 @@ public class ModItems {
 	);
 	// #endregion guidite_tool_material
 
-	// #region create_armor_items
+	// #region create_armor_items_humanoid
 	public static final Item GUIDITE_HELMET = register(
 			ModItemIds.GUIDITE_HELMET,
 			Item::new,
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.HELMET)
-					.durability(ArmorType.HELMET.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 	public static final Item GUIDITE_CHESTPLATE = register(
 			ModItemIds.GUIDITE_CHESTPLATE,
 			Item::new,
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.CHESTPLATE)
-					.durability(ArmorType.CHESTPLATE.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 
 	public static final Item GUIDITE_LEGGINGS = register(
 			ModItemIds.GUIDITE_LEGGINGS,
 			Item::new,
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.LEGGINGS)
-					.durability(ArmorType.LEGGINGS.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
 
 	public static final Item GUIDITE_BOOTS = register(
 			ModItemIds.GUIDITE_BOOTS,
 			Item::new,
 			new Item.Properties().humanoidArmor(GuiditeArmorMaterial.INSTANCE, ArmorType.BOOTS)
-					.durability(ArmorType.BOOTS.getDurability(GuiditeArmorMaterial.BASE_DURABILITY))
 	);
-	// #endregion create_armor_items
+	// #endregion create_armor_items_humanoid
+
+	// #region create_armor_items_non_humanoid
+	public static final Item GUIDITE_HORSE_ARMOR = register(
+			ModItemIds.GUIDITE_HORSE_ARMOR,
+			Item::new,
+			new Item.Properties().horseArmor(GuiditeArmorMaterial.INSTANCE)
+	);
+
+	public static final Item GUIDITE_NAUTILUS_ARMOR = register(
+			ModItemIds.GUIDITE_NAUTILUS_ARMOR,
+			Item::new,
+			new Item.Properties().nautilusArmor(GuiditeArmorMaterial.INSTANCE)
+	);
+	// #endregion create_armor_items_non_humanoid
+
 	public static final Item LIGHTNING_STICK = register(ModItemIds.LIGHTNING_STICK, LightningStick::new, new Item.Properties());
 
 	// #region guidite_sword
@@ -200,6 +211,8 @@ public class ModItems {
 				output.accept(ModItems.GUIDITE_BOOTS);
 				output.accept(ModItems.GUIDITE_LEGGINGS);
 				output.accept(ModItems.GUIDITE_CHESTPLATE);
+				output.accept(ModItems.GUIDITE_HORSE_ARMOR);
+				output.accept(ModItems.GUIDITE_NAUTILUS_ARMOR);
 				output.accept(ModItems.LIGHTNING_STICK);
 				// #region custom_creative_tab
 
