@@ -3,14 +3,13 @@ title: Mob Effects
 description: Learn how to add custom mob effects.
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+  - TheFireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu
-
 search: false
 ---
 

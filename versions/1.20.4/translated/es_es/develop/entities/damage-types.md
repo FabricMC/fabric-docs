@@ -4,8 +4,7 @@ description: Aprende a agregar tipos de daño personalizados.
 authors:
   - dicedpixels
   - hiisuuii
-  - mattidragon
-
+  - MattiDragon
 search: false
 ---
 

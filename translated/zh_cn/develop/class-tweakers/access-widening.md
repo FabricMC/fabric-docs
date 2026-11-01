@@ -2,7 +2,6 @@
 title: 访问加宽
 description: 学习如何通过类调整器文件使用访问加宽器。
 authors-nogithub:
-  - lightningtow
   - siglong
 authors:
   - An-m1654
@@ -19,6 +18,7 @@ authors:
   - kb-1000
   - kcrca
   - liach
+  - Lightningtow
   - lmvdz
   - matjojo
   - MildestToucan

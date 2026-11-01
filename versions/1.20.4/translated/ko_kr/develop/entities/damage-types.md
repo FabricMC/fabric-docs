@@ -4,8 +4,7 @@ description: 사용자 정의 피해 유형을 추가하는 방법을 알아보�
 authors:
   - dicedpixels
   - hiisuuii
-  - mattidragon
-
+  - MattiDragon
 search: false
 ---
 

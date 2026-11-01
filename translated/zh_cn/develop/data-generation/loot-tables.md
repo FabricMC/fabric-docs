@@ -2,15 +2,15 @@
 title: 战利品表生成
 description: 使用数据生成器设置战利品表生成的指南。
 authors:
-  - Alphagamer47
   - CelDaemon
   - JustinHuPrime
+  - LunarTremor
+  - MarcusElg
   - matthewperiut
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

@@ -3,11 +3,11 @@ title: Statuseffekte
 description: Lerne, wie man benutzerdefinierte Statuseffekte erstellt.
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
-  - SattesKrokodil
   - Manchick0
+  - SattesKrokodil
+  - TheFireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu

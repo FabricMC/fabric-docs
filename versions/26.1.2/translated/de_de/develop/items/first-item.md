@@ -5,7 +5,7 @@ authors:
   - dicedpixels
   - Earthcomputer
   - IMB11
-  - RaphProductions
+  - raphm4044
 ---
 
 Auf dieser Seite werden einige wichtige Konzepte im Zusammenhang mit Objekten vorgestellt und erklärt, wie diese registriert, texturiert, modelliert und benannt werden können.

@@ -4,8 +4,8 @@ description: Lerne, wie du Interfaces in Minecraft-Klassen im dekompilierten Que
 authors-nogithub:
   - salvopelux
 authors:
-  - Daomephsta
   - CelDaemon
+  - Daomephsta
   - Earthcomputer
   - its-miroma
   - Juuxel

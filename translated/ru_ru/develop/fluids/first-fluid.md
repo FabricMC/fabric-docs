@@ -12,13 +12,13 @@ authors:
   - Earthcomputer
   - florensie
   - Fusion-Flux
-  - InfinityChances
+  - infinitychances
   - Kilip1000
   - MaxURhino
   - SolidBlock-cn
   - SuperSoupr
-  - Virtuoel
   - UpcraftLP
+  - Virtuoel
 authors-nogithub:
   - alfiejfs
   - salvopelux

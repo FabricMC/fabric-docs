@@ -3,8 +3,8 @@ title: 建立專案
 description: 如何一步一步使用 Fabric 範本模組產生器建立新模組專案的指南。
 authors:
   - Cactooz
+  - evelynmeowww
   - IMB11
-  - radstevee
 ---
 
 Fabric 提供了一種使用 Fabric 範本模組產生器輕鬆建立新模組專案的方法——如果你願意，你可以使用範例模組倉儲手動建立新專案，你應該參閱[手動建立專案](#manual-project-creation)章節。

@@ -4,10 +4,9 @@ description: A guide to setting up tag generation with datagen.
 authors:
   - CelDaemon
   - IMB11
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
-authors-nogithub:
-  - mcrafterzz
 ---
 
 <!---->

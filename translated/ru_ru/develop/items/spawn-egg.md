@@ -2,10 +2,10 @@
 title: Яйца призыва
 description: Узнайте, как зарегистрировать предмет с функционалом призывания сущности.
 authors:
-  - Earthcomputer
-  - JaaiDead
   - cassiancc
+  - Earthcomputer
   - Fellteros
+  - JaaiDead
   - skycatminepokie
   - VatinMc
   - voidedaries

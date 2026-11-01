@@ -2,10 +2,10 @@
 title: Налаштування середовища розробки
 description: Покрокова інструкція щодо налаштування середовища розробки для створення модів за допомогою Fabric.
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - falseresync
   - IMB11
   - liach

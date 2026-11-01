@@ -6,14 +6,14 @@ authors:
   - Earthcomputer
   - haykam821
   - Jab125
+  - MarcusElg
   - matthewperiut
   - modmuss50
   - Shnupbups
   - skycatminepokie
-  - SolidBlock
+  - SolidBlock-cn
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 ## Що таке генерація даних? {#what-is-data-generation}

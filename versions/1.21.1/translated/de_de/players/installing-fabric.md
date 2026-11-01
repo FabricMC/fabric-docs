@@ -2,8 +2,8 @@
 title: Installation von Fabric
 description: Eine Schritt-für-Schritt-Anleitung zur Installation von Fabric.
 authors:
-  - IMB11
   - Benonardo
+  - IMB11
   - modmuss50
 ---
 

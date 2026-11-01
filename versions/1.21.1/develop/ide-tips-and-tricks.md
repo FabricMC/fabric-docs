@@ -2,8 +2,8 @@
 title: IDE Tips and Tricks
 description: Useful information to handle and traverse your project using the IDE efficiently.
 authors:
-  - JR1811
   - AnAwesomGuy
+  - JR1811
 
 search: false
 ---

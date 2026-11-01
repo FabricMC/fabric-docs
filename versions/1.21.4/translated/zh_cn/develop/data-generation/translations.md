@@ -3,12 +3,12 @@ title: 翻译生成
 description: 使用 Datagen 设置翻译生成的指南。
 authors:
   - IMB11
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
   - sjk1949
 ---
 

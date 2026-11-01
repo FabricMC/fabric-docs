@@ -4,9 +4,9 @@ description: 轻量级模组加载器，Fabric 项目的核心。
 authors:
   - cassiancc
   - falseresync
-  - jamieswhiteshirt
+  - JamiesWhiteShirt
   - liach
-  - Llamalad7
+  - LlamaLad7
   - Maganoos
   - SolidBlock-cn
 resources:

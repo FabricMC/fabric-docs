@@ -3,10 +3,9 @@ title: Generazione di Tag
 description: Una guida per configurare la generazione di tag con datagen.
 authors:
   - IMB11
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
-authors-nogithub:
-  - mcrafterzz
 ---
 
 :::info PREREQUISITI

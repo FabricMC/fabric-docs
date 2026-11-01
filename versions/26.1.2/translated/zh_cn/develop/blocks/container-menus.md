@@ -4,8 +4,8 @@ description: 讲解如何为容器方块创建简单菜单的指南。
 authors:
   - bluebear94
   - cassiancc
-  - ChampionAsh5357
   - CelDaemon
+  - ChampionAsh5357
   - Tenneb22
 resources:
   https://docs.neoforged.net/docs/inventories/menus: Menus - NeoForge 文档

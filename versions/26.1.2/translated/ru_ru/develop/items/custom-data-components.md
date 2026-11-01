@@ -2,8 +2,8 @@
 title: Пользовательские компоненты данных
 description: Узнайте, как добавлять пользовательские данные к вашим товарам, используя новую систему компонентов 1.20.5.
 authors:
-  - Romejanic
   - ekulxam
+  - Romejanic
 resources:
   https://minecraft.wiki/w/Data_component_format#List_of_components: Список ванильных компонентнов - Minecraft Wiki
 ---

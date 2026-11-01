@@ -2,10 +2,10 @@
 title: Impostare IntelliJ IDEA
 description: Una guida passo per passo su come impostare IntelliJ IDEA per creare mod usando Fabric.
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - dicedpixels
   - falseresync
   - IMB11

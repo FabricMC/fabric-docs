@@ -2,20 +2,20 @@
 title: Custom Projectiles
 description: Learn how to add custom projectiles.
 authors:
-  - ayutac
+  - Ayutac
   - cassiancc
   - CelDaemon
   - ChampionAsh5357
   - dicedpixels
   - Earthcomputer
   - ekulxam
-  - haykam
+  - haykam821
   - kanpov
   - NetUserGet
   - onlyspxctre
-  - patrickmsm
+  - PatrickMSM
   - tianjun
-  - upcraftlp
+  - UpcraftLP
 resources:
   https://minecraft.wiki/w/Projectile: Projectiles - Minecraft Wiki
   https://docs.neoforged.net/docs/entities/#projectiles: Projectiles - NeoForge Docs

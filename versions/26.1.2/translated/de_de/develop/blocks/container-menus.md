@@ -4,8 +4,8 @@ description: Ein Leitfaden, in der erklärt wird, wie man ein einfaches Menü f�
 authors:
   - bluebear94
   - cassiancc
-  - ChampionAsh5357
   - CelDaemon
+  - ChampionAsh5357
   - Tenneb22
 resources:
   https://docs.neoforged.net/docs/inventories/menus: Menüs - NeoForge Docs

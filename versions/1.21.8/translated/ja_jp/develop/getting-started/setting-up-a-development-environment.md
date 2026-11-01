@@ -2,10 +2,10 @@
 title: 開発環境のセットアップ
 description: Fabric を使った Mod 開発環境をセットアップするための段階的なガイド。
 authors:
-  - 2xsaiko
-  - andrew6rant
+  - Andrew6rant
   - asiekierka
-  - daomephsta
+  - Daomephsta
+  - dblsaiko
   - falseresync
   - IMB11
   - liach
@@ -13,7 +13,7 @@ authors:
   - modmuss50
   - natanfudge
   - SolidBlock-cn
-  - telepathicgrunt
+  - TelepathicGrunt
 authors-nogithub:
   - siglong
 ---

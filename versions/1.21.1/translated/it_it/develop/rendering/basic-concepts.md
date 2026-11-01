@@ -2,8 +2,8 @@
 title: Concetti Base del Rendering
 description: Impara i concetti base del rendering usando il motore grafico di Minecraft.
 authors:
-  - IMB11
   - "0x3C50"
+  - IMB11
 ---
 
 ::: warning

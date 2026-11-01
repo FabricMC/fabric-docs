@@ -2,7 +2,6 @@
 title: Розширення доступу
 description: Дізнайтеся, як використовувати розширювачі доступу з файлу твікера класу.
 authors-nogithub:
-  - lightningtow
   - siglong
 authors:
   - Ayutac
@@ -17,6 +16,7 @@ authors:
   - kb-1000
   - kcrca
   - liach
+  - Lightningtow
   - lmvdz
   - matjojo
   - MildestToucan

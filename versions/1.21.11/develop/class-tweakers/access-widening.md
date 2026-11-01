@@ -2,7 +2,6 @@
 title: Access Widening
 description: Learn how to use access wideners from class tweaker files.
 authors-nogithub:
-  - lightningtow
   - siglong
 authors:
   - Ayutac
@@ -18,6 +17,7 @@ authors:
   - kb-1000
   - kcrca
   - liach
+  - Lightningtow
   - lmvdz
   - matjojo
   - MildestToucan

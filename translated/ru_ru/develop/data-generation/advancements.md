@@ -3,12 +3,12 @@ title: Создание достижений
 description: Руководство по настройке генерации достижений через datagen.
 authors:
   - CelDaemon
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

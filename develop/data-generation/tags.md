@@ -5,10 +5,9 @@ authors:
   - cassiancc
   - CelDaemon
   - IMB11
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
-authors-nogithub:
-  - mcrafterzz
 ---
 
 <!---->

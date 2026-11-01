@@ -3,9 +3,9 @@ title: 创建项目
 description: 关于如何使用 Fabric 模板模组生成器创建新的模组项目的逐步指南。
 authors:
   - Cactooz
+  - evelynmeowww
   - IMB11
-  - radstevee
-  - Thomas1034​
+  - Thomas1034
 resources:
   https://fabricmc.net/develop/template/: Fabric 模板模组生成器
   https://fabricmc.net/develop/: 使用 Fabric 网站开发

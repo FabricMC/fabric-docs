@@ -2,10 +2,10 @@
 title: 建置開發環境
 description: 關於建置 Fabric 開發環境的逐步指南。
 authors:
-  - 2xsaiko
-  - andrew6rant
+  - Andrew6rant
   - asiekierka
-  - daomephsta
+  - Daomephsta
+  - dblsaiko
   - falseresync
   - IMB11
   - liach
@@ -13,7 +13,7 @@ authors:
   - modmuss50
   - natanfudge
   - SolidBlock-cn
-  - telepathicgrunt
+  - TelepathicGrunt
 authors-nogithub:
   - siglong
 ---

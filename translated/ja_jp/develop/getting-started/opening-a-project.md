@@ -4,9 +4,9 @@ description: IDEでMinecraftのMODプロジェクトを開く方法。
 authors:
   - Cactooz
   - dicedpixels
+  - evelynmeowww
   - IMB11
   - its-miroma
-  - radstevee
   - Thomas1034
 ---
 

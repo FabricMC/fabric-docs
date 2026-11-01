@@ -4,8 +4,7 @@ description: Learn how to add custom damage types.
 authors:
   - dicedpixels
   - hiisuuii
-  - mattidragon
-
+  - MattiDragon
 search: false
 ---
 

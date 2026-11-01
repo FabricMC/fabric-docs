@@ -2,7 +2,6 @@
 title: Расширение доступа
 description: Изучите, как использовать расширители доступа из файлов в формате classtweaker.
 authors-nogithub:
-  - lightningtow
   - siglong
 authors:
   - Ayutac
@@ -18,6 +17,7 @@ authors:
   - kb-1000
   - kcrca
   - liach
+  - Lightningtow
   - lmvdz
   - matjojo
   - MildestToucan

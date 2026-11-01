@@ -2,8 +2,8 @@
 title: 自定义燃料
 description: 了解如何创建你自己的燃料物品。
 authors:
-  - NotNightSky
   - its-miroma
+  - NotNightSky
 ---
 
 燃料是在熔炉中用于冶炼矿石和烹饪食物的物品。让我们看看如何创建自定义燃料。

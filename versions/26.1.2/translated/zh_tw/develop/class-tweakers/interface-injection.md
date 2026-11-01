@@ -4,8 +4,8 @@ description: 了解如何在反編譯原始碼中，讓 Minecraft 類別實作�
 authors-nogithub:
   - salvopelux
 authors:
-  - Daomephsta
   - CelDaemon
+  - Daomephsta
   - Earthcomputer
   - its-miroma
   - Juuxel

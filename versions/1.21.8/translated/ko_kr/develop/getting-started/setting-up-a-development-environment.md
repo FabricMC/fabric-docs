@@ -2,10 +2,10 @@
 title: 개발 환경 설정하기
 description: Fabric을 이용하여 모드를 만들기 위해 개발 환경을 설정하는 방법에 대한 단계적 설명서입니다.
 authors:
-  - 2xsaiko
-  - andrew6rant
+  - Andrew6rant
   - asiekierka
-  - daomephsta
+  - Daomephsta
+  - dblsaiko
   - falseresync
   - IMB11
   - liach
@@ -13,7 +13,7 @@ authors:
   - modmuss50
   - natanfudge
   - SolidBlock-cn
-  - telepathicgrunt
+  - TelepathicGrunt
 authors-nogithub:
   - siglong
 ---

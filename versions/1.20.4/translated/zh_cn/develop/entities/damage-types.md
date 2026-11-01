@@ -4,8 +4,7 @@ description: 学习如何添加自定义伤害类型。
 authors:
   - dicedpixels
   - hiisuuii
-  - mattidragon
-
+  - MattiDragon
 search: false
 ---
 

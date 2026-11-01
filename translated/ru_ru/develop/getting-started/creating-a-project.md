@@ -3,8 +3,8 @@ title: Создание проекта
 description: Пошаговое руководство по созданию нового проекта мода с использованием генератора шаблонов Fabric.
 authors:
   - Cactooz
+  - evelynmeowww
   - IMB11
-  - radstevee
   - Thomas1034
 resources:
   https://fabricmc.net/develop/template/: Генератор шаблонного Fabric мода

@@ -2,8 +2,8 @@
 title: Trucchi Riguardanti l'IDE
 description: Informazioni utili su come gestire e navigare con l'IDE nel tuo progetto efficientemente.
 authors:
-  - JR1811
   - AnAwesomGuy
+  - JR1811
 ---
 
 Questa pagina fornisce un po' di informazioni utili, per velocizzare e facilitare il workflow degli sviluppatori. Integrale nel tuo lavoro, se desideri.

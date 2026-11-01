@@ -6,7 +6,7 @@ authors:
   - Friendly-Banana
   - Manchick0
   - SattesKrokodil
-  - FireBlast
+  - TheFireBlast
   - YanisBft
 authors-nogithub:
   - siglong

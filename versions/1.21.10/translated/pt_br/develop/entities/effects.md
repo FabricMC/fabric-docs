@@ -3,10 +3,10 @@ title: Efeitos de Estado
 description: Aprenda a adicionar efeitos de estado personalizados.
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+  - TheFireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu

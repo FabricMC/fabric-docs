@@ -2,8 +2,8 @@
 title: 自定义数据组件
 description: 学习如何使用 1.20.5 新的组件系统为你的物品添加自定义数据
 authors:
-  - Romejanic
   - ekulxam
+  - Romejanic
 resources:
   https://minecraft.wiki/w/Data_component_format#List_of_components: 原版组件列表 - Minecraft Wiki
 ---

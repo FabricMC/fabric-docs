@@ -2,8 +2,8 @@
 title: Conceptos Básicos de Renderización
 description: Aprende sobre los conceptos básicos de renderización usando el motor de renderización de Minecraft.
 authors:
-  - IMB11
   - "0x3C50"
+  - IMB11
 
 search: false
 ---

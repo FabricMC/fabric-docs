@@ -4,8 +4,7 @@ description: Lerne, wie man benutzerdefinierte Schadensarten hinzufügt.
 authors:
   - dicedpixels
   - hiisuuii
-  - mattidragon
-
+  - MattiDragon
 search: false
 ---
 

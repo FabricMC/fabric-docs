@@ -4,9 +4,9 @@ description: Как открыть проект мода Minecraft в вашей
 authors:
   - Cactooz
   - dicedpixels
+  - evelynmeowww
   - IMB11
   - its-miroma
-  - radstevee
   - Thomas1034
 ---
 

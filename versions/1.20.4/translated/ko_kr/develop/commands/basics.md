@@ -2,19 +2,18 @@
 title: 명령어 만들기
 description: 복잡한 인수와 동작을 가진 명령어를 만들어 보세요.
 authors:
+  - Atakku
   - dicedpixels
+  - haykam821
   - i509VCB
-  - pyrofab
-  - natanfudge
   - Juuxel
-  - solidblock
   - modmuss50
-  - technici4n
-  - atakku
-  - haykam
   - mschae23
-  - treeways
-
+  - natanfudge
+  - Pyrofab
+  - SolidBlock-cn
+  - Technici4n
+  - Treeways
 search: false
 ---
 

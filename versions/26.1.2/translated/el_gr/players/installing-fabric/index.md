@@ -6,7 +6,6 @@ authors:
   - ezfe
   - IMB11
   - its-miroma
-  - its-miroma
 ---
 
 <!---->

@@ -2,8 +2,8 @@
 title: 기본 렌더링 개념
 description: Minecraft의 렌더링 엔진에 사용되는 기본적인 렌더링의 개념을 알아보세요.
 authors:
-  - IMB11
   - "0x3C50"
+  - IMB11
 ---
 
 ::: warning

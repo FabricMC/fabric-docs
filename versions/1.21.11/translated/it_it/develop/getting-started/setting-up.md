@@ -2,10 +2,10 @@
 title: Impostare Il Tuo Ambiente Di Sviluppo
 description: Una guida passo per passo su come impostare un ambiente di sviluppo per creare mod usando Fabric.
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - dicedpixels
   - falseresync
   - IMB11

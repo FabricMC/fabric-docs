@@ -4,9 +4,9 @@ description: Дізнайтеся, як відкрити проєкт мода M
 authors:
   - Cactooz
   - dicedpixels
+  - evelynmeowww
   - IMB11
   - its-miroma
-  - radstevee
   - Thomas1034
 ---
 

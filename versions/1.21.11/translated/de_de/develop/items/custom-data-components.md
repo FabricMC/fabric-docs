@@ -2,8 +2,8 @@
 title: Benutzerdefinierte Datenkomponenten
 description: Lerne, wie du benutzerdefinierte Datenkomponenten zu deinen Items mit Hilfe des neuen 1.20.5 Komponenten-System hinzufügst.
 authors:
-  - Romejanic
   - ekulxam
+  - Romejanic
 ---
 
 Je komplexer deine Items werden, desto mehr benutzerdefinierte Daten musst du vielleicht für jedes Item speichern. Das Spiel erlaubt es, persistente Daten in einem `ItemStack` zu speichern, und seit der Version 1.20.5 tun wir das mit Hilfe von **Datenkomponenten**.

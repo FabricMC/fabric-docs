@@ -2,10 +2,10 @@
 title: 设置开发环境
 description: 关于如何搭建 Fabric 开发环境的逐步指南。
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - falseresync
   - IMB11
   - liach

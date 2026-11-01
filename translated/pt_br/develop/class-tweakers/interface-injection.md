@@ -4,8 +4,8 @@ description: Aprenda a como implementar interfaces nas classes do Minecraft no c
 authors-nogithub:
   - salvopelux
 authors:
-  - Daomephsta
   - CelDaemon
+  - Daomephsta
   - Earthcomputer
   - its-miroma
   - Juuxel

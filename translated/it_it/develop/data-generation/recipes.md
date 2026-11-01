@@ -3,11 +3,11 @@ title: Generazione di Ricette
 description: Una guida per configurare la generazione di ricette con datagen.
 authors:
   - CelDaemon
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

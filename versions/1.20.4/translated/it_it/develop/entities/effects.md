@@ -3,14 +3,13 @@ title: Effetti di Stato
 description: Impara come aggiungere effetti di stato personalizzati.
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+  - TheFireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu
-
 search: false
 ---
 

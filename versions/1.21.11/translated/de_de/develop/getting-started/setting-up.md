@@ -2,10 +2,10 @@
 title: Einrichten deiner Entwicklungsumgebung
 description: Ein Schritt-für-Schritt-Leitfaden, wie man eine Entwicklungsumgebung für die Erstellung von Mods mit Fabric einrichtet.
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - dicedpixels
   - falseresync
   - IMB11

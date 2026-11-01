@@ -2,8 +2,8 @@
 title: Maak Je Eerste Voorwerp
 description: Leer hoe je een simpel voorwerp registreert en hoe je textureert, modelleert en een benoemt.
 authors:
-  - IMB11
   - dicedpixels
+  - IMB11
 ---
 
 Op deze pagina maak je kennis met enkele belangrijke concepten met betrekking tot voorwerpen, en hoe je ze kunt registreren, texturen, modelleren en benoemen.

@@ -2,7 +2,6 @@
 title: Access Widening
 description: Aprenda a como usar access wideners dos arquivos de modificadores de classe.
 authors-nogithub:
-  - lightningtow
   - siglong
 authors:
   - An-m1654
@@ -19,6 +18,7 @@ authors:
   - kb-1000
   - kcrca
   - liach
+  - Lightningtow
   - lmvdz
   - matjojo
   - MildestToucan

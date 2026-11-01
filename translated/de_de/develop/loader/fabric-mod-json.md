@@ -3,13 +3,12 @@ title: fabric.mod.json
 description: Ein Leitfaden zur `fabric.mod.json` Spezifikation.
 authors:
   - cassiancc
-  - Deximus-Maximus
+  - dexman545
   - falseresync
-  - jamieswhiteshirt
   - IMB11
+  - JamiesWhiteShirt
+  - Skylandia
   - SolidBlock-cn
-authors-nogithub:
-  - skyland1a
 resources:
   https://github.com/FabricMC/fabric-loom/blob/dev/1.16/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java: Quellcode für die fabric.mod.json v1 Spezifikation
   https://github.com/FabricMC/fabric-language-kotlin: Fabric Language Kotlin Sprachprovider

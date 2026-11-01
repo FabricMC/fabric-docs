@@ -4,12 +4,12 @@ description: Um guia para configurar geração de progresso com datagen.
 authors:
   - cassiancc
   - CelDaemon
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

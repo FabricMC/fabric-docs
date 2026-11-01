@@ -2,8 +2,8 @@
 title: Benutzerdefinierter Brennstoff
 description: Lerne, wie du deine eigenen Brennstoff Items erstellst.
 authors:
-  - NotNightSky
   - its-miroma
+  - NotNightSky
 ---
 
 Brenstoffe sind Items, die in einem Ofen verwendet werden können, um Erze zu schmelzen oder Essen zu kochen. Lasst uns ansehen, wie wir unseren eigenen benutzerdefinierten Brenstoff erstellen können.

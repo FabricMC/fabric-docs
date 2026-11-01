@@ -2,7 +2,6 @@
 title: Zugriffserweiterung
 description: Lerne, wie man Zugriffserweiterungen aus Klassenoptimierer-Dateien verwendet.
 authors-nogithub:
-  - lightningtow
   - siglong
 authors:
   - An-m1654
@@ -19,6 +18,7 @@ authors:
   - kb-1000
   - kcrca
   - liach
+  - Lightningtow
   - lmvdz
   - matjojo
   - MildestToucan

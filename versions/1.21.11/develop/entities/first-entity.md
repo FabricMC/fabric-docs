@@ -8,7 +8,6 @@ authors:
   - JaaiDead
   - skycatminepokie
   - SzczurekYT
-  - voidedaries
 resources:
   https://docs.neoforged.net/docs/entities/: Entities - NeoForge Docs
   https://www.desmos.com/calculator/9r6lh5knfu: Entity Walk Animation - Desmos

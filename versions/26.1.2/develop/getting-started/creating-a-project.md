@@ -3,8 +3,8 @@ title: Creating a Project
 description: A step-by-step guide on how to create a new mod project using the Fabric template mod generator.
 authors:
   - Cactooz
+  - evelynmeowww
   - IMB11
-  - radstevee
   - Thomas1034
 resources:
   https://fabricmc.net/develop/template/: Fabric Template Mod Generator

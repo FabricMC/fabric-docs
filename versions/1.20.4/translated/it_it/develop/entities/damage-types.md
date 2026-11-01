@@ -4,8 +4,7 @@ description: Impara come aggiungere tipi di danno personalizzati.
 authors:
   - dicedpixels
   - hiisuuii
-  - mattidragon
-
+  - MattiDragon
 search: false
 ---
 

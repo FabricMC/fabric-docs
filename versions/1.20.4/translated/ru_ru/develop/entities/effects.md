@@ -3,14 +3,13 @@ title: Эффекты состояния
 description: Узнайте, как создавать свои собственные эффекты состояния.
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+  - TheFireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu
-
 search: false
 ---
 

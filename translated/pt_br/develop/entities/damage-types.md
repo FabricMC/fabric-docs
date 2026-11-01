@@ -4,7 +4,7 @@ description: Aprenda a adicionar tipos de dano personalizados.
 authors:
   - dicedpixels
   - hiisuuii
-  - mattidragon
+  - MattiDragon
 resources:
   https://minecraft.wiki/w/Damage_type: Tipos de Dano - Minecraft Wiki
   https://docs.neoforged.net/docs/resources/server/damagetypes/: Tipos de Dano e Fontes de Dano - Documentação do NeoForge (exceto datagen)

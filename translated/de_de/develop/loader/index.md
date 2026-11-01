@@ -4,9 +4,9 @@ description: Der leichtgewichtige Mod-Loader, der das Fabric-Projekt antreibt.
 authors:
   - cassiancc
   - falseresync
-  - jamieswhiteshirt
+  - JamiesWhiteShirt
   - liach
-  - Llamalad7
+  - LlamaLad7
   - Maganoos
   - SolidBlock-cn
 resources:

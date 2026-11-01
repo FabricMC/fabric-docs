@@ -3,10 +3,9 @@ title: Генерація теґів
 description: Інструкція з налаштування генерації теґів.
 authors:
   - IMB11
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
-authors-nogithub:
-  - mcrafterzz
 ---
 
 :::info ПЕРЕДУМОВИ
