@@ -14,7 +14,7 @@ authors:
 
 ::: info PREREQUISITES
 
-Make sure you've completed the [datagen setup](./setup) process first, and you understand [Dynamic Registry Population](./dynamic-registry.md) using datagen.
+Make sure you've completed the [datagen setup](./setup) process first, and you understand [Dynamic Registry Population](./dynamic-registry)using datagen.
 
 :::
 
@@ -28,7 +28,7 @@ The generation for features of Minecraft worlds is broken down into 3 parts:
 
 ## Setup {#setup}
 
-Creating new configured features and placement features is done in the same way as [Dynamic Registry Population](./dynamic-registry.md), so create a similar class and configure it to use the `Registries.CONFIGURED_FEATURE` and `Registries.PLACED_FEATURE` instead of the custom key.
+Creating new configured features and placement features is done in the same way as [Dynamic Registry Population](./dynamic-registry), so create a similar class and configure it to use the `Registries.CONFIGURED_FEATURE` and `Registries.PLACED_FEATURE` instead of the custom key.
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#datagen_world_provider
 
