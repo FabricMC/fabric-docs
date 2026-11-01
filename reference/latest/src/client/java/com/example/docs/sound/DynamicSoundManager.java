@@ -12,7 +12,7 @@ import com.example.docs.sound.instance.SoundInstanceCallback;
 // #region sound_manager_structure
 public class DynamicSoundManager implements SoundInstanceCallback {
 	// An instance of the client to use Minecraft's default SoundManager
-	private static final Minecraft client = Minecraft.getInstance();
+	private static final Minecraft CLIENT = Minecraft.getInstance();
 	// static field to store the current instance for the Singleton Design Pattern
 	private static DynamicSoundManager instance;
 	// The list which keeps track of all currently playing dynamic SoundInstances
@@ -40,14 +40,14 @@ public class DynamicSoundManager implements SoundInstanceCallback {
 	public <T extends AbstractDynamicSoundInstance> void play(T soundInstance) {
 		if (this.activeSounds.contains(soundInstance)) return;
 
-		client.getSoundManager().play(soundInstance);
+		CLIENT.getSoundManager().play(soundInstance);
 		this.activeSounds.add(soundInstance);
 	}
 
 	// Stops a sound immediately. in most cases it is preferred to use
 	// the sound's ending phase, which will clean it up after completion
 	public <T extends AbstractDynamicSoundInstance> void stop(T soundInstance) {
-		client.getSoundManager().stop(soundInstance);
+		CLIENT.getSoundManager().stop(soundInstance);
 		this.activeSounds.remove(soundInstance);
 	}
 
