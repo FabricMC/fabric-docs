@@ -10,7 +10,7 @@ authors:
 
 ::: info PREREQUISITES
 
-Make sure you've completed the [datagen setup](./setup) process first, and you understand [Dynamic Registry Population](./dynamic-registry.md) using datagen.
+Make sure you've completed the [datagen setup](./setup) process first, and you understand [Dynamic Registry Population](./dynamic-registry) using datagen.
 
 :::
 
@@ -24,7 +24,7 @@ Use this method to create a `ResourceKey` for your enchantment.
 
 <<< @/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java#register_enchantment
 
-Adding new entries to any existing registry has the same process as [Dynamic Registry Population](./dynamic-registry.md),
+Adding new entries to any existing registry has the same process as [Dynamic Registry Population](./dynamic-registry),
 so create a similar class and configure it to use the `Registries.ENCHANTMENT` instead of the custom key.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#provider
