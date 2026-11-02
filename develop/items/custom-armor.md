@@ -152,21 +152,7 @@ Since we are adding "humanoid" (helmet, chestplate, leggings, boots) and "non-hu
 
 With the textures and equipment model definition present, you should be able to see your armor on entities that wear it:
 
-::: tabs
-
-== Humanoid
-
-![Working armor model on player](/assets/develop/items/armor_3.png)
-
-<img src="/assets/develop/items/armor_3_1.png" alt="Working armor model on baby humanoid" style="display: block; margin: 0 auto;">
-
-== Non-humanoid
-
-![Working armor model on horse](/assets/develop/items/armor_3_2.png)
-
-![Working armor model on nautilus](/assets/develop/items/armor_3_3.png)
-
-:::
+![Working armor model on every entity](/assets/develop/items/armor_3.png)
 
 <!-- TODO: Fix the TODO below. -->
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
