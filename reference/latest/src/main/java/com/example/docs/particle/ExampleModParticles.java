@@ -60,7 +60,7 @@ public class ExampleModParticles implements ModInitializer {
 					double speed = 0.15;
 					// Send our particle by passing our ParticleType
 					serverLevel.sendParticles(ExampleModParticles.SPARKLE_PARTICLE, x, y, z, count, distX, distY, distZ, speed); // [!code highlight]
-					// #endregion
+					// #endregion server_send_particles
 				}
 			}
 

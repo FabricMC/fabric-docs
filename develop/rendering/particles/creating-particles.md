@@ -57,13 +57,13 @@ Entries will be matched to texture files in the `assets/example-mod/textures/par
 
 Because we chose to use `EndRodParticle`'s logic, it will animate our particle by cycling through the textures in the sprite set throughout its lifetime.
 
-Not all particle classes do this: a few classes, including `CritParticle` and `FlameParticle`, will instead choose a random texture and use it for the entire lifetime.
+But not all particle classes do this: a few classes, including `CritParticle` and `FlameParticle`, will instead choose a random texture and use it for the entire lifetime.
 
 ::: tip
 
 You can use vanilla particle textures by using `minecraft:texture_path`.
 
-You can also "extend" the duration that one specific texture is shown by repeating it multiple times in the sprite set!
+Textures are also allowed to be repeated in the `textures` array. If the particle is animated, that texture's duration will be "extended" in the animation. Otherwise, that texture will have a higher chance of being randomly selected for the entire lifetime.
 
 :::
 
@@ -89,44 +89,42 @@ If you type it in chat, the particle will spawn at the player's location, and yo
 
 ## Spawning Particles in Code {#spawning-particles-in-code}
 
-We have successfully added the particle, now let's see how we can spawn it with code.
+Now that we have successfully added a particle, let's spawn it with code!
 
 There are two methods to spawn a particle, depending on your [networking side](../../networking): via `ClientLevel#addParticle()` and `ServerLevel#sendParticles()`. Most commonly, you'll be spawning particles with the client method.
 
-For both methods, you'll pass the `ParticleType` you want to spawn, along with some other parameters.
+Both methods take in a `ParticleType` along with some other parameters. You can use a custom particle type, or you can spawn vanilla particles by referencing the `ParticleTypes` class!
 
-You can use a custom particle type, or you can also spawn vanilla particles by referencing the `ParticleTypes` class! Note that some particles will ignore the passed x, y, and z velocities in favor of generating their own.
-
-::: tabs
-
-== Client Side
+### Spawning on the Client {#spawning-on-the-client}
 
 `ClientLevel#addParticle()` will add a particle on the client side.
 It takes in some simple parameters:
 
 - The `ParticleType` of the particle to spawn.
-- Three parameters for the starting x, y, and z position.
-- Three parameters for the x, y, and z velocities.
+- Three parameters for the starting x, y, and z positions.
+- Three parameters for the x, y, and z velocities. _(Note that some particle classes choose to ignore the passed velocities in favor of generating their own)_
 
 <<< @/reference/latest/src/main/java/com/example/docs/particle/ExampleModParticles.java#client_send_particles
 
-== Server Side
+### Spawning From the Server {#spawning-from-the-server}
 
 `ServerLevel#sendParticles()` will [send a packet](../../networking#why-is-networking-important) telling clients to add particles to their worlds.
 It takes in a few parameters:
 
 - The `ParticleType` of the particle to spawn.
-- Three parameters for the starting x, y, and z position.
+- Three parameters for the starting x, y, and z positions.
 - A count of particles to be spawned.
-- Three parameters for the random x, y, and z distances the particle(s) should travel.
-- A random speed parameter which is a varying multiplier of the x, y, and z velocities.
+- Three parameters for the x, y, and z distances:
+  - By default, these are the standard deviations for the random x, y, and z position offsets.
+  - If the particle count is `0`, these are simply multiplied with the max speed parameter to get the particle's x, y, and z velocities.
+- A parameter for the max speed:
+  - By default, this is the standard deviation for the random x, y, and z velocities.
+  - If the particle count is `0`, this is simply multiplied with the x, y, and z distances to get the particle's x, y, and z velocities.
 
 <<< @/reference/latest/src/main/java/com/example/docs/particle/ExampleModParticles.java#server_send_particles
 
-This method's parameters are more tuned towards spawning multiple particles with variation in their positions and velocities (for example, the fishing rod's water particles).
+This method's parameters are more tuned towards spawning multiple particles of the same `ParticleType` with variation in their positions and velocities (for example, the fishing rod's water particles).
 
-If you're sending multiple particles at once, consider [creating your own packet](../../networking#an-introduction-to-networking), which would spawn all particles at once via `ClientLevel#addParticle()`. This can help reduce lag, by sending a single packet with less data while achieving the same effect.
-
-:::
+If you're sending multiple particles of various `ParticleType`s at once, consider [creating your own packet](../../networking#an-introduction-to-networking), which would [spawn all the particles on the client](#spawning-on-the-client). This can help reduce lag by sending a single packet with less data while achieving the same effect.
 
 <!---->
