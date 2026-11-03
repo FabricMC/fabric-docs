@@ -45,9 +45,9 @@ For this example, we have prepared 6 sparkle textures named `sparkle_1` through 
 
 <DownloadEntry visualURL="/assets/develop/rendering/particles/sparkle_textures_big.png" downloadURL="/assets/develop/rendering/particles/sparkle_particle_textures.zip">Particle Textures</DownloadEntry>
 
-Next, we need to create a Sprite Set JSON file and place it under the `assets/example-mod/particles` folder _(notice the extra "s" in the folder name!)_.
+Next, we need to create a Sprite Set JSON file in the `assets/example-mod/particles` folder _(notice the extra "s" in this folder's name!)_.
 
-The JSON file should be named just like your particle's `Identifier` path from the `ParticleType` registration (in our case `sparkle_particle.json`).
+The JSON file should be named just like your particle's `Identifier` path from the [Particle Type registration](#particle-type-registration) (in our case `sparkle_particle.json`).
 
 In that file, add the paths to the textures you want to use in a `textures` array:
 
@@ -102,7 +102,7 @@ It takes in some simple parameters:
 
 - The `ParticleType` of the particle to spawn.
 - Three parameters for the starting x, y, and z positions.
-- Three parameters for the x, y, and z velocities. _(Note that some particle classes choose to ignore the passed velocities in favor of generating their own)_
+- Three parameters for the x, y, and z velocities. _(Note that some particle classes may choose to ignore these passed velocities in favor of generating their own)_
 
 <<< @/reference/latest/src/main/java/com/example/docs/particle/ExampleModParticles.java#client_send_particles
 
