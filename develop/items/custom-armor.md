@@ -152,7 +152,7 @@ Since we are adding "humanoid" (helmet, chestplate, leggings, boots) and "non-hu
 
 With the textures and equipment model definition present, you should be able to see your armor on entities that wear it:
 
-![Working armor model on every entity](/assets/develop/items/armor_3.png)
+![Working armor model on every entity](/assets/develop/items/armor_3_1.png)
 
 <!-- TODO: Fix the TODO below. -->
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
