@@ -185,4 +185,20 @@ For more information on the recipe format, check out these resources:
 
 ::: warning
 
-As of 1.21.5, `appendHoverText` has been deprecated. Please see the [custom data component page.](https://docs.fabricmc.net/develop/items/custom-data-components#append-tooltips)
+As of 1.21.5, `appendHoverText` has been deprecated. Please see the [custom data component page](https://docs.fabricmc.net/develop/items/custom-data-components#append-tooltips) for adding custom tooltips.
+
+:::
+
+If you want your item to have a custom tooltip, you will need to create a class that extends `Item` and override the `appendHoverText` method. Note that this method is deprecated as Mojang works to ensure item behaviour is handled entirely via components rather than via items - for more information, see [Custom Data Components](./custom-data-components).
+
+::: info
+
+This example uses the `LightningStick` class created in the [Custom Item Interactions](./custom-item-interactions) page.
+
+:::
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/custom/LightningStick.java#custom_tooltip
+
+Each call to `accept()` will add one line to the tooltip.
+
+![Tooltip Showcase](/assets/develop/items/first_item_3.png)
