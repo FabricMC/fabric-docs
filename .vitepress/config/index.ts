@@ -10,7 +10,7 @@ import { ENV, LATEST_VERSION } from "../constants.ts";
 import { transformFile, transformFilesPlugin } from "../plugins/transformFiles.ts";
 import type { Fabric } from "../types.d.ts";
 import { getBuildTransformHead, getClientTransformHead } from "./head.ts";
-import { getLocales } from "./i18n.ts";
+import { getLocaleConfig } from "./i18n.ts";
 
 const hostname =
   ENV === "github"
@@ -43,7 +43,7 @@ export default defineVersionedConfig(
     // Adds a "Last Updated" block to the footer of pages, uses git to determine the last time a page's file was modified.
     lastUpdated: true,
 
-    locales: getLocales(),
+    locales: getLocaleConfig(),
 
     markdown: {
       config: (md) => {
