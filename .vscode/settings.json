@@ -17,6 +17,9 @@
     "!translated/**",
     "!versions/**"
   ],
+  "cSpell.words": [
+    "Biolith"
+  ],
   "markdown.validate.enabled": true,
   "sarif-viewer.connectToGithubCodeScanning": "off"
 }

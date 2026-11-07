@@ -68,6 +68,18 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ExampleModWorldgenProvider::new);
 		// #endregion add_worldgen_provider
 
+   		// :::datagen-world:biome-provider
+		pack.addProvider(ExampleModBiomeProvider::new);
+		// :::datagen-world:biome-provider
+
+		// :::datagen-world:dimensionType-provider
+		pack.addProvider(ExampleModDimensionTypeProvider::new);
+		// :::datagen-world:dimensionType-provider
+
+		//:::datagen-world:dimensionStem-provider
+		pack.addProvider(ExampleModDimensionStemProvider::new);
+		//:::datagen-world:dimensionStem-provider
+    
 		// #region datagen_dynamic_registries
 		pack.addProvider(ExampleModDynamicRegistriesProvider::new);
 		// #endregion datagen_dynamic_registries
@@ -101,6 +113,21 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.add(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY, ExampleModDynamicRegistriesProvider::bootstrap);
 		// #endregion datagen_magic_skills_dynamic_registries_bootstrap
 
+		// :::datagen-world:biome-registries
+		registryBuilder.add(Registries.BIOME, ExampleModBiomeProvider::bootstrap);
+		// :::datagen-world:biome-registries
+
+		//:::datagen-world:dimensionStem-registries
+		registryBuilder.add(Registries.LEVEL_STEM, ExampleModDimensionStemProvider::bootstrap);
+		//:::datagen-world:dimensionStem-registries
+
+		// :::datagen-world:dimensionType-registries
+		registryBuilder.add(Registries.DIMENSION_TYPE, ExampleModDimensionTypeProvider::bootstrapDimension);
+		// :::datagen-world:dimensionType-registries
+
+		//:::datagen-dimension:noiseSettings-registries
+		registryBuilder.add(Registries.NOISE_SETTINGS, ExampleModNoiseSettingsProvider::bootstrap);
+		//:::datagen-dimension:noiseSettings-registries
 		// #region datagen_enchantments_bootstrap
 		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
 	}
