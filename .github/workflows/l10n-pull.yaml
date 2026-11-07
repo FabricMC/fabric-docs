@@ -33,17 +33,16 @@ jobs:
           echo "::error title=Wrong Branch::This workflow must not be triggered from the l10n/* branch"
           exit 1
       - uses: actions/checkout@v4
-      - uses: crowdin/github-action@60debf382ee245b21794321190ad0501db89d8c1
+      - uses: crowdin/github-action@7b5f0a455f59dea1ceb1987b806a170386f307f5
         with:
-          token: ${{ secrets.CROWDIN_TOKEN }}
           crowdin_branch_name: ${{ github.event.repository.name }}/${{ github.ref_name }}
           upload_sources: false
-          upload_translations: false
-          download_sources: false
           download_translations: true
           create_pull_request: false
           push_translations: false
-      - run: sudo chown -R "${USER}:${USER}" .
+          user: auto
+        env:
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_TOKEN }}
       - run: git fetch --depth=1 origin "l10n/${{ github.ref_name }}" || true
       - id: message
         run: |
@@ -72,5 +71,4 @@ jobs:
           author: Fabric Bot <159731069+FabricMCBot@users.noreply.github.com>
           branch: l10n/${{ github.ref_name }}
           labels: i18n-l10n
-          draft: always-true
           maintainer-can-modify: false
