@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev",
-    "build": "vitepress build",
+    "build": "node ./.vitepress/scripts/build.ts",
     "preview": "vitepress preview",
     "bump": "node ./.vitepress/scripts/bump.ts",
     "format": "prettier --write .",

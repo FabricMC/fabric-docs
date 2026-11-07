@@ -17,10 +17,21 @@ export const ENV = process.env.GITHUB_ACTIONS
 
 export const VERSION_RE = /^[0-9]+[.][0-9]+([.][0-9]+)?$/;
 
+export const OLD_VERSIONS = tinyglobby
+  .globSync("*", { cwd: path.join(AT, "versions"), onlyDirectories: true })
+  .map((v) => path.basename(v));
+
 export const LATEST_VERSION =
   fs
     .readFileSync(path.join(AT, "reference", "latest", "build.gradle"), "utf-8")
     .match(/def minecraftVersion = "([^"]+)"/)?.[1] || "";
+
+export const FUTURE_VERSIONS = tinyglobby
+  .globSync("*.*", { cwd: AT, onlyDirectories: true })
+  .map((v) => path.basename(v))
+  .filter((v) => VERSION_RE.test(v));
+
+export const ALL_VERSIONS = [...OLD_VERSIONS, LATEST_VERSION, ...FUTURE_VERSIONS];
 
 const ALL_LOCALES = [
   ...new Set(
