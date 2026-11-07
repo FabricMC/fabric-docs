@@ -3,7 +3,8 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
 import * as tinyglobby from "tinyglobby";
-import { getLocaleNames, getSidebar } from "../config/i18n.ts";
+import { getSidebar } from "../config/i18n.ts";
+import { LOCALES } from "../constants.ts";
 
 const git = (...args: string[]) => {
   const returned = childProcess.spawnSync("git", args, { encoding: "utf-8" });
@@ -83,7 +84,6 @@ for (const file of tinyglobby.globSync("**/*.md", {
 })) {
   fs.cpSync(`./${file}`, `./versions/${oldVersion}/${file}`);
 }
-const locales = getLocaleNames(`./versions/${oldVersion}/translated`);
 
 if (fs.existsSync(`./${newVersion}/`)) {
   console.log(`Moving in files from '${newVersion}/'...`);
@@ -94,10 +94,10 @@ if (fs.existsSync(`./${newVersion}/`)) {
 }
 
 console.log(`Creating sidebars at '.vitepress/sidebars/versioned/${oldVersion}.json'...`);
-for (const locale of locales) {
+for (const l of LOCALES) {
   fs.writeFileSync(
-    `./.vitepress/sidebars/versioned/${oldVersion}${locale === "en_us" ? "" : `-${locale}`}.json`,
-    JSON.stringify(getSidebar(locale), null, 2)
+    `./.vitepress/sidebars/versioned/${oldVersion}${l === "en_us" ? "" : `-${l}`}.json`,
+    JSON.stringify(getSidebar(l), null, 2)
   );
 }
 
