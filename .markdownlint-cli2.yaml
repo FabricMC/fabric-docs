@@ -18,16 +18,13 @@ config:
     style: ordered
   MD033:
     allowed_elements:
-      - audio
       - Badge
       - ChoiceComponent
       - ColorSwatch
       - DownloadEntry
       - kbd
       - Range
-      - source
       - u
-      - VideoPlayer
   MD035:
     # This is not made redundant by `no-horizontal-rules`, as the latter relies on this
     style: "***"
