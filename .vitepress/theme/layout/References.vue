@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
-import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
-import { VPIcon } from "vitepress/theme";
+import { VPIcon, VPLink } from "vitepress/theme";
 import { computed } from "vue";
-import { Fabric } from "../../types";
+import type { Fabric } from "../../types.d.ts";
 
-const data = useData();
+const data = useData<Fabric.ThemeConfig>();
 
-const options = computed(() => data.theme.value.references as Fabric.ReferencesOptions);
+const options = computed(() => data.theme.value.references);
 
 const resources = computed(() =>
   Object.entries(data.frontmatter.value.resources ?? {}).map(([href, title]) => {

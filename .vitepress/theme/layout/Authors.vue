@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
-import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { VPLink } from "vitepress/theme";
 import { computed } from "vue";
-import { Fabric } from "../../types.d";
+import type { Fabric } from "../../types.d.ts";
 
 type Author = { name: string; noGitHub?: true };
 
-const data = useData();
+const data = useData<Fabric.ThemeConfig>();
 
-const options = computed(() => data.theme.value.authors as Fabric.AuthorsOptions);
+const options = computed(() => data.theme.value.authors);
 
 const authors = computed<Author[]>(() =>
   [
