@@ -1,7 +1,6 @@
 {
   "name": "fabric-docs",
   "type": "module",
-  "packageManager": "pnpm@11.0.9",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
@@ -22,7 +21,7 @@
     "syntax-mcfunction": "github:MinecraftCommands/syntax-mcfunction#51eb8bf4ca04355bb89f5538b7331cb0c0f3df2b",
     "tinyglobby": "^0.2.15",
     "vidstack": "^1.12.13",
-    "vitepress": "^2.0.0-alpha.12",
+    "vitepress": "2.0.0-alpha.12",
     "vitepress-plugin-tabs": "^0.7.3",
     "vitepress-versioning-plugin": "github:FabricMC/vitepress-versioning-plugin#3710e8b43e0484731e79c0fce5e1d623609435f0",
     "vue": "^3.5.6"
@@ -37,5 +36,17 @@
     "oxc-minify": "^0.82.3",
     "prettier": "^3.7.4",
     "tsx": "^4.20.6"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.18.0",
+      "onFail": "download"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "22.23.4",
+      "onFail": "warn"
+    }
   }
 }
