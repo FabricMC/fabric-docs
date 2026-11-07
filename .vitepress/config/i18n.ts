@@ -71,7 +71,9 @@ export const getSidebar = (locale: string) => {
 
     for (const item of returned) {
       item.text = resolver(item.text) || item.text;
-      if (item.items) item.items = normalizeSidebar(item.items);
+      if (item.items) {
+        item.items = normalizeSidebar(item.items);
+      }
       if (locale !== "en_us" && item.link?.startsWith("/")) {
         item.link = `/${locale}${item.link}`;
       }

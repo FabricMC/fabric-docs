@@ -106,14 +106,18 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     versionMap[split[0]]
     || versionMap[`${split[0]}.0`]
     || (/^(?!404$)[0-9.]+$/.test(split[0]) ? "" : split[0]);
-  if (!split[0] || split[0] === context.latestVersion) split.shift();
+  if (!split[0] || split[0] === context.latestVersion) {
+    split.shift();
+  }
 
   const seenPaths = new Set([split.join("/")]);
   const newPath = redirects.reduce((currentPath, rule) => {
     const nextPath = currentPath.replace(rule.from, rule.dest);
 
     // skip the redirection rule if it causes a loop
-    if (seenPaths.has(nextPath)) return currentPath;
+    if (seenPaths.has(nextPath)) {
+      return currentPath;
+    }
 
     seenPaths.add(nextPath);
     return nextPath;
@@ -189,7 +193,9 @@ export const getClientTransformHead = () => {
       const el = document.createElement(tag);
 
       attributes["data-gen"] = "";
-      for (const [k, v] of Object.entries(attributes)) el.setAttribute(k, v);
+      for (const [k, v] of Object.entries(attributes)) {
+        el.setAttribute(k, v);
+      }
 
       document.head.appendChild(el);
     }
@@ -213,5 +219,7 @@ export const getBuildTransformHead = (): Fabric.Config["transformHead"] => (cont
     lastUpdated: context.pageData.lastUpdated,
   });
 
-  if (typeof returned !== "string") return returned;
+  if (typeof returned !== "string") {
+    return returned;
+  }
 };

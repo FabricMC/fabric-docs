@@ -17,11 +17,17 @@ const collator = new Intl.Collator(undefined, { numeric: true });
 const env = computed(() => data.theme.value.env);
 const options = computed(() => data.theme.value.version.switcher);
 const currentV = computed(() => {
-  if (data.frontmatter.value.version) return data.frontmatter.value.version as string;
+  if (data.frontmatter.value.version) {
+    return data.frontmatter.value.version as string;
+  }
 
   const split = data.page.value.relativePath.split("/");
-  if (/^[0-9.]+$/.test(split[0])) return split[0];
-  if (/^.._..$/.test(split[0]) && /^[0-9.]+$/.test(split[1])) return split[1];
+  if (/^[0-9.]+$/.test(split[0])) {
+    return split[0];
+  }
+  if (/^.._..$/.test(split[0]) && /^[0-9.]+$/.test(split[1])) {
+    return split[1];
+  }
   return props.versioningPlugin.latestVersion;
 });
 
@@ -52,7 +58,9 @@ route format:  [locale/] [version/] path/to/
 - [version/] is not added for the latest version
 */
 const getRoute = (newVersion: string) => {
-  if (newVersion === data.frontmatter.value.version) return;
+  if (newVersion === data.frontmatter.value.version) {
+    return;
+  }
 
   const split = data.page.value.filePath.split("/");
   // path segments for each type of version
