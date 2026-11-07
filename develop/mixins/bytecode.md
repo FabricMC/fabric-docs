@@ -9,7 +9,7 @@ resources:
   https://en.wikipedia.org/wiki/List_of_JVM_bytecode_instructions: List of JVM bytecode instructions - Wikipedia
 ---
 
-Mixins operate on Java bytecode, so to understand them one needs a grasp on their fundamentals.
+[Mixins](../mixins) operate on Java bytecode, so to understand them one needs a grasp on its fundamentals.
 
 To find out how to view the bytecode of a class in your IDE, please consult the Viewing Bytecode section of the [Tips and Tricks page](../getting-started/tips-and-tricks).
 
