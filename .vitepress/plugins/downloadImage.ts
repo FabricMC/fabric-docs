@@ -1,8 +1,14 @@
+import { ZipArchive } from "@archiver/archiver";
 import * as fs from "node:fs";
 import * as path from "node:path";
-import type { MarkdownRenderer } from "vitepress";
+import * as stream from "node:stream";
+import pLimit from "p-limit";
+import * as tinyglobby from "tinyglobby";
+import type { MarkdownRenderer, SiteConfig } from "vitepress";
 import { getWebsiteResolver } from "../config/i18n.ts";
 import { AT, ENV } from "../constants.ts";
+
+const directoriesToBeZipped = new Set<string>();
 
 export const downloadImagePlugin = (md: MarkdownRenderer) => {
   const image = md.renderer.rules.image!;
@@ -65,13 +71,53 @@ export const downloadImagePlugin = (md: MarkdownRenderer) => {
     }
 
     if (stat.isDirectory()) {
-      console.error(`${env.relativePath}: unexpected directory as asset`);
+      if (ENV === "dev") {
+        return `${renderedImage} <a download title="${md.utils.escapeHtml(resolver("download.unavailable_in_dev"))}"><span class="vpi-lucide-folder-x" style="--icon: url('/_vpi/lucide/folder-x.svg')"></span></a>`;
+      }
 
-      return renderedImage;
+      directoriesToBeZipped.add(downloadPath);
+      downloadPath += ".zip";
     }
 
     return `${renderedImage} <a download title="${md.utils.escapeHtml(
       resolver("download.button").replace("%s", token.content || path.basename(downloadPath))
     )}" href="${md.utils.escapeHtml(downloadPath)}"><span class="vpi-lucide-download" ${ENV === "dev" ? `style="--icon: url('/_vpi/lucide/download.svg')"` : ""}></span></a>`;
   };
+};
+
+export const createDownloadZips = async (siteConfig: SiteConfig) => {
+  if (directoriesToBeZipped.size === 0) {
+    return;
+  }
+
+  const limit = pLimit(5);
+
+  const tasks = [...directoriesToBeZipped].map((relativeD) =>
+    limit(async () => {
+      const d = path.join(siteConfig.outDir, relativeD);
+      const stat = await fs.promises.stat(d, { throwIfNoEntry: false });
+      if (!stat?.isDirectory()) {
+        return;
+      }
+
+      const z = `${d}.zip`;
+      if (fs.existsSync(z)) {
+        console.warn(`${z}: found unexpected zip before generation`);
+        await fs.promises.rm(z);
+      }
+
+      const subDirectories = await tinyglobby.glob("*", { cwd: d, onlyDirectories: true });
+      if (subDirectories.length) {
+        console.warn(`${z}: unexpected subdirectories: '${subDirectories.join("', '")}'`);
+      }
+
+      const archive = new ZipArchive({ zlib: { level: 9 } }).directory(d, false);
+      const pipeline = stream.promises.pipeline(archive, fs.createWriteStream(z));
+
+      await archive.finalize();
+      await pipeline;
+    })
+  );
+
+  await Promise.all(tasks);
 };
