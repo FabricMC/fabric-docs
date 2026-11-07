@@ -15,6 +15,7 @@ import {
   EXCLUDED_OLD_VERSIONS,
   LATEST_VERSION,
 } from "../constants.ts";
+import { downloadImagePlugin } from "../plugins/downloadImage.ts";
 import { transformFile, transformFilesPlugin } from "../plugins/transformFiles.ts";
 import type { Config } from "../types.d.ts";
 import { getBuildTransformHead, getClientTransformHead, pageToVersionsMap } from "./head.ts";
@@ -64,6 +65,7 @@ export default defineVersionedConfig(
       config: (md) => {
         md.use(transclusionsPlugin);
         md.use(tabsMarkdownPlugin);
+        md.use(downloadImagePlugin);
       },
       container: {
         // TODO: acknowledge ::: caution and ::: note
