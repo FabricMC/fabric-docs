@@ -34,6 +34,7 @@ export const transformFile = (src: string, id: string) => {
 
   if (data.versionType === "old") {
     data.editLink = false;
+    data.search = false;
   }
 
   const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
