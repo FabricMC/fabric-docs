@@ -3,7 +3,7 @@ import { useMounted } from "@vueuse/core";
 import { type DefaultTheme, useData, useRoute } from "vitepress";
 import VPNavMenuGroup from "vitepress/dist/client/theme-default/components/VPNavMenuGroup.vue";
 import { computed } from "vue";
-import type { Fabric } from "../../types.d.ts";
+import type { ThemeConfig } from "../../types.d.ts";
 import { useIconSpan } from "../composables/iconSpan.ts";
 
 const props = defineProps<{
@@ -11,7 +11,7 @@ const props = defineProps<{
   screenMenu?: boolean;
 }>();
 
-const data = useData<Fabric.ThemeConfig>();
+const data = useData<ThemeConfig>();
 const route = useRoute();
 const mounted = useMounted();
 const icon = useIconSpan("material-icon-theme:minecraft");

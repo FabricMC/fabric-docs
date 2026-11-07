@@ -2,11 +2,11 @@
 import { useData } from "vitepress";
 import { VPIcon, VPLink } from "vitepress/theme";
 import { computed } from "vue";
-import type { Fabric } from "../../types.d.ts";
+import type { ThemeConfig } from "../../types.d.ts";
 
 // TODO(upstream): on mobile (narrow viewport) references should be placed akin to "On this page", instead of at the footer.
 
-const data = useData<Fabric.ThemeConfig>();
+const data = useData<ThemeConfig>();
 
 const options = computed(() => data.theme.value.references);
 

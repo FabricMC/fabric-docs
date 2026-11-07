@@ -2,11 +2,11 @@
 import { useData } from "vitepress";
 import { VPLink } from "vitepress/theme";
 import { computed } from "vue";
-import type { Fabric } from "../../types.d.ts";
+import type { ThemeConfig } from "../../types.d.ts";
 
 type Author = { name: string; noGitHub?: true };
 
-const data = useData<Fabric.ThemeConfig>();
+const data = useData<ThemeConfig>();
 
 const options = computed(() => data.theme.value.authors);
 

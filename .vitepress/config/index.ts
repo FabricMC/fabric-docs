@@ -16,7 +16,7 @@ import {
   LATEST_VERSION,
 } from "../constants.ts";
 import { transformFile, transformFilesPlugin } from "../plugins/transformFiles.ts";
-import type { Fabric } from "../types.d.ts";
+import type { Config } from "../types.d.ts";
 import { getBuildTransformHead, getClientTransformHead, pageToVersionsMap } from "./head.ts";
 import { getLocaleConfig } from "./i18n.ts";
 
@@ -40,6 +40,8 @@ export default defineVersionedConfig(
 
     // Set head tags on the client side
     head: [["script", { "data-gen": "" }, getClientTransformHead()]],
+
+    icons: { include: ["lucide:download"] },
 
     // Allow builds with incomplete translations
     ignoreDeadLinks: [
@@ -173,6 +175,6 @@ export default defineVersionedConfig(
         },
       },
     },
-  } as Fabric.Config,
+  } as Config,
   path.resolve(import.meta.dirname, "..")
 );
