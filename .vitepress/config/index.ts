@@ -99,12 +99,19 @@ export default defineVersionedConfig(
       outline: { level: "deep" },
       search: {
         options: {
-          _render: (src, env, md) =>
-            env.frontmatter?.search === false
-            || env.relativePath.startsWith("translated/")
-            || env.relativePath.startsWith("versions/")
-              ? ""
-              : md.render(transformFile(src, env.path).replace(/<Badge .*> (?={#h1})/, ""), env),
+          _render: async (src, env, md) => {
+            if (
+              env.relativePath.startsWith("translated/")
+              || env.relativePath.startsWith("versions/")
+            ) {
+              return "";
+            }
+
+            src = transformFile(src, env.path).replace(/<Badge .*> (?={#h1})/, "");
+            const html = await md.renderAsync(src, env);
+
+            return env.frontmatter?.search === false ? "" : html;
+          },
         },
         provider: "local",
       },
