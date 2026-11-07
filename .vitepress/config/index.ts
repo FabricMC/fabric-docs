@@ -171,7 +171,7 @@ export default defineVersionedConfig(
     vue: {
       template: {
         compilerOptions: {
-          isCustomElement: (tag) => tag.startsWith("media-"),
+          isCustomElement: (tag) => /^(((audio|video)-(player|skin))|(youtube-video))$/.test(tag),
         },
       },
     },

@@ -1,14 +1,19 @@
-import { isAudioSrc, isVideoSrc } from "vidstack";
+import { resolveAdapterType } from "@videojs/html";
 import type { MarkdownRenderer } from "vitepress";
 
-const resolveAdapterType = (src: string) => {
-  if (isAudioSrc({ src, type: "" }) || src.endsWith(".ogg")) {
-    return "audio";
+const getYouTubeNoCookie = (srcValue: string) => {
+  const url = URL.parse(srcValue);
+  if (!url) {
+    return srcValue;
   }
 
-  if (isVideoSrc({ src, type: "" }) || URL.parse(src)?.hostname.includes("youtu")) {
-    return "video";
+  if (url.hostname === "youtu.be") {
+    url.searchParams.set("v", url.pathname.replace(/^[/]/, ""));
+    url.pathname = "/watch";
   }
+
+  url.hostname = "www.youtube-nocookie.com";
+  return url.href;
 };
 
 export const videoImagePlugin = (md: MarkdownRenderer) => {
@@ -26,7 +31,7 @@ export const videoImagePlugin = (md: MarkdownRenderer) => {
 
       const media = inline.children[0];
       const type = resolveAdapterType(media.attrGet("src") || "") as string;
-      if (media.type !== "image" || !["audio", "video"].includes(type)) {
+      if (media.type !== "image" || !["audio", "video", "youtube"].includes(type)) {
         continue;
       }
 
@@ -53,7 +58,7 @@ export const videoImagePlugin = (md: MarkdownRenderer) => {
 
     const srcValue = token.attrGet("src")!;
     return `<Player type="${type}" src="${md.utils.escapeHtml(
-      srcValue
-    )}" title="${md.utils.escapeHtml(token.content)}"${token.attrGet("warn") !== null ? " warn" : ""} />`;
+      type === "youtube" ? getYouTubeNoCookie(srcValue) : srcValue
+    )}" content-title="${md.utils.escapeHtml(token.content)}"${token.attrGet("warn") !== null ? " warn" : ""} />`;
   };
 };
