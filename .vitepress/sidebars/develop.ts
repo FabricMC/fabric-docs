@@ -294,6 +294,14 @@ export default [
             text: "develop.rendering.particles.creating_particles",
             link: "/develop/rendering/particles/creating-particles",
           },
+          {
+            text: "develop.rendering.particles.custom_particle_classes",
+            link: "/develop/rendering/particles/custom-particle-classes",
+          },
+          {
+            text: "develop.rendering.particles.complex_particles",
+            link: "/develop/rendering/particles/complex-particles",
+          }
         ],
       },
     ],
