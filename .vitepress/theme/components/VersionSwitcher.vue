@@ -106,42 +106,45 @@ const getRoute = (newVersion: string) => {
 
 <style scoped>
 div:not(.VPFlyout) {
-  border-bottom: 1px solid var(--vp-c-divider);
-  height: 3rem;
   overflow: hidden;
+  height: 3rem;
+  border-bottom: 1px solid var(--vp-c-divider);
   transition: border-color 0.5s;
 
   button {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 0.25rem 0.6875rem 0;
+    justify-content: space-between;
+
     width: 100%;
-    line-height: 1.5rem;
+    padding: 0.75rem 0.25rem 0.6875rem 0;
+
     font-size: 0.875rem;
     font-weight: 500;
+    line-height: 1.5rem;
     color: var(--vp-c-text-1);
+
     transition: color 0.25s;
 
     span {
       display: flex;
-      align-items: center;
       gap: 0.25rem;
+      align-items: center;
     }
 
     .vpi-plus {
       transition: transform 0.25s;
     }
-  }
 
-  button:hover {
-    color: var(--vp-c-brand-1);
+    &:hover {
+      color: var(--vp-c-brand-1);
+    }
   }
 }
 
 .open:not(.VPFlyout) {
-  padding-bottom: 0.625rem;
   height: auto;
+  padding-bottom: 0.625rem;
 
   button {
     color: var(--vp-c-brand-1);
@@ -154,13 +157,16 @@ div:not(.VPFlyout) {
 
 .VPLink {
   display: block;
-  border-radius: 0.375rem;
+
   padding: 0 0.75rem;
-  line-height: 2rem;
+  border-radius: 0.375rem;
+
   font-size: 0.875rem;
   font-weight: 500;
+  line-height: 2rem;
   color: var(--vp-c-text-1);
   white-space: nowrap;
+
   transition:
     background-color 0.25s,
     color 0.25s;

@@ -26,14 +26,14 @@ defineProps<{
 <style scoped>
 ul {
   display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 1), 1fr);
   gap: 1rem;
-  grid-template-columns: repeat(var(--grid-columns), 1fr);
-  padding: 0;
-  list-style: none;
-}
 
-@media (max-width: 48rem) {
-  ul {
+  padding: 0;
+
+  list-style: none;
+
+  @media (width <= 48rem) {
     grid-template-columns: 1fr;
   }
 }
@@ -43,20 +43,24 @@ li + li {
 }
 
 .VPLink {
+  overflow: hidden;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
   width: 100%;
   height: 100%;
-  align-items: center;
-  background-color: var(--vp-c-bg-soft);
-  border-radius: 0.625rem;
+  padding: 1rem;
   border: 1px solid var(--vp-c-border);
-  color: var(--vp-c-text-1);
-  display: flex;
+  border-radius: 0.625rem;
+
   font-size: 1.1rem;
   font-weight: 600;
-  gap: 1rem;
-  overflow: hidden;
-  padding: 1rem;
+  color: var(--vp-c-text-1);
   text-decoration: none;
+
+  background-color: var(--vp-c-bg-soft);
+
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
@@ -70,14 +74,14 @@ li + li {
 
 a.VPLink:hover,
 a.VPLink:focus-visible {
-  border-color: var(--color, var(--vp-brand-1));
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  color: var(--color, var(--vp-brand-1));
   transform: translateY(-0.25rem);
+  border-color: var(--color, var(--vp-c-brand-1));
+  color: var(--color, var(--vp-c-brand-1));
+  box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
 }
 
 span.VPLink {
   cursor: not-allowed;
-  opacity: 0.75;
+  opacity: 75%;
 }
 </style>
