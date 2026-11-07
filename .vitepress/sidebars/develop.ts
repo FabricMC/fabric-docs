@@ -344,6 +344,10 @@ export default [
             link: "/develop/data-generation/loot-tables",
           },
           {
+            text: "develop.data_generation.painting_variant",
+            link: "/develop/data-generation/painting-variant",
+          },
+          {
             text: "develop.data_generation.recipes",
             link: "/develop/data-generation/recipes",
           },

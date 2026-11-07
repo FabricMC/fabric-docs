@@ -41,6 +41,12 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		// #region datagen_tags_register
 		pack.addProvider(ExampleModItemTagProvider::new);
 		// #endregion datagen_tags_register
+
+		// #region datagen_painting_register
+		pack.addProvider(ExampleModPaintingVariantProvider::new);
+		pack.addProvider(ExampleModPaintingTagProvider::new);
+		// #endregion datagen_painting_register
+
 		pack.addProvider(ExampleModEnchantmentTagProvider::new);
 
 		// #region datagen_recipes_register
@@ -91,6 +97,10 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.add(Registries.DAMAGE_TYPE, registerable -> {
 			registerable.register(ExampleModDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
 		});
+
+		// #region datagen_painting_bootstrap
+		registryBuilder.add(Registries.PAINTING_VARIANT, ExampleModPaintingVariantProvider::bootstrap);
+		// #endregion datagen_painting_bootstrap
 
 		// #region datagen_world_registries
 		registryBuilder.add(Registries.CONFIGURED_FEATURE, ExampleModWorldConfiguredFeatures::configure);
