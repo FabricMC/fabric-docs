@@ -13,6 +13,7 @@ resources:
   https://java-programming.mooc.fi/: "University of Helsinki: Java Programming MOOC"
   https://dev.java/learn/: "Java Platform Group at Oracle: Learn Java"
   https://www.codecademy.com/learn/learn-java: "Codecademy: Learn Java"
+  https://coddy.tech/landing/java: "Coddy: Learn Java"
   https://www.coursera.org/specializations/java-programming: "Duke University (via Coursera): Java Programming and Software Engineering Fundamentals"
   https://www.youtube.com/watch?v=A74TOX803D0: "freeCodeCamp (YouTube): Java Programming for Beginners"
   https://javabook.mccue.dev/: "Modern Java (Online textbook)"
