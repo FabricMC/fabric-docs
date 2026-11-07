@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "example-mod:guidite_chestplate"
+  },
+  "max_uses": 5.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 12.0,
+    "id": "minecraft:emerald"
+  },
+  "xp": 2.0
+}
