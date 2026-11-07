@@ -76,7 +76,7 @@ export namespace Fabric {
     text: string;
   }
 
-  export type EnvOptions = "build" | "dev" | "github" | number;
+  export type EnvOptions = typeof import("./constants.ts").ENV;
 
   export interface NotFoundOptions {
     /**
