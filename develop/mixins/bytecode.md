@@ -2,6 +2,7 @@
 title: Java Bytecode
 description: Learn about Java bytecode so that you can write mixins effectively.
 authors:
+  - Deximus-Maximus
   - Earthcomputer
   - its-miroma
   - Kilip1000
@@ -574,3 +575,40 @@ static lambda$hello$1 (Ljava/lang/String;)V
 :::
 
 Here, the `name` parameter is being passed as a parameter into the lambda. Notice also how string concatenation is implemented with `invokedynamic`.
+
+## Differences in Mixin Bytecode Handling {#compat-level}
+
+Mixin is a complicated and evolving tool that, for the sake of fixing bugs, sometimes changes behavior in such a way that working mods can break with a loader update.
+Starting with Fabric Loader 0.12.3 (a beta version, recommended to use 0.12.5), Loader is able to change mixin behavior on a per-mod basis, allowing old mods to continue working with
+the old behavior, and new mods to have access to any fixes they need. New features may also be gated behind this block. This is done by selecting the earliest Loader version compatible with a given mod, and then choosing the appropriate compat level.
+
+See [Compatibility Level Determination](../loader/fabric-mod-json#dependency-resolution) for more details on which compatibility level is selected.
+
+### Changes {#compat-changes}
+
+#### Compatibility Level 0.10.0 (Fabric Loader 0.12.0) {#compat-level-0100}
+
+- Changes to local variable handling to better preserve local variables at the target location where previously they may have been incorrectly removed from Mixin's view
+  - For more details, see [this mixin issue](https://github.com/SpongePowered/Mixin/issues/508).
+
+#### Compatibility Level 0.14.0 (Fabric Loader 0.16.0) {#compat-level-0140}
+
+- Gates a change to the filtering of `NEW` descriptors pursuant to a Mixin [bugfix](https://github.com/SpongePowered/Mixin/issues/515) allowing the constructor descriptor to be used to target an invocation.
+
+#### Compatibility Level 0.16.5 (Fabric Loader 0.17.3) {#compat-level-087}
+
+- `SHIFT` is now respected during injections.
+
+#### Compatibility Level 0.17.0 (Fabric Loader 0.18.4) {#compat-level-0170}
+
+- Local variable capture of method parameters
+  - If possible, allow capturing by using the parameter's actual name
+  - Otherwise, fallback to parameters named `arg<paramIndex>`, which previously was only the case when `argsOnly = false`. When `argsOnly` was `true`, they were named `arg<lvIndex>`
+
+#### Compatibility Level 0.17.1 (Fabric Loader 0.19.0) {#compat-level-0171}
+
+- Introduces new initializer merging and targeting behavior for class initializers (`<clinit>`)
+  - Preserve `try-catch` blocks, local variables, and line numbers
+  - Can no longer be skipped by an early return in the target or another mixin
+  - Can no longer target mixin-added initializers
+- Support for Mixin-based [enum extension](../class-tweakers/enum-extension)
