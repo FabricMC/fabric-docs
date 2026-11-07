@@ -1,0 +1,12 @@
+{
+  "gives": {
+    "id": "example-mod:guidite_leggings"
+  },
+  "max_uses": 5.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 6.0,
+    "id": "minecraft:emerald"
+  },
+  "xp": 2.0
+}

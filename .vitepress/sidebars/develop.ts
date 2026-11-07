@@ -352,6 +352,10 @@ export default [
             link: "/develop/data-generation/tags",
           },
           {
+            text: "develop.data_generation.trades",
+            link: "/develop/data-generation/trades",
+          },
+          {
             text: "develop.data_generation.world_generation",
             items: [
               {
