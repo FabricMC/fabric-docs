@@ -1,8 +1,8 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { AT, LOCALES } from "../constants.ts";
-import Develop from "../sidebars/develop.ts";
-import Players from "../sidebars/players.ts";
+import { DEVELOP_SIDEBAR } from "../sidebars/develop.ts";
+import { PLAYERS_SIDEBAR } from "../sidebars/players.ts";
 import type { Fabric } from "../types.d.ts";
 
 const translationFileCache = new Map<string, Record<string, any>>();
@@ -52,26 +52,38 @@ export const getWebsiteResolver = (locale: string): Resolver<Fabric.Translations
 
 export const getSidebar = (locale: string) => {
   const returned: Fabric.Sidebar = {};
-  const resolver = getResolver<Record<string, string>>("sidebar_translations.json", locale);
 
-  const normalizeSidebar = (sidebar: Fabric.SidebarItem[]) => {
-    const returned: Fabric.SidebarItem[] = JSON.parse(JSON.stringify(sidebar));
+  const file = "sidebar_translations.json";
+  const resolver = getResolver<Fabric.Translations["sidebar"]>(file, locale);
 
-    for (const item of returned) {
-      item.text = resolver(item.text) || item.text;
-      if (item.items) {
-        item.items = normalizeSidebar(item.items);
+  const localePrefix = locale === "en_us" ? "" : `/${locale}`;
+
+  const normalizeSidebar = (sidebar: Fabric.SidebarItem[], base = "") => {
+    const returned = (JSON.parse(JSON.stringify(sidebar)) as Fabric.SidebarItem[]) //
+      .map((i) => (typeof i === "string" ? { link: i } : i));
+
+    for (const i of returned) {
+      const k = i.text || `${i.base || base}${i.link || ""}`;
+
+      // @ts-expect-error
+      i.text = resolver(k) || (i.link && k.endsWith("/") ? resolver("introduction") : "");
+
+      if (locale === "en_us" && !i.text) {
+        console.warn(`${file}: missing translation for key '${k}'`);
       }
-      if (locale !== "en_us" && item.link?.startsWith("/")) {
-        item.link = `/${locale}${item.link}`;
+
+      if (i.items) {
+        i.items = normalizeSidebar(i.items, i.base || base);
       }
+
+      i.base = `${localePrefix}${i.base || base}`;
     }
 
     return returned;
   };
 
-  returned[`${locale === "en_us" ? "" : `/${locale}`}/develop/`] = normalizeSidebar(Develop);
-  returned[`${locale === "en_us" ? "" : `/${locale}`}/players/`] = normalizeSidebar(Players);
+  returned[`${localePrefix}/develop/`] = normalizeSidebar([DEVELOP_SIDEBAR]);
+  returned[`${localePrefix}/players/`] = normalizeSidebar([PLAYERS_SIDEBAR]);
 
   return returned;
 };
