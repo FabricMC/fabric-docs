@@ -3,14 +3,13 @@ title: Statuseffekte
 description: Lerne, wie man benutzerdefinierte Statuseffekte erstellt.
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+  - TheFireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu
-
 search: false
 ---
 
@@ -42,7 +41,7 @@ Du kannst deinem Statuseffekt einen Namen geben und ein Textursymbol erstellen, 
 
 Das Statuseffekt-Symbol ist ein 18x18 PNG. Platziere dein eigenes Icon in:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 

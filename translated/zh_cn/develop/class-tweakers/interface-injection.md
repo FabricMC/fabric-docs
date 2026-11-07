@@ -4,8 +4,8 @@ description: 学习如何在反编译后的源代码中实现 Minecraft 类的�
 authors-nogithub:
   - salvopelux
 authors:
-  - Daomephsta
   - CelDaemon
+  - Daomephsta
   - Earthcomputer
   - its-miroma
   - Juuxel

@@ -37,7 +37,7 @@ The subtitle entry provides more context for the player. The subtitle name is us
 
 ## Registering the Custom Sound {#registering-the-custom-sound}
 
-To add the custom sound to the mod, register a SoundEvent in your [mod's initializer](./getting-started/project-structure#entrypoints).
+To add the custom sound to the mod, register a SoundEvent in your [mod's initializer](../getting-started/project-structure#entrypoints).
 
 ```java
 Registry.register(BuiltInRegistriesSOUND_EVENT, ResourceLocation.fromNamespaceAndPath(MOD_ID, "metal_whistle"),

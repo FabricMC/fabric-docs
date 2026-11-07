@@ -3,8 +3,8 @@ title: Creare un Progetto
 description: Una guida passo per passo su come creare un nuovo progetto per una mod con il generatore di mod modello di Fabric.
 authors:
   - Cactooz
+  - evelynmeowww
   - IMB11
-  - radstevee
   - Thomas1034
 resources:
   https://fabricmc.net/develop/template/: Generatore di mod modello Fabric
@@ -33,7 +33,7 @@ Se vuoi usare Kotlin, buildscript in Kotlin, o vuoi aggiungere generatori di dat
 
 ::: info
 
-Gli esempi in codice presenti su questo sito usano i [nomi del gioco non offuscato](../porting/mappings/#whats-going-on-with-mappings). Se hai una mod esistente che usa mapping diversi da quelli forniti da Mojang, leggi la pagina [Aggiornamento a 26.1](../porting/index) per maggiori informazioni.
+Gli esempi in codice presenti su questo sito usano i [nomi del gioco non offuscato](../porting/mappings/#whats-going-on-with-mappings). Se hai una mod esistente che usa mapping diversi da quelli forniti da Mojang, leggi la pagina [Aggiornamento a 26.1](../porting/) per maggiori informazioni.
 
 :::
 

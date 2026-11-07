@@ -2,9 +2,9 @@
 title: 战利品表修改
 description: 关于使用 Fabric API 提供的事件修改战利品表的指南。
 authors:
-  - NotNightSky
-  - its-miroma
   - cassiancc
+  - its-miroma
+  - NotNightSky
 ---
 
 战利品表系统决定了当破坏方块、杀死实体或打开箱子时掉落哪些物品。 Fabric API 提供了多种方式，可以在加载过程中修改、替换和后处理战利品表，以及在运行时调整最终的掉落物。

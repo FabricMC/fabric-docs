@@ -2,16 +2,16 @@
 title: События
 description: Руководство по использование событий предоставляемых Fabric API.
 authors:
-  - daomephsta
+  - Daomephsta
   - dicedpixels
-  - draylar
-  - jamieswhiteshirt
+  - Draylar
+  - JamiesWhiteShirt
   - Juuxel
   - liach
   - mkpoli
   - natanfudge
   - PhoenixVX
-  - solidblock
+  - SolidBlock-cn
   - YanisBft
 authors-nogithub:
   - stormyfabric

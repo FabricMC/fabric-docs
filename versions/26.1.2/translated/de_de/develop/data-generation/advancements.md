@@ -3,12 +3,12 @@ title: Generierung von Fortschritten
 description: Ein Leitfaden zur Einrichtung der Generierung von Fortschritten mit dem Datengenerator.
 authors:
   - CelDaemon
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

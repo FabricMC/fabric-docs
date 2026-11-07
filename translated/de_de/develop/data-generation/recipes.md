@@ -3,11 +3,11 @@ title: Generierung von Rezepten
 description: Ein Leitfaden zur Einrichtung der Generierung von Rezepten mit dem Datengenerator.
 authors:
   - CelDaemon
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

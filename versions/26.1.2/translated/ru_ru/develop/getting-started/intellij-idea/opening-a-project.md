@@ -4,8 +4,8 @@ description: Как открыть проект мода Minecraft в IntelliJ I
 authors:
   - Cactooz
   - dicedpixels
+  - evelynmeowww
   - IMB11
-  - radstevee
   - Thomas1034
 prev:
   text: Настройка IntelliJ IDEA

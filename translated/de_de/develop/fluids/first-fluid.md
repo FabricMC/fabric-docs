@@ -12,14 +12,14 @@ authors:
   - Earthcomputer
   - florensie
   - Fusion-Flux
-  - InfinityChances
+  - infinitychances
   - Kilip1000
   - MaxURhino
+  - NotNightSky
   - SolidBlock-cn
   - SuperSoupr
-  - Virtuoel
   - UpcraftLP
-  - NotNightSky
+  - Virtuoel
 authors-nogithub:
   - alfiejfs
   - salvopelux

@@ -2,10 +2,10 @@
 title: 刷怪蛋
 description: 了解如何注册刷怪蛋物品。
 authors:
-  - Earthcomputer
-  - JaaiDead
   - cassiancc
+  - Earthcomputer
   - Fellteros
+  - JaaiDead
   - skycatminepokie
   - VatinMc
   - voidedaries

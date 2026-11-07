@@ -3,11 +3,11 @@ title: 配方生成
 description: 使用数据生成器设置配方生成的指南。
 authors:
   - CelDaemon
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

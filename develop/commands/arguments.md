@@ -1,6 +1,7 @@
 ---
 title: Command Arguments
 description: Learn how to create commands with complex arguments.
+# TODO: add authors
 ---
 
 Arguments are used in most of the commands. Sometimes they can be optional, which means if you do not provide that

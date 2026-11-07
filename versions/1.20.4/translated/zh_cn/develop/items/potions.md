@@ -3,8 +3,8 @@ title: 药水
 description: 学习如何加入多种状态效果的自定义药水。
 authors:
   - dicedpixels
-  - PandoricaVi
   - Drakonkinst
+  - PandoricaVi
 
 search: false
 ---

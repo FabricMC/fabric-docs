@@ -6,7 +6,7 @@ authors:
   - cassiancc
   - CelDaemon
   - its-miroma
-  - jummit
+  - Jummit
   - Tenneb22
 ---
 

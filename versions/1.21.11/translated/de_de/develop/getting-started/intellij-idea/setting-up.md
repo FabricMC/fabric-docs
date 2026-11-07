@@ -2,10 +2,10 @@
 title: IntelliJ IDEA einrichten
 description: Ein Schritt-für-Schritt-Leitfaden, wie man IntelliJ IDEA für die Erstellung von Mods mit Fabric einrichtet.
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - dicedpixels
   - falseresync
   - IMB11

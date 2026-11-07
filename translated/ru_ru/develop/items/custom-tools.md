@@ -68,7 +68,7 @@ resources:
 
 Для лопат, топоров и мотыг вам следует создавать `ShovelItem`, `AxeItem` или `HoeItem` вместо обычного `Item`, поскольку они реализуют специфичные для инструментов действия по правому клику:
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_axe
 
 ::: info
 
@@ -98,7 +98,7 @@ resources:
 
 :::
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#sword
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_sword
 
 == Предмет на клиенте
 
@@ -124,7 +124,7 @@ resources:
 
 == Исходный код
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#handheld
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
 
 == Предмет на клиенте
 
@@ -156,7 +156,7 @@ resources:
 
 В вашем провайдере тегов предметов добавьте следующие строки в `addTags`:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#sword_tags
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#tool_tags
 
 Вот и все! Если вы зайдёте в игру, вы должны увидеть свои инструменты на вкладке «Инструменты и полезности» в меню творческого инвентаря.
 

@@ -4,12 +4,12 @@ description: Руководство по настройке генерации �
 authors:
   - CelDaemon
   - IMB11
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
   - sjk1949
 ---
 

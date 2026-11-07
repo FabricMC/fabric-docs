@@ -21,15 +21,15 @@ Raporty awarii znajdziesz w następujących lokalizacjach:
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\crash-reports
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/crash-reports
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/crash-reports
 ```
 
@@ -80,7 +80,7 @@ Kiedy mixin ulegnie awarii, zazwyczaj zostanie wspomniany w śladzie stosu wraz 
 
 Metody mixinów będą zawierać w śladzie stosu `modid$handlerName`, gdzie `modid` to ID moda, a `handlerName` to nazwa obsługi mixina.
 
-```:no-line-numbers
+```text:no-line-numbers
 ... net.minecraft.class_2248.method_3821$$$modid$handlerName() ... // [!code focus]
 ```
 

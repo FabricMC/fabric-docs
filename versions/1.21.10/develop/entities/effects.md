@@ -39,7 +39,7 @@ Similar to block and item registration, we use `Registry.register` to register o
 
 The mob effect icon is a 18x18 PNG which will appear in the player's inventory screen. Place your custom icon in:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 

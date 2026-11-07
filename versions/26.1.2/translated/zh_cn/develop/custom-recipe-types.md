@@ -66,34 +66,6 @@ authors:
 
 <<< @/reference/26.1.2/src/main/resources/data/example-mod/recipe/upgrading/diamond_pickaxe.json
 
-## 创建菜单 {#creating-a-menu}
-
-::: info
-
-有关创建菜单的更多详细信息，请参阅[容器菜单](blocks/container-menus)。
-
-:::
-
-为了允许我们在 GUI 中创建配方，我们将创建一个带有[菜单](./blocks/container-menus) 的方块：
-
-<<< @/reference/26.1.2/src/main/java/com/example/docs/menu/custom/UpgradingMenu.java#menu
-
-这里的信息量很大！ 这个菜单有两个输入槽位和一个输出槽位。
-
-输入容器是 `SimpleContainer` 的一个匿名子类，当其物品发生变化时，它会调用菜单的 `slotsChanged` 方法。 在 `slotsChanged` 中，我们创建一个配方输入类的实例，并用两个输入槽位填充它。
-
-为了查看它是否匹配任何配方，我们首先要确保我们位于服务器级别，因为客户端不知道存在哪些配方。 然后，我们将通过 `serverLevel.recipeAccess()` 获取 `RecipeManager`。
-
-我们将调用 `serverLevel.recipeAccess().getRecipeFor` 并传入我们的配方输入，以获取与输入匹配的配方。 如果找到了配方，我们可以将结果添加到结果容器中或从中移除结果。
-
-为了检测用户何时取出结果，我们创建一个 `Slot` 的匿名子类。 然后，菜单的 `onTake` 方法会移除输入物品。
-
-为防止删除物品，屏幕关闭时必须将输入恢复原状，如 `removed` 方法所示。
-
-你还需要将菜单添加到注册表中：
-
-<<< @/reference/26.1.2/src/main/java/com/example/docs/recipe/ExampleModRecipes.java#upgrading_menu_registration
-
 ## 配方同步 {#recipe-synchronization}
 
 ::: info

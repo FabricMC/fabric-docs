@@ -2,14 +2,14 @@
 title: 战利品表生成
 description: 使用 Datagen 设置战利品表生成的指南。
 authors:
-  - Alphagamer47
   - JustinHuPrime
+  - LunarTremor
+  - MarcusElg
   - matthewperiut
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 :::info 前提

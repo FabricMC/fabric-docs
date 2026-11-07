@@ -3,14 +3,13 @@ title: 상태 효과
 description: 사용자 정의 상태 효과를 만드는 방법을 알아보세요.
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+  - TheFireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu
-
 search: false
 ---
 
@@ -42,7 +41,7 @@ search: false
 
 상태 효과의 아이콘은 18x18의 PNG 입니다. 사용자 정의 아이콘을 다음 폴더에 넣어 적용할 수 있습니다:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 

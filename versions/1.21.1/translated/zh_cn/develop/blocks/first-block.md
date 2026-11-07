@@ -3,8 +3,8 @@ title: 创建你的第一个方块
 description: 学习如何在 Minecraft 中创建你的第一个自定义方块。
 authors:
   - IMB11
-  - xEobardThawne
   - its-miroma
+  - xEobardThawne
 ---
 
 方块是构成 Minecraft 世界的主要组成部分——和 Minecraft 的其他一切一样，是储存在注册表中的。

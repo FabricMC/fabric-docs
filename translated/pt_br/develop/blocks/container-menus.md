@@ -4,8 +4,8 @@ description: Um guia explicando como criar um simples menu para um bloco de cont
 authors:
   - bluebear94
   - cassiancc
-  - ChampionAsh5357
   - CelDaemon
+  - ChampionAsh5357
   - Tenneb22
 resources:
   https://docs.neoforged.net/docs/inventories/menus: Menus - Documentação do NeoForge

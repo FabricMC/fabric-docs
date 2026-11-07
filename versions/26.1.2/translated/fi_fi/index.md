@@ -20,4 +20,4 @@ features:
     linkText: Aloita
 ---
 
-Jos sinä haluat että osallistaa Fabricin dokumentaation, sinä löydät lähdekoodia [GitHubissa](https://github.com/FabricMC/fabric-docs), ja asiaankuuluvat [osallistaohjeet](./contributing).
+Jos sinä haluat että osallistaa Fabricin dokumentaation, sinä löydät lähdekoodia [GitHubissa](https://github.com/FabricMC/fabric-docs), ja asiaankuuluvat [osallistaohjeet](./../contributing).

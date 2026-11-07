@@ -4,12 +4,12 @@ description: A guide to setting up advancement generation with datagen.
 authors:
   - cassiancc
   - CelDaemon
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->
@@ -122,7 +122,7 @@ Whew, that's a lot! Let's break it down.
 
 ::: info
 
-To learn more about codecs, see the [Codecs](../codecs) page.
+To learn more about codecs, see the [Codecs](../serialization/codecs) page.
 
 :::
 

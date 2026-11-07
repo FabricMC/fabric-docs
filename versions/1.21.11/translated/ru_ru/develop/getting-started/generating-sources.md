@@ -19,7 +19,7 @@ outline: false
 {
  name: 'Visual Studio Code',
  href: './vscode/generating-sources',
- icon: 'codicon:vscode',
+ icon: 'simple-icons:visualstudiocode',
  color: '#007ACC',
 },
 ]" />

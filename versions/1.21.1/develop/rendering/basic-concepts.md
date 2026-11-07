@@ -2,8 +2,8 @@
 title: Basic Rendering Concepts
 description: Learn about the basic concepts of rendering using Minecraft's rendering engine.
 authors:
-  - IMB11
   - "0x3C50"
+  - IMB11
 
 search: false
 ---
@@ -98,7 +98,7 @@ It's easier to explain how to write to the `BufferBuilder` using a practical exa
 
 We're going to draw vertices at the following points on the HUD (in order):
 
-```txt
+```text
 (20, 20)
 (5, 40)
 (35, 40)

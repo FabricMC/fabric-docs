@@ -6,6 +6,7 @@ authors:
   - Earthcomputer
   - haykam821
   - Jab125
+  - MarcusElg
   - matthewperiut
   - modmuss50
   - Shnupbups
@@ -13,7 +14,6 @@ authors:
   - SolidBlock-cn
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 ## Cos'è la Generazione di Dati? {#what-is-data-generation}

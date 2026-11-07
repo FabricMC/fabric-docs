@@ -2,10 +2,10 @@
 title: 设置开发环境
 description: 关于如何搭建 Fabric 模组开发环境的逐步指南。
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - dicedpixels
   - falseresync
   - IMB11
@@ -40,7 +40,7 @@ authors-nogithub:
 {
  name: 'Visual Studio Code',
  href: './vscode/setting-up',
- icon: 'codicon:vscode',
+ icon: 'simple-icons:visualstudiocode',
  color: '#007ACC',
 },
 ]" />

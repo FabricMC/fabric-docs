@@ -2,10 +2,10 @@
 title: Setting Up IntelliJ IDEA
 description: A step-by-step guide on how to set up IntelliJ IDEA to create mods using Fabric.
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - dicedpixels
   - falseresync
   - IMB11

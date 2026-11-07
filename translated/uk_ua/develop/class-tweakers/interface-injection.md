@@ -4,8 +4,8 @@ description: Дізнайтеся, як реалізувати інтерфей�
 authors-nogithub:
   - salvopelux
 authors:
-  - Daomephsta
   - CelDaemon
+  - Daomephsta
   - Earthcomputer
   - its-miroma
   - Juuxel

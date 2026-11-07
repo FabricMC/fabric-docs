@@ -3,8 +3,8 @@ title: プロジェクトの作成
 description: Fabric テンプレート Mod ジェネレータを使用した Mod 作成の段階的なガイド。
 authors:
   - Cactooz
+  - evelynmeowww
   - IMB11
-  - radstevee
 ---
 
 Fabric は、Mod プロジェクトを簡単に作成することを可能にする Fabric Template Mod Generator を提供しています。手動でプロジェクトを作成したい場合は、サンプルの Mod リポジトリを使用することができます。[手動で作成する](#manual-project-creation) セクションを参照してください。

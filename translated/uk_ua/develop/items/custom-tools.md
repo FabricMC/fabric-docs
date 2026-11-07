@@ -70,9 +70,9 @@ resources:
 
 Для лопат, сокир і мотик вам слід створити `ShovelItem`, `AxeItem` або `HoeItem` замість загального `Item`, оскільки вони реалізують дії, пов’язані з інструментом у якого є дії ПКМ:
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#axe
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_axe
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_axe
 
 ::: info
 
@@ -102,7 +102,7 @@ resources:
 
 :::
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#sword
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_sword
 
 == Клієнтський предмет
 
@@ -128,7 +128,7 @@ resources:
 
 == Початковий код
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#handheld
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
 
 == Клієнтський предмет
 
@@ -160,7 +160,7 @@ resources:
 
 У вашому постачальнику теґів предмета додайте такі рядки до `addTags`:
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#sword_tags
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#tool_tags
 
 Це майже все! Якщо ви зайдете в гру, ви побачите свої інструменти на вкладці «Інструменти й прилади» в меню інвентарю творчости.
 

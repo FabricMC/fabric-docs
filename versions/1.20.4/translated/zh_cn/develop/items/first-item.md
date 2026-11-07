@@ -2,8 +2,8 @@
 title: 创建你的第一个物品
 description: 学习如何注册简单的物品，以及如何给物品添加纹理、模型和名称。
 authors:
-  - IMB11
   - dicedpixels
+  - IMB11
 
 search: false
 ---

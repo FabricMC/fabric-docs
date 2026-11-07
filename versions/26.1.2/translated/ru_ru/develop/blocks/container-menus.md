@@ -4,8 +4,8 @@ description: Руководство по созданию простого ме�
 authors:
   - bluebear94
   - cassiancc
-  - ChampionAsh5357
   - CelDaemon
+  - ChampionAsh5357
   - Tenneb22
 resources:
   https://docs.neoforged.net/docs/inventories/menus: Меню — документация NeoForge
@@ -69,9 +69,9 @@ resources:
 
 `quickMoveStack` обрабатывает перемещение предметов по Shift-клику внутри меню. Этот пример повторяет поведение ванильных меню, таких как сундуки и раздатчики.
 
-Затем нам нужно зарегистрировать меню в новом классе `ModMenuType`:
+Затем нам нужно зарегистрировать меню в новом классе `ModMenuTypes`:
 
-<<< @/reference/26.1.2/src/main/java/com/example/docs/menu/ModMenuType.java#register_menu
+<<< @/reference/26.1.2/src/main/java/com/example/docs/menu/ModMenuTypes.java#register_menu
 
 Теперь мы можем задать возвращаемое значение `createMenu` в блочной сущности, чтобы использовать наше меню:
 

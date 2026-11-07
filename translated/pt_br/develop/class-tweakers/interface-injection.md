@@ -4,8 +4,8 @@ description: Aprenda a como implementar interfaces nas classes do Minecraft no c
 authors-nogithub:
   - salvopelux
 authors:
-  - Daomephsta
   - CelDaemon
+  - Daomephsta
   - Earthcomputer
   - its-miroma
   - Juuxel
@@ -14,11 +14,11 @@ authors:
   - SolidBlock-cn
 ---
 
-A injeção de interface é um tipo de [modificador de classe](../class-tweakers/) usado para adicionar implementações de interface nas classes do Minecraft no código-fonte descompilado.
+A injeção de interface é um tipo de [modificador de classe](./) usado para adicionar implementações de interface nas classes do Minecraft no código-fonte descompilado.
 
 A implementação sendo visível no código-fonte descompilado remove a necessidade de transmitir para a interface para usar os seus métodos.
 
-Além disso, injeções de interface podem ser [transitivas](../class-tweakers/index#transitive-entries), permitindo que bibliotecas exponham os seus métodos adicionados aos mods que dependem deles mais facilmente.
+Além disso, injeções de interface podem ser [transitivas](./#transitive-entries), permitindo que bibliotecas exponham os seus métodos adicionados aos mods que dependem deles mais facilmente.
 
 Para mostrar a injeção de interface, os trechos dessa página usarão um exemplo onde nós adicionamos um novo método ajudante ao `FlowingFluid`.
 
@@ -100,7 +100,7 @@ Certifique-se de abrir novamente qualquer classe alvo do código-fonte descompil
 
 ::: tip
 
-Se as modificações não aparecem, você pode tentar [validar o arquivo](../class-tweakers/index#validating-the-file) e verificar se algum erro aparece.
+Se as modificações não aparecem, você pode tentar [validar o arquivo](./#validating-the-file) e verificar se algum erro aparece.
 
 :::
 

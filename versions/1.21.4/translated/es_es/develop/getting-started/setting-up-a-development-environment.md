@@ -2,18 +2,18 @@
 title: Configurando tu entorno de desarrollo
 description: Una guía paso a paso para como configurar un entorno de desarollo para crear mods usando Fabric.
 authors:
-  - IMB11
-  - andrew6rant
-  - SolidBlock-cn
-  - modmuss50
-  - daomephsta
-  - liach
-  - telepathicgrunt
-  - 2xsaiko
-  - natanfudge
-  - mkpoli
-  - falseresync
+  - Andrew6rant
   - asiekierka
+  - Daomephsta
+  - dblsaiko
+  - falseresync
+  - IMB11
+  - liach
+  - mkpoli
+  - modmuss50
+  - natanfudge
+  - SolidBlock-cn
+  - TelepathicGrunt
 authors-nogithub:
   - siglong
 ---
@@ -24,7 +24,7 @@ Para empezar a desarollar mods usando Fabric, necesitarás configurar un entorno
 
 Para desarrollar mods para Minecraft 1.20.4, necesitarás JDK 17.
 
-Si necesitas ayuda instalando Java, puedes ver nuestras guías sobre la instalación de Java en la [sección de guías para jugadores](../../players/index)
+Si necesitas ayuda instalando Java, puedes ver nuestras guías sobre la instalación de Java en la [sección de guías para jugadores](../../players/)
 
 ## Instalando IntelliJ IDEA
 

@@ -2,21 +2,20 @@
 title: 设置开发环境
 description: 关于如何搭建 Fabric 开发环境的逐步指南。
 authors:
-  - IMB11
-  - andrew6rant
-  - SolidBlock-cn
-  - modmuss50
-  - daomephsta
-  - liach
-  - telepathicgrunt
-  - 2xsaiko
-  - natanfudge
-  - mkpoli
-  - falseresync
+  - Andrew6rant
   - asiekierka
+  - Daomephsta
+  - dblsaiko
+  - falseresync
+  - IMB11
+  - liach
+  - mkpoli
+  - modmuss50
+  - natanfudge
+  - SolidBlock-cn
+  - TelepathicGrunt
 authors-nogithub:
   - siglong
-
 search: false
 ---
 
@@ -26,7 +25,7 @@ search: false
 
 为 Minecraft 1.20.4 开发模组需要 JDK 17。
 
-如果需要安装 Java 方面的帮助，可以参考[玩家指南部分](../../players/index)中的各种 Java 安装指南。
+如果需要安装 Java 方面的帮助，可以参考[玩家指南部分](../../players/)中的各种 Java 安装指南。
 
 ## 安装 IntelliJ IDEA {#installing-intellij-idea}
 

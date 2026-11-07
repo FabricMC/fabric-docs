@@ -62,7 +62,7 @@ Keine der beiden Optionen ist perfekt, und du musst die Ergebnisse weiterhin üb
 
 In der Vergangenheit hat die Minecraft: Java Edition Verschleierung eingesetzt, was zur Entwicklung von Verschleierungskarten geführt hat, die Fabric Loom für Modding verwendet. Es gab zwei Möglichkeiten: entweder die Fabric-eigenen Yarn-Mappings oder die offiziellen Mojang-Mappings.
 
-Mojang hat kürzlich [die erste Version von Minecraft: Java Edition mit nicht verschleiertem Code](https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition) veröffentlicht, und das Fabric-Projekt hat beschlossen, [die Pflege von Drittanbieter-Mappings](https://fabricmc.net/ 2025/10/31/obfuscation.html) ab dieser Version nicht mehr weiterzuentwickeln. Wenn du vorhast, deinen Mod auf diese Version zu aktualisieren, musst du vor dem Update zunächst zu Mojangs Mappings wechseln.
+Mojang hat kürzlich [die erste Version von Minecraft: Java Edition mit nicht verschleiertem Code](https://www.minecraft.net/en-us/article/removing-obfuscation-in-java-edition) veröffentlicht, und das Fabric-Projekt hat beschlossen, [die Pflege von Drittanbieter-Mappings](https://fabricmc.net/2025/10/31/obfuscation.html) ab dieser Version nicht mehr weiterzuentwickeln. Wenn du vorhast, deinen Mod auf diese Version zu aktualisieren, musst du vor dem Update zunächst zu Mojangs Mappings wechseln.
 
 ## Was sind Mappings? {#mappings}
 

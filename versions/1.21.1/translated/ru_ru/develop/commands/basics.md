@@ -2,18 +2,18 @@
 title: Создание команд
 description: Создавайте команды со сложными аргументами и действиями.
 authors:
+  - Atakku
   - dicedpixels
+  - haykam821
   - i509VCB
-  - pyrofab
-  - natanfudge
   - Juuxel
-  - solidblock
   - modmuss50
-  - technici4n
-  - atakku
-  - haykam
   - mschae23
-  - treeways
+  - natanfudge
+  - Pyrofab
+  - SolidBlock-cn
+  - Technici4n
+  - Treeways
   - xpple
 ---
 

@@ -3,12 +3,12 @@ title: Генерація досягнень
 description: Посібник із налаштування генерації досягнень за допомогою datagen.
 authors:
   - CelDaemon
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

@@ -4,12 +4,12 @@ description: Посібник із налаштування генерації �
 authors:
   - cassiancc
   - CelDaemon
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

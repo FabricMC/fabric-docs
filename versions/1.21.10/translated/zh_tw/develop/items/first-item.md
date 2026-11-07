@@ -5,7 +5,7 @@ authors:
   - dicedpixels
   - Earthcomputer
   - IMB11
-  - RaphProductions
+  - raphm4044
 ---
 
 本頁面將向你介紹一些與物品相關的重要概念，以及如何登錄物品、設定紋理、建立模型及命名物品。

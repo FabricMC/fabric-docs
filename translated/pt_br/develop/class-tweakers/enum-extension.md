@@ -12,7 +12,7 @@ authors:
 
 Extensão de Enum é um recurso do Mixin que pode confiavelmente adicionar novas entradas a um Enum.
 
-Ao ter Enums do Minecraft como alvo, você pode usar Mixins com [modificadores de classes](../class-tweakers) para exibir novas entradas de Enum no código-fonte descompilado. Se isso for configurado para ser [transitivo](../class-tweakers/index#transitive-entries), mods que dependem do seu também verão as entradas adicionadas.
+Ao ter Enums do Minecraft como alvo, você pode usar Mixins com [modificadores de classes](./) para exibir novas entradas de Enum no código-fonte descompilado. Se isso for configurado para ser [transitivo](./#transitive-entries), mods que dependem do seu também verão as entradas adicionadas.
 
 ::: warning
 
@@ -76,7 +76,7 @@ Agora você pode ter certeza que `currentEnumOrdinal()` retornará o índice cor
 
 Se você está tendo como alvo um Enum do Minecraft, você pode usar uma entrada de modificador de classe para visivelmente modificar o Enum alvo no código-fonte descompilado.
 
-Para optar usar esse recurso, lembre-se de usar Loom 1.16 ou superior e de definir a [versão do cabeçalho do arquivo](../class-tweakers/index#file-format) para `v2`.
+Para optar usar esse recurso, lembre-se de usar Loom 1.16 ou superior e de definir a [versão do cabeçalho do arquivo](./#file-format) para `v2`.
 
 A sintaxe para uma entrada de extensão de Enum é:
 
@@ -97,7 +97,7 @@ Tenha certeza de reabrir qualquer classe-alvo do código-fonte descompilado para
 
 ::: tip
 
-Se as modificações não aparecem, você pode tentar [validar o arquivo](../class-tweakers/index#validating-the-file) e checar se algum erro aparece.
+Se as modificações não aparecem, você pode tentar [validar o arquivo](./#validating-the-file) e checar se algum erro aparece.
 
 :::
 

@@ -3,8 +3,8 @@ title: Creare un Progetto
 description: Una guida passo per passo su come creare un nuovo progetto per una mod con il generatore di mod modello di Fabric.
 authors:
   - Cactooz
+  - evelynmeowww
   - IMB11
-  - radstevee
 ---
 
 Fabric offre un modo facile per creare un nuovo progetto per una mod attraverso il Generatore di Mod Modello di Fabric - se vuoi, puoi creare un nuovo progetto manualmente usando la repository della mod esempio, dovresti riferirti alla sezione [Creazione Manuale del Progetto](#creazione-manuale-del-progetto).

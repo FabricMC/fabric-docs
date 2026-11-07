@@ -18,4 +18,4 @@ features:
     linkText: Commencer
 ---
 
-Si vous voulez contribuer à la documentation de Fabric, vous pouvez retrouver son code source sur [GitHub](https://github.com/FabricMC/fabric-docs) ainsi que son [guide de contribution](./contributing).
+Si vous voulez contribuer à la documentation de Fabric, vous pouvez retrouver son code source sur [GitHub](https://github.com/FabricMC/fabric-docs) ainsi que son [guide de contribution](./../contributing).

@@ -2,21 +2,20 @@
 title: Entwicklungsumgebung einrichten
 description: Ein Schritt-für-Schritt-Leitfaden, wie man eine Entwicklungsumgebung für die Erstellung von Mods mit Fabric einrichtet.
 authors:
-  - IMB11
-  - andrew6rant
-  - SolidBlock-cn
-  - modmuss50
-  - daomephsta
-  - liach
-  - telepathicgrunt
-  - 2xsaiko
-  - natanfudge
-  - mkpoli
-  - falseresync
+  - Andrew6rant
   - asiekierka
+  - Daomephsta
+  - dblsaiko
+  - falseresync
+  - IMB11
+  - liach
+  - mkpoli
+  - modmuss50
+  - natanfudge
+  - SolidBlock-cn
+  - TelepathicGrunt
 authors-nogithub:
   - siglong
-
 search: false
 ---
 
@@ -26,7 +25,7 @@ Um mit der Entwicklung von Mods mit Fabric zu beginnen, musst du eine Entwicklun
 
 Um Mods für Minecraft 1.20.4 zu entwickeln, benötigst du eine JDK 17.
 
-Wenn du Hilfe bei der Installation von Java benötigst, kannst du die verschiedenen Java-Installationsanleitungen im Abschnitt [Leitfäden für Spieler](../../players/index) nachlesen.
+Wenn du Hilfe bei der Installation von Java benötigst, kannst du die verschiedenen Java-Installationsanleitungen im Abschnitt [Leitfäden für Spieler](../../players/) nachlesen.
 
 ## IntelliJ IDEA installieren
 

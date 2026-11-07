@@ -4,12 +4,12 @@ description: 使用数据生成设置翻译生成的指南。
 authors:
   - CelDaemon
   - IMB11
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
   - sjk1949
 ---
 

@@ -3,9 +3,9 @@ title: Tränke
 description: Lerne, wie man neue Tränke für verschiedene Statuseffekte hinzufügt.
 authors:
   - dicedpixels
-  - PandoricaVi
   - Drakonkinst
   - JaaiDead
+  - PandoricaVi
 ---
 
 Tränke sind Verbrauchsmaterialien, die Entitäten Statuseffekte geben können. Spieler können Tränke mit einem Braustand brauen oder durch andere Spielmechaniken erhalten.

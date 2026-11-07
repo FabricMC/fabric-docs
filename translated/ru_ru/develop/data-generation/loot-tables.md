@@ -2,15 +2,15 @@
 title: Генерация таблиц добычи
 description: Руководство по настройке генерации таблицы добычи с помощью datagen.
 authors:
-  - Alphagamer47
   - CelDaemon
   - JustinHuPrime
+  - LunarTremor
+  - MarcusElg
   - matthewperiut
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

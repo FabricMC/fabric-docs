@@ -2,8 +2,8 @@
 title: Conceptos Básicos de Renderización
 description: Aprende sobre los conceptos básicos de renderización usando el motor de renderización de Minecraft.
 authors:
-  - IMB11
   - "0x3C50"
+  - IMB11
 
 search: false
 ---
@@ -98,7 +98,7 @@ Es más facil explicar como escribir al `BufferBuilder` usando un ejemplo práct
 
 Vamos a dibujar vértices usando los siguientes puntos en el HUD (en orden):
 
-```txt
+```text
 (20, 20)
 (5, 40)
 (35, 40)

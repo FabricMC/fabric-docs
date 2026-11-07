@@ -2,20 +2,19 @@
 title: Eventi
 description: Una guida all'uso degli eventi forniti dall'API di Fabric.
 authors:
+  - Daomephsta
   - dicedpixels
-  - mkpoli
-  - daomephsta
-  - solidblock
-  - draylar
-  - jamieswhiteshirt
-  - PhoenixVX
+  - Draylar
+  - JamiesWhiteShirt
   - Juuxel
-  - YanisBft
   - liach
+  - mkpoli
   - natanfudge
+  - PhoenixVX
+  - SolidBlock-cn
+  - YanisBft
 authors-nogithub:
   - stormyfabric
-
 search: false
 ---
 

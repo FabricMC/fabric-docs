@@ -3,8 +3,8 @@ title: Pociones
 description: Aprende a agregar pociones personalizadas para varios efectos de estado.
 authors:
   - dicedpixels
-  - PandoricaVi
   - Drakonkinst
+  - PandoricaVi
 
 search: false
 ---

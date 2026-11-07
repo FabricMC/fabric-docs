@@ -39,7 +39,7 @@ IntelliJ IDEA を使用している場合は、ウィンドウの右上に起動
 
 Minecraft 実行構成の VM 引数に以下を追加することを忘れないでください：
 
-```:no-line-numbers
+```text:no-line-numbers
 -XX:+AllowEnhancedClassRedefinition
 ```
 
@@ -61,7 +61,7 @@ IntelliJ IDEA では、プロジェクトセクションの外部ライブラリ
 
 Minecraft Client または Minecraft Server の実行構成で、VM 引数オプションに以下を追加します：
 
-```:no-line-numbers
+```text:no-line-numbers
 -javaagent:"ここに Mixin ライブラリの Jar ファイルのパスを入力"
 ```
 

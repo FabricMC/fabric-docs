@@ -4,9 +4,9 @@ description: Der leichtgewichtige Mod-Loader, der das Fabric-Projekt antreibt.
 authors:
   - cassiancc
   - falseresync
-  - jamieswhiteshirt
+  - JamiesWhiteShirt
   - liach
-  - Llamalad7
+  - LlamaLad7
   - Maganoos
   - SolidBlock-cn
 resources:
@@ -83,4 +83,4 @@ Fabric Loader stellt die `MappingResolver`-API bereit, um die Namen von Klassen,
 FabricLoader.getInstance().getMappingResolver().mapClassName("intermediary", "net.minecraft.class_5421") // Resolves to `RecipeBookType` on named versions of 1.21.11
 ```
 
-Wenn der Fabric Loader in einer Nicht-Entwicklungsumgebung mit einem verschleierten Spiel gestartet wird, ordnet er die Spiel-JAR-Dateien [neu zu](../porting/mappings/index#mappings) und vergibt ihnen Zwischennamen. Mods, die für verschleierte Spiele entwickelt wurden, sollen auf Intermediary abgebildet werden, das mit dieser Umgebung kompatibel sein wird. Die neu zugeordneten JARs werden zwischengespeichert und unter `${gameDir}/.fabric/remappedJars/${minecraftVersion}` gespeichert, damit sie über Starts hinweg wiederverwendet werden können.
+Wenn der Fabric Loader in einer Nicht-Entwicklungsumgebung mit einem verschleierten Spiel gestartet wird, ordnet er die Spiel-JAR-Dateien [neu zu](../porting/mappings/#mappings) und vergibt ihnen Zwischennamen. Mods, die für verschleierte Spiele entwickelt wurden, sollen auf Intermediary abgebildet werden, das mit dieser Umgebung kompatibel sein wird. Die neu zugeordneten JARs werden zwischengespeichert und unter `${gameDir}/.fabric/remappedJars/${minecraftVersion}` gespeichert, damit sie über Starts hinweg wiederverwendet werden können.

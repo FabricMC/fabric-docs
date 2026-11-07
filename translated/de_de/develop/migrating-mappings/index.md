@@ -16,7 +16,6 @@ authors:
   - liach
   - MildestToucan
   - modmuss50
-  - modmuss50
   - Spinoscythe
   - UpcraftLP
 authors-nogithub:

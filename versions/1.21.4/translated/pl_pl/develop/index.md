@@ -7,4 +7,4 @@ Napisane przez społeczność przewodniki dla deweloperów, obejmują wszystko �
 
 Listę wszystkich dostępnych przewodników znajdziesz na pasku bocznym. Jeśli szukasz czegoś konkretnego, możesz skorzystać z paska wyszukiwania znajdującego się na górze strony.
 
-Jeśli chcesz przyczynić się do polepszenia dokumentacji Fabric to jej pełny kod źródłowy znajdziesz na [GitHubie](https://github.com/FabricMC/fabric-docs). Sprawdź również [wytyczne dotyczące współtworzenia](../contributing).
+Jeśli chcesz przyczynić się do polepszenia dokumentacji Fabric to jej pełny kod źródłowy znajdziesz na [GitHubie](https://github.com/FabricMC/fabric-docs). Sprawdź również [wytyczne dotyczące współtworzenia](../../contributing).

@@ -4,10 +4,9 @@ description: Інструкція з налаштування генерації
 authors:
   - CelDaemon
   - IMB11
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
-authors-nogithub:
-  - mcrafterzz
 ---
 
 <!---->

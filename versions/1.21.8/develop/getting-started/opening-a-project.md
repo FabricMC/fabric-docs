@@ -4,9 +4,9 @@ description: How to open a Minecraft mod project in your IDE.
 authors:
   - Cactooz
   - dicedpixels
+  - evelynmeowww
   - IMB11
   - its-miroma
-  - radstevee
   - Thomas1034
 outline: false
 ---

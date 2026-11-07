@@ -12,8 +12,8 @@ authors:
 
 Enum extension is a Mixin feature that can reliably add new entries to an enum.
 
-When targeting Minecraft enums, you can use mixins together with [class tweaking](../class-tweakers) to display new enum entries
-in the decompiled source. If that is set to be [transitive](../class-tweakers/index#transitive-entries), mods that depend on yours will also see your added entries.
+When targeting Minecraft enums, you can use mixins together with [class tweaking](./) to display new enum entries
+in the decompiled source. If that is set to be [transitive](./#transitive-entries), mods that depend on yours will also see your added entries.
 
 ::: warning
 
@@ -83,7 +83,7 @@ Now, you can stay assured that `currentEnumOrdinal()` will return the correct in
 
 If you are targeting a Minecraft enum, you can use a class tweaker entry to visibly modify the target enum in the decompiled source.
 
-To opt into this feature, remember to use Loom 1.16 or above, and to set the [file header version](../class-tweakers/index#file-format) to `v2`.
+To opt into this feature, remember to use Loom 1.16 or above, and to set the [file header version](./#file-format) to `v2`.
 
 The syntax for an enum extension entry is:
 
@@ -100,7 +100,7 @@ For example, the class tweaker entry for the `RecipeBookType` constant we added 
 ## Applying Changes {#applying-changes}
 
 You'll have to refresh your Gradle project and [regenerate sources](../getting-started/generating-sources) before you can see your added enum entries in the decompiled source.
-If modifications do not appear, you can try [validating](../class-tweakers/index#validating-the-file) the file and checking if any errors appear.
+If modifications do not appear, you can try [validating](./#validating-the-file) the file and checking if any errors appear.
 
 ::: info
 

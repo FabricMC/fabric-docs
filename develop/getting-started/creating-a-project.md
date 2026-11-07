@@ -3,8 +3,8 @@ title: Creating a Project
 description: A step-by-step guide on how to create a new mod project using the Fabric template mod generator.
 authors:
   - Cactooz
+  - evelynmeowww
   - IMB11
-  - radstevee
   - Thomas1034
 resources:
   https://fabricmc.net/develop/template/: Fabric Template Mod Generator
@@ -33,7 +33,7 @@ If you either want to use Kotlin, Kotlin buildscripts, or want to add data gener
 
 ::: info
 
-Code examples given on this site use [the names present in the unobfuscated game](../porting/mappings/#whats-going-on-with-mappings). If you have an existing mod that used mappings other than the ones provided by Mojang, please see our docs on [Porting to 26.1](../porting/index) for more information.
+Code examples given on this site use [the names present in the unobfuscated game](../porting/mappings/#whats-going-on-with-mappings). If you have an existing mod that used mappings other than the ones provided by Mojang, please see our docs on [Porting to 26.1](../porting/) for more information.
 
 :::
 

@@ -4,9 +4,9 @@ description: Легковесный загрузчик модов, на кото
 authors:
   - cassiancc
   - falseresync
-  - jamieswhiteshirt
+  - JamiesWhiteShirt
   - liach
-  - Llamalad7
+  - LlamaLad7
   - Maganoos
   - SolidBlock-cn
 resources:

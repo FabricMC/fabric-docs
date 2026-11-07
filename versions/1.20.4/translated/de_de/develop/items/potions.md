@@ -3,8 +3,8 @@ title: Tränke
 description: Lerne, wie man neue Tränke für verschiedene Statuseffekte hinzufügt.
 authors:
   - dicedpixels
-  - PandoricaVi
   - Drakonkinst
+  - PandoricaVi
 
 search: false
 ---

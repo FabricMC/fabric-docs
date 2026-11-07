@@ -3,9 +3,9 @@ title: Potions
 description: Learn how to add a custom potion for various mob effects.
 authors:
   - dicedpixels
-  - PandoricaVi
   - Drakonkinst
   - JaaiDead
+  - PandoricaVi
 
 search: false
 ---

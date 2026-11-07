@@ -6,7 +6,7 @@ authors:
   - dicedpixels
   - Earthcomputer
   - IMB11
-  - RaphProductions
+  - raphm4044
 ---
 
 Auf dieser Seite werden einige zentrale Konzepte im Zusammenhang mit Items vorgestellt und wie du diese registrieren, texturieren, modellieren und benennen kannst.

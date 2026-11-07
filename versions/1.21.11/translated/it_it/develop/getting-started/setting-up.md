@@ -2,10 +2,10 @@
 title: Impostare Il Tuo Ambiente Di Sviluppo
 description: Una guida passo per passo su come impostare un ambiente di sviluppo per creare mod usando Fabric.
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - dicedpixels
   - falseresync
   - IMB11
@@ -41,7 +41,7 @@ Per iniziare a sviluppare mod con Fabric, avrai bisogno d'impostare un ambiente 
 {
  name: 'Visual Studio Code',
  href: './vscode/setting-up',
- icon: 'codicon:vscode',
+ icon: 'simple-icons:visualstudiocode',
  color: '#007ACC',
 },
 ]" />

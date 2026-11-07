@@ -2,18 +2,18 @@
 title: Настройка среды разработки
 description: Пошаговое руководство по настройке среды разработки для создания модов с помощью Fabric.
 authors:
-  - IMB11
-  - andrew6rant
-  - SolidBlock-cn
-  - modmuss50
-  - daomephsta
-  - liach
-  - telepathicgrunt
-  - 2xsaiko
-  - natanfudge
-  - mkpoli
-  - falseresync
+  - Andrew6rant
   - asiekierka
+  - Daomephsta
+  - dblsaiko
+  - falseresync
+  - IMB11
+  - liach
+  - mkpoli
+  - modmuss50
+  - natanfudge
+  - SolidBlock-cn
+  - TelepathicGrunt
 authors-nogithub:
   - siglong
 ---
@@ -24,7 +24,7 @@ authors-nogithub:
 
 Для разработки модов для Minecraft 1.21.1 вам потребуется JDK 21.
 
-Если вам нужна помощь в установке Java, вы можете обратиться к различным руководствам по установке Java в [разделе руководств для игроков](../../players/index).
+Если вам нужна помощь в установке Java, вы можете обратиться к различным руководствам по установке Java в [разделе руководств для игроков](../../players/).
 
 ## Установка IntelliJ IDEA {#installing-intellij-idea}
 

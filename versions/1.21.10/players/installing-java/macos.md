@@ -21,7 +21,7 @@ $(/usr/libexec/java_home -v 21)/bin/java --version
 
 You should see something like the following:
 
-```:no-line-numbers
+```text:no-line-numbers
 openjdk 21.0.9 2025-10-21 LTS
 OpenJDK Runtime Environment Temurin-21.0.9+10 (build 21.0.9+10-LTS)
 OpenJDK 64-Bit Server VM Temurin-21.0.9+10 (build 21.0.9+10-LTS, mixed mode, sharing)
@@ -70,7 +70,7 @@ Once the installation is complete, you can verify that Java 21 is active by open
 
 If the command succeeds, you should see something like this:
 
-```:no-line-numbers
+```text:no-line-numbers
 openjdk 21.0.9 2025-10-21 LTS
 OpenJDK Runtime Environment Temurin-21.0.9+10 (build 21.0.9+10-LTS)
 OpenJDK 64-Bit Server VM Temurin-21.0.9+10 (build 21.0.9+10-LTS, mixed mode, sharing)
