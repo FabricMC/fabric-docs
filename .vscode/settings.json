@@ -11,6 +11,6 @@
     "*": "public/assets/${documentRelativeDirName}/${documentBaseName}/${fileName}"
   },
   "markdown.validate.enabled": true,
-  "sarif-viewer.connectToGithubCodeScanning": "off",
-  "stylelint.validate": ["css", "vue"]
+  "stylelint.validate": ["css", "vue"],
+  "vue.server.includeLanguages": ["vue", "markdown"]
 }
