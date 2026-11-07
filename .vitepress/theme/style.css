@@ -1,173 +1,343 @@
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 800;
-  src: url(@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2)
-    format("woff2-variations");
-}
-
 :root {
-  --vp-c-blue-1: #1662c5;
-  --vp-c-blue-2: #2275da;
-  --vp-c-blue-3: #5c9de4;
-  --vp-c-blue-soft: rgba(52, 130, 219, 0.14);
-
+  --vp-c-blue-1: rgb(22 98 197);
+  --vp-c-blue-2: rgb(34 117 218);
+  --vp-c-blue-3: rgb(92 157 228);
+  --vp-c-blue-soft: rgb(52 130 219 / 14%);
   --vp-c-brand-1: var(--vp-c-blue-3);
   --vp-c-brand-2: var(--vp-c-blue-2);
   --vp-c-brand-3: var(--vp-c-blue-1);
   --vp-c-brand-soft: var(--vp-c-blue-soft);
-
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #3463fe 30%, #4787ff);
-
+  --vp-home-hero-name-background: linear-gradient(120deg, rgb(52 99 254) 30%, rgb(71 135 255));
   --font-family-base:
-    "Inter", ui-sans-serif, system-ui, sans-serif, "Noto Color Emoji", "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
+    "Inter", -apple-system, blinkmacsystemfont, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
   --vp-font-family-base: var(--font-family-base);
   --vp-font-family-mono:
     "JetBrains Mono", ui-monospace, "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New",
     monospace;
-}
+  --vp-layout-max-width: 100rem;
+  --media-border-radius: 0.5rem;
 
-:root:where(:lang(zh)) {
-  --vp-font-family-base: "Punctuation SC", var(--font-family-base);
-}
-
-:root:not(.dark) .dark-only,
-:root:is(.dark) .light-only {
-  display: none;
-}
-
-*,
-*::-webkit-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: var(--vp-c-gray-1) transparent;
-}
-
-html:has(dialog#fullscreen[open], div.VPLocalSearchBox) {
   scrollbar-gutter: stable;
-  overflow: hidden;
+
+  &:not(.dark) .dark-only,
+  &:is(.dark) .light-only {
+    display: none;
+  }
+}
+
+[lang]:where(:lang(zh-Hant)) {
+  --vp-font-family-base:
+    "Inter Core", "PingFang TC", "Microsoft JhengHei", "Noto Sans CJK TC", var(--font-family-base);
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 100 800;
+  font-style: normal;
+
+  font-display: swap;
+  src: url("@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2")
+    format("woff2-variations");
+}
+
+@keyframes show {
+  100% {
+    transform: none;
+    opacity: 100%;
+  }
 }
 
 ::view-transition-group(code-block-view-transition) {
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 0.75rem;
 }
 
 ::view-transition-group(root) {
   animation: none;
 }
 
-code,
-pre {
-  tab-size: 2 !important;
-  font-variant-ligatures: none;
+*,
+*::-webkit-scrollbar {
+  scrollbar-color: var(--vp-c-gray-1) transparent;
+  scrollbar-width: thin;
 }
 
-div[class*="language-"] button.copy.fullscreen {
-  background-image: unset;
-
-  svg {
-    margin: auto;
-    color: #808080;
+body {
+  &:has(dialog#fullscreen[open]) {
+    overflow: hidden;
   }
 
-  + button.copy {
-    right: 64px;
+  .VPLocalSearchBox {
+    .backdrop {
+      opacity: 0%;
+      animation: show 150ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
+    }
+
+    .shell {
+      transform-origin: top center;
+      transform: rotateX(-90deg);
+      opacity: 0%;
+      animation: show 250ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
+    }
   }
-}
 
-/* Description at the top of pages */
-p[role="doc-subtitle"] {
-  margin-block: 1rem;
-  font-style: italic;
-  font-size: 0.8rem;
-  line-height: 1.5;
-  text-align: left;
-  text-wrap: balance;
-  color: var(--vp-c-text-3);
-}
+  .medium-zoom-overlay {
+    z-index: 10000;
+  }
 
-body:has(.VPFooter:not(.has-sidebar)) .aside-container {
-  padding-bottom: 64px;
-}
-
-@media (min-width: 1525px) {
-  .aside-container,
-  .aside-curtain {
-    width: 300px !important;
+  .medium-zoom-image--opened {
+    z-index: 10001;
+    margin-inline: auto;
+    border-radius: var(--media-border-radius);
+    box-shadow: 0 4px 10px rgb(136 136 136 / 20%);
   }
 }
 
-.VPHome {
-  margin-bottom: 0 !important;
+.Layout {
+  .VPNav .VPNavBar {
+    .divider {
+      padding-left: revert;
+    }
 
+    .divider::before,
+    .content-body > *::before {
+      content: none;
+    }
+
+    .VPSwitchAppearance:not(.VPNavBarExtra *) {
+      margin: 0 0.75rem;
+    }
+  }
+
+  .VPSidebar .VPSidebarItem.level-0 {
+    &.collapsible.has-active * {
+      color: var(--vp-c-text-1);
+    }
+
+    &:not(.collapsible) {
+      > .item .text {
+        margin-block: 1.25rem;
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid var(--vp-c-divider);
+
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05rem;
+      }
+
+      .level-1 {
+        margin-bottom: 0.5rem;
+
+        > .item .text {
+          padding-inline: 0.5rem;
+          font-weight: bold;
+          color: var(--vp-c-text-1);
+        }
+
+        &.has-active * {
+          color: var(--vp-c-text-1);
+        }
+      }
+    }
+  }
+
+  .VPContent {
+    .VPDoc .content-container {
+      max-width: revert;
+    }
+
+    .VPHome {
+      margin-bottom: 0;
+    }
+
+    .aside-container {
+      &:is(:not(.has-sidebar) *) {
+        padding-bottom: 7rem;
+      }
+
+      .content {
+        padding-left: revert;
+        border-left: revert;
+
+        .outline-title {
+          font-size: 0.75rem;
+          font-weight: bold;
+          color: var(--vp-c-text-2);
+          text-transform: uppercase;
+          letter-spacing: 0.05rem;
+        }
+
+        .VPDocOutlineItem {
+          padding-left: 1rem;
+          border-left: 1px solid var(--vp-c-divider);
+        }
+      }
+    }
+  }
+
+  @media (width >= 60rem) {
+    --sidebar-width: max(
+      calc((100% - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width)),
+      var(--vp-sidebar-width)
+    );
+
+    .VPSidebar {
+      top: calc(var(--vp-nav-height) + var(--vp-layout-top-height, 0));
+      width: var(--sidebar-width);
+      padding-top: revert;
+    }
+
+    .VPContent.has-sidebar {
+      padding-left: var(--sidebar-width);
+    }
+  }
+}
+
+.vp-doc {
+  /* Description at the top of pages */
+  p[role="doc-subtitle"],
   p.tagline {
+    margin-block: 1rem;
+
+    font-size: 0.8rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--vp-c-text-3);
+    text-align: left;
     text-wrap: balance;
   }
-}
 
-.VPLocalSearchBox > .backdrop {
-  opacity: 0;
-  animation: show 150ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
-}
-
-.VPLocalSearchBox > .shell {
-  animation: show 250ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
-  opacity: 0;
-  transform: rotateX(-90deg);
-  transform-origin: top center;
-}
-
-@keyframes show {
-  100% {
-    opacity: 1;
-    transform: none;
+  /* Remove border from headings if that's the first thing in the page */
+  hgroup + :is(h2, h3, h4, h5, h6) {
+    margin-top: 0;
+    border-top: none;
   }
-}
 
-.medium-zoom-overlay {
-  z-index: 10000;
-}
+  div[class*="language-"] {
+    :is(code, pre) {
+      font-variant-ligatures: none;
+      tab-size: 2;
+    }
 
-.medium-zoom-image--opened {
-  z-index: 10001;
-}
+    button.fullscreen {
+      cursor: pointer;
 
-kbd:not(.DocSearch-Button-Key) {
-  background-color: #eee !important;
-  border-radius: 3px;
-  border: 1px solid #b4b4b4;
-  box-shadow:
-    0 1px 1px rgba(0, 0, 0, 0.2),
-    0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
-  color: #333;
-  display: inline-block;
-  font-size: 0.85em;
-  font-weight: 700;
-  line-height: 1;
-  padding: 5px;
-  white-space: nowrap;
-}
+      position: absolute;
+      z-index: 3;
+      top: 0.75rem;
+      right: 0.75rem;
 
-.vp-doc > p > img,
-.vp-doc > div > p > img,
-.medium-zoom-image--opened {
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 4px 10px #8883;
-  border-radius: 8px;
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-h1 > .VPBadge {
-  font-family: var(--vp-font-family-mono);
-  padding: 5px 12px;
-  border-radius: 8px;
-}
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 1px solid var(--vp-code-copy-code-border-color);
+      border-radius: 0.25rem;
 
-/* Remove border from headings if that's the first thing in the page */
-:is(hgroup) + :is(h1, h2, h3, h4, h5, h6) {
-  margin-top: 0;
-  border-top: none;
+      color: var(--vp-code-copy-code-active-text);
+
+      opacity: 0%;
+      background-color: var(--vp-code-copy-code-bg);
+
+      transition:
+        border-color 0.25s,
+        opacity 0.25s,
+        background-color 0.25s;
+
+      span {
+        font-size: 1.25rem;
+      }
+
+      + button.copy {
+        right: 4rem;
+      }
+    }
+
+    &:hover button.fullscreen,
+    button.fullscreen:focus {
+      opacity: 100%;
+    }
+
+    button.fullscreen:hover {
+      border-color: var(--vp-code-copy-code-hover-border-color);
+      background-color: var(--vp-code-copy-code-hover-bg);
+    }
+  }
+
+  p:has(> a[download]) {
+    position: relative;
+    display: flow-root;
+    width: fit-content;
+    margin-inline: auto;
+
+    /* TODO: drop :not(.VPButton) once DownloadEntry is removed */
+    a[download]:not(.VPButton) {
+      position: absolute;
+      z-index: 3;
+      top: 1.5rem;
+      right: 0.5rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 1px solid var(--vp-code-copy-code-border-color);
+      border-radius: 0.25rem;
+
+      opacity: 50%;
+      background-color: var(--vp-code-copy-code-bg);
+
+      transition:
+        border-color 0.25s,
+        opacity 0.25s,
+        background-color 0.25s;
+
+      &:hover,
+      &:focus {
+        border-color: var(--vp-code-copy-code-hover-border-color);
+        opacity: 100%;
+        background-color: var(--vp-code-copy-code-hover-bg);
+      }
+
+      &:not([href]) {
+        cursor: not-allowed;
+      }
+
+      [class^="vpi-"] {
+        font-size: 1.25rem;
+        color: var(--vp-code-copy-code-active-text);
+      }
+    }
+  }
+
+  kbd {
+    display: inline-block;
+
+    min-width: 1.5rem;
+    padding: 0.3rem;
+    border: 1px solid rgb(128 128 128 / 15%);
+    border-radius: 0.25rem;
+
+    font-size: 0.85rem;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    background: rgb(128 128 128 / 10%);
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 10%);
+  }
+
+  p > img {
+    margin-inline: auto;
+    border-radius: var(--media-border-radius);
+    box-shadow: 0 4px 10px rgb(136 136 136 / 20%);
+  }
 }

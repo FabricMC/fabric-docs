@@ -41,7 +41,7 @@ For example, let's use the `MODIFY` event to make killing a white sheep with a d
 
 Effects of the above example:
 
-<VideoPlayer src="/assets/develop/events/modify_event_example.webm">Modify Event Example</VideoPlayer>
+![Modify Event Example](/assets/develop/events/modify_event_example.webm)
 
 ## Replacing Loot Tables {#replacing-loot-tables}
 
@@ -63,7 +63,7 @@ Always return `null` if you are not replacing a loot table. Returning the origin
 
 Effects of the above example:
 
-<VideoPlayer src="/assets/develop/events/replace_event_example.webm">Replace Event Example</VideoPlayer>
+![Replace Event Example](/assets/develop/events/replace_event_example.webm)
 
 ## Modifying Loot Table Drops {#modifying-loot-table-drops}
 
@@ -88,7 +88,7 @@ For example, let's use the `MODIFY_DROPS` event to make breaking a stone block d
 
 Effects of the above example:
 
-<VideoPlayer src="/assets/develop/events/modify_drops_event_example.webm">Modify Drops Event Example</VideoPlayer>
+![Modify Drops Event Example](/assets/develop/events/modify_drops_event_example.webm)
 
 ## Loot Table Post-Processing {#loot-table-post-processing}
 

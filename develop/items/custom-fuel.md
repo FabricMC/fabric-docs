@@ -26,4 +26,4 @@ As usual, don't forget to add a texture, translation, creative tab, yada yada. H
 
 Here's how it looks like when used as fuel in the furnace:
 
-<VideoPlayer src="/assets/develop/items/fuel_in_furnace.webm">Using Quark-Gluon Plasma as Fuel</VideoPlayer>
+![Using Quark-Gluon Plasma as Fuel](/assets/develop/items/fuel_in_furnace.webm)

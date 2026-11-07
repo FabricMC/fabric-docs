@@ -1,8 +1,23 @@
-import { DefaultTheme, UserConfig } from "vitepress";
-import { Versioned } from "vitepress-versioning-plugin";
+import { SiteConfig, SiteData, UserConfig } from "vitepress";
+import { Versioned } from "@fabricmc/vitepress-versioning-plugin";
+import { ALL_VERSIONS, LATEST_VERSION } from "./constants.ts";
 
-export namespace Fabric {
-  export interface AuthorsOptions {
+export interface Translations {
+  sidebar: typeof import("../sidebar_translations.json");
+  website: typeof import("../website_translations.json");
+}
+
+export type SidebarItem =
+  | string
+  | (Omit<Versioned.SidebarItem, "text" | "link" | "base" | "items">
+      & (
+        | { text: string; base?: never; link?: never; items: SidebarItem[] }
+        | { text?: never; base?: string; link: string; items?: SidebarItem[] }
+        | { text?: never; base: string; link?: never; items: SidebarItem[] }
+      ));
+
+export interface ThemeConfig extends Versioned.ThemeConfig {
+  authors: {
     /**
      * @default "Page Authors"
      */
@@ -12,9 +27,9 @@ export namespace Fabric {
      * @default "%s (not from GitHub)"
      */
     noGitHub: string;
-  }
+  };
 
-  export interface BannerOptions {
+  banner: {
     local: {
       /**
        * @default "This is a local build"
@@ -38,19 +53,9 @@ export namespace Fabric {
        */
       link: string;
     };
-  }
+  };
 
-  export interface CodeOptions {
-    /**
-     * @default "Copied"
-     */
-    copied: string;
-
-    /**
-     * @default "Copy Code"
-     */
-    copy: string;
-
+  code: {
     /**
      * @default "Full Screen"
      */
@@ -65,73 +70,50 @@ export namespace Fabric {
      * @default "Toggle Wrap Code"
      */
     wrap: string;
-  }
+  };
 
-  export interface DownloadOptions {
-    /**
-     * Set custom text for download button.
-     *
-     * @default "Download %s"
-     */
-    text: string;
-  }
+  /**
+   * @deprecated TODO: drop once DownloadEntry is removed
+   */
+  download: unknown;
 
-  export type EnvOptions = "build" | "dev" | "github" | number;
+  env: typeof import("./constants.ts").ENV;
 
-  export interface NotFoundOptions {
+  notFound: {
     /**
      * @default "404"
      */
     code: string;
 
     /**
-     * Set aria label for Crowdin link.
-     *
      * @default "Open the Crowdin editor"
      */
     crowdinLinkLabel: string;
 
     /**
-     * Set custom Crowdin link text.
-     *
      * @default "Localize on Crowdin"
      */
     crowdinLinkText: string;
 
     /**
-     * Set aria label for English link.
-     *
      * @default "Open the English version"
      */
     englishLinkLabel: string;
 
     /**
-     * Set custom English link text.
-     *
      * @default "Read in English"
      */
     englishLinkText: string;
 
     /**
-     * Set aria label for home link.
-     *
      * @default "Go to the home page"
      */
     linkLabel: string;
 
     /**
-     * Set custom home link text.
-     *
      * @default "Take Me Home"
      */
     linkText: string;
-
-    /**
-     * Set custom not found description.
-     *
-     * @default "This page got tangled in the yarn"
-     */
-    quote: string;
 
     /**
      * The possible different quotes.
@@ -139,21 +121,17 @@ export namespace Fabric {
     quotes: string[];
 
     /**
-     * Set custom not found message.
-     *
      * @default "Page not found"
      */
     title: string;
 
     /**
-     * Special not found message.
-     *
      * @default "Page knot found"
      */
     pooh: string;
-  }
+  };
 
-  export interface ReferencesOptions {
+  references: {
     /**
      * @default "Files Referenced"
      */
@@ -163,59 +141,56 @@ export namespace Fabric {
      * @default "Sources & Resources"
      */
     resources: string;
+  };
+
+  sidebar: Record<string, SidebarItem[]>;
+
+  version: {
+    allVersions: typeof ALL_VERSIONS;
+    latestVersion: typeof LATEST_VERSION;
+
+    /**
+     * @default "Minecraft %s"
+     */
+    switcherLabel: string;
+
+    /**
+     * @default "Select Version"
+     */
+    switcherTitle: string;
+
+    /**
+     * @default "No other versions"
+     */
+    noOtherVersions: string;
+  };
+
+  video: {
+    /**
+     * @default "Warning"
+     */
+    title: string;
+
+    /**
+     * @default "This video contains flashing lights."
+     */
+    description: string;
+
+    /**
+     * @default "Proceed"
+     */
+    button: string;
+  };
+}
+
+export type Config = UserConfig<ThemeConfig> & Versioned.Config;
+
+declare global {
+  var VITEPRESS_CONFIG: SiteConfig<ThemeConfig>;
+
+  interface Window {
+    __FD_PAGE_VERSIONS__?: Record<string, string[]>;
+    __VP_HASH_MAP__?: Record<string, string>;
+    __VP_SITE_DATA__?: SiteData<ThemeConfig>;
   }
-
-  export interface VersionOptions {
-    reminder: {
-      /**
-       * @default "This page is written for version **%s**.\nDocumentation for older versions may be incomplete."
-       */
-      oldVersion: string;
-
-      /**
-       * @default "This documentation applies to Minecraft **%s**.\n\nDocumentation for older versions may be incomplete. If you are looking for a different version, please select it from the dropdown on the navigation bar."
-       */
-      oldVersionHome: string;
-
-      /**
-       * @default "This page is written for version **%s**.\nDocumentation for unreleased versions may be incomplete."
-       */
-      futureVersion: string;
-    };
-
-    switcher: {
-      /**
-       * @default "Minecraft %s"
-       */
-      label: string;
-
-      /**
-       * @default "No other versions"
-       */
-      none: string;
-    };
-  }
-
-  export interface SidebarItem extends Versioned.SidebarItem {
-    text: string;
-    items?: SidebarItem[];
-  }
-
-  export interface Sidebar extends DefaultTheme.SidebarMulti {
-    [path: string]: SidebarItem[];
-  }
-
-  export interface ThemeConfig extends Versioned.ThemeConfig {
-    authors: AuthorsOptions;
-    banner: BannerOptions;
-    code: CodeOptions;
-    download: DownloadOptions;
-    env: EnvOptions;
-    notFound: NotFoundOptions;
-    references: ReferencesOptions;
-    sidebar: Sidebar;
-    version: VersionOptions;
-  }
-
-  export type Config = UserConfig<ThemeConfig> & Versioned.Config;
 }

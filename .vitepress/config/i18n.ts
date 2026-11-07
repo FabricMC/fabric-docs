@@ -1,65 +1,95 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
-import * as tinyglobby from "tinyglobby";
-import Develop from "../sidebars/develop";
-import Players from "../sidebars/players";
-import { Fabric } from "../types.d";
+import { AT, LOCALES } from "../constants.ts";
+import { DEVELOP_SIDEBAR } from "../sidebars/develop.ts";
+import { PLAYERS_SIDEBAR } from "../sidebars/players.ts";
+import type { Config, SidebarItem, ThemeConfig, Translations } from "../types.d.ts";
 
-export const getLocaleNames = (translatedDir: string) => [
-  "en_us",
-  ...tinyglobby
-    .globSync(`${translatedDir}/*`, { onlyDirectories: true })
-    .filter((f) => fs.existsSync(path.resolve(f, "index.md")))
-    .map((f) => path.relative(translatedDir, f)),
-];
+const translationFileCache = new Map<string, Record<string, any>>();
+const readTranslationFile = <T extends Record<string, any>>(file: string, locale: string): T => {
+  const filePath = path.join(AT, "translated", locale === "en_us" ? ".." : locale, file);
+  if (!translationFileCache.has(filePath)) {
+    try {
+      translationFileCache.set(filePath, JSON.parse(fs.readFileSync(filePath, "utf-8")));
+    } catch {
+      return {} as T;
+    }
+  }
 
-const translated = path.resolve(import.meta.dirname, "..", "..", "translated");
-const locales = getLocaleNames(translated);
+  return translationFileCache.get(filePath) as T;
+};
 
-export const getResolver = (file: string, locale: string, warn = true): ((k: string) => string) => {
-  const filePath = path.resolve(translated, locale === "en_us" ? ".." : locale, file);
+type Resolver<T extends Record<string, any>> = <K extends string & keyof T>(k: K) => T[K];
+const getResolver = <T extends Record<string, any>>(file: string, locale: string): Resolver<T> => {
+  const strings = readTranslationFile<T>(file, locale);
+  const fallback = readTranslationFile<T>(file, "en_us");
 
-  const strings: Record<string, string> = fs.existsSync(filePath)
-    ? JSON.parse(fs.readFileSync(filePath, "utf-8"))
-    : {};
+  return (k) => strings[k] || fallback[k];
+};
 
-  if (warn && locale === "en_us") {
-    for (const fileK of Object.keys(strings)) {
-      if (!/^([/][/])?[a-z0-9_.]*$/.test(fileK)) {
-        console.warn(`${file}: unusual character in key: ${fileK}`);
+export const getWebsiteResolver = (locale: string): Resolver<Translations["website"]> => {
+  const file = "website_translations.json";
+  const resolver = getResolver<Translations["website"]>(file, locale);
+
+  if (locale === "en_us") {
+    for (const k of Object.keys(readTranslationFile(file, locale))) {
+      if (!/^([/][/])?[a-z0-9_.]*$/.test(k)) {
+        console.warn(`${file}: unusual character in key '${k}'`);
       }
     }
   }
 
-  return (k) => strings[k] || (locale === "en_us" ? k : getResolver(file, "en_us", false)(k));
+  return (k) => {
+    const returned = resolver(k);
+
+    if (locale === "en_us" && !returned) {
+      console.warn(`${file}: missing translation for key '${k}'`);
+    }
+
+    return returned;
+  };
 };
 
 export const getSidebar = (locale: string) => {
-  const returned: Fabric.Sidebar = {};
-  const resolver = getResolver("sidebar_translations.json", locale);
+  const returned: ThemeConfig["sidebar"] = {};
 
-  const normalizeSidebar = (sidebar: Fabric.SidebarItem[]) => {
-    const returned: Fabric.SidebarItem[] = JSON.parse(JSON.stringify(sidebar));
+  const file = "sidebar_translations.json";
+  const resolver = getResolver<Translations["sidebar"]>(file, locale);
 
-    for (const item of returned) {
-      item.text = resolver(item.text);
-      if (item.items) item.items = normalizeSidebar(item.items);
-      if (locale !== "en_us" && item.link?.startsWith("/")) {
-        item.link = `/${locale}${item.link}`;
+  const localePrefix = locale === "en_us" ? "" : `/${locale}`;
+
+  const normalizeSidebar = (sidebar: SidebarItem[], base = "") => {
+    const returned = (JSON.parse(JSON.stringify(sidebar)) as SidebarItem[]) //
+      .map((i) => (typeof i === "string" ? { link: i } : i));
+
+    for (const i of returned) {
+      const k = i.text || `${i.base || base}${i.link || ""}`;
+
+      // @ts-expect-error
+      i.text = resolver(k) || (i.link && k.endsWith("/") ? resolver("introduction") : "");
+
+      if (locale === "en_us" && !i.text) {
+        console.warn(`${file}: missing translation for key '${k}'`);
       }
+
+      if (i.items) {
+        i.items = normalizeSidebar(i.items, i.base || base);
+      }
+
+      i.base = `${localePrefix}${i.base || base}`;
     }
 
     return returned;
   };
 
-  returned[`${locale === "en_us" ? "" : `/${locale}`}/develop/`] = normalizeSidebar(Develop);
-  returned[`${locale === "en_us" ? "" : `/${locale}`}/players/`] = normalizeSidebar(Players);
+  returned[`${localePrefix}/develop/`] = normalizeSidebar([DEVELOP_SIDEBAR]);
+  returned[`${localePrefix}/players/`] = normalizeSidebar([PLAYERS_SIDEBAR]);
 
   return returned;
 };
 
-export const getLocales = () => {
-  const returned: Fabric.Config["locales"] = {};
+export const getLocaleConfig = () => {
+  const returned: Config["locales"] = {};
 
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames
   const intlLocaleOverrides: Record<string, string> = {
@@ -76,28 +106,48 @@ export const getLocales = () => {
     zh_tw: "zh-TW",
   };
 
-  for (const locale of locales) {
+  for (const l of LOCALES) {
     const intlLocale =
-      intlLocaleOverrides[locale]
-      ?? locale.replace(/..$/, (m) => m.toUpperCase()).replace("_", "-");
-    const crowdinLocale = crowdinLocaleOverrides[locale] ?? locale.split("_")[0];
+      intlLocaleOverrides[l] || l.replace(/..$/, (m) => m.toUpperCase()).replace("_", "-");
+    const crowdinLocale = crowdinLocaleOverrides[l] ?? l.split("_")[0];
 
-    const resolver = getResolver("website_translations.json", locale);
-    const intl = new Intl.DisplayNames(intlLocale, {
+    const label = new Intl.DisplayNames(intlLocale, {
       languageDisplay: "standard",
       style: "short",
       type: "language",
-    });
+    })
+      .of(intlLocale)!
+      .replace(/^\p{CWU}/u, (firstChar) => firstChar.toLocaleUpperCase(intlLocale));
 
-    returned[locale === "en_us" ? "root" : locale] = {
+    const resolver = getWebsiteResolver(l);
+
+    returned[l === "en_us" ? "root" : l] = {
       lang: intlLocale,
-      link: locale === "en_us" ? "/" : `/${locale}/`,
-      label: intl
-        .of(intlLocale)!
-        .replace(/^\p{CWU}/u, (firstChar) => firstChar.toLocaleUpperCase(intlLocale)),
+      label,
 
       title: resolver("title"),
       description: resolver("description"),
+
+      markdown: {
+        codeCopyButton: {
+          copiedText: resolver("code.copied"),
+          tooltipText: resolver("code.copy"),
+        },
+
+        container: {
+          cautionLabel: resolver("container.caution"),
+          dangerLabel: resolver("container.danger"),
+          detailsLabel: resolver("container.details"),
+          importantLabel: resolver("container.important"),
+          infoLabel: resolver("container.info"),
+          noteLabel: resolver("container.note"),
+          tipLabel: resolver("container.tip"),
+          warningLabel: resolver("container.warning"),
+          customContainers: {
+            prerequisites: resolver("container.prerequisites"),
+          },
+        },
+      },
 
       themeConfig: {
         authors: {
@@ -117,8 +167,6 @@ export const getLocales = () => {
         },
 
         code: {
-          copied: resolver("code.copied"),
-          copy: resolver("code.copy"),
           enterFullscreen: resolver("code.enter_fullscreen"),
           exitFullscreen: resolver("code.exit_fullscreen"),
           wrap: resolver("code.wrap"),
@@ -134,18 +182,22 @@ export const getLocales = () => {
         },
 
         download: {
-          text: resolver("download"),
+          text: resolver("download.button"),
         },
 
-        editLink: {
-          pattern:
-            locale === "en_us"
-              ? "https://github.com/FabricMC/fabric-docs/edit/main/:path"
-              : `https://crowdin.com/project/fabricmc/${crowdinLocale}`,
-          text: locale === "en_us" ? resolver("edit_github") : resolver("edit_crowdin"),
-        },
+        editLink:
+          l === "en_us"
+            ? {
+                pattern: "https://github.com/FabricMC/fabric-docs/edit/main/:path",
+                text: resolver("edit_github"),
+              }
+            : {
+                pattern: `https://crowdin.com/project/fabricmc/${crowdinLocale}`,
+                text: resolver("edit_crowdin"),
+              },
 
         footer: {
+          // TODO(upstream): if vuejs/vitepress#5390 is merged, use Markdown
           copyright: resolver("footer.copyright").replace(
             "%s",
             [
@@ -173,7 +225,7 @@ export const getLocales = () => {
           },
           {
             text: resolver("nav.contribute"),
-            link: `${locale === "en_us" ? "" : `/${locale}`}/contributing`,
+            link: `${l === "en_us" ? "" : `/${l}`}/contributing`,
           },
           {
             text: resolver("nav.repo"),
@@ -205,7 +257,7 @@ export const getLocales = () => {
           code: resolver("404.code"),
           title: resolver("404.title"),
           pooh: resolver("404.title.pooh"),
-          quotes: resolver("404.quotes") as never,
+          quotes: resolver("404.quotes"),
 
           crowdinLinkLabel: resolver("404.crowdin_link.label"),
           crowdinLinkText: resolver("404.crowdin_link"),
@@ -254,7 +306,7 @@ export const getLocales = () => {
           },
         },
 
-        sidebar: getSidebar(locale),
+        sidebar: getSidebar(l),
 
         sidebarMenuLabel: resolver("sidebar_menu"),
 
@@ -264,36 +316,35 @@ export const getLocales = () => {
 
         socialLinks: [
           {
-            icon: "github",
+            icon: "simple-icons:github",
             link: "https://github.com/FabricMC/fabric-docs",
             ariaLabel: resolver("social.github"),
           },
           {
-            icon: "discord",
+            icon: "simple-icons:discord",
             link: "https://discord.fabricmc.net/",
             ariaLabel: resolver("social.discord"),
           },
           {
-            icon: "crowdin",
+            icon: "simple-icons:crowdin",
             link: `https://crowdin.com/project/fabricmc/${crowdinLocale}`,
             ariaLabel: resolver("social.crowdin"),
           },
         ],
 
         version: {
-          reminder: {
-            oldVersion: resolver("version.reminder.old_version"),
-            oldVersionHome: resolver("version.reminder.old_version_home"),
-            futureVersion: resolver("version.reminder.future_version"),
-          },
-
-          switcher: {
-            label: resolver("version.switcher.label"),
-            none: resolver("version.switcher.none"),
-          },
+          switcherLabel: resolver("version.switcher.label"),
+          switcherTitle: resolver("version.switcher.title"),
+          noOtherVersions: resolver("version.switcher.none"),
         },
 
         versionSwitcher: false,
+
+        video: {
+          title: resolver("video.warning.title"),
+          description: resolver("video.warning.description"),
+          button: resolver("video.warning.button"),
+        },
       },
     };
   }

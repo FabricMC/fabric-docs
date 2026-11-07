@@ -1,4 +1,6 @@
-import { Fabric } from "../types";
+import type { HeadConfig } from "vitepress";
+import { LATEST_VERSION } from "../constants.ts";
+import type { Config } from "../types.d.ts";
 
 type NewHeadContext = {
   latestVersion: string;
@@ -14,28 +16,27 @@ type NewHeadContext = {
   siteName: string;
 };
 
-const _getNewHead = (context: NewHeadContext): string | [string, Record<string, string>][] => {
-  const versionMap: Record<string, string> = {
+const _getNewHead = (context: NewHeadContext): string | HeadConfig[] => {
+  const versionRedirects: Record<string, string> = {
+    "26.2.0": "26.2.0",
+
     "26.1.2": "26.1.2",
     "26.1.1": "26.1.2",
     "26.1.0": "26.1.2",
 
     "1.21.11": "1.21.11",
 
-    // TODO: bring back 1.21.10
-    "1.21.10": "1.21.11",
-    "1.21.9": "1.21.11",
+    "1.21.10": "1.21.10",
+    "1.21.9": "1.21.10",
 
-    // TODO: bring back 1.21.8
-    "1.21.8": "1.21.11",
-    "1.21.7": "1.21.11",
-    "1.21.6": "1.21.11",
+    "1.21.8": "1.21.8",
+    "1.21.7": "1.21.8",
+    "1.21.6": "1.21.8",
 
     // not on the Docs
     "1.21.5": "1.21.5",
 
-    // TODO: bring back 1.21.4
-    "1.21.4": "1.21.11",
+    "1.21.4": "1.21.4",
 
     // not on the Docs
     "1.21.3": "1.21.3",
@@ -54,39 +55,39 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
 
   const redirects: { from: RegExp; dest: string }[] = [
     {
-      from: /develop[/]items[/]custom-item-groups(?=[/]|$)/,
-      dest: "develop/items/custom-creative-tabs",
+      from: /^([0-9.]+[/])?develop[/]custom-recipe-types(?=[/]|$)/,
+      dest: "$1develop/recipes/custom-recipe-types",
     },
     {
-      from: /develop[/]rendering[/]draw-context(?=[/]|$)/,
-      dest: "develop/rendering/gui-graphics",
+      from: /^([0-9.]+[/])?develop[/]items[/]custom-item-groups(?=[/]|$)/,
+      dest: "$1develop/items/custom-creative-tabs",
     },
     {
-      from: /develop[/]migrating-mappings(?=[/]|$)/,
-      dest: "develop/porting/mappings",
+      from: /^([0-9.]+[/])?develop[/]rendering[/]draw-context(?=[/]|$)/,
+      dest: "$1develop/rendering/gui-graphics",
     },
     {
-      from: /develop[/]porting[/]current(?=[/]|$)/,
-      dest: "develop/porting/",
+      from: /^([0-9.]+[/])?develop[/]migrating-mappings(?=[/]|$)/,
+      dest: "$1develop/porting/mappings",
     },
     {
-      from: /^(?:[0-9.]+[/])?develop[/]porting[/](next|26[.]1)(?=[/]|$)/,
+      from: /^([0-9.]+[/])?develop[/]porting[/]current(?=[/]|$)/,
+      dest: "$1develop/porting/",
+    },
+    {
+      from: /^([0-9.]+[/])?develop[/]porting[/](next|26[.]1)(?=[/]|$)/,
       dest: "26.1.2/develop/porting",
     },
     {
-      from: /develop[/]blocks[/]transparency-and-tinting(?=[/]|$)/,
-      dest: "develop/blocks/block-tinting",
+      from: /^([0-9.]+[/])?develop[/]blocks[/]transparency-and-tinting(?=[/]|$)/,
+      dest: "$1develop/blocks/block-tinting",
     },
     {
-      from: /develop[/]blocks[/]block-tinting(?=[/]|$)/,
-      dest: "develop/blocks/transparency-and-tinting",
+      from: /^([0-9.]+[/])?develop[/](codecs|data-attachments|saved-data)(?=[/]|$)/,
+      dest: "$1develop/serialization/$2",
     },
     {
-      from: /develop[/](codecs|data-attachments|saved-data)(?=[/]|$)/,
-      dest: "develop/serialization/$1",
-    },
-    {
-      from: /^(?:[0-9.]+[/])?develop[/]porting[/]mappings(?=[/]|$)/,
+      from: /^([0-9.]+[/])?develop[/]porting[/]mappings(?=[/]|$)/,
       dest: "1.21.11/develop/porting/mappings",
     },
   ];
@@ -97,38 +98,44 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     .replace(/((?<=^|[/])index)?[.](html|md)$/, "");
 
   const split = oldPath.toLowerCase().replaceAll(/[/]+/g, "/").split("/");
-  const localeIndex = /^..[_-]..$/.test(split[0])
+  const localePrefix = /^..[_-]..$/.test(split[0])
     ? `/${split.shift()}/`.replace("/en_us/", "/")
     : "/";
 
-  split[0] =
-    versionMap[split[0]]
-    ?? versionMap[`${split[0]}.0`]
-    ?? (/^(?!404$)[0-9.]+$/.test(split[0]) ? "" : split[0]);
-  if (!split[0] || split[0] === context.latestVersion) split.shift();
+  split[0] = (
+    versionRedirects[split[0]]
+    || versionRedirects[`${split[0]}.0`]
+    || (/^[0-9]+[.][0-9]+([.][0-9]+)?$/.test(split[0]) ? "" : split[0])
+  ).replace(/[.]0$/, "");
+  if (!split[0] || split[0] === context.latestVersion) {
+    split.splice(0, 1);
+  }
 
   const seenPaths = new Set([split.join("/")]);
   const newPath = redirects.reduce((currentPath, rule) => {
     const nextPath = currentPath.replace(rule.from, rule.dest);
 
     // skip the redirection rule if it causes a loop
-    if (seenPaths.has(nextPath)) return currentPath;
+    if (seenPaths.has(nextPath)) {
+      return currentPath;
+    }
 
     seenPaths.add(nextPath);
+
     return nextPath;
   }, split.join("/"));
 
-  if (localeIndex.includes("-") || `/${oldPath}` !== `${localeIndex}${newPath}`) {
+  if (localePrefix.includes("-") || `/${oldPath}` !== `${localePrefix}${newPath}`) {
     if (context.isNotFound) {
-      return `${localeIndex.replace("-", "_")}${newPath}${context.search}${context.hash}`;
-    } else {
-      console.warn(`${oldPath}: unexpected redirection to '${localeIndex.slice(1)}${newPath}'`);
+      return `${localePrefix.replace("-", "_")}${newPath}${context.search}${context.hash}`;
     }
+
+    console.warn(`${oldPath}: unexpected redirection to '${localePrefix.slice(1)}${newPath}'`);
   }
 
-  const href = `${context.origin}${localeIndex}${newPath}`;
+  const href = `${context.origin}${localePrefix}${newPath}`;
   const ogLocale =
-    localeIndex.replaceAll("/", "").replace(/..$/, (m) => m.toUpperCase()) || "en_US";
+    localePrefix.replaceAll("/", "").replace(/..$/, (m) => m.toUpperCase()) || "en_US";
 
   const returned: [string, Record<string, string>][] = [
     ["meta", { name: "theme-color", content: "#2275da" }],
@@ -146,7 +153,7 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     ["meta", { property: "og:locale", content: ogLocale }],
   ];
 
-  if ((context.lastUpdated ?? 0) > 0) {
+  if ((context.lastUpdated || 0) > 0) {
     returned.push([
       "meta",
       { property: "article:modified_time", content: new Date(context.lastUpdated!).toISOString() },
@@ -160,7 +167,7 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
   return returned;
 };
 
-export const getClientTransformHead = (latestVersion: string) => {
+export const getClientTransformHead = () => {
   const script = (getNewHead: typeof _getNewHead, latestVersion: string) => {
     const headData = getNewHead({
       ...window.location,
@@ -179,6 +186,7 @@ export const getClientTransformHead = (latestVersion: string) => {
 
     if (typeof headData === "string") {
       window.location.replace(headData);
+
       return;
     }
 
@@ -188,31 +196,45 @@ export const getClientTransformHead = (latestVersion: string) => {
       const el = document.createElement(tag);
 
       attributes["data-gen"] = "";
-      for (const [k, v] of Object.entries(attributes)) el.setAttribute(k, v);
+      for (const [k, v] of Object.entries(attributes)) {
+        el.setAttribute(k, v);
+      }
 
       document.head.appendChild(el);
     }
   };
 
-  return `(${script.toString()})(${_getNewHead.toString()}, ${JSON.stringify(latestVersion)})`;
+  return `(${script.toString()})(${_getNewHead.toString()}, ${JSON.stringify(LATEST_VERSION)})`;
 };
 
-export const getBuildTransformHead =
-  (latestVersion: string): Fabric.Config["transformHead"] =>
-  (context) => {
-    const returned = _getNewHead({
-      latestVersion,
-      pathname: context.pageData.relativePath,
-      origin: context.siteConfig.sitemap!.hostname,
-      hash: "",
-      search: "",
-      description: context.pageData.description,
-      title: context.pageData.title,
-      isNotFound: context.pageData.isNotFound,
-      isVersioned: context.pageData.filePath.startsWith("versions/"),
-      siteName: context.siteData.locales[context.siteData.localeIndex!].title!,
-      lastUpdated: context.pageData.lastUpdated,
-    });
+export const pageToVersionsMap = new Map<string, Set<string>>();
 
-    if (typeof returned !== "string") return returned;
-  };
+export const getBuildTransformHead = (): Config["transformHead"] => (context) => {
+  if (!/(^|[/])translated[/]/.test(context.pageData.filePath)) {
+    const version = (context.pageData.frontmatter.version as string) ?? LATEST_VERSION;
+    const purePath = (context.pageData.frontmatter.purePath as string) ?? "404";
+
+    if (!pageToVersionsMap.has(purePath)) {
+      pageToVersionsMap.set(purePath, new Set());
+    }
+    pageToVersionsMap.get(purePath)!.add(version === LATEST_VERSION ? "" : version);
+  }
+
+  const returned = _getNewHead({
+    latestVersion: LATEST_VERSION,
+    pathname: context.pageData.relativePath,
+    origin: context.siteConfig.sitemap!.hostname.replace(/[/]$/, ""),
+    hash: "",
+    search: "",
+    description: context.pageData.description,
+    title: context.pageData.title,
+    isNotFound: context.pageData.isNotFound,
+    isVersioned: context.pageData.filePath.startsWith("versions/"),
+    siteName: context.siteData.locales[context.siteData.localeIndex!].title!,
+    lastUpdated: context.pageData.lastUpdated,
+  });
+
+  if (typeof returned !== "string") {
+    return returned;
+  }
+};

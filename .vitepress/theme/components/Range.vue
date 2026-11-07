@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import { useData } from "vitepress";
-import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { VPLink } from "vitepress/theme";
 import { computed } from "vue";
 
 const props = defineProps<{ r: string }>();
 
-const data = useData();
-
 const href = computed(() => {
-  return `https://dexman545.github.io/outlet-database/floaderValidator.html?mode=minecraft&p=${encodeURIComponent(props.r)}`;
+  const url = new URL("https://dexman545.github.io/outlet-database/floaderValidator");
+  url.searchParams.set("mode", "minecraft");
+  url.searchParams.set("p", props.r);
+
+  return url.toString();
 });
 </script>
 
 <template>
-  <VPLink :href
-    ><code>{{ r }}</code></VPLink
-  >
+  <VPLink :href>
+    <code>{{ r }}</code>
+  </VPLink>
 </template>

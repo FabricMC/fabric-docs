@@ -8,7 +8,6 @@ on:
       - reference/latest/src/main/generated/**
       - translated/**
       - versions/**
-    types: [opened, ready_for_review, synchronize]
   workflow_dispatch:
 
 concurrency:
@@ -16,39 +15,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  markdownlint:
+  format:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-      - uses: pnpm/action-setup@58e6119fe4f3092a76a7771efb55e04d25b6b26f
-        with:
-          run_install: true
-      - uses: FabricMCBot/markdownlint-cli2-action@b4c9feab76d8025d1e83c653fa3990936df0e6c8
-        with:
-          config: .markdownlint-cli2.yaml
-          globs: |
-            **/*.md
-            !.git/**
-            !node_modules/**
-            !README.md
-            !translated/**
-            !versions/**
-
-  prettier:
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-      - uses: pnpm/action-setup@58e6119fe4f3092a76a7771efb55e04d25b6b26f
-        with:
-          run_install: true
-      - run: npx prettier --write .
-      - run: |
+      - uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b
+      - if: ${{ !cancelled() }}
+        uses: DavidAnson/markdownlint-cli2-action@b4c9feab76d8025d1e83c653fa3990936df0e6c8
+      - if: ${{ !cancelled() }}
+        run: pnpm run lint:css
+      - if: ${{ !cancelled() }}
+        run: pnpm run format
+      - if: ${{ !cancelled() }}
+        run: |
           readarray -d "" files < <(git ls-files --modified --others --exclude-standard -z)
           [[ ${#files[@]} -eq 0 ]] && exit 0
           for f in "${files[@]}"; do

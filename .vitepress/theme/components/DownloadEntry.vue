@@ -2,7 +2,11 @@
 import { useData } from "vitepress";
 import VPButton from "vitepress/dist/client/theme-default/components/VPButton.vue";
 import { computed, useSlots } from "vue";
-import { Fabric } from "../../types.d";
+
+/** @deprecated use {download} instead */
+interface DownloadEntryOptions {
+  text: string;
+}
 
 defineProps<{
   downloadURL: string;
@@ -14,7 +18,7 @@ const data = useData();
 const title = useSlots().default?.() ?? [""];
 
 const text = computed(() =>
-  (data.theme.value.download as Fabric.DownloadOptions).text.replace(
+  (data.theme.value.download as DownloadEntryOptions).text.replace(
     "%s",
     title.length > 0 ? ((title[0] as any).children ?? "") : "%s"
   )
@@ -31,24 +35,31 @@ const text = computed(() =>
 <style scoped>
 div {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   gap: 8px;
+  align-items: center;
+  justify-content: center;
 }
 
 img {
   pointer-events: none;
+  z-index: 0;
   max-width: 100%;
   max-height: 300px;
-  z-index: 0;
 }
 
-a {
+.VPButton.medium {
+  width: fit-content;
+  max-width: 100%;
+  padding-block: 8px;
+
+  line-height: unset;
   text-decoration: none;
-}
+  text-wrap: balance;
+  white-space: normal;
 
-a:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 </style>
