@@ -47,6 +47,8 @@ public class ExampleModInternalModelProvider extends FabricModelProvider {
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_CHESTPLATE, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_HELMET, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_LEGGINGS, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_HORSE_ARMOR, ModelTemplates.FLAT_ITEM);
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_NAUTILUS_ARMOR, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.POISONOUS_APPLE, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.SUSPICIOUS_SUBSTANCE, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);

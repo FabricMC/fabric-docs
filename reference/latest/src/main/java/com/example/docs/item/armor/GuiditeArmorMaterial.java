@@ -15,10 +15,6 @@ import net.minecraft.world.item.equipment.EquipmentAssets;
 import com.example.docs.ExampleMod;
 
 public class GuiditeArmorMaterial {
-	// #region base_durability
-	public static final int BASE_DURABILITY = 15;
-	// #endregion base_durability
-
 	// #region material_key
 	public static final ResourceKey<EquipmentAsset> GUIDITE_ARMOR_MATERIAL_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, ExampleMod.id("guidite"));
 	// #endregion material_key
@@ -29,12 +25,13 @@ public class GuiditeArmorMaterial {
 
 	// #region guidite_armor_material
 	public static final ArmorMaterial INSTANCE = new ArmorMaterial(
-			BASE_DURABILITY,
+			15,
 			Map.of(
 					ArmorType.HELMET, 3,
 					ArmorType.CHESTPLATE, 8,
 					ArmorType.LEGGINGS, 6,
-					ArmorType.BOOTS, 3
+					ArmorType.BOOTS, 3,
+					ArmorType.BODY, 8
 			),
 			5,
 			SoundEvents.ARMOR_EQUIP_IRON,

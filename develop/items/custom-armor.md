@@ -15,14 +15,6 @@ Technically, you don't need a dedicated class for your armor material, but it's 
 
 For this example, we'll create a `GuiditeArmorMaterial` class to store our static fields.
 
-### Base Durability {#base-durability}
-
-This constant will be used in the `Item.Properties#maxDamage(int damageValue)` method when creating our armor items, it is also required as a parameter in the `ArmorMaterial` constructor when we create our `ArmorMaterial` object later.
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#base_durability
-
-If you're struggling to determine a balanced base durability, you can refer to the vanilla armor material instances found in the `ArmorMaterials` interface.
-
 ### Equipment Asset Resource Key {#equipment-asset-resource-key}
 
 Even though we don't have to register our `ArmorMaterial` to any registries, it's generally good practice to store any resource keys as constants, as the game will use this to find the relevant textures for our armor.
@@ -39,16 +31,16 @@ To create our material, we need to create a new instance of the `ArmorMaterial` 
 
 The `ArmorMaterial` constructor accepts the following parameters, in this specific order:
 
-| Parameter             | Description                                                                                                                                                                                                         |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `durability`          | The base durability of all armor pieces, this is used when calculating the total durability of each individual armor piece that use this material. This should be the base durability constant you created earlier. |
-| `defense`             | A map of `EquipmentType` (an enum representing each armor slot) to an integer value, which indicates the defense value of the material when used in the corresponding armor slot.                                   |
-| `enchantmentValue`    | The "enchantability" of armor items which use this material.                                                                                                                                                        |
-| `equipSound`          | A registry entry of a sound event that is played when you equip a piece of armor which uses this material. For more information on sounds, check out the [Custom Sounds](../sounds/custom) page.                    |
-| `toughness`           | A float value which represents the "toughness" attribute of the armor material - essentially how well the armor will absorb damage.                                                                                 |
-| `knockbackResistance` | A float value which represents the amount of knockback resistance the armor material grants the wearer.                                                                                                             |
-| `repairIngredient`    | An item tag that represents all items which can be used to repair the armor items of this material in an anvil.                                                                                                     |
-| `assetId`             | An `EquipmentAsset` registry key, this should be the equipment asset registry key constant you created earlier.                                                                                                     |
+| Parameter             | Description                                                                                                                                                                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `durability`          | The base durability of all armor pieces, this is used when calculating the total durability of each individual armor piece that uses this material. You can refer to the vanilla `ArmorMaterials` to determine a balanced durability value. |
+| `defense`             | A map of `EquipmentType` (an enum representing each armor slot) to an integer value, which indicates the defense value of the material when used in the corresponding armor slot.                                                           |
+| `enchantmentValue`    | The "enchantability" of armor items which use this material.                                                                                                                                                                                |
+| `equipSound`          | A registry entry of a sound event that is played when you equip a piece of armor which uses this material. For more information on sounds, check out the [Custom Sounds](../sounds/custom) page.                                            |
+| `toughness`           | A float value which represents the "toughness" attribute of the armor material - essentially how well the armor will absorb damage.                                                                                                         |
+| `knockbackResistance` | A float value which represents the amount of knockback resistance the armor material grants the wearer.                                                                                                                                     |
+| `repairIngredient`    | An item tag that represents all items which can be used to repair the armor items of this material in an anvil.                                                                                                                             |
+| `assetId`             | An `EquipmentAsset` registry key, this should be the equipment asset registry key constant you created earlier.                                                                                                                             |
 
 We define the repair ingredient tag reference as follows:
 
@@ -72,13 +64,29 @@ Now that you've registered the material, you can create the armor items in your 
 
 Obviously, an armor set doesn't need every type to be satisfied, you can have a set with just boots, or leggings etc. - the vanilla turtle shell helmet is a good example of an armor set with missing slots.
 
-Unlike `ToolMaterial`, `ArmorMaterial` does not store any information about the durability of items. For this reason the base durability needs to be manually added to the armor items' `Item.Properties` when registering them.
+There are two sub-categories of armor items you can create, humanoid armor and non-humanoid armor.
 
-This is achieved by passing the `BASE_DURABILITY` constant we created previously into the `maxDamage` method in the `Item.Properties` class.
+::: tabs
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#create_armor_items
+== Humanoid Armor Items
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items
+Humanoid armor refers to the armors which are worn by humanoid entities such as players, zombies, skeletons, etc. They are created using the `Item.Properties().humanoidArmor()` method.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#create_armor_items_humanoid
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items_humanoid
+
+== Non-Humanoid Armor Items
+
+Non-humanoid armor refers to the armors which are worn by non-humanoid entities such as horses, nautiluses, etc. They are created using methods unique to the non-humanoid mob.
+
+In this guide, we will create a horse and a nautilus armor item, which are created using the `Item.Properties().horseArmor()` and `Item.Properties().nautilusArmor()` methods respectively.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#create_armor_items_non_humanoid
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items_non_humanoid
+
+:::
 
 You will also need to [add the items to a creative tab](./custom-creative-tabs) if you want them to be accessible from the inventory.
 
@@ -86,7 +94,7 @@ As with all items, you should create translation keys for them as well.
 
 ## Textures and Models {#textures-and-models}
 
-You will need to create a set of textures for the items, and a set of textures for the actual armour when it's worn by a "humanoid" entity (players, zombies, skeletons, etc).
+You will need to create a set of textures for the items, and a set of textures for the actual armor when it's worn by a "humanoid" entity or a "non-humanoid" entity.
 
 ### Item Textures and Model {#item-textures-and-model}
 
@@ -129,6 +137,8 @@ Previously, we created a `ResourceKey<EquipmentAsset>` constant called `GUIDITE_
 - `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` - Contains upper body and boot textures.
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` - Contains legging textures.
 - `assets/example-mod/textures/entity/equipment/humanoid_baby/guidite.png` - Contains the texture for baby humanoid.
+- `assets/example-mod/textures/entity/equipment/horse/guidite.png` - Contains the texture for horse armor.
+- `assets/example-mod/textures/entity/equipment/nautilus/guidite.png` - Contains the texture for nautilus armor.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Armor Model Textures</DownloadEntry>
 
@@ -136,16 +146,15 @@ Next, you'll need to create an associated equipment model definition. These go i
 
 The `ResourceKey<EquipmentAsset>` constant we created earlier will determine the name of the JSON file. In this case, it'll be `guidite.json`.
 
-Since we only plan to add "humanoid" (helmet, chestplate, leggings, boots etc.) armor pieces, our equipment model definition will look like this:
+Since we are adding "humanoid" (helmet, chestplate, leggings, boots) and "non-humanoid" (horse, nautilus) armor pieces, our equipment model definition will look like this:
 
 <<< @/reference/latest/src/main/resources/assets/example-mod/equipment/guidite.json
 
 With the textures and equipment model definition present, you should be able to see your armor on entities that wear it:
 
-![Working armor model on player](/assets/develop/items/armor_3.png)
+![Working armor model on every entity](/assets/develop/items/armor_3_1.png)
 
-![Working armor model on baby humanoid](/assets/develop/items/armor_3_1.png)
-
+<!-- TODO: Fix the TODO below. -->
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
 
 ## Tagging Armor Items {#tags}
@@ -156,7 +165,7 @@ For more information, see the documentation on generating [item tags](../data-ge
 
 :::
 
-It's also recommended to place your armor in the appropriate item tags. Armor pieces have their own individual tags, such as `ItemTags.CHEST_ARMOR`, which are used for enchantability.
+It's also recommended to place your armor humanoid pieces in the appropriate item tags. Humanoid armor pieces have their own individual tags, such as `ItemTags.CHEST_ARMOR`, which are used for enchantability.
 
 In your item tag provider, add the following lines to `addTags`:
 
