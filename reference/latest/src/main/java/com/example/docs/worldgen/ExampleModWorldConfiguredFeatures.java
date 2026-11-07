@@ -39,7 +39,7 @@ public class ExampleModWorldConfiguredFeatures {
 			);
 
 	// #region datagen_world_configure_features_class
-	public static void configure(BootstrapContext<ConfiguredFeature<?, ?>> context) {
+	public static void bootstrapConfiguredFeatures(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 		// #endregion datagen_world_configure_features_class
 		RuleTest stoneReplaceableRule = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
 

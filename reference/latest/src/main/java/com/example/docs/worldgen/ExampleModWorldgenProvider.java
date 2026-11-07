@@ -24,7 +24,7 @@ public class ExampleModWorldgenProvider extends FabricDynamicRegistryProvider {
 
 	@Override
 	public String getName() {
-		return "World Generation";
+		return "World Generation Dynamic Registry Provider";
 	}
 }
 // #endregion datagen_world_provider

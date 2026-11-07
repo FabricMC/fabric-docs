@@ -3,13 +3,14 @@ title: Enchantment Generation
 description: A guide to generating enchantments via datagen.
 authors:
   - CelDaemon
+  - Jimmy474
 ---
 
 <!---->
 
 ::: info PREREQUISITES
 
-Make sure you've completed the [datagen setup](./setup) process first.
+Make sure you've completed the [datagen setup](./setup) process first, and you understand [Dynamic Registry Population](./dynamic-registry) using datagen.
 
 :::
 
@@ -23,25 +24,26 @@ Use this method to create a `ResourceKey` for your enchantment.
 
 <<< @/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java#register_enchantment
 
-Now, we're ready to add the generator. In the datagen package, create a class that extends `FabricDynamicRegistryProvider`. In this newly created class, add a constructor that matches `super`, and implement the `configure` and `getName` methods.
+Adding new entries to any existing registry has the same process as [Dynamic Registry Population](./dynamic-registry),
+so create a similar class and configure it to use the `Registries.ENCHANTMENT` instead of the custom key.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#provider
+
+::: info
+
+The datagen process is separate from minecraft runtime, and it runs on its own,
+therefore using built in registries in `Entries.addAll()` doesn't create `.json` files for existing entries.
+It only creates `.json` files for entries that the `bootstrap` method creates and loads into memory.
+
+:::
+
+For the `bootstrap` method the `T` of `BootstrapContext<T>` should be `Enchantment`.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#bootstrap
 
 Then, add the `register` helper method to the newly created class.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#register_helper
-
-Now add the `bootstrap` method. Here, we will be registering the enchantments we want to add to the game.
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#bootstrap
-
-In your `DataGeneratorEntrypoint`, override the `buildRegistry` method and register our bootstrap method.
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_enchantments_bootstrap
-
-Finally, ensure your new generator is registered within the `onInitializeDataGenerator` method.
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_enchantments_register
 
 ## Creating the Enchantment {#creating-the-enchantment}
 

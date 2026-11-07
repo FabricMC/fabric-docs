@@ -336,6 +336,10 @@ export default [
             link: "/develop/data-generation/advancements",
           },
           {
+            text: "develop.data_generation.dynamic_registry",
+            link: "/develop/data-generation/dynamic-registry",
+          },
+          {
             text: "develop.data_generation.enchantments",
             link: "/develop/data-generation/enchantments",
           },

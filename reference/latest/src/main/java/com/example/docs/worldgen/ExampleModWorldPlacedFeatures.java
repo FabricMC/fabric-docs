@@ -38,7 +38,7 @@ public class ExampleModWorldPlacedFeatures {
 			);
 
 	// #region datagen_world_placed_features_class
-	public static void configure(BootstrapContext<PlacedFeature> context) {
+	public static void bootstrapPlacedFeatures(BootstrapContext<PlacedFeature> context) {
 		// #endregion datagen_world_placed_features_class
 		// #region datagen_world_conf_feature_register
 		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
