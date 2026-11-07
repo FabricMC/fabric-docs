@@ -76,6 +76,15 @@ export default defineVersionedConfig(
         // Use the tabs plugin for... having tabs?
         md.use(tabsMarkdownPlugin);
       },
+      container: {
+        // TODO: acknowledge ::: caution and ::: note
+        // TODO: review all ::: containers with unnecessary title, except ::: details
+        // TODO: migrate ::: info PREREQUISITES
+        // TODO: migrate ::: warning IMPORTANT
+        customContainers: {
+          prerequisites: "PREREQUISITES",
+        },
+      },
       gfmAlerts: false,
       image: { lazyLoad: true },
       languageAlias: { classtweaker: "text", gradle: "groovy" },
