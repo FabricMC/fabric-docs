@@ -23,6 +23,8 @@ next: false
 
 **转到定义**（<kbd>F12</kbd>）：从源代码中，通过按 <kbd>Ctrl</kbd> + 单击其名称，或右键单击它并选择“转到定义”导航到类定义。
 
+**转到实现**（ <kbd>Ctrl</kbd> + <kbd>F12</kbd> ）：从源代码中，选中类实现并按 <kbd>Ctrl</kbd> + <kbd>F12</kbd>，或者右键单击类实现并选择“转到实现”，即可导航到该类实现。
+
 ![转到定义](/assets/develop/getting-started/vscode/go-to-definition.png)
 
 ### 查找引用 {#finding-references}

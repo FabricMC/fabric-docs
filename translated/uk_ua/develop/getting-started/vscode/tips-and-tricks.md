@@ -23,6 +23,8 @@ next: false
 
 **Go to Definition** (<kbd>F12</kbd>): у початковому коді перейдіть до визначення класу, натиснувши <kbd>Ctrl</kbd> і натиснувши його назву, або натиснувши по ньому ПКМ та вибравши «Go to Definition».
 
+**Go to Implementations**\* (<kbd>Ctrl</kbd>+<kbd>F12</kbd>): У вихідному коді можна перейти до реалізації класу, вибравши його та натиснувши <kbd>Ctrl</kbd>+<kbd>F12</kbd> або натиснувши ПКМ й обравши пункт «Go to Implementations\*».
+
 ![Go to Definition](/assets/develop/getting-started/vscode/go-to-definition.png)
 
 ### Пошук посилань {#finding-references}
