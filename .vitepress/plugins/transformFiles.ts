@@ -1,52 +1,57 @@
 import matter from "gray-matter";
 import * as path from "node:path";
-import type { Plugin, SiteConfig } from "vitepress";
-import { AT, LATEST_VERSION } from "../constants.ts";
-import type { Fabric } from "../types.d.ts";
+import type { Plugin } from "vitepress";
+import { getWebsiteResolver } from "../config/i18n.ts";
+import { AT, LATEST_VERSION, OLD_VERSIONS, VERSION_RE } from "../constants.ts";
+
+const FILE_PATH_RE = /(?:^<<< *([^[{#\n]+))|(?:^@\[[^\]]*\]\(([^)]*)\))/gm;
 
 export const transformFile = (src: string, id: string) => {
-  let { data, content } = matter(src);
-  const newContent: string[] = [];
+  const { data, content } = matter(src, {});
+  const relativePath = path.relative(AT, id);
+  const split = relativePath.split("/");
 
-  // Version information
-  const split = path.relative(AT, id).split("/");
   if (split[0] === "versions") {
-    data.versionType = "old";
+    // versions/version/[translated/locale/]path/to/file-name.md
     data.version = split[1];
-  } else if (/^[0-9.]+$/.test(split[0])) {
-    data.versionType = "future";
-    data.version = split[0];
-  } else if (split[0] === "translated" && /^[0-9.]+$/.test(split[2])) {
-    data.versionType = "future";
-    data.version = split[2];
-  } else {
-    data.versionType = "latest";
-    data.version = LATEST_VERSION;
-  }
-
-  if (split[0] === "translated") {
-    data.localeIndex = split[1];
-  } else if (data.versionType === "old" && split[2] === "translated") {
-    data.localeIndex = split[3];
-  } else {
-    data.localeIndex = "root";
-  }
-
-  if (data.versionType === "old") {
     data.editLink = false;
     data.search = false;
+
+    split.splice(0, 2);
   }
 
-  const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
-  const themeConfig = (
-    config.userConfig.locales![data.localeIndex] || config.userConfig.locales!.root
-  ).themeConfig as Fabric.ThemeConfig;
+  // [translated/locale/][version/]path/to/file-name.md
+  const locale = split[0] === "translated" ? split[1] : "en_us";
+  if (locale !== "en_us") {
+    split.splice(0, 2);
+  }
+
+  if (VERSION_RE.test(split[0])) {
+    data.version = split[0];
+    split.splice(0, 1);
+  }
+
+  data.version ||= LATEST_VERSION;
+
+  data.purePath = split.join("/").replace(/((?<=^|[/])index)?[.]md$/, "");
+  if (/[^/a-z-0-9.]/.test(data.purePath)) {
+    throw new Error(`invalid file path: '${relativePath}'`);
+  }
+
+  const versionType =
+    data.version === LATEST_VERSION
+      ? "latest"
+      : OLD_VERSIONS.includes(data.version)
+        ? "old"
+        : "future";
+  const resolver = getWebsiteResolver(locale);
+  const newContent: string[] = [];
 
   if (data.layout === "home") {
-    if (data.versionType === "old") {
+    if (versionType === "old") {
       newContent.push(
         "::: warning",
-        themeConfig.version.reminder.oldVersionHome.replace("%s", data.version),
+        resolver("version.reminder.old_version_home").replace("%s", data.version),
         ":::"
       );
     }
@@ -54,7 +59,7 @@ export const transformFile = (src: string, id: string) => {
     if (data.title) {
       newContent.push("<hgroup>");
 
-      const type = data.versionType === "latest" ? "tip" : "warning";
+      const type = versionType === "latest" ? "tip" : "warning";
       newContent.push(`# ${data.title} <Badge type="${type}">${data.version}</Badge> {#h1}`);
 
       if (data.description) {
@@ -64,39 +69,37 @@ export const transformFile = (src: string, id: string) => {
       newContent.push("</hgroup>");
     }
 
-    if (data.versionType === "old") {
+    if (versionType === "old") {
       newContent.push(
         "::: warning",
-        themeConfig.version.reminder.oldVersion.replace("%s", data.version),
+        resolver("version.reminder.old_version").replace("%s", data.version),
         ":::"
       );
     }
 
-    if (data.versionType === "future") {
+    if (versionType === "future") {
       newContent.push(
         "::: warning",
-        themeConfig.version.reminder.futureVersion.replace("%s", data.version),
+        resolver("version.reminder.future_version").replace("%s", data.version),
         ":::"
       );
     }
   }
 
   newContent.push(content);
-  content = newContent.join("\n\n");
 
   if (data.filesExclude === true) {
     data.files = [];
   } else {
     // Find files referenced in the page
-    const filePathRegex = /(?:^<<< *([^[{#\n]+))|(?:^@\[[^\]]*\]\(([^)]*)\))/gm;
-    const matches = [...src.matchAll(filePathRegex)].map((m) => (m[1] || m[2]).trim());
+    const matches = [...content.matchAll(FILE_PATH_RE)].map((m) => (m[1] || m[2]).trim());
 
     matches.push(...(data.files || []));
 
     data.files = [...new Set(matches)].filter((f) => !(data.filesExclude || []).includes(f));
   }
 
-  return matter.stringify(content, data);
+  return matter.stringify(newContent.join("\n\n"), data);
 };
 
 export const transformFilesPlugin = (): Plugin => ({
