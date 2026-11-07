@@ -79,7 +79,7 @@ API Fabric надає дев’ять убудованих умов для ви�
 
 ### Увімкнено функції {#features-enabled}
 
-Удасться, якщо всі [прапорці функцій](https://minecraft.wiki/w/Experiments#Java_Edition) у `features` увімкнено. Наприклад, наступне вдаватиметься, якщо ввімкнути `minecraft:vanilla` та `minecraft:redstone_experiments`:
+Удасться, якщо всі [прапорці функцій](https://minecraft.wiki/w/Experiments#Java_Edition) у `features` увімкнено. Наприклад, наведене нижче спрацює, якщо ввімкнено як `minecraft:vanilla`, так і `minecraft:minecart_improvements`:
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/features_enabled.json
 

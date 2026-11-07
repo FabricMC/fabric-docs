@@ -5,7 +5,7 @@ authors:
   - Cactooz
   - IMB11
   - radstevee
-  - Thomas1034​
+  - Thomas1034
 resources:
   https://fabricmc.net/develop/template/: Fabric 模板模组生成器
   https://fabricmc.net/develop/: 使用 Fabric 网站开发

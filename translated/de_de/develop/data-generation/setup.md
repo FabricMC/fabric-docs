@@ -2,7 +2,7 @@
 title: Einrichtung der Datengenerierung
 description: Ein Leitfaden zur Einrichtung der Datengenerierung mit der Fabric API.
 authors:
-  - Treeways
+  - ArkoSammy12
   - Earthcomputer
   - haykam821
   - Jab125

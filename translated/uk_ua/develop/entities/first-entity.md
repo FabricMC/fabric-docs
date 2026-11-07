@@ -2,6 +2,7 @@
 title: Створення вашої першої сутності
 description: Дізнайтеся, як зареєструвати просту сутність, як дати їй цілей, рендер, модель та анімувати її.
 authors:
+  - An16og
   - cassiancc
   - CelDaemon
   - Earthcomputer
@@ -33,11 +34,11 @@ resources:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#ids
 
-Щоби зареєструвати свою сутність, рекомендується створити окремий клас `ModEntityTypes`, у якому ви будете реєструвати будь-які типи сутностей, установлювати їхні розміри та реєструвати їхні атрибути.
+Щоб зареєструвати вашу сутність рекомендується створити окремий клас — `ModEntityTypes`, у якому ви реєструватимете всі типи сутностей, задаватимете їхні розміри та передаватимете їхні атрибути безпосередньо в метод реєстрації:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
 
-Викличте `registerModEntityTypes` та `registerAttributes` у вашому [ініціалізаторі мода](../getting-started/project-structure#entrypoints):
+Викличте `initialize` у вашому [ініціалізаторі мода](../getting-started/project-structure#entrypoints), щоб запустити завантаження класу та зареєструвати ваші сутності:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
 
