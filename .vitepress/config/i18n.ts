@@ -182,7 +182,7 @@ export const getLocaleConfig = () => {
         },
 
         download: {
-          text: resolver("download"),
+          text: resolver("download.button"),
         },
 
         editLink:

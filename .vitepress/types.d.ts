@@ -72,14 +72,10 @@ export interface ThemeConfig extends Versioned.ThemeConfig {
     wrap: string;
   };
 
-  download: {
-    /**
-     * Set custom text for download button.
-     *
-     * @default "Download %s"
-     */
-    text: string;
-  };
+  /**
+   * @deprecated TODO: drop once DownloadEntry is removed
+   */
+  download: unknown;
 
   env: typeof import("./constants.ts").ENV;
 
