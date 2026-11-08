@@ -187,13 +187,18 @@ export namespace Fabric {
   }
 
   export interface Translations {
+    sidebar: typeof import("../sidebar_translations.json");
     website: typeof import("../website_translations.json");
   }
 
-  export interface SidebarItem extends Versioned.SidebarItem {
-    text: string;
-    items?: SidebarItem[];
-  }
+  export type SidebarItem =
+    | string
+    | (Omit<Versioned.SidebarItem, "text" | "link" | "base" | "items">
+        & (
+          | { text: string; base?: never; link?: never; items: SidebarItem[] }
+          | { text?: never; base?: string; link: string; items?: SidebarItem[] }
+          | { text?: never; base: string; link?: never; items: SidebarItem[] }
+        ));
 
   export interface Sidebar extends DefaultTheme.SidebarMulti {
     [path: string]: SidebarItem[];
