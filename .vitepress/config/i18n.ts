@@ -129,6 +129,22 @@ export const getLocaleConfig = () => {
       title: resolver("title"),
       description: resolver("description"),
 
+      markdown: {
+        container: {
+          cautionLabel: resolver("container.caution"),
+          dangerLabel: resolver("container.danger"),
+          detailsLabel: resolver("container.details"),
+          importantLabel: resolver("container.important"),
+          infoLabel: resolver("container.info"),
+          noteLabel: resolver("container.note"),
+          tipLabel: resolver("container.tip"),
+          warningLabel: resolver("container.warning"),
+          customContainers: {
+            prerequisites: resolver("container.prerequisites"),
+          },
+        },
+      },
+
       themeConfig: {
         authors: {
           heading: resolver("authors.heading"),
