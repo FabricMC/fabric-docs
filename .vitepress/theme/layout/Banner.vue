@@ -2,12 +2,12 @@
 import { useElementSize } from "@vueuse/core";
 import { useData } from "vitepress";
 import { VPLink } from "vitepress/theme";
-import { computed, ref, watch } from "vue";
+import { computed, onMounted, ref, watchEffect } from "vue";
 import type { Fabric } from "../../types.d.ts";
 import { useRem } from "../composables/rem.ts";
 
 const data = useData<Fabric.ThemeConfig>();
-const banner = ref<HTMLElement>();
+const banner = ref<HTMLDivElement>();
 const { height } = useElementSize(banner);
 const rem = useRem();
 
@@ -34,16 +34,18 @@ const strings = computed(() => {
   }
 });
 
-watch([height, strings], () =>
-  document.documentElement.style.setProperty(
-    "--vp-layout-top-height",
-    `${strings.value.length ? height.value / rem.value + 1 : 0}rem`
-  )
+onMounted(() =>
+  watchEffect(() => {
+    document.documentElement.style.setProperty(
+      "--vp-layout-top-height",
+      `${strings.value.length > 0 ? height.value / rem.value + 1 : 0}rem`
+    );
+  })
 );
 </script>
 
 <template>
-  <div v-if="strings.length" ref="banner">
+  <div v-show="strings.length" ref="banner">
     {{ strings[0]
     }}<VPLink
       v-if="strings[1]"
@@ -66,7 +68,7 @@ div {
 
   font-family: var(--vp-font-family-mono);
   font-weight: 600;
-  color: rgb(255 255 255);
+  color: var(--vp-c-white);
   text-align: center;
 
   background: rgb(207 114 21);
