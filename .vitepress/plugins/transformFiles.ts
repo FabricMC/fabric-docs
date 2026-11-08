@@ -1,14 +1,15 @@
 import matter from "gray-matter";
 import * as path from "node:path";
 import type { Plugin, SiteConfig } from "vitepress";
+import { AT, LATEST_VERSION } from "../constants.ts";
 import type { Fabric } from "../types.d.ts";
 
-export const transformFile = (src: string, id: string, latestVersion: string) => {
+export const transformFile = (src: string, id: string) => {
   let { data, content } = matter(src);
   const newContent: string[] = [];
 
   // Version information
-  const split = path.relative(path.resolve(import.meta.dirname, "..", ".."), id).split("/");
+  const split = path.relative(AT, id).split("/");
   if (split[0] === "versions") {
     data.versionType = "old";
     data.version = split[1];
@@ -20,7 +21,7 @@ export const transformFile = (src: string, id: string, latestVersion: string) =>
     data.version = split[2];
   } else {
     data.versionType = "latest";
-    data.version = latestVersion;
+    data.version = LATEST_VERSION;
   }
 
   if (split[0] === "translated") {
@@ -97,7 +98,7 @@ export const transformFile = (src: string, id: string, latestVersion: string) =>
   return matter.stringify(content, data);
 };
 
-export const transformFilesPlugin = (latestVersion: string): Plugin => ({
+export const transformFilesPlugin = (): Plugin => ({
   name: "fabric-docs:transform-files",
   enforce: "pre",
 
@@ -105,7 +106,7 @@ export const transformFilesPlugin = (latestVersion: string): Plugin => ({
     filter: { id: /[.]md$/ },
     handler(src, id) {
       this.addWatchFile(id);
-      return { code: transformFile(src, id, latestVersion) };
+      return { code: transformFile(src, id) };
     },
   },
 });

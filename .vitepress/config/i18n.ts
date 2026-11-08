@@ -1,6 +1,7 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as tinyglobby from "tinyglobby";
+import { AT } from "../constants.ts";
 import Develop from "../sidebars/develop.ts";
 import Players from "../sidebars/players.ts";
 import type { Fabric } from "../types.d.ts";
@@ -13,7 +14,7 @@ export const getLocaleNames = (translatedDir: string) => [
     .map((f) => path.relative(translatedDir, f)),
 ];
 
-const translated = path.resolve(import.meta.dirname, "..", "..", "translated");
+const translated = path.join(AT, "translated");
 const locales = getLocaleNames(translated);
 
 export const getResolver = (file: string, locale: string, warn = true): ((k: string) => string) => {
