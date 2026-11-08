@@ -79,7 +79,7 @@ Fabric API предоставляет девять встроенных усло
 
 ### Включённые функции (Features Enabled) {#features-enabled}
 
-Возвращает `true`, если все [feature-флаги](https://minecraft.wiki/w/Experiments#Java_Edition) в `features` включены. Например, следующее условие выполнится успешно, если включены и `minecraft:vanilla`, и `minecraft:redstone_experiments`:
+Возвращает `true`, если все [feature-флаги](https://minecraft.wiki/w/Experiments#Java_Edition) в `features` включены. Например, следующее условие выполнится успешно, если включены и `minecraft:vanilla`, и `minecraft:minecart_improvements`:
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/features_enabled.json
 
@@ -93,7 +93,7 @@ Fabric API предоставляет девять встроенных усло
 
 :::info ПРЕДВАРИТЕЛЬНЫЕ ТРЕБОВАНИЯ
 
-Прежде чем создавать собственное условное условие загрузки ресурсов, вы должны сначала разобраться в [создании кодеков](./codecs).
+Прежде чем создавать собственное условное условие загрузки ресурсов, вы должны сначала разобраться в [создании кодеков](./serialization/codecs).
 
 :::
 
@@ -103,7 +103,7 @@ Fabric API также предоставляет гибкость для соз�
 
 ### Подготовка вашего условия {#preparing-your-condition}
 
-Для простоты мы создадим вспомогательный метод, который создаёт экземпляр вашего условия по имени и [`MapCodec`](./codecs#mapcodec). Поместите этот метод в класс `ModResourceConditions` (или другим именем, которым захотите его назвать).
+Для простоты мы создадим вспомогательный метод, который создаёт экземпляр вашего условия по имени и [`MapCodec`](./serialization/codecs#mapcodec). Поместите этот метод в класс `ModResourceConditions` (или другим именем, которым захотите его назвать).
 
 ::: tip
 

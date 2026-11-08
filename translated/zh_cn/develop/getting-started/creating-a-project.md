@@ -33,7 +33,7 @@ Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来�
 
 ::: info
 
-本网站提供的代码示例使用了[未混淆游戏中的名称](../porting/mappings/#whats-going-on-with-mappings) 如果你 现有的模组使用了除 Mojang 提供的映射之外的其他映射，请参阅我们的文档[移植到 26.1](../porting/index) 了解更多信息。
+本网站提供的代码示例使用了[未混淆游戏中的名称](../porting/mappings/#whats-going-on-with-mappings) 如果你 现有的模组使用了除 Mojang 提供的映射之外的其他映射，请参阅我们的文档[移植到 26.1](../porting/) 了解更多信息。
 
 :::
 

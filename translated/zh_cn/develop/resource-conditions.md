@@ -94,7 +94,7 @@ Fabric API 提供了九种内置条件供你的模组使用。
 
 :::info 前置知识
 
-在设置自定义资源条件之前，你必须先了解[如何创建 Codec](./codecs)。
+在设置自定义资源条件之前，你必须先了解[如何创建 Codec](./serialization/codecs)。
 
 :::
 
@@ -104,7 +104,7 @@ Fabric API 还提供了创建自定义资源条件的灵活性。
 
 ### 准备你的条件 {#preparing-your-condition}
 
-为了简化操作，我们将创建一个辅助方法，通过名称和 [`MapCodec`](./codecs#mapcodec) 来实例化你的资源条件。你应该将此方法放在名为 `ModResourceConditions`（或你喜欢的任何名字）的类中。
+为了简化操作，我们将创建一个辅助方法，通过名称和 [`MapCodec`](./serialization/codecs#mapcodec) 来实例化你的资源条件。你应该将此方法放在名为 `ModResourceConditions`（或你喜欢的任何名字）的类中。
 
 ::: tip
 

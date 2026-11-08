@@ -84,7 +84,7 @@ Se vuoi fare riferimento a ciò che, nel nostro caso, è l'attaccante, useresti 
 
 <!-- NOTE: These have been put into the example mod as they're likely to be updated to codecs in the next few updates. -->
 
-Come già accennato prima, puoi serializzare testo a JSON con il codec di testo. Per maggiori informazioni, vedi la pagina sui [Codec](./codecs).
+Come già accennato prima, puoi serializzare testo a JSON con il codec di testo. Per maggiori informazioni, vedi la pagina sui [Codec](./serialization/codecs).
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#component_to_string
 

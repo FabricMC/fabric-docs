@@ -2,6 +2,7 @@
 title: Generazione di Tag
 description: Una guida per configurare la generazione di tag con datagen.
 authors:
+  - cassiancc
   - CelDaemon
   - IMB11
   - MarcusElg
@@ -45,10 +46,20 @@ Ora che hai creato un fornitore, aggiungiamoci un tag. Anzitutto, crea una `TagK
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_tag_key
 
-Poi, chiama `valueLookupBuilder` nel metodo `configure` del tuo fornitore. Da lì, puoi aggiungere oggetti individualmente, aggiungere altri tag, o fare in modo che questo tag ne sostituisca di preesistenti.
+Poi, chiama `builder` nel metodo `configure` del tuo fornitore. Da lì, puoi aggiungere gli ID degli oggetti individualmente, aggiungere altri tag, o fare in modo che questo tag ne sostituisca di preesistenti.
 
 Se vuoi aggiungere un tag, usa `addOptionalTag`, poiché i contenuti del tag potrebbero non essere caricati durante la datagen. Se sei sicuro che il tag sia caricato, chiama `addTag`.
 
 Per aggiungere un tag forzatamente ignorando il formato errato, usa `forceAddTag`.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_build
+
+## Tradurre i tag {#translating-tags}
+
+I tag creati dalla tua mod dovrebbero essere accompagnati da traduzioni, cosicché altre mod - come le anteprime di ricette - possano mostrarne il nome correttamente. Se uno dei tuoi tag mancasse di traduzione, potresti leggere un avviso simile al seguente nei log:
+
+> Dev warning - Untranslated Item Tags detected. Please translate your item tags so other mods such as recipe viewers can properly display your tag's name.
+
+Seguiremo la [guida per la generazione di traduzioni](./translations) per aggiungere una traduzione per il nostro tag. Usando lo stesso costruttore di traduzioni, passiamo la `TagKey` e il nome visualizzato:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#tag_name

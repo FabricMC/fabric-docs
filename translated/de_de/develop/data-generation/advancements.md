@@ -122,7 +122,7 @@ Puh, das ist eine Menge! Schauen wir uns das mal genauer an.
 
 ::: info
 
-Um mehr über Codecs zu erfahren, sieh dir die [Codecs](../codecs) Seite an.
+Um mehr über Codecs zu erfahren, sieh dir die [Codecs](../serialization/codecs) Seite an.
 
 :::
 

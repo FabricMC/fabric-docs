@@ -33,7 +33,7 @@ Zunächst müssen Sie eine benutzerdefinierte Farbquelle für das Item definiere
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#tint_source_class
 
-Da dies Teil der Client Item Definition ist, können die Farbwerte mit einem Ressourcenpaket geändert werden. Du musst also einen [Map Codec](../codecs#mapcodec) definieren, der deine Farbton-Definition lesen kann. In diesem Fall hat die Farbquelle einen `int`-Wert, der die Farbe beschreibt, die sie bei Regen haben wird. Wir können den integrierten `ExtraCodecs.RGB_COLOR_CODEC` verwenden, um unseren Codec zusammenzustellen.
+Da dies Teil der Client Item Definition ist, können die Farbwerte mit einem Ressourcenpaket geändert werden. Du musst also einen [Map Codec](../serialization/codecs#mapcodec) definieren, der deine Farbton-Definition lesen kann. In diesem Fall hat die Farbquelle einen `int`-Wert, der die Farbe beschreibt, die sie bei Regen haben wird. Wir können den integrierten `ExtraCodecs.RGB_COLOR_CODEC` verwenden, um unseren Codec zusammenzustellen.
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#map_codec
 

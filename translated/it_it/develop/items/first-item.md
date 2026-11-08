@@ -2,6 +2,7 @@
 title: Creare il Tuo Primo Oggetto
 description: Impara come registrare un semplice oggetto e come aggiungergli texture, modello e nome.
 authors:
+  - cassiancc
   - dicedpixels
   - Earthcomputer
   - IMB11
@@ -12,19 +13,35 @@ Questa pagina ti presenterà alcuni concetti chiave legati agli oggetti, e come 
 
 Se non ne sei al corrente, tutto in Minecraft è memorizzato in registry, e gli oggetti non fanno eccezione.
 
+## Preparare la classe degli ID degli oggetti {#preparing-your-item-ids-classes}
+
+Cominciamo creando una classe che contenga i nomi dei nostri oggetti, sotto forma di `ResourceKey`. Una `ResourceKey` contiene il nome della mod, il nome dell'oggetto, e la registry a cui deve essere associato.
+
+Implementeremo un metodo ausiliario che crei una `ResourceKey` dato il nome di un oggetto; esso si occuperà di compilare il resto dei dati con valori costanti, come la registry degli oggetti e l'ID della mod.
+
+Questi riferimenti agli oggetti saranno usati per la [data-generazione dei tag degli oggetti](../data-generation/tags).
+
+Puoi mettere questo metodo in una classe chiamata `ModItemIds` (o qualsiasi altro nome).
+
+::: tip
+
+Anche Mojang fa lo stesso per i suoi oggetti! Prendi ispirazione dalla classe `ItemIds`.
+
+:::
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#mod_item_ids_class
+
 ## Preparare la Tua Classe dei Oggetti {#preparing-your-items-class}
 
-Per semplificare la registrazione degli elementi, è possibile creare un metodo che accetta un identificatore di stringa, alcune proprietà degli oggetti e una fabbrica per creare l'istanza `Item`.
+Per semplificare la registrazione degli elementi, è possibile creare un metodo che accetti una `ResourceKey`, delle proprietà per oggetti, e una fabbrica per creare l'istanza di `Item`.
 
-Questo metodo creerà un oggetto con l'identificatore fornito e lo registrerà con il registro degli oggetti del gioco.
+Questo metodo creerà un oggetto con la chiave fornita e lo registrerà nella registry degli oggetti.
 
-Puoi mettere questo metodo in una classe chiamata `Moditems` (o qualunque nome in cui tu voglia nominare la classe).
+Puoi mettere questo metodo in una classe chiamata `ModItems` (o qualsiasi altro nome).
 
 Anche Mojang fa lo stesso per i suoi oggetti! Prendi ispirazione dalla classe `Items`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
-
-Nota che stiamo usando `T`, un [tipo generico](https://docs.oracle.com/javase/tutorial/java/generics/types.html) che estende `Item`. Questo ci permette di usare lo stesso metodo `register` per registrare qualsiasi tipo di oggetto che estenda `Item`. Stiamo anche usando una [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) per la fabbrica, che ci consentirà di specificare come vogliamo creare il nostro articolo date le proprietà.
 
 ## Registrare un Oggetto {#registering-an-item}
 
@@ -39,6 +56,8 @@ Se vuoi cambiare la dimensione di uno stack del tuo oggetto, puoi usare il metod
 Questo non funzionerà se hai segnato un oggetto come danneggiabile, poiché la dimensione di uno stack è sempre 1 per oggetti danneggiabili per evitare duplicazioni.
 
 :::
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#suspicious_substance
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#suspicious_substance
 
@@ -150,18 +169,6 @@ Crea l'oggetto del client in `assets/example-mod/items`, e come nome del file l'
 Il tuo oggetto dovrebbe ora avere questo aspetto nel gioco:
 
 ![Oggetto con il modello corretto](/assets/develop/items/first_item_2.png)
-
-## Rendere l'Oggetto Compostabile o Combustibile {#making-the-item-compostable-or-a-fuel}
-
-L'API di Fabric fornisce varie registry che si possono usare per aggiungere altre proprietà al tuo oggetto.
-
-Per esempio, per rendere il tuo oggetto compostabile, puoi usare la `CompostableRegistry`:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
-
-In alternativa, se vuoi rendere il tuo oggetto combustibile, puoi usare l'evento `FuelValueEvents.BUILD`:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
 
 ## Aggiungere una Ricetta Basilare {#adding-a-basic-crafting-recipe}
 

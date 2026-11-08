@@ -33,7 +33,7 @@ authors-nogithub:
 
 ## Блоки {#blocks}
 
-Чтобы из блоков выпадали предметы — включая сам блок — необходимо создать таблицу лута. Создайте класс, который расширяет (extends) `FabricBlockLootTableProvider`:
+Чтобы из блоков выпадали предметы — включая сам блок — необходимо создать таблицу лута. Создайте класс, который расширяет (extends) `FabricBlockLootSubProvider`:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_provider
 
@@ -47,7 +47,7 @@ authors-nogithub:
 
 ## Сундуки {#chests}
 
-Лут для сундуков устроен немного сложнее, чем лут для блоков. Создайте класс, который расширяет `SimpleFabricLootTableProvider`, аналогично примеру ниже, и **добавьте его в свой пакет**.
+Лут для сундуков устроен немного сложнее, чем лут для блоков. Создайте класс, который расширяет `SimpleFabricLootTableSubProvider`, аналогично примеру ниже, и **добавьте его в свой пакет**.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_provider
 

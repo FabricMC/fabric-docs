@@ -23,7 +23,7 @@ Eine Effektkomponente enthält den Code, der die speziellen Effekte einer Verzau
 
 Starte mit der Erstellung eines Ordners `enchantment` und erstelle innerhalb dieses Ordners einen Ordner `effect`. Darin erstellen wir den Record `LightningEnchantmentEffect`.
 
-Als nächstes können wir einen Konstruktor erstellen und die Methoden des Interfaces `EnchantmentEntityEffect` überschreiben. Wir werden auch eine `CODEC`-Variable erstellen, um unseren Effekt zu kodieren und zu dekodieren; Du kannst [hier](../codecs) mehr über Codecs lesen.
+Als nächstes können wir einen Konstruktor erstellen und die Methoden des Interfaces `EnchantmentEntityEffect` überschreiben. Wir werden auch eine `CODEC`-Variable erstellen, um unseren Effekt zu kodieren und zu dekodieren; Du kannst [hier](../serialization/codecs) mehr über Codecs lesen.
 
 Der Großteil unseres Codes wird in das Ereignis `apply()` einfließen, das aufgerufen wird, wenn die Kriterien für die Wirkung der Verzauberung erfüllt sind. Wir werden diesen `Effect` später so konfigurieren, dass er aufgerufen wird, wenn eine Entität getroffen wird, aber für den Moment wollen wir einfachen Code schreiben, um das Ziel mit einem Blitz zu treffen.
 

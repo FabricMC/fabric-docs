@@ -52,7 +52,7 @@ Um zu prüfen, ob die Zutaten übereinstimmen, können wir die Methode `test` un
 
 ## Erstellen eines Rezept-Serialisierers {#creating-a-recipe-serializer}
 
-Der Rezept-Serializer verwendet einen [`MapCodec`](../serialization/codecs/#mapcodec), um das Rezept aus JSON zu lesen, und einen `StreamCodec`, um es über das Netzwerk zu senden.
+Der Rezept-Serializer verwendet einen [`MapCodec`](../serialization/codecs#mapcodec), um das Rezept aus JSON zu lesen, und einen `StreamCodec`, um es über das Netzwerk zu senden.
 
 Wir werden `RecordCodecBuilder#mapCodec` verwenden, um einen Map-Codec für unser Rezept zu erstellen. Dadurch können wir die vorhandenen Codecs von Minecraft in unsere eigenen integrieren:
 

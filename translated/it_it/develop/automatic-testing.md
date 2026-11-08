@@ -51,7 +51,7 @@ Ora è il tempo di scrivere il tuo codice di test effettivo. Puoi assicurare con
 
 <<< @/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java#automatic_testing_4
 
-Per una spiegazione di cosa fa questo codice, consulta la pagina [Codec](./codecs#registry-dispatch).
+Per una spiegazione di cosa fa questo codice, consulta la pagina [Codec](./serialization/codecs#registry-dispatch).
 
 #### Impostare le Registry {#setting-up-registries}
 

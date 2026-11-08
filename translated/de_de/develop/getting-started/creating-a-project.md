@@ -33,7 +33,7 @@ Wenn du entweder Kotlin oder Kotlin-Buildscripts verwendest oder Datengeneratore
 
 ::: info
 
-Die auf dieser Seite aufgeführten Code-Beispiele verwenden [die Namen aus dem nicht verschleiterten Spiel](../porting/mappings/#whats-going-on-with-mappings). Falls du bereits einen Mod hast, der andere Mappings als die von Mojang bereitgestellten verwendet, findest du weitere Informationen in unserer Dokumentation zum Thema [Portierung auf 26.1](../porting/index).
+Die auf dieser Seite aufgeführten Code-Beispiele verwenden [die Namen aus dem nicht verschleiterten Spiel](../porting/mappings/#whats-going-on-with-mappings). Falls du bereits einen Mod hast, der andere Mappings als die von Mojang bereitgestellten verwendet, findest du weitere Informationen in unserer Dokumentation zum Thema [Portierung auf 26.1](../porting/).
 
 :::
 

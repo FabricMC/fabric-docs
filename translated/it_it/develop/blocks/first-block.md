@@ -3,26 +3,82 @@ title: Creare il Tuo Primo Blocco
 description: Impara come creare il tuo primo blocco personalizzato in Minecraft.
 authors:
   - bluebear94
+  - cassiancc
   - CelDaemon
   - Earthcomputer
   - IMB11
   - its-miroma
+  - NotNightSky
   - xEobardThawne
 resources:
   https://docs.neoforged.net/docs/blocks/: Blocchi - NeoForge Docs (EN)
 ---
 
-I blocchi sono i blocchi di costruzione di Minecraft (perdona il gioco di parole) - proprio come tutto il resto di Minecraft, sono memorizzati in dei registri.
+I blocchi sono i blocchi di costruzione di Minecraft (perdona il gioco di parole) - proprio come tutto il resto di Minecraft, sono memorizzati in registri.
+
+## Preparare la classe degli ID dei blocchi {#preparing-your-block-id-classes}
+
+Se hai già completato la pagina [Creare il Tuo Primo Oggetto](../items/first-item), questo processo ti sembrerà molto familiare - dovrai creare delle classi dove memorizzare gli `Identifier` dei tuoi blocchi. Gli ID dei blocchi con oggetti saranno memorizzati in `BlockItemId`, mentre quelli senza saranno delle `ResourceKey`.
+
+Questi riferimenti ai blocchi saranno usati per la [data-generazione dei tag dei blocchi](../data-generation/tags).
+
+:::: tabs
+
+== Blocchi con oggetti
+
+Metteremo questo metodo in una classe chiamata `ModBlockItemIds` (o qualunque altro nome). Questa classe ospiterà i blocchi che sono associati a oggetti.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#first_block
+
+::: tip
+
+Anche Mojang fa lo stesso per i loro blocchi! Prendi ispirazione dalla classe `BlockItemIds`.
+
+:::
+
+== Blocchi senza oggetti
+
+Metteremo un metodo che crei una `ResourceKey` in una classe chiamata `ModBlockIds` (o qualsiasi altro nome). Questa classe ospiterà i blocchi non associati a oggetti.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#first_block
+
+::: tip
+
+Anche Mojang fa lo stesso per i loro blocchi! Prendi ispirazione dalla classe `BlockIds`.
+
+:::
+
+::::
 
 ## Preparare la Tua Classe dei Blocchi {#preparing-your-blocks-class}
 
-Se hai già completato la pagina [Creare il Tuo Primo Oggetto](../items/first-item), questo processo ti sembrerà molto familiare - dovrai creare un metodo che registri il tuo blocco, e l'oggetto a esso associato.
+La registrazione dei blocchi è molto simile alla [registrazione di oggetti](../items/first-item#registering-an-item): creeremo due overload di un metodo `register()`, uno per registrare i blocchi associati a oggetti, e un altro per quelli non associati.
 
-Dovresti mettere questo metodo in una classe chiamata `ModBlocks` (o qualsiasi altro nome).
+Dovresti mettere questi metodi in una classe chiamata `ModBlocks` (o qualsiasi altro nome).
 
 Mojang fa qualcosa di simile con i suoi blocchi vanilla; informati riguardo alla classe `Blocks` per sapere come fanno loro.
 
+::: warning
+
+Entrambi gli overload di `register()` **devono essere presenti** nella tua classe `ModBlocks`. Questo perché l'overload per i blocchi con oggetti richiama internamente quello per i blocchi senza. Se uno dei due mancasse, il tuo codice non potrebbe compilare.
+
+:::
+
+::: tabs
+
+== Blocchi con oggetti
+
+Per i blocchi con oggetti si passa un parametro `BlockItemId` che rappresenta l'ID sia del blocco che dell'oggetto.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block_item
+
+== Blocchi senza oggetti
+
+Per i blocchi senza oggetti si passa un parametro `ResourceKey` che rappresenta l'ID del blocco stesso.
+
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block
+
+:::
 
 Proprio come per gli oggetti, dovrai assicurarti che la classe sia caricata, in modo che tutti gli attributi statici contenenti le istanze dei tuoi blocchi siano inizializzati.
 
@@ -56,8 +112,6 @@ Puoi anche usare `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)` pe
 :::
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_dirt
-
-Per creare l'oggetto del blocco in automatico, possiamo passare `true` al parametro `shouldRegisterItem` del metodo `register` che abbiamo creato nel passaggio precedente.
 
 ### Aggiungere l'Oggetto del Tuo Blocco a una Scheda d'inventario {#adding-your-block-s-item-to-a-creative-tab}
 

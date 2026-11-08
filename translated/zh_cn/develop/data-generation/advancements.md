@@ -117,12 +117,12 @@ authors-nogithub:
 好多新名词！让我们慢慢分析它们：
 
 - `UseToolCriterion` 是一个 `SimpleCriterionTrigger`，`Conditions` 可以应用于它。
-- `Conditions` 有一个 `playerPredicate` 字段。所有的 `Conditions` 都应有一个玩家谓词（技术上来讲是 LootContextPredicate\`）。
+- `Conditions` 有一个 `playerPredicate` 字段。所有的 `Conditions` 都应有一个玩家谓词（技术上来讲是 `LootContextPredicate`）。
 - `Conditions` 也有一个 `CODEC`。这个 `Codec` 只是其一个字段 `playerPredicate` 的 codec，带有在它们之间进行转换的额外指令（`xmap`）。
 
 ::: info
 
-要了解有关 codec 的更多信息，请参阅 [Codec](../codecs) 页面。
+要了解有关 codec 的更多信息，请参阅 [Codec](../serialization/codecs) 页面。
 
 :::
 

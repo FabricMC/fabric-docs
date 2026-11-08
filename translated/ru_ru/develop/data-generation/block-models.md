@@ -106,7 +106,7 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 С дверями и люками всё немного иначе. Здесь вам понадобится создать три новые текстуры: две для двери и одну для люка.
 
 1. Дверь:
-   - Она состоит из двух частей — верхней и нижней половины. \*\* Каждому нужна своя текстура:\*\* в данном случае `ruby_door_top` для верхней половины и `ruby_door_bottom` для нижней.
+   - Она состоит из двух частей — верхней и нижней половины. **Каждому нужна своя текстура:** в данном случае `ruby_door_top` для верхней половины и `ruby_door_bottom` для нижней.
    - Метод `registerDoor()` создаст модели для всех ориентаций двери, как открытых, так и закрытых.
    - **Вам также нужна текстура предмета!** Поместите ее в папку `assets/example-mod/textures/item/`.
 2. Люк:
@@ -130,13 +130,13 @@ public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGen
 ### Класс пользовательского блока (Custom Block Class) {#custom-block-class}
 
 Создайте блок `VerticalSlab` со свойством `FACING` и булевым свойством `SINGLE`, как в учебнике [Block States](../blocks/blockstates). `SINGLE` укажет, есть ли обе плиты.
-Затем следует переопределить `getOutlineShape` и `getCollisionShape`, чтобы контур отрисовывался правильно, а блок имел правильную форму столкновения.
+Затем следует переопределить `getShape` и `getCollisionShape`, чтобы контур отрисовывался правильно а блок имел правильную форму столкновения.
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_voxels
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_collision
 
-Также переопределите метод `canReplace()`, иначе вы не сможете сделать плиту полным блоком.
+Также переопределите метод `canBeReplaced()`, иначе вы не сможете сделать плиту полным блоком.
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_replace
 

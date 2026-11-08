@@ -32,10 +32,10 @@ authors:
   - YTG1234
 ---
 
-访问加宽是一种[类调整](../class-tweakers)，用于放宽类、方法和字段的访问限制，并将该变更反映到反编译源码中。  
+访问加宽是一种[类调整](./)，用于放宽类、方法和字段的访问限制，并将该变更反映到反编译源码中。  
 这包括将它们设为 public、可扩展和/或可变。
 
-访问加宽器条目可以是[传递性的](../class-tweakers/index#transitive-entries)，从而让依赖你的模组的其他模组也能看到这些变更。
+访问加宽器条目可以是[传递性的](./#transitive-entries)，从而让依赖你的模组的其他模组也能看到这些变更。
 
 若只是访问字段或方法，使用 [Mixin 访问器](../mixins/accessors)可能更安全、更简单。  
 但在以下两种情况下，访问器无法满足需求，必须使用访问加宽：
@@ -43,7 +43,7 @@ authors:
 - 你需要访问 `private`、`protected` 或包私有的类
 - 你需要重写 `final` 方法，或继承 `final` 类
 
-不过，与 [Mixin 访问器](https://wiki.fabricmc.net/tutorial:mixin_accessors)不同，[类调整](../class-tweakers)只能作用于原版 Minecraft 类，不能作用于其他模组。
+不过，与 [Mixin 访问器](https://wiki.fabricmc.net/tutorial:mixin_accessors)不同，[类调整](./)只能作用于原版 Minecraft 类，不能作用于其他模组。
 
 ## 访问指令 {#access-directives}
 
@@ -53,7 +53,7 @@ authors:
 
 同一个类、方法或字段可以被多个访问加宽条目所针对，每个条目位于一行。
 
-通过在基础访问指令前添加 `transitive-` 前缀，也可以将访问指令设置为[可传递的](../class-tweakers/index#transitive-entries)。
+通过在基础访问指令前添加 `transitive-` 前缀，也可以将访问指令设置为[可传递的](./#transitive-entries)。
 
 ### accessible {#accessible}
 
@@ -163,7 +163,7 @@ authors:
 
 ::: tip
 
-如果未显示修改，你可以尝试[校验文件](../class-tweakers/index#validating-the-file)并检查是否有错误产生。
+如果未显示修改，你可以尝试[校验文件](./#validating-the-file)并检查是否有错误产生。
 
 :::
 

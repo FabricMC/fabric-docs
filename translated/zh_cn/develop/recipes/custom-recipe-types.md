@@ -52,7 +52,7 @@ resources:
 
 ## 创建配方序列化器 {#creating-a-recipe-serializer}
 
-配方序列化器使用 [`MapCodec`](../serialization/codecs/#mapcodec) 从 JSON 中读取配方，并使用 `StreamCodec` 通过网络发送配方。
+配方序列化器使用 [`MapCodec`](../serialization/codecs#mapcodec) 从 JSON 中读取配方，并使用 `StreamCodec` 通过网络发送配方。
 
 我们将使用 `RecordCodecBuilder#mapCodec` 为我们的配方构建一个映射编解码器。它允许我们将 Minecraft 现有的编解码器整合到我们自己的编解码器中：
 

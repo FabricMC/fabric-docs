@@ -52,7 +52,7 @@ resources:
 
 ## Створення серіалізатора рецептів {#creating-a-recipe-serializer}
 
-Серіалізатор рецептів використовує [`MapCodec`](../serialization/codecs/#mapcodec) для читання рецепта з JSON і `StreamCodec` для надсилання його через мережу.
+Серіалізатор рецептів використовує [`MapCodec`](../serialization/codecs#mapcodec) для читання рецепта з JSON і `StreamCodec` для надсилання його через мережу.
 
 Ми використаємо `RecordCodecBuilder#mapCodec`, щоб створити мапу кодека для нашого рецепта. Це дозволяє нам об’єднати наявні кодеки Minecraft у наші власні:
 

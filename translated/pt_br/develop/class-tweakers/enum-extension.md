@@ -97,7 +97,7 @@ Tenha certeza de reabrir qualquer classe-alvo do código-fonte descompilado para
 
 ::: tip
 
-Se as modificações não aparecem, você pode tentar [validar o arquivo](./#validating-the-file) e checar se algum erro aparece.
+Se as modificações não aparecem, você pode tentar [validar o arquivo](./#validating-the-file) e verificar se algum erro aparece.
 
 :::
 

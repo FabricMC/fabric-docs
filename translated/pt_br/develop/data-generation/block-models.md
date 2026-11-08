@@ -186,7 +186,7 @@ Você pode tanto usar os mapas vanillas, como `TextureMapping.cube()` (que assoc
 
 :::
 
-Nós queremos usar as texturas do Tronco de Carvalho, porém temos as `TextureSlot`s \`BOTTOM`, `TOP`e`SIDE\`\`. Para isso, precisamos criar chaves novas.
+Nós queremos usar as texturas do Tronco de Carvalho, porém temos as `TextureSlot`s `BOTTOM`, `TOP` e `SIDE`. Para isso, precisamos criar chaves novas.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#custom_texture_map
 

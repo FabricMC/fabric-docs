@@ -32,10 +32,10 @@ authors:
   - YTG1234
 ---
 
-Die Zugriffserweiterung ist eine Art von [Klassenoptimierung](../class-tweakers), mit der die Zugriffsbeschränkungen von Klassen, Methoden und Feldern gelockert und diese Änderung im dekompilierten Quellcode widergespiegelt werden.
+Die Zugriffserweiterung ist eine Art von [Klassenoptimierung](./), mit der die Zugriffsbeschränkungen von Klassen, Methoden und Feldern gelockert und diese Änderung im dekompilierten Quellcode widergespiegelt werden.
 Dazu gehört, dass sie öffentlich, erweiterbar und/oder veränderbar sind.
 
-Einträge in Zugriffserweiterern können [transitiv](../class-tweakers/index#transitive-entries) sein, damit Änderungen auch für Mods sichtbar werden, die von deinem Mod abhängen.
+Einträge in Zugriffserweiterern können [transitiv](./#transitive-entries) sein, damit Änderungen auch für Mods sichtbar werden, die von deinem Mod abhängen.
 
 Um auf Felder oder Methoden zuzugreifen, ist es oft sicherer und einfacher, [Zugriffs-Mixins](../mixins/accessors) zu verwenden,
 doch gibt es zwei Situationen, in denen diese Art des Zugriffs nicht ausreicht und eine Zugriffserweiterung erforderlich ist:
@@ -43,7 +43,7 @@ doch gibt es zwei Situationen, in denen diese Art des Zugriffs nicht ausreicht u
 - Wenn du auf eine `private`, `protected` oder package-private Klasse zugreifen musst.
 - Wenn du eine `final`-Methode, eine Unterklasse oder eine `final`-Klasse überschreiben musst.
 
-Im Gegensatz zu [Zugriffs-Mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors) funktioniert die [Klassenoptimierung](../class-tweakers) jedoch nur bei den Standardklassen von Minecraft und nicht bei anderen Mods.
+Im Gegensatz zu [Zugriffs-Mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors) funktioniert die [Klassenoptimierung](./) jedoch nur bei den Standardklassen von Minecraft und nicht bei anderen Mods.
 
 ## Zugriffsrichtlinien {#access-directives}
 
@@ -53,7 +53,7 @@ Nach dem Schlüsselwort folgen die Parameter, bei denen es sich in der Regel um 
 
 Dieselbe Klasse, Methode oder dasselbe Feld kann Ziel mehrerer Zugriffserweiterer-Einträgen sein, wobei jeder Eintrag in einer eigenen Zeile steht.
 
-Zugriffsdirektiven können auch [transitiv](../class-tweakers/index#transitive-entries) gemacht werden, indem man den Präfix `transitive-` vor der Basis-Zugriffsdirektive hinzufügt.
+Zugriffsdirektiven können auch [transitiv](./#transitive-entries) gemacht werden, indem man den Präfix `transitive-` vor der Basis-Zugriffsdirektive hinzufügt.
 
 ### Zugänglich {#accessible}
 
@@ -165,7 +165,7 @@ entsprechend deren Zugriffsbeschränkungen angepasst werden. Stelle sicher, dass
 
 ::: tip
 
-Falls die Änderungen nicht sichtbar sind, kannst du versuchen, [die Datei zu validieren](../class-tweakers/index#validating-the-file) und zu prüfen, ob Fehler auftauchen.
+Falls die Änderungen nicht sichtbar sind, kannst du versuchen, [die Datei zu validieren](./#validating-the-file) und zu prüfen, ob Fehler auftauchen.
 
 :::
 

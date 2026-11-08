@@ -163,7 +163,7 @@ API Fabric надає `PlayerLookup`, набір допоміжних функц
 
 <<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#payload
 
-Нарешті, ми надсилаємо пакет на сервер, викликаючи `ClientPlayNetworking.send` з екземпляром нашого \`\`GiveGlowingEffectServerboundPayload\`.
+Нарешті, ми надсилаємо пакет на сервер, викликаючи `ClientPlayNetworking.send` з екземпляром нашого `GiveGlowingEffectServerboundPayload`.
 
 <<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#send
 

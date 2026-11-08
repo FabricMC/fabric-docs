@@ -33,7 +33,7 @@ authors:
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#tint_source_class
 
-由于这是客户端物品定义的一部分，因此可以通过资源包更改色调值。所以你需要定义一个能够读取色调定义的 [Map Codec](../codecs#mapcodec)。在本例中，色调源将包含一个 `int` 值，用于描述下雨时的颜色。我们可以使用内置的 `ExtraCodecs.RGB_COLOR_CODEC` 来构建我们的 Codec。
+由于这是客户端物品定义的一部分，因此可以通过资源包更改色调值。所以你需要定义一个能够读取色调定义的 [Map Codec](../serialization/codecs#mapcodec)。在本例中，色调源将包含一个 `int` 值，用于描述下雨时的颜色。我们可以使用内置的 `ExtraCodecs.RGB_COLOR_CODEC` 来构建我们的 Codec。
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#map_codec
 

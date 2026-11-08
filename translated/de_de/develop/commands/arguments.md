@@ -1,6 +1,8 @@
 ---
 title: Befehlsargumente
 description: Lerne, wie man Befehle mit komplexen Parametern erstellt.
+
+# TODO: add authors
 ---
 
 Parameter werden in den meisten Befehlen verwendet. Manchmal sind sie optional, das heißt, wenn du diesen Parameter nicht angibst, wird der Befehl dennoch ausgeführt. Ein Knoten kann mehrere Parametertypen haben, aber es ist zu beachten, dass die Möglichkeit einer

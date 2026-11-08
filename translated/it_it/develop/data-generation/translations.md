@@ -43,6 +43,12 @@ Oltre a creare traduzioni crude, traduzioni da `Identifier`, e copiarli da un al
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
 
+È anche possibile importare le traduzioni da un file JSON già esistente nella tua mod. Metti il file da qualche parte fuori dalla cartella generata, poi passa il percorso a `translationBuilder.add`:
+
+<<< @/reference/latest/src/main/resources/assets/example-mod/lang/en_us.existing.json
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_existing
+
 ## Usare le Traduzioni {#using-translations}
 
 Le traduzioni generate prendono il posto di molte traduzioni aggiunte in altri tutorial, ma puoi anche usarle in ogni punto in cui usi un oggetto `Component`. Nel nostro esempio, se volessimo permettere ai pacchetti risorse di tradurre il nostro saluto, usiamo `Component.translatable` invece di `Component.literal`:
