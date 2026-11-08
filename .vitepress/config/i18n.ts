@@ -299,10 +299,9 @@ export const getLocaleConfig = () => {
         ],
 
         version: {
-          switcher: {
-            label: resolver("version.switcher.label"),
-            none: resolver("version.switcher.none"),
-          },
+          switcherLabel: resolver("version.switcher.label"),
+          switcherTitle: resolver("version.switcher.title"),
+          noOtherVersions: resolver("version.switcher.none"),
         },
 
         versionSwitcher: false,
