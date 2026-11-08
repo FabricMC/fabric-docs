@@ -84,7 +84,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 
 		pack.addProvider(ExampleModVillagerTradesTagProvider::new);
 
-		pack.addProvider(ExampleModVillagerTrades::new);
+		pack.addProvider(ExampleModVillagerTradesProvider::new);
 	}
 	// #endregion datagen_setup_generator
 
@@ -101,7 +101,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.add(Registries.PLACED_FEATURE, ExampleModWorldPlacedFeatures::configure);
 		// #endregion datagen_world_registries
 
-		registryBuilder.add(Registries.VILLAGER_TRADE, ExampleModVillagerTrades::bootstrap);
+		registryBuilder.add(Registries.VILLAGER_TRADE, ExampleModVillagerTradesProvider::bootstrap);
 
 		// #region datagen_magic_skills_dynamic_registries_bootstrap
 		registryBuilder.add(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY, ExampleModDynamicRegistriesProvider::bootstrap);
