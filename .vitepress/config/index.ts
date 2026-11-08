@@ -35,7 +35,9 @@ export default defineVersionedConfig(
     ignoreDeadLinks: [
       (_, filePath) => {
         const split = filePath.split("/");
-        if (split[0] === "versions") split.splice(0, 2);
+        if (split[0] === "versions") {
+          split.splice(0, 2);
+        }
         return split[0] !== "translated";
       },
     ],
@@ -118,7 +120,9 @@ export default defineVersionedConfig(
             Object.entries(s).map(([k, v]) => [
               (() => {
                 const split = k.split("/").filter(Boolean);
-                if (split[0] === split[2]) split.splice(2, 1);
+                if (split[0] === split[2]) {
+                  split.splice(2, 1);
+                }
                 return `/${split.join("/")}/`;
               })(),
               v,

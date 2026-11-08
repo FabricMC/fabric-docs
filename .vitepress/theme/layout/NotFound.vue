@@ -9,8 +9,12 @@ const data = useData<Fabric.ThemeConfig>();
 
 const options = computed(() => {
   const { quotes, pooh, ...options } = data.theme.value.notFound;
-  if (i === -1) i = Math.floor(Math.random() * quotes.length);
-  if (i === quotes.length - 1) options.title = pooh;
+  if (i === -1) {
+    i = Math.floor(Math.random() * quotes.length);
+  }
+  if (i === quotes.length - 1) {
+    options.title = pooh;
+  }
   options.quote = quotes[i];
   return options;
 });
@@ -69,7 +73,9 @@ const drawBall = (b: HTMLCanvasElement) => {
   for (let x = 0; x < TEXTURE.length; x++) {
     for (let y = 0; y < TEXTURE[x].length; y++) {
       const color = COLORS[TEXTURE[y][x]];
-      if (!color) continue;
+      if (!color) {
+        continue;
+      }
       context.fillStyle = color;
       context.fillRect(x, y, 1, 1);
     }
@@ -77,7 +83,9 @@ const drawBall = (b: HTMLCanvasElement) => {
 };
 
 const createThreadPattern = () => {
-  if (tPattern) return;
+  if (tPattern) {
+    return;
+  }
 
   const pattern = document.createElement("canvas");
   pattern.width = TEXTURE.length;
@@ -108,7 +116,9 @@ const drawThread = (t: HTMLElement) => {
 };
 
 const startAnimation = () => {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
   values = getValues();
 
   drawBall(ball.value!);
@@ -125,7 +135,9 @@ const startAnimation = () => {
   isBallRolling = true;
 
   const step = (now: number) => {
-    if (!isBallRolling) return;
+    if (!isBallRolling) {
+      return;
+    }
 
     const time = Math.min(1, Math.max(0, now - startTime) / totalTime);
     const bStartXNow = values.bStartX + values.bTotalX * (1 - Math.pow(1 - time, 3));
@@ -158,7 +170,9 @@ const startAnimation = () => {
 let handleResizeTimeout: number | null = null;
 const handleResize = () => {
   values = getValues();
-  if (handleResizeTimeout) clearTimeout(handleResizeTimeout);
+  if (handleResizeTimeout) {
+    clearTimeout(handleResizeTimeout);
+  }
   // even after the animation, thread must fill the width
   handleResizeTimeout = window.setTimeout(() => !isBallRolling && drawThread(thread.value!), 100);
 };
@@ -179,8 +193,12 @@ onMounted(async () => {
 });
 
 onBeforeUnmount(() => {
-  if (animationFrame) cancelAnimationFrame(animationFrame);
-  if (handleResizeTimeout) clearTimeout(handleResizeTimeout);
+  if (animationFrame) {
+    cancelAnimationFrame(animationFrame);
+  }
+  if (handleResizeTimeout) {
+    clearTimeout(handleResizeTimeout);
+  }
   window.removeEventListener("resize", handleResize);
   animationFrame = 0;
   isBallRolling = false;
