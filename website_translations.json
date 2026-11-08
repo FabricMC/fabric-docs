@@ -51,6 +51,7 @@
   "container.warning": "WARNING",
   "description": "Comprehensive documentation for Fabric, the modding toolchain for Minecraft.",
   "download.button": "Download '%s'",
+  "download.unavailable_in_dev": "Zip files cannot be downloaded in dev previews",
   "edit_crowdin": "Edit this page on Crowdin",
   "edit_github": "Edit this page on GitHub",
   "footer.copyright": "© 2026 - The Fabric Documentation Team. Released under the %s.",
