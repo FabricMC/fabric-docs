@@ -3,9 +3,11 @@ import { useData } from "vitepress";
 import { VPLink } from "vitepress/theme";
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 import type { Fabric } from "../../types.d.ts";
+import { useRem } from "../composables/rem.ts";
 
 let i: number = -1;
 const data = useData<Fabric.ThemeConfig>();
+const rem = useRem();
 
 const options = computed(() => {
   const { quotes, pooh, ...options } = data.theme.value.notFound;
@@ -33,19 +35,19 @@ let tPattern: string;
 const getValues = () => {
   const rRect = root.value!.getBoundingClientRect();
   const cRect = content.value!.getBoundingClientRect();
-  const px = Math.floor((cRect.height * 1.5) / TEXTURE.length);
+  const bPixel = Math.floor((cRect.height * 1.5) / TEXTURE.length) / rem.value;
 
-  const cMiddleX = cRect.width / 2;
+  const cMiddleX = cRect.width / rem.value / 2;
 
-  const bDiameter = TEXTURE.length * px;
-  const bStartX = -bDiameter - 32;
-  const bTotalX = rRect.width + 32 - bStartX;
-  const bTopY = (rRect.height - bDiameter) / 2;
+  const bDiameter = TEXTURE.length * bPixel;
+  const bStartX = -bDiameter - 2;
+  const bTotalX = -bStartX + rRect.width / rem.value + 2;
+  const bTopY = (rRect.height / rem.value - bDiameter) / 2;
 
-  const tTopY = bTopY + 12 * px;
+  const tTopY = bTopY + 12 * bPixel;
 
   return {
-    px,
+    bPixel,
 
     bDiameter,
     bStartX,
@@ -58,13 +60,13 @@ const getValues = () => {
 
 const drawBall = (b: HTMLCanvasElement) => {
   b.width = b.height = TEXTURE.length;
-  b.style.width = b.style.height = `${values.bDiameter}px`;
+  b.style.width = b.style.height = `${values.bDiameter}rem`;
   b.style.zIndex = "1";
   b.style.imageRendering = "pixelated";
   b.style.position = "absolute";
-  b.style.top = `${values.bTopY}px`;
-  b.style.left = "0px";
-  b.style.transform = `translateX(${values.bStartX}px) rotate(0deg)`;
+  b.style.top = `${values.bTopY}rem`;
+  b.style.left = "0";
+  b.style.transform = `translateX(${values.bStartX}rem) rotate(0deg)`;
   b.style.display = "block";
 
   const context = b.getContext("2d", { alpha: true })!;
@@ -107,11 +109,11 @@ const drawThread = (t: HTMLElement) => {
   createThreadPattern();
   t.style.backgroundImage = `url(${tPattern})`;
   t.style.backgroundRepeat = "repeat-x";
-  t.style.backgroundSize = `${values.bDiameter}px ${values.px}px`;
-  t.style.top = `${values.tTopY}px`;
-  t.style.left = `0px`;
-  t.style.height = `${values.px}px`;
-  t.style.width = `${isBallRolling ? 0 : values.bTotalX}px`;
+  t.style.backgroundSize = `${values.bDiameter}rem ${values.bPixel}rem`;
+  t.style.top = `${values.tTopY}rem`;
+  t.style.left = "0";
+  t.style.height = `${values.bPixel}rem`;
+  t.style.width = `${isBallRolling ? 0 : values.bTotalX}rem`;
   t.style.imageRendering = "pixelated";
   t.style.position = "absolute";
 };
@@ -132,7 +134,7 @@ const startAnimation = () => {
   content.value!.setAttribute("aria-hidden", "true");
 
   // start rolling the ball
-  const totalTime = Math.max(600, 3 * values.bTotalX);
+  const totalTime = Math.max(600, 50 * values.bTotalX);
   const startTime = performance.now();
   isBallRolling = true;
 
@@ -145,7 +147,7 @@ const startAnimation = () => {
     const bStartXNow = values.bStartX + values.bTotalX * (1 - Math.pow(1 - time, 3));
     const bMiddleXNow = bStartXNow + values.bDiameter / 2;
 
-    thread.value!.style.width = `${Math.min(values.bTotalX, bMiddleXNow)}px`;
+    thread.value!.style.width = `${Math.min(values.bTotalX, bMiddleXNow)}rem`;
 
     // show content when the ball crosses the midpoint
     if (bMiddleXNow >= values.cMiddleX && content.value!.style.opacity === "0") {
@@ -156,7 +158,7 @@ const startAnimation = () => {
 
     const bCircumference = Math.PI * values.bDiameter;
     const bRotationDeg = ((bStartXNow - values.bStartX) * 360) / bCircumference;
-    ball.value!.style.transform = `translateX(${bStartXNow}px) translateZ(0) rotate(${bRotationDeg}deg)`;
+    ball.value!.style.transform = `translateX(${bStartXNow}rem) translateZ(0) rotate(${bRotationDeg}deg)`;
 
     if (time < 1) {
       animationFrame = requestAnimationFrame(step);
@@ -294,15 +296,15 @@ const TEXTURE = [
 
 <style scoped>
 .not-found {
-  padding: 64px 24px 96px;
+  padding: 4rem 1.5rem 6rem;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .not-found {
-    padding: 96px 32px 168px;
+    padding: 6rem 2rem 10.5rem;
   }
 }
 
@@ -317,35 +319,35 @@ const TEXTURE = [
 }
 
 code {
-  line-height: 64px;
-  font-size: 64px;
+  line-height: 4rem;
+  font-size: 4rem;
   font-weight: 600;
 }
 
 h1 {
-  padding: 12px 0px;
-  letter-spacing: 2px;
-  line-height: 20px;
-  font-size: 20px;
+  padding: 0.75rem 0;
+  letter-spacing: 0.125rem;
+  line-height: 1.25rem;
+  font-size: 1.25rem;
   font-weight: 700;
 }
 
 blockquote {
   margin: 0 auto;
-  max-width: 512px;
-  font-size: 14px;
+  max-width: 32rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--vp-c-text-2);
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
 }
 
 .VPLink {
-  margin: 8px;
+  margin: 0.5rem;
   display: inline-block;
   border: 1px solid var(--vp-c-brand-1);
-  border-radius: 16px;
-  padding: 3px 16px;
-  font-size: 14px;
+  border-radius: 1rem;
+  padding: 0.1875rem 1rem;
+  font-size: 0.875rem;
   font-weight: 500;
 }
 

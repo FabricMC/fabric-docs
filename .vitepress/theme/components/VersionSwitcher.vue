@@ -107,7 +107,7 @@ const getRoute = (newVersion: string) => {
 <style scoped>
 div:not(.VPFlyout) {
   border-bottom: 1px solid var(--vp-c-divider);
-  height: 48px;
+  height: 3rem;
   overflow: hidden;
   transition: border-color 0.5s;
 
@@ -115,10 +115,10 @@ div:not(.VPFlyout) {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 4px 11px 0;
+    padding: 0.75rem 0.25rem 0.6875rem 0;
     width: 100%;
-    line-height: 24px;
-    font-size: 14px;
+    line-height: 1.5rem;
+    font-size: 0.875rem;
     font-weight: 500;
     color: var(--vp-c-text-1);
     transition: color 0.25s;
@@ -126,7 +126,7 @@ div:not(.VPFlyout) {
     span {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 0.25rem;
     }
 
     .vpi-plus {
@@ -140,7 +140,7 @@ div:not(.VPFlyout) {
 }
 
 .open:not(.VPFlyout) {
-  padding-bottom: 10px;
+  padding-bottom: 0.625rem;
   height: auto;
 
   button {
@@ -154,10 +154,10 @@ div:not(.VPFlyout) {
 
 .VPLink {
   display: block;
-  border-radius: 6px;
-  padding: 0 12px;
-  line-height: 32px;
-  font-size: 14px;
+  border-radius: 0.375rem;
+  padding: 0 0.75rem;
+  line-height: 2rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--vp-c-text-1);
   white-space: nowrap;
