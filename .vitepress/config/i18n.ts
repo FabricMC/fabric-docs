@@ -1,25 +1,13 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
-import * as tinyglobby from "tinyglobby";
-import { AT } from "../constants.ts";
+import { AT, LOCALES } from "../constants.ts";
 import Develop from "../sidebars/develop.ts";
 import Players from "../sidebars/players.ts";
 import type { Fabric } from "../types.d.ts";
 
-export const getLocaleNames = (translatedDir: string) => [
-  "en_us",
-  ...tinyglobby
-    .globSync(`${translatedDir}/*`, { onlyDirectories: true })
-    .filter((f) => fs.existsSync(path.resolve(f, "index.md")))
-    .map((f) => path.relative(translatedDir, f)),
-];
-
-const translated = path.join(AT, "translated");
-const locales = getLocaleNames(translated);
-
 const translationFileCache = new Map<string, Record<string, any>>();
 const readTranslationFile = <T extends Record<string, any>>(file: string, locale: string): T => {
-  const filePath = path.join(translated, locale === "en_us" ? ".." : locale, file);
+  const filePath = path.join(AT, "translated", locale === "en_us" ? ".." : locale, file);
   if (!translationFileCache.has(filePath)) {
     try {
       translationFileCache.set(filePath, JSON.parse(fs.readFileSync(filePath, "utf-8")));
@@ -106,7 +94,7 @@ export const getLocaleConfig = () => {
     zh_tw: "zh-TW",
   };
 
-  for (const locale of locales) {
+  for (const locale of LOCALES) {
     const intlLocale =
       intlLocaleOverrides[locale]
       || locale.replace(/..$/, (m) => m.toUpperCase()).replace("_", "-");
