@@ -2,6 +2,7 @@
 /node_modules
 /.vitepress/cache
 /.vitepress/.temp
+/.vitepress/.versions
 /.vitepress/dist
 .idea/
 .obsidian/
