@@ -15,6 +15,7 @@ authors:
   - infinitychances
   - Kilip1000
   - MaxURhino
+  - NotNightSky
   - SolidBlock-cn
   - SuperSoupr
   - UpcraftLP
@@ -140,7 +141,7 @@ Minecraft також надає інші теґи для контролю пов
 
 :::
 
-Додайте наступні рядки до свого `ClientModInitializer`, щоб створити `FluidModel.Unbaked`, який приймає два `Material` для текстур — один для нерухомого джерела та один для текучої рідини, а також відтінок кольору блока джерела, яким його потрібно відтінити.
+Додайте відповідні рядки до `ClientModInitializer`, щоб створити `FluidModel.Unbaked`. Він приймає три об'єкти `Material` для текстур — один для нерухомого джерела, один для текучої рідини та один для накладання на рідину, — а також джерело відтінку блока, що використовується для надання рідині відповідного кольору.
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid_texture
 

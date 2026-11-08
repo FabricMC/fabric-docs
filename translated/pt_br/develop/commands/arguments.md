@@ -1,6 +1,8 @@
 ---
 title: Argumentos de comandos
 description: Aprenda como criar comandos com argumentos complexos.
+
+# TODO: add authors
 ---
 
 Argumentos são usados na maioria dos comandos. Algumas vezes eles podem ser opcionais, o que significa que se você não colocar esse argumento, o comando ainda vai rodar. Um nó pode incluir vários tipos de argumentos, mas é preciso ter cuidado para evitar ambiguidades, que devem ser evitadas.
@@ -35,7 +37,7 @@ Se o vanilla não tiver o tipo de argumento que você precisa, você pode criar 
 
 Você precisará implementar o método `parse`, que irá analisar a string de entrada para o tipo desejado.
 
-Por exemplo, você pode criar um tipo de argumento que analise um `BlockPos` a partir de uma string no seguinte formato: {x, y, z}\`
+Por exemplo, você pode criar um tipo de argumento que analise um `BlockPos` a partir de uma string no seguinte formato: `{x, y, z}`
 
 <<< @/reference/latest/src/main/java/com/example/docs/command/BlockPosArgumentType.java#custom_argument_types
 

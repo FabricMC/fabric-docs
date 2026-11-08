@@ -84,7 +84,7 @@ Component translatable = Component.translatable("example-mod.text.whack.item", v
 
 <!-- NOTE: These have been put into the example mod as they're likely to be updated to codecs in the next few updates. -->
 
-Як згадувалося раніше, ви можете серіалізувати текст у JSON за допомогою текстового кодека. Додаткову інформацію про кодеки див. сторінку [кодеків](./codecs).
+Як згадувалося раніше, ви можете серіалізувати текст у JSON за допомогою текстового кодека. Подробиці про кодеки див. на сторінці про [кодеки](./serialization/codecs).
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#component_to_string
 

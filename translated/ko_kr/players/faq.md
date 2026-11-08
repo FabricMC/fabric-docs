@@ -17,7 +17,7 @@ description: 플레이어와 서버 관리자를 위한 질문과 답변.
 
 :::
 
-대부분의 모드 개발자는 [Modrinth](https://modrinth.com/discover/mods?g=categories:fabric) 또는 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4)에 자신의 모드를 게시합니다.
+대부분의 모드 개발자는 [Modrinth](https://modrinth.com/discover/mods?g=categories:fabric) 또는 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods&gameVersionTypeId=4)에 자신의 모드를 게시합니다.
 
 ## Fabric 모드팩은 어디에서 찾을 수 있나요? {#where-can-i-find-pre-made-fabric-modpacks}
 

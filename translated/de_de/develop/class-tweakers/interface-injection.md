@@ -14,12 +14,12 @@ authors:
   - SolidBlock-cn
 ---
 
-Die Interface-Injektion ist eine Art der [Klassenoptimierung](../class-tweakers/), mit der Implementierungen von Interfaces zu Minecraft-Klassen
+Die Interface-Injektion ist eine Art der [Klassenoptimierung](./), mit der Implementierungen von Interfaces zu Minecraft-Klassen
 im dekompilierten Quellcode hinzugefügt werden.
 
 Da die Implementierung im dekompilierten Quellcode der Klasse sichtbar ist, ist es nicht mehr erforderlich, zur Nutzung der Methoden der Schnittstelle eine Casting durchzuführen.
 
-Darüber hinaus können Interface-Injektionen [transitiv](../classtweakers/index#transitive-entries) sein, wodurch Bibliotheken ihre hinzugefügten Methoden leichter
+Darüber hinaus können Interface-Injektionen [transitiv](./#transitive-entries) sein, wodurch Bibliotheken ihre hinzugefügten Methoden leichter
 für Mods verfügbar machen können, die von ihnen abhängen.
 
 Um die Interface-Injektion zu veranschaulichen, verwenden die Codeausschnitte auf dieser Seite ein Beispiel, in dem wir eine neue Hilfsmethode zu `FlowingFluid` hinzufügen.
@@ -102,7 +102,7 @@ Stelle sicher, dass du jede betroffene Klasse aus dem dekompilierten Quellcode e
 
 ::: tip
 
-Falls die Änderungen nicht sichtbar sind, kannst du versuchen, [die Datei zu validieren](../class-tweakers/index#validating-the-file) und zu prüfen, ob Fehler auftauchen.
+Falls die Änderungen nicht sichtbar sind, kannst du versuchen, [die Datei zu validieren](./#validating-the-file) und zu prüfen, ob Fehler auftauchen.
 
 :::
 

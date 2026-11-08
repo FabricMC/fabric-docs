@@ -7,7 +7,7 @@ authors:
 next: false
 ---
 
-이 가이드는 Windows에 Java 21을 설치하는 방법을 안내합니다.
+이 가이드는 Windows에 Java 25을 설치하는 방법을 안내합니다.
 
 Minecraft 런처에서 자체적인 Java 설치를 제공하기 때문에, 이 단락은 `.jar` 기반의 Fabric 설치기를 사용하고자 하거나, Minecraft 서버 `.jar`를 사용하고자 할 때에만 유용합니다.
 
@@ -27,15 +27,15 @@ Java가 설치되어 있는지 확인하려면, 먼저 명령 프롬프트를 �
 
 ::: warning
 
-Minecraft: Java Edition 1.21.11을 플레이 하려면, 적어도 Java 21 이상의 Java가 설치되어야 합니다.
+Minecraft: Java Edition 26.1을 플레이 하려면, 적어도 Java 25 이상의 Java가 설치되어야 합니다.
 
-만약 이 명령어가 Java 21보다 낮은 버전을 표시한다면, 기존의 Java 설치를 업데이트해야 합니다.
+만약 이 명령어가 Java 25보다 낮은 버전을 표시한다면, 기존의 Java 설치를 업데이트해야 합니다.
 
 :::
 
-## 2. Java 21 설치기 다운로드 {#2-download-the-java-installer}
+## 2. Java 25 설치기 다운로드 {#2-download-the-java-installer}
 
-Java 21을 설치하려면 [Adoptium](https://adoptium.net/temurin/releases?version=21&os=windows&arch=any&mode=filter)에서 다운로드하세요.
+Java 25을 설치하려면 [Adoptium](https://adoptium.net/temurin/releases?version=25&os=windows&arch=any&mode=filter)에서 다운로드하세요.
 
 아래와 같이 `Windows Installer (.msi)`를 선택하세요:
 
@@ -47,12 +47,12 @@ Java 21을 설치하려면 [Adoptium](https://adoptium.net/temurin/releases?vers
 
 ## 3. 설치기 실행하기 {#3-run-the-installer}
 
-Java 21을 설치하려면 다음 단계를 수행하세요. 설치기에서 아래와 같은 단계에 도달했다면, 아래 기능을 "Entire feature will be installed on local hard drive"로 설정해야 합니다:
+Java 25을 설치하려면 다음 단계를 수행하세요. 설치기에서 아래와 같은 단계에 도달했다면, 아래 기능을 "Entire feature will be installed on local hard drive"로 설정해야 합니다:
 
 - `Set JAVA_HOME environment variable` - 선택하면 Java 실행 파일이 PATH에 추가됩니다.
 - `JavaSoft (Oracle) registry keys` - 선택하면 지금 설치되는 Java를 기본 실행으로 설정합니다.
 
-!["Set JAVA\_HOME variable" 기능이 강조 표시된 Java 21 설치기](/assets/players/installing-java/windows-wizard-screenshot.png)
+!["Set JAVA_HOME variable" 기능이 강조 표시된 Java 25 설치기](/assets/players/installing-java/windows-wizard-screenshot.png)
 
 기능을 모두 선택했다면, `Next`를 클릭하여 설치를 재개할 수 있습니다.
 
@@ -64,9 +64,9 @@ Windows는 재시작하기 전까지는 Java 설치 여부를 알리지 않습�
 
 :::
 
-## 4. Java 21이 올바르게 설치되었는지 확인하기 {#4-verify-that-java-is-installed}
+## 4. Java 25이 올바르게 설치되었는지 확인하기 {#4-verify-that-java-is-installed}
 
-설치를 완료했다면, "다시" 명령 프롬프트를 열고 `java -version`을 입력하여 Java 21이 올바르게 설치되었는지 확인할 수 있습니다.
+설치를 완료했다면, "다시" 명령 프롬프트를 열고 `java -version`을 입력하여 Java 25이 올바르게 설치되었는지 확인할 수 있습니다.
 
 명령어가 성공적으로 실행되었다면, 아래와 같이 Java 버전이 표시된 것을 확인할 수 있습니다.
 

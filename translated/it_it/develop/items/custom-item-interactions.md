@@ -54,4 +54,10 @@ Come sempre, dovresti registrare il tuo oggetto, aggiungere un modello e una tex
 
 Come puoi notare, il lampo dovrebbe essere generato 10 blocchi davanti a te, giocatore.
 
+:::warning AVVISO DI FOTOSENSITIVITÀ!
+
+Il seguente video contiene elementi visivi e luci lampeggianti persistenti che potrebbero colpire le persone che soffrono di epilessia fotosensibile o di altre forme di fotosensibilità.
+
+:::
+
 <VideoPlayer src="/assets/develop/items/custom_items_0.webm">Usare il Bastone del Lampo</VideoPlayer>

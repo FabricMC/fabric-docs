@@ -252,7 +252,7 @@ public record AdvancedCustomComponent(float temperature, boolean burnt) {
 }
 ```
 
-因为我们定义自定义的数据结构，所以这种情况下不会像[基本组件](#basic-data-components)那样有预先存在的 `Codec`。也就是说，需要创建自己的 codec。我们在 record 类中使用 `RecordCodecBuilder` 定义一个，这样在注册组件时就可以引用。关于使用 `RecordCodecBuilder` 的更多细节，请参考 [Codec 页面的这个章节](../codecs#merging-codecs-for-record-like-classes)。
+因为我们定义自定义的数据结构，所以这种情况下不会像[基本组件](#basic-data-components)那样有预先存在的 `Codec`。也就是说，需要创建自己的 codec。我们在 record 类中使用 `RecordCodecBuilder` 定义一个，这样在注册组件时就可以引用。关于使用 `RecordCodecBuilder` 的更多细节，请参考 [Codec 页面的这个章节](../serialization/codecs#merging-codecs-for-record-like-classes)。
 
 <<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#codec
 
@@ -260,7 +260,7 @@ public record AdvancedCustomComponent(float temperature, boolean burnt) {
 
 你也可以使用 `optionalFieldOf()` 来定义可选的字段，并在第二个参数传入默认值。任何没有被标记为可选的字段使用 `/give` 设置组件时都是必需的，所以确保在创建我们的 codec 时，将任何可选的参数都标记为可选。
 
-最后，调用 `apply()` 并传递这个 record 的构造方法。关于构造 codec 的更多细节以及更深入的用法，可阅读 [Codecs](../codecs) 页面。
+最后，调用 `apply()` 并传递这个 record 的构造方法。关于构造 codec 的更多细节以及更深入的用法，可阅读 [Codecs](../serialization/codecs) 页面。
 
 我们还需要构建我们的 `StreamCodec`。
 

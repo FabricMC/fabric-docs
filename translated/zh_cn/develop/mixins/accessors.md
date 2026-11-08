@@ -10,7 +10,7 @@ authors:
 
 Mixin 通常用于修改现有代码以生成和调整行为。然而，Mixin 同样提供了以访问器 Mixin 的形式，来访问无法直接访问的字段和方法的工具。
 
-[类修改器](../class-tweakers) 以 [访问拓宽器](../class-tweakers/access-widening) 的形式提供了类似的工具，但 Mixin 的访问器不需要重新加载 Gradle，并且可以应用于非 Minecraft 目标。
+[类修改器](../class-tweakers/) 以 [访问拓宽器](../class-tweakers/access-widening) 的形式提供了类似的工具，但 Mixin 的访问器不需要重新加载 Gradle，并且可以应用于非 Minecraft 目标。
 
 如果需要重写 final 方法、继承 final 类或引用 private 类，仍然需要使用访问拓宽，因为访问器只能针对字段和方法。
 

@@ -43,7 +43,7 @@ Le segnalazioni di crash possono essere trovate nelle seguenti posizioni:
 
 Le segnalazioni di crash sono molto lunghe, e possono causare confusione nella lettura. Tuttavia, contengono tante informazioni riguardanti il crash, e ti possono aiutare a trovare la causa del crash.
 
-Per questa guida, useremo [questa segnalazione di crash](/assets/players/crash-report-example.log).
+Per questa guida, useremo la seguente segnalazione di crash:
 
 :::details Mostra segnalazione di crash
 

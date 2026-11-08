@@ -7,6 +7,7 @@ authors:
   - ChampionAsh5357
   - IMB11
   - its-miroma
+  - NotNightSky
 resources:
   https://docs.neoforged.net/docs/items/tools/: Інструменти — Документація NeoForge (крім ексклюзивів Neo)
 ---
@@ -46,7 +47,7 @@ resources:
 
 <<< @/reference/latest/src/main/resources/data/example-mod/tags/block/incorrect_for_guidite_tool.json
 
-Зауважте, що цей приклад успадковує слабший матеріал інструмента і _видаляє_ записи, які наш сильніший матеріал може добувати, успадковуючи всі інші блоки, які не може видобути дерево.
+Зауважте, що цей приклад успадковує слабший матеріал інструмента і _видаляє_ записи, які наш сильніший матеріал може добувати, успадковуючи всі інші блоки, які не може добути дерево.
 
 ::: tip
 
@@ -62,23 +63,63 @@ resources:
 
 Ви можете створювати власні предмети-інструменти, використовуючи ті самі класи та функції, що й у [створенні вашого першого предмета](./first-item):
 
+:::: tabs
+
+== Меч
+
+Параметри з рухомою комою стосуються шкоди від атаки та швидкості атаки відповідно.
+
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
-Два рухомих значення (`1f, 1f`) стосуються шкоди від атаки інструмента та швидкості атаки інструмента відповідно.
+== Спис
 
-Для лопат, сокир і мотик вам слід створити `ShovelItem`, `AxeItem` або `HoeItem` замість загального `Item`, оскільки вони реалізують дії, пов’язані з інструментом у якого є дії ПКМ:
+Параметри з рухомою комою стосуються, відповідно, тривалості атаки, множника шкоди, затримки, часу спішування, порогового значення для спішування, тривалості відкидання, порогового значення для відкидання, моменту завдання шкоди та порогового значення для завдання шкоди.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_spear
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_spear
+
+== Кайло
+
+Параметри з рухомою комою стосуються шкоди від атаки та швидкості атаки відповідно.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_pickaxe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_pickaxe
+
+== Сокира
+
+Для сокир слід створити `AxeItem` замість загального `Item`. Це реалізує дії, що виконуються за допомогою ПКМ, специфічні для сокири, а також автоматично викликає метод `axe` `Item.Properties`.
+
+Параметри з рухомою комою стосуються шкоди від атаки та швидкості атаки відповідно.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_axe
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_axe
 
-::: info
+== Лопата
 
-`ShovelItem`, `AxeItem` і `HoeItem` викликають метод `shovel`, `axe` або `hoe` для `Item.Properties` у своїх конструкторах.
+Для лопат слід створити `ShovelItem` замість загального `Item`. Це реалізує дії, що виконуються за допомогою ПКМ, специфічні для лопати, а також автоматично викликає метод `shovel` `Item.Properties`.
 
-:::
+Параметри з рухомою комою стосуються шкоди від атаки та швидкості атаки відповідно.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_shovel
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_shovel
+
+== Мотика
+
+Для мотик слід створити `HoeItem` замість загального `Item`. Це реалізує дії, що виконуються за допомогою ПКМ, специфічні для мотики, а також автоматично викликає метод `hoe` `Item.Properties`.
+
+Параметри з рухомою комою стосуються шкоди від атаки та швидкості атаки відповідно.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_hoe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_hoe
+
+::::
 
 Не забудьте додати їх до вкладок творчості, якщо ви хочете отримати доступ до них з інвентарю творчості!
 
@@ -88,65 +129,49 @@ resources:
 
 ## Assets {#models}
 
-Вам також потрібно буде додати [текстуру](./first-item#adding-a-texture), [переклад](./first-item#naming-the-item), [клієнтський переклад](./first-item#creating-the-client-item) і [модель предмета](./item-models). Однак для моделі item ви захочете використовувати модель `item/handheld` як батьківську модель замість звичайної `item/generated`.
-
-У цьому прикладі ми визначимо наступний клієнтський предмет, модель і текстуру для предмета «Guidite Sword»:
-
 :::: tabs
-
-== Початковий код
-
-::: info
-
-Моделі предметів можна згенерувати. Щоб отримати додаткові відомості, перегляньте документацію щодо створення [моделей предметів](../data-generation/item-models).
-
-:::
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_sword
-
-== Клієнтський предмет
-
-`generated/assets/example-mod/items/guidite_sword.json`
-
-<<< @/reference/latest/src/main/generated/assets/example-mod/items/guidite_sword.json
-
-== Модель предмета
-
-`generated/assets/example-mod/models/item/guidite_sword.json`
-
-<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json
-
-== Текстура
-
-<DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Текстура Guidite Sword</DownloadEntry>
 
 ::::
 
-Подібна схема застосовується до предмета «Guidite Axe».
+Вам також потрібно буде додати [текстуру](./first-item#adding-a-texture), [переклад](./first-item#naming-the-item), [клієнтський переклад](./first-item#creating-the-client-item) і [модель предмета](./item-models). Однак для моделі item ви захочете використовувати модель `item/handheld` як батьківську модель замість звичайної `item/generated`.
+
+::: info
+
+Наведені нижче моделі створені з використанням генерації даних. Щоб отримати додаткові відомості, перегляньте документацію щодо [генерації моделей предметів](../data-generation/item-models).
+
+:::
 
 ::: tabs
 
-== Початковий код
+== Меч
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_sword
+
+== Спис
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_spear
+
+== Кайло
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_pickaxe
+
+== Сокира
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
 
-== Клієнтський предмет
+== Лопата
 
-`generated/assets/example-mod/items/guidite_axe.json`
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_shovel
 
-<<< @/reference/latest/src/main/generated/assets/example-mod/items/guidite_axe.json
+== Мотика
 
-== Модель предмета
-
-`generated/assets/example-mod/models/item/guidite_axe.json`
-
-<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_axe.json
-
-== Текстура
-
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/guidite_axe_big.png" downloadURL="/assets/develop/data-generation/item-model/guidite_axe.png">Текстура Guidite Axe</DownloadEntry>
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_hoe
 
 :::
+
+Ось усі приклади текстур, використані в цьому посібнику:
+
+<DownloadEntry downloadURL="/assets/develop/items/tools.zip">Текстури гайдитових інструментів</DownloadEntry>
 
 ## Додання предметів інструментів до теґу {#tags}
 

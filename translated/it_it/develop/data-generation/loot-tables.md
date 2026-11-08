@@ -23,7 +23,7 @@ Assicurati di aver prima completato il processo di [configurazione della datagen
 
 Ti serviranno fornitori (classi) diversi per blocchi, bauli, ed entità. Ricorda di aggiungerli tutto al tuo pack nella tua `DataGeneratorEntrypoint` nel metodo `onInitializeDataGenerator`.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:register](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_loot_tables_register
 
 ## Loot Table Spiegate {#loot-tables-explained}
 
@@ -33,9 +33,9 @@ Le loot pool hanno **voci**, **condizioni**, funzioni, **roll** e **roll bonus**
 
 ## Blocchi {#blocks}
 
-Perché i blocchi droppino oggetti - inclusi se stessi - dobbiamo creare una loot table. Crea una classe che estenda `FabricBlockLootTableProvider`:
+Perché i blocchi droppino oggetti - inclusi se stessi - dobbiamo creare una loot table. Crea una classe che estenda `FabricBlockLootSubProvider`:
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:block-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_provider
 
 Assicurati di aggiungere questo fornitore al tuo pack!
 
@@ -43,18 +43,24 @@ Ci sono parecchi metodi ausiliari per aiutarti a costruire le tue loot table. No
 
 Aggiungiamo alcuni drop nel metodo `generate`:
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:block-drops](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_block_drops
 
 ## Bauli {#chests}
 
-Il loot dei bauli è un po' più complesso del loot dei blocchi. Crea una classe che estenda `SimpleFabricLootTableProvider` come nell'esempio sotto **e aggiungila al tuo pack**.
+Il loot dei bauli è un po' più complesso del loot dei blocchi. Crea una classe che estenda `SimpleFabricLootTableSubProvider` come nell'esempio sotto **e aggiungila al tuo pack**.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:chest-provider](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_provider
 
 Ci servirà una `ResourceKey<LootTable>` per la nostra loot table. Mettiamola in una nuova classe chiamata `ModLootTables`. Assicurati che sia nel tuo insieme di sorgenti `main` se usi fonti suddivise.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:mod-loot-tables](@/reference/latest/src/main/java/com/example/docs/ModLootTables.java)
+<<< @/reference/latest/src/main/java/com/example/docs/ModLootTables.java#datagen_loot_tables_mod_loot_tables
 
 Poi possiamo generare una loot table nel metodo `generate` del tuo fornitore.
 
-@[code lang=java transcludeWith=:::datagen-loot-tables:chest-loot](@/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java)
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModChestLootTableProvider.java#datagen_loot_tables_chest_loot
+
+## Risorse condizionali {#resource-conditions}
+
+Per applicare una [condizione per risorse](../resource-conditions) a una loot table generata, chiama `withConditions` fornendo le condizioni desiderate, poi chiama un altro metodo del fornitore di loot table come `dropSelf`. Questo permetterà di generare la loot table alla quale sono applicate le condizioni:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBlockLootTableProvider.java#datagen_loot_tables_conditions

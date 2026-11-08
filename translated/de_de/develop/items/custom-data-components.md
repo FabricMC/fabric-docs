@@ -252,7 +252,7 @@ public record AdvancedCustomComponent(float temperature, boolean burnt) {
 }
 ```
 
-Da wir eine benutzerdefinierte Datenstruktur definieren, gibt es für unseren Anwendungsfall keinen bereits vorhandenen `Codec` wie bei den [einfachen Komponenten](#basic-data-components). Das bedeutet, dass wir unseren eigenen Codec konstruieren müssen. Definieren wir einen in unsere Record-Klasse mit einem `RecordCodecBuilder`, auf den wir verweisen können, sobald wir die Komponente registrieren. Weitere Einzelheiten zur Verwendung eines `RecordCodecBuilder` findest du in [diesem Abschnitt der Codecs-Seite](../codecs#merging-codecs-for-record-like-classes).
+Da wir eine benutzerdefinierte Datenstruktur definieren, gibt es für unseren Anwendungsfall keinen bereits vorhandenen `Codec` wie bei den [einfachen Komponenten](#basic-data-components). Das bedeutet, dass wir unseren eigenen Codec konstruieren müssen. Definieren wir einen in unsere Record-Klasse mit einem `RecordCodecBuilder`, auf den wir verweisen können, sobald wir die Komponente registrieren. Weitere Einzelheiten zur Verwendung eines `RecordCodecBuilder` findest du in [diesem Abschnitt der Codecs-Seite](../serialization/codecs#merging-codecs-for-record-like-classes).
 
 <<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#codec
 
@@ -260,7 +260,7 @@ Du kannst sehen, dass wir eine Liste von benutzerdefinierten Feldern auf der Gru
 
 Du kannst auch optionale Felder definieren, indem du `optionalFieldOf()` verwendest und einen Standardwert als zweites Argument übergibst. Alle Felder, die nicht als optional gekennzeichnet sind, werden benötigt, wenn die Komponente mit `/give` erstellt wird, also stelle sicher, dass du alle optionalen Argumente als solche kennzeichnest, wenn du deinen Codec erstellst.
 
-Schließlich rufen wir `apply()` auf und übergeben den Konstruktor unseres Datensatzes. Weitere Einzelheiten über die Erstellung von Codecs und fortgeschrittene Anwendungsfälle findest du auf der Seite [Codecs](../codecs).
+Schließlich rufen wir `apply()` auf und übergeben den Konstruktor unseres Datensatzes. Weitere Einzelheiten über die Erstellung von Codecs und fortgeschrittene Anwendungsfälle findest du auf der Seite [Codecs](../serialization/codecs).
 
 Außerdem müssen wir unseren `StreamCodec` konstruieren.
 

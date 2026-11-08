@@ -51,7 +51,7 @@ authors:
 
 <<< @/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java#automatic_testing_4
 
-有关此代码实际作用的解释，请参阅 [Codec](./codecs#registry-dispatch)。
+有关此代码实际作用的解释，请参阅 [Codec](./serialization/codecs#registry-dispatch)。
 
 #### 设置注册表 {#setting-up-registries}
 
