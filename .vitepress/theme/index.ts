@@ -3,17 +3,17 @@ import { inBrowser, type Theme, useData, useRouter } from "vitepress";
 import { enhanceAppWithTabs } from "vitepress-plugin-tabs/client";
 import DefaultTheme from "vitepress/theme";
 import { h, nextTick, watch } from "vue";
-import AuthorsComponent from "./components/AuthorsComponent.vue";
-import BannerComponent from "./components/BannerComponent.vue";
+import Authors from "./layout/Authors.vue";
+import Banner from "./layout/Banner.vue";
 import ChoiceComponent from "./components/ChoiceComponent.vue";
 import ColorSwatch from "./components/ColorSwatch.vue";
 import DownloadEntry from "./components/DownloadEntry.vue";
-import FullscreenCode from "./components/FullscreenCode.vue";
-import NotFoundComponent from "./components/NotFoundComponent.vue";
 import Range from "./components/Range.vue";
-import References from "./components/References.vue";
 import VersionSwitcher from "./components/VersionSwitcher.vue";
 import VideoPlayer from "./components/VideoPlayer.vue";
+import FullscreenCode from "./layout/FullscreenCode.vue";
+import NotFound from "./layout/NotFound.vue";
+import References from "./layout/References.vue";
 import "./style.css";
 
 export default {
@@ -35,18 +35,18 @@ export default {
     const { page, theme } = useData();
 
     const children = {
-      "doc-before": () => h(AuthorsComponent),
+      "doc-before": () => h(Authors),
       "doc-footer-before": () => h(References),
-      "aside-outline-after": () => [h(AuthorsComponent), h(References)],
+      "aside-outline-after": () => [h(Authors), h(References)],
       "layout-bottom": () => h(FullscreenCode),
     };
 
     if (theme.value.env !== "github") {
-      (children as any)["layout-top"] = () => h(BannerComponent);
+      (children as any)["layout-top"] = () => h(Banner);
     }
 
     if (page.value.isNotFound) {
-      (children as any)["not-found"] = () => h(NotFoundComponent);
+      (children as any)["not-found"] = () => h(NotFound);
     }
 
     return h(DefaultTheme.Layout, null, children);
