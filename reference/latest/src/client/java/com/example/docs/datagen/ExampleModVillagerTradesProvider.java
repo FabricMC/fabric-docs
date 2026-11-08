@@ -19,12 +19,17 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider
 import com.example.docs.ExampleMod;
 import com.example.docs.item.ModItems;
 
+// region provider
 public class ExampleModVillagerTradesProvider extends FabricDynamicRegistryProvider {
+	// endregion provider
+	// region trade_resource_keys
 	public static final ResourceKey<VillagerTrade> ARMORER_1_EMERALD_GUIDITE_HELMET = create("armorer/1/emerald_guidite_helmet");
 	public static final ResourceKey<VillagerTrade> ARMORER_1_EMERALD_GUIDITE_CHESTPLATE = create("armorer/1/emerald_guidite_chestplate");
 	public static final ResourceKey<VillagerTrade> ARMORER_1_EMERALD_GUIDITE_LEGGINGS = create("armorer/1/emerald_guidite_leggings");
 	public static final ResourceKey<VillagerTrade> ARMORER_1_EMERALD_GUIDITE_BOOTS = create("armorer/1/emerald_guidite_boots");
+	// endregion trade_resource_keys
 
+	// region provider
 	public ExampleModVillagerTradesProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
@@ -34,7 +39,12 @@ public class ExampleModVillagerTradesProvider extends FabricDynamicRegistryProvi
 		entries.addAll(registries.lookupOrThrow(Registries.VILLAGER_TRADE));
 	}
 
+	//	endregion provider
+	//	region bootstrap_register
+	// region bootstrap
 	public static void bootstrap(BootstrapContext<VillagerTrade> context) {
+		// ...
+		// endregion bootstrap
 		context.register(ARMORER_1_EMERALD_GUIDITE_HELMET, new VillagerTrade(
 				new TradeCost(Items.EMERALD, 4),
 				new ItemStackTemplate(ModItems.GUIDITE_HELMET),
@@ -74,14 +84,19 @@ public class ExampleModVillagerTradesProvider extends FabricDynamicRegistryProvi
 				Optional.empty(),
 				List.of()
 		));
+		// region bootstrap
 	}
-
+	// endregion bootstrap
+	// endregion bootstrap_register
+	// region create_helper
 	public static ResourceKey<VillagerTrade> create(String name) {
 		return ResourceKey.create(Registries.VILLAGER_TRADE, ExampleMod.id(name));
 	}
-
+	// endregion create_helper
+	// region provider
 	@Override
 	public String getName() {
 		return "Villager Trades Generation";
 	}
 }
+// endregion provider
