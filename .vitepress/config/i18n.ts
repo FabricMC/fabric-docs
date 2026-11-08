@@ -299,12 +299,6 @@ export const getLocaleConfig = () => {
         ],
 
         version: {
-          reminder: {
-            oldVersion: resolver("version.reminder.old_version"),
-            oldVersionHome: resolver("version.reminder.old_version_home"),
-            futureVersion: resolver("version.reminder.future_version"),
-          },
-
           switcher: {
             label: resolver("version.switcher.label"),
             none: resolver("version.switcher.none"),
