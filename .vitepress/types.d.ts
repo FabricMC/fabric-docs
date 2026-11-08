@@ -164,6 +164,23 @@ export interface ThemeConfig extends Versioned.ThemeConfig {
      */
     noOtherVersions: string;
   };
+
+  video: {
+    /**
+     * @default "Warning"
+     */
+    title: string;
+
+    /**
+     * @default "This video contains flashing lights."
+     */
+    description: string;
+
+    /**
+     * @default "Proceed"
+     */
+    button: string;
+  };
 }
 
 export type Config = UserConfig<ThemeConfig> & Versioned.Config;

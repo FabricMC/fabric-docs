@@ -17,6 +17,7 @@ import {
 } from "../constants.ts";
 import { downloadImagePlugin } from "../plugins/downloadImage.ts";
 import { transformFile, transformFilesPlugin } from "../plugins/transformFiles.ts";
+import { videoImagePlugin } from "../plugins/videoImage.ts";
 import type { Config } from "../types.d.ts";
 import { getBuildTransformHead, getClientTransformHead, pageToVersionsMap } from "./head.ts";
 import { getLocaleConfig } from "./i18n.ts";
@@ -66,6 +67,7 @@ export default defineVersionedConfig(
         md.use(transclusionsPlugin);
         md.use(tabsMarkdownPlugin);
         md.use(downloadImagePlugin);
+        md.use(videoImagePlugin);
       },
       container: {
         // TODO: acknowledge ::: caution and ::: note
