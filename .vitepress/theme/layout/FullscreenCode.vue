@@ -26,7 +26,7 @@ const loadCodeBlock = async (originalCodeBlock: HTMLDivElement) => {
   if (!dialog.value) return;
 
   originalCopyButton.value =
-    originalCodeBlock.querySelector<HTMLButtonElement>("button.copy:not(.fullscreen)") ?? undefined;
+    originalCodeBlock.querySelector<HTMLButtonElement>("button.copy:not(.fullscreen)") || undefined;
 
   const clonedCodeBlock = originalCodeBlock.cloneNode(true) as HTMLDivElement;
   clonedCodeBlock.style.viewTransitionName = "code-block-view-transition";
@@ -125,7 +125,7 @@ onContentUpdated(() =>
 
       const enterFullscreenButton =
         codeBlock.querySelector<HTMLButtonElement>("button.copy.fullscreen")
-        ?? document.createElement("button");
+        || document.createElement("button");
       enterFullscreenButton.title = options.value.enterFullscreen;
       enterFullscreenButton.setAttribute("aria-label", options.value.enterFullscreen);
       enterFullscreenButton.className = "copy fullscreen";
