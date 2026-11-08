@@ -20,34 +20,37 @@ const authors = computed<Author[]>(() =>
   ].sort((a, b) => a.name.localeCompare(b.name))
 );
 
-const getImageSrc = (author: Author) =>
-  author.noGitHub
-    ? "/assets/avatater.png"
-    : "https://wsrv.nl/?"
-      + new URLSearchParams({
-        af: "",
-        maxage: "7d",
-        url: `https://github.com/${author.name}.png?size=32`,
-        default: `https://docs.fabricmc.net/assets/avatater.png`,
-      });
+const getImageSrc = (author: Author) => {
+  if (author.noGitHub) {
+    return "/assets/avatater.png";
+  }
+
+  const url = new URL("https://wsrv.nl/");
+  url.searchParams.set("af", "");
+  url.searchParams.set("w", "32");
+  url.searchParams.set("h", "32");
+  url.searchParams.set("maxage", "7d");
+  url.searchParams.set("url", `https://github.com/${author.name}.png?size=32`);
+  url.searchParams.set("default", "https://docs.fabricmc.net/assets/avatater.png");
+
+  return url.toString();
+};
 </script>
 
-<template>
-  <template v-if="authors.length">
-    <h2>{{ options.heading }}</h2>
-    <ul>
-      <li v-for="author in authors" :key="author.noGitHub ? `${author.name}!` : author.name">
-        <VPLink :href="author.noGitHub ? undefined : `https://github.com/${author.name}`">
-          <img
-            :title="author.noGitHub ? options.noGitHub.replace('%s', author.name) : author.name"
-            :src="getImageSrc(author)"
-            :alt="author.name"
-            loading="lazy"
-          />
-        </VPLink>
-      </li>
-    </ul>
-  </template>
+<template v-if="authors.length">
+  <h2>{{ options.heading }}</h2>
+  <ul>
+    <li v-for="a of authors" :key="a.noGitHub ? `${a.name}!` : a.name">
+      <VPLink :href="a.noGitHub ? undefined : `https://github.com/${a.name}`" no-icon>
+        <img
+          :title="a.noGitHub ? options.noGitHub.replace('%s', a.name) : a.name"
+          :src="getImageSrc(a)"
+          :alt="a.name"
+          loading="lazy"
+        />
+      </VPLink>
+    </li>
+  </ul>
 </template>
 
 <style scoped>
@@ -60,7 +63,7 @@ h2 {
   font-weight: bold;
   color: var(--vp-c-text-2);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05rem;
 }
 
 ul {
@@ -73,6 +76,10 @@ ul {
 
   a {
     transition: filter 0.2s ease-in-out;
+
+    &::after {
+      content: none;
+    }
 
     &:hover {
       filter: brightness(120%);
