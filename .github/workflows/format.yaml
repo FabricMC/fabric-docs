@@ -32,6 +32,13 @@ jobs:
             !translated/**
             !versions/**
 
+  stylelint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b
+      - run: pnpm run lint:css
+
   prettier:
     runs-on: ubuntu-24.04
     steps:

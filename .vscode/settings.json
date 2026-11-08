@@ -18,5 +18,6 @@
     "!versions/**"
   ],
   "markdown.validate.enabled": true,
-  "sarif-viewer.connectToGithubCodeScanning": "off"
+  "sarif-viewer.connectToGithubCodeScanning": "off",
+  "stylelint.validate": ["css", "vue"]
 }
