@@ -3,7 +3,7 @@ import * as path from "node:path";
 import { AT, LOCALES } from "../constants.ts";
 import { DEVELOP_SIDEBAR } from "../sidebars/develop.ts";
 import { PLAYERS_SIDEBAR } from "../sidebars/players.ts";
-import type { Fabric } from "../types.d.ts";
+import type { Config, SidebarItem, ThemeConfig, Translations } from "../types.d.ts";
 
 const translationFileCache = new Map<string, Record<string, any>>();
 const readTranslationFile = <T extends Record<string, any>>(file: string, locale: string): T => {
@@ -27,9 +27,9 @@ const getResolver = <T extends Record<string, any>>(file: string, locale: string
   return (k) => strings[k] || fallback[k];
 };
 
-export const getWebsiteResolver = (locale: string): Resolver<Fabric.Translations["website"]> => {
+export const getWebsiteResolver = (locale: string): Resolver<Translations["website"]> => {
   const file = "website_translations.json";
-  const resolver = getResolver<Fabric.Translations["website"]>(file, locale);
+  const resolver = getResolver<Translations["website"]>(file, locale);
 
   if (locale === "en_us") {
     for (const k of Object.keys(readTranslationFile(file, locale))) {
@@ -51,15 +51,15 @@ export const getWebsiteResolver = (locale: string): Resolver<Fabric.Translations
 };
 
 export const getSidebar = (locale: string) => {
-  const returned: Fabric.Sidebar = {};
+  const returned: ThemeConfig["sidebar"] = {};
 
   const file = "sidebar_translations.json";
-  const resolver = getResolver<Fabric.Translations["sidebar"]>(file, locale);
+  const resolver = getResolver<Translations["sidebar"]>(file, locale);
 
   const localePrefix = locale === "en_us" ? "" : `/${locale}`;
 
-  const normalizeSidebar = (sidebar: Fabric.SidebarItem[], base = "") => {
-    const returned = (JSON.parse(JSON.stringify(sidebar)) as Fabric.SidebarItem[]) //
+  const normalizeSidebar = (sidebar: SidebarItem[], base = "") => {
+    const returned = (JSON.parse(JSON.stringify(sidebar)) as SidebarItem[]) //
       .map((i) => (typeof i === "string" ? { link: i } : i));
 
     for (const i of returned) {
@@ -89,7 +89,7 @@ export const getSidebar = (locale: string) => {
 };
 
 export const getLocaleConfig = () => {
-  const returned: Fabric.Config["locales"] = {};
+  const returned: Config["locales"] = {};
 
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames
   const intlLocaleOverrides: Record<string, string> = {

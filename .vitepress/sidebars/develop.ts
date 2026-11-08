@@ -1,6 +1,6 @@
-import type { Fabric } from "../types.d.ts";
+import type { SidebarItem } from "../types.d.ts";
 
-export const DEVELOP_SIDEBAR: Fabric.SidebarItem = {
+export const DEVELOP_SIDEBAR: SidebarItem = {
   base: "/develop",
   link: "/",
   items: [

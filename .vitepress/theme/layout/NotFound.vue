@@ -9,10 +9,10 @@ import {
 import { useData, useRoute } from "vitepress";
 import { VPLink } from "vitepress/theme";
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
-import type { Fabric } from "../../types.d.ts";
+import type { ThemeConfig } from "../../types.d.ts";
 import { useRem } from "../composables/rem.ts";
 
-const data = useData<Fabric.ThemeConfig>();
+const data = useData<ThemeConfig>();
 const route = useRoute();
 const mounted = useMounted();
 const prefersReducedMotion = usePreferredReducedMotion();
