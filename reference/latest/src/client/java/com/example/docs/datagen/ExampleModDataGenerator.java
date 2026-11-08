@@ -81,12 +81,22 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ExampleModAdvancementRewardLootTableProvider::new);
 		pack.addProvider(ExampleModCodecExampleProvider::new);
 		// #region datagen_setup_generator
+
+		// #region datagen_villager_trades_register
+		pack.addProvider(ExampleModVillagerTradesTagProvider::new);
+		// #endregion datagen_villager_trades_register
+
+		// #region datagen_villager_trades_tag_register
+		pack.addProvider(ExampleModVillagerTradesProvider::new);
+		// #endregion datagen_villager_trades_tag_register
 	}
 	// #endregion datagen_setup_generator
 
 	// #region datagen_enchantments_bootstrap
+	// #region datagen_villager_trades_bootstrap
 	@Override
 	public void buildRegistry(RegistrySetBuilder registryBuilder) {
+		// #endregion datagen_villager_trades_bootstrap
 		// #endregion datagen_enchantments_bootstrap
 		registryBuilder.add(Registries.DAMAGE_TYPE, registerable -> {
 			registerable.register(ExampleModDamageTypes.TATER_DAMAGE, TATER_DAMAGE_TYPE);
@@ -97,13 +107,19 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.add(Registries.PLACED_FEATURE, ExampleModWorldPlacedFeatures::configure);
 		// #endregion datagen_world_registries
 
+		// #region datagen_villager_trades_bootstrap
+		registryBuilder.add(Registries.VILLAGER_TRADE, ExampleModVillagerTradesProvider::bootstrap);
+		// #endregion datagen_villager_trades_bootstrap
+
 		// #region datagen_magic_skills_dynamic_registries_bootstrap
 		registryBuilder.add(ExampleModRegistries.MAGIC_SKILLS_SYNCED_REGISTRY_KEY, ExampleModDynamicRegistriesProvider::bootstrap);
 		// #endregion datagen_magic_skills_dynamic_registries_bootstrap
 
 		// #region datagen_enchantments_bootstrap
 		registryBuilder.add(Registries.ENCHANTMENT, ExampleModEnchantmentGenerator::bootstrap);
+		// #region datagen_villager_trades_bootstrap
 	}
+	// #endregion datagen_villager_trades_bootstrap
 	// #endregion datagen_enchantments_bootstrap
 
 	// #region datagen_setup_generator
