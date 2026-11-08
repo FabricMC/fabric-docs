@@ -1,11 +1,8 @@
 package com.example.docs.datagen;
 
-import com.example.docs.ExampleMod;
-
-import com.example.docs.item.ModItems;
-
-import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+import java.util.List;
+import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -16,18 +13,19 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.TradeCost;
 import net.minecraft.world.item.trading.VillagerTrade;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 
-public class ExampleModVillagerTrades extends FabricDynamicRegistryProvider {
+import com.example.docs.ExampleMod;
+import com.example.docs.item.ModItems;
 
+public class ExampleModVillagerTradesProvider extends FabricDynamicRegistryProvider {
 	public static final ResourceKey<VillagerTrade> ARMORER_1_EMERALD_GUIDITE_HELMET = create("armorer/1/emerald_guidite_helmet");
 	public static final ResourceKey<VillagerTrade> ARMORER_1_EMERALD_GUIDITE_CHESTPLATE = create("armorer/1/emerald_guidite_chestplate");
 	public static final ResourceKey<VillagerTrade> ARMORER_1_EMERALD_GUIDITE_LEGGINGS = create("armorer/1/emerald_guidite_leggings");
 	public static final ResourceKey<VillagerTrade> ARMORER_1_EMERALD_GUIDITE_BOOTS = create("armorer/1/emerald_guidite_boots");
 
-	public ExampleModVillagerTrades(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+	public ExampleModVillagerTradesProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 		super(output, registriesFuture);
 	}
 
@@ -76,7 +74,6 @@ public class ExampleModVillagerTrades extends FabricDynamicRegistryProvider {
 				Optional.empty(),
 				List.of()
 		));
-
 	}
 
 	public static ResourceKey<VillagerTrade> create(String name) {
@@ -85,6 +82,6 @@ public class ExampleModVillagerTrades extends FabricDynamicRegistryProvider {
 
 	@Override
 	public String getName() {
-		return "";
+		return "Villager Trades Generation";
 	}
 }
