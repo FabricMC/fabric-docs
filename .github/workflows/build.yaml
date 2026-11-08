@@ -11,14 +11,61 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  versions:
+    runs-on: ubuntu-24.04
+    outputs:
+      latest: ${{ steps.versions.outputs.latest }}
+      versions: ${{ steps.versions.outputs.versions }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b
+      - id: versions
+        run: |
+          versions="$(pnpm run build --list)"
+          echo versions="${versions}" >>"${GITHUB_OUTPUT}"
+
+          latest="$(echo "${versions}" | jq -r ".[0]")"
+          echo latest="${latest}" >>"${GITHUB_OUTPUT}"
+
   docs:
     runs-on: ubuntu-24.04
+    needs:
+      - versions
+    strategy:
+      matrix:
+        version: ${{ fromJSON(needs.versions.outputs.versions) }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          filter: blob:none
+      - run: git checkout HEAD .
       - uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b
-      - run: pnpm build
+      - run: pnpm run build ${{ matrix.version }}
+      - if: matrix.version != needs.versions.outputs.latest
+        run: |
+          find public/assets -mindepth 1 -maxdepth 1 -type d | while read -r d; do
+            rm -rf ".vitepress/.versions/${{ matrix.version }}/assets/$(basename "${d}")"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.version }}
+          path: .vitepress/.versions/${{ matrix.version }}
+          retention-days: 1
+
+  merge:
+    runs-on: ubuntu-24.04
+    needs:
+      - docs
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b
+      - run: mkdir .vitepress/.versions
+      - uses: actions/download-artifact@v4
+        with:
+          path: .vitepress/.versions/
+          pattern: "*"
+      - run: pnpm run build --skip-build
       - if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v4
       - if: github.event_name != 'pull_request'
@@ -78,7 +125,7 @@ jobs:
     runs-on: ubuntu-24.04
     if: github.event_name != 'pull_request'
     needs:
-      - docs
+      - merge
       - mod
       - client_game_test
     permissions:
