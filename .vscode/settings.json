@@ -10,13 +10,6 @@
   "markdown.copyFiles.destination": {
     "*": "public/assets/${documentRelativeDirName}/${documentBaseName}/${fileName}"
   },
-  "markdownlint.lintWorkspaceGlobs": [
-    "**/*.md",
-    "!node_modules/**",
-    "!README.md",
-    "!translated/**",
-    "!versions/**"
-  ],
   "markdown.validate.enabled": true,
   "sarif-viewer.connectToGithubCodeScanning": "off",
   "stylelint.validate": ["css", "vue"]
