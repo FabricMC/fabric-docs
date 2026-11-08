@@ -75,12 +75,11 @@ export default defineVersionedConfig(
       hostname,
       transformItems: (items) => {
         const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
+        const getFilePath = (url: string) => `${url.replace(/[/]$/, "/index")}.md`;
 
-        return items.filter((i) => {
-          const relativePath = i.url.replace(hostname, "");
-
-          return !config.rewrites.inv[relativePath]?.startsWith("versions/");
-        });
+        return items.filter(
+          (i) => !config.rewrites.inv[getFilePath(i.url)]?.startsWith("versions/")
+        );
       },
     },
 
