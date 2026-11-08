@@ -17,33 +17,60 @@ export const getLocaleNames = (translatedDir: string) => [
 const translated = path.join(AT, "translated");
 const locales = getLocaleNames(translated);
 
-export const getResolver = (file: string, locale: string, warn = true): ((k: string) => string) => {
-  const filePath = path.resolve(translated, locale === "en_us" ? ".." : locale, file);
+const translationFileCache = new Map<string, Record<string, any>>();
+const readTranslationFile = <T extends Record<string, any>>(file: string, locale: string): T => {
+  const filePath = path.join(translated, locale === "en_us" ? ".." : locale, file);
+  if (!translationFileCache.has(filePath)) {
+    try {
+      translationFileCache.set(filePath, JSON.parse(fs.readFileSync(filePath, "utf-8")));
+    } catch {
+      return {} as T;
+    }
+  }
 
-  const strings: Record<string, string> = fs.existsSync(filePath)
-    ? JSON.parse(fs.readFileSync(filePath, "utf-8"))
-    : {};
+  return translationFileCache.get(filePath) as T;
+};
 
-  if (warn && locale === "en_us") {
-    for (const fileK of Object.keys(strings)) {
-      if (!/^([/][/])?[a-z0-9_.]*$/.test(fileK)) {
-        console.warn(`${file}: unusual character in key: ${fileK}`);
+type Resolver<T extends Record<string, any>> = <K extends string & keyof T>(k: K) => T[K];
+const getResolver = <T extends Record<string, any>>(file: string, locale: string): Resolver<T> => {
+  const strings = readTranslationFile<T>(file, locale);
+  const fallback = readTranslationFile<T>(file, "en_us");
+
+  return (k) => strings[k] || fallback[k];
+};
+
+export const getWebsiteResolver = (locale: string): Resolver<Fabric.Translations["website"]> => {
+  const file = "website_translations.json";
+  const resolver = getResolver<Fabric.Translations["website"]>(file, locale);
+
+  if (locale === "en_us") {
+    for (const k of Object.keys(readTranslationFile(file, locale))) {
+      if (!/^([/][/])?[a-z0-9_.]*$/.test(k)) {
+        console.warn(`${file}: unusual character in key '${k}'`);
       }
     }
   }
 
-  return (k) => strings[k] || (locale === "en_us" ? k : getResolver(file, "en_us", false)(k));
+  return (k) => {
+    const returned = resolver(k);
+
+    if (locale === "en_us" && !returned) {
+      console.warn(`${file}: missing translation for key '${k}'`);
+    }
+
+    return returned;
+  };
 };
 
 export const getSidebar = (locale: string) => {
   const returned: Fabric.Sidebar = {};
-  const resolver = getResolver("sidebar_translations.json", locale);
+  const resolver = getResolver<Record<string, string>>("sidebar_translations.json", locale);
 
   const normalizeSidebar = (sidebar: Fabric.SidebarItem[]) => {
     const returned: Fabric.SidebarItem[] = JSON.parse(JSON.stringify(sidebar));
 
     for (const item of returned) {
-      item.text = resolver(item.text);
+      item.text = resolver(item.text) || item.text;
       if (item.items) item.items = normalizeSidebar(item.items);
       if (locale !== "en_us" && item.link?.startsWith("/")) {
         item.link = `/${locale}${item.link}`;
@@ -59,7 +86,7 @@ export const getSidebar = (locale: string) => {
   return returned;
 };
 
-export const getLocales = () => {
+export const getLocaleConfig = () => {
   const returned: Fabric.Config["locales"] = {};
 
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames
@@ -83,7 +110,7 @@ export const getLocales = () => {
       ?? locale.replace(/..$/, (m) => m.toUpperCase()).replace("_", "-");
     const crowdinLocale = crowdinLocaleOverrides[locale] ?? locale.split("_")[0];
 
-    const resolver = getResolver("website_translations.json", locale);
+    const resolver = getWebsiteResolver(locale);
     const intl = new Intl.DisplayNames(intlLocale, {
       languageDisplay: "standard",
       style: "short",
