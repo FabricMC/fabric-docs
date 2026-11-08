@@ -1,7 +1,7 @@
 import matter from "gray-matter";
 import * as path from "node:path";
-import { Plugin, SiteConfig } from "vitepress";
-import { Fabric } from "../types";
+import type { Plugin, SiteConfig } from "vitepress";
+import type { Fabric } from "../types.d.ts";
 
 export const transformFile = (src: string, id: string, latestVersion: string) => {
   let { data, content } = matter(src);
