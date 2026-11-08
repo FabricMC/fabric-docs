@@ -7,13 +7,14 @@ export const AT = path.join(import.meta.dirname, "..");
 
 // https://docs.github.com/en/actions/reference/workflows-and-actions/variables#default-environment-variables
 // https://docs.netlify.com/build/configure-builds/environment-variables/#read-only-variables
-export const ENV = process.env.GITHUB_ACTIONS
-  ? "github"
-  : process.env.NETLIFY
-    ? Number(process.env.REVIEW_ID)
-    : process.env.NODE_ENV === "production"
-      ? "build"
-      : "dev";
+export const ENV =
+  process.env.NODE_ENV !== "production"
+    ? "dev"
+    : process.env.GITHUB_ACTIONS
+      ? "github"
+      : process.env.NETLIFY
+        ? Number(process.env.REVIEW_ID) || "netlify"
+        : "build";
 
 export const VERSION_RE = /^[0-9]+[.][0-9]+([.][0-9]+)?$/;
 
