@@ -264,17 +264,17 @@ export const getLocales = () => {
 
         socialLinks: [
           {
-            icon: "github",
+            icon: "simple-icons:github",
             link: "https://github.com/FabricMC/fabric-docs",
             ariaLabel: resolver("social.github"),
           },
           {
-            icon: "discord",
+            icon: "simple-icons:discord",
             link: "https://discord.fabricmc.net/",
             ariaLabel: resolver("social.discord"),
           },
           {
-            icon: "crowdin",
+            icon: "simple-icons:crowdin",
             link: `https://crowdin.com/project/fabricmc/${crowdinLocale}`,
             ariaLabel: resolver("social.crowdin"),
           },

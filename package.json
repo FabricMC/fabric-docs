@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "5.3.0",
-    "@iconify/vue": "5.0.5",
     "@vueuse/core": "15.0.0",
     "medium-zoom": "1.1.2",
     "vidstack": "1.15.7",
@@ -21,6 +20,9 @@
     "@emnapi/core": "1.11.3",
     "@emnapi/runtime": "1.11.3",
     "@fabricmc/vitepress-versioning-plugin": "github:FabricMC/vitepress-versioning-plugin#3b25eb63dca496d093be47fd9371c9d0f1c81f0e",
+    "@iconify-json/lucide": "1.2.151",
+    "@iconify-json/material-icon-theme": "1.2.77",
+    "@iconify-json/simple-icons": "1.2.101",
     "@types/cross-spawn": "6.0.6",
     "@types/node": "22.20.5",
     "cross-spawn": "7.0.6",

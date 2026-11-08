@@ -172,9 +172,6 @@ importers:
       '@fontsource-variable/jetbrains-mono':
         specifier: 5.3.0
         version: 5.3.0
-      '@iconify/vue':
-        specifier: 5.0.5
-        version: 5.0.5(vue@3.5.45)
       '@vueuse/core':
         specifier: 15.0.0
         version: 15.0.0(vue@3.5.45)
@@ -203,6 +200,15 @@ importers:
       '@fabricmc/vitepress-versioning-plugin':
         specifier: github:FabricMC/vitepress-versioning-plugin#3b25eb63dca496d093be47fd9371c9d0f1c81f0e
         version: https://codeload.github.com/FabricMC/vitepress-versioning-plugin/tar.gz/3b25eb63dca496d093be47fd9371c9d0f1c81f0e(vitepress@2.0.0-alpha.21(patch_hash=432de96d5c414d399e84f7eaf328cd93b4922ddde7eb39d0df0153ed99e1e6bd)(@types/node@22.20.5)(esbuild@0.28.2)(postcss@8.5.32)(tsx@4.23.15))(vue@3.5.45)
+      '@iconify-json/lucide':
+        specifier: 1.2.151
+        version: 1.2.151
+      '@iconify-json/material-icon-theme':
+        specifier: 1.2.77
+        version: 1.2.77
+      '@iconify-json/simple-icons':
+        specifier: 1.2.101
+        version: 1.2.101
       '@types/cross-spawn':
         specifier: 6.0.6
         version: 6.0.6
@@ -455,16 +461,17 @@ packages:
   '@fontsource-variable/jetbrains-mono@5.3.0':
     resolution: {integrity: sha512-F32xpS2NsGYoQi2ADSkKTgpJj7ozajsGgDJ8woTnqjmIB+dxDIqImjl4pXZVEExu8UFZ2ndhmX18EBS/hdz3Lw==}
 
+  '@iconify-json/lucide@1.2.151':
+    resolution: {integrity: sha512-OCp+cNzynOlOI7zHq8bFGhBBzmSSWFICvOSTxZrajhFJC4YizvlLiBJMbaLzzlpMaGRidmZmAA8GpovoDKiy/w==}
+
+  '@iconify-json/material-icon-theme@1.2.77':
+    resolution: {integrity: sha512-g3oBbR7JRB3bHKIH3hWK5WlMah63QjejRTuNdFVWUpY8uXhw4QDREkveG27iepLPDWba4qp3jGzEDX6e3m3zsA==}
+
   '@iconify-json/simple-icons@1.2.101':
     resolution: {integrity: sha512-MXJkMZDancJ/9I+Bgdthi9kXvn3AwWStxoTHwEPwAFQ9kMLBASO1BSstg52fNtjXeizm1Wi91R+QnWxNGkWHPQ==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-
-  '@iconify/vue@5.0.5':
-    resolution: {integrity: sha512-O4SHjEKCQ2KTupa0tOd7MIuDdi8Pg6y9fCvsqccX8nYW8Wuy+ZbEgpzw7gZTN3ThyFjY9uo29ZLZ8MQjjMJRBw==}
-    peerDependencies:
-      vue: '>=3.0.0'
 
   '@jridgewell/sourcemap-codec@1.6.0':
     resolution: {integrity: sha512-T7jf+5zgsZHwNJ4lvQ7/aezbyk0nNX+zJVWpmHA7VYsEx7a7qr5Rg5IbtJFqkgze5Y2sruq1RUY8Q837Od7iFw==}
@@ -1488,16 +1495,19 @@ snapshots:
 
   '@fontsource-variable/jetbrains-mono@5.3.0': {}
 
+  '@iconify-json/lucide@1.2.151':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/material-icon-theme@1.2.77':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify-json/simple-icons@1.2.101':
     dependencies:
       '@iconify/types': 2.0.0
 
   '@iconify/types@2.0.0': {}
-
-  '@iconify/vue@5.0.5(vue@3.5.45)':
-    dependencies:
-      '@iconify/types': 2.0.0
-      vue: 3.5.45
 
   '@jridgewell/sourcemap-codec@1.6.0': {}
 

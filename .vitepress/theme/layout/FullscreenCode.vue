@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import { Icon, loadIcon } from "@iconify/vue";
 import { usePreferredReducedMotion } from "@vueuse/core";
 import { onContentUpdated, useData } from "vitepress";
+import { VPIcon } from "vitepress/theme";
 import { computed, nextTick, onUnmounted, ref } from "vue";
 import { Fabric } from "../../types";
+import { useIconSpan } from "../composables/iconSpan";
 
 const prefersReducedMotion = usePreferredReducedMotion();
 const data = useData();
 const options = computed(() => data.theme.value.code as Fabric.CodeOptions);
+
+const icon = useIconSpan("lucide:maximize-2");
 
 const dialog = ref<HTMLDialogElement>();
 const originalCopyButton = ref<HTMLButtonElement>();
@@ -109,9 +112,6 @@ onContentUpdated(() =>
       JSON.stringify(options.value.copied)
     );
 
-    const enterFullscreenIconData = await loadIcon("lucide:maximize-2");
-    const enterFullscreenIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">${enterFullscreenIconData.body}</svg>`;
-
     const codeBlocks = //
       document.querySelectorAll<HTMLDivElement>("div.vp-doc:not(.slot) div[class*='language-']");
 
@@ -129,7 +129,7 @@ onContentUpdated(() =>
       enterFullscreenButton.title = options.value.enterFullscreen;
       enterFullscreenButton.setAttribute("aria-label", options.value.enterFullscreen);
       enterFullscreenButton.className = "copy fullscreen";
-      enterFullscreenButton.innerHTML = enterFullscreenIcon;
+      enterFullscreenButton.innerHTML = icon;
       enterFullscreenButton.onclick = (event) => {
         if (!(event.currentTarget instanceof HTMLButtonElement)) return;
 
@@ -179,8 +179,7 @@ onUnmounted(() => dialog.value?.close());
         @click="handleCopy"
       >
         <span>{{ options.copied }}</span>
-        <Icon icon="lucide:clipboard" />
-        <Icon class="clicked" icon="lucide:clipboard-check" />
+        <VPIcon :icon="isCopied ? 'lucide:clipboard-check' : 'lucide:clipboard'" />
       </button>
       <button
         class="wrap"
@@ -189,8 +188,7 @@ onUnmounted(() => dialog.value?.close());
         :aria-label="options.wrap"
         @click="handleWrap"
       >
-        <Icon icon="lucide:text-wrap" />
-        <Icon class="clicked" icon="lucide:text" />
+        <VPIcon :icon="isWrapped ? 'lucide:text' : 'lucide:text-wrap'" />
       </button>
       <button
         class="fullscreen"
@@ -198,7 +196,7 @@ onUnmounted(() => dialog.value?.close());
         :aria-label="options.exitFullscreen"
         @click="handleExitFullscreen"
       >
-        <Icon icon="lucide:minimize-2" />
+        <VPIcon icon="lucide:minimize-2" />
       </button>
     </div>
     <div class="slot vp-doc" :class="{ wrapped: isWrapped, tabbed: originalTabs.length }" />
@@ -410,13 +408,8 @@ div.toolbar {
       background-color: var(--vp-code-copy-code-hover-bg);
     }
 
-    svg.iconify {
-      width: 20px;
-      height: 20px;
-
-      &.clicked {
-        display: none;
-      }
+    [class^="vpi-"] {
+      font-size: 20px;
     }
 
     &.copy {
@@ -424,12 +417,12 @@ div.toolbar {
       width: auto;
       min-width: 40px;
 
-      svg.iconify {
+      [class^="vpi-"] {
         margin-right: 9px;
         margin-left: 8px;
       }
 
-      span {
+      span:not([class^="vpi-"]) {
         overflow: hidden;
         display: inline-flex;
         align-items: center;
@@ -449,27 +442,15 @@ div.toolbar {
           border-color 0.3s ease;
       }
 
-      &.copied span {
+      &.copied span:not([class^="vpi-"]) {
         max-width: 100px;
         padding-inline: 9px;
         border-right-color: var(--vp-code-copy-code-hover-border-color);
       }
     }
 
-    &.wrap.wrapped svg.iconify.clicked {
-      width: 24px;
-      height: 24px;
-    }
-
-    &.copy.copied,
-    &.wrap.wrapped {
-      svg.iconify.clicked {
-        display: revert;
-      }
-
-      svg.iconify:not(.clicked) {
-        display: none;
-      }
+    &.wrap.wrapped [class^="vpi-"] {
+      font-size: 24px;
     }
   }
 }

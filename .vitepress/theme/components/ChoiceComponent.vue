@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { VPIcon } from "vitepress/theme";
 
 defineProps<{
   choices: {
@@ -15,7 +15,7 @@ defineProps<{
 <template>
   <div :style="{ '--grid-columns': Math.min(choices.length, 3) }">
     <VPLink v-for="(c, key) in choices" :href="c.href" :style="{ '--color': c.color }" :key>
-      <Icon v-if="c.icon" :icon="c.icon" width="48" />
+      <VPIcon v-if="c.icon" :icon="c.icon" />
       {{ c.name }}
     </VPLink>
   </div>
@@ -53,8 +53,8 @@ div {
     border-color 0.25s ease,
     color 0.25s ease;
 
-  .iconify {
-    min-width: 48px;
+  [class^="vpi-"] {
+    font-size: 48px;
   }
 }
 
