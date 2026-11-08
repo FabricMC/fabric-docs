@@ -11,16 +11,16 @@
     "@fontsource-variable/jetbrains-mono": "5.3.0",
     "@iconify/vue": "5.0.5",
     "@vueuse/core": "15.0.0",
-    "markdown-it-cjk-friendly": "3.0.0",
     "medium-zoom": "1.1.2",
     "vidstack": "1.15.7",
-    "vitepress": "2.0.0-alpha.12",
-    "vitepress-plugin-tabs": "0.7.3",
+    "vitepress": "2.0.0-alpha.21",
+    "vitepress-plugin-tabs": "0.9.1",
     "vue": "3.5.45"
   },
   "devDependencies": {
     "@emnapi/core": "1.11.3",
     "@emnapi/runtime": "1.11.3",
+    "@fabricmc/vitepress-versioning-plugin": "github:FabricMC/vitepress-versioning-plugin#3b25eb63dca496d093be47fd9371c9d0f1c81f0e",
     "@types/cross-spawn": "6.0.6",
     "@types/node": "22.20.5",
     "cross-spawn": "7.0.6",
@@ -33,8 +33,7 @@
     "syntax-java-bytecode": "github:mcgambing/Java-Bytecode#578f3e2c6861ac6396492540a987fe05d23b061a",
     "syntax-mcfunction": "github:MinecraftCommands/syntax-mcfunction#cb179b5cad5d5add8557f32bc77f2a714f409879",
     "tinyglobby": "0.2.17",
-    "tsx": "4.23.15",
-    "vitepress-versioning-plugin": "github:FabricMC/vitepress-versioning-plugin#3710e8b43e0484731e79c0fce5e1d623609435f0"
+    "tsx": "4.23.15"
   },
   "devEngines": {
     "packageManager": {

@@ -1,5 +1,5 @@
+import { Versioned } from "@fabricmc/vitepress-versioning-plugin";
 import { DefaultTheme, UserConfig } from "vitepress";
-import { Versioned } from "vitepress-versioning-plugin";
 
 export namespace Fabric {
   export interface AuthorsOptions {

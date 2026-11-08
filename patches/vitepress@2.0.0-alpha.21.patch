@@ -1,0 +1,28 @@
+diff --git a/dist/client/theme-default/components/VPMenuGroup.vue b/dist/client/theme-default/components/VPMenuGroup.vue
+index c11f9ec924f601d54c8f084429ec8dfdec311b0e..4ff1168ec763b367d94dc932d1643c7553ee853b 100644
+--- a/dist/client/theme-default/components/VPMenuGroup.vue
++++ b/dist/client/theme-default/components/VPMenuGroup.vue
+@@ -21,7 +21,7 @@ const hasSubGroups = computed(() => props.items.some((item) => !("link" in item)
+     class="VPMenuGroup"
+     :class="{ VPNavScreenMenuGroupSection: screen }"
+   >
+-    <p v-if="text" class="title">{{ text }}</p>
++    <p v-if="text" class="title" v-html="text"></p>
+ 
+     <ul :class="{ 'sub-groups': hasSubGroups }">
+       <template v-for="item in items" :key="JSON.stringify(item)">
+diff --git a/dist/node/chunk-BjrVv9r8.js b/dist/node/chunk-BjrVv9r8.js
+index cb31fd6fd6e2237e59979f673402d3dab77c7d03..7e095db459f690721fdf789d9fab9143373458ff 100644
+--- a/dist/node/chunk-BjrVv9r8.js
++++ b/dist/node/chunk-BjrVv9r8.js
+@@ -19244,8 +19244,8 @@ function findRegions(lines, name) {
+ 			if (rawEndName == null) continue;
+ 			let endName = unquote(rawEndName), index = endName ? open.findLastIndex((r) => r.name === endName) : open.findLastIndex((r) => r.marker === marker);
+ 			if (index === -1) continue;
+-			let [closed] = open.splice(index, open.length - index);
+-			closed.name === name && !open.some((r) => r.name === name) && regions.push({
++			let [closed] = open.splice(index, 1);
++			closed.name === name && !open.some((r) => r.name === name && r.start < closed.start) && regions.push({
+ 				start: closed.start,
+ 				end: i,
+ 				marker: closed.marker

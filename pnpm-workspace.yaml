@@ -1,13 +1,10 @@
 allowBuilds:
   esbuild: true
-  vitepress-versioning-plugin@https://codeload.github.com/FabricMC/vitepress-versioning-plugin/tar.gz/3710e8b43e0484731e79c0fce5e1d623609435f0: true
+  "@fabricmc/vitepress-versioning-plugin@https://codeload.github.com/FabricMC/vitepress-versioning-plugin/tar.gz/3b25eb63dca496d093be47fd9371c9d0f1c81f0e": true
 
 minimumReleaseAge: 4320 # three days
 
-overrides:
-  vite: npm:rolldown-vite@7.3.1
-
 patchedDependencies:
-  vitepress: patches/vitepress.patch
+  vitepress@2.0.0-alpha.21: patches/vitepress@2.0.0-alpha.21.patch
 
 savePrefix: ""
