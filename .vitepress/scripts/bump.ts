@@ -7,10 +7,12 @@ import { getLocaleNames, getSidebar } from "../config/i18n.ts";
 
 const git = (...args: string[]) => {
   const returned = childProcess.spawnSync("git", args, { encoding: "utf-8" });
+
   if (returned.error) {
     console.error(`Failed to run 'git ${args.join(" ")}'!\n  ${returned.error}`);
     process.exit(1);
   }
+
   return returned;
 };
 

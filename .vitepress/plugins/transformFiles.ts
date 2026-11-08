@@ -106,6 +106,7 @@ export const transformFilesPlugin = (): Plugin => ({
     filter: { id: /[.]md$/ },
     handler(src, id) {
       this.addWatchFile(id);
+
       return { code: transformFile(src, id) };
     },
   },

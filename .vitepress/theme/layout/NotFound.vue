@@ -16,6 +16,7 @@ const options = computed(() => {
     options.title = pooh;
   }
   options.quote = quotes[i];
+
   return options;
 });
 
@@ -119,6 +120,7 @@ const startAnimation = () => {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     return;
   }
+
   values = getValues();
 
   drawBall(ball.value!);

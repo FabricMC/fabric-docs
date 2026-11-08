@@ -120,15 +120,16 @@ const _getNewHead = (context: NewHeadContext): string | [string, Record<string, 
     }
 
     seenPaths.add(nextPath);
+
     return nextPath;
   }, split.join("/"));
 
   if (localeIndex.includes("-") || `/${oldPath}` !== `${localeIndex}${newPath}`) {
     if (context.isNotFound) {
       return `${localeIndex.replace("-", "_")}${newPath}${context.search}${context.hash}`;
-    } else {
-      console.warn(`${oldPath}: unexpected redirection to '${localeIndex.slice(1)}${newPath}'`);
     }
+
+    console.warn(`${oldPath}: unexpected redirection to '${localeIndex.slice(1)}${newPath}'`);
   }
 
   const href = `${context.origin}${localeIndex}${newPath}`;
@@ -184,6 +185,7 @@ export const getClientTransformHead = () => {
 
     if (typeof headData === "string") {
       window.location.replace(headData);
+
       return;
     }
 

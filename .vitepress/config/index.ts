@@ -38,6 +38,7 @@ export default defineVersionedConfig(
         if (split[0] === "versions") {
           split.splice(0, 2);
         }
+
         return split[0] !== "translated";
       },
     ],
@@ -74,8 +75,10 @@ export default defineVersionedConfig(
       hostname,
       transformItems: (items) => {
         const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
+
         return items.filter((i) => {
           const relativePath = i.url.replace(hostname, "");
+
           return !config.rewrites.inv[relativePath]?.startsWith("versions/");
         });
       },
@@ -123,6 +126,7 @@ export default defineVersionedConfig(
                 if (split[0] === split[2]) {
                   split.splice(2, 1);
                 }
+
                 return `/${split.join("/")}/`;
               })(),
               v,
