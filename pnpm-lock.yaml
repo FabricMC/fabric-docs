@@ -191,9 +191,6 @@ importers:
         specifier: 3.5.45
         version: 3.5.45(typescript@6.0.3)
     devDependencies:
-      '@archiver/archiver':
-        specifier: 0.3.0
-        version: 0.3.0
       '@emnapi/core':
         specifier: 1.11.3
         version: 1.11.3
@@ -230,9 +227,6 @@ importers:
       markdownlint-rule-titlecase:
         specifier: 0.1.0
         version: 0.1.0
-      p-limit:
-        specifier: 7.3.3
-        version: 7.3.3
       prettier:
         specifier: 3.9.10
         version: 3.9.10
@@ -247,18 +241,6 @@ importers:
         version: 0.2.17
 
 packages:
-
-  '@archiver/archiver@0.3.0':
-    resolution: {integrity: sha512-QM7a1/g1rRyL6JYZEdUouMN7ngm51aFaoaHq7gJKlFJ83HStsViljX3AUgdhBT93oMy9UCdj1+SGisW4t7otzQ==}
-    engines: {node: ^22.12.0 || >=24.0.0}
-
-  '@archiver/tar-stream@0.1.1':
-    resolution: {integrity: sha512-exWmvbQrXrrbM9cQYbKT5RvtyuVcuLqPmwhLsvOQsHeYuJL18VsOemTPVR4ABXhwIViJWf31KveW1K0924z03Q==}
-    engines: {node: ^22.12.0 || >=24.0.0}
-
-  '@archiver/zip-stream@0.1.1':
-    resolution: {integrity: sha512-5DBDQwKJBbtKGblPHC8Xih/bC1CHSEEuRrSiW0YjUCJt7GXGTS/t9QD/BhcCwZZxchzjzQhFm99skIO1KxX91w==}
-    engines: {node: ^22.12.0 || >=24.0.0}
 
   '@babel/helper-string-parser@7.29.13':
     resolution: {integrity: sha512-fWegr+WsEsiMVW4KUNdIIzzMTZSzNiqhy0//6+2MRi2d5NFNsL/AYwBQW8eBnRbTBVRnDVzjaJEUqKaCWjMMdQ==}
@@ -1079,10 +1061,6 @@ packages:
   oniguruma-to-es@4.3.6:
     resolution: {integrity: sha512-csuQ9x3Yr0cEIs/Zgx/OEt9iBw9vqIunAPQkx19R/fiMq2oGVTgcMqO/V3Ybqefr1TBvosI6jU539ksaBULJyA==}
 
-  p-limit@7.3.3:
-    resolution: {integrity: sha512-SKgVvDU5TNIxQ4r30U75BNLC6a+6GOEjngrk/ysM5+Zu3oJuk1SC5ApzIzY/7PjCEjoVPMWJ0zho/4QUiEB7TQ==}
-    engines: {node: '>=20'}
-
   parse-entities@4.0.2:
     resolution: {integrity: sha512-GG2AQYWoLgL877gQIKeRPGO1xF9+eG1ujIb5soS5gPvLQ1y2o8FL90w2QWNdf9I361Mpp7726c+lj3U0qK1uGw==}
 
@@ -1336,23 +1314,10 @@ packages:
   webpack-virtual-modules@0.6.2:
     resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
 
-  yocto-queue@1.2.2:
-    resolution: {integrity: sha512-4LCcse/U2MHZ63HAJVE+v71o7yOdIe4cZ70Wpf8D/IyjDKYQLV5GD46B+hSTjJsvV5PztjvHoU580EftxjDZFQ==}
-    engines: {node: '>=12.20'}
-
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
-
-  '@archiver/archiver@0.3.0':
-    dependencies:
-      '@archiver/tar-stream': 0.1.1
-      '@archiver/zip-stream': 0.1.1
-
-  '@archiver/tar-stream@0.1.1': {}
-
-  '@archiver/zip-stream@0.1.1': {}
 
   '@babel/helper-string-parser@7.29.13': {}
 
@@ -2184,10 +2149,6 @@ snapshots:
       regex: 6.1.0
       regex-recursion: 6.0.2
 
-  p-limit@7.3.3:
-    dependencies:
-      yocto-queue: 1.2.2
-
   parse-entities@4.0.2:
     dependencies:
       '@types/unist': 2.0.11
@@ -2456,7 +2417,5 @@ snapshots:
       typescript: 6.0.3
 
   webpack-virtual-modules@0.6.2: {}
-
-  yocto-queue@1.2.2: {}
 
   zwitch@2.0.4: {}
