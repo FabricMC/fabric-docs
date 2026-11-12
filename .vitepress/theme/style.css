@@ -96,6 +96,14 @@ body {
 }
 
 .Layout {
+  .VPFlyout .text-icon {
+    transition: rotate 0.25s;
+
+    .button[aria-expanded="true"] & {
+      rotate: 180deg;
+    }
+  }
+
   .VPNav .VPNavBar {
     .divider {
       padding-left: revert;

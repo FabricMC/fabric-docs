@@ -57,9 +57,12 @@ export const transformFile = (src: string, id: string) => {
     }
   } else {
     if (data.title) {
-      newContent.push("<hgroup>");
-
-      newContent.push(`# ${data.title} <VersionSwitcher h1 /> {#h1}`);
+      newContent.push(
+        //
+        "<hgroup>",
+        "<VersionSwitcher h1 />",
+        `# ${data.title} {#h1}`
+      );
 
       if (data.description) {
         newContent.push(`${data.description} {role="doc-subtitle"} `);

@@ -111,12 +111,16 @@ const item = computed(() => ({
 
 .VPBadge.VPFlyout {
   z-index: 1;
+
+  margin-block-end: 0.5rem;
   padding: 0;
+  border-radius: 0.5rem;
+
   letter-spacing: 0;
 
   &:deep(.button) {
     height: 1.75rem;
-    padding-inline: 0.5rem;
+    padding-inline: 0.25rem;
 
     .text {
       line-height: revert;
@@ -124,8 +128,10 @@ const item = computed(() => ({
   }
 
   &:deep(.menu) {
-    top: 1.75rem;
+    top: revert;
     right: revert;
+    left: -1px;
+    margin-block-start: 1px;
 
     ul {
       margin: 0;
