@@ -20,39 +20,20 @@ const resources = computed(() =>
 
 const files = computed(() => (data.frontmatter.value.files || []) as string[]);
 
-const shortestUniquePaths = computed(() =>
-  files.value.map((f, i) => {
-    const parts = f.split("/");
-    for (let len = 1; len <= parts.length; len++) {
-      const current = parts.slice(-len).join("/");
-      const isUnique = files.value.every(
-        (other, j) => i === j || other.split("/").slice(-len).join("/") !== current
-      );
-
-      if (isUnique) {
-        return current;
-      }
-    }
-
-    return f;
-  })
-);
-
 const getImageSrc = (href: string) =>
   `https://www.google.com/s2/favicons?domain=${new URL(href, "https://docs.fabricmc.net").hostname}&sz=16`;
 
 const getFileHref = (filePath: string) =>
   filePath.replace(/^@/, "https://github.com/FabricMC/fabric-docs/blob/-");
 
-const getFileTitle = (filePath: string) =>
-  filePath.replace(/^@[/]reference[/][^/]+[/]/, "").replace("com/example/docs", "...");
+const getFileTitle = (filePath: string) => filePath.replace(/^@[/]reference[/][^/]+[/]/, "");
 
-const getFileExtension = (filePath: string) =>
-  filePath
+const getFileIcon = (filePath: string) =>
+  `material-icon-theme:${filePath
     .replace(/^.*(?<=^|[/])fabric.mod.json$/, "minecraft-fabric")
     .replace(/^.*[.]([^.]+)$/, "$1")
     .replace(/^classtweaker$/, "minecraft-fabric")
-    .replace(/^md$/, "markdown");
+    .replace(/^md$/, "markdown")}`;
 </script>
 
 <template>
@@ -71,13 +52,11 @@ const getFileExtension = (filePath: string) =>
   <template v-if="files.length">
     <h2>{{ options.files }}</h2>
     <ul>
-      <li v-for="(f, i) of files" :key="f">
+      <li v-for="f of files" :key="f">
         <VPLink :href="getFileHref(f)" :title="getFileTitle(f)" no-icon>
-          <VPIcon :icon="`material-icon-theme:${getFileExtension(f)}`" />
+          <VPIcon :icon="getFileIcon(f)" />
           <code>
-            <template v-for="(seg, j) of shortestUniquePaths[i].split('/')" :key="j">
-              <template v-if="j !== 0">/<wbr /></template>{{ seg }}
-            </template>
+            <bdi dir="ltr">{{ getFileTitle(f) }}</bdi>
           </code>
         </VPLink>
       </li>
@@ -125,6 +104,45 @@ li {
 
   &:hover {
     color: var(--vp-c-text-1);
+  }
+}
+
+code {
+  scrollbar-width: none;
+
+  direction: rtl;
+  overflow-x: auto;
+
+  text-align: left;
+  white-space: nowrap;
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    var(--vp-c-divider) var(--fade-width-left),
+    var(--vp-c-divider) calc(100% - var(--fade-width-right)),
+    transparent 100%
+  );
+
+  animation: change-fade linear;
+  animation-timeline: scroll(self inline);
+}
+
+@keyframes change-fade {
+  0% {
+    --fade-width-left: 2rem;
+    --fade-width-right: 0rem;
+  }
+
+  1%,
+  99% {
+    --fade-width-left: 2rem;
+    --fade-width-right: 2rem;
+  }
+
+  100% {
+    --fade-width-left: 0rem;
+    --fade-width-right: 2rem;
   }
 }
 
