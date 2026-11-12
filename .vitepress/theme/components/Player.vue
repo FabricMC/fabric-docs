@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import "@videojs/html/audio/player";
-import "@videojs/html/audio/skin";
-import "@videojs/html/media/youtube-video";
-import "@videojs/html/video/player";
-import "@videojs/html/video/skin";
+import "vidstack/player";
+import "vidstack/player/layouts/default";
+import "vidstack/player/styles/default/layouts/video.css";
+import "vidstack/player/styles/default/theme.css";
+import "vidstack/player/ui";
 import { useData } from "vitepress";
 import { VPButton } from "vitepress/theme";
 import { computed, ref, useId } from "vue";
 import type { ThemeConfig } from "../../types.d.ts";
 
 const props = defineProps<{
-  type: "audio" | "video" | "youtube";
+  type: "audio" | "video";
   src: string;
-  contentTitle?: string;
+  title?: string;
   warn?: boolean;
 }>();
 
@@ -25,17 +25,13 @@ const showWarning = ref(props.type !== "audio" && props.warn);
 </script>
 
 <template>
-  <audio-player v-if="type === 'audio'" :content-title>
-    <audio-skin>
-      <audio :src preload="metadata"></audio>
-    </audio-skin>
-  </audio-player>
+  <div class="media">
+    <audio v-if="type === 'audio'" controls preload="metadata" :src :title></audio>
 
-  <video-player v-else :content-title>
-    <video-skin :inert="showWarning">
-      <youtube-video v-if="type === 'youtube'" :src playsinline></youtube-video>
-      <video v-else :src preload="metadata" playsinline></video>
-    </video-skin>
+    <media-player v-else load="visible" stream-type="on-demand" :title :src :inert="showWarning">
+      <media-provider />
+      <media-video-layout />
+    </media-player>
 
     <dialog
       v-if="showWarning"
@@ -48,27 +44,16 @@ const showWarning = ref(props.type !== "audio" && props.warn);
       <p :id="`${id}-description`">{{ options.description }}</p>
       <VPButton @click="showWarning = false">{{ options.button }}</VPButton>
     </dialog>
-  </video-player>
+  </div>
 </template>
 
 <style scoped>
-audio-player,
-video-player {
-  display: block;
+.media {
+  position: relative;
   margin-block: 1rem;
 }
 
-video-player {
-  position: relative;
-}
-
-video-skin {
-  display: block;
-}
-
-youtube-video {
-  display: block;
-  aspect-ratio: 16 / 9;
+audio {
   width: 100%;
 }
 

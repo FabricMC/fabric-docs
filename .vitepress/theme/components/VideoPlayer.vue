@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { resolveAdapterType } from "@videojs/html";
-import { computed, useSlots } from "vue";
+import { useSlots } from "vue";
 import Player from "./Player.vue";
 
 /** @deprecated use ![title](/path/to/video.webm) instead */
@@ -8,13 +7,13 @@ interface VideoPlayerProps {
   src: string;
 }
 
-const props = defineProps<VideoPlayerProps>();
+defineProps<VideoPlayerProps>();
 
-const type = computed(() => resolveAdapterType(props.src) as "audio" | "video" | "youtube");
+const type = "video";
 
-const contentTitle = String(useSlots().default?.()?.[0]?.children || "");
+const title = String(useSlots().default?.()?.[0]?.children || "");
 </script>
 
 <template>
-  <Player :type :src :content-title />
+  <Player :type :src :title />
 </template>
