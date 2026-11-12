@@ -112,8 +112,12 @@ body {
   }
 
   .VPSidebar .VPSidebarItem.level-0 {
-    &.collapsible.has-active * {
+    &.collapsible.has-active .text {
       color: var(--vp-c-text-1);
+
+      &:is(.is-active > .item &, .is-link:hover) {
+        color: var(--vp-c-brand-1);
+      }
     }
 
     &:not(.collapsible) {
@@ -136,8 +140,12 @@ body {
           color: var(--vp-c-text-1);
         }
 
-        &.has-active * {
+        &.has-active .text {
           color: var(--vp-c-text-1);
+
+          &:is(.is-active > .item &, .is-link:hover) {
+            color: var(--vp-c-brand-1);
+          }
         }
       }
     }
