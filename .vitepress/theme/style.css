@@ -120,10 +120,15 @@ body {
   }
 
   .VPSidebar .VPSidebarItem.level-0 {
+    .link:hover::after {
+      color: var(--vp-c-brand-1);
+    }
+
     &.collapsible.has-active .text {
       color: var(--vp-c-text-1);
 
-      &:is(.is-active > .item &, .is-link:hover) {
+      &:is(.is-active > .item &),
+      &:is(.is-link > .item:hover &) {
         color: var(--vp-c-brand-1);
       }
     }
@@ -151,9 +156,14 @@ body {
         &.has-active .text {
           color: var(--vp-c-text-1);
 
-          &:is(.is-active > .item &, .is-link:hover) {
+          &:is(.is-active > .item &),
+          &:is(.is-link > .item:hover &) {
             color: var(--vp-c-brand-1);
           }
+        }
+
+        &.is-link > .item:hover .text {
+          color: var(--vp-c-brand-1);
         }
       }
     }
