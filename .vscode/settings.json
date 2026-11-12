@@ -11,6 +11,5 @@
     "*": "public/assets/${documentRelativeDirName}/${documentBaseName}/${fileName}"
   },
   "markdown.validate.enabled": true,
-  "stylelint.validate": ["css", "vue"],
   "vue.server.includeLanguages": ["vue", "markdown"]
 }

@@ -23,8 +23,6 @@ jobs:
       - if: ${{ !cancelled() }}
         uses: DavidAnson/markdownlint-cli2-action@b4c9feab76d8025d1e83c653fa3990936df0e6c8
       - if: ${{ !cancelled() }}
-        run: pnpm run lint:css
-      - if: ${{ !cancelled() }}
         run: pnpm run format
       - if: ${{ !cancelled() }}
         run: |
