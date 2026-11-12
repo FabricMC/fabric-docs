@@ -201,7 +201,8 @@ onUnmounted(() => dialog.value?.close());
         @click="handleCopy"
       >
         <span>{{ copyOptions.copiedText }}</span>
-        <VPIcon :icon="isCopied ? 'lucide:clipboard-check' : 'lucide:clipboard'" />
+        <VPIcon v-show="isCopied" icon="lucide:clipboard-check" />
+        <VPIcon v-show="!isCopied" icon="lucide:clipboard" />
       </button>
       <button
         class="wrap"
@@ -210,7 +211,8 @@ onUnmounted(() => dialog.value?.close());
         :aria-label="options.wrap"
         @click="handleWrap"
       >
-        <VPIcon :icon="isWrapped ? 'lucide:text' : 'lucide:text-wrap'" />
+        <VPIcon v-show="isWrapped" icon="lucide:text" />
+        <VPIcon v-show="!isWrapped" icon="lucide:text-wrap" />
       </button>
       <button
         class="fullscreen"
