@@ -72,7 +72,7 @@ const item = computed(() => ({
   text: `${icon} ${!props.h1 && props.screenMenu === false ? options.value.switcherTitle : segments.value.version}`,
   items: [
     ...versions.value.map((v) => ({
-      text: options.value.switcherLabel.replace("%s", v),
+      text: v,
       link: getRoute(v),
       activeMatch: v === segments.value.version ? "(?=)" : "(?!)",
     })),

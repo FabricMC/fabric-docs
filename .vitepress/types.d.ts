@@ -150,11 +150,6 @@ export interface ThemeConfig extends Versioned.ThemeConfig {
     latestVersion: typeof LATEST_VERSION;
 
     /**
-     * @default "Minecraft %s"
-     */
-    switcherLabel: string;
-
-    /**
      * @default "Select Version"
      */
     switcherTitle: string;

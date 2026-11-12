@@ -333,7 +333,6 @@ export const getLocaleConfig = () => {
         ],
 
         version: {
-          switcherLabel: resolver("version.switcher.label"),
           switcherTitle: resolver("version.switcher.title"),
           noOtherVersions: resolver("version.switcher.none"),
         },
