@@ -11,39 +11,47 @@ const data = useData<ThemeConfig>();
 const options = computed(() => data.theme.value.references);
 
 const resources = computed(() =>
-  Object.entries(data.frontmatter.value.resources || {}).map(([href, title]) => {
-    const newHref = new URL(href, "https://a.com").href.replace("https://a.com", "");
+  Object.entries<string>(data.frontmatter.value.resources || {}).map(([oldHref, title]) => {
+    const url = new URL(oldHref, "https://docs.fabricmc.net");
+    const favicon = `https://www.google.com/s2/favicons?domain=${url.hostname}&sz=16`;
+    const href =
+      url.origin === "https://docs.fabricmc.net"
+        ? `${url.pathname}${url.search}${url.hash}`
+        : oldHref;
 
-    return [newHref, title] as const;
+    return { title, href, favicon };
   })
 );
 
-const files = computed(() => (data.frontmatter.value.files || []) as string[]);
+const suffixToIconMap: Record<string, string> = {
+  ".classtweaker": "minecraft-fabric",
+  ".md": "markdown",
+  ".yml": "yaml",
+  "fabric.mod.json": "minecraft-fabric",
+};
 
-const getImageSrc = (href: string) =>
-  `https://www.google.com/s2/favicons?domain=${new URL(href, "https://docs.fabricmc.net").hostname}&sz=16`;
+const files = computed(() =>
+  ((data.frontmatter.value.files || []) as string[]).map((filePath) => {
+    const title = filePath.replace(/^@[/]reference[/][^/]+[/]/, "");
+    const href = filePath.replace(/^@/, "https://github.com/FabricMC/fabric-docs/blob/-");
+    const icon = `material-icon-theme:${
+      Object.entries(suffixToIconMap).find(([suffix]) => filePath.endsWith(suffix))?.[1]
+      || filePath.split(/[/.]/).at(-1)!
+    }`;
 
-const getFileHref = (filePath: string) =>
-  filePath.replace(/^@/, "https://github.com/FabricMC/fabric-docs/blob/-");
-
-const getFileTitle = (filePath: string) => filePath.replace(/^@[/]reference[/][^/]+[/]/, "");
-
-const getFileIcon = (filePath: string) =>
-  `material-icon-theme:${filePath
-    .replace(/^.*(?<=^|[/])fabric.mod.json$/, "minecraft-fabric")
-    .replace(/^.*[.]([^.]+)$/, "$1")
-    .replace(/^classtweaker$/, "minecraft-fabric")
-    .replace(/^md$/, "markdown")}`;
+    return { title, href, icon };
+  })
+);
 </script>
 
 <template>
   <template v-if="resources.length">
     <h2>{{ options.resources }}</h2>
     <ul>
-      <li v-for="[href, title] of resources" :key="href">
-        <VPLink :href>
-          <img :src="getImageSrc(href)" alt="" width="16" height="16" />
-          <span>{{ title || href }}</span>
+      <li v-for="r of resources" :key="r.href">
+        <VPLink :href="r.href">
+          <img :src="r.favicon" />
+          <span>{{ r.title || r.href }}</span>
         </VPLink>
       </li>
     </ul>
@@ -52,11 +60,11 @@ const getFileIcon = (filePath: string) =>
   <template v-if="files.length">
     <h2>{{ options.files }}</h2>
     <ul>
-      <li v-for="f of files" :key="f">
-        <VPLink :href="getFileHref(f)" :title="getFileTitle(f)" no-icon>
-          <VPIcon :icon="getFileIcon(f)" />
+      <li v-for="f of files" :key="f.href">
+        <VPLink :href="f.href" :title="f.title" no-icon>
+          <VPIcon :icon="f.icon" />
           <code>
-            <bdi dir="ltr">{{ getFileTitle(f) }}</bdi>
+            <bdi dir="ltr">{{ f.title }}</bdi>
           </code>
         </VPLink>
       </li>
@@ -152,6 +160,8 @@ code {
 }
 
 img {
+  width: 1rem;
+  height: 1rem;
   margin-top: 1px;
 }
 
