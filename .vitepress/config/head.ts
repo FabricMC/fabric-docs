@@ -98,9 +98,7 @@ const _getNewHead = (context: NewHeadContext): string | HeadConfig[] => {
     .replace(/((?<=^|[/])index)?[.](html|md)$/, "");
 
   const split = oldPath.toLowerCase().replaceAll(/[/]+/g, "/").split("/");
-  const localePrefix = /^..[_-]..$/.test(split[0])
-    ? `/${split.shift()}/`.replace("/en_us/", "/")
-    : "/";
+  const localePrefix = /^(?!en)..[_-]..$/.test(split[0]) ? `/${split.shift()}/` : "/";
 
   split[0] = (
     versionRedirects[split[0]]
