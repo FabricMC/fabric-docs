@@ -9,6 +9,7 @@ import { useIconSpan } from "../composables/iconSpan.ts";
 const props = defineProps<{
   h1?: boolean;
   screenMenu?: boolean;
+  versioningPlugin: unknown;
 }>();
 
 const data = useData<ThemeConfig>();
@@ -107,6 +108,10 @@ const item = computed(() => ({
   font-weight: normal;
   font-style: italic;
   color: var(--vp-c-text-1);
+}
+
+.VPFlyout :deep(.VPMenu) {
+  min-width: 0;
 }
 
 .VPBadge.VPFlyout {
