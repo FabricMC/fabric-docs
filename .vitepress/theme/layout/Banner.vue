@@ -1,20 +1,23 @@
 <script setup lang="ts">
 import { useElementSize } from "@vueuse/core";
 import { useData } from "vitepress";
-import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
-import { computed, ref, watch } from "vue";
-import { Fabric } from "../../types.d";
+import { VPLink } from "vitepress/theme";
+import { computed, onMounted, ref, watchEffect } from "vue";
+import type { ThemeConfig } from "../../types.d.ts";
+import { useRem } from "../composables/rem.ts";
 
-const data = useData();
-const banner = ref<HTMLElement>();
+const data = useData<ThemeConfig>();
+const banner = ref<HTMLDivElement>();
 const { height } = useElementSize(banner);
+const rem = useRem();
 
-const env = computed(() => data.theme.value.env as Fabric.EnvOptions);
-const options = computed(() => data.theme.value.banner as Fabric.BannerOptions);
+const env = computed(() => data.theme.value.env);
+const options = computed(() => data.theme.value.banner);
 
 const strings = computed(() => {
   switch (env.value) {
     case "github":
+    case "netlify":
       return [];
 
     case "build":
@@ -25,21 +28,24 @@ const strings = computed(() => {
 
     default: {
       const split = options.value.pr.text.split("%s").filter(Boolean);
+
       return [split[0], String(env.value), split.slice(1).join("%s")];
     }
   }
 });
 
-watch([height, strings], () =>
-  document.documentElement.style.setProperty(
-    "--vp-layout-top-height",
-    `${strings.value.length ? height.value + 16 : 0}px`
-  )
+onMounted(() =>
+  watchEffect(() => {
+    document.documentElement.style.setProperty(
+      "--vp-layout-top-height",
+      `${strings.value.length > 0 ? height.value / rem.value + 1 : 0}rem`
+    );
+  })
 );
 </script>
 
 <template>
-  <div v-if="strings.length" ref="banner">
+  <div v-show="strings.length" ref="banner">
     {{ strings[0]
     }}<VPLink
       v-if="strings[1]"
@@ -51,17 +57,21 @@ watch([height, strings], () =>
 
 <style scoped>
 div {
+  position: fixed;
+  z-index: var(--vp-z-index-layout-top);
+  right: 0;
+  left: 0;
+
   align-items: center;
-  background: rgb(207, 114, 21);
-  color: #ffffff;
+
+  padding: 0.5rem;
+
   font-family: var(--vp-font-family-mono);
   font-weight: 600;
-  left: 0;
-  padding: 8px;
-  position: fixed;
-  right: 0;
+  color: var(--vp-c-white);
   text-align: center;
-  z-index: var(--vp-z-index-layout-top);
+
+  background: rgb(207 114 21);
 }
 
 a {

@@ -1,51 +1,24 @@
-import { Fabric } from "../types.d";
+import type { SidebarItem } from "../types.d.ts";
 
-export default [
-  {
-    text: "players.title",
-    link: "/players/",
-    items: [
-      {
-        text: "players.installing_java",
-        link: "/players/installing-java/",
-      },
-      {
-        text: "players.installing_fabric",
-        link: "/players/installing-fabric/",
-      },
-      {
-        text: "players.updating_fabric",
-        link: "/players/updating-fabric/",
-      },
-      {
-        text: "players.finding_mods",
-        link: "/players/finding-mods",
-      },
-      {
-        text: "players.installing_mods",
-        link: "/players/installing-mods",
-      },
-      {
-        text: "players.troubleshooting",
-        items: [
-          {
-            text: "players.troubleshooting.uploading_logs",
-            link: "/players/troubleshooting/uploading-logs",
-          },
-          {
-            text: "players.troubleshooting.crash_reports",
-            link: "/players/troubleshooting/crash-reports",
-          },
-          {
-            text: "players.troubleshooting.dependency_overrides",
-            link: "/players/troubleshooting/dependency-overrides",
-          },
-        ],
-      },
-      {
-        text: "players.faq",
-        link: "/players/faq",
-      },
-    ],
-  },
-] satisfies Fabric.SidebarItem[];
+export const PLAYERS_SIDEBAR: SidebarItem = {
+  base: "/players",
+  link: "/",
+  items: [
+    //
+    "/installing-java/",
+    "/installing-fabric/",
+    "/updating-fabric/",
+    "/finding-mods",
+    "/installing-mods",
+    {
+      base: "/players/troubleshooting",
+      items: [
+        //
+        "/uploading-logs",
+        "/crash-reports",
+        "/dependency-overrides",
+      ],
+    },
+    "/faq",
+  ],
+};

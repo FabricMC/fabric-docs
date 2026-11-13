@@ -61,7 +61,7 @@ To do this, we'll add a `tick` function to the `DuplicatorBlockEntity`, and a fi
 
 The `DuplicatorBlock` should now have a `getTicker` method that returns a reference to `DuplicatorBlockEntity::tick`.
 
-<VideoPlayer src="/assets/develop/blocks/container_2.mp4">Duplicator block duplicating an oak log</VideoPlayer>
+![Duplicator block duplicating an oak log](/assets/develop/blocks/container_2.mp4)
 
 ## Worldly Containers {#worldly-containers}
 
@@ -85,7 +85,7 @@ Also, we should modify the `useItemOn` method of the `DuplicatorBlock` to actual
 
 Now, if we try to insert items from the side instead of the top, it won't work!
 
-<VideoPlayer src="/assets/develop/blocks/container_3.webm">The Duplicator only activating when interacting with its top side</VideoPlayer>
+![The Duplicator only activating when interacting with its top side](/assets/develop/blocks/container_3.webm)
 
 ## Menus {#menus}
 

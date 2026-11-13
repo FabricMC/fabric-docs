@@ -92,7 +92,7 @@ This checks if the current screen is the `TitleScreen` or `CreativeModeInventory
 - When outside a world, in other words when no player entity exists, it logs "Key press detected in the title screen" to console.
 - Otherwise, if pressed inside a world, it sends "Key press detected in the GUI with a world open, closing screen" to the in-game chat and closes the screen.
 
-<VideoPlayer src="/assets/develop/key-mappings/in_screen_key_map.webm">Key press in the GUI with a world open</VideoPlayer>
+![Key press in the GUI with a world open](/assets/develop/key-mappings/in_screen_key_map.webm)
 
 ::: info
 
