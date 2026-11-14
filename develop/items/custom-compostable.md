@@ -26,4 +26,4 @@ As usual, don't forget to add a texture, translation, creative tab, yada yada. H
 
 Here's how it looks like when used in the composter:
 
-<VideoPlayer src="/assets/develop/items/using_bone_marrow.webm">Using Bone Marrow as Compostable</VideoPlayer>
+![Using Bone Marrow as Compostable](/assets/develop/items/using_bone_marrow.webm)

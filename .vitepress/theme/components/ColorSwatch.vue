@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { color } = defineProps<{ color: string }>();
+defineProps<{ color: string }>();
 </script>
 
 <template>
@@ -9,10 +9,10 @@ const { color } = defineProps<{ color: string }>();
 <style scoped>
 div {
   width: 100%;
-  padding: 50%;
   margin: auto;
-  border-radius: 0.25rem;
-  border-color: gray;
+  padding: 50%;
+  border-color: rgb(136 136 136);
   border-width: 1px;
+  border-radius: 0.25rem;
 }
 </style>

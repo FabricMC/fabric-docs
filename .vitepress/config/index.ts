@@ -1,141 +1,148 @@
-import cjkFriendlyPlugin from "markdown-it-cjk-friendly";
-import snippetPlugin from "markdown-it-vuepress-code-snippet-enhanced";
+import defineVersionedConfig from "@fabricmc/vitepress-versioning-plugin";
+// @ts-expect-error
+import transclusionsPlugin from "markdown-it-vuepress-code-snippet-enhanced";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as process from "node:process";
-import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json";
-import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json";
-import { SiteConfig } from "vitepress";
+import bytecode from "syntax-java-bytecode/java-bytecode.tmLanguage.json" with { type: "json" };
+import mcfunction from "syntax-mcfunction/mcfunction.tmLanguage.json" with { type: "json" };
 import { tabsMarkdownPlugin } from "vitepress-plugin-tabs";
-import defineVersionedConfig from "vitepress-versioning-plugin";
-import { transformFile, transformFilesPlugin } from "../plugins/transformFiles";
-import { Fabric } from "../types.d";
-import { getBuildTransformHead, getClientTransformHead } from "./head";
-import { getLocales } from "./i18n";
-
-const latestVersion = fs
-  .readFileSync(
-    path.resolve(import.meta.dirname, "..", "..", "reference", "latest", "build.gradle"),
-    "utf-8"
-  )
-  .match(/def minecraftVersion = "([^"]+)"/)![1];
-
-// https://docs.github.com/en/actions/reference/workflows-and-actions/variables#default-environment-variables
-// https://docs.netlify.com/build/configure-builds/environment-variables/#read-only-variables
-const env = process.env.GITHUB_ACTIONS
-  ? "github"
-  : process.env.NETLIFY
-    ? Number(process.env.REVIEW_ID)
-    : process.env.NODE_ENV === "production"
-      ? "build"
-      : "dev";
-
-const hostname =
-  env === "github"
-    ? "https://docs.fabricmc.net/"
-    : env === "build"
-      ? "http://fabric-docs.localhost:4173/"
-      : env === "dev"
-        ? "http://fabric-docs.localhost:5173/"
-        : `${process.env.DEPLOY_PRIME_URL!}/`;
+import {
+  ALL_VERSIONS,
+  AT,
+  ENV,
+  EXCLUDED_LOCALES,
+  EXCLUDED_OLD_VERSIONS,
+  LATEST_VERSION,
+} from "../constants.ts";
+import { downloadImagePlugin } from "../plugins/downloadImage.ts";
+import { transformFile, transformFilesPlugin } from "../plugins/transformFiles.ts";
+import { videoImagePlugin } from "../plugins/videoImage.ts";
+import type { Config } from "../types.d.ts";
+import { getBuildTransformHead, getClientTransformHead, pageToVersionsMap } from "./head.ts";
+import { getLocaleConfig } from "./i18n.ts";
 
 // https://vitepress.dev/reference/site-config
-// https://www.npmjs.com/package/vitepress-versioning-plugin
+// https://npmx.dev/package/vitepress-versioning-plugin
 export default defineVersionedConfig(
   {
-    // Removes .html from the end of URLs.
+    buildEnd: (siteConfig) => {
+      fs.writeFileSync(
+        path.join(siteConfig.outDir, "page-versions.json"),
+        JSON.stringify(
+          Object.fromEntries(
+            [...pageToVersionsMap].map(([purePath, versions]) => [purePath, [...versions]])
+          )
+        )
+      );
+    },
+
     cleanUrls: true,
 
     // Set head tags on the client side
-    head: [["script", { "data-gen": "" }, getClientTransformHead(latestVersion)]],
+    head: [["script", { "data-gen": "" }, getClientTransformHead()]],
 
-    // Ignore dead links under translated/. Allows builds with incomplete translations
+    icons: { include: ["lucide:download"] },
+
+    // Allow builds with incomplete translations
     ignoreDeadLinks: [
-      (_, filePath) => {
-        const split = filePath.split("/");
-        if (split[0] === "versions") split.splice(0, 2);
-        return split[0] !== "translated";
+      (link, filePath) => {
+        if (link.startsWith("/assets/")) return true;
+
+        const split = path.relative(AT, filePath).split("/");
+        if (split[0] === "versions") {
+          split.splice(0, 2);
+        }
+
+        return split[0] === "translated";
       },
     ],
 
-    // Adds a "Last Updated" block to the footer of pages, uses git to determine the last time a page's file was modified.
     lastUpdated: true,
 
-    // Reduce the size of the dist by using a separate js file for the metadata.
-    metaChunk: true,
-
-    locales: getLocales(),
+    locales: getLocaleConfig(),
 
     markdown: {
       config: (md) => {
-        // Use the CJK-friendly plugin to fix emphasis
-        md.use(cjkFriendlyPlugin);
-        // Use the snippet plugin for transclusions
-        md.use(snippetPlugin);
-        // Use the tabs plugin for... having tabs?
+        md.use(transclusionsPlugin);
         md.use(tabsMarkdownPlugin);
+        md.use(downloadImagePlugin);
+        md.use(videoImagePlugin);
       },
+      container: {
+        // TODO: acknowledge ::: caution and ::: note
+        // TODO: review all ::: containers with unnecessary title, except ::: details
+        // TODO: migrate ::: info PREREQUISITES
+        // TODO: migrate ::: warning IMPORTANT
+        customContainers: {
+          prerequisites: "PREREQUISITES",
+        },
+      },
+      footnote: false,
       gfmAlerts: false,
-      image: { lazyLoading: true },
+      image: { lazyLoad: true },
       languageAlias: { classtweaker: "text", gradle: "groovy" },
       languages: [
-        { ...(mcfunction as any), name: "mcfunction" },
         { ...(bytecode as any), name: "bytecode" },
+        { ...(mcfunction as any), name: "mcfunction" },
       ],
       lineNumbers: true,
       shikiSetup: async (shiki) => {
         await shiki.loadTheme("github-light", "github-dark");
       },
+      snippet: { stripRegionMarkers: "all" },
+      toc: false,
     },
 
     rewrites: { "translated/:locale/(.*)": ":locale/(.*)" },
 
     sitemap: {
-      hostname,
+      hostname:
+        {
+          dev: "http://fabric-docs.localhost:5173/",
+          build: "http://fabric-docs.localhost:4173/",
+          github: "https://docs.fabricmc.net/",
+          netlify: "https://fabric-docs.netlify.app/",
+        }[ENV] || process.env.DEPLOY_PRIME_URL!,
       transformItems: (items) => {
-        const config = (globalThis as any).VITEPRESS_CONFIG as SiteConfig;
-        return items.filter((i) => {
-          const relativePath = i.url.replace(hostname, "");
-          return !config.rewrites.inv[relativePath]?.startsWith("versions/");
-        });
+        const getFilePath = (url: string) => `${url.replace(/[/]$/, "/index")}.md`;
+
+        return items.filter(
+          (i) => !VITEPRESS_CONFIG.rewrites.inv[getFilePath(i.url)]?.startsWith("versions/")
+        );
       },
     },
 
     srcExclude: [
       "README.md",
-      "versions/1.21.10",
-      "versions/1.21.8",
-      "versions/1.21.4",
-      ...(typeof env === "number" ? ["versions"] : []),
+      ...EXCLUDED_OLD_VERSIONS.map((v) => `versions/${v}`),
+      ...EXCLUDED_LOCALES.map((l) => `**/translated/${l}`),
     ],
 
     themeConfig: {
-      env,
+      env: ENV,
       externalLinkIcon: true,
       logo: "/logo.png",
       outline: { level: "deep" },
       search: {
         options: {
-          _render: (src, env, md) =>
-            env.frontmatter?.search === false
-            || env.relativePath.startsWith("translated/")
-            || env.relativePath.startsWith("versions/")
-              ? ""
-              : md.render(
-                  transformFile(src, env.path, latestVersion).replace(/<Badge .*> (?={#h1})/, ""),
-                  env
-                ),
+          _render: async (src, env, md) => {
+            src = transformFile(src, env.path);
+            const html = await md.renderAsync(src, env);
+
+            return env.frontmatter?.search === false ? "" : html;
+          },
         },
         provider: "local",
       },
+      version: { latestVersion: LATEST_VERSION, allVersions: ALL_VERSIONS },
     },
 
     // Set head tags at build time
-    transformHead: getBuildTransformHead(latestVersion),
+    transformHead: getBuildTransformHead(),
 
-    // Versioning plugin configuration.
     versioning: {
-      latestVersion,
+      latestVersion: LATEST_VERSION,
       rewrites: { localePrefix: "translated" },
       sidebars: {
         sidebarContentProcessor: (s) =>
@@ -143,7 +150,10 @@ export default defineVersionedConfig(
             Object.entries(s).map(([k, v]) => [
               (() => {
                 const split = k.split("/").filter(Boolean);
-                if (split[0] === split[2]) split.splice(2, 1);
+                if (split[0] === split[2]) {
+                  split.splice(2, 1);
+                }
+
                 return `/${split.join("/")}/`;
               })(),
               v,
@@ -155,7 +165,7 @@ export default defineVersionedConfig(
     },
 
     vite: {
-      plugins: [transformFilesPlugin(latestVersion)],
+      plugins: [transformFilesPlugin()],
     },
 
     vue: {
@@ -165,6 +175,6 @@ export default defineVersionedConfig(
         },
       },
     },
-  } as Fabric.Config,
-  path.resolve(import.meta.dirname, "..")
+  } as Config,
+  path.join(AT, ".vitepress")
 );

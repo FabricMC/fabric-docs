@@ -63,4 +63,4 @@ You should also add translations to your `en_us.json` file to give your enchantm
 
 You should now have a working custom enchantment effect! Test it by enchanting a weapon with the enchantment and hitting a mob. An example is given in the following video:
 
-<VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm">Using the Thundering Enchantment</VideoPlayer>
+![Using the Thundering Enchantment](/assets/develop/enchantment-effects/thunder.webm)

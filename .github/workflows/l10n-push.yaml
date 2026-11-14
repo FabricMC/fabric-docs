@@ -33,11 +33,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: crowdin/github-action@60debf382ee245b21794321190ad0501db89d8c1
+      - uses: crowdin/github-action@7b5f0a455f59dea1ceb1987b806a170386f307f5
         with:
-          token: ${{ secrets.CROWDIN_TOKEN }}
           crowdin_branch_name: ${{ github.event.repository.name }}/${{ github.ref_name }}
           upload_sources: true
-          upload_translations: false
-          download_sources: false
           download_translations: false
+        env:
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_TOKEN }}
