@@ -1,30 +1,14 @@
 package com.example.docs.item;
 
-import java.rmi.registry.Registry;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-import org.apache.logging.log4j.core.config.builder.api.Component;
-
-import com.example.docs.ExampleMod;
-import com.example.docs.block.ModBlocks;
-import com.example.docs.component.ModComponents;
-import com.example.docs.debug.TestItem;
-import com.example.docs.entity.ModEntityTypes;
-import com.example.docs.fluid.ModFluids;
-import com.example.docs.item.armor.GuiditeArmorMaterial;
-import com.example.docs.item.custom.CounterItem;
-import com.example.docs.item.custom.LightningStick;
-import com.example.docs.networking.basic.LightningTaterItem;
-import com.example.docs.projectile.HotTaterItem;
-
-import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
-import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
-import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
+import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.DamageTypeTags;
@@ -44,7 +28,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ShieldItem;
-import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.BlocksAttacks;
@@ -55,9 +38,27 @@ import net.minecraft.world.item.component.CookingFuel;
 import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BannerPatternLayers;
 import net.minecraft.world.level.storage.loot.providers.number.floats.ContextFloatProviders;
 import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
+
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
+import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
+
+import com.example.docs.ExampleMod;
+import com.example.docs.block.ModBlocks;
+import com.example.docs.component.ModComponents;
+import com.example.docs.debug.TestItem;
+import com.example.docs.entity.ModEntityTypes;
+import com.example.docs.fluid.ModFluids;
+import com.example.docs.item.armor.GuiditeArmorMaterial;
+import com.example.docs.item.custom.CounterItem;
+import com.example.docs.item.custom.LightningStick;
+import com.example.docs.networking.basic.LightningTaterItem;
+import com.example.docs.projectile.HotTaterItem;
 
 // #region mod_items_class
 public class ModItems {
@@ -128,8 +129,8 @@ public class ModItems {
 	// #region guidite_axe
 	public static final Item GUIDITE_AXE = register(
 			ModItemIds.GUIDITE_AXE,
-			settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings),
-			new Item.Properties()
+			Item::new,
+			new Item.Properties().axe(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F)
 	);
 	// #endregion guidite_axe
 
@@ -144,16 +145,16 @@ public class ModItems {
 	// #region guidite_shovel
 	public static final Item GUIDITE_SHOVEL = register(
 			ModItemIds.GUIDITE_SHOVEL,
-			settings -> new ShovelItem(GUIDITE_TOOL_MATERIAL, 1.0F, -1.0F, settings),
-			new Item.Properties()
+			Item::new,
+			new Item.Properties().shovel(GUIDITE_TOOL_MATERIAL, 1.0F, -1.0F)
 	);
 	// #endregion guidite_shovel
 
 	// #region guidite_hoe
 	public static final Item GUIDITE_HOE = register(
 			ModItemIds.GUIDITE_HOE,
-			settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, 2.0F, -1.0F, settings),
-			new Item.Properties()
+			Item::new,
+			new Item.Properties().hoe(GUIDITE_TOOL_MATERIAL, 2.0F, -1.0F)
 	);
 	// #endregion guidite_hoe
 
