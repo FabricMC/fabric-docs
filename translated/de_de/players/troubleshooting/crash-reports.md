@@ -43,7 +43,7 @@ Absturzberichte befinden sich an den folgenden Orten:
 
 Absturzberichte sind sehr lang und können verwirrend zu lesen sein. Allerdings enthalten sie viele Informationen über den Absturz, die beim Finden der Ursache sehr hilfreich sind.
 
-Für diesen Leitfaden werden wir [diesen Crash-Report](/assets/players/crash-report-example.log) verwenden.
+Für diese Anleitung verwenden wir den folgenden Absturzbericht:
 
 :::details Absturzbericht anzeigen
 
