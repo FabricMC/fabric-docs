@@ -53,7 +53,7 @@ Mojang теж так робить зі своїми зіллями! Перегл
 
 У нашому ініціалізаторі ми будемо використовувати подію `FabricBrewingRecipeRegistryBuilder.BUILD`, щоб зареєструвати наше зілля за допомогою методу `BrewingRecipeRegistry.registerPotionRecipe`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java#register_recipes
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBrewingProvider.java#register_recipes
 
 `addMix` приймає 3 параметри:
 

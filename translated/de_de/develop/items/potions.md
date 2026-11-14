@@ -53,7 +53,7 @@ Um deinen eigenen Effekt zu erstellen, schau bitte in den Leitfaden [Effekte](..
 
 In unserer Initialisierungsmethode benutzen wir das `FabricBrewingRecipeRegistryBuilder.BUILD` Event um unseren Trank mithilfe der `BrewingRecipeRegistry.registerPotionRecipe` Methode zu registrieren.
 
-<<< @/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java#register_recipes
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBrewingProvider.java#register_recipes
 
 Die `addMix` Methode besitzt 3 Parameter:
 
