@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "example-mod:item/waxcap",
+    "tints": [
+      {
+        "type": "example-mod:color",
+        "color": -16728065
+      }
+    ]
+  }
+}

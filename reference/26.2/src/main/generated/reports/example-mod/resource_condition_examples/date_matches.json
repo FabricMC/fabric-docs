@@ -1,0 +1,9 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "example-mod:date_matches",
+      "day": 1,
+      "month": 4
+    }
+  ]
+}

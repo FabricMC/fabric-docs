@@ -18,6 +18,8 @@ type NewHeadContext = {
 
 const _getNewHead = (context: NewHeadContext): string | HeadConfig[] => {
   const versionRedirects: Record<string, string> = {
+    "26.3.0": "26.3.0",
+
     "26.2.0": "26.2.0",
 
     "26.1.2": "26.1.2",
