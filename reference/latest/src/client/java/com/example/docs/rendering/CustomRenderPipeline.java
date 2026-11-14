@@ -55,7 +55,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		LevelExtractionEvents.END_EXTRACTION.register(this::extractWaypoint);
-		LevelRenderEvents.AFTER_TRANSLUCENT_TERRAIN.register(this::renderAndDrawWaypoint);
+		LevelRenderEvents.AFTER_RENDER_PASS.register(this::renderAndDrawWaypoint);
 	}
 
 	// #region custom_pipelines_extraction_phase
