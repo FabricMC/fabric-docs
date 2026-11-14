@@ -1,0 +1,45 @@
+{
+  "carvers": [],
+  "downfall": 0.8,
+  "effects": {
+    "foliage_color": "#52be55",
+    "grass_color": "#01e240",
+    "water_color": "#3f76e4"
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:ore_diamond"
+    ],
+    [],
+    [],
+    [
+      "example-mod:diamond_tree_placed"
+    ]
+  ],
+  "has_precipitation": true,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [
+      {
+        "type": "minecraft:fox",
+        "maxCount": 10,
+        "minCount": 8,
+        "weight": 20
+      }
+    ],
+    "misc": [],
+    "monster": [],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 0.7
+}

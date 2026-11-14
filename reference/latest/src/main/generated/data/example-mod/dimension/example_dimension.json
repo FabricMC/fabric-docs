@@ -1,0 +1,11 @@
+{
+  "type": "example-mod:example_dimension_type",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "example-mod:tater_biome"
+    },
+    "settings": "minecraft:overworld"
+  }
+}
