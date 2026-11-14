@@ -26,7 +26,7 @@ resources:
 
 创建自定义实体的第一步，是定义它的类，并将其注册到游戏中。
 
-我们会为该实体创建 `MiniGolemEntity` 类，并首先为它设置属性。[属性](./attributes)决定了实体的多项内容，包括最大生命值、移动速度和生物引诱范围。
+我们会为该实体创建 `MiniGolemEntity` 类，并首先为它设置属性。[属性](./attributes) 决定了各种内容，包括实体的最大生命值、移动速度以及引诱范围。
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#registerclass
 
@@ -81,7 +81,7 @@ resources:
 
 ::: warning
 
-Blockbench 支持多种[映射](../migrating-mappings/#mappings)（例如 Mojang Mappings、Yarn 等）。请确保选择与你的开发环境匹配的正确映射。本教程使用 Mojang Mappings。
+Blockbench 支持多种[映射](../porting/mappings/#mappings)（例如 Mojang Mappings、Yarn 等）。请确保选择与你的开发环境匹配的正确映射。本教程使用 Mojang Mappings。
 
 映射不一致可能会导致集成 Blockbench 生成的代码时出错。
 
