@@ -45,7 +45,7 @@ public class ExampleModItemTagProvider extends FabricTagProvider.ItemTagProvider
 
 		// #region repair_tags
 		builder(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR)
-				.add(ItemIds.COPPER_INGOT);
+				.add(Items.COPPER_INGOT.builtInRegistryHolder().key());
 		// #endregion repair_tags
 
 		// :::datagen-tags:provider
