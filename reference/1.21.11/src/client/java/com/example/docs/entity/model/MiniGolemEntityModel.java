@@ -91,8 +91,8 @@ public class MiniGolemEntityModel extends EntityModel<MiniGolemEntityRenderState
 		// ... the leg swing animation code from before
 		//:::dancing_animation
 		//:::model_animation
-		head.xRot = state.xRot * Mth.RAD_TO_DEG;
-		head.yRot = state.yRot * Mth.RAD_TO_DEG;
+		head.xRot = state.xRot * Mth.DEG_TO_RAD;
+		head.yRot = state.yRot * Mth.DEG_TO_RAD;
 		float limbSwingAmplitude = state.walkAnimationSpeed;
 		float limbSwingAnimationProgress = state.walkAnimationPos;
 		leftLeg.xRot = Mth.cos(limbSwingAnimationProgress * 0.2f + Mth.PI) * 1.4f * limbSwingAmplitude;
