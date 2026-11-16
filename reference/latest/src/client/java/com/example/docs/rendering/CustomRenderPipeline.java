@@ -1,38 +1,33 @@
 package com.example.docs.rendering;
 
 import java.util.Optional;
-import java.util.OptionalDouble;
 
-import com.mojang.blaze3d.pipeline.RenderTarget;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.renderpearl.api.buffers.GpuBufferSlice;
 import com.mojang.renderpearl.api.commands.RenderPass;
 import com.mojang.renderpearl.api.pipeline.PrimitiveTopology;
 import com.mojang.renderpearl.api.pipeline.RenderPipeline;
-import com.mojang.renderpearl.api.textures.GpuTextureView;
 import com.mojang.renderpearl.api.vertex.VertexFormat;
 import org.joml.Matrix4f;
 import org.joml.Matrix4fc;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.StagedVertexBuffer;
 import net.minecraft.client.renderer.rendertype.RenderType;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionContext;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionEvents;
-import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderContext;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
 
 import com.example.docs.ExampleMod;
 
 public class CustomRenderPipeline implements ClientModInitializer {
+	private static CustomRenderPipeline instance;
 	// #region custom_pipelines_define_pipeline
 	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.DEBUG_FILLED_SNIPPET)
 			.withLocation(ExampleMod.id("pipeline/debug_filled_box_through_walls"))
@@ -49,13 +44,19 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	private static final Vector3f MODEL_OFFSET = new Vector3f();
 	private static final Matrix4f TEXTURE_MATRIX = new Matrix4f();
 	private static final StagedVertexBuffer STAGED_BUFFER = new StagedVertexBuffer(() -> "Waypoints Buffer", RenderType.SMALL_BUFFER_SIZE);
+	private StagedVertexBuffer.Draw draw;
 
 	// #endregion custom_pipelines_drawing_phase
 
+	public static CustomRenderPipeline getInstance() {
+		return instance;
+	}
+
 	@Override
 	public void onInitializeClient() {
+		instance = this;
 		LevelExtractionEvents.END_EXTRACTION.register(this::extractWaypoint);
-		LevelRenderEvents.AFTER_RENDER_PASS.register(this::renderAndDrawWaypoint);
+		LevelRenderEvents.END_MAIN.register(_ -> STAGED_BUFFER.endFrame());
 	}
 
 	// #region custom_pipelines_extraction_phase
@@ -67,7 +68,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 	// #endregion custom_pipelines_extraction_phase
 	// #region custom_pipelines_drawing_phase
-	private void renderAndDrawWaypoint(LevelRenderContext context) {
+	public void prepare(CameraRenderState camera) {
 		RenderPipeline renderPipeline = CustomRenderPipeline.FILLED_THROUGH_WALLS;
 		VertexFormat formatBinding = renderPipeline.getVertexFormatBinding(0);
 
@@ -76,31 +77,20 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		PrimitiveTopology primitive = renderPipeline.getPrimitiveTopology();
 		StagedVertexBuffer.Draw draw = STAGED_BUFFER.appendDraw(formatBinding, primitive, primitive == PrimitiveTopology.QUADS ? RenderSystem.getProjectionType().vertexSorting() : null);
 
-		this.renderWaypoint(context, draw);
+		this.renderWaypoint(camera, draw);
 
 		STAGED_BUFFER.upload();
 
-		StagedVertexBuffer.ExecuteInfo info = STAGED_BUFFER.getExecuteInfo(draw);
-
-		if (info != null) {
-			draw(Minecraft.getInstance(), info, renderPipeline);
-		}
-
-		STAGED_BUFFER.endFrame();
+		this.draw = draw;
 	}
 
-	private void renderWaypoint(LevelRenderContext context, StagedVertexBuffer.Draw draw) {
-		PoseStack matrices = context.poseStack();
-		Vec3 camera = context.levelState().cameraRenderState.pos;
-
-		matrices.pushPose();
-		matrices.translate(-camera.x, -camera.y, -camera.z);
+	private void renderWaypoint(CameraRenderState camera, StagedVertexBuffer.Draw draw) {
+		Matrix4f matrix = new Matrix4f();
+		matrix.translate(-(float) camera.pos.x, -(float) camera.pos.y, -(float) camera.pos.z);
 
 		final VertexConsumer builder = STAGED_BUFFER.getVertexBuilder(draw);
 
-		this.renderFilledBox(matrices.last().pose(), builder, this.waypointState.x(), this.waypointState.y(), this.waypointState.z(), this.waypointState.x() + 1, this.waypointState.y() + 1, this.waypointState.z() + 1, this.waypointState.r(), this.waypointState.g(), this.waypointState.b(), this.waypointState.a());
-
-		matrices.popPose();
+		this.renderFilledBox(matrix, builder, this.waypointState.x(), this.waypointState.y(), this.waypointState.z(), this.waypointState.x() + 1, this.waypointState.y() + 1, this.waypointState.z() + 1, this.waypointState.r(), this.waypointState.g(), this.waypointState.b(), this.waypointState.a());
 	}
 
 	private void renderFilledBox(Matrix4fc positionMatrix, VertexConsumer buffer, float minX, float minY, float minZ, float maxX, float maxY, float maxZ, float red, float green, float blue, float alpha) {
@@ -141,33 +131,32 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		buffer.addVertex(positionMatrix, minX, minY, maxZ).setColor(red, green, blue, alpha);
 	}
 
-	private static void draw(Minecraft client, StagedVertexBuffer.ExecuteInfo info, RenderPipeline pipeline) {
+	public void draw(RenderPass renderPass) {
+		if (this.draw == null) {
+			return;
+		}
+
+		StagedVertexBuffer.ExecuteInfo info = STAGED_BUFFER.getExecuteInfo(this.draw);
+
+		if (info == null) {
+			return;
+		}
+
 		GpuBufferSlice dynamicTransforms = RenderSystem.getDynamicUniforms()
 				.writeTransform(RenderSystem.getModelViewMatrixCopy(), COLOR_MODULATOR, MODEL_OFFSET, TEXTURE_MATRIX);
 
-		RenderTarget mainTarget = client.gameRenderer.mainRenderTarget();
-		GpuTextureView colorTexture = mainTarget.getColorTextureView();
-
-		assert colorTexture != null;
-
-		try (RenderPass renderPass = RenderSystem.getDevice()
-				.createCommandEncoder()
-				.createRenderPass(() -> ExampleMod.MOD_ID + " example render pipeline rendering", colorTexture, Optional.empty(), mainTarget.getDepthTextureView(), OptionalDouble.empty())) {
-			renderPass.setPipeline(RenderSystem.getCompiledPipeline(pipeline));
-
-			RenderSystem.bindDefaultUniforms(renderPass);
-			renderPass.setUniform("DynamicTransforms", dynamicTransforms);
-
-			// Bind texture if applicable:
-			// Sampler0 is used for texture inputs in vertices
-			// renderPass.setUniform("Sampler0", textureSetup.texure0(), textureSetup.sampler0());
-
-			renderPass.setVertexBuffer(0, info.vertexBuffer().slice());
-			renderPass.setIndexBuffer(info.indexBuffer(), info.indexType());
-
-			// The base vertex is the starting index when we copied the data into the vertex buffer divided by vertex size
-			renderPass.drawIndexed(info.indexCount(), 1, info.firstIndex(), info.baseVertex(), 0);
-		}
+		renderPass.pushDebugGroup(() -> "Fabric Docs Example Pipeline Rendering");
+		renderPass.setPipeline(RenderSystem.getCompiledPipeline(FILLED_THROUGH_WALLS));
+		RenderSystem.bindDefaultUniforms(renderPass);
+		renderPass.setUniform("DynamicTransforms", dynamicTransforms);
+		// Bind texture if applicable:
+		// Sampler0 is used for texture inputs in vertices
+		// renderPass.setUniform("Sampler0", draw.textureSetup.texure0(), draw.textureSetup.sampler0());
+		renderPass.setVertexBuffer(0, info.vertexBuffer().slice());
+		renderPass.setIndexBuffer(info.indexBuffer(), info.indexType());
+		// The base vertex is the starting index when we copied the data into the vertex buffer divided by vertex size
+		renderPass.drawIndexed(info.indexCount(), 1, info.firstIndex(), info.baseVertex(), 0);
+		renderPass.popDebugGroup();
 	}
 	// #endregion custom_pipelines_drawing_phase
 
