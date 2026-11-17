@@ -58,7 +58,7 @@ Now we'll implement the "drawing" phase. This should be called after all waypoin
 
 ::: info
 
-In 26.3, we use two mixins to call `prepare` and `draw`, since Fabric API does not provide the render pass. See `LevelRendererMixin`.
+In 26.3, we use a mixin to call `draw`, since Fabric API does not provide the render pass. See `LevelRendererMixin`.
 
 :::
 
