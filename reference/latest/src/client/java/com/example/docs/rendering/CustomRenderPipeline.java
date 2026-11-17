@@ -17,12 +17,13 @@ import org.joml.Vector4f;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.StagedVertexBuffer;
 import net.minecraft.client.renderer.rendertype.RenderType;
-import net.minecraft.client.renderer.state.level.CameraRenderState;
+import net.minecraft.world.phys.Vec3;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionContext;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelTerrainRenderContext;
 
 import com.example.docs.ExampleMod;
 
@@ -56,6 +57,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	public void onInitializeClient() {
 		instance = this;
 		LevelExtractionEvents.END_EXTRACTION.register(this::extractWaypoint);
+		LevelRenderEvents.BEFORE_RENDER_PASS.register(this::prepare);
 		LevelRenderEvents.END_MAIN.register(_ -> STAGED_BUFFER.endFrame());
 	}
 
@@ -68,7 +70,7 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 	// #endregion custom_pipelines_extraction_phase
 	// #region custom_pipelines_drawing_phase
-	public void prepare(CameraRenderState camera) {
+	private void prepare(LevelTerrainRenderContext context) {
 		RenderPipeline renderPipeline = CustomRenderPipeline.FILLED_THROUGH_WALLS;
 		VertexFormat formatBinding = renderPipeline.getVertexFormatBinding(0);
 
@@ -77,16 +79,18 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		PrimitiveTopology primitive = renderPipeline.getPrimitiveTopology();
 		StagedVertexBuffer.Draw draw = STAGED_BUFFER.appendDraw(formatBinding, primitive, primitive == PrimitiveTopology.QUADS ? RenderSystem.getProjectionType().vertexSorting() : null);
 
-		this.renderWaypoint(camera, draw);
+		this.renderWaypoint(context, draw);
 
 		STAGED_BUFFER.upload();
 
 		this.draw = draw;
 	}
 
-	private void renderWaypoint(CameraRenderState camera, StagedVertexBuffer.Draw draw) {
+	private void renderWaypoint(LevelTerrainRenderContext context, StagedVertexBuffer.Draw draw) {
 		Matrix4f matrix = new Matrix4f();
-		matrix.translate(-(float) camera.pos.x, -(float) camera.pos.y, -(float) camera.pos.z);
+		Vec3 camera = context.levelState().cameraRenderState.pos;
+
+		matrix.translate((float) -camera.x, (float) -camera.y, (float) -camera.z);
 
 		final VertexConsumer builder = STAGED_BUFFER.getVertexBuilder(draw);
 
@@ -147,13 +151,17 @@ public class CustomRenderPipeline implements ClientModInitializer {
 
 		renderPass.pushDebugGroup(() -> "Fabric Docs Example Pipeline Rendering");
 		renderPass.setPipeline(RenderSystem.getCompiledPipeline(FILLED_THROUGH_WALLS));
+
 		RenderSystem.bindDefaultUniforms(renderPass);
 		renderPass.setUniform("DynamicTransforms", dynamicTransforms);
+
 		// Bind texture if applicable:
 		// Sampler0 is used for texture inputs in vertices
 		// renderPass.setUniform("Sampler0", draw.textureSetup.texure0(), draw.textureSetup.sampler0());
+
 		renderPass.setVertexBuffer(0, info.vertexBuffer().slice());
 		renderPass.setIndexBuffer(info.indexBuffer(), info.indexType());
+
 		// The base vertex is the starting index when we copied the data into the vertex buffer divided by vertex size
 		renderPass.drawIndexed(info.indexCount(), 1, info.firstIndex(), info.baseVertex(), 0);
 		renderPass.popDebugGroup();
