@@ -16,12 +16,6 @@ This page explores some more modern rendering concepts. You'll learn more about 
 
 :::
 
-::: warning
-
-This page has been removed in the index due to it not fully reflecting how to properly render in 26.3.
-
-:::
-
 To render custom objects in the world, you have two choices. You can inject into existing vanilla rendering and add your code, but that limits you to existing vanilla render pipelines. If existing vanilla render pipelines don't suit your needs, you need a custom render pipeline.
 
 Before we get into custom render pipelines, let's look at vanilla rendering.

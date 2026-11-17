@@ -130,6 +130,7 @@ export const DEVELOP_SIDEBAR: SidebarItem = {
         "/basic-concepts",
         "/gui-graphics",
         "/hud",
+        "/world",
         {
           base: "/develop/rendering/gui",
           items: [
