@@ -58,17 +58,17 @@ To create your own potion effect, please see the [Effects](../entities/effects) 
 
 ::: info PREREQUISITES
 
-This guide references data generation for [recipes](../data-generation/recipes).
+This guide references [data generation for recipes](../data-generation/recipes). This can also be done without datagen, but potions require a large number of JSON files, so datagen is recommended as always.
 
 :::
 
-In a recipe provider's `buildRecipes` method, we will create a new `FabricBrewingProvider` and call `FabricBrewingProvider#buildRecipes` to generate a new potion recipe. This can also be done without datagen, but potions require a large number of JSON files, so datagen is recommended as always.
+In a recipe provider's `buildRecipes` method, we will create a new `FabricBrewingProvider` and call `FabricBrewingProvider#buildRecipes` to generate a new potion recipe.
 
 `FabricBrewingProvider` provides the `buildMixes` method which handles the actual crafting recipes. You'll call `buildMix` with 3 parameters:
 
-- `Holder<Potion> input` - The starting potion, represented by a holder. Potions created from Awkward Potions may wish to use `buildStartMix` instead, which also generates the expected Water Bottle->Mundane Potion recipe for your reagent.
-- `Item reagent` - The item which is the main ingredient of the potion.
-- `Holder<Potion> output` - The resultant potion, represented by a holder.
+- `Holder<Potion> input` - The starting potion, represented by a holder. Potions created from Awkward Potions may wish to use `buildStartMix` instead, which also generates the expected Water Bottle -> Mundane Potion recipe for your reagent.
+- `Item reagent` - The main ingredient of the potion.
+- `Holder<Potion> output` - The resulting potion, represented by a holder.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBrewingProvider.java#register_recipes
 

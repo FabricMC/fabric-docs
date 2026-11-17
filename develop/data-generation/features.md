@@ -39,7 +39,7 @@ Then add this provider to your `DataGeneratorEntrypoint` class within the `onIni
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add_worldgen_provider
 
-Next, make a class for your Features and a class for your placed features. These don't need to extend anything.
+Next, make a class for your features and a class for your placed features. These don't need to extend anything.
 
 The feature class and placed feature class should both have a public method to register and define your features. Its argument, that we called `context`, should be a `BootstrapContext<Feature>` for the feature, or a `BootstrapContext<PlacedFeature>` for the placed feature.
 
@@ -51,7 +51,7 @@ If you don't already have the `buildRegistry` method, create it and annotate it 
 
 ## Features {#features}
 
-To make a feature naturally spawn in our world, we should start by defining a feature in our Features class.
+To make a feature naturally spawn in our world, we should start by defining a feature in our features class.
 
 Before we can do anything, let's create the Feature class inside of the `main` package, and declare a `configure` method:
 

@@ -253,7 +253,11 @@ public class ModItems {
 	// #endregion poisonous_apple
 
 	// #region suspicious_substance
-	public static final Item SUSPICIOUS_SUBSTANCE = register(ModItemIds.SUSPICIOUS_SUBSTANCE, Item::new, new Item.Properties());
+	public static final Item SUSPICIOUS_SUBSTANCE = register(
+			ModItemIds.SUSPICIOUS_SUBSTANCE,
+			Item::new,
+			new Item.Properties()
+	);
 	// #endregion suspicious_substance
 
 	// #region quark_gluon_plasma
