@@ -14,7 +14,7 @@ authors:
 
 ::: info PREREQUISITES
 
-Make sure you've completed the [datagen setup](./setup) process first, and you understand [Dynamic Registry Population](./dynamic-registry)using datagen.
+Make sure you've completed the [datagen setup](./setup) process first, and you understand [Dynamic Registry Population](./dynamic-registry) using datagen.
 
 :::
 
@@ -28,18 +28,18 @@ The generation for features of Minecraft worlds is broken down into 3 parts:
 
 ## Setup {#setup}
 
-Creating new configured features and placement features is done in the same way as [Dynamic Registry Population](./dynamic-registry), so create a similar class and configure it to use the `Registries.CONFIGURED_FEATURE` and `Registries.PLACED_FEATURE` instead of the custom key.
+Creating new features and placement features is done in the same way as [Dynamic Registry Population](./dynamic-registry), so create a similar class and configure it to use the `Registries.FEATURE` and `Registries.PLACED_FEATURE` instead of the custom key.
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldgenProvider.java#datagen_world_provider
 
 The `bootstrap` method for these two registries can become big quickly, so putting them in their own separate classes is recommended.
-The `T` of `BootstrapContext<T>` should be `ConfiguredFeature<?, ?>` for configured features and `PlacedFeature` for placed features.
+The `T` of `BootstrapContext<T>` should be `Feature<?, ?>` for features and `PlacedFeature` for placed features.
 
 ## Features {#features}
 
 To make a feature naturally spawn in our world, we should start by defining a feature in our features class.
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configure_features_class
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_configure_features_class
 
 Now, let's add a custom feature for a Diamond Ore vein. First, register the key for the `Feature` in your feature class:
 

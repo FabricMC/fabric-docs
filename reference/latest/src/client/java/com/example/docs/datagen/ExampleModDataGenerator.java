@@ -99,7 +99,7 @@ public class ExampleModDataGenerator implements DataGeneratorEntrypoint {
 		});
 
 		// #region datagen_world_registries
-		registryBuilder.add(Registries.CONFIGURED_FEATURE, ExampleModWorldFeatures::bootstrapFeatures);
+		registryBuilder.add(Registries.FEATURE, ExampleModWorldFeatures::bootstrapFeatures);
 		registryBuilder.add(Registries.PLACED_FEATURE, ExampleModWorldPlacedFeatures::bootstrapPlacedFeatures);
 		// #endregion datagen_world_registries
 
