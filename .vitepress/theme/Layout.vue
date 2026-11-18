@@ -42,10 +42,22 @@ useEventListener("click", (event) => {
     return;
   }
 
-  // TODO: reuse this for FabricMC/fabric-docs#663
-  if (event.target.closest(".plugin-tabs--tab")) {
-    nextTick(attachZoom);
-  }
+  const tab = event.target.closest(".plugin-tabs--tab");
+  if (!tab) return;
+
+  nextTick(attachZoom);
+  const tabId = tab.getAttribute("aria-controls");
+  if (!tabId) return;
+  const panel = document.getElementById(tabId);
+
+  if (!(panel instanceof HTMLDivElement)) return;
+  console.log("found panel", panel);
+
+  window.dispatchEvent(
+    new CustomEvent("vitepress-tabs:process-code", {
+      detail: panel,
+    })
+  );
 });
 </script>
 
