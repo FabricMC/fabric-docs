@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useEventListener } from "@vueuse/core";
+import { useEventBus, useEventListener } from "@vueuse/core";
 import mediumZoom, { type Zoom } from "medium-zoom";
 import { inBrowser, onContentUpdated, useRouter } from "vitepress";
 import DefaultTheme from "vitepress/theme";
@@ -37,6 +37,8 @@ const attachZoom = () => {
 
 onContentUpdated(attachZoom);
 
+const codeBus = useEventBus<HTMLDivElement>("process-code");
+
 useEventListener("click", (event) => {
   if (!(event.target instanceof HTMLElement)) {
     return;
@@ -51,13 +53,7 @@ useEventListener("click", (event) => {
   const panel = document.getElementById(tabId);
 
   if (!(panel instanceof HTMLDivElement)) return;
-  console.log("found panel", panel);
-
-  window.dispatchEvent(
-    new CustomEvent("vitepress-tabs:process-code", {
-      detail: panel,
-    })
-  );
+  codeBus.emit(panel);
 });
 </script>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePreferredReducedMotion, useEventListener } from "@vueuse/core";
+import { usePreferredReducedMotion, useEventListener, useEventBus } from "@vueuse/core";
 import { onContentUpdated, useData } from "vitepress";
 import { VPIcon } from "vitepress/theme";
 import { computed, nextTick, onUnmounted, ref } from "vue";
@@ -175,15 +175,14 @@ const processCodeBlocks = async (blocks: NodeListOf<HTMLDivElement> | null) => {
 };
 
 const processTabCodeBlocks = async (panel: HTMLDivElement | null) => {
-  console.log("called tab func", panel);
   if (!panel) return;
   const codeBlocks = panel.querySelectorAll<HTMLDivElement>("div[class*='language-']");
   await processCodeBlocks(codeBlocks);
 };
 
-useEventListener(window, "vitepress-tabs:process-code", async (event) => {
-  const panel = (event as CustomEvent<HTMLDivElement | null>).detail;
+const codeBus = useEventBus<HTMLDivElement>("process-code");
 
+codeBus.on(async (panel) => {
   await processTabCodeBlocks(panel);
 });
 
