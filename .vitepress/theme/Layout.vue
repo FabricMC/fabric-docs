@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useEventListener } from "@vueuse/core";
+import { useEventBus, useEventListener } from "@vueuse/core";
 import mediumZoom, { type Zoom } from "medium-zoom";
 import { inBrowser, onContentUpdated, useRouter } from "vitepress";
 import DefaultTheme from "vitepress/theme";
@@ -37,15 +37,23 @@ const attachZoom = () => {
 
 onContentUpdated(attachZoom);
 
+const codeBus = useEventBus<HTMLDivElement>("process-code");
+
 useEventListener("click", (event) => {
   if (!(event.target instanceof HTMLElement)) {
     return;
   }
 
-  // TODO: reuse this for FabricMC/fabric-docs#663
-  if (event.target.closest(".plugin-tabs--tab")) {
-    nextTick(attachZoom);
-  }
+  const tab = event.target.closest(".plugin-tabs--tab");
+  if (!tab) return;
+
+  nextTick(attachZoom);
+  const tabId = tab.getAttribute("aria-controls");
+  if (!tabId) return;
+  const panel = document.getElementById(tabId);
+
+  if (!(panel instanceof HTMLDivElement)) return;
+  codeBus.emit(panel);
 });
 </script>
 
