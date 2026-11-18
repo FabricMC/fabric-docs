@@ -3,8 +3,8 @@ title: 创建项目
 description: 关于如何使用 Fabric 模板模组生成器创建新的模组项目的逐步指南。
 authors:
   - Cactooz
+  - evelynmeowww
   - IMB11
-  - radstevee
 ---
 
 Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来创建新的模组项目——如果你愿意，你可以使用示例模组代码仓库手动创建一个新项目，请参考 [手动创建项目](#manual-project-creation) 章节。

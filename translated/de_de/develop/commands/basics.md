@@ -64,7 +64,7 @@ Befehle werden innerhalb des `CommandRegistrationCallback` registriert, der von 
 
 ::: info
 
-Informationen zur Registrierung von Callbacks findest du in der Anleitung [Events](../events).
+Informationen zur Registrierung von Callbacks findest du in der Anleitung [Events](../events/).
 
 :::
 

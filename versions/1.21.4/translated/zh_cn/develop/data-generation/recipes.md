@@ -2,11 +2,11 @@
 title: 配方生成
 description: 使用 Datagen 设置配方生成的指南。
 authors:
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 :::info 前提

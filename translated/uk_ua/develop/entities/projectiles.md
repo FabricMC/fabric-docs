@@ -2,20 +2,20 @@
 title: Власні снаряди
 description: Дізнайтеся, як додати власні снаряди.
 authors:
-  - ayutac
+  - Ayutac
   - cassiancc
   - CelDaemon
   - ChampionAsh5357
   - dicedpixels
   - Earthcomputer
   - ekulxam
-  - haykam
+  - haykam821
   - kanpov
   - NetUserGet
   - onlyspxctre
-  - patrickmsm
+  - PatrickMSM
   - tianjun
-  - upcraftlp
+  - UpcraftLP
 resources:
   https://minecraft.wiki/w/Projectile: Снаряди — Вікі Minecraft
   https://docs.neoforged.net/docs/entities/#projectiles: Снаряди — Документація NeoForge

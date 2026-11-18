@@ -3,8 +3,8 @@ title: 물약
 description: 여러 상태 효과를 부여하는 사용자 정의 물약을 만드는 방법을 알아보세요.
 authors:
   - dicedpixels
-  - PandoricaVi
   - Drakonkinst
+  - PandoricaVi
 
 search: false
 ---

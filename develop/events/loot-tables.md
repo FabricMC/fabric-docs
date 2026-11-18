@@ -2,9 +2,9 @@
 title: Loot Table Modifications
 description: A guide for modifying loot tables using events provided by the Fabric API.
 authors:
-  - NotNightSky
-  - its-miroma
   - cassiancc
+  - its-miroma
+  - NotNightSky
 ---
 
 The loot table system determines what items are dropped when a block is broken, an entity is killed, or a chest is opened. Fabric API gives you several ways to modify, replace, and post-process loot tables during loading, and to adjust the final drops at runtime.
@@ -41,7 +41,7 @@ For example, let's use the `MODIFY` event to make killing a white sheep with a d
 
 Effects of the above example:
 
-<VideoPlayer src="/assets/develop/events/modify_event_example.webm">Modify Event Example</VideoPlayer>
+![Modify Event Example](/assets/develop/events/modify_event_example.webm)
 
 ## Replacing Loot Tables {#replacing-loot-tables}
 
@@ -63,7 +63,7 @@ Always return `null` if you are not replacing a loot table. Returning the origin
 
 Effects of the above example:
 
-<VideoPlayer src="/assets/develop/events/replace_event_example.webm">Replace Event Example</VideoPlayer>
+![Replace Event Example](/assets/develop/events/replace_event_example.webm)
 
 ## Modifying Loot Table Drops {#modifying-loot-table-drops}
 
@@ -88,7 +88,7 @@ For example, let's use the `MODIFY_DROPS` event to make breaking a stone block d
 
 Effects of the above example:
 
-<VideoPlayer src="/assets/develop/events/modify_drops_event_example.webm">Modify Drops Event Example</VideoPlayer>
+![Modify Drops Event Example](/assets/develop/events/modify_drops_event_example.webm)
 
 ## Loot Table Post-Processing {#loot-table-post-processing}
 

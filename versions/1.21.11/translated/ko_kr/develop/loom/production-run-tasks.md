@@ -3,9 +3,9 @@ title: 배포 환경에서 실행
 description: Gradle용 Fabric Loom 플러그인의 배포 환경 실행 작업에 대한 문서입니다.
 authors:
   - Atakku
-  - caoimhe
-  - daomephsta
-  - jamieswhiteshirt
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
   - Juuxel
   - kb-1000
   - modmuss50

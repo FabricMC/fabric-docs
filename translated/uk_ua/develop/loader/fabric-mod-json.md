@@ -3,13 +3,12 @@ title: fabric.mod.json
 description: Дізнайтеся про особливості `fabric.mod.json`.
 authors:
   - cassiancc
-  - Deximus-Maximus
+  - dexman545
   - falseresync
-  - jamieswhiteshirt
   - IMB11
+  - JamiesWhiteShirt
+  - Skylandia
   - SolidBlock-cn
-authors-nogithub:
-  - skyland1a
 resources:
   https://github.com/FabricMC/fabric-loom/blob/dev/1.16/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java: Початковий код особливостей fabric.mod.json v1
   https://github.com/FabricMC/fabric-language-kotlin: Постачальник мови від Fabric Language Kotlin

@@ -18,7 +18,7 @@ Loom fornisce utilità per l'installazione di Minecraft e mod in un ambiente di 
 
 Loom supporta _tutte_ le versioni di Minecraft, anche quelle non supportate ufficialmente dall'API di Fabric, poiché non dipende dalle versioni.
 
-Questa pagina è uno schema di tutte le opzioni e funzioni di Loom. Se stai solo ora iniziando, controlla la pagina [Per Iniziare](getting-started/setting-up-a-development-environment).
+Questa pagina è uno schema di tutte le opzioni e funzioni di Loom. Se stai solo ora iniziando, controlla la pagina [Per Iniziare](../getting-started/setting-up-a-development-environment).
 
 ## Dipendere da Sotto-progetti {#subprojects}
 

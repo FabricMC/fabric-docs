@@ -21,15 +21,15 @@ authors:
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\crash-reports
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/crash-reports
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/crash-reports
 ```
 
@@ -80,7 +80,7 @@ authors:
 
 Миксины методов будут содержать `example-mod$handlerName` в трассировке стека, где `example-mod` — это идентификатор мода, а `handlerName` — это имя обработчика миксина.
 
-```:no-line-numbers
+```text:no-line-numbers
 ... net.minecraft.class_2248.method_3821$$$example-mod$handlerName() ... // [!code focus]
 ```
 

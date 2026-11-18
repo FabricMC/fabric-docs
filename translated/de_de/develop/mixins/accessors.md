@@ -10,7 +10,7 @@ authors:
 
 Mixins werden typischerweise verwendet, um bestehenden Code zu verändern und dessen Verhalten anzupassen oder zu erweitern. Mixin bietet jedoch auch Werkzeuge in Form von Accessor-Mixins, mit denen auf unzugängliche Felder und Methoden zugegriffen werden kann.
 
-[Klassenoptimierer](../class-tweakers) bieten mit [Zugriffserweiterern](../class-tweakers/access-widening) ein ähnliches Werkzeug, wobei
+[Klassenoptimierer](../class-tweakers/) bieten mit [Zugriffserweiterern](../class-tweakers/access-widening) ein ähnliches Werkzeug, wobei
 die Accessors von Mixin kein Neuladen von Gradle erfordern und auch auf Ziele außerhalb von Minecraft angewendet werden können.
 
 Eine Zugriffserweiterung ist weiterhin erforderlich, um finale Methoden zu überschreiben, finale Klassen zu Unterklassen zu machen oder auf private Klassen zu verweisen, da Accessors nur Felder und Methoden als Ziel haben können.

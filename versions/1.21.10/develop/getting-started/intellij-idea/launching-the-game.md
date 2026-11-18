@@ -45,7 +45,7 @@ However, by using the [JetBrains Runtime](https://github.com/JetBrains/JetBrains
 
 Don't forget to add the following to the VM Arguments option in your Minecraft run configuration:
 
-```:no-line-numbers
+```text:no-line-numbers
 -XX:+AllowEnhancedClassRedefinition
 ```
 
@@ -67,7 +67,7 @@ You will need to copy the jar's "Absolute Path" for the next step.
 
 In your "Minecraft Client" and or "Minecraft Server" run configuration, add the following to the VM Arguments option:
 
-```:no-line-numbers
+```text:no-line-numbers
 -javaagent:"path to mixin library jar here"
 ```
 

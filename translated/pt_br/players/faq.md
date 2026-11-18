@@ -17,13 +17,13 @@ Você sempre deve verificar se os mods são de fontes confiáveis. Leia o guia [
 
 :::
 
-A maioria dos autores publicam seus mods no [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) e [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods&gameVersionTypeId=4), no entando, alguns podem preferir publicá-los em seus sites pessoais, ou em outras plataformas, como repositórios GitHub.
+A maioria dos autores publicam seus mods no [Modrinth](https://modrinth.com/discover/mods?g=categories:fabric) e [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods&gameVersionTypeId=4), no entando, alguns podem preferir publicá-los em seus sites pessoais, ou em outras plataformas, como repositórios GitHub.
 
 ## Onde Posso Encontrar Modpacks Pré-Prontos para Fabric? {#where-can-i-find-pre-made-fabric-modpacks}
 
 Você pode encontrar modpacks pré-prontos para o Fabric em diversas plataformas, como:
 
-- [Modrinth](https://modrinth.com/modpacks?g=categories:%27fabric%27)
+- [Modrinth](https://modrinth.com/discover/modpacks?g=categories:fabric)
 - [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks&gameVersionTypeId=4)
-- [Feed The Beast](https://www.feed-the-beast.com/ftb-app)
+- [Feed The Beast](https://www.feed-the-beast.com/modpacks)
 - [Technic](https://www.technicpack.net/modpacks)

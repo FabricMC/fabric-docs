@@ -2,7 +2,6 @@
 title: Розширення доступу
 description: Дізнайтеся, як використовувати розширювачі доступу з файлу твікера класу.
 authors-nogithub:
-  - lightningtow
   - siglong
 authors:
   - Ayutac
@@ -17,6 +16,7 @@ authors:
   - kb-1000
   - kcrca
   - liach
+  - Lightningtow
   - lmvdz
   - matjojo
   - MildestToucan
@@ -30,7 +30,7 @@ authors:
   - YTG1234
 ---
 
-Розширення доступу — це тип [твікінгу класу](../class-tweakers), який використовується для послаблення обмежень доступу до класів, методів і полів і відбиття цієї зміни в декомпільованому джерелі.
+Розширення доступу — це тип [твікінгу класу](./), який використовується для послаблення обмежень доступу до класів, методів і полів і відбиття цієї зміни в декомпільованому джерелі.
 Це охоплює надання їм загальнодоступних, розширюваних і/або змінних.
 
 Щоб отримати доступ до полів або методів, безпечніше та простіше використовувати [міксини доступу](https://wiki.fabricmc.net/tutorial:mixin_accessors), але є дві ситуації, коли засобів доступу недостатньо і необхідне розширення доступу:
@@ -38,7 +38,7 @@ authors:
 - Якщо вам потрібен доступ до `private`, `protected` або пакетно-приватного класу
 - Якщо вам потрібно перевизначити метод `final` або створити підклас `final` класу
 
-Однак, на відміну від [міксинів доступу](https://wiki.fabricmc.net/tutorial:mixin_accessors), [твікінг класу](../class-tweakers) працює лише зі стандартними класами Minecraft, а не з іншими модами.
+Однак, на відміну від [міксинів доступу](https://wiki.fabricmc.net/tutorial:mixin_accessors), [твікінг класу](./) працює лише зі стандартними класами Minecraft, а не з іншими модами.
 
 ## Директиви доступу {#access-directives}
 
@@ -72,7 +72,7 @@ authors:
 
 Щоб показати певні зміни розширення доступу до модів залежно від вашого, ви додаєте до відповідних директив префікс `transitive-*`:
 
-```txt:no-line-numbers
+```text:no-line-numbers
 transitive-accessible
 transitive-extendable
 transitive-mutable
@@ -94,7 +94,7 @@ transitive-mutable
 
 Формат:
 
-```txt:no-line-numbers
+```text:no-line-numbers
 <accessible / extendable>    class    <className>
 ```
 
@@ -106,7 +106,7 @@ transitive-mutable
 
 Формат:
 
-```txt:no-line-numbers
+```text:no-line-numbers
 <accessible / extendable>    method    <className>    <methodName>    <methodDescriptor>
 ```
 
@@ -118,7 +118,7 @@ transitive-mutable
 
 Формат:
 
-```txt:no-line-numbers
+```text:no-line-numbers
 <accessible / mutable>    field    <className>    <fieldName>    <fieldDescriptor>
 ```
 
@@ -134,9 +134,9 @@ transitive-mutable
 
 ### mcsrc.dev {#mcsrc-dev}
 
-Доступно для всіх версій із [необфускованим JAR](../migrating-mappings/index#whats-going-on-with-mappings), а саме 1.21.11 і вище,
+Доступно для всіх версій із [необфускованим JAR](../porting/mappings/#whats-going-on-with-mappings), а саме 1.21.11 і вище,
 [mcsrc](https://mcsrc.dev) дозволяє декомпілювати та переміщатися з джерелом Minecraft у браузері та копіювати міксини, отримувати доступ до розширювача або переходу до цілей трансформатора в буфер обміну.
-Назви класів, методів і полів [mcsrc](https://mcsrc.dev) узгоджується з [мапінгами Mojang](../migrating-mappings/index#mappings).
+Назви класів, методів і полів [mcsrc](https://mcsrc.dev) узгоджується з [мапінгами Mojang](../porting/mappings/#mappings).
 
 Щоб скопіювати запис розширювача доступу, спочатку перейдіть до класу, який ви хочете змінити, і натисніть ПКМ на вашій меті, щоб відкрити спливне меню.
 
@@ -183,4 +183,4 @@ transitive-mutable
 
 ## Застосування змін {#applying-changes}
 
-Щоб побачити внесені зміни, оновіть проєкт Gradle за допомогою [відновлення джерел](../getting-started/generating-sources). Необхідно відповідним чином змінити обмеження доступу для елементів, які ви націлили. Якщо зміни не показано, ви можете спробувати [перевірити файл](../class-tweakers/index#validating-the-file) та перевірити на наявність помилок.
+Щоб побачити внесені зміни, оновіть проєкт Gradle за допомогою [відновлення джерел](../getting-started/generating-sources). Необхідно відповідним чином змінити обмеження доступу для елементів, які ви націлили. Якщо зміни не показано, ви можете спробувати [перевірити файл](./#validating-the-file) та перевірити на наявність помилок.

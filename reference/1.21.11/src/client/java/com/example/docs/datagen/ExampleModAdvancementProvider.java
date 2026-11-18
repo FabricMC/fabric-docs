@@ -26,7 +26,7 @@ import com.example.docs.advancement.UseToolCriterion;
 
 // :::datagen-advancements:provider-start
 public class ExampleModAdvancementProvider extends FabricAdvancementProvider {
-	protected ExampleModAdvancementProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+	public ExampleModAdvancementProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
 		super(output, registryLookup);
 	}
 

@@ -4,12 +4,12 @@ description: Посібник із налаштування генерації �
 authors:
   - cassiancc
   - CelDaemon
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->
@@ -122,7 +122,7 @@ authors-nogithub:
 
 ::: info
 
-Щоб дізнатися більше про кодеки, перегляньте сторінку [кодеків](../codecs).
+Щоб дізнатися більше про кодеки, див. сторінку про [кодеки](../serialization/codecs).
 
 :::
 

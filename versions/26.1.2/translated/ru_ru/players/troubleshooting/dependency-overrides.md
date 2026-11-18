@@ -3,10 +3,9 @@ title: Переопределение зависимостей
 description: Руководство по переопределению зависимостей, указанных в `fabric.mod.json` мода.
 authors:
   - cassiancc
+  - kb-1000
   - skycatminepokie
-  - ytg1234
-authors-nogithub:
-  - kb1000
+  - YTG1234
 resources:
   https://semver.org/: Семантическое версионирование
 ---

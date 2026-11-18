@@ -2,9 +2,9 @@
 title: Änderungen an der Beutetabelle
 description: Ein Leitfaden zur Bearbeitung von Beutetabellen mithilfe von Events, die von der Fabric API bereitgestellt werden.
 authors:
-  - NotNightSky
-  - its-miroma
   - cassiancc
+  - its-miroma
+  - NotNightSky
 ---
 
 Das Beutetabellen-System legt fest, welche Items fallen gelassen werden, wenn ein Block zerstört, eine Entität getötet oder eine Truhe geöffnet wird. Die Fabric API bietet dir verschiedene Möglichkeiten, Beutetabellen während des Ladevorgangs zu ändern, zu ersetzen und anzupassen sowie die endgültigen Drops zur Laufzeit anzupassen.

@@ -1,0 +1,122 @@
+package com.example.docs.datagen;
+
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.concurrent.CompletableFuture;
+
+import net.minecraft.core.HolderLookup;
+import net.minecraft.util.Util;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+
+import com.example.docs.ExampleMod;
+import com.example.docs.block.ModBlocks;
+import com.example.docs.enchantment.ModEnchantments;
+import com.example.docs.entity.ModEntityTypes;
+import com.example.docs.item.ModItems;
+import com.example.docs.item.armor.GuiditeArmorMaterial;
+
+// #region datagen_translations_provider
+public class ExampleModEnglishLangProvider extends FabricLanguageProvider {
+	public ExampleModEnglishLangProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+		// Specifying en_us is optional, as it's the default language code
+		super(dataOutput, "en_us", registryLookup);
+	}
+
+	@Override
+	public void generateTranslations(HolderLookup.Provider holderLookup, TranslationBuilder translationBuilder) {
+		// #endregion datagen_translations_provider
+		// #region datagen_translations_build
+		translationBuilder.add("text.example-mod.greeting", "Hello there!");
+		// #endregion datagen_translations_build
+		translationBuilder.add(ModItems.GUIDITE_HELMET, "Guidite Helmet");
+		translationBuilder.add(ModItems.GUIDITE_CHESTPLATE, "Guidite Chestplate");
+		translationBuilder.add(ModItems.GUIDITE_LEGGINGS, "Guidite Leggings");
+		translationBuilder.add(ModItems.GUIDITE_BOOTS, "Guidite Boots");
+		translationBuilder.add(ModItems.GUIDITE_SWORD, "Guidite Sword");
+		translationBuilder.add(ModItems.GUIDITE_PICKAXE, "Guidite Pickaxe");
+		translationBuilder.add(ModItems.GUIDITE_AXE, "Guidite Axe");
+		translationBuilder.add(ModItems.GUIDITE_SPEAR, "Guidite Spear");
+		translationBuilder.add(ModItems.GUIDITE_SHOVEL, "Guidite Shovel");
+		translationBuilder.add(ModItems.GUIDITE_HOE, "Guidite Hoe");
+		translationBuilder.add(ModItems.GUIDITE_SHIELD, "Guidite Shield");
+		translationBuilder.add(ModItems.SUSPICIOUS_SUBSTANCE, "Suspicious Substance");
+		translationBuilder.add(ModItems.MINI_GOLEM_SPAWN_EGG, "Mini Golem Spawn Egg");
+		translationBuilder.add(ModItems.ACID_BUCKET, "Acid Bucket");
+		translationBuilder.add(ModItems.RUBY, "Ruby");
+		translationBuilder.add(ModItems.LEATHER_GLOVES, "Leather Gloves");
+		translationBuilder.add(ModItems.FLASHLIGHT, "Flashlight");
+		translationBuilder.add(ModItems.BALLOON, "Balloon");
+		translationBuilder.add(ModItems.ENHANCED_HOE, "Enhanced Hoe");
+		translationBuilder.add(ModItems.DIMENSIONAL_CRYSTAL, "Dimensional Crystal");
+		translationBuilder.add(ModItems.THROWING_KNIVES, "Throwing Knives");
+		translationBuilder.add(ModItems.QUARK_GLUON_PLASMA, "Quark-Gluon Plasma");
+		translationBuilder.add(ModItems.BONE_MARROW, "Bone Marrow");
+		translationBuilder.add(ModItems.HOT_TATER, "Hot Tater");
+
+		translationBuilder.add(Util.makeDescriptionId("effect", ExampleMod.id("tater")), "Tater");
+
+		// #region datagen_translations_existing
+		try {
+			Path existingLanguageFile = packOutput.getModContainer()
+					.findPath("assets/example-mod/lang/en_us.existing.json")
+					.orElseThrow();
+			translationBuilder.add(existingLanguageFile);
+		} catch (IOException e) {
+			throw new RuntimeException("Failed to add existing language file", e);
+		}
+		// #endregion datagen_translations_existing
+		translationBuilder.add("sound.example-mod.metal_whistle", "Metal Whistle");
+		translationBuilder.add("item.minecraft.potion.effect.tater", "Tater Potion");
+		translationBuilder.add("death.attack.tater", "%1$s died from Tater damage!");
+		translationBuilder.add("item.example-mod.poisonous_apple", "Poisonous Apple");
+		translationBuilder.add("item.example-mod.lightning_stick", "Lightning Stick");
+		translationBuilder.add("item.example-mod.counter", "Counter");
+		translationBuilder.add("item.example-mod.counter.info", "Used %1$s times");
+		translationBuilder.add("item.example-mod.temperature.info", "Temperature: %1$s");
+		translationBuilder.add("item.example-mod.burnt.info", "Burnt: %1$s");
+		translationBuilder.add("itemTooltip.example-mod.lightning_stick", "This is an extremely powerful weapon that can summon lightning bolts.");
+		translationBuilder.add("creativeTab.example-mod", "Example Mod");
+		translationBuilder.addEnchantment(ModEnchantments.THUNDERING, "Thundering");
+		translationBuilder.addEnchantment(ModEnchantments.REPULSION_CURSE, "Curse of Repulsion");
+
+		translationBuilder.add(ModEntityTypes.MINI_GOLEM, "Mini Golem");
+
+		translationBuilder.add(ModBlocks.CONDENSED_DIRT, "Condensed Dirt");
+		translationBuilder.add(ModBlocks.CONDENSED_OAK_LOG, "Condensed Oak Log");
+		translationBuilder.add(ModBlocks.COUNTER_BLOCK, "Counter Block");
+		translationBuilder.add(ModBlocks.PRISMARINE_LAMP, "Prismarine Lamp");
+		translationBuilder.add(ModBlocks.ENGINE_BLOCK, "Engine Block");
+		translationBuilder.add(ModBlocks.DIRT_CHEST_BLOCK, "Dirt Chest");
+
+		translationBuilder.add(ModBlocks.STEEL_BLOCK, "Steel Block");
+		translationBuilder.add(ModBlocks.PIPE_BLOCK, "Pipe Block");
+		translationBuilder.add(ModBlocks.RUBY_BLOCK, "Ruby Block");
+		translationBuilder.add(ModBlocks.RUBY_STAIRS, "Ruby Stairs");
+		translationBuilder.add(ModBlocks.RUBY_SLAB, "Ruby Slab");
+		translationBuilder.add(ModBlocks.RUBY_FENCE, "Ruby Fence");
+		translationBuilder.add(ModBlocks.RUBY_DOOR, "Ruby Door");
+		translationBuilder.add(ModBlocks.RUBY_TRAPDOOR, "Ruby Trapdoor");
+		translationBuilder.add(ModBlocks.VERTICAL_OAK_LOG_SLAB, "Vertical Oak Log Slab");
+		translationBuilder.add(ModBlocks.WAXCAP, "Waxcap");
+		translationBuilder.add("key.category.example-mod.custom_category", "Example Mod Custom Category");
+		translationBuilder.add("key.example-mod.send_to_chat", "Send to Chat");
+
+		// #region gamerule_description
+		translationBuilder.add(
+						Util.makeDescriptionId("gamerule", ExampleMod.id("bad_vision")),
+						"Gives every player the blindness effect" // A short description of the game rule
+		);
+		// #endregion gamerule_description
+		// #region gamerule_name
+		translationBuilder.add(ExampleMod.id("bad_vision"), "Bad Vision");
+		// #endregion gamerule_name
+		// #region tag_name
+		translationBuilder.add(ExampleModItemTagProvider.SMELLY_ITEMS, "Smelly Items");
+		// #endregion tag_name
+		translationBuilder.add(GuiditeArmorMaterial.REPAIRS_GUIDITE_ARMOR, "Repairs Guidite Armor");
+		// #region datagen_translations_provider
+	}
+}
+// #endregion datagen_translations_provider

@@ -2,10 +2,10 @@
 title: Setting up a Development Environment
 description: A step-by-step guide on how to set up a development environment to create mods using Fabric.
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - falseresync
   - IMB11
   - liach
@@ -24,7 +24,7 @@ To start developing mods with Fabric, you will need to set up a development envi
 
 To develop mods for Minecraft 1.21.4, you will need JDK 21.
 
-If you need help installing Java, you can refer to the various Java installation guides in the [player guides section](../../players/index).
+If you need help installing Java, you can refer to the various Java installation guides in the [player guides section](../../players/).
 
 ## Installing IntelliJ IDEA {#installing-intellij-idea}
 

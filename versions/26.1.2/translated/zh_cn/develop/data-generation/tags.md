@@ -4,10 +4,9 @@ description: 使用 Datagen 设置标签生成的指南。
 authors:
   - CelDaemon
   - IMB11
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
-authors-nogithub:
-  - mcrafterzz
 ---
 
 <!---->

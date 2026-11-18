@@ -12,7 +12,7 @@ authors:
 
 枚举扩展是一项 Mixin 功能，可用于可靠地向枚举添加新的条目。
 
-在以 Minecraft 枚举为目标时，你可以将 mixin 与[类调整](../class-tweakers)结合使用，使新的枚举条目显示在反编译源码中。 如果该修改被设置为[传递性](../class-tweakers/index#transitive-entries)的，那么依赖你的模组的其他模组也能看到你添加的条目。
+在以 Minecraft 枚举为目标时，你可以将 mixin 与[类调整](./)结合使用，使新的枚举条目显示在反编译源码中。 如果该修改被设置为[传递性](./#transitive-entries)的，那么依赖你的模组的其他模组也能看到你添加的条目。
 
 ::: warning
 
@@ -77,7 +77,7 @@ Mixin 提供了 `MixinIntrinsics.currentEnumOrdinal()` 方法，该方法在考�
 
 如果你的目标是 Minecraft 枚举，可以使用类调整器条目在反编译源码中可见地修改目标枚举。
 
-若要启用这一功能，请记得使用 Loom 1.16 或更高版本，并将[文件头部版本](../class-tweakers/index#file-format)设置为 `v2`。
+若要启用这一功能，请记得使用 Loom 1.16 或更高版本，并将[文件头部版本](./#file-format)设置为 `v2`。
 
 枚举扩展条目的语法如下：
 
@@ -94,7 +94,7 @@ extend-enum  <targetClassName>  <ENUM_CONSTANT_NAME>
 ## 应用更改 {#applying-changes}
 
 在反编译源码中看到你添加的枚举条目之前，你需要刷新 Gradle 项目并[重新生成源码](../getting-started/generating-sources)。
-如果修改没有出现，可以尝试[验证](../class-tweakers/index#validating-the-file)该文件，并检查是否有错误。
+如果修改没有出现，可以尝试[验证](./#validating-the-file)该文件，并检查是否有错误。
 
 ::: info
 

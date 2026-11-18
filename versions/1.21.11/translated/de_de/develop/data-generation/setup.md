@@ -2,10 +2,11 @@
 title: Einrichtung der Datengenerierung
 description: Ein Leitfaden zur Einrichtung der Datengenerierung mit der Fabric API.
 authors:
-  - Treeways
+  - ArkoSammy12
   - Earthcomputer
   - haykam821
   - Jab125
+  - MarcusElg
   - matthewperiut
   - modmuss50
   - Shnupbups
@@ -13,7 +14,6 @@ authors:
   - SolidBlock-cn
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 ## Was ist Datengenerierung? {#what-is-data-generation}

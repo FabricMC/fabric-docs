@@ -21,7 +21,7 @@ Appena la tua mod sarà pronta per il testing, potrai esportarla come file JAR, 
 },
 {
  name: 'Visual Studio Code',
- icon: 'codicon:vscode',
+ icon: 'simple-icons:visualstudiocode',
  color: '#007ACC',
 },
 ]" />

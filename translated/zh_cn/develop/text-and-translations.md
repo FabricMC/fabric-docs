@@ -83,7 +83,7 @@ Component translatable = Component.translatable("example-mod.text.whack.item", v
 
 <!-- NOTE: These have been put into the example mod as they're likely to be updated to codecs in the next few updates. -->
 
-前面提到过，可以使用 text codec 将文本序列化为 JSON。更多关于 codec 的信息，请看 [Codec](./codecs) 页面。
+前面提到过，可以使用 text codec 将文本序列化为 JSON。更多关于 codec 的信息，请看 [Codec](./serialization/codecs) 页面。
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#component_to_string
 

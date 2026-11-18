@@ -21,7 +21,7 @@ authors:
 
 ## Налаштування класу {#class-setup}
 
-Спершу створіть клас, що представляє запис у реєстрі. Це простий контейнер даних для значень, пов’язаних із кожним магічним умінням, як-от назва, вартість у мані тощо. Для кодування та декодування запису потрібен [`Codec`](./codecs).
+Спершу створіть клас, що представляє запис у реєстрі. Це простий контейнер даних для значень, пов’язаних із кожним магічним умінням, як-от назва, вартість у мані тощо. Для кодування та декодування запису потрібен [`Codec`](../serialization/codecs).
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#main
 
@@ -41,7 +41,7 @@ authors:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModRegistries.java#main
 
-Виклик `ExampleModRegistries.initialize()` з нашого [ініціалізатора мода](./getting-started/project-structure#entrypoints).
+Виклик `ExampleModRegistries.initialize()` з нашого [ініціалізатора мода](../getting-started/project-structure#entrypoints).
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/ExampleModDynamicRegistries.java#main
 
@@ -69,7 +69,7 @@ authors:
 
 `DynamicRegistries.registerSynced()` має перевантаження, яке приймає другий кодек для декодування на стороні клієнта. Це корисно, якщо клієнту не потрібні всі поля з повного запису на сервері.
 
-У нашому випадку на клієнтській стороні потрібні лише поля [`name` і `manaCost`](#class-setup), тому створимо [`Codec`](./codecs), який не містить `onUseMcFunction`, і передамо його до `registerSynced`:
+У нашому випадку на клієнтській стороні потрібні лише поля [`name` і `manaCost`](#class-setup), тому створимо [`Codec`](../serialization/codecs), який не містить `onUseMcFunction`, і передамо його до `registerSynced`:
 
 <<< @/reference/latest/src/main/java/com/example/docs/dynamic_registries/MagicSkillsRegistryEntry.java#client_codec
 
@@ -146,7 +146,7 @@ ID запису — це унікальний ключ для кожного з�
 
 ![Приклад екрана магічних умінь](/assets/develop/dynamic_registry/magic_skills_screen.png)
 
-Дізнайтеся більше про створення власних [екранів](./rendering/gui/custom-screens) і [віджетів](./rendering/gui/custom-widgets).
+Дізнайтеся більше про створення власних [екранів](../rendering/gui/custom-screens) і [віджетів](../rendering/gui/custom-widgets).
 
 :::
 

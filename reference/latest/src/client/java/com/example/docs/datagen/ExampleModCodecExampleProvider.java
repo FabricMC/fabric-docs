@@ -45,7 +45,7 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 			ExampleModCodecExampleProvider::recursive
 	};
 
-	protected ExampleModCodecExampleProvider(FabricPackOutput output) {
+	public ExampleModCodecExampleProvider(FabricPackOutput output) {
 		super(output, "codec_examples", SUBMITTERS);
 	}
 

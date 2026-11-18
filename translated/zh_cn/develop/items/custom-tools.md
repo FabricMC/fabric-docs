@@ -7,6 +7,7 @@ authors:
   - ChampionAsh5357
   - IMB11
   - its-miroma
+  - NotNightSky
 resources:
   https://docs.neoforged.net/docs/items/tools/: Tools - NeoForge 文档（Neo exclusives 除外）
 ---
@@ -62,23 +63,63 @@ resources:
 
 你可以使用我们在[创建你的第一个物品](./first-item)指南中所实现的相同类和函数来创建工具物品：
 
+:::: tabs
+
+== 剑
+
+这些浮点参数分别对应攻击伤害和攻击速度。
+
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_sword
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_sword
 
-两个浮点数值 (`1f, 1f`) 分别表示工具的攻击伤害以及攻击速度。
+== 矛
 
-对于锹、斧和锄，你应该创建 `ShovelItem`、`AxeItem` 或 `HoeItem`，而不是通用的 `Item`，因为这些实现了特定于工具的右键单击操作：
+这些浮点参数分别对应攻击持续时间、伤害倍率、延迟、脱离时长、脱离阈值、击退时长、击退阈值、伤害时长以及伤害阈值。
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#axe
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_spear
 
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#axe
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_spear
 
-::: info
+== 镐
 
-`ShovelItem`、`AxeItem` 和 `HoeItem` 在其构造函数中调用 `Item.Properties` 的 `shovel`、`axe` 或 `hoe` 方法。
+这些浮点参数分别对应攻击伤害和攻击速度。
 
-:::
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_pickaxe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_pickaxe
+
+== 斧
+
+对于斧，你应该创建一个 `AxeItem`，而不是通用的 `Item`。这实现了针对斧的右键操作，并会自动调用 `Item.Properties` 的 `axe` 方法。
+
+这些浮点参数分别对应攻击伤害和攻击速度。
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_axe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_axe
+
+== 锹
+
+对于锹，你应该创建一个 `ShovelItem`，而不是通用的 `Item`。这实现了针对锹的右键操作，并会自动调用 `Item.Properties` 的 `shovel` 方法。
+
+这些浮点参数分别对应攻击伤害和攻击速度。
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_shovel
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_shovel
+
+== 锄
+
+对于锄，你应该创建一个 `HoeItem`，而不是通用的 `Item`。这实现了针对锄的右键操作，并会自动调用 `Item.Properties` 的 `hoe` 方法。
+
+这些浮点参数分别对应攻击伤害和攻击速度。
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#guidite_hoe
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#guidite_hoe
+
+::::
 
 如果你想通过创造模式物品栏访问，记得其加入一个创造标签页！
 
@@ -88,65 +129,49 @@ resources:
 
 ## 资产 {#models}
 
-你还需要添加[纹理](./first-item#adding-a-texture)、[翻译](./first-item#naming-the-item)、[客户端物品](./first-item#creating-the-client-item)和[物品模型](./item-models)。然而，对于物品模型，你应该使用 `item/handheld` 模型作为父模型，而非通常的 `item/generaterd`。
-
-在这个例子中，我们将为“Guidite Sword”物品定义以下客户端物品、模型和纹理：
-
 :::: tabs
-
-== 源代码
-
-::: info
-
-该模型可以由数据生成。更多信息，请参阅有关生成[物品模型](../data-generation/item-models)的文档。
-
-:::
-
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#sword
-
-== 客户端物品
-
-`generated/assets/example-mod/items/guidite_sword.json`
-
-<<< @/reference/latest/src/main/generated/assets/example-mod/items/guidite_sword.json
-
-== 物品模型
-
-`generated/assets/example-mod/models/item/guidite_sword.json`
-
-<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_sword.json
-
-== 纹理
-
-<DownloadEntry visualURL="/assets/develop/items/tools_0.png" downloadURL="/assets/develop/items/tools_0_small.png">Guidite Sword 纹理</DownloadEntry>
 
 ::::
 
-类似的模式也适用于“Guidite Axe”物品。
+你还需要添加[纹理](./first-item#adding-a-texture)、[翻译](./first-item#naming-the-item)、[客户端物品](./first-item#creating-the-client-item)和[物品模型](./item-models)。然而，对于物品模型，你应该使用 `item/handheld` 模型作为父模型，而非通常的 `item/generaterd`。
+
+::: info
+
+以下模型是利用数据生成创建的。更多信息，请参阅有关[生成物品模型](../data-generation/item-models)的文档。
+
+:::
 
 ::: tabs
 
-== 源代码
+== 剑
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#handheld
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_sword
 
-== 客户端物品
+== 矛
 
-`generated/assets/example-mod/items/guidite_axe.json`
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_spear
 
-<<< @/reference/latest/src/main/generated/assets/example-mod/items/guidite_axe.json
+== 镐
 
-== 物品模型
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_pickaxe
 
-`generated/assets/example-mod/models/item/guidite_axe.json`
+== 斧
 
-<<< @/reference/latest/src/main/generated/assets/example-mod/models/item/guidite_axe.json
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
 
-== 纹理
+== 锹
 
-<DownloadEntry visualURL="/assets/develop/data-generation/item-model/guidite_axe_big.png" downloadURL="/assets/develop/data-generation/item-model/guidite_axe.png">Guidite 斧纹理</DownloadEntry>
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_shovel
+
+== 锄
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_hoe
 
 :::
+
+这里是本指南中使用的所有示例纹理：
+
+<DownloadEntry downloadURL="/assets/develop/items/tools.zip">Guidite 工具纹理</DownloadEntry>
 
 ## 标签工具物品 {#tags}
 
@@ -160,7 +185,7 @@ resources:
 
 在你的物品标签提供程序中，将以下代码添加到 `addTags` 函数中：
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#sword_tags
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#tool_tags
 
 这样就差不多了！进入游戏后，你应该能在创造模式物品栏菜单的“工具与实用物品”标签页中看到你的工具。
 

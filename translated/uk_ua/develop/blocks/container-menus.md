@@ -4,8 +4,8 @@ description: Посібник, що пояснює, як створити про
 authors:
   - bluebear94
   - cassiancc
-  - ChampionAsh5357
   - CelDaemon
+  - ChampionAsh5357
   - Tenneb22
 resources:
   https://docs.neoforged.net/docs/inventories/menus: Меню — Документація NeoForge

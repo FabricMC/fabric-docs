@@ -3,10 +3,9 @@ title: Sobrescrita de Dependências
 description: Um guia para sobrescrever dependências definidas no `fabric.mod.json` de um mod.
 authors:
   - cassiancc
+  - kb-1000
   - skycatminepokie
-  - ytg1234
-authors-nogithub:
-  - kb1000
+  - YTG1234
 resources:
   https://semver.org/: Versionamento Semântico
 ---

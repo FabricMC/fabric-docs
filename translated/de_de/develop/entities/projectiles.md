@@ -2,20 +2,20 @@
 title: Benutzerdefinierte Projektile
 description: Lerne, wie man benutzerdefinierte Projektile hinzufügt.
 authors:
-  - ayutac
+  - Ayutac
   - cassiancc
   - CelDaemon
   - ChampionAsh5357
   - dicedpixels
   - Earthcomputer
   - ekulxam
-  - haykam
+  - haykam821
   - kanpov
   - NetUserGet
   - onlyspxctre
-  - patrickmsm
+  - PatrickMSM
   - tianjun
-  - upcraftlp
+  - UpcraftLP
 resources:
   https://minecraft.wiki/w/Projectile: Projektile - Minecraft Wiki
   https://docs.neoforged.net/docs/entities/#projectiles: Projektile - NeoForge Docs

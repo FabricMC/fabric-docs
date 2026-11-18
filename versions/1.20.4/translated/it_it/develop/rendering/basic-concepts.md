@@ -2,8 +2,8 @@
 title: Concetti Base del Rendering
 description: Impara i concetti base del rendering usando il motore grafico di Minecraft.
 authors:
-  - IMB11
   - "0x3C50"
+  - IMB11
 
 search: false
 ---
@@ -98,7 +98,7 @@ Spiegare come scrivere al `BufferBuilder` è più semplice con un esempio pratic
 
 Disegneremo vertici nelle seguenti posizioni sul HUD (in ordine):
 
-```txt
+```text
 (20, 20)
 (5, 40)
 (35, 40)

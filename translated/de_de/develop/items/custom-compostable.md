@@ -2,8 +2,8 @@
 title: Benutzerdefiniertes kompostierbares Item
 description: Lerne, wie du deine eigenen kompostierbaren Items erstellst.
 authors:
-  - NotNightSky
   - its-miroma
+  - NotNightSky
 ---
 
 Kompostierbare Items sind solche, die sich in Knochenmehl umwandeln, wenn sie in einen Komposter gegeben werden. Lasst uns ansehen, wie wir unser eigenes, benutzerdefiniertes kompostierbares Item erstellen können.

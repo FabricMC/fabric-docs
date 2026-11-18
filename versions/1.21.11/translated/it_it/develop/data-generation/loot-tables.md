@@ -2,15 +2,15 @@
 title: Generazione di Loot Table
 description: Una guida per configurare la generazione di loot table con datagen.
 authors:
-  - Alphagamer47
   - CelDaemon
   - JustinHuPrime
+  - LunarTremor
+  - MarcusElg
   - matthewperiut
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

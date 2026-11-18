@@ -2,20 +2,20 @@
 title: 自定义弹射物
 description: 学习如何添加自定义弹射物。
 authors:
-  - ayutac
+  - Ayutac
   - cassiancc
   - CelDaemon
   - ChampionAsh5357
   - dicedpixels
   - Earthcomputer
   - ekulxam
-  - haykam
+  - haykam821
   - kanpov
   - NetUserGet
   - onlyspxctre
-  - patrickmsm
+  - PatrickMSM
   - tianjun
-  - upcraftlp
+  - UpcraftLP
 resources:
   https://minecraft.wiki/w/Projectile: 弹射物 - Minecraft Wiki
   https://docs.neoforged.net/docs/entities/#projectiles: 弹射物 - NeoForge 文档

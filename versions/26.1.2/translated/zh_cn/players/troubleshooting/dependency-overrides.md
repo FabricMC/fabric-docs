@@ -3,10 +3,9 @@ title: 依赖项重写
 description: 关于如何重写模组的 `fabric.mod.json` 中设置的依赖项的指南。
 authors:
   - cassiancc
+  - kb-1000
   - skycatminepokie
-  - ytg1234
-authors-nogithub:
-  - kb1000
+  - YTG1234
 resources:
   https://semver.org/: 语义化版本控制
 ---

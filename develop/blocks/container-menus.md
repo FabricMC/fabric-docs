@@ -4,8 +4,8 @@ description: A guide explaining how to create a simple menu for a container bloc
 authors:
   - bluebear94
   - cassiancc
-  - ChampionAsh5357
   - CelDaemon
+  - ChampionAsh5357
   - Tenneb22
 resources:
   https://docs.neoforged.net/docs/inventories/menus: Menus - NeoForge Docs
@@ -41,7 +41,7 @@ We will use the default implementation of this method from `ContainerHelper`, wh
 
 After implementing our menu, it will close automatically when the player is pushed away.
 
-<VideoPlayer src="/assets/develop/blocks/menu_still_valid.webm">The container menu closes when the player goes out of range</VideoPlayer>
+![The container menu closes when the player goes out of range](/assets/develop/blocks/menu_still_valid.webm)
 
 ### Opening the Menu {#opening-the-screen}
 

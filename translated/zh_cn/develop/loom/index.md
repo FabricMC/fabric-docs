@@ -37,15 +37,36 @@ Loom 使用多种不同插件 ID：
 
 ## 依赖子项目 {#subprojects}
 
-在设置依赖于另一个 Loom 项目的多项目构建时，当依赖于其他项目时，应该使用 `namedElements` 配置。默认情况下，项目的“输出”会重新映射到中间名称。 `namedElements` 配置包含未重新映射的项目输出。
+在设置多项目构建时，您可能需要依赖另一个子项目。您可以使用 `project(...)` 调用来实现这一点，不过参数取决于所使用的环境类型。
+
+### 依赖于未重新映射的子项目 {#depending-on-non-remapped-subprojects}
+
+对于非重映射的 Loom 项目，我们将传递子项目的路径，但路径之间用冒号分隔。
+
+例如，位于 `/examples/hello-world` 的项目可以这样引用：
 
 ```gradle
 dependencies {
- implementation project(path: ":name", configuration: "namedElements")
+ implementation project(":examples:hello-world")
 }
 ```
 
-如果你在多项目构建中使用拆分源集，则还需要为其他项目的客户端源集添加依赖项。
+### 依赖于重新映射的子项目 {#depending-on-remapped-subprojects}
+
+使用 Loom 的重映射，项目输出默认会重映射到中间映射。这会导致中间名称
+暴露给依赖项目。
+
+为避免这种情况，我们指定了 `namedElements` 配置，并在不重新映射的情况下检索项目输出：
+
+```gradle
+dependencies {
+ implementation project(path: ":examples:hello-world", configuration: "namedElements")
+}
+```
+
+### 取决于拆分源 {#depending-on-split-sources}
+
+如果在多项目构建中使用[拆分源集](#split-sources)，则还需要添加对其他项目客户端源集的依赖项。
 
 ```gradle
 dependencies {
@@ -57,11 +78,13 @@ dependencies {
 
 多年来，服务器崩溃的一个常见原因是模组在服务器上安装时意外调用了客户端专用代码。较新的 Loom 和 Loader 版本提供了一个选项，要求将所有客户端代码移至其自己的源集。这是为了在编译时防止问题，但构建仍将产生一个可在任一端运行的 jar 文件。
 
-以下来自 `build.gradle` 文件的片段显示了如何为你的模组启用此功能。由于你的模组现在将拆分为两个源集，因此你需要使用新的 DSL 来定义模组的源集。这使 Fabric Loader 能够将模组的类路径分组在一起。这对于其他一些复杂的多项目设置也很有用。
-
-需要 Minecraft 1.18（推荐 1.19）、Loader 0.14 和 Loom 1.0 或更高版本来拆分客户端和通用代码。
+以下来自 `build.gradle` 文件的代码片段展示了如何为你的模组启用此功能：
 
 <<< @/reference/build.gradle#split_sources
+
+由于你的模组现在将拆分为两个源集，因此你需要使用新的 DSL 来定义模组的源集。这使 Fabric Loader 能够将模组的类路径分组在一起。这对于其他一些复杂的多项目设置也很有用。
+
+需要 Minecraft 1.18（推荐 1.19）、Loader 0.14 和 Loom 1.0 或更高版本来拆分客户端和通用代码。
 
 ## 解决问题 {#issues}
 
@@ -83,7 +106,7 @@ Loom 的设计初衷是开箱即用，只需在 IDE 中设置一个工作区即�
 
 ## 缓存 {#caches}
 
-- `${GRADLE_HOME}/caches/fabric-loom`：用户缓存，由用户的所有 Loom 项目共享的缓存。用于缓存 Minecraft 资产、jar、合并的 jar、中间 jar 和映射的 jar
+- `${GRADLE_USER_HOME}/caches/fabric-loom`：用户缓存，由用户的所有 Loom 项目共享的缓存。用于缓存 Minecraft 资产、jar、合并的 jar、中间 jar 和映射的 jar
 - `.gradle/loom-cache`：根项目持久缓存，由项目及其子项目共享的缓存。用于缓存重新映射的模组，以及生成的包含的模组 jar
 - `**/build/loom-cache`：（子）项目的构建缓存
 

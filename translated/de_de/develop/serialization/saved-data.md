@@ -56,7 +56,7 @@ Schließlich benötigen wir einen `SavedDataType`, der unsere gespeicherten Date
 
 ### Auf gespeicherte Daten zugreifen {#accessing-saved-data}
 
-Wie bereits erwähnt, können gespeicherte Daten mit einem Geltungsbereich wie dem aktuellen Level verknüpft werden. In diesem Fall sind unsere Daten Teil der Level-Daten. Wir können die `DimensionDataStorage` des Level abrufen, um unsere Daten hinzuzufügen und zu ändern.
+Wie bereits erwähnt, können gespeicherte Daten mit einem Geltungsbereich wie dem aktuellen Level verknüpft werden. In diesem Fall werden unsere Daten global sein. Wir können den `DimensionDataStorage` des Server abrufen, um unsere Daten hinzuzufügen und zu ändern. Wenn du einen `Level`-Bereich verwendest, wirst du dieselbe Methode `getDataStorage` auf ein `Level` anstelle des `MinecraftServer` anwenden.
 
 Wir werden diese Logik in eine Hilfsmethode einbauen.
 

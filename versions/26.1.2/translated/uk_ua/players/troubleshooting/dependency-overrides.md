@@ -3,10 +3,9 @@ title: Перевизначення залежностей
 description: Дізнайтеся, як перевизначати залежності, встановлені в `fabric.mod.json` мода.
 authors:
   - cassiancc
+  - kb-1000
   - skycatminepokie
-  - ytg1234
-authors-nogithub:
-  - kb1000
+  - YTG1234
 resources:
   https://semver.org/: Семантичне версіювання
 ---

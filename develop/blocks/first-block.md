@@ -8,8 +8,8 @@ authors:
   - Earthcomputer
   - IMB11
   - its-miroma
-  - xEobardThawne
   - NotNightSky
+  - xEobardThawne
 resources:
   https://docs.neoforged.net/docs/blocks/: Blocks - NeoForge Docs
 ---

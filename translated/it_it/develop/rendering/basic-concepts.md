@@ -11,9 +11,7 @@ authors:
 
 ::: warning
 
-Anche se Minecraft è attualmente costruito usando OpenGL, a partire da 1.17 non puoi usare metodi OpenGL legacy per fare rendering. Devi invece usare il nuovo sistema `BufferBuilder`, che formatta i dati del rendering e li carica su OpenGL perché vengano disegnati.
-
-In breve, devi usare il sistema di rendering di Minecraft. L'utilizzo di OpenGL puro sarà ancora più ostacolato quando [Minecraft 26.2 verrà rilasciato con un backend Vulkan](https://www.minecraft.net/en-us/article/another-step-towards-vibrant-visuals-for-java-edition).
+L'utilizzo di OpenGL puro non è supportato su [Minecraft 26.2, che include un backend Vulkan sperimentale](https://www.minecraft.net/en-us/article/another-step-towards-vibrant-visuals-for-java-edition). Devi invece usare lo strato di astrazione `Blaze3D`, che fa da tramite tra il tuo codice e il backend di rendering (sia OpenGL sia Vulkan).
 
 :::
 
@@ -31,23 +29,13 @@ Questa pagina tratterà le basi del rendering usando il nuovo sistema, presentan
 
 Anche se molto del rendering in Minecraft viene astratto attraverso i vari metodi `GuiGraphicsExtractor`, e probabilmente non ti servirà toccare nulla di quel che viene menzionato qui, è comunque importante capire le basi di come funziona il rendering.
 
-## Il `Tesselator` {#the-tesselator}
-
-Il `Tesselator` è la principale classe usata per renderizzare le cose in Minecraft. È un singleton, cioè solo un'istanza è presente in gioco. Puoi ottenere l'istanza usando `Tesselator.getInstance()`.
-
 ## Il `BufferBuilder` {#the-bufferbuilder}
 
-Il `BufferBuilder` è la classe usata per formattare e caricare i dati di rendering su OpenGL. Viene usata per creare un buffer, che viene caricato su OpenGL per essere disegnato.
+Il `BufferBuilder` è la classe usata per formattare e trasmettere i dati al backend di rendering. Viene usata per creare un buffer, che viene trasmesso al backend per essere disegnato.
 
-Il `Tesselator` viene usato per creare un `BufferBuilder`, che viene usato per formattare e caricare i dati di rendering su OpenGL.
+### Formati dei Vertici {#vertex-formats}
 
-### Inizializzare il `BufferBuilder` {#initializing-the-bufferbuilder}
-
-Prima di poter scrivere al `BufferBuilder`, devi inizializzarlo. Questo viene fatto usando `Tesselator#begin(...)`, che accetta un `VertexFormat` e una modalità di disegno e restituisce un `BufferBuilder`.
-
-#### Formati dei Vertici {#vertex-formats}
-
-Il `VertexFormat` definisce gli elementi che includiamo nel nostro buffer di dati e precisa come questi elementi debbano essere trasmessi a OpenGL.
+Il `VertexFormat` definisce gli elementi che includiamo nel nostro buffer di dati e precisa come questi elementi debbano essere trasmessi al backend.
 
 I seguenti elementi `VertexFormat` predefiniti sono disponibili in `DefaultVertexFormat`:
 
@@ -67,7 +55,7 @@ I seguenti elementi `VertexFormat` predefiniti sono disponibili in `DefaultVerte
 | `POSITION_TEX_LIGHTMAP_COLOR` | `{ position, uv, light, color }`                                                        |
 | `POSITION_TEX_COLOR_NORMAL`   | `{ position, uv, color, normal }`                                                       |
 
-#### Modalità di Disegno {#draw-modes}
+### Modalità di Disegno {#draw-modes}
 
 La modalità di disegno definisce come sono disegnati i dati. Sono disponibili le seguenti modalità di disegno in `VertexFormat.Mode`:
 
@@ -88,7 +76,7 @@ Una volta che il `BufferBuilder` è inizializzato, puoi scriverci dei dati.
 
 Il `BufferBuilder` permette di costruire il nostro buffer, un vertice dopo l'altro. Per aggiungere un vertice, usiamo il metodo `buffer.addVertex(Matrix4F, float, float, float)`. Il parametro `Matrix4f` è la matrice di trasformazione, che discuteremo più dettagliatamente in seguito. I tre parametri float rappresentano le coordinate (x, y, z) della posizione del vertice.
 
-Questo metodo restituisce un costruttore di vertice, che possiamo usare per specificare informazioni addizionali per il vertice. È cruciale seguire l'ordine del nostro `VertexFormat` definito quando aggiungiamo questa informazione. Se non lo facciamo, OpenGL potrebbe non interpretare i nostri dati correttamente. Dopo aver finito la costruzione di un vertice, se vuoi puoi continuare ad aggiungere altri vertici e dati al buffer.
+Questo metodo restituisce un costruttore di vertice, che possiamo usare per specificare informazioni addizionali per il vertice. È cruciale seguire l'ordine del nostro `VertexFormat` definito quando aggiungiamo questa informazione. Se non lo facciamo, il backend potrebbe non interpretare i nostri dati correttamente. Dopo aver finito la costruzione di un vertice, se vuoi puoi continuare ad aggiungere altri vertici e dati al buffer.
 
 Importante è anche capire il concetto di culling. Il culling è il processo con cui si rimuovono facce di una forma 3D che non sono visibili dalla prospettiva dell'osservatore. Se i vertici per una faccia sono specificati nell'ordine sbagliato, la faccia potrebbe non essere renderizzata correttamente a causa del culling.
 

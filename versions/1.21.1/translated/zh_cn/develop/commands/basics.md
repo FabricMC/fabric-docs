@@ -2,18 +2,18 @@
 title: 创建命令
 description: 创建带有复杂参数和行为的命令。
 authors:
+  - Atakku
   - dicedpixels
+  - haykam821
   - i509VCB
-  - pyrofab
-  - natanfudge
   - Juuxel
-  - solidblock
   - modmuss50
-  - technici4n
-  - atakku
-  - haykam
   - mschae23
-  - treeways
+  - natanfudge
+  - Pyrofab
+  - SolidBlock-cn
+  - Technici4n
+  - Treeways
   - xpple
 ---
 

@@ -4,9 +4,9 @@ description: Как открыть проект мода Minecraft в вашей
 authors:
   - Cactooz
   - dicedpixels
+  - evelynmeowww
   - IMB11
   - its-miroma
-  - radstevee
   - Thomas1034
 outline: false
 ---
@@ -23,7 +23,7 @@ outline: false
 {
  name: 'Visual Studio Code',
  href: './vscode/opening-a-project',
- icon: 'codicon:vscode',
+ icon: 'simple-icons:visualstudiocode',
  color: '#007ACC',
 },
 ]" />

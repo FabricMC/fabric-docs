@@ -23,7 +23,7 @@ resources:
 
 先创建 `enchantment` 文件夹，然后在里面创建 `effect` 文件夹。在里面，创建记录类 `LightningEnchantmentEffect`。
 
-现在，创建构造器，并覆盖 `EnchantmentEntityEffect` 接口的方法。还要创建 `CODEC` 变量以编码解码我们的效果；可以了解更多关于 [codec](../codecs) 的信息。
+现在，创建构造器，并覆盖 `EnchantmentEntityEffect` 接口的方法。还要创建 `CODEC` 变量以编码解码我们的效果；可以了解更多关于 [codec](../serialization/codecs) 的信息。
 
 我们的大部分代码都将进入 `apply()` 事件，当魔咒生效的条件得到满足时，该事件就会被调用。我们稍后会配置这个 `Effect` 以在实体被击中时调用，但现在，让我们编写简单的代码来实现用闪电击中目标。
 

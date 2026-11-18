@@ -79,7 +79,7 @@ Erfolgreich, wenn die angegebene `registry` alle Tags in `values` enthält. Beis
 
 ### Aktivierte Funktionen {#features-enabled}
 
-Ist erfolgreich, wenn alle [Funktions-Flags](https://minecraft.wiki/w/Experiments#Java_Edition) in `features` aktiviert sind. Beispielsweise ist Folgendes erfolgreich, wenn sowohl `minecraft:vanilla` als auch `minecraft:redstone_experiments` aktiviert sind:
+Ist erfolgreich, wenn alle [Funktions-Flags](https://minecraft.wiki/w/Experiments#Java_Edition) in `features` aktiviert sind. Beispielsweise ist Folgendes erfolgreich, wenn sowohl `minecraft:vanilla` als auch `minecraft:minecart_improvements` aktiviert sind:
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/features_enabled.json
 
@@ -93,7 +93,7 @@ Ist erfolgreich, wenn die Registry alle Bezeichner in `values` enthält. Beispie
 
 :::info VORAUSSETZUNGEN
 
-Bevor du eine benutzerdefinierte Ressourcenbedingung festlegst, musst du zunächst verstehen, [wie man einen Codec erstellt](./codecs).
+Bevor du eine benutzerdefinierte Ressourcenbedingung festlegst, musst du zunächst verstehen, [wie man einen Codec erstellt](./serialization/codecs).
 
 :::
 
@@ -103,7 +103,7 @@ Um dies zu veranschaulichen, werden wir eine Bedingung erstellen, die das aktuel
 
 ### Deine Bedingungen vorbereiten {#preparing-your-condition}
 
-Der Einfachheit halber erstellen wir eine Hilfsmethode, die deine Ressourcenbedingung anhand eines Namens und eines [`MapCodec`](./codecs#mapcodec) instanziiert. Du solltest diese Methode in eine Klasse mit dem Namen `ModResourceConditions` (oder wie auch immer du sie nennen willst) einfügen.
+Der Einfachheit halber erstellen wir eine Hilfsmethode, die deine Ressourcenbedingung anhand eines Namens und eines [`MapCodec`](./serialization/codecs#mapcodec) instanziiert. Du solltest diese Methode in eine Klasse mit dem Namen `ModResourceConditions` (oder wie auch immer du sie nennen willst) einfügen.
 
 ::: tip
 

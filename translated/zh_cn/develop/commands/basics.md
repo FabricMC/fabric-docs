@@ -63,7 +63,7 @@ Command<CommandSourceStack> command = context -> {
 
 ::: info
 
-关于如何注册回调，请查看[事件](../events)指南。
+关于如何注册回调，请查看[事件](../events/)指南。
 
 :::
 

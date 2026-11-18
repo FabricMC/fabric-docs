@@ -84,7 +84,7 @@ Wenn du darauf verweisen willst, was in unserem Fall der Angreifer ist, würdest
 
 <!-- NOTE: These have been put into the example mod as they're likely to be updated to codecs in the next few updates. -->
 
-Wie bereits erwähnt, kann Text mit dem Text Codec in JSON serialisiert werden. Weitere Informationen über Codecs findest du auf der Seite [Codec](./codecs).
+Wie bereits erwähnt, kann Text mit dem Text Codec in JSON serialisiert werden. Weitere Informationen über Codecs findest du auf der Seite [Codec](./serialization/codecs).
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/TextTests.java#component_to_string
 

@@ -33,7 +33,7 @@ You'll first need to define a custom item tint source. This is done by implement
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#tint_source_class
 
-As this is part of the client item definition, tint values can be changed with a resource pack. So you need to define a [Map Codec](../codecs#mapcodec) that's capable of reading your tint definition. In this case, the tint source will have an `int` value describing the color it will have when raining. We can use the built-in `ExtraCodecs.RGB_COLOR_CODEC` to compose our Codec.
+As this is part of the client item definition, tint values can be changed with a resource pack. So you need to define a [Map Codec](../serialization/codecs#mapcodec) that's capable of reading your tint definition. In this case, the tint source will have an `int` value describing the color it will have when raining. We can use the built-in `ExtraCodecs.RGB_COLOR_CODEC` to compose our Codec.
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/RainTintSource.java#map_codec
 

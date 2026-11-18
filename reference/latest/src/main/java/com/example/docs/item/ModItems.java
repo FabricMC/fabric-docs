@@ -20,33 +20,33 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ShieldItem;
-import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.BlocksAttacks;
+import net.minecraft.world.item.component.Compostable;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
+import net.minecraft.world.item.component.CookingFuel;
 import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BannerPatternLayers;
+import net.minecraft.world.level.storage.loot.providers.number.floats.ContextFloatProviders;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
-import net.fabricmc.fabric.api.registry.CompostableRegistry;
-import net.fabricmc.fabric.api.registry.FuelValueEvents;
+import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 
 import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
@@ -129,8 +129,8 @@ public class ModItems {
 	// #region guidite_axe
 	public static final Item GUIDITE_AXE = register(
 			ModItemIds.GUIDITE_AXE,
-			settings -> new AxeItem(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F, settings),
-			new Item.Properties()
+			Item::new,
+			new Item.Properties().axe(GUIDITE_TOOL_MATERIAL, 5.0F, -3.0F)
 	);
 	// #endregion guidite_axe
 
@@ -145,16 +145,16 @@ public class ModItems {
 	// #region guidite_shovel
 	public static final Item GUIDITE_SHOVEL = register(
 			ModItemIds.GUIDITE_SHOVEL,
-			settings -> new ShovelItem(GUIDITE_TOOL_MATERIAL, 1.0F, -1.0F, settings),
-			new Item.Properties()
+			Item::new,
+			new Item.Properties().shovel(GUIDITE_TOOL_MATERIAL, 1.0F, -1.0F)
 	);
 	// #endregion guidite_shovel
 
 	// #region guidite_hoe
 	public static final Item GUIDITE_HOE = register(
 			ModItemIds.GUIDITE_HOE,
-			settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, 2.0F, -1.0F, settings),
-			new Item.Properties()
+			Item::new,
+			new Item.Properties().hoe(GUIDITE_TOOL_MATERIAL, 2.0F, -1.0F)
 	);
 	// #endregion guidite_hoe
 
@@ -253,7 +253,11 @@ public class ModItems {
 	// #endregion poisonous_apple
 
 	// #region suspicious_substance
-	public static final Item SUSPICIOUS_SUBSTANCE = register(ModItemIds.SUSPICIOUS_SUBSTANCE, Item::new, new Item.Properties());
+	public static final Item SUSPICIOUS_SUBSTANCE = register(
+			ModItemIds.SUSPICIOUS_SUBSTANCE,
+			Item::new,
+			new Item.Properties()
+	);
 	// #endregion suspicious_substance
 
 	// #region quark_gluon_plasma
@@ -261,6 +265,7 @@ public class ModItems {
 			ModItemIds.QUARK_GLUON_PLASMA,
 			Item::new,
 			new Item.Properties()
+					.cookingFuel(ContextIntProviders.COOKING_TIME_COAL)
 	);
 	// #endregion quark_gluon_plasma
 
@@ -269,6 +274,7 @@ public class ModItems {
 			ModItemIds.BONE_MARROW,
 			Item::new,
 			new Item.Properties()
+					.compostable(ContextIntProviders.COMPOSTABLE_ALWAYS_ADD_ONE)
 	);
 	// #endregion bone_marrow
 
@@ -302,7 +308,7 @@ public class ModItems {
 
 	public static final Item BALLOON = register(ModItemIds.BALLOON, Item::new, new Item.Properties());
 
-	public static final Item ENHANCED_HOE = register(ModItemIds.ENHANCED_HOE, settings -> new HoeItem(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F, settings), new Item.Properties());
+	public static final Item ENHANCED_HOE = register(ModItemIds.ENHANCED_HOE, settings -> new Item(settings.hoe(GUIDITE_TOOL_MATERIAL, -4.0F, 0.0F)), new Item.Properties());
 
 	public static final Item DIMENSIONAL_CRYSTAL = register(ModItemIds.DIMENSIONAL_CRYSTAL, Item::new, new Item.Properties());
 
@@ -395,14 +401,18 @@ public class ModItems {
 
 		// #region compostable_item
 		// Add the bone marrow to the composting registry with a 100% chance of increasing the composter's level.
-		CompostableRegistry.INSTANCE.add(ModItems.BONE_MARROW, 1.0f);
+		DefaultItemComponentEvents.MODIFY.register(modifyContext -> {
+			modifyContext.modify(ModItems.BONE_MARROW, (builder, provider, item) -> builder.set(DataComponents.COMPOSTABLE,
+					new Compostable(ContextIntProviders.COMPOSTABLE_ALWAYS_ADD_ONE)));
+		});
 		// #endregion compostable_item
 
 		// #region fuel_item
 		// Remember, Minecraft deals with logical based-time using ticks.
 		// 20 ticks = 1 second.
-		FuelValueEvents.BUILD.register((builder, context) -> {
-			builder.add(ModItems.QUARK_GLUON_PLASMA, 120 * 20);
+		DefaultItemComponentEvents.MODIFY.register(modifyContext -> {
+			modifyContext.modify(ModItems.QUARK_GLUON_PLASMA, (builder, provider, item) -> builder.set(DataComponents.COOKING_FUEL,
+					new CookingFuel(ContextIntProviders.COOKING_TIME_COAL, ContextFloatProviders.COOKING_DEFAULT_SPEED_MULTIPLIER)));
 		});
 		// #endregion fuel_item
 

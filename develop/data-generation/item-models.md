@@ -86,7 +86,7 @@ Handheld item models are generally used by tools and weapons (axes, swords, trid
 
 == Source Code
 
-<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#handheld
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModModelProvider.java#guidite_axe
 
 == Client Item
 
@@ -193,7 +193,7 @@ To obtain the `Identifier` that is passed in `ItemModelUtils.plainModel()`, alwa
 
 == Preview
 
-<VideoPlayer src="/assets/develop/data-generation/item-model/flashlight_turning_on.webm">Flashlight turning on and off</VideoPlayer>
+![Flashlight turning on and off](/assets/develop/data-generation/item-model/flashlight_turning_on.webm)
 
 ::::
 

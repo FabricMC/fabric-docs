@@ -4,7 +4,7 @@ description: 学习如何添加自定义伤害类型。
 authors:
   - dicedpixels
   - hiisuuii
-  - mattidragon
+  - MattiDragon
 ---
 
 伤害类型定义了实体能受到的伤害的种类。 从 Minecraft 1.19.4 开始，创建新的伤害类型的方式已是数据驱动，也就是说由 JSON 文件创建。
@@ -13,7 +13,7 @@ authors:
 
 让我们创建一种叫 _土豆_ 的伤害类型。 我们先从为你的自定义伤害创建 JSON 文件开始。 这个文件放在你的模组的 `data` 目录下的 `damage_type` 子目录。
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/data/example-mod/damage_type/tater.json
 ```
 
@@ -83,7 +83,7 @@ resources/data/example-mod/damage_type/tater.json
 
 要将我们的伤害类型加入这些标签，需要在 `minecraft` 命名空间下创建一个 JSON 文件。
 
-```:no-line-numbers
+```text:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
 ```
 

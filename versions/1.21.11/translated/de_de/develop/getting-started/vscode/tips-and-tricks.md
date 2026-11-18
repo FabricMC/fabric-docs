@@ -59,7 +59,7 @@ In diesem Fall kannst du den in Java integrierten Befehl `javap` verwenden, um d
 
   Es könnte etwa wie folgt aussehen:
 
-  ```:no-line-numbers
+  ```text:no-line-numbers
   C:/project/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-503b555a3d/1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2/minecraft-merged-503b555a3d-1.21.8-net.fabricmc.yarn.1_21_8.1.21.8+build.1-v2.jar
   ```
 

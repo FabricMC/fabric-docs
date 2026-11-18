@@ -2,12 +2,12 @@
 title: 进度生成
 description: 使用 Datagen 设置进度生成的指南。
 authors:
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 :::info 前提

@@ -3,10 +3,9 @@ title: 标签生成
 description: 使用 Datagen 设置标签生成的指南。
 authors:
   - IMB11
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
-authors-nogithub:
-  - mcrafterzz
 ---
 
 :::info 前提

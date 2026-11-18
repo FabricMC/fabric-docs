@@ -2,8 +2,8 @@
 title: 安裝 Fabric
 description: 安裝 Fabric 的逐步指南。
 authors:
-  - IMB11
   - Benonardo
+  - IMB11
   - modmuss50
 ---
 

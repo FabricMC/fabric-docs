@@ -3,11 +3,11 @@ title: Geração de Receita
 description: Um guia para configurar geração de receita com datagen.
 authors:
   - CelDaemon
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

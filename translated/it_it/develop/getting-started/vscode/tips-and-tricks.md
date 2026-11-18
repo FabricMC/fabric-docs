@@ -23,6 +23,8 @@ Appena le sorgenti saranno state generate, dovresti poter cercare e visualizzare
 
 **Go to Definition** (<kbd>F12</kbd>): Dal codice sorgente, naviga alla definizione di una classe facendo <kbd>Ctrl</kbd> + clic sul nome, o cliccando col pulsante destro e selezionando "Go to Definition".
 
+**Go to Implementations** (<kbd>Ctrl</kbd>+<kbd>F12</kbd>): Dal codice sorgente, naviga all'implementazione di una classe selezionandola e premendo <kbd>Ctrl</kbd>+<kbd>F12</kbd>, o cliccando col pulsante destro e selezionando "Go to Implementations".
+
 ![Go to Definition](/assets/develop/getting-started/vscode/go-to-definition.png)
 
 ### Trovare i riferimenti {#finding-references}

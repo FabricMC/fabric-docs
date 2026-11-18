@@ -1,0 +1,28 @@
+---
+title: 打开项目
+description: 如何在 IDE 中打开 Minecraft 模组项目的指南。
+authors:
+  - Cactooz
+  - dicedpixels
+  - evelynmeowww
+  - IMB11
+  - its-miroma
+  - Thomas1034
+---
+
+## 选择你的 IDE {#choose-your-ide}
+
+<ChoiceComponent :choices="[
+{
+ name: 'IntelliJ IDEA',
+ href: './intellij-idea/opening-a-project',
+ icon: 'simple-icons:intellijidea',
+ color: '#FE2857',
+},
+{
+ name: 'Visual Studio Code',
+ href: './vscode/opening-a-project',
+ icon: 'simple-icons:visualstudiocode',
+ color: '#007ACC',
+},
+]" />

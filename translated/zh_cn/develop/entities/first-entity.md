@@ -2,6 +2,7 @@
 title: 创建你的第一个实体
 description: 学习如何注册一个简单的实体，并为其添加目标、渲染器、模型和动画。
 authors:
+  - An16og
   - cassiancc
   - CelDaemon
   - Earthcomputer
@@ -25,7 +26,7 @@ resources:
 
 创建自定义实体的第一步，是定义它的类，并将其注册到游戏中。
 
-我们会为该实体创建 `MiniGolemEntity` 类，并首先为它设置属性。[属性](attributes)决定了实体的多项内容，包括最大生命值、移动速度和生物引诱范围。
+我们会为该实体创建 `MiniGolemEntity` 类，并首先为它设置属性。[属性](./attributes) 决定了各种内容，包括实体的最大生命值、移动速度以及引诱范围。
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#registerclass
 
@@ -33,11 +34,11 @@ resources:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#ids
 
-若要注册你的实体，建议创建一个单独的 `ModEntityTypes` 类，用于注册所有实体类型、设置它们的尺寸，并注册它们的属性。
+若要注册实体，建议创建一个独立的类（例如 `ModEntityTypes`），在该类中注册所有实体类型，设置其尺寸，并将它们的属性直接传入注册方法：
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
 
-在你的[模组初始化器](../getting-started/project-structure#entrypoints)中调用 `registerModEntityTypes` 和 `registerAttributes`：
+在你的[模组初始化程序](../getting-started/project-structure#entrypoints)中调用 `initialize`，以触发类加载并注册你的实体：
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
 
@@ -80,7 +81,7 @@ resources:
 
 ::: warning
 
-Blockbench 支持多种[映射](../migrating-mappings/#mappings)（例如 Mojang Mappings、Yarn 等）。请确保选择与你的开发环境匹配的正确映射。本教程使用 Mojang Mappings。
+Blockbench 支持多种[映射](../porting/mappings/#mappings)（例如 Mojang Mappings、Yarn 等）。请确保选择与你的开发环境匹配的正确映射。本教程使用 Mojang Mappings。
 
 映射不一致可能会导致集成 Blockbench 生成的代码时出错。
 

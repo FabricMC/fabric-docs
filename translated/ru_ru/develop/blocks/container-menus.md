@@ -4,8 +4,8 @@ description: Руководство по созданию простого ме�
 authors:
   - bluebear94
   - cassiancc
-  - ChampionAsh5357
   - CelDaemon
+  - ChampionAsh5357
   - Tenneb22
 resources:
   https://docs.neoforged.net/docs/inventories/menus: Меню — документация NeoForge

@@ -3,10 +3,9 @@ title: Dependency Overrides
 description: A guide to overriding dependencies set in a mod's `fabric.mod.json`.
 authors:
   - cassiancc
+  - kb-1000
   - skycatminepokie
-  - ytg1234
-authors-nogithub:
-  - kb1000
+  - YTG1234
 resources:
   https://semver.org/: Semantic Versioning
 ---

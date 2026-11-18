@@ -2,8 +2,8 @@
 title: 自定义可堆肥物
 description: 了解如何创建你自己的可堆肥物品。
 authors:
-  - NotNightSky
   - its-miroma
+  - NotNightSky
 ---
 
 可堆肥物品是指放入堆肥桶中后能够转换为骨粉的物品。让我们看看如何创建自定义可堆肥物。

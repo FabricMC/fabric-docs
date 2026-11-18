@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "example-mod:water_bucket_to_bucket"
+        "recipes": "example-mod:water_bucket_to_bucket"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

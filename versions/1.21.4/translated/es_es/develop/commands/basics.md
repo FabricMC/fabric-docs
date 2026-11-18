@@ -2,18 +2,18 @@
 title: Crear Comandos
 description: Crea comandos con argumentos y acciones complejas.
 authors:
+  - Atakku
   - dicedpixels
+  - haykam821
   - i509VCB
-  - pyrofab
-  - natanfudge
   - Juuxel
-  - solidblock
   - modmuss50
-  - technici4n
-  - atakku
-  - haykam
   - mschae23
-  - treeways
+  - natanfudge
+  - Pyrofab
+  - SolidBlock-cn
+  - Technici4n
+  - Treeways
   - xpple
 ---
 

@@ -12,7 +12,7 @@ authors:
 
 Die Enum Erweiterung ist eine Mixin-Funktion, mit der sich zuverlässig neue Einträge zu einem Enum hinzufügen lassen.
 
-Wenn du auf Minecraft-Enums abzielst, kannst du Mixins zusammen mit [Klassenoptimierung](../class-tweakers) verwenden, um neue Enum-Einträge im dekompilierten Quellcode anzuzeigen. Wenn diese Option auf [transitiv](../class-tweakers/index#transitive-entries) gesetzt ist, sehen Mods, die auf deinen Mod aufbauen, ebenfalls deine hinzugefügten Einträge.
+Wenn du auf Minecraft-Enums abzielst, kannst du Mixins zusammen mit [Klassenoptimierung](./) verwenden, um neue Enum-Einträge im dekompilierten Quellcode anzuzeigen. Wenn diese Option auf [transitiv](./#transitive-entries) gesetzt ist, sehen Mods, die auf deinen Mod aufbauen, ebenfalls deine hinzugefügten Einträge.
 
 ::: warning
 
@@ -77,7 +77,7 @@ Jetzt kannst du sicher sein, dass `currentEnumOrdinal()` den richtigen Index zur
 
 Wenn du eine Minecraft-Enum bearbeiten möchtest, kannst du einen Klassenoptimierer-Eintrag verwenden, um das betreffende Enum im dekompilierten Quellcode sichtbar zu ändern.
 
-Um diese Funktion zu aktivieren, stelle bitte sicher, dass du Loom 1.16 oder höher verwendest und die [Version in der Kopfzeile](../class-tweakers/index#file-format) auf `v2` setzt.
+Um diese Funktion zu aktivieren, stelle bitte sicher, dass du Loom 1.16 oder höher verwendest und die [Version in der Kopfzeile](./#file-format) auf `v2` setzt.
 
 Die Syntax für einen Eintrag zur Erweiterung eines Enum ist:
 
@@ -98,7 +98,7 @@ Stelle sicher, dass du jede betroffene Klasse aus dem dekompilierten Quellcode e
 
 ::: tip
 
-Falls die Änderungen nicht sichtbar sind, kannst du versuchen, [die Datei zu validieren](../class-tweakers/index#validating-the-file) und zu prüfen, ob Fehler auftauchen.
+Falls die Änderungen nicht sichtbar sind, kannst du versuchen, [die Datei zu validieren](./#validating-the-file) und zu prüfen, ob Fehler auftauchen.
 
 :::
 

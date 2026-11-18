@@ -4,8 +4,8 @@ description: Дізнайтеся, як відкрити проєкт мода M
 authors:
   - Cactooz
   - dicedpixels
+  - evelynmeowww
   - IMB11
-  - radstevee
   - Thomas1034
 prev:
   text: Налаштування IntelliJ IDEA
