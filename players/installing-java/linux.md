@@ -28,6 +28,28 @@ If this command displays any version lower than 25, you'll need to update your e
 
 We recommend using OpenJDK 25, which is available for most Linux distributions.
 
+### SDKMan! (Recommended) {#sdkman}
+
+[SDKMan!](https://sdkman.io/) is a tool for managing parallel versions of multiple Software Development Kits on most Unix-based systems. It's a convenient way to install and manage Java versions.
+
+Install SDKMan!:
+
+```sh
+curl -s "https://get.sdkman.io" | bash
+```
+
+Restart your shell, then install Java:
+
+```sh
+sdk install java 25.0.1-tem
+```
+
+You can switch between installed versions with:
+
+```sh
+sdk use java 25.0.1-tem
+```
+
 ### Arch Linux {#arch-linux}
 
 ::: info

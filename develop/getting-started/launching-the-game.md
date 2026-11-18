@@ -23,4 +23,10 @@ authors:
     icon: 'simple-icons:visualstudiocode',
     color: '#007ACC',
   },
+  {
+    name: 'Zed',
+    href: './zed/launching-the-game',
+    icon: 'simple-icons:zedindustries',
+    color: '#282C34',
+  },
 ]" />
