@@ -3,10 +3,7 @@ package com.example.docs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -15,7 +12,6 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.item.v1.ItemComponentTooltipProviderRegistry;
-import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 
 import com.example.docs.component.ModComponents;
 import com.example.docs.worldgen.ExampleModWorldPlacedFeatures;
@@ -30,13 +26,6 @@ public class ExampleMod implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	// #endregion create_logger
 
-	// #endregion entrypoint
-	// #region particle_register_main
-	// This DefaultParticleType gets called when you want to use your particle in code.
-	public static final SimpleParticleType SPARKLE_PARTICLE = FabricParticleTypes.simple();
-
-	// #endregion particle_register_main
-	// #region entrypoint
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -51,10 +40,6 @@ public class ExampleMod implements ModInitializer {
 		Identifier id = ExampleMod.id("my_path");
 		// #endregion id_helper_usage
 
-		// #region particle_register_main
-		// Register our custom particle type in the mod initializer.
-		Registry.register(BuiltInRegistries.PARTICLE_TYPE, ExampleMod.id("sparkle_particle"), SPARKLE_PARTICLE);
-		// #endregion particle_register_main
 		// #region datagen_world_biome_modifications
 		// Spawns everywhere in the overworld
 		BiomeModifications.addFeature(

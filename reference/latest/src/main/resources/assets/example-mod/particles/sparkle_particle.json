@@ -1,3 +1,10 @@
 {
-  "textures": ["example-mod:sparkle_particle_texture"]
+  "textures": [
+    "example-mod:sparkle_1",
+    "example-mod:sparkle_2",
+    "example-mod:sparkle_3",
+    "example-mod:sparkle_4",
+    "example-mod:sparkle_5",
+    "example-mod:sparkle_6"
+  ]
 }
