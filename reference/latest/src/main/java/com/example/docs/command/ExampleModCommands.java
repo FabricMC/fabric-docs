@@ -30,7 +30,7 @@ public class ExampleModCommands implements ModInitializer {
 	// #region execute_dedicated_command
 	private static int executeDedicatedCommand(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /dedicated_command."), false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 	// #endregion execute_dedicated_command
 
@@ -136,7 +136,7 @@ public class ExampleModCommands implements ModInitializer {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(Commands.literal("test_command").executes(context -> {
 				context.getSource().sendSuccess(() -> Component.literal("Called /test_command."), false);
-				return 1;
+				return Command.SINGLE_SUCCESS;
 			}));
 		});
 		// #endregion test_command
