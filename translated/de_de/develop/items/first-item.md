@@ -6,7 +6,7 @@ authors:
   - dicedpixels
   - Earthcomputer
   - IMB11
-  - RaphProductions
+  - raphm4044
 ---
 
 Auf dieser Seite werden einige zentrale Konzepte im Zusammenhang mit Items vorgestellt und wie du diese registrieren, texturieren, modellieren und benennen kannst.
@@ -42,8 +42,6 @@ Du kannst diese Methode in eine Klasse namens `ModItems` (oder wie immer du die 
 Mojang macht das auch mit ihren Items! Sieh dir die Klasse `Items` als Inspiration an.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
-
-Beachte, dass wir `T`, einen [generischen Typ](https://docs.oracle.com/javase/tutorial/java/generics/types.html) verwenden, der `Item` erweitert. Dies ermöglicht es uns, dieselbe Methode `register` zur Registrierung beliebiger Typen von Items zu verwenden, die `Item` erweitern. Außerdem verwenden wir für die Factory eine [`Function`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html), mit der wir festlegen können, wie unser Item unter Berücksichtigung der Item-Eigenschaften erstellt werden soll.
 
 ## Ein Item registrieren {#registering-an-item}
 
@@ -171,18 +169,6 @@ Erstelle das JSON für das Client Item im Verzeichnis `assets/example-mod/items`
 Dein Item sollte nun im Spiel wie folgt aussehen:
 
 ![Item mit dem korrektem Modell](/assets/develop/items/first_item_2.png)
-
-## Das Item kompostierbar oder zu einem Brennstoff machen {#making-the-item-compostable-or-a-fuel}
-
-Die Fabric API bietet verschiedene Register, die verwendet werden können, um zusätzliche Eigenschaften zu deinen Items hinzuzufügen.
-
-Wenn du zum Beispiel dein Item kompostierbar machen willst, kannst du die `CompostableRegistry` verwenden:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
-
-Alternativ, wenn du dein Item zu einem Brennstoff machen willst, kannst du das Event `FuelValueEvents.BUILD` verwenden:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
 
 ## Hinzufügen eines einfachen Craftingrezepts {#adding-a-basic-crafting-recipe}
 

@@ -29,6 +29,7 @@
       "com.example.docs.recipe.ExampleModRecipes",
       "com.example.docs.entity.ExampleModEntity",
       "com.example.docs.gamerule.ExampleModGameRules",
+      "com.example.docs.dynamic_registries.ExampleModDynamicRegistries",
       "com.example.docs.conditions.ExampleModResourceConditions",
       "com.example.docs.stats.ExampleModStats"
     ],
@@ -45,7 +46,8 @@
       "com.example.docs.appearance.ExampleModAppearanceClient",
       "com.example.docs.keymapping.ExampleModKeyMappingsClient",
       "com.example.docs.ExampleModRecipesClient",
-      "com.example.docs.entity.ExampleModCustomEntityClient"
+      "com.example.docs.entity.ExampleModCustomEntityClient",
+      "com.example.docs.projectile.ExampleModProjectileClient"
     ],
     "fabric-datagen": ["com.example.docs.datagen.ExampleModDataGenerator"]
   },
@@ -58,9 +60,9 @@
   ],
   "depends": {
     "fabricloader": ">=0.19.0",
-    "minecraft": "~26.2",
+    "minecraft": "26.3",
     "java": ">=25",
-    "fabric-api": "*"
+    "fabric-api": "0.166.2+26.3"
   },
   "accessWidener": "example-mod.classtweaker"
 }

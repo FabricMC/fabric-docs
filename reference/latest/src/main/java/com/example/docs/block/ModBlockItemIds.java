@@ -97,7 +97,7 @@ public class ModBlockItemIds {
 
 	// #region first_block
 	private static BlockItemId create(String name) {
-		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
+		Identifier id = ExampleMod.id(name);
 		return BlockItemId.create(id, id);
 	}
 	// #endregion first_block

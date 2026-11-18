@@ -2,18 +2,18 @@
 title: Impostare un Ambiente di Sviluppo
 description: Una guida passo per passo su come impostare un ambiente di sviluppo per creare mod usando Fabric.
 authors:
-  - IMB11
-  - andrew6rant
-  - SolidBlock-cn
-  - modmuss50
-  - daomephsta
-  - liach
-  - telepathicgrunt
-  - 2xsaiko
-  - natanfudge
-  - mkpoli
-  - falseresync
+  - Andrew6rant
   - asiekierka
+  - Daomephsta
+  - dblsaiko
+  - falseresync
+  - IMB11
+  - liach
+  - mkpoli
+  - modmuss50
+  - natanfudge
+  - SolidBlock-cn
+  - TelepathicGrunt
 authors-nogithub:
   - siglong
 ---
@@ -24,7 +24,7 @@ Per iniziare a sviluppare mod con Fabric, avrai bisogno d'impostare un ambiente 
 
 Per sviluppare mod per Minecraft 1.21.1, avrai bisogno del JDK 21.
 
-Se ti serve aiuto nell'installare Java, puoi fare riferimento alle varie guide per installazione di Java nella [sezione guide per il giocatore](../../players/index).
+Se ti serve aiuto nell'installare Java, puoi fare riferimento alle varie guide per installazione di Java nella [sezione guide per il giocatore](../../players/).
 
 ## Installare IntelliJ IDEA {#installing-intellij-idea}
 

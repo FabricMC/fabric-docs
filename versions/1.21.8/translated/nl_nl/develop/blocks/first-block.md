@@ -3,8 +3,8 @@ title: Maak Je Eerste Blok
 description: Leer hoe je je eerste zelfgemaakte blok kunt maken in Minecraft.
 authors:
   - IMB11
-  - xEobardThawne
   - its-miroma
+  - xEobardThawne
 ---
 
 Blokken vormen de basis van Minecraft – letterlijk en figuurlijk. Net als alles in de game, worden ze netjes opgeborgen in registers.

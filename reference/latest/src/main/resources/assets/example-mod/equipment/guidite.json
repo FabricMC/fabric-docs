@@ -5,6 +5,11 @@
         "texture": "example-mod:guidite"
       }
     ],
+    "humanoid_baby": [
+      {
+        "texture": "example-mod:guidite"
+      }
+    ],
     "humanoid_leggings": [
       {
         "texture": "example-mod:guidite"

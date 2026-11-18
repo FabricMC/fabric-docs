@@ -1,4 +1,4 @@
 {
-  "example:number": 23,
-  "example:the_cooler_number": 42
+  "example-mod:number": 23,
+  "example-mod:the_cooler_number": 42
 }

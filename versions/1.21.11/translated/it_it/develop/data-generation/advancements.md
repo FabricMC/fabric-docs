@@ -3,12 +3,12 @@ title: Generazione di Progressi
 description: Una guida per configurare la generazione di progressi con datagen.
 authors:
   - CelDaemon
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

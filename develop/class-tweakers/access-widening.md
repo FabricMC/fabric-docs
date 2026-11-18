@@ -2,9 +2,9 @@
 title: Access Widening
 description: Learn how to use access wideners from class tweaker files.
 authors-nogithub:
-  - lightningtow
   - siglong
 authors:
+  - An-m1654
   - Ayutac
   - cassiancc
   - CelDaemon
@@ -18,6 +18,7 @@ authors:
   - kb-1000
   - kcrca
   - liach
+  - Lightningtow
   - lmvdz
   - matjojo
   - MildestToucan
@@ -31,10 +32,10 @@ authors:
   - YTG1234
 ---
 
-Access widening is a type of [class tweaking](../class-tweakers) used to loosen the access limits of classes, methods and fields and reflect that change in the decompiled source.
+Access widening is a type of [class tweaking](./) used to loosen the access limits of classes, methods and fields and reflect that change in the decompiled source.
 This includes making them public, extendable and/or mutable.
 
-Access widener entries can be [transitive](../class-tweakers/index#transitive-entries) to make changes visible to mods depending on yours.
+Access widener entries can be [transitive](./#transitive-entries) to make changes visible to mods depending on yours.
 
 To access fields or methods, it can be safer and simpler to use [accessor mixins](../mixins/accessors),
 but there are two situations where accessors are insufficient and access widening is necessary:
@@ -42,11 +43,17 @@ but there are two situations where accessors are insufficient and access widenin
 - If you need to access a `private`, `protected` or package-private class
 - If you need to override a `final` method, or subclass a `final` class
 
-However, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors), [class tweaking](../class-tweakers) only works on Vanilla Minecraft classes, and not on other mods.
+However, unlike [accessor mixins](https://wiki.fabricmc.net/tutorial:mixin_accessors), [class tweaking](./) only works on Vanilla Minecraft classes, and not on other mods.
 
 ## Access Directives {#access-directives}
 
-Access widener entries start with one of three directive keywords to specify the type of modification to apply.
+Access widener entries start with one of three base directive keywords to specify the type of modification to apply.
+
+After the keyword come the parameters, usually the targets of the widening.
+
+The same class, method, or field, can be targeted by multiple access widening entries, one on each line.
+
+Access directives can also be made [transitive](./#transitive-entries) by adding the `transitive-` prefix before the base access directive.
 
 ### Accessible {#accessible}
 
@@ -59,18 +66,16 @@ Making a method or field accessible also makes its class accessible.
 
 ### Extendable {#extendable}
 
-`extendable` can target classes and methods:
+`extendable` can target classes and methods only:
 
-- Classes are made public and non-final
-- Methods are made protected and non-final
+- Classes are made public and non-final.
+- Methods are made non-final, and protected if originally private.
 
 Making a method extendable also makes its class extendable.
 
 ### Mutable {#mutable}
 
 `mutable` can make a field non-final.
-
-To make a private final field both accessible and mutable, you must make two separate entries in the file.
 
 ## Specifying Targets {#specifying-targets}
 
@@ -156,5 +161,13 @@ You can then paste the entry in your class tweaker file.
 ## Applying Changes {#applying-changes}
 
 To see your changes applied, you must refresh your Gradle project and [regenerate sources](../getting-started/generating-sources). The elements you targeted should
-have their access limits modified accordingly. If modifications do not appear, you can try [validating the file](../class-tweakers/index#validating-the-file)
-and checking if any errors appear.
+have their access limits modified accordingly. Make sure to reopen any targeted class from the decompiled source in order to see the
+modifications.
+
+::: tip
+
+If modifications do not appear, you can try [validating the file](./#validating-the-file) and checking if any errors appear.
+
+:::
+
+<!---->

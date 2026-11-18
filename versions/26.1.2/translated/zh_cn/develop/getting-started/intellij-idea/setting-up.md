@@ -2,10 +2,10 @@
 title: 设置 IntelliJ IDEA
 description: 有关如何搭建 IntelliJ IDEA 以使用 Fabric 创作模组的逐步指南。
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - dicedpixels
   - falseresync
   - IMB11

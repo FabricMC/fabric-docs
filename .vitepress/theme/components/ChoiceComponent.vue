@@ -1,73 +1,90 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
 import VPLink from "vitepress/dist/client/theme-default/components/VPLink.vue";
+import { VPIcon } from "vitepress/theme";
 
-defineProps<{
+/** @deprecated use ::: tabs instead */
+interface ChoiceComponentProps {
   choices: {
     name: string;
     icon?: string;
     color?: string;
     href?: string;
   }[];
-}>();
+}
+
+defineProps<ChoiceComponentProps>();
 </script>
 
 <template>
-  <div :style="{ '--grid-columns': Math.min(choices.length, 3) }">
-    <VPLink v-for="(c, key) in choices" :href="c.href" :style="{ '--color': c.color }" :key>
-      <Icon v-if="c.icon" :icon="c.icon" width="48" />
-      {{ c.name }}
-    </VPLink>
-  </div>
+  <ul :style="{ '--grid-columns': Math.min(choices.length, 3) }">
+    <li v-for="(c, key) of choices" :key>
+      <VPLink :href="c.href" :style="{ '--color': c.color }">
+        <VPIcon v-if="c.icon" :icon="c.icon" />
+        {{ c.name }}
+      </VPLink>
+    </li>
+  </ul>
 </template>
 
 <style scoped>
-div {
+ul {
   display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 1), 1fr);
   gap: 1rem;
-  grid-template-columns: repeat(var(--grid-columns), 1fr);
-}
 
-@media (max-width: 768px) {
-  div {
+  padding: 0;
+
+  list-style: none;
+
+  @media (width <= 48rem) {
     grid-template-columns: 1fr;
   }
 }
 
+li + li {
+  margin-top: revert;
+}
+
 .VPLink {
-  align-items: center;
-  background-color: var(--vp-c-bg-soft);
-  border-radius: 10px;
-  border: 1px solid var(--vp-c-border);
-  color: var(--vp-c-text-1);
+  overflow: hidden;
   display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 0.75rem;
+
   font-size: 1.1rem;
   font-weight: 600;
-  gap: 1rem;
-  overflow: hidden;
-  padding: 1rem;
+  color: var(--vp-c-text-1);
   text-decoration: none;
+
+  background-color: var(--vp-c-bg-soft);
+
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease,
     border-color 0.25s ease,
-    color 0.25s ease;
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 
-  .iconify {
-    min-width: 48px;
+  [class^="vpi-"] {
+    font-size: 3rem;
   }
 }
 
 a.VPLink:hover,
 a.VPLink:focus-visible {
-  border-color: var(--color, var(--vp-brand-1));
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  color: var(--color, var(--vp-brand-1));
-  transform: translateY(-4px);
+  transform: translateY(-0.25rem);
+  border-color: var(--color, var(--vp-c-brand-1));
+  color: var(--color, var(--vp-c-brand-1));
+  box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
 }
 
 span.VPLink {
   cursor: not-allowed;
-  opacity: 0.75;
+  opacity: 75%;
 }
 </style>

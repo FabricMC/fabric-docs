@@ -4,7 +4,7 @@ description: Узнайте, как добавлять пользователь�
 authors:
   - dicedpixels
   - hiisuuii
-  - mattidragon
+  - MattiDragon
 resources:
   https://minecraft.wiki/w/Damage_type: Тип урона - Minecraft Wiki
   https://docs.neoforged.net/docs/resources/server/damagetypes/: Типы урона и источники урона - Докумкентация NeoForge (кроме datagen)

@@ -4,9 +4,9 @@ description: Come aprire il progetto di una mod di Minecraft nel tuo IDE.
 authors:
   - Cactooz
   - dicedpixels
+  - evelynmeowww
   - IMB11
   - its-miroma
-  - radstevee
   - Thomas1034
 ---
 
@@ -22,7 +22,7 @@ authors:
 {
  name: 'Visual Studio Code',
  href: './vscode/opening-a-project',
- icon: 'codicon:vscode',
+ icon: 'simple-icons:visualstudiocode',
  color: '#007ACC',
 },
 ]" />

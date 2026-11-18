@@ -42,7 +42,7 @@ Da Minecraft 26.1 noch in der Snapshot Phase ist, fehlt noch eine Dokumentation 
 
 :::
 
-- Der [Fabric API 26.1 Leitfaden zur Portierung](26.1/fabric-api) listet die Umbenennungen auf, die in den 26.1 Snapshots an der Fabric API durchgeführt wurden, um sie an die Namen von Mojang anzupassen.
+- Der [Fabric API 26.1 Leitfaden zur Portierung](./26.1/fabric-api) listet die Umbenennungen auf, die in den 26.1 Snapshots an der Fabric API durchgeführt wurden, um sie an die Namen von Mojang anzupassen.
 - [_Java Edition 26.1_ im Minecraft Wiki](https://minecraft.wiki/w/Java_Edition_26.1) ist eine inoffizielle Zusammenfassung der Inhalte des Updates.
 - [NeoForge's _Minecraft 1.21.11 -> 26.1 Mod Migration Primer_](https://github.com/ChampionAsh5357/neoforged-github/blob/update/26.1/primers/26.1/index.md) deckt die Migration mit Fokus auf Änderungen des Vanilla Code von 1.21.11 auf 26.1 ab.
   - Bitte beachten, dass es sich bei dem verlinkten Artikel um Material von Dritten handelt, das nicht von Fabric gepflegt wird. Es unterliegt dem Urheberrecht von @ChampionAsh5357 und ist lizenziert unter [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).

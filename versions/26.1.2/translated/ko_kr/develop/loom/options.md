@@ -3,9 +3,9 @@ title: Loom 확장 옵션
 description: Gradle용 Fabric Loom 플러그인의 전체 확장 옵션 리퍼런스입니다.
 authors:
   - Atakku
-  - caoimhe
-  - daomephsta
-  - jamieswhiteshirt
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
   - Juuxel
   - kb-1000
   - modmuss50

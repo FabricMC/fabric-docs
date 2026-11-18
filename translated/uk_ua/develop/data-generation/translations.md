@@ -4,12 +4,12 @@ description: Інструкція з налаштування генерації
 authors:
   - CelDaemon
   - IMB11
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
   - sjk1949
 ---
 
@@ -42,6 +42,12 @@ authors-nogithub:
 Разом зі створенням необроблених перекладів, перекладів з `Identifier` і копіюванням їх з уже наявного файлу (передаючи `Path`), існують допоміжні методи для перекладу предметів, блоків, теґів, статистики, сутностей, ефектів моба, вкладок творчості, атрибути сутностей та зачарування. Просто викличте `add` у `translationBuilder` з тим, що ви хочете перекласти, і на що це має бути перекладено:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
+
+Ви також можете інтегрувати переклади з JSON-файлу, який уже міститься у вашому моді. Розмістіть цей файл десь за межами згенерованої директорії, а потім передайте його в `translationBuilder.add`:
+
+<<< @/reference/latest/src/main/resources/assets/example-mod/lang/en_us.existing.json
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_existing
 
 ## Використання перекладу {#using-translations}
 

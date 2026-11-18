@@ -14,11 +14,12 @@ authors:
   - NetUserGet
   - NShak
   - parzivail
+  - skippyall
   - skycatminepokie
   - SolidBlock-cn
   - Voleil
   - Wxffel
-  - YTG123-Mods
+  - YTG1234
   - zulrang
 ---
 
@@ -50,7 +51,7 @@ authors:
 
 :::
 
-Це можна зробити, створивши Java `Record` з параметром `BlockPos`, який реалізує `CustomPacketPayload`.
+Це можна зробити, створивши Java `Record` із параметрами `BlockPos` та `int`, який реалізує інтерфейс `CustomPacketPayload`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#summon_lightning_payload
 
@@ -97,7 +98,7 @@ authors:
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#client_check
 
-Ми створюємо екземпляр корисного навантаження з позицією користувача:
+Ми створимо екземпляр корисного навантаження, що містить позицію користувача та ID сутності для блискавки:
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#payload_instance
 
@@ -127,7 +128,7 @@ API Fabric надає `PlayerLookup`, набір допоміжних функц
 
 Розгляньмо код вище.
 
-Ми можемо отримати доступ до даних із нашого корисного навантаження, викликавши методи отримання запису. У цьому випадку `payload.pos()`. Який потім можна використовувати для отримання позицій `x`, `y` і `z`.
+Ми можемо отримати доступ до даних із нашого корисного навантаження, викликавши методи отримання запису. У нашому випадку `payload.pos()` можна використати для отримання позицій `x`, `y` та `z`, ну й також `payload.id()` для ID сутності:
 
 <<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#payload_pos
 
@@ -162,7 +163,7 @@ API Fabric надає `PlayerLookup`, набір допоміжних функц
 
 <<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#payload
 
-Нарешті, ми надсилаємо пакет на сервер, викликаючи `ClientPlayNetworking.send` з екземпляром нашого \`\`GiveGlowingEffectServerboundPayload\`.
+Нарешті, ми надсилаємо пакет на сервер, викликаючи `ClientPlayNetworking.send` з екземпляром нашого `GiveGlowingEffectServerboundPayload`.
 
 <<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#send
 

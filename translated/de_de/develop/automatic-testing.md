@@ -51,7 +51,7 @@ Nun ist es an der Zeit, den eigentlichen Testcode zu schreiben. Du kannst Beding
 
 <<< @/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java#automatic_testing_4
 
-Für eine Erklärung, was dieser Code tatsächlich tut, siehe [Codecs](./codecs#registry-dispatch).
+Für eine Erklärung, was dieser Code tatsächlich tut, siehe [Codecs](./serialization/codecs#registry-dispatch).
 
 #### Registries einrichten {#setting-up-registries}
 

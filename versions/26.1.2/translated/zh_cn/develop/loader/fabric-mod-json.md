@@ -4,11 +4,10 @@ description: "`fabric.mod.json` 规范指南。"
 authors:
   - cassiancc
   - falseresync
-  - jamieswhiteshirt
   - IMB11
+  - JamiesWhiteShirt
+  - Skylandia
   - SolidBlock-cn
-authors-nogithub:
-  - skyland1a
 resources:
   https://github.com/FabricMC/fabric-loom/blob/dev/1.16/src/main/java/net/fabricmc/loom/api/fmj/FabricModJsonV1Spec.java: fabric.mod.json v1 规范的源代码
   https://github.com/FabricMC/fabric-language-kotlin: Fabric Language Kotlin 的语言提供程序

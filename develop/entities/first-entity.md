@@ -2,6 +2,7 @@
 title: Creating Your First Entity
 description: Learn how to register a simple entity and how to give it goals, render, model, and animate it.
 authors:
+  - An16og
   - cassiancc
   - CelDaemon
   - Earthcomputer
@@ -25,13 +26,21 @@ This tutorial will walk you through the process of creating a custom _Mini Golem
 
 The first step in creating a custom entity is defining its class and registering it with the game.
 
-We'll create the class `MiniGolemEntity` for our entity, and start by giving it attributes. [Attributes](attributes) decide various things including the maximum health, movement speed, and tempt range of the entity.
+We'll create the class `MiniGolemEntity` for our entity, and start by giving it attributes. [Attributes](./attributes) decide various things including the maximum health, movement speed, and tempt range of the entity.
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#registerclass
 
-To register your entity, it's recommended to create a separate class, `ModEntityTypes`, where you register any and all entity types, set their sizes, and register their attributes.
+Our new entity needs an ID; create a new class called `ModEntityTypeIds` and add a resource key for the entity:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#ids
+
+To register your entity, it's recommended to create a separate class, `ModEntityTypes`, where you register any and all entity types, set their sizes, and pass their attributes directly into the registration method:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
+
+Call `initialize` in your [mod's initializer](../getting-started/project-structure#entrypoints) to trigger the class loading and register your entities:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
 
 ## Adding Goals {#adding-goals}
 
@@ -72,7 +81,7 @@ The `MiniGolemEntityModel` class defines how your entity looks by describing its
 
 ::: warning
 
-Blockbench supports multiple [mappings](../migrating-mappings/#mappings) (such as Mojang Mappings, Yarn, and others). Ensure you select the correct mapping that matches your development environment - this tutorial uses Mojang Mappings.
+Blockbench supports multiple [mappings](../porting/mappings/#mappings) (such as Mojang Mappings, Yarn, and others). Ensure you select the correct mapping that matches your development environment - this tutorial uses Mojang Mappings.
 
 Mismatched mappings can cause errors when integrating Blockbench generated code.
 

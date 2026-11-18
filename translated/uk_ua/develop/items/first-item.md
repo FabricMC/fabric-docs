@@ -6,7 +6,7 @@ authors:
   - dicedpixels
   - Earthcomputer
   - IMB11
-  - RaphProductions
+  - raphm4044
 ---
 
 Ця сторінка познайомить вас з деякими ключовими поняттями, пов’язаними з предметами, а також з тим, як їх можна реєструвати, текстурувати, моделювати та називати.
@@ -42,8 +42,6 @@ Mojang також робить це зі своїми предметами! Пе
 Mojang також робить це зі своїми предметами! Щоб отримати натхнення, перегляньте клас `Items`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#mod_items_class
-
-Зверніть увагу, як ми використовуємо `T`, [загальний тип](https://docs.oracle.com/javase/tutorial/java/generics/types.html), який розширює `Item`. Це дозволяє нам використовувати той самий метод `register` для реєстрації будь-якого типу предмета, який розширює `Item`. Ми також використовуємо [`функцію`](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html) для фабрики, яка дозволяє нам вказати, як ми хочемо створити наш предмет відповідно до властивостей предмета.
 
 ## Реєстрація предмета {#registering-an-item}
 
@@ -171,18 +169,6 @@ Minecraft не визначає автоматично, де можна знай
 Тепер ваш предмет у грі має виглядати так:
 
 ![Предмет із правильною моделлю](/assets/develop/items/first_item_2.png)
-
-## Зробити предмет компостованим або паливом {#making-the-item-compostable-or-a-fuel}
-
-Fabric API надає різні реєстри, які можна використовувати для додавання додаткових властивостей до вашого предмета.
-
-Наприклад, якщо ви хочете зробити свій предмет компостованим, ви можете використати `CompostableRegistry`:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
-
-Крім того, якщо ви хочете зробити свій предмет паливом, ви можете використати подію `FuelValueEvents.BUILD`:
-
-<<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
 
 ## Додання звичайних рецептів майстрування {#adding-a-basic-crafting-recipe}
 

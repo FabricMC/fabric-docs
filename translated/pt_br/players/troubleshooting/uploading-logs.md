@@ -47,6 +47,7 @@ O Log mais recente tem o nome de `latest.log` e os anteriores usam o padrão nom
 
 Os Logs podem ser submetidos online a uma variedade de serviços, como, por exemplo:
 
-- [Pastebin](https://pastebin.com/)
-- [GitHub Gist](https://gist.github.com/)
 - [mclo.gs](https://mclo.gs/)
+- [pastes.dev](https://pastes.dev/)
+- [Pastebin.com](https://pastebin.com/)
+- [GitHub Gist](https://gist.github.com/)

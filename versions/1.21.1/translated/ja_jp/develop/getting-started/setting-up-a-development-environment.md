@@ -2,18 +2,18 @@
 title: 開発環境のセットアップ
 description: Fabric を使った Mod 開発環境をセットアップするための段階的なガイド。
 authors:
-  - IMB11
-  - andrew6rant
-  - SolidBlock-cn
-  - modmuss50
-  - daomephsta
-  - liach
-  - telepathicgrunt
-  - 2xsaiko
-  - natanfudge
-  - mkpoli
-  - falseresync
+  - Andrew6rant
   - asiekierka
+  - Daomephsta
+  - dblsaiko
+  - falseresync
+  - IMB11
+  - liach
+  - mkpoli
+  - modmuss50
+  - natanfudge
+  - SolidBlock-cn
+  - TelepathicGrunt
 authors-nogithub:
   - siglong
 ---
@@ -24,7 +24,7 @@ Fabric を使って Mod を開発するためには、IntelliJ IDEA を使用し
 
 Minecraft 1.21.1 を対象にした Mod を開発するには、JDK 21 が必要です。
 
-Java のインストールでお困りの場合、[プレイヤーガイド](../../players/index) 内の Java インストールガイドをご覧になれます。
+Java のインストールでお困りの場合、[プレイヤーガイド](../../players/) 内の Java インストールガイドをご覧になれます。
 
 ## IntelliJ IDEA のインストール {#installing-intellij-idea}
 

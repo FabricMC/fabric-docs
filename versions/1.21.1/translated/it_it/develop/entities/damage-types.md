@@ -4,7 +4,7 @@ description: Impara come aggiungere tipi di danno personalizzati.
 authors:
   - dicedpixels
   - hiisuuii
-  - mattidragon
+  - MattiDragon
 ---
 
 I tipi di danno definiscono tipi di danno che le entità possono subire. A partire da Minecraft 1.19.4, la creazione di nuovi tipi di danno è basata sui dati, per cui essi sono creati tramite file JSON.
@@ -13,7 +13,7 @@ I tipi di danno definiscono tipi di danno che le entità possono subire. A parti
 
 Creiamo un tipo di danno personalizzato chiamato _Tater_. Inizieremo creando un file JSON per il tuo danno personalizzato. Il file sarà posizionato nella cartella `data` della tua mod, in una sottocartella chiamata `damage_type`.
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/data/example-mod/damage_type/tater.json
 ```
 
@@ -83,7 +83,7 @@ Aggiungiamo il nostro tipo di danno Tater al tag `bypasses_armor` dei tipi di da
 
 Per aggiungere il nostro tipo di danno a uno di questi tag, creeremo un file JSON nel namespace `minecraft`.
 
-```:no-line-numbers
+```text:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
 ```
 

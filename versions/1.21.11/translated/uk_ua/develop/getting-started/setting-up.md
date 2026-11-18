@@ -2,10 +2,10 @@
 title: Налаштовування вашого середовища розробки
 description: Покрокова інструкція щодо налаштування середовища розробки для створення модів за допомогою Fabric.
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - dicedpixels
   - falseresync
   - IMB11
@@ -41,7 +41,7 @@ outline: false
 {
  name: 'Visual Studio Code',
  href: './vscode/setting-up',
- icon: 'codicon:vscode',
+ icon: 'simple-icons:visualstudiocode',
  color: '#007ACC',
 },
 ]" />

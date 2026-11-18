@@ -1,5 +1,5 @@
 ---
-title: Генерация структур
+title: Генерация объектов
 description: Руководство по генерации структур в мире с помощью datagen.
 authors:
   - cassiancc
@@ -17,7 +17,7 @@ authors:
 
 :::
 
-Структуры (Features) в Minecraft — это природные или генерируемые объекты в мире, такие как деревья, цветы, руды или озера. Структуры отличаются от строений (Structures) (например, деревень, храмов...), которые можно найти с помощью команды `/locate`.
+Генерируемые объекты (также называемые натуральными декорациями) в Minecraft — это природные или генерируемые образования в мире, такие как деревья, цветы, руды или озёра. Они отличаются от конструкций, также называемых генерируемыми структурами, натуральными структурами, структурными объектами и строениями (например, деревень, храмов и так далее), которые можно найти с помощью команды /locate.
 
 Генерация структур в мирах Minecraft делится на 3 части:
 
@@ -55,11 +55,11 @@ authors:
 
 Прежде чем что-либо делать, давайте создадим класс конфигурируемых структур внутри основного пакета и объявим метод `configure`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configure_features_class
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_configure_features_class
 
 Теперь давайте добавим кастомную конфигурируемую структуру для алмазной жилы. Сначала зарегистрируйте ключ для `ConfiguredFeature` в вашем классе конфигурируемых структур:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configured_key
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_configured_key
 
 ::: tip
 
@@ -71,25 +71,25 @@ authors:
 
 Затем внутри метода `configure` мы создадим `RuleTest`, который определяет, какие блоки может заменять ваша структура. Например, этот `RuleTest` разрешает замену каждого блока с тегом `DEEPSLATE_ORE_REPLACEABLES`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ruletest
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_ruletest
 
 Далее, также внутри метода `configure`, нам нужно создать `OreConfiguration`, который указывает игре, на что именно заменять блоки.
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ore_feature_config
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_ore_feature_config
 
 Вы можете указать несколько вариантов в списке для разных типов поверхностей. Например, давайте настроим разные варианты для камня и глубинного сланца:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_multi_ore_feature_config
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_multi_ore_feature_config
 
 Наконец, нам нужно зарегистрировать нашу конфигурируемую структуру в игре внутри метода `configure`!
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_conf_feature_register
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_conf_feature_register
 
 ### Деревья {#trees}
 
 Чтобы создать дерево, вам сначала нужно создать `TreeConfiguration` внутри метода configure:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_feature_config
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_tree_feature_config
 
 Вот за что отвечает каждый аргумент:
 
@@ -107,9 +107,9 @@ authors:
 
 :::
 
-Затем нам нужно зарегистрировать наше дерево, добавив следующую строку в метод `configure` класса `ExampleModWorldConfiguredFeatures`.
+Затем нам нужно зарегистрировать наше дерево, добавив следующую строку в метод `configure` класса `ExampleModWorldFeatures`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_register
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_tree_register
 
 ## Правила размещения структур {#placement-features}
 
@@ -179,11 +179,11 @@ authors:
 
 ## Запуск Datagen {#running-datagen}
 
-Теперь, когда вы запустите генерацию данных (datagen), вы увидите JSON-файл в папке `src/main/generated/data/example-mod/worldgen/configured_feature` для каждой добавленной конфигурируемой структуры, а также файл в папке `src/main/generated/data/example-mod/worldgen/placed_feature` для каждого правила размещения!
+Теперь, когда вы запустите генерацию данных (datagen), вы увидите JSON-файл в папке `src/main/generated/data/example-mod/worldgen/feature` для каждой добавленной конфигурируемой структуры, а также файл в папке `src/main/generated/data/example-mod/worldgen/placed_feature` для каждого правила размещения!
 
 :::details Сгенерированный файл конфигурируемой структуры
 
-<<< @/reference/latest/src/main/generated/data/example-mod/worldgen/configured_feature/diamond_block_vein.json
+<<< @/reference/latest/src/main/generated/data/example-mod/worldgen/feature/diamond_block_vein.json
 
 :::
 

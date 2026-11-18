@@ -79,7 +79,7 @@ Succeeds if the specified `registry` contains all tags in `values`. For example,
 
 ### Features Enabled {#features-enabled}
 
-Succeeds if all [feature flags](https://minecraft.wiki/w/Experiments#Java_Edition) in `features` are enabled. For example, the following will succeed if both `minecraft:vanilla` and `minecraft:redstone_experiments` are enabled:
+Succeeds if all [feature flags](https://minecraft.wiki/w/Experiments#Java_Edition) in `features` are enabled. For example, the following will succeed if both `minecraft:vanilla` and `minecraft:minecart_improvements` are enabled:
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/features_enabled.json
 
@@ -93,7 +93,7 @@ Succeeds if the registry contains all of the identifiers in `values`. For exampl
 
 ::: info PREREQUISITES
 
-You must first understand [how to create a codec](./codecs) before setting a custom resource condition.
+You must first understand [how to create a codec](./serialization/codecs) before setting a custom resource condition.
 
 :::
 
@@ -103,7 +103,7 @@ To demonstrate this, we'll create a condition that checks the current date. This
 
 ### Preparing Your Condition {#preparing-your-condition}
 
-For simplicity, we'll be creating a helper method that instantiates your resource condition from a name and a [`MapCodec`](./codecs#mapcodec). You should put this method in a class called `ModResourceConditions` (or whatever you want to name it).
+For simplicity, we'll be creating a helper method that instantiates your resource condition from a name and a [`MapCodec`](./serialization/codecs#mapcodec). You should put this method in a class called `ModResourceConditions` (or whatever you want to name it).
 
 ::: tip
 

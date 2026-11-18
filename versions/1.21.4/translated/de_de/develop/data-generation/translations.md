@@ -3,12 +3,12 @@ title: Generierung von Übersetzungen
 description: Ein Leitfaden zur Einrichtung der Generierung von Übersetzungen mit dem Datengenerator.
 authors:
   - IMB11
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
   - sjk1949
 ---
 

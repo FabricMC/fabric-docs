@@ -51,7 +51,7 @@ authors:
 
 <<< @/reference/latest/src/test/java/com/example/docs/codec/BeanTypeTest.java#automatic_testing_4
 
-Объяснение того, что на самом деле делает этот код, см. в разделе [Кодеки](./codecs#registry-dispatch).
+Объяснение того, что на самом деле делает этот код, см. в разделе [Кодеки](./serialization/codecs#registry-dispatch).
 
 #### Настройка реестров {#setting-up-registries}
 

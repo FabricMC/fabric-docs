@@ -20,6 +20,12 @@ Du beginnst mit einem Aufruf von `AttachmentRegistry.create`. Das folgende Beisp
 
 <<< @/reference/latest/src/main/java/com/example/docs/attachment/ExampleModAttachments.java#string
 
+::: warning
+
+Aufrufe von `AttachmentRegistry.create...` werden in statischen Initialisierern ausgeführt, daher muss die entsprechende Klasse geladen werden, indem du in deiner Funktion `ModInitializer.onInitialize` auf sie verweist. Wenn sie nie geladen wird, werden die Anhänge nie registriert, und die Persistenz funktioniert nicht mehr.
+
+:::
+
 `AttachmentRegistry` enthält einige Methoden zum Erstellen grundlegender Datenanhänge, darunter:
 
 - `AttachmentRegistry.create()`: Erstellt einen Datenanhang. Durch einen Neustart des Spiels wird der Anhang gelöscht.

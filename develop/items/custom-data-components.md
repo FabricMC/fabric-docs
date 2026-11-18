@@ -2,8 +2,8 @@
 title: Custom Data Components
 description: Learn how to add custom data to your items using the new 1.20.5 component system.
 authors:
-  - Romejanic
   - ekulxam
+  - Romejanic
 resources:
   https://minecraft.wiki/w/Data_component_format#List_of_components: List of vanilla components - Minecraft Wiki
 ---
@@ -27,8 +27,8 @@ This is the basic template to register a component type:
 ```java
 public static final DataComponentType<?> MY_COMPONENT_TYPE = Registry.register(
     BuiltInRegistries.DATA_COMPONENT_TYPE,
-    Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "my_component"),
-    DataComponentType.<?>builder().persistent(null).build()
+    ExampleMod.id("my_component"),
+    DataComponentType.<?>builder().persistent(null).networkSynchronized(null).build()
 );
 ```
 
@@ -36,7 +36,7 @@ There are a few things here worth noting. On the first and fourth lines, you can
 
 Secondly, you must provide an `Identifier` containing the intended ID of your component. This is namespaced with your mod's ID.
 
-Lastly, we have a `DataComponentType.Builder` that creates the actual `DataComponentType` instance that's being registered. This contains another crucial detail we will need to discuss: your component's `Codec`. This is currently `null` but we will also fill it in soon.
+Lastly, we have a `DataComponentType.Builder` that creates the actual `DataComponentType` instance that's being registered. This contains another crucial detail we will need to discuss: serialization via your component's `Codec` and `StreamCodec`. These are both currently `null`, but we will also fill them in soon.
 
 ## Basic Data Components {#basic-data-components}
 
@@ -46,7 +46,21 @@ As an example, let's create an `Integer` value that will track how many times th
 
 <<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#integer_component
 
-You can see that we're now passing `<Integer>` as our generic type, indicating that this component will be stored as a single `int` value. For our codec, we are using the provided `ExtraCodecs.POSITIVE_INT` codec. We can get away with using basic codecs for simple components like this, but more complex scenarios might require a custom codec (this will be covered briefly later on).
+You can see that we're now passing `<Integer>` as our generic type, indicating that this component will be stored as a single `int` value.
+
+For our codec, we are using the provided `ExtraCodecs.NON_NEGATIVE_INT` codec. We can get away with using basic codecs for simple components like this, but more complex scenarios might require a custom codec (this will be covered briefly later on).
+
+For our `StreamCodec` (sending the information to the client), we're using `ByteBufCodecs.VAR_INT`. A VarInt is a method of storing integers using a dynamic number of bytes. A smaller integer will be encoded in less bytes, while a larger integer will require more bytes.
+
+::: warning
+
+Do not think you can skip `networkSynchronized`!
+
+If you do not specify a `StreamCodec` in this manner, Minecraft will instead construct a more inefficient one and sync your component anyway.
+
+To prevent your component from being synced, you will need mixins, which is outside the scope of this tutorial.
+
+:::
 
 If you start the game, you should be able to enter a command like this:
 
@@ -238,7 +252,7 @@ public record AdvancedCustomComponent(float temperature, boolean burnt) {
 }
 ```
 
-Since we are defining a custom data structure, there won't be a pre-existing `Codec` for our use case like with the [basic component](#basic-data-components). This means we're going to have to construct our own codec. Let's define one in our record class using a `RecordCodecBuilder` which we can reference once we register the component. For more details on using a `RecordCodecBuilder` you can refer to [this section of the Codecs page](../codecs#merging-codecs-for-record-like-classes).
+Since we are defining a custom data structure, there won't be a pre-existing `Codec` for our use case like with the [basic component](#basic-data-components). This means we're going to have to construct our own codec. Let's define one in our record class using a `RecordCodecBuilder` which we can reference once we register the component. For more details on using a `RecordCodecBuilder` you can refer to [this section of the Codecs page](../serialization/codecs#merging-codecs-for-record-like-classes).
 
 <<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#codec
 
@@ -246,9 +260,15 @@ You can see that we are defining a list of custom fields based on the primitive 
 
 You can also define optional fields by using `optionalFieldOf()` and passing a default value as the second argument. Any fields not marked optional will be required when setting the component using `/give` so make sure you mark any optional arguments as such when creating your codec.
 
-Finally, we call `apply()` and pass our record's constructor. For more details on how to construct codecs and more advanced use cases, be sure to read the [Codecs](../codecs) page.
+Finally, we call `apply()` and pass our record's constructor. For more details on how to construct codecs and more advanced use cases, be sure to read the [Codecs](../serialization/codecs) page.
 
-Registering a composite component is similar to before. We just pass our record class as the generic type, and our custom `Codec` to the `codec()` method.
+We will also need to construct our `StreamCodec`.
+
+<<< @/reference/latest/src/main/java/com/example/docs/component/AdvancedCustomComponent.java#stream_codec
+
+`composite` is similar to `RecordCodecBuilder` in that it serializes each field with the given serializer (in this case, `StreamCodec`) specified. However, it is much easier to understand than `RecordCodecBuilder`. Here, we're simply providing a `StreamCodec` for each field, then the getter (as a `Function`) for that field. Our last parameter is a function (usually the constructor is provided here) that takes all the deserialized fields and yields our component.
+
+Registering a composite component is similar to before. We just pass our record class as the generic type, our custom `Codec` to the `codec()` method, and our custom `StreamCodec` to the `networkSynchronized()` method.
 
 <<< @/reference/latest/src/main/java/com/example/docs/component/ModComponents.java#custom_component
 

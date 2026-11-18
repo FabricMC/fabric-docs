@@ -3,12 +3,12 @@ title: 进度生成
 description: 使用数据生成器设置进度生成的指南。
 authors:
   - CelDaemon
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

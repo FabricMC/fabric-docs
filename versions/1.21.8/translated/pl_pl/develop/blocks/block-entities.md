@@ -2,7 +2,7 @@
 title: Byty Bloków
 description: Dowiedz się, jak tworzyć byty bloków dla swoich własnych bloków.
 authors:
-  - natri0, Maksiurino
+  - natri0
 ---
 
 Byty bloków stanowią sposób na przechowywanie dodatkowych danych dla bloku, które nie są częścią stanu bloku: zawartości ekwipunku, własnej nazwy itd.

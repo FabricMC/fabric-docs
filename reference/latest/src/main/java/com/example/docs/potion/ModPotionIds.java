@@ -12,7 +12,7 @@ public class ModPotionIds {
 	public static final ResourceKey<Potion> TATER_POTION = create("tater");
 
 	private static ResourceKey<Potion> create(String name) {
-		Identifier id = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name);
+		Identifier id = ExampleMod.id(name);
 		return ResourceKey.create(Registries.POTION, id);
 	}
 }

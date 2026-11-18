@@ -13,17 +13,17 @@ Fabric 官方支持从快照`18w43b`和正式版`1.14`及以上的所有 Minecra
 
 ::: info
 
-您应始终检查模组的来源是否可信。 更多信息请查看[寻找可信的模组](./finding-mods)指南。
+您应始终检查模组的来源是否可信。更多信息请查看[寻找可信的模组](./finding-mods)指南。
 
 :::
 
-大多数作者都会将自己的模组发布到 [Modrinth](https://modrinth.com/mods?g=categories:%27fabric%27) 和 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods\&gameVersionTypeId=4) 上，但也有一些作者会选择将模组上传到个人网站或其他平台，如 GitHub 仓库。
+大多数作者都会将自己的模组发布到 [Modrinth](https://modrinth.com/discover/mods?g=categories:fabric) 和 [CurseForge](https://www.curseforge.com/minecraft/search?class=mc-mods&gameVersionTypeId=4) 上，但也有一些作者会选择将模组上传到个人网站或其他平台，如 GitHub 仓库。
 
 ## 在哪里可以找到现成的 Fabric 整合包？ {#where-can-i-find-pre-made-fabric-modpacks}
 
 你可以在各种平台上找到现成的 Fabric 整合包，例如：
 
-- [Modrinth](https://modrinth.com/modpacks?g=categories:%27fabric%27)
+- [Modrinth](https://modrinth.com/discover/modpacks?g=categories:fabric)
 - [CurseForge](https://www.curseforge.com/minecraft/search?class=modpacks&gameVersionTypeId=4)
-- [Feed The Beast](https://www.feed-the-beast.com/ftb-app)
+- [Feed The Beast](https://www.feed-the-beast.com/modpacks)
 - [Technic](https://www.technicpack.net/modpacks)

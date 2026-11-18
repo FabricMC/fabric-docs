@@ -4,12 +4,12 @@ description: A guide to setting up translation generation with datagen.
 authors:
   - CelDaemon
   - IMB11
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
   - sjk1949
 ---
 
@@ -42,6 +42,12 @@ To finish setup, add this provider to your `DataGeneratorEntrypoint` within the 
 Along with creating raw translations, translations from `Identifier`s, and copying them from an already existing file (by passing a `Path`), there are helper methods for translating items, blocks, tags, stats, entities, mob effects, creative tabs, entity attributes, and enchantments. Simply call `add` on the `translationBuilder` with what you want to translate and what it should translate to:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
+
+You can also merge in translations from a JSON file that already lives in your mod. Place that file somewhere outside the generated directory, then pass it to `translationBuilder.add`:
+
+<<< @/reference/latest/src/main/resources/assets/example-mod/lang/en_us.existing.json
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_existing
 
 ## Using Translations {#using-translations}
 

@@ -2,10 +2,10 @@
 title: Generierung von Rezepten
 description: Ein Leitfaden zur Einrichtung der Generierung von Rezepten mit dem Datengenerator.
 authors:
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
-  - mcrafterzz
   - jmanc3
 ---
 

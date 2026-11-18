@@ -2,10 +2,10 @@
 title: Настройка среды разработки
 description: Пошаговое руководство по настройке среды разработки для создания модов с помощью Fabric.
 authors:
-  - 2xsaiko
-  - andrew6rant
+  - Andrew6rant
   - asiekierka
-  - daomephsta
+  - Daomephsta
+  - dblsaiko
   - dicedpixels
   - falseresync
   - IMB11
@@ -15,7 +15,7 @@ authors:
   - modmuss50
   - natanfudge
   - SolidBlock-cn
-  - telepathicgrunt
+  - TelepathicGrunt
 authors-nogithub:
   - siglong
 ---
@@ -40,7 +40,7 @@ authors-nogithub:
 {
  name: 'Visual Studio Code',
  href: './vscode/setting-up',
- icon: 'codicon:vscode',
+ icon: 'simple-icons:visualstudiocode',
  color: '#007ACC',
 },
 ]" />

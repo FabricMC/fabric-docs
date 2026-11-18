@@ -3,15 +3,14 @@ title: Mob Effects
 description: Learn how to add custom mob effects.
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
-  - SattesKrokodil
   - Manchick0
+  - SattesKrokodil
+  - TheFireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu
-
 search: false
 ---
 
@@ -41,7 +40,7 @@ Similar to block and item registration, we use `Registry.register` to register o
 
 The status effect icon is a 18x18 PNG which will appear in the player's inventory screen. Place your custom icon in:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 

@@ -2,8 +2,8 @@
 title: Grundlegende Rendering-Konzepte
 description: Lerne, die grundlegenden Konzepte des Renderings mit der Rendering-Engine von Minecraft kennen.
 authors:
-  - IMB11
   - "0x3C50"
+  - IMB11
 ---
 
 ::: warning
@@ -96,7 +96,7 @@ Es ist einfacher, anhand eines praktischen Beispiels zu erklären, wie man in de
 
 Wir werden Eckpinkt an den folgenden Punkten auf dem HUD zeichnen (in dieser Reihenfolge):
 
-```txt
+```text
 (20, 20)
 (5, 40)
 (35, 40)

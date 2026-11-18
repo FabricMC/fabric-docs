@@ -2,8 +2,8 @@
 title: Creating Your First Item
 description: Learn how to register a simple item and how to texture, model and name it.
 authors:
-  - IMB11
   - dicedpixels
+  - IMB11
 
 search: false
 ---

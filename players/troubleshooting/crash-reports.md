@@ -43,7 +43,7 @@ Crash reports can be found in the following locations:
 
 Crash reports are very long, and can be very confusing to read. However, they contain a lot of information about the crash, and can help you find the cause of the crash.
 
-For this guide, we will be using [this crash report](/assets/players/crash-report-example.log).
+For this guide, we will be using the following crash report:
 
 ::: details Show Crash Report
 

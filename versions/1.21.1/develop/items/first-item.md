@@ -2,8 +2,8 @@
 title: Creating Your First Item
 description: Learn how to register a simple item and how to texture, model and name it.
 authors:
-  - IMB11
   - dicedpixels
+  - IMB11
 
 search: false
 ---
@@ -40,7 +40,7 @@ This will not work if you've marked the item as damageable, as the stack size is
 
 However, if you now try to run the modified client, you can see that our item doesn't exist in-game yet! This is because you didn't statically initialize the class.
 
-To do this, you can add a public static initialize method to your class and call it from your [mod's initializer](./getting-started/project-structure#entrypoints) class. Currently, this method doesn't need anything inside it.
+To do this, you can add a public static initialize method to your class and call it from your [mod's initializer](../getting-started/project-structure#entrypoints) class. Currently, this method doesn't need anything inside it.
 
 @[code transcludeWith=:::3](@/reference/1.21.1/src/main/java/com/example/docs/item/ModItems.java)
 

@@ -23,6 +23,8 @@ Sobald die Quellen generiert sind, sollte es möglich sein, Minecraft-Klassen zu
 
 **Zur Definition gehen** (<kbd>F12</kbd>): Navigiere im Quellcode zu einer Klassendefinition, indem du bei gedrückter <kbd>Strg</kbd> -Taste auf den Namen klickst oder mit der rechten Maustaste darauf klickst und "Go to Definition" auswählst.
 
+**Zu den Implementierungen springen** (<kbd>Strg</kbd>+<kbd>F12</kbd>): Navigiere im Quellcode zu einer Klassenimplementierung, indem du diese auswählst und <kbd>Strg</kbd>+<kbd>F12</kbd> drückst oder indem du mit der rechten Maustaste darauf klickst und "Go to Implementations" auswählst.
+
 ![Zur Definition gehen](/assets/develop/getting-started/vscode/go-to-definition.png)
 
 ### Referenzen finden {#finding-references}

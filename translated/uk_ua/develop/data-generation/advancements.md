@@ -2,13 +2,14 @@
 title: Генерація досягнень
 description: Посібник із налаштування генерації досягнень за допомогою генерації даних.
 authors:
+  - cassiancc
   - CelDaemon
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->
@@ -121,7 +122,7 @@ authors-nogithub:
 
 ::: info
 
-Щоб дізнатися більше про кодеки, перегляньте сторінку [кодеків](../codecs).
+Щоб дізнатися більше про кодеки, див. сторінку про [кодеки](../serialization/codecs).
 
 :::
 
@@ -133,7 +134,7 @@ authors-nogithub:
 
 <<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_criterion_trigger
 
-Майже готово! Далі нам потрібен екземпляр нашого критерію для роботи. Помістімо його в новий клас під назвою `ModCriteria`.
+Майже готово! Далі нам потрібен екземпляр нашого критерію для роботи. Розмістімо це в новому класі під назвою `ModCriteria` та додамо допоміжний метод для зручної реєстрації нових критеріїв.
 
 <<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_mod_criteria
 
@@ -191,6 +192,6 @@ authors-nogithub:
 
 ## Умови ресурсів {#resource-conditions}
 
-Щоб застосувати [умову ресурсів](../resource-conditions) до досягнення, згенерованого на основі даних, оберніть споживача за допомогою `withConditions` і вкажіть будь-які умови ресурсів, які ви хочете застосувати. Тоді це створить досягнення із застосованими умовами ресурсів:
+Щоб застосувати [умову ресурсів](../resource-conditions) до генерованого даними досягнення, оберніть споживача за допомогою `withConditions` і вкажіть будь-які умови ресурсів, які ви хочете застосувати. Тоді це створить досягнення із застосованими умовами ресурсів:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_conditions

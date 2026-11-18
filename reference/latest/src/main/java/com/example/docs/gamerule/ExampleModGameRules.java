@@ -1,6 +1,5 @@
 package com.example.docs.gamerule;
 
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
@@ -20,14 +19,14 @@ public class ExampleModGameRules implements ModInitializer {
 	public static final GameRule<Boolean> BAD_VISION_BOOLEAN_GAMERULE = GameRuleBuilder
 					.forBoolean(false) // Default value declaration
 					.category(GameRuleCategory.MISC)
-					.buildAndRegister(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "bad_vision"));
+					.buildAndRegister(ExampleMod.id("bad_vision"));
 	// #endregion gamerule_class
 
 	// #region double
 	public static final GameRule<Double> DOUBLE_GAMERULE = GameRuleBuilder
 					.forDouble(6.7) // Default value declaration
 					.category(GameRuleCategory.MISC)
-					.buildAndRegister(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "double_example"));
+					.buildAndRegister(ExampleMod.id("double_example"));
 	// #endregion double
 
 	private static void initializeBadVision() {

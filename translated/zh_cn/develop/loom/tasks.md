@@ -9,7 +9,7 @@ authors:
 
 ## Fabric 模组 JSON 生成 {#fabric-mod-json}
 
-`net.fabricmc.loom.task.FabricModJsonV1Task` 是一个可以用来为你的模组生成有效的 `fabric.mod.json` 文件的任务。 这是一个简单任务，其会输出一个文件，至于如何配置你的构建脚本，以便将该文件包含在模组的资源中，则需要你自己决定。
+`net.fabricmc.loom.task.FabricModJsonV1Task` 是一个可以用来为你的模组生成有效的 `fabric.mod.json` 文件的任务。这是一个简单任务，其会输出一个文件，至于如何配置你的构建脚本，以便将该文件包含在模组的资源中，则需要你自己决定。
 
 ```gradle
 tasks.register("generateModJson", net.fabricmc.loom.task.FabricModJsonV1Task) {
@@ -22,7 +22,7 @@ tasks.register("generateModJson", net.fabricmc.loom.task.FabricModJsonV1Task) {
 }
 ```
 
-以上示例是该任务最基本的用法，将生成一个 `fabric.mod.json` 文件，其中包含指定的模组 ID 和版本。 这个 `json` 代码块支持所有在 [Fabric Mod JSON 格式](../loader/fabric-mod-json)中定义的字段。
+以上示例是该任务最基本的用法，将生成一个 `fabric.mod.json` 文件，其中包含指定的模组 ID 和版本。这个 `json` 代码块支持所有在 [Fabric Mod JSON 格式](../loader/fabric-mod-json)中定义的字段。
 
 ## 下载任务 {#download-task}
 
@@ -50,7 +50,7 @@ tasks.register("download", net.fabricmc.loom.task.DownloadTask) {
 
 ## ModEnigmaTask {#modenigma-task}
 
-`net.fabricmc.loom.task.tool.ModEnigmaTask` 是一个高级任务，可用于针对映射文件启动 [Enigma](https://github.com/FabricMC/Enigma)。 这可以用来生成模组提供的 javadoc。
+`net.fabricmc.loom.task.tool.ModEnigmaTask` 是一个高级任务，可用于针对映射文件启动 [Enigma](https://github.com/FabricMC/Enigma)。这可以用来生成模组提供的 javadoc。
 
 ```gradle
 tasks.register("enigma", net.fabricmc.loom.task.tool.ModEnigmaTask) {

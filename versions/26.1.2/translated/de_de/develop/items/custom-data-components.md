@@ -2,8 +2,8 @@
 title: Benutzerdefinierte Datenkomponenten
 description: Lerne, wie du benutzerdefinierte Datenkomponenten zu deinen Items mit Hilfe des neuen 1.20.5 Komponenten-System hinzufügst.
 authors:
-  - Romejanic
   - ekulxam
+  - Romejanic
 resources:
   https://minecraft.wiki/w/Data_component_format#List_of_components: Liste an Vanilla Komponenten - Minecraft Wiki
 ---

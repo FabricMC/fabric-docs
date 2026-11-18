@@ -1,11 +1,11 @@
 ---
 title: Яйця виклику
-description: Прочитайте як зареєструвати предмет яйця виклику.
+description: Дізнайтеся, як зареєструвати предмет яйця виклику.
 authors:
-  - Earthcomputer
-  - JaaiDead
   - cassiancc
+  - Earthcomputer
   - Fellteros
+  - JaaiDead
   - skycatminepokie
   - VatinMc
   - voidedaries

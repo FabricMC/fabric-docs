@@ -3,8 +3,8 @@ title: Создание вашего первого блока
 description: Научитесь создавать собственные блоки в Minecraft.
 authors:
   - IMB11
-  - xEobardThawne
   - its-miroma
+  - xEobardThawne
 ---
 
 Блоки являются основой строительства в Minecraft. Как и всё здесь, блоки хранятся в реестрах.

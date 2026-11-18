@@ -3,10 +3,9 @@ title: Überschreiben von Abhängigkeiten
 description: Ein Leitfaden zum Überschreiben von Abhängigkeiten, die in der Datei `fabric.mod.json` eines Mods definiert sind.
 authors:
   - cassiancc
+  - kb-1000
   - skycatminepokie
-  - ytg1234
-authors-nogithub:
-  - kb1000
+  - YTG1234
 resources:
   https://semver.org/: Semantische Versionierung
 ---

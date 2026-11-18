@@ -26,7 +26,7 @@ Registering a `BlockEntity` yields a `BlockEntityType` like the `COUNTER_BLOCK_E
 ::: tip
 
 Note how the constructor of the `CounterBlockEntity` takes two parameters, but the `BlockEntity` constructor takes three: the `BlockEntityType`, the `BlockPos`, and the `BlockState`.
-If we didn't hard-code the `BlockEntityType`, the `ModBlockEntities` class wouldn't compile! This is because the `BlockEntityFactory`, which is a functional interface, describes a function that only takes two parameters, just like our constructor.
+If we didn't hard-code the `BlockEntityType`, the `ModBlockEntities` class wouldn't compile! This is because the `FabricBlockEntityTypeBuilder.Factory`, which is a functional interface, describes a function that only takes two parameters, just like our constructor.
 
 :::
 
@@ -38,8 +38,8 @@ Next, to actually use the block entity, we need a block that implements `EntityB
 
 There's two ways to approach this:
 
-- create a block that extends `BaseEntityBlock` and implement the `createBlockEntity` method
-- create a block that implements `EntityBlock` by itself and override the `createBlockEntity` method
+- create a block that extends `BaseEntityBlock` and implement the `newBlockEntity` method
+- create a block that implements `EntityBlock` by itself and override the `newBlockEntity` method
 
 We'll use the first approach in this example, since `BaseEntityBlock` also provides some nice utilities.
 
@@ -49,7 +49,7 @@ We'll use the first approach in this example, since `BaseEntityBlock` also provi
 
 Using `BaseEntityBlock` as the parent class means we also need to implement the `createCodec` method, which is rather easy.
 
-Unlike blocks, which are singletons, a new block entity is created for every instance of the block. This is done with the `createBlockEntity` method, which takes the position and `BlockState`, and returns a `BlockEntity`, or `null` if there shouldn't be one.
+Unlike blocks, which are singletons, a new block entity is created for every instance of the block. This is done with the `newBlockEntity` method, which takes the position and `BlockState`, and returns a `BlockEntity`, or `null` if there shouldn't be one.
 
 Don't forget to register the block in the `ModBlocks` class, just like in the [Creating Your First Block](../blocks/first-block) guide:
 

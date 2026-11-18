@@ -18,6 +18,12 @@ Fabric Loom bietet eine Vielzahl von Startprofilen, die dir helfen, deine Mods i
 
 Wenn du IntelliJ IDEA verwendest, findest du die Startprofile in der oberen rechten Ecke des Fensters. Klicke auf das Dropdown-Menü, um die verfügbaren Startprofile anzuzeigen.
 
+::: warning
+
+Stelle sicher, dass dein Projektpfad und dein Benutzername im Betriebssystem ausschließlich ASCII-Zeichen (Buchstaben, Ziffern, Bindestriche, Unterstriche und Punkte) enthalten. Nicht-ASCII-Zeichen (z. B. Emojis oder Buchstaben mit Akzenten) können bei bestimmten Build-Tools oder Skripten zu Kodierungsproblemen und Fehlern bei der Auswertung der Befehlszeile führen. Siehe auch: [Leitfäden zur Projekterstellung](../creating-a-project).
+
+:::
+
 Es sollte ein Client- und ein Serverprofil geben, mit der Möglichkeit, es entweder normal oder im Debug-Modus auszuführen:
 
 ![Startprofile](/assets/develop/getting-started/launch-profiles.png)

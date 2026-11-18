@@ -20,7 +20,7 @@ public class CustomSounds {
 
 	// actual registration of all the custom SoundEvents
 	private static SoundEvent registerSound(String id) {
-		Identifier identifier = Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, id);
+		Identifier identifier = ExampleMod.id(id);
 		return Registry.register(BuiltInRegistries.SOUND_EVENT, identifier, SoundEvent.createVariableRangeEvent(identifier));
 	}
 

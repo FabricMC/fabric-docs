@@ -9,4 +9,4 @@ description: Fabricのコミュニティによって書かれたこのデベロ�
 
 このドキュメントに対応した動作するModのコードは、[GitHubの `/reference` フォルダ](https://github.com/FabricMC/fabric-docs/tree/main/reference/1.21.1) にあります。
 
-もしFabricのドキュメントに貢献したいなら、 [投稿ガイドライン](../contributing)を参照してください。ソースコードは [GitHub](https://github.com/FabricMC/fabric-docs)にあります。
+もしFabricのドキュメントに貢献したいなら、 [投稿ガイドライン](../../contributing)を参照してください。ソースコードは [GitHub](https://github.com/FabricMC/fabric-docs)にあります。

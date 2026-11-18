@@ -9,4 +9,4 @@ Okunabilir bütün geliştirici rehberlerine kenar çubuğundan gözatabilirsini
 
 Unutmayın: bu dokümantasyon için tamamen çalışan bir mod, tüm koduyla beraber [GitHub'da `/reference` klasöründe](https://github.com/FabricMC/fabric-docs/tree/main/reference/1.21.4) mevcuttur.
 
-Eğer Fabric Documentation'a yardım etmek istersen, kaynak kodu ve ilgili [katkıda bulunma kılavuzu](../contributing)nu [GitHub](https://github.com/FabricMC/fabric-docs)'da bulabilirsin
+Eğer Fabric Documentation'a yardım etmek istersen, kaynak kodu ve ilgili [katkıda bulunma kılavuzu](../../contributing)nu [GitHub](https://github.com/FabricMC/fabric-docs)'da bulabilirsin

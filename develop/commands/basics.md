@@ -76,7 +76,7 @@ Commands are registered within the `CommandRegistrationCallback` provided by the
 
 ::: info
 
-For information on registering callbacks, please see the [Events](../events) guide.
+For information on registering callbacks, please see the [Events](../events/) guide.
 
 :::
 

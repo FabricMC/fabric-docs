@@ -1,6 +1,6 @@
 ---
 title: Створення власних звуків
-description: Навчіться додавати й використовувати власні звуки за допомогою реєстру.
+description: Дізнайтеся, як додати й використати власні звуки за допомогою реєстру.
 authors:
   - JR1811
 resources:
@@ -42,8 +42,8 @@ resources:
 Щоб додати спеціальний звук до мода, зареєструйте SoundEvent у [ініціалізаторі мода](../getting-started/project-structure#entrypoints).
 
 ```java
-Registry.register(BuiltInRegistries.SOUND_EVENT, Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle"),
-        SoundEvent.createVariableRangeEvent(Identifier.fromNamespaceAndPath(MOD_ID, "metal_whistle")));
+Registry.register(BuiltInRegistries.SOUND_EVENT, ExampleMod.id("metal_whistle"),
+        SoundEvent.createVariableRangeEvent(ExampleMod.id("metal_whistle")));
 ```
 
 ## Прибирання безладу {#cleaning-up-the-mess}

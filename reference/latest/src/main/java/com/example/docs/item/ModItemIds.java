@@ -1,7 +1,6 @@
 package com.example.docs.item;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 
@@ -28,13 +27,29 @@ public class ModItemIds {
 	public static final ResourceKey<Item> GUIDITE_BOOTS = create("guidite_boots");
 	// #endregion create_armor_items
 
-	// #region axe
+	// #region guidite_pickaxe
+	public static final ResourceKey<Item> GUIDITE_PICKAXE = create("guidite_pickaxe");
+	// #endregion guidite_pickaxe
+
+	// #region guidite_axe
 	public static final ResourceKey<Item> GUIDITE_AXE = create("guidite_axe");
-	// #endregion axe
+	// #endregion guidite_axe
 
 	// #region guidite_sword
 	public static final ResourceKey<Item> GUIDITE_SWORD = create("guidite_sword");
 	// #endregion guidite_sword
+
+	// #region guidite_spear
+	public static final ResourceKey<Item> GUIDITE_SPEAR = create("guidite_spear");
+	// #endregion guidite_spear
+
+	// #region guidite_shovel
+	public static final ResourceKey<Item> GUIDITE_SHOVEL = create("guidite_shovel");
+	// #endregion guidite_shovel
+
+	// #region guidite_hoe
+	public static final ResourceKey<Item> GUIDITE_HOE = create("guidite_hoe");
+	// #endregion guidite_hoe
 
 	// #region poisonous_apple
 	public static final ResourceKey<Item> POISONOUS_APPLE = create("poisonous_apple");
@@ -43,6 +58,18 @@ public class ModItemIds {
 	// #region suspicious_substance
 	public static final ResourceKey<Item> SUSPICIOUS_SUBSTANCE = create("suspicious_substance");
 	// #endregion suspicious_substance
+
+	// #region quark_gluon_plasma_resource
+	public static final ResourceKey<Item> QUARK_GLUON_PLASMA = create("quark_gluon_plasma");
+	// #endregion quark_gluon_plasma_resource
+
+	// #region bone_marrow_resource
+	public static final ResourceKey<Item> BONE_MARROW = create("bone_marrow");
+	// #endregion bone_marrow_resource
+
+	// #region hot_tater
+	public static final ResourceKey<Item> HOT_TATER = create("hot_tater");
+	// #endregion hot_tater
 
 	// #region custom_entity_spawn_egg
 	public static final ResourceKey<Item> MINI_GOLEM_SPAWN_EGG = create("mini_golem_spawn_egg");
@@ -59,10 +86,14 @@ public class ModItemIds {
 	public static final ResourceKey<Item> LIGHTNING_TATER = create("lightning_tater");
 	public static final ResourceKey<Item> TEST_ITEM = create("test_item");
 
+	// #region shield
+	public static final ResourceKey<Item> GUIDITE_SHIELD = create("guidite_shield");
+	// #endregion shield
+
 	// #region mod_item_ids_class
 	public static ResourceKey<Item> create(String name) {
 		// Create the item key.
-		return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, name));
+		return ResourceKey.create(Registries.ITEM, ExampleMod.id(name));
 	}
 }
 // #endregion mod_item_ids_class

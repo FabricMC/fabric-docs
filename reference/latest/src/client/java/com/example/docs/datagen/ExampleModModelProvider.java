@@ -23,6 +23,7 @@ import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -34,6 +35,7 @@ import com.example.docs.ExampleMod;
 import com.example.docs.block.ModBlocks;
 import com.example.docs.block.custom.VerticalSlabBlock;
 import com.example.docs.item.ModItems;
+import com.example.docs.item.shield.GuiditeShieldSpecialRenderer;
 
 // #region provider
 public class ExampleModModelProvider extends FabricModelProvider {
@@ -93,6 +95,14 @@ public class ExampleModModelProvider extends FabricModelProvider {
 	public void generateItemModels(ItemModelGenerators itemModelGenerator) {
 		// #endregion provider
 
+		// #region quark_gluon_plasma
+		itemModelGenerator.generateFlatItem(ModItems.QUARK_GLUON_PLASMA, ModelTemplates.FLAT_ITEM);
+		// #endregion quark_gluon_plasma
+
+		// #region bone_marrow
+		itemModelGenerator.generateFlatItem(ModItems.BONE_MARROW, ModelTemplates.FLAT_ITEM);
+		// #endregion bone_marrow
+
 		itemModelGenerator.generateFlatItem(ModItems.ACID_BUCKET, ModelTemplates.FLAT_ITEM);
 		itemModelGenerator.generateFlatItem(ModItems.LIGHTNING_TATER, ModelTemplates.FLAT_HANDHELD_ITEM);
 
@@ -101,9 +111,30 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		// #endregion generated
 
 		itemModelGenerator.generateFlatItem(ModItems.MINI_GOLEM_SPAWN_EGG, ModelTemplates.FLAT_ITEM);
-		// #region handheld
+
+		// #region guidite_sword
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
+		// #endregion guidite_sword
+
+		// #region guidite_pickaxe
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_PICKAXE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		// #endregion guidite_pickaxe
+
+		// #region guidite_axe
 		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_AXE, ModelTemplates.FLAT_HANDHELD_ITEM);
-		// #endregion handheld
+		// #endregion guidite_axe
+
+		// #region guidite_spear
+		itemModelGenerator.generateSpear(ModItems.GUIDITE_SPEAR);
+		// #endregion guidite_spear
+
+		// #region guidite_hoe
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_HOE, ModelTemplates.FLAT_HANDHELD_ITEM);
+		// #endregion guidite_hoe
+
+		// #region guidite_shovel
+		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SHOVEL, ModelTemplates.FLAT_HANDHELD_ITEM);
+		// #endregion guidite_shovel
 
 		// #region dyeable
 		itemModelGenerator.generateDyedItem(ModItems.LEATHER_GLOVES, 0xFFA06540);
@@ -165,9 +196,28 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		CustomItemModelGenerator.registerScaled2x(ModItems.BALLOON, itemModelGenerator);
 		// #endregion custom_balloon
 
-		// #region sword
-		itemModelGenerator.generateFlatItem(ModItems.GUIDITE_SWORD, ModelTemplates.FLAT_HANDHELD_ITEM);
-		// #endregion sword
+		// #region shield
+		// Paths to the vanilla shield and modded shield
+		Identifier vanillaShieldModelLocation = ModelLocationUtils.getModelLocation(Items.SHIELD);
+		Identifier modelLocation = ModelLocationUtils.getModelLocation(ModItems.GUIDITE_SHIELD);
+
+		// Item models
+		ModelTemplate shieldTemplate = new ModelTemplate(Optional.of(vanillaShieldModelLocation), Optional.empty(), TextureSlot.PARTICLE);
+		shieldTemplate.create(modelLocation, TextureMapping.singleSlot(TextureSlot.PARTICLE, new Material(ModelLocationUtils.getModelLocation(Blocks.ACACIA_PLANKS))), itemModelGenerator.modelOutput);
+
+		ModelTemplate blockingShieldTemplate = new ModelTemplate(Optional.of(vanillaShieldModelLocation.withSuffix("_blocking")), Optional.empty(), TextureSlot.PARTICLE);
+		blockingShieldTemplate.create(modelLocation.withSuffix("_blocking"), TextureMapping.singleSlot(TextureSlot.PARTICLE, new Material(ModelLocationUtils.getModelLocation(Blocks.ACACIA_PLANKS))), itemModelGenerator.modelOutput);
+
+		// Client Item
+		GuiditeShieldSpecialRenderer.Unbaked specialRenderer = new GuiditeShieldSpecialRenderer.Unbaked(
+						ExampleMod.id("guidite_shield_base"),
+						ExampleMod.id("guidite_shield_base_nopattern")
+		);
+		itemModelGenerator.itemModelOutput.accept(ModItems.GUIDITE_SHIELD, ItemModelUtils.conditional(GuiditeShieldSpecialRenderer.DEFAULT_TRANSFORMATION, ItemModelUtils.isUsingItem(),
+						ItemModelUtils.specialModel(modelLocation.withSuffix("_blocking"), specialRenderer),
+						ItemModelUtils.specialModel(modelLocation, specialRenderer)
+		));
+		// #endregion shield
 
 		// #region provider
 	}
@@ -192,7 +242,7 @@ public class ExampleModModelProvider extends FabricModelProvider {
 		// #region custom_item_model
 
 		private static ModelTemplate item(String parent, TextureSlot requiredTextureKeys) {
-			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "item/" + parent)), Optional.empty(), requiredTextureKeys);
+			return new ModelTemplate(Optional.of(ExampleMod.id("item/" + parent)), Optional.empty(), requiredTextureKeys);
 		}
 
 		// #endregion custom_item_model
@@ -207,12 +257,12 @@ public class ExampleModModelProvider extends FabricModelProvider {
 
 		// helper method for creating Models
 		private static ModelTemplate block(String parent, TextureSlot... requiredTextureKeys) {
-			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.empty(), requiredTextureKeys);
+			return new ModelTemplate(Optional.of(ExampleMod.id("block/" + parent)), Optional.empty(), requiredTextureKeys);
 		}
 
 		// helper method for creating Models with variants
 		private static ModelTemplate block(String parent, String variant, TextureSlot... requiredTextureKeys) {
-			return new ModelTemplate(Optional.of(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "block/" + parent)), Optional.of(variant), requiredTextureKeys);
+			return new ModelTemplate(Optional.of(ExampleMod.id("block/" + parent)), Optional.of(variant), requiredTextureKeys);
 		}
 
 		// #endregion custom_model

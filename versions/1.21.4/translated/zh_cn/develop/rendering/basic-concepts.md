@@ -96,7 +96,7 @@ drawContext.getMatrices().peek().getPositionMatrix();
 
 我们将在平视显示器（HUD）上的以下几个点按顺序绘制顶点：
 
-```txt
+```text
 (20, 20)
 (5, 40)
 (35, 40)

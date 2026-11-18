@@ -9,7 +9,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
 import com.example.docs.block.entity.custom.DirtChestBlockEntity;
-import com.example.docs.menu.ModMenuType;
+import com.example.docs.menu.ModMenuTypes;
 
 // :::menu
 public class DirtChestMenu extends AbstractContainerMenu {
@@ -22,7 +22,7 @@ public class DirtChestMenu extends AbstractContainerMenu {
 
 	// Server-side constructor
 	public DirtChestMenu(final int containerId, final Inventory inventory, final Container container) {
-		super(ModMenuType.DIRT_CHEST, containerId);
+		super(ModMenuTypes.DIRT_CHEST, containerId);
 		checkContainerSize(container, DirtChestBlockEntity.CONTAINER_SIZE);
 		this.container = container;
 

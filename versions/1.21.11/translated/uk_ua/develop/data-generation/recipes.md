@@ -3,11 +3,11 @@ title: Генерація рецептів
 description: Посібник із налаштування генерації рецептів за допомогою datagen.
 authors:
   - CelDaemon
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->

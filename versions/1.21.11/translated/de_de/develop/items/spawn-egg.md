@@ -2,12 +2,13 @@
 title: Spawn-Eier
 description: Erfahre, wie du ein Spawn-Ei Item registrierst.
 authors:
-  - Earthcomputer
-  - JaaiDead
   - cassiancc
+  - Earthcomputer
   - Fellteros
+  - JaaiDead
   - skycatminepokie
   - VatinMc
+  - voidedaries
 ---
 
 <!---->

@@ -6,10 +6,9 @@ import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.heightproviders.BiasedToBottomHeight;
 import net.minecraft.world.level.levelgen.placement.BiomeFilter;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
@@ -28,21 +27,21 @@ public class ExampleModWorldPlacedFeatures {
 	public static final ResourceKey<PlacedFeature> DIAMOND_BLOCK_ORE_PLACED_KEY =
 			ResourceKey.create(
 				Registries.PLACED_FEATURE,
-				Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_block_ore_placed")
+				ExampleMod.id("diamond_block_ore_placed")
 			);
 	// #endregion datagen_world_placed_key
 
 	public static final ResourceKey<PlacedFeature> DIAMOND_TREE_PLACED_KEY =
 			ResourceKey.create(
 				Registries.PLACED_FEATURE,
-							Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "diamond_tree_placed")
+							ExampleMod.id("diamond_tree_placed")
 			);
 
 	// #region datagen_world_placed_features_class
 	public static void configure(BootstrapContext<PlacedFeature> context) {
 		// #endregion datagen_world_placed_features_class
 		// #region datagen_world_conf_feature_register
-		HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
+		HolderGetter<Feature> features = context.lookup(Registries.FEATURE);
 		// #endregion datagen_world_conf_feature_register
 
 		// #region datagen_world_placement_modifiers
@@ -66,7 +65,7 @@ public class ExampleModWorldPlacedFeatures {
 		context.register(
 				DIAMOND_BLOCK_ORE_PLACED_KEY,
 				new PlacedFeature(
-					configuredFeatures.getOrThrow(ExampleModWorldConfiguredFeatures.DIAMOND_BLOCK_VEIN_CONFIGURED_KEY),
+					features.getOrThrow(ExampleModWorldFeatures.DIAMOND_BLOCK_VEIN_FEATURE_KEY),
 					diamondBlockVeinModifiers
 				)
 		);
@@ -75,7 +74,7 @@ public class ExampleModWorldPlacedFeatures {
 		context.register(
 				DIAMOND_TREE_PLACED_KEY,
 				new PlacedFeature(
-					configuredFeatures.getOrThrow(ExampleModWorldConfiguredFeatures.DIAMOND_TREE_CONFIGURED_KEY),
+					features.getOrThrow(ExampleModWorldFeatures.DIAMOND_TREE_FEATURE_KEY),
 					diamondTreeModifiers
 				)
 		);

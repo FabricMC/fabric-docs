@@ -2,8 +2,8 @@
 title: Власні компоненти даних
 description: Дізнайтеся, як додавати власні дані до своїх предметів за допомогою нової системи компонентів 1.20.5.
 authors:
-  - Romejanic
   - ekulxam
+  - Romejanic
 resources:
   https://minecraft.wiki/w/Data_component_format#List_of_components: Список стандартних компонентів — Вікі Minecraft
 ---

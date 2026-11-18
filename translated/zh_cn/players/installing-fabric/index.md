@@ -13,7 +13,7 @@ authors:
 
 ::: info
 
-本指南仅适用于官方的 Minecraft 启动器。 对于第三方启动器，请查阅其相关文档。
+本指南仅适用于官方的 Minecraft 启动器。对于第三方启动器，请查阅其相关文档。
 
 :::
 
@@ -23,7 +23,7 @@ authors:
 {
  name: 'Windows',
  href: './windows',
- icon: 'mage:microsoft-windows',
+ icon: 'simple-icons:windows',
  color: '#0078D4',
 },
 {
@@ -34,7 +34,7 @@ authors:
 {
  name: 'Linux',
  href: './linux',
- icon: 'codicon:terminal-linux',
+ icon: 'simple-icons:linux',
  color: '#FF9A00',
 },
 ]" />

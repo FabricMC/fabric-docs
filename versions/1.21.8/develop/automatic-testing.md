@@ -37,7 +37,7 @@ One naming convention is to mirror the package structure of the class you are te
 
 Another naming convention is to have a `test` package, such as `src/test/java/com/example/docs/test/codec/BeanTypeTest.java`. This prevents some problems that may arise with using the same package if you use Java modules.
 
-After creating the test class, use <kbd>⌘/CTRL</kbd><kbd>N</kbd> to bring up the Generate menu. Select Test and start typing your method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done. For more tips and tricks on using the IDE, see [IDE Tips and Tricks](./ide-tips-and-tricks#code-generation).
+After creating the test class, use <kbd>⌘/CTRL</kbd><kbd>N</kbd> to bring up the Generate menu. Select Test and start typing your method name, usually starting with `test`. Press <kbd>ENTER</kbd> when you're done. For more tips and tricks on using the IDE, see [IDE Tips and Tricks](./getting-started/tips-and-tricks#code-generation).
 
 ![Generating a test method](/assets/develop/misc/automatic-testing/unit_testing_01.png)
 
@@ -133,4 +133,4 @@ Server game tests will be run automatically with the `build` Gradle task. You ca
 Existing GitHub Action workflows using `build` will run server game tests automatically. To run client game tests with GitHub Actions, add the following snippet to your `build.gradle` and the following job to your workflow. The gradle snippet will run client game tests using [Loom's production run tasks](./loom/production-run-tasks), and the job will execute the production run task in the CI.
 
 @[code lang=groovy transcludeWith=:::automatic-testing:game-test:2](@/reference/1.21.8/build.gradle)
-@[code lang=yaml transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yml)
+@[code lang=yaml transcludeWith=:::automatic-testing:game-test:3](@/.github/workflows/build.yaml)

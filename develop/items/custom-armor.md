@@ -4,6 +4,7 @@ description: Learn how to create your own armor sets.
 authors:
   - cassiancc
   - IMB11
+  - NotNightSky
 ---
 
 Armor provides the player with increased defense against attacks from mobs and other players.
@@ -52,6 +53,16 @@ The `ArmorMaterial` constructor accepts the following parameters, in this specif
 We define the repair ingredient tag reference as follows:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
+
+In order to specify which items can be used in an anvil to repair this material, we will create a tag which holds a list of items. Let's add a new tag to our item tag provider class:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#repair_tags
+
+In our example, we will be using the copper ingot as a repair material for guidite. If you want to create a custom guidite ingot instead, you may [create a custom item](./first-item) and add its ID to the tag.
+
+Now, you'll be able to repair our armor in anvils:
+
+![Repairing Guidite Armor in an Anvil](/assets/develop/items/mending_guidite.png)
 
 If you're struggling to determine values for any of the parameters, you can consult the vanilla `ArmorMaterial` instances which can be found in the `ArmorMaterials` interface.
 
@@ -103,20 +114,23 @@ When an entity wears your armor, nothing will be shown. This is because you're m
 
 ![Broken armor model on player](/assets/develop/items/armor_2.png)
 
-There are two layers for the armor texture, both must be present.
+![Broken armor model on baby humanoid](/assets/develop/items/armor_2_1.png)
+
+::: info
+
+Note that since version 26.1, the armor texture for baby humanoids is no longer a scaled down version of the adult humanoid texture. Instead, it's a texture that must be provided separately.
+
+:::
+
+There are three layers for the armor texture, that must be present.
 
 Previously, we created a `ResourceKey<EquipmentAsset>` constant called `GUIDITE_ARMOR_MATERIAL_KEY` which we passed into our `ArmorMaterial` constructor. It's recommended to name the texture similarly, so in our case, `guidite.png`
 
 - `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` - Contains upper body and boot textures.
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` - Contains legging textures.
+- `assets/example-mod/textures/entity/equipment/humanoid_baby/guidite.png` - Contains the texture for baby humanoid.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Armor Model Textures</DownloadEntry>
-
-::: tip
-
-If you're updating to 1.21.11 from an older version of the game, the `humanoid` folder is where your `layer0.png` armor texture goes, and the `humanoid_leggings` folder is where your `layer1.png` armor texture goes.
-
-:::
 
 Next, you'll need to create an associated equipment model definition. These go in the `/assets/example-mod/equipment/` folder.
 
@@ -129,6 +143,8 @@ Since we only plan to add "humanoid" (helmet, chestplate, leggings, boots etc.) 
 With the textures and equipment model definition present, you should be able to see your armor on entities that wear it:
 
 ![Working armor model on player](/assets/develop/items/armor_3.png)
+
+![Working armor model on baby humanoid](/assets/develop/items/armor_3_1.png)
 
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
 

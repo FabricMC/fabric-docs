@@ -2,14 +2,14 @@
 title: Generierung von Beutetabellen
 description: Ein Leitfaden zur Einrichtung der Generierung von Beutetabellen mit dem Datengenerator.
 authors:
-  - Alphagamer47
   - JustinHuPrime
+  - LunarTremor
+  - MarcusElg
   - matthewperiut
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 :::info VORAUSSETZUNGEN

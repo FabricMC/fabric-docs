@@ -2,9 +2,9 @@
 title: 첫 번째 아이템 만들기
 description: 간단한 아이템을 등록하고, 텍스처와 모델, 이름을 적용하는 방법에 대해 알아보세요.
 authors:
-  - IMB11
   - dicedpixels
-  - RaphProductions
+  - IMB11
+  - raphm4044
 ---
 
 이 페이지에서는 아이템과 관련된 주요 개념과 등록 방법, 그리고 어떻게 텍스처와 모델, 이름을 적용하는지 설명합니다.

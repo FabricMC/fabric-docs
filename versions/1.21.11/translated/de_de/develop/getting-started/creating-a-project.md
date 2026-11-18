@@ -3,8 +3,8 @@ title: Ein Projekt erstellen
 description: Eine Schritt-für-Schritt-Anleitung, wie man ein neues Mod-Projekt mit dem Fabric Template Mod Generator erstellt.
 authors:
   - Cactooz
+  - evelynmeowww
   - IMB11
-  - radstevee
   - Thomas1034
 ---
 

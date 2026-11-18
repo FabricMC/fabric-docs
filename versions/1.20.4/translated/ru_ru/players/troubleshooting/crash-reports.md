@@ -23,15 +23,15 @@ search: false
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\crash-reports
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/crash-reports
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/crash-reports
 ```
 
@@ -62,7 +62,7 @@ search: false
 
 Учитывая количество модов, упомянутых в стеке, может быть трудно указать на конкретную причину, но первое, что нужно сделать, это найти мод, который вызвал сбой.
 
-```:no-line-numbers
+```text:no-line-numbers
 at snownee.snow.block.ShapeCaches.get(ShapeCaches.java:51)
 at snownee.snow.block.SnowWallBlock.method_9549(SnowWallBlock.java:26) // [!code focus]
 ...
@@ -85,7 +85,7 @@ at link.infra.indium.renderer.render.TerrainBlockRenderInfo.shouldDrawFaceInner(
 
 Метод миксина будет содержать `mod-id$handlerName` в трассировке стека, где `mod-id` - айди мода, а `handlerName` - название обработчика миксина.
 
-```:no-line-numbers
+```text:no-line-numbers
 ... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 

@@ -4,12 +4,12 @@ description: Ein Leitfaden zur Einrichtung der Generierung von Übersetzungen mi
 authors:
   - CelDaemon
   - IMB11
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
   - sjk1949
 ---
 
@@ -42,6 +42,12 @@ Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEn
 Neben der Erstellung von Rohübersetzungen, Übersetzungen aus einem `Identifier`en und dem Kopieren aus einer bereits existierenden Datei (durch die Übergabe eines `Path`), gibt es Hilfsmethoden für die Übersetzung von Items, Blöcken, Tags, Statistiken, Entitäten, Mobeffekten, Kreativtabs, Entitätsattributen und Verzauberungen. Rufe einfach `add` beim `translationBuilder` auf und gebe an, was du übersetzen willst und in zu was es übersetzt werden soll:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_build
+
+Du kannst auch Übersetzungen aus einer JSON-Datei übernehmen, die sich bereits in deinem Mod befindet. Lege diese Datei an einem Ort außerhalb des generierten Verzeichnisses ab und übergebe sie anschließend an `translationBuilder.add`:
+
+<<< @/reference/latest/src/main/resources/assets/example-mod/lang/en_us.existing.json
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#datagen_translations_existing
 
 ## Nutzen von Übersetzungen {#using-translations}
 

@@ -10,11 +10,11 @@ resources:
   https://docs.neoforged.net/docs/resources/server/damagetypes/: Damage Types & Damage Sources - NeoForge 文档（datagen 除外）
 ---
 
-伤害类型定义了实体能受到的伤害的种类。 从 Minecraft 1.19.4 开始，创建新的伤害类型的方式已是数据驱动，也就是说由 JSON 文件创建。
+伤害类型定义了实体能受到的伤害的种类。从 Minecraft 1.19.4 开始，创建新的伤害类型的方式已是数据驱动，也就是说由 JSON 文件创建。
 
 ## 创建伤害类型 {#creating-a-damage-type}
 
-让我们创建一种叫 _土豆_ 的伤害类型。 我们先从为你的自定义伤害创建 JSON 文件开始。 这个文件放在你的模组的 `data` 目录下的 `damage_type` 子目录。
+让我们创建一种叫 _土豆_ 的伤害类型。我们先从为你的自定义伤害创建 JSON 文件开始。这个文件放在你的模组的 `data` 目录下的 `damage_type` 子目录。
 
 ```text:no-line-numbers
 resources/data/example-mod/damage_type/tater.json
@@ -24,7 +24,7 @@ resources/data/example-mod/damage_type/tater.json
 
 <<< @/reference/latest/src/main/generated/data/example-mod/damage_type/tater.json
 
-这个自定义伤害类型在玩家每次受到来自非玩家的生物（例：方块）造成的伤害时增加 0.1 [消耗度](https://zh.minecraft.wiki/w/饥饿#饥饿因素)。 此外，造成的伤害量将随世界难度而变化。
+这个自定义伤害类型在玩家每次受到来自非玩家的生物（例：方块）造成的伤害时增加 0.1 [消耗度](https://zh.minecraft.wiki/w/饥饿#饥饿因素)。此外，造成的伤害量将随世界难度而变化。
 
 ::: info
 
@@ -42,7 +42,7 @@ resources/data/example-mod/damage_type/tater.json
 
 ### 使用伤害类型 {#using-damage-types}
 
-为了演示自定义伤害类型如何使用，我们将使用一个自定义方块 _土豆块_ 。 让我们实现生物踩在 _土豆块_ 上时会造成 _土豆_ 伤害。
+为了演示自定义伤害类型如何使用，我们将使用一个自定义方块 _土豆块_ 。让我们实现生物踩在 _土豆块_ 上时会造成 _土豆_ 伤害。
 
 你可以重写 `stepOn` 方法来造成这个伤害。
 
@@ -76,7 +76,7 @@ resources/data/example-mod/damage_type/tater.json
 
 ### 伤害类型标签 {#damage-type-tags}
 
-有些伤害类型能够无视护甲、无视生物效果等等。 伤害类型的这些属性是由标签控制的。
+有些伤害类型能够无视护甲、无视生物效果等等。伤害类型的这些属性是由标签控制的。
 
 你可以在 `data/minecraft/tags/damage_type` 中找到既有的伤害类型标签。
 

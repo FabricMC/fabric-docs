@@ -1,6 +1,6 @@
 ---
 title: Типи шкоди
-description: Навчіться додавати власні типи шкоди.
+description: Дізнайтеся, як додати власні типи шкоди.
 authors:
   - dicedpixels
   - hiisuuii

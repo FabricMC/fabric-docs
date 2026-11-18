@@ -35,10 +35,7 @@ Again, most modern DAWs (Digital Audio Workstation Software) should be capable o
 
 Our [starting sound](https://freesound.org/people/el-bee/sounds/644881/) will be coming from an engine.
 
-<audio controls>
-    <source src="/assets/develop/sounds/dynamic-sounds/step_0.wav" type="audio/wav">
-    Your browser does not support the audio element.
-</audio>
+![Original engine sound](/assets/develop/sounds/dynamic-sounds/step_0.wav)
 
 Let's load the file into our DAW of choice.
 
@@ -83,17 +80,11 @@ Let's compare the original file with the cleaned up version.
 
 You can hear a distinct humming and beeping sound from maybe an electrical element of the engine, in the original sound.
 
-<audio controls>
-    <source src="/assets/develop/sounds/dynamic-sounds/step_5_first.ogg" type="audio/ogg">
-    Your browser does not support the audio element.
-</audio>
+![Engine sound with a humming and beeping](/assets/develop/sounds/dynamic-sounds/step_5_first.ogg)
 
 With an EQ filter we were able to remove it almost completely. It is definitely more pleasant to listen to.
 
-<audio controls>
-    <source src="/assets/develop/sounds/dynamic-sounds/step_5_second.ogg" type="audio/ogg">
-    Your browser does not support the audio element.
-</audio>
+![Engine sound after the EQ filter](/assets/develop/sounds/dynamic-sounds/step_5_second.ogg)
 
 ### Making It Loop {#making-it-loop}
 
@@ -117,10 +108,7 @@ If you are not sure how to do that, take a look at the [Creating Custom Sounds](
 
 This is now the finished looping engine audio for the `SoundEvent` called `ENGINE_LOOP`.
 
-<audio controls>
-    <source src="/assets/develop/sounds/dynamic-sounds/step_8.ogg" type="audio/ogg">
-    Your browser does not support the audio element.
-</audio>
+![Finished looping engine sound](/assets/develop/sounds/dynamic-sounds/step_8.ogg)
 
 ## Using a `SoundInstance` {#using-a-soundinstance}
 
@@ -375,7 +363,7 @@ from entities, or with [custom client-bound networking](../networking#receiving-
 The final product can adjust its volume based on the sound phase to smoothen out the transitions and change the pitch based on a stress value, which is
 coming from the sound source.
 
-<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm">Engine BlockEntity with dynamic sound changes</VideoPlayer>
+![Engine BlockEntity with dynamic sound changes](/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm)
 
 You could add another value to your sound source, which keeps track of an "overheat" value and, in addition, let a hissing `SoundInstance` slowly fade in if the value is above 0
 or add a new interface to your custom dynamic `SoundInstance`s which assigns a priority value to the sound types, which helps out choosing which sound to play, if they

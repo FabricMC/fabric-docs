@@ -2,19 +2,19 @@
 title: Создание команд
 description: Создавайте команды со сложными аргументами и действиями.
 authors:
-  - atakku
+  - Atakku
   - dicedpixels
-  - haykam
+  - haykam821
   - i509VCB
   - Juuxel
   - MildestToucan
   - modmuss50
   - mschae23
   - natanfudge
-  - pyrofab
-  - solidblock
-  - technici4n
-  - treeways
+  - Pyrofab
+  - SolidBlock-cn
+  - Technici4n
+  - Treeways
   - xpple
 resources:
   https://github.com/Mojang/brigadier: Исходный код Brigadier

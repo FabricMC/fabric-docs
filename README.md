@@ -1,5 +1,3 @@
-<!-- markdownlint-disable search-replace -->
-
 # Fabric Documentation
 
 > The official curated documentation for Fabric, a modding toolchain for Minecraft.
