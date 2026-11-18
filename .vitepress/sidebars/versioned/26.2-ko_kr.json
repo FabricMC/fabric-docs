@@ -1,0 +1,730 @@
+{
+  "/ko_kr/develop/": [
+    {
+      "base": "/ko_kr/develop",
+      "link": "/",
+      "items": [
+        {
+          "collapsed": false,
+          "base": "/ko_kr/develop/getting-started",
+          "items": [
+            {
+              "link": "/creating-a-project",
+              "text": "Creating a Project",
+              "base": "/ko_kr/develop/getting-started"
+            },
+            {
+              "link": "/project-structure",
+              "text": "Project Structure",
+              "base": "/ko_kr/develop/getting-started"
+            },
+            {
+              "link": "/setting-up",
+              "text": "Setting Up Your IDE",
+              "base": "/ko_kr/develop/getting-started"
+            },
+            {
+              "link": "/opening-a-project",
+              "text": "Opening a Project",
+              "base": "/ko_kr/develop/getting-started"
+            },
+            {
+              "link": "/launching-the-game",
+              "text": "Launching the Game",
+              "base": "/ko_kr/develop/getting-started"
+            },
+            {
+              "link": "/generating-sources",
+              "text": "Generating Sources",
+              "base": "/ko_kr/develop/getting-started"
+            },
+            {
+              "link": "/building-a-mod",
+              "text": "Building a Mod",
+              "base": "/ko_kr/develop/getting-started"
+            },
+            {
+              "link": "/tips-and-tricks",
+              "text": "IDE Tips and Tricks",
+              "base": "/ko_kr/develop/getting-started"
+            }
+          ],
+          "text": "Getting Started"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/items",
+          "items": [
+            {
+              "link": "/first-item",
+              "items": [
+                {
+                  "link": "/food",
+                  "text": "Custom Food",
+                  "base": "/ko_kr/develop/items"
+                },
+                {
+                  "link": "/custom-fuel",
+                  "text": "Custom Fuel",
+                  "base": "/ko_kr/develop/items"
+                },
+                {
+                  "link": "/custom-compostable",
+                  "text": "Custom Compostable",
+                  "base": "/ko_kr/develop/items"
+                },
+                {
+                  "link": "/potions",
+                  "text": "Custom Potions",
+                  "base": "/ko_kr/develop/items"
+                },
+                {
+                  "link": "/spawn-egg",
+                  "text": "Custom Spawn Eggs",
+                  "base": "/ko_kr/develop/items"
+                },
+                {
+                  "link": "/custom-tools",
+                  "text": "Custom Tools",
+                  "base": "/ko_kr/develop/items"
+                },
+                {
+                  "link": "/custom-armor",
+                  "text": "Custom Armor",
+                  "base": "/ko_kr/develop/items"
+                },
+                {
+                  "link": "/custom-shields",
+                  "text": "Custom Shields",
+                  "base": "/ko_kr/develop/items"
+                }
+              ],
+              "text": "Creating Your First Item",
+              "base": "/ko_kr/develop/items"
+            },
+            {
+              "link": "/item-models",
+              "text": "Item Models",
+              "base": "/ko_kr/develop/items"
+            },
+            {
+              "link": "/item-appearance",
+              "text": "Item Appearance",
+              "base": "/ko_kr/develop/items"
+            },
+            {
+              "link": "/custom-creative-tabs",
+              "text": "Custom Creative Tabs",
+              "base": "/ko_kr/develop/items"
+            },
+            {
+              "link": "/custom-item-interactions",
+              "text": "Custom Item Interactions",
+              "base": "/ko_kr/develop/items"
+            },
+            {
+              "link": "/custom-enchantment-effects",
+              "text": "Custom Enchantment Effects",
+              "base": "/ko_kr/develop/items"
+            },
+            {
+              "link": "/custom-data-components",
+              "text": "Custom Data Components",
+              "base": "/ko_kr/develop/items"
+            }
+          ],
+          "text": "Items"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/blocks",
+          "items": [
+            {
+              "link": "/first-block",
+              "text": "Creating Your First Block",
+              "base": "/ko_kr/develop/blocks"
+            },
+            {
+              "link": "/block-models",
+              "text": "Block Models",
+              "base": "/ko_kr/develop/blocks"
+            },
+            {
+              "link": "/blockstates",
+              "text": "Block States",
+              "base": "/ko_kr/develop/blocks"
+            },
+            {
+              "link": "/block-entities",
+              "items": [
+                {
+                  "link": "/block-entity-renderer",
+                  "text": "Block Entity Renderers",
+                  "base": "/ko_kr/develop/blocks"
+                },
+                {
+                  "link": "/block-containers",
+                  "text": "Block Containers",
+                  "base": "/ko_kr/develop/blocks"
+                },
+                {
+                  "link": "/container-menus",
+                  "text": "Container Menus",
+                  "base": "/ko_kr/develop/blocks"
+                }
+              ],
+              "text": "Block Entities",
+              "base": "/ko_kr/develop/blocks"
+            },
+            {
+              "link": "/block-tinting",
+              "text": "Block Tinting",
+              "base": "/ko_kr/develop/blocks"
+            },
+            {
+              "link": "/workstations",
+              "text": "Workstations",
+              "base": "/ko_kr/develop/blocks"
+            }
+          ],
+          "text": "Blocks"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/fluids",
+          "items": [
+            {
+              "link": "/first-fluid",
+              "text": "Creating Your First Fluid",
+              "base": "/ko_kr/develop/fluids"
+            }
+          ],
+          "text": "Fluids"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/entities",
+          "items": [
+            {
+              "link": "/first-entity",
+              "items": [
+                {
+                  "link": "/projectiles",
+                  "text": "Custom Projectiles",
+                  "base": "/ko_kr/develop/entities"
+                }
+              ],
+              "text": "Creating Your First Entity",
+              "base": "/ko_kr/develop/entities"
+            },
+            {
+              "link": "/attributes",
+              "text": "Attributes",
+              "base": "/ko_kr/develop/entities"
+            },
+            {
+              "link": "/effects",
+              "text": "Mob Effects",
+              "base": "/ko_kr/develop/entities"
+            },
+            {
+              "link": "/damage-types",
+              "text": "Damage Types",
+              "base": "/ko_kr/develop/entities"
+            }
+          ],
+          "text": "Entities"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/events",
+          "items": [
+            {
+              "link": "/",
+              "text": "Introduction",
+              "base": "/ko_kr/develop/events"
+            },
+            {
+              "link": "/loot-tables",
+              "text": "Loot Tables",
+              "base": "/ko_kr/develop/events"
+            }
+          ],
+          "text": "Events"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/sounds",
+          "items": [
+            {
+              "link": "/using-sounds",
+              "text": "Playing Sounds",
+              "base": "/ko_kr/develop/sounds"
+            },
+            {
+              "link": "/custom",
+              "text": "Creating Custom Sounds",
+              "base": "/ko_kr/develop/sounds"
+            },
+            {
+              "link": "/dynamic-sounds",
+              "text": "Dynamic Sounds",
+              "base": "/ko_kr/develop/sounds"
+            }
+          ],
+          "text": "Sounds"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/commands",
+          "items": [
+            {
+              "link": "/basics",
+              "text": "Creating Commands",
+              "base": "/ko_kr/develop/commands"
+            },
+            {
+              "link": "/arguments",
+              "text": "Command Arguments",
+              "base": "/ko_kr/develop/commands"
+            },
+            {
+              "link": "/suggestions",
+              "text": "Command Suggestions",
+              "base": "/ko_kr/develop/commands"
+            }
+          ],
+          "text": "Commands"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/recipes",
+          "items": [
+            {
+              "link": "/custom-recipe-types",
+              "text": "Custom Recipe Types",
+              "base": "/ko_kr/develop/recipes"
+            },
+            {
+              "link": "/extending-vanilla-recipes",
+              "text": "Extending Vanilla Recipes",
+              "base": "/ko_kr/develop/recipes"
+            }
+          ],
+          "text": "Recipes"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/rendering",
+          "items": [
+            {
+              "link": "/basic-concepts",
+              "text": "Basic Rendering Concepts",
+              "base": "/ko_kr/develop/rendering"
+            },
+            {
+              "link": "/gui-graphics",
+              "text": "Drawing to the GUI",
+              "base": "/ko_kr/develop/rendering"
+            },
+            {
+              "link": "/hud",
+              "text": "Rendering in the HUD",
+              "base": "/ko_kr/develop/rendering"
+            },
+            {
+              "link": "/world",
+              "text": "Rendering in the World",
+              "base": "/ko_kr/develop/rendering"
+            },
+            {
+              "base": "/ko_kr/develop/rendering/gui",
+              "items": [
+                {
+                  "link": "/custom-screens",
+                  "text": "Custom Screens",
+                  "base": "/ko_kr/develop/rendering/gui"
+                },
+                {
+                  "link": "/custom-widgets",
+                  "text": "Custom Widgets",
+                  "base": "/ko_kr/develop/rendering/gui"
+                }
+              ],
+              "text": "GUIs and Screens"
+            },
+            {
+              "base": "/ko_kr/develop/rendering/particles",
+              "items": [
+                {
+                  "link": "/creating-particles",
+                  "text": "Creating Custom Particles",
+                  "base": "/ko_kr/develop/rendering/particles"
+                }
+              ],
+              "text": "Particles"
+            }
+          ],
+          "text": "Rendering"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/data-generation",
+          "items": [
+            {
+              "link": "/setup",
+              "text": "Data Generation Setup",
+              "base": "/ko_kr/develop/data-generation"
+            },
+            {
+              "text": "Client Resources",
+              "items": [
+                {
+                  "link": "/translations",
+                  "text": "Translation Generation",
+                  "base": "/ko_kr/develop/data-generation"
+                },
+                {
+                  "text": "Model Generation",
+                  "items": [
+                    {
+                      "link": "/block-models",
+                      "text": "Block Model Generation",
+                      "base": "/ko_kr/develop/data-generation"
+                    },
+                    {
+                      "link": "/item-models",
+                      "text": "Item Model Generation",
+                      "base": "/ko_kr/develop/data-generation"
+                    }
+                  ],
+                  "base": "/ko_kr/develop/data-generation"
+                }
+              ],
+              "base": "/ko_kr/develop/data-generation"
+            },
+            {
+              "text": "Server Resources",
+              "items": [
+                {
+                  "link": "/advancements",
+                  "text": "Advancement Generation",
+                  "base": "/ko_kr/develop/data-generation"
+                },
+                {
+                  "link": "/enchantments",
+                  "text": "Enchantment Generation",
+                  "base": "/ko_kr/develop/data-generation"
+                },
+                {
+                  "link": "/loot-tables",
+                  "text": "Loot Table Generation",
+                  "base": "/ko_kr/develop/data-generation"
+                },
+                {
+                  "link": "/recipes",
+                  "text": "Recipe Generation",
+                  "base": "/ko_kr/develop/data-generation"
+                },
+                {
+                  "link": "/tags",
+                  "text": "Tag Generation",
+                  "base": "/ko_kr/develop/data-generation"
+                },
+                {
+                  "text": "World Generation",
+                  "items": [
+                    {
+                      "link": "/features",
+                      "text": "Feature Generation",
+                      "base": "/ko_kr/develop/data-generation"
+                    }
+                  ],
+                  "base": "/ko_kr/develop/data-generation"
+                }
+              ],
+              "base": "/ko_kr/develop/data-generation"
+            }
+          ],
+          "text": "Data Generation"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/registries",
+          "items": [
+            {
+              "link": "/dynamic-registry",
+              "text": "Dynamic Registries",
+              "base": "/ko_kr/develop/registries"
+            }
+          ],
+          "text": "Registries"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/serialization",
+          "items": [
+            {
+              "link": "/codecs",
+              "text": "Codecs",
+              "base": "/ko_kr/develop/serialization"
+            },
+            {
+              "link": "/data-attachments",
+              "text": "Data Attachments",
+              "base": "/ko_kr/develop/serialization"
+            },
+            {
+              "link": "/saved-data",
+              "text": "Saved Data",
+              "base": "/ko_kr/develop/serialization"
+            }
+          ],
+          "text": "Serialization"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/loom",
+          "items": [
+            {
+              "link": "/",
+              "text": "Introduction",
+              "base": "/ko_kr/develop/loom"
+            },
+            {
+              "link": "/fabric-api",
+              "text": "Fabric API DSL",
+              "base": "/ko_kr/develop/loom"
+            },
+            {
+              "link": "/options",
+              "text": "Extension Options",
+              "base": "/ko_kr/develop/loom"
+            },
+            {
+              "link": "/production-run-tasks",
+              "text": "Production Run Tasks",
+              "base": "/ko_kr/develop/loom"
+            },
+            {
+              "link": "/classpath-groups",
+              "text": "Classpath Groups",
+              "base": "/ko_kr/develop/loom"
+            },
+            {
+              "link": "/tasks",
+              "text": "Other Tasks",
+              "base": "/ko_kr/develop/loom"
+            }
+          ],
+          "text": "Loom"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/loader",
+          "items": [
+            {
+              "link": "/",
+              "text": "Introduction",
+              "base": "/ko_kr/develop/loader"
+            },
+            {
+              "link": "/fabric-mod-json",
+              "text": "fabric.mod.json",
+              "base": "/ko_kr/develop/loader"
+            }
+          ],
+          "text": "Loader"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/porting",
+          "items": [
+            {
+              "link": "/",
+              "items": [
+                {
+                  "base": "/ko_kr/26.1/develop/porting",
+                  "link": "/fabric-api",
+                  "text": "Fabric API"
+                }
+              ],
+              "text": "Porting to 26.2",
+              "base": "/ko_kr/develop/porting"
+            },
+            {
+              "link": "/mappings/",
+              "items": [
+                {
+                  "base": "/ko_kr/1.21.11/develop/porting/mappings",
+                  "link": "/loom",
+                  "text": "Loom (Gradle)"
+                },
+                {
+                  "base": "/ko_kr/1.21.11/develop/porting/mappings",
+                  "link": "/ravel",
+                  "text": "Ravel (IntelliJ IDEA)"
+                }
+              ],
+              "text": "Migrating Mappings",
+              "base": "/ko_kr/develop/porting"
+            }
+          ],
+          "text": "Porting"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/mixins",
+          "items": [
+            {
+              "link": "/bytecode",
+              "text": "Java Bytecode",
+              "base": "/ko_kr/develop/mixins"
+            },
+            {
+              "link": "/accessors",
+              "text": "Accessors",
+              "base": "/ko_kr/develop/mixins"
+            }
+          ],
+          "text": "Mixins"
+        },
+        {
+          "collapsed": true,
+          "base": "/ko_kr/develop/class-tweakers",
+          "items": [
+            {
+              "link": "/",
+              "text": "Introduction",
+              "base": "/ko_kr/develop/class-tweakers"
+            },
+            {
+              "link": "/access-widening",
+              "text": "Access Widening",
+              "base": "/ko_kr/develop/class-tweakers"
+            },
+            {
+              "link": "/interface-injection",
+              "text": "Interface Injection",
+              "base": "/ko_kr/develop/class-tweakers"
+            },
+            {
+              "link": "/enum-extension",
+              "text": "Enum Extension",
+              "base": "/ko_kr/develop/class-tweakers"
+            }
+          ],
+          "text": "Class Tweakers"
+        },
+        {
+          "collapsed": true,
+          "text": "Miscellaneous Pages",
+          "items": [
+            {
+              "link": "/automatic-testing",
+              "text": "Automated Testing",
+              "base": "/ko_kr/develop"
+            },
+            {
+              "link": "/debugging",
+              "text": "Debugging Mods",
+              "base": "/ko_kr/develop"
+            },
+            {
+              "link": "/game-rules",
+              "text": "Game Rules",
+              "base": "/ko_kr/develop"
+            },
+            {
+              "link": "/key-mappings",
+              "text": "Key Mappings",
+              "base": "/ko_kr/develop"
+            },
+            {
+              "link": "/networking",
+              "text": "Networking",
+              "base": "/ko_kr/develop"
+            },
+            {
+              "link": "/resource-conditions",
+              "text": "Resource Conditions",
+              "base": "/ko_kr/develop"
+            },
+            {
+              "link": "/statistics",
+              "text": "Statistics",
+              "base": "/ko_kr/develop"
+            },
+            {
+              "link": "/text-and-translations",
+              "text": "Text and Translations",
+              "base": "/ko_kr/develop"
+            }
+          ],
+          "base": "/ko_kr/develop"
+        }
+      ],
+      "text": "Developer Guides"
+    }
+  ],
+  "/ko_kr/players/": [
+    {
+      "base": "/ko_kr/players",
+      "link": "/",
+      "items": [
+        {
+          "link": "/installing-java/",
+          "text": "Installing Java",
+          "base": "/ko_kr/players"
+        },
+        {
+          "link": "/installing-fabric/",
+          "text": "Installing Fabric",
+          "base": "/ko_kr/players"
+        },
+        {
+          "link": "/updating-fabric/",
+          "text": "Updating Fabric",
+          "base": "/ko_kr/players"
+        },
+        {
+          "link": "/finding-mods",
+          "text": "Finding Mods",
+          "base": "/ko_kr/players"
+        },
+        {
+          "link": "/installing-mods",
+          "text": "Installing Mods",
+          "base": "/ko_kr/players"
+        },
+        {
+          "base": "/ko_kr/players/troubleshooting",
+          "items": [
+            {
+              "link": "/uploading-logs",
+              "text": "Uploading Logs",
+              "base": "/ko_kr/players/troubleshooting"
+            },
+            {
+              "link": "/crash-reports",
+              "text": "Crash Reports",
+              "base": "/ko_kr/players/troubleshooting"
+            },
+            {
+              "link": "/dependency-overrides",
+              "text": "Dependency Overrides",
+              "base": "/ko_kr/players/troubleshooting"
+            }
+          ],
+          "text": "Troubleshooting"
+        },
+        {
+          "link": "/faq",
+          "text": "Frequently Asked Questions",
+          "base": "/ko_kr/players"
+        }
+      ],
+      "text": "Player Guides"
+    }
+  ]
+}

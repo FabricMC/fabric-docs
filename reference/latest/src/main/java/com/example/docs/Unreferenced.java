@@ -20,7 +20,7 @@ import com.example.docs.effect.ExampleModEffects;
 public class Unreferenced {
 	public static void addTaterEffect(LivingEntity entity) {
 		// #region apply_effect
-		var instance = new MobEffectInstance(ExampleModEffects.TATER, 5 * 20, 0, false, true, true);
+		MobEffectInstance instance = new MobEffectInstance(ExampleModEffects.TATER, 5 * 20, 0, false, true, true);
 		entity.addEffect(instance);
 		// #endregion apply_effect
 	}

@@ -87,7 +87,7 @@ public class EngineBlockEntity extends BlockEntity implements DynamicSoundSource
 
 	@Override
 	public Vec3 getPosition() {
-		return this.getBlockPos().getCenter();
+		return new Vec3(this.getBlockPos());
 	}
 
 	public void turnOn() {

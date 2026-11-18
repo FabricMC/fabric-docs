@@ -20,6 +20,7 @@ import net.minecraft.resources.Identifier;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 
+import com.example.docs.ExampleMod;
 import com.example.docs.codec.Bean;
 import com.example.docs.codec.BeanType;
 import com.example.docs.codec.CoolBeansClass;
@@ -44,7 +45,7 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 			ExampleModCodecExampleProvider::recursive
 	};
 
-	protected ExampleModCodecExampleProvider(FabricPackOutput output) {
+	public ExampleModCodecExampleProvider(FabricPackOutput output) {
 		super(output, "codec_examples", SUBMITTERS);
 	}
 
@@ -89,14 +90,14 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 		);
 		// #endregion bean_codec_data
 
-		final var json = encode(CoolBeansClass.CODEC, bean);
+		final JsonElement json = encode(CoolBeansClass.CODEC, bean);
 		consumer.accept("cool_beans", json);
 	}
 
 	private static void mapCodec(BiConsumer<String, JsonElement> consumer) {
-		final var pos = new BlockPos(1, 2, 3);
+		final BlockPos pos = new BlockPos(1, 2, 3);
 		consumer.accept("plain_codec", encode(BlockPos.CODEC, pos));
-		final var mapCodec = BlockPos.CODEC.fieldOf("pos").codec();
+		final Codec<BlockPos> mapCodec = BlockPos.CODEC.fieldOf("pos").codec();
 		consumer.accept("map_codec", encode(mapCodec, pos));
 	}
 
@@ -109,7 +110,7 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 		List<BlockPos> data = List.of(new BlockPos(10, 5, 7));
 		// #endregion list_codec_data
 
-		final var json = encode(listCodec, data);
+		final JsonElement json = encode(listCodec, data);
 
 		consumer.accept("list_codec", json);
 	}
@@ -183,8 +184,8 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 
 		// #region map_codec_data
 		Map<Identifier, Integer> map = Map.of(
-				Identifier.fromNamespaceAndPath("example", "number"), 23,
-				Identifier.fromNamespaceAndPath("example", "the_cooler_number"), 42
+				ExampleMod.id("number"), 23,
+				ExampleMod.id("the_cooler_number"), 42
 		);
 		// #endregion map_codec_data
 
@@ -225,9 +226,9 @@ public class ExampleModCodecExampleProvider extends ExampleModExampleProvider {
 		Codec<Bean> beanCodec = beanTypeCodec.dispatch("type", Bean::getType, BeanType::codec);
 		// #endregion registry_dispatch
 
-		final var stringyBean = new StringyBean("This bean is stringy!");
+		final StringyBean stringyBean = new StringyBean("This bean is stringy!");
 
-		final var countingBean = new CountingBean(42);
+		final CountingBean countingBean = new CountingBean(42);
 
 		consumer.accept("stringy_bean", encode(beanCodec, stringyBean));
 		consumer.accept("counting_bean", encode(beanCodec, countingBean));

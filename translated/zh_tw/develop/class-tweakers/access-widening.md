@@ -2,7 +2,6 @@
 title: 存取權限擴寬
 description: 了解如何在類別調整器檔案中使用存取權限擴寬器。
 authors-nogithub:
-  - lightningtow
   - siglong
 authors:
   - Ayutac
@@ -18,6 +17,7 @@ authors:
   - kb-1000
   - kcrca
   - liach
+  - Lightningtow
   - lmvdz
   - matjojo
   - MildestToucan

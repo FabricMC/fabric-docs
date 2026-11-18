@@ -3,9 +3,9 @@ title: Loom
 description: Gradle용 Fabric Loom 플러그인에 대한 문서입니다.
 authors:
   - Atakku
-  - caoimhe
-  - daomephsta
-  - jamieswhiteshirt
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
   - Juuxel
   - kb-1000
   - modmuss50

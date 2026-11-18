@@ -3,8 +3,8 @@ title: 첫 번째 블록 만들기
 description: Minecraft에서의 첫 번째 블록을 만드는 법을 알아보세요.
 authors:
   - IMB11
-  - xEobardThawne
   - its-miroma
+  - xEobardThawne
 ---
 
 블록은 Minecraft에서의 건축 블록입니다 (말장난 아님). Minecraft의 다른 모든 것들처럼, 마찬가지로 레지스트리에 저장됩니다.

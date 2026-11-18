@@ -2,7 +2,9 @@
 title: Custom Armor
 description: Learn how to create your own armor sets.
 authors:
+  - cassiancc
   - IMB11
+  - NotNightSky
 ---
 
 Armor provides the player with increased defense against attacks from mobs and other players.
@@ -21,9 +23,9 @@ This constant will be used in the `Item.Properties#maxDamage(int damageValue)` m
 
 If you're struggling to determine a balanced base durability, you can refer to the vanilla armor material instances found in the `ArmorMaterials` interface.
 
-### Equipment Asset Registry Key {#equipment-asset-registry-key}
+### Equipment Asset Resource Key {#equipment-asset-resource-key}
 
-Even though we don't have to register our `ArmorMaterial` to any registries, it's generally good practice to store any registry keys as constants, as the game will use this to find the relevant textures for our armor.
+Even though we don't have to register our `ArmorMaterial` to any registries, it's generally good practice to store any resource keys as constants, as the game will use this to find the relevant textures for our armor.
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#material_key
 
@@ -52,6 +54,16 @@ We define the repair ingredient tag reference as follows:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/armor/GuiditeArmorMaterial.java#repair_tag
 
+In order to specify which items can be used in an anvil to repair this material, we will create a tag which holds a list of items. Let's add a new tag to our item tag provider class:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#repair_tags
+
+In our example, we will be using the copper ingot as a repair material for guidite. If you want to create a custom guidite ingot instead, you may [create a custom item](./first-item) and add its ID to the tag.
+
+Now, you'll be able to repair our armor in anvils:
+
+![Repairing Guidite Armor in an Anvil](/assets/develop/items/mending_guidite.png)
+
 If you're struggling to determine values for any of the parameters, you can consult the vanilla `ArmorMaterial` instances which can be found in the `ArmorMaterials` interface.
 
 ## Creating the Armor Items {#creating-the-armor-items}
@@ -63,6 +75,8 @@ Obviously, an armor set doesn't need every type to be satisfied, you can have a 
 Unlike `ToolMaterial`, `ArmorMaterial` does not store any information about the durability of items. For this reason the base durability needs to be manually added to the armor items' `Item.Properties` when registering them.
 
 This is achieved by passing the `BASE_DURABILITY` constant we created previously into the `maxDamage` method in the `Item.Properties` class.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#create_armor_items
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#create_armor_items
 
@@ -100,20 +114,23 @@ When an entity wears your armor, nothing will be shown. This is because you're m
 
 ![Broken armor model on player](/assets/develop/items/armor_2.png)
 
-There are two layers for the armor texture, both must be present.
+![Broken armor model on baby humanoid](/assets/develop/items/armor_2_1.png)
+
+::: info
+
+Note that since version 26.1, the armor texture for baby humanoids is no longer a scaled down version of the adult humanoid texture. Instead, it's a texture that must be provided separately.
+
+:::
+
+There are three layers for the armor texture, that must be present.
 
 Previously, we created a `ResourceKey<EquipmentAsset>` constant called `GUIDITE_ARMOR_MATERIAL_KEY` which we passed into our `ArmorMaterial` constructor. It's recommended to name the texture similarly, so in our case, `guidite.png`
 
 - `assets/example-mod/textures/entity/equipment/humanoid/guidite.png` - Contains upper body and boot textures.
 - `assets/example-mod/textures/entity/equipment/humanoid_leggings/guidite.png` - Contains legging textures.
+- `assets/example-mod/textures/entity/equipment/humanoid_baby/guidite.png` - Contains the texture for baby humanoid.
 
 <DownloadEntry downloadURL="/assets/develop/items/example_armor_layer_textures.zip">Guidite Armor Model Textures</DownloadEntry>
-
-::: tip
-
-If you're updating to 1.21.11 from an older version of the game, the `humanoid` folder is where your `layer0.png` armor texture goes, and the `humanoid_leggings` folder is where your `layer1.png` armor texture goes.
-
-:::
 
 Next, you'll need to create an associated equipment model definition. These go in the `/assets/example-mod/equipment/` folder.
 
@@ -127,4 +144,20 @@ With the textures and equipment model definition present, you should be able to 
 
 ![Working armor model on player](/assets/develop/items/armor_3.png)
 
+![Working armor model on baby humanoid](/assets/develop/items/armor_3_1.png)
+
 <!-- TODO: A guide on creating equipment for dyeable armor could prove useful. -->
+
+## Tagging Armor Items {#tags}
+
+::: info PREREQUISITES
+
+For more information, see the documentation on generating [item tags](../data-generation/tags).
+
+:::
+
+It's also recommended to place your armor in the appropriate item tags. Armor pieces have their own individual tags, such as `ItemTags.CHEST_ARMOR`, which are used for enchantability.
+
+In your item tag provider, add the following lines to `addTags`:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#armor_tags

@@ -5,7 +5,7 @@ authors:
   - dicedpixels
   - Earthcomputer
   - IMB11
-  - RaphProductions
+  - raphm4044
 ---
 
 This page will introduce you into some key concepts relating to items, and how you can register, texture, model and name them.

@@ -4,7 +4,7 @@ description: 사용자 정의 피해 유형을 추가하는 방법을 알아보�
 authors:
   - dicedpixels
   - hiisuuii
-  - mattidragon
+  - MattiDragon
 ---
 
 피해 유형은 엔티티가 입을 수 있는 피해(대미지)의 종류를 의미합니다. Minecraft 1.19.4 부터, 새로운 피해 유형의 추가는 데이터 기반이 되어, JSON 파일을 통해 생성됩니다.
@@ -13,7 +13,7 @@ authors:
 
 _Tater_ 라는 이름의 사용자 정의 피해 유형을 추가해 봅시다. 이는 피해 유형의 JSON 파일을 생성하며 시작됩니다. 이 파일은 모드 리소스의 `data` 디렉토리의 `damage_type` 폴더에 저장됩니다.
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/data/example-mod/damage_type/tater.json
 ```
 
@@ -89,7 +89,7 @@ Tater 피해 유형을 `bypasses_armor` 피해 유형 태그에 추가해 봅시
 
 이러한 태그에 사용자 정의 피해 유형을 추가하려면, 먼저 `minecraft` 네임스페이스로 JSON 파일을 생성해야 합니다.
 
-```:no-line-numbers
+```text:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
 ```
 

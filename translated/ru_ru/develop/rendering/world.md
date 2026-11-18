@@ -59,7 +59,7 @@ authors:
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_drawing_phase
 
-Размер, используемый в конструкторе `ByteBufferBuilder` зависит от отображения конвейера, которого вы используете. В таком случае, это `RenderType.SMALL_BUFFER_SIZE`.
+Размер, используемый в конструкторе `StagedVertexBuffer` зависит от отображения конвейера, которого вы используете. В таком случае, это `RenderType.SMALL_BUFFER_SIZE`.
 
 ### Очистка {#cleaning-up}
 

@@ -2,12 +2,12 @@
 title: Генерація теґів
 description: Інструкція з налаштування генерації теґів за допомогою генерації даних.
 authors:
+  - cassiancc
   - CelDaemon
   - IMB11
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
-authors-nogithub:
-  - mcrafterzz
 ---
 
 <!---->
@@ -46,10 +46,20 @@ Fabric надає кілька постачальників допоміжних
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_tag_key
 
-Потім викличте `getOrCreateTagBuilder` всередині методу `configure` вашого постачальника. Звідти ви можете додавати окремі предмети, додавати інші теґи або змусити цей теґ замінити вже наявні теґи.
+Далі викличте `builder` усередині методу `configure` вашого постачальника. Звідти ви можете додавати окремі ID предметів, додавати інші теґи або змусити цей теґ замінити вже наявні теґи.
 
 Якщо ви хочете додати теґ, використовуйте `addOptionalTag`, оскільки вміст теґу може не завантажуватися під час створення генерації даних. Якщо ви впевнені, що теґ завантажено, викличте `addTag`.
 
 Щоб примусово додати теґ і ігнорувати несправний формат, використовуйте `forceAddTag`.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_build
+
+## Переклад теґів {#translating-tags}
+
+Теґи, створені вашим модом, повинні мати переклади, щоб інші моди — наприклад, переглядачі рецептів — могли правильно показувати назву теґу. Якщо для одного з ваших теґів відсутній переклад, у журналах може з’явитися попередження, подібне до наведеного нижче:
+
+> Dev warning - Untranslated Item Tags detected. Please translate your item tags so other mods such as recipe viewers can properly display your tag's name.<br>Попередження розробки — Виявлено неперекладений теґ предмета. Будь ласка, перекладіть теґи ваших предметів, щоб інші моди — наприклад, переглядачі рецептів — могли правильно показати назви теґів.
+
+Ми можемо скористатися [посібником з генерації перекладів](./translations), щоб додати переклад для нашого теґу. Ми можемо скористатися тим самим конструктором перекладів і передати `TagKey` та показувану назву:
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#tag_name

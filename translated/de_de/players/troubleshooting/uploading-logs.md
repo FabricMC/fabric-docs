@@ -47,6 +47,7 @@ Das neueste Log hat den Dateinamen `latest.log` und vorherige Logs nutzen das Mu
 
 Logs können bei einer Vielzahl von Diensten hochgeladen werden, zum Beispiel:
 
-- [Pastebin](https://pastebin.com/)
-- [GitHub Gist](https://gist.github.com/)
 - [mclo.gs](https://mclo.gs/)
+- [pastes.dev](https://pastes.dev/)
+- [Pastebin.com](https://pastebin.com/)
+- [GitHub Gist](https://gist.github.com/)

@@ -3,9 +3,9 @@ title: Fabric API DSL
 description: Gradle용 Fabric Loom 플러그인에서 지원하는 Fabric API 지원에 관한 문서입니다.
 authors:
   - Atakku
-  - caoimhe
-  - daomephsta
-  - jamieswhiteshirt
+  - caoimhebyrne
+  - Daomephsta
+  - JamiesWhiteShirt
   - Juuxel
   - kb-1000
   - modmuss50

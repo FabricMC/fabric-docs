@@ -1,0 +1,40 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "get_star": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:nether_star"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": "Get a nether star",
+    "frame": "goal",
+    "icon": {
+      "id": "minecraft:nether_star"
+    },
+    "title": "Celestial body"
+  },
+  "requirements": [
+    [
+      "get_star"
+    ]
+  ],
+  "rewards": {
+    "experience": 200,
+    "function": "example-mod:got_nether_star",
+    "loot": [
+      "example-mod:advancements/collect_nether_star"
+    ],
+    "recipes": [
+      "minecraft:beacon"
+    ]
+  },
+  "sends_telemetry_event": true
+}

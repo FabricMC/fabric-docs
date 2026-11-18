@@ -56,9 +56,15 @@ Note that in the above code we are saving the `WaypointRenderState` in a field. 
 
 Now we'll implement the "drawing" phase. This should be called after all waypoints you want to render have been added to the `waypointState` during the "extraction" phase.
 
+::: info
+
+In 26.3, we use a mixin to call `draw`, since Fabric API does not provide the render pass. See `LevelRendererMixin`.
+
+:::
+
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_drawing_phase
 
-Note that the size used in the `ByteBufferBuilder` constructor depends on the render pipeline you are using. In our case, it is `RenderType.SMALL_BUFFER_SIZE`.
+Note that the size used in the `StagedVertexBuffer` constructor depends on the render pipeline you are using. In our case, it is `RenderType.SMALL_BUFFER_SIZE`.
 
 ### Cleaning up {#cleaning-up}
 
@@ -66,6 +72,7 @@ Finally, we need to clean up resources when the game renderer is closed. `GameRe
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_clean_up
 <<< @/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java
+<<< @/reference/latest/src/client/java/com/example/docs/mixin/client/LevelRendererMixin.java
 
 ### Final Code {#final-code}
 
@@ -73,6 +80,6 @@ Combining all the steps from above, we get a simple class that renders a waypoin
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java
 
-Don't forget the `GameRendererMixin` as well! Here is the result:
+Don't forget the `GameRendererMixin` and `LevelRendererMixin` as well! Here is the result:
 
 ![A waypoint rendering through walls](/assets/develop/rendering/world-rendering-custom-render-pipeline-waypoint.png)

@@ -56,7 +56,7 @@ Finally, we're required to have a `SavedDataType` that describes our saved data.
 
 ### Accessing Saved Data {#accessing-saved-data}
 
-As mentioned earlier, saved data can be associated with a scope like the current level. In this case, our data will be a part of the level data. We can get the `DimensionDataStorage` of the level to add and modify our data.
+As mentioned earlier, saved data can be associated with a scope like the current level. In this case, our data will be global. We can get the `DimensionDataStorage` of the server to add and modify our data. When using a `Level` scope, you'll use the same `getDataStorage` method on a `Level` instead of the `MinecraftServer`.
 
 We'll put this logic into a utility method.
 

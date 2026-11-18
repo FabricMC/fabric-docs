@@ -15,7 +15,7 @@ authors:
 Створімо спеціальний тип шкоди під назвою _Tater_. Почнімо з того, що створимо JSON файл для вашого типу шкоди. Цей файл
 буде розміщено в каталозі `data` вашого мода, у підкаталозі з назвою `damage_type`.
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/data/example-mod/damage_type/tater.json
 ```
 
@@ -97,7 +97,7 @@ resources/data/example-mod/damage_type/tater.json
 
 Щоб додати наш тип шкоди до одного з цих теґів, ми створюємо файл JSON у просторі імен `minecraft`.
 
-```:no-line-numbers
+```text:no-line-numbers
 data/minecraft/tags/damage_type/bypasses_armor.json
 ```
 

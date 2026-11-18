@@ -79,6 +79,7 @@ You also need to add the menu to the registry:
 
 Finally, we need to register our block:
 
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#workstation
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#workstation
 
 ### Implementing `quickMoveStack` {#implementing-quick-move-stack}

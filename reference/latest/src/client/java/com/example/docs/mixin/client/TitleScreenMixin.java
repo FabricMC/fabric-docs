@@ -21,7 +21,7 @@ public class TitleScreenMixin extends Screen {
 
 	@Inject(method = "init", at = @At("TAIL"), cancellable = false)
 	private void addTestWidgets(CallbackInfo ci) {
-		this.addRenderableWidget(Button.builder(Component.nullToEmpty("DrawContext Test"), (btn) -> this.minecraft.setScreen(new DrawContextExampleScreen())).bounds(5, 5, 60, 20).build());
-		this.addRenderableWidget(Button.builder(Component.nullToEmpty("CustomScreen 1"), (btn) -> this.minecraft.setScreen(new CustomScreen(Component.empty()))).bounds(5, 5+30, 60, 20).build());
+		this.addRenderableWidget(Button.builder(Component.nullToEmpty("DrawContext Test"), (btn) -> this.minecraft.gui.setScreen(new DrawContextExampleScreen())).bounds(5, 5, 60, 20).build());
+		this.addRenderableWidget(Button.builder(Component.nullToEmpty("CustomScreen 1"), (btn) -> this.minecraft.gui.setScreen(new CustomScreen(Component.empty()))).bounds(5, 5+30, 60, 20).build());
 	}
 }

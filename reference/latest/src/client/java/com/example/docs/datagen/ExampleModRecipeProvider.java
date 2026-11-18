@@ -4,18 +4,22 @@ package com.example.docs.datagen;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
-import net.minecraft.resources.Identifier;
+import net.minecraft.data.recipes.SpecialRecipeBuilder;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.ShieldDecorationRecipe;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -30,12 +34,13 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 	}
 
 	@Override
-	protected RecipeProvider createRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput exporter) {
-		return new RecipeProvider(registryLookup, exporter) {
+	protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, BootstrapContext<Recipe<?>> recipeContext, BootstrapContext<Advancement> advancementContext) {
+		return new RecipeProvider(recipeContext, advancementContext) {
 			@Override
 			public void buildRecipes() {
 				HolderLookup.RegistryLookup<Item> itemLookup = registries.lookupOrThrow(Registries.ITEM);
 				// #endregion datagen_recipes_provider
+
 				// #region datagen_recipes_shapeless
 
 				shapeless(RecipeCategory.BUILDING_BLOCKS, Items.DIRT) // You can also specify an int to produce more than one
@@ -76,6 +81,16 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 				);
 				// #endregion datagen_recipes_smelting
 
+				// #region shield_decoration
+				SpecialRecipeBuilder.special(
+											() -> new ShieldDecorationRecipe(
+													this.tag(ItemTags.BANNERS),
+													Ingredient.of(ModItems.GUIDITE_SHIELD),
+													new ItemStackTemplate(ModItems.GUIDITE_SHIELD))
+									)
+									.save(this.output, "shield_decoration");
+				// #endregion shield_decoration
+
 				// #region datagen_recipes_conditions
 				shapeless(RecipeCategory.BUILDING_BLOCKS, Items.SAND)
 						.requires(ItemTags.SAND)
@@ -92,7 +107,7 @@ public class ExampleModRecipeProvider extends FabricRecipeProvider {
 						100 // Cooking Time
 				)
 						.unlockedBy(getHasName(Items.WATER_BUCKET), has(Items.WATER_BUCKET)) // You can specify how this recipe is unlocked here.
-						.save(output, Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "water_bucket_to_bucket").toString()); // Then save the recipe with your modid and the recipe name.
+						.save(output, ExampleMod.id("water_bucket_to_bucket").toString()); // Then save the recipe with your modid and the recipe name.
 				// #endregion datagen_recipes_smoking
 				// #region datagen_recipes_dye
 				dyedItem(ModItems.LEATHER_GLOVES, "leather_gloves");

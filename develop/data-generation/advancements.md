@@ -2,13 +2,14 @@
 title: Advancement Generation
 description: A guide to setting up advancement generation with datagen.
 authors:
+  - cassiancc
   - CelDaemon
+  - MarcusElg
   - MattiDragon
   - skycatminepokie
   - Spinoscythe
 authors-nogithub:
   - jmanc3
-  - mcrafterzz
 ---
 
 <!---->
@@ -42,6 +43,12 @@ An advancement is made up a few different components. Along with the requirement
 ## Simple Advancements {#simple-advancements}
 
 Here's a simple advancement for getting a dirt block:
+
+::: tip
+
+This is a root advancement, so we use `rootDisplay` to set the background of the advancement. Advancements with parents use `display`.
+
+:::
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_simple_advancement
 
@@ -85,6 +92,14 @@ There are multiple other reward types available:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward_types
 
+::: warning
+
+A temporary workaround is used here to avoid the game crashing due to the loot table not being generated.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#terrible_workaround
+
+:::
+
 ## Custom Criteria {#custom-criteria}
 
 ::: warning
@@ -121,7 +136,7 @@ Whew, that's a lot! Let's break it down.
 
 ::: info
 
-To learn more about codecs, see the [Codecs](../codecs) page.
+To learn more about codecs, see the [Codecs](../serialization/codecs) page.
 
 :::
 
@@ -133,7 +148,7 @@ Now that we've got a criterion and its conditions, we need a way to trigger it. 
 
 <<< @/reference/latest/src/main/java/com/example/docs/advancement/UseToolCriterion.java#datagen_advancements_criterion_trigger
 
-Almost there! Next, we need an instance of our criterion to work with. Let's put it in a new class, called `ModCriteria`.
+Almost there! Next, we need an instance of our criterion to work with. Let's put it in a new class, called `ModCriteria`, with a helper method to easily register new criteria.
 
 <<< @/reference/latest/src/main/java/com/example/docs/advancement/ModCriteria.java#datagen_advancements_mod_criteria
 

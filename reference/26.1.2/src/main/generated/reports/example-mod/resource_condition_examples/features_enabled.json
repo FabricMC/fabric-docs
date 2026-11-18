@@ -1,0 +1,11 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:features_enabled",
+      "features": [
+        "minecraft:vanilla",
+        "minecraft:minecart_improvements"
+      ]
+    }
+  ]
+}

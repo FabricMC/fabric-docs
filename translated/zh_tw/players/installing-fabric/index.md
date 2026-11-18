@@ -13,7 +13,7 @@ authors:
 
 ::: info
 
-本指南僅適用於官方的 Minecraft Launcher。 對於第三方啟動器，你應該參閱他們的文檔。
+本指南僅適用於官方的 Minecraft Launcher。對於第三方啟動器，你應該參閱他們的文檔。
 
 :::
 
@@ -23,7 +23,7 @@ authors:
 {
  name: 'Windows',
  href: './windows',
- icon: 'mage:microsoft-windows',
+ icon: 'simple-icons:windows',
  color: '#0078D4',
 },
 {
@@ -34,7 +34,7 @@ authors:
 {
  name: 'Linux',
  href: './linux',
- icon: 'codicon:terminal-linux',
+ icon: 'simple-icons:linux',
  color: '#FF9A00',
 },
 ]" />

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "minecraft:coarse_dirt"
+  ],
+  "result": {
+    "id": "minecraft:dirt"
+  }
+}

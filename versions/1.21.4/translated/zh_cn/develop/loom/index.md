@@ -18,7 +18,7 @@ Loom 提供在开发环境中安装 Minecraft 和模组的实用程序，以便�
 
 Loom 支持 Minecraft 的 _所有_ 版本，甚至包括那些未被 Fabric API 官方支持的版本，因为它与版本无关。
 
-本页面是 Loom 所有选项和功能的参考。 如果你刚刚开始，请参阅[入门](getting-started/setting-up-a-development-environment)页面。
+本页面是 Loom 所有选项和功能的参考。 如果你刚刚开始，请参阅[入门](../getting-started/setting-up-a-development-environment)页面。
 
 ## 依赖子项目 {#subprojects}
 

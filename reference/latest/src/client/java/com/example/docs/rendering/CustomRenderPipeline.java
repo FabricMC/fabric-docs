@@ -1,37 +1,29 @@
 package com.example.docs.rendering;
 
 import java.util.Optional;
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
 
-import com.mojang.blaze3d.buffers.GpuBuffer;
-import com.mojang.blaze3d.buffers.GpuBufferSlice;
-import com.mojang.blaze3d.pipeline.RenderPipeline;
-import com.mojang.blaze3d.systems.CommandEncoder;
-import com.mojang.blaze3d.systems.RenderPass;
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.BufferBuilder;
-import com.mojang.blaze3d.vertex.ByteBufferBuilder;
-import com.mojang.blaze3d.vertex.MeshData;
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexFormat;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.renderpearl.api.buffers.GpuBufferSlice;
+import com.mojang.renderpearl.api.commands.RenderPass;
+import com.mojang.renderpearl.api.pipeline.PrimitiveTopology;
+import com.mojang.renderpearl.api.pipeline.RenderPipeline;
+import com.mojang.renderpearl.api.vertex.VertexFormat;
 import org.joml.Matrix4f;
 import org.joml.Matrix4fc;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
-import org.lwjgl.system.MemoryUtil;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.MappableRingBuffer;
 import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.client.renderer.StagedVertexBuffer;
 import net.minecraft.client.renderer.rendertype.RenderType;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.phys.Vec3;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionContext;
-import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderContext;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelTerrainRenderContext;
 
 import com.example.docs.ExampleMod;
 
@@ -39,24 +31,24 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	private static CustomRenderPipeline instance;
 	// #region custom_pipelines_define_pipeline
 	private static final RenderPipeline FILLED_THROUGH_WALLS = RenderPipelines.register(RenderPipeline.builder(RenderPipelines.DEBUG_FILLED_SNIPPET)
-			.withLocation(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "pipeline/debug_filled_box_through_walls"))
+			.withLocation(ExampleMod.id("pipeline/debug_filled_box_through_walls"))
 			.withDepthStencilState(Optional.empty())
 			.build()
 	);
 	// #endregion custom_pipelines_define_pipeline
 	// #region custom_pipelines_extraction_phase
-	private static WaypointRenderState waypointState;
+	private WaypointRenderState waypointState;
 
 	// #endregion custom_pipelines_extraction_phase
 	// #region custom_pipelines_drawing_phase
-	private static final ByteBufferBuilder ALLOCATOR = new ByteBufferBuilder(RenderType.SMALL_BUFFER_SIZE);
 	private static final Vector4f COLOR_MODULATOR = new Vector4f(1f, 1f, 1f, 1f);
 	private static final Vector3f MODEL_OFFSET = new Vector3f();
 	private static final Matrix4f TEXTURE_MATRIX = new Matrix4f();
-	private BufferBuilder buffer;
-	private MappableRingBuffer vertexBuffer;
+	private static final StagedVertexBuffer STAGED_BUFFER = new StagedVertexBuffer(() -> "Waypoints Buffer", RenderType.SMALL_BUFFER_SIZE);
+	private StagedVertexBuffer.Draw draw;
 
 	// #endregion custom_pipelines_drawing_phase
+
 	public static CustomRenderPipeline getInstance() {
 		return instance;
 	}
@@ -64,41 +56,48 @@ public class CustomRenderPipeline implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		instance = this;
-		LevelRenderEvents.END_EXTRACTION.register(this::extractWaypoint);
-		LevelRenderEvents.AFTER_TRANSLUCENT_TERRAIN.register(this::renderAndDrawWaypoint);
+		LevelExtractionEvents.END_EXTRACTION.register(this::extractWaypoint);
+		LevelRenderEvents.BEFORE_RENDER_PASS.register(this::prepare);
+		LevelRenderEvents.END_MAIN.register(_ -> STAGED_BUFFER.endFrame());
 	}
 
 	// #region custom_pipelines_extraction_phase
 	private void extractWaypoint(LevelExtractionContext context) {
 		// Access data from the world or anything here in the extraction phase.
 		// You can only access the (immutable and thread safe) render state in the drawing phase.
-		waypointState = new WaypointRenderState(0, 100, 0, 0f, 1f, 0f, 0.5f);
+		this.waypointState = new WaypointRenderState(0, 100, 0, 0f, 1f, 0f, 0.5f);
 	}
 
 	// #endregion custom_pipelines_extraction_phase
 	// #region custom_pipelines_drawing_phase
-	private void renderAndDrawWaypoint(LevelRenderContext context) {
-		this.renderWaypoint(context);
-		this.drawFilledThroughWalls(Minecraft.getInstance(), FILLED_THROUGH_WALLS);
+	private void prepare(LevelTerrainRenderContext context) {
+		RenderPipeline renderPipeline = CustomRenderPipeline.FILLED_THROUGH_WALLS;
+		VertexFormat formatBinding = renderPipeline.getVertexFormatBinding(0);
+
+		assert formatBinding != null;
+
+		PrimitiveTopology primitive = renderPipeline.getPrimitiveTopology();
+		StagedVertexBuffer.Draw draw = STAGED_BUFFER.appendDraw(formatBinding, primitive, primitive == PrimitiveTopology.QUADS ? RenderSystem.getProjectionType().vertexSorting() : null);
+
+		this.renderWaypoint(context, draw);
+
+		STAGED_BUFFER.upload();
+
+		this.draw = draw;
 	}
 
-	private void renderWaypoint(LevelRenderContext context) {
-		PoseStack matrices = context.poseStack();
+	private void renderWaypoint(LevelTerrainRenderContext context, StagedVertexBuffer.Draw draw) {
+		Matrix4f matrix = new Matrix4f();
 		Vec3 camera = context.levelState().cameraRenderState.pos;
 
-		matrices.pushPose();
-		matrices.translate(-camera.x, -camera.y, -camera.z);
+		matrix.translate((float) -camera.x, (float) -camera.y, (float) -camera.z);
 
-		if (this.buffer == null) {
-			this.buffer = new BufferBuilder(ALLOCATOR, FILLED_THROUGH_WALLS.getVertexFormatMode(), FILLED_THROUGH_WALLS.getVertexFormat());
-		}
+		final VertexConsumer builder = STAGED_BUFFER.getVertexBuilder(draw);
 
-		this.renderFilledBox(matrices.last().pose(), this.buffer, waypointState.x(), waypointState.y(), waypointState.z(), waypointState.x() + 1, waypointState.y() + 1, waypointState.z() + 1, waypointState.r(), waypointState.g(), waypointState.b(), waypointState.a());
-
-		matrices.popPose();
+		this.renderFilledBox(matrix, builder, this.waypointState.x(), this.waypointState.y(), this.waypointState.z(), this.waypointState.x() + 1, this.waypointState.y() + 1, this.waypointState.z() + 1, this.waypointState.r(), this.waypointState.g(), this.waypointState.b(), this.waypointState.a());
 	}
 
-	private void renderFilledBox(Matrix4fc positionMatrix, BufferBuilder buffer, float minX, float minY, float minZ, float maxX, float maxY, float maxZ, float red, float green, float blue, float alpha) {
+	private void renderFilledBox(Matrix4fc positionMatrix, VertexConsumer buffer, float minX, float minY, float minZ, float maxX, float maxY, float maxZ, float red, float green, float blue, float alpha) {
 		// Front Face
 		buffer.addVertex(positionMatrix, minX, minY, maxZ).setColor(red, green, blue, alpha);
 		buffer.addVertex(positionMatrix, maxX, minY, maxZ).setColor(red, green, blue, alpha);
@@ -136,96 +135,42 @@ public class CustomRenderPipeline implements ClientModInitializer {
 		buffer.addVertex(positionMatrix, minX, minY, maxZ).setColor(red, green, blue, alpha);
 	}
 
-	private void drawFilledThroughWalls(Minecraft client, @SuppressWarnings("SameParameterValue") RenderPipeline pipeline) {
-		// Build the buffer
-		MeshData builtBuffer = this.buffer.buildOrThrow();
-		MeshData.DrawState drawParameters = builtBuffer.drawState();
-		VertexFormat format = drawParameters.format();
-
-		GpuBuffer vertices = this.upload(drawParameters, format, builtBuffer);
-
-		draw(client, pipeline, builtBuffer, drawParameters, vertices, format);
-
-		// Rotate the vertex buffer so we are less likely to use buffers that the GPU is using
-		this.vertexBuffer.rotate();
-		this.buffer = null;
-	}
-
-	private GpuBuffer upload(MeshData.DrawState drawParameters, VertexFormat format, MeshData builtBuffer) {
-		// Calculate the size needed for the vertex buffer
-		int vertexBufferSize = drawParameters.vertexCount() * format.getVertexSize();
-
-		// Initialize or resize the vertex buffer as needed
-		if (this.vertexBuffer == null || this.vertexBuffer.size() < vertexBufferSize) {
-			if (this.vertexBuffer != null) {
-				this.vertexBuffer.close();
-			}
-
-			this.vertexBuffer = new MappableRingBuffer(() -> ExampleMod.MOD_ID + " example render pipeline", GpuBuffer.USAGE_VERTEX | GpuBuffer.USAGE_MAP_WRITE, vertexBufferSize);
+	public void draw(RenderPass renderPass) {
+		if (this.draw == null) {
+			return;
 		}
 
-		// Copy vertex data into the vertex buffer
-		CommandEncoder commandEncoder = RenderSystem.getDevice().createCommandEncoder();
+		StagedVertexBuffer.ExecuteInfo info = STAGED_BUFFER.getExecuteInfo(this.draw);
 
-		try (GpuBuffer.MappedView mappedView = commandEncoder.mapBuffer(this.vertexBuffer.currentBuffer().slice(0, builtBuffer.vertexBuffer().remaining()), false, true)) {
-			MemoryUtil.memCopy(builtBuffer.vertexBuffer(), mappedView.data());
+		if (info == null) {
+			return;
 		}
 
-		return this.vertexBuffer.currentBuffer();
-	}
-
-	private static void draw(Minecraft client, RenderPipeline pipeline, MeshData builtBuffer, MeshData.DrawState drawParameters, GpuBuffer vertices, VertexFormat format) {
-		GpuBuffer indices;
-		VertexFormat.IndexType indexType;
-
-		if (pipeline.getVertexFormatMode() == VertexFormat.Mode.QUADS) {
-			// Sort the quads if there is translucency
-			builtBuffer.sortQuads(ALLOCATOR, RenderSystem.getProjectionType().vertexSorting());
-			// Upload the index buffer
-			indices = pipeline.getVertexFormat().uploadImmediateIndexBuffer(builtBuffer.indexBuffer());
-			indexType = builtBuffer.drawState().indexType();
-		} else {
-			// Use the general shape index buffer for non-quad draw modes
-			RenderSystem.AutoStorageIndexBuffer shapeIndexBuffer = RenderSystem.getSequentialBuffer(pipeline.getVertexFormatMode());
-			indices = shapeIndexBuffer.getBuffer(drawParameters.indexCount());
-			indexType = shapeIndexBuffer.type();
-		}
-
-		// Actually execute the draw
 		GpuBufferSlice dynamicTransforms = RenderSystem.getDynamicUniforms()
-				.writeTransform(RenderSystem.getModelViewMatrix(), COLOR_MODULATOR, MODEL_OFFSET, TEXTURE_MATRIX);
-		try (RenderPass renderPass = RenderSystem.getDevice()
-				.createCommandEncoder()
-				.createRenderPass(() -> ExampleMod.MOD_ID + " example render pipeline rendering", client.getMainRenderTarget().getColorTextureView(), OptionalInt.empty(), client.getMainRenderTarget().getDepthTextureView(), OptionalDouble.empty())) {
-			renderPass.setPipeline(pipeline);
+				.writeTransform(RenderSystem.getModelViewMatrixCopy(), COLOR_MODULATOR, MODEL_OFFSET, TEXTURE_MATRIX);
 
-			RenderSystem.bindDefaultUniforms(renderPass);
-			renderPass.setUniform("DynamicTransforms", dynamicTransforms);
+		renderPass.pushDebugGroup(() -> "Fabric Docs Example Pipeline Rendering");
+		renderPass.setPipeline(RenderSystem.getCompiledPipeline(FILLED_THROUGH_WALLS));
 
-			// Bind texture if applicable:
-			// Sampler0 is used for texture inputs in vertices
-			// renderPass.bindTexture("Sampler0", textureSetup.texure0(), textureSetup.sampler0());
+		RenderSystem.bindDefaultUniforms(renderPass);
+		renderPass.setUniform("DynamicTransforms", dynamicTransforms);
 
-			renderPass.setVertexBuffer(0, vertices);
-			renderPass.setIndexBuffer(indices, indexType);
+		// Bind texture if applicable:
+		// Sampler0 is used for texture inputs in vertices
+		// renderPass.setUniform("Sampler0", draw.textureSetup.texure0(), draw.textureSetup.sampler0());
 
-			// The base vertex is the starting index when we copied the data into the vertex buffer divided by vertex size
-			//noinspection ConstantValue
-			renderPass.drawIndexed(0 / format.getVertexSize(), 0, drawParameters.indexCount(), 1);
-		}
+		renderPass.setVertexBuffer(0, info.vertexBuffer().slice());
+		renderPass.setIndexBuffer(info.indexBuffer(), info.indexType());
 
-		builtBuffer.close();
+		// The base vertex is the starting index when we copied the data into the vertex buffer divided by vertex size
+		renderPass.drawIndexed(info.indexCount(), 1, info.firstIndex(), info.baseVertex(), 0);
+		renderPass.popDebugGroup();
 	}
 	// #endregion custom_pipelines_drawing_phase
 
 	// #region custom_pipelines_clean_up
-	public void close() {
-		ALLOCATOR.close();
-
-		if (this.vertexBuffer != null) {
-			this.vertexBuffer.close();
-			this.vertexBuffer = null;
-		}
+	public static void close() {
+		STAGED_BUFFER.close();
 	}
 	// #endregion custom_pipelines_clean_up
 

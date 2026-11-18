@@ -7,4 +7,4 @@ description: Посібник зі встановлення та викорис�
 
 Перегляньте список усіх доступних інструкцій на боковій панелі.
 
-Якщо у вас виникли проблеми, повідомте про них [на GitHub](https://github.com/FabricMC/fabric-docs) або зверніться за допомогою до [Discord Fabric](https://discord.fabricmc.net/) у канали `#player-support` або `#mc-server-support`.
+Якщо у вас виникли проблеми, повідомте про них [на GitHub](https://github.com/orgs/FabricMC/discussions) або зверніться за допомогою до [Discord Fabric](https://discord.fabricmc.net/) у каналах `#player-support` або `#mc-server-support`.

@@ -18,7 +18,7 @@ public class CustomScreen extends Screen {
 
 	@Override
 	public void onClose() {
-		this.minecraft.setScreen(this.parent);
+		this.minecraft.gui.setScreen(this.parent);
 	}
 
 	// #endregion return_to_previous_screen
@@ -31,8 +31,8 @@ public class CustomScreen extends Screen {
 	protected void init() {
 		Button buttonWidget = Button.builder(Component.literal("Hello World"), (btn) -> {
 			// When the button is clicked, we can display a toast to the screen.
-			this.minecraft.getToastManager().addToast(
-					SystemToast.multiline(this.minecraft, SystemToast.SystemToastId.NARRATOR_TOGGLE, Component.nullToEmpty("Hello World!"), Component.nullToEmpty("This is a toast."))
+			this.minecraft.gui.toastManager().addToast(
+					new SystemToast(SystemToast.SystemToastId.NARRATOR_TOGGLE, Component.nullToEmpty("Hello World!"), Component.nullToEmpty("This is a toast."))
 			);
 		}).bounds(40, 40, 120, 20).build();
 		// x, y, width, height

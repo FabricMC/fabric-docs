@@ -1,11 +1,11 @@
 ---
 title: Яйця виклику
-description: Прочитайте як зареєструвати предмет яйця виклику.
+description: Дізнайтеся, як зареєструвати предмет яйця виклику.
 authors:
-  - Earthcomputer
-  - JaaiDead
   - cassiancc
+  - Earthcomputer
   - Fellteros
+  - JaaiDead
   - skycatminepokie
   - VatinMc
   - voidedaries
@@ -22,6 +22,8 @@ authors:
 :::
 
 Яйця виклику — це спеціальні предмети, які при використанні породжують відповідного моба. Ви можете зареєструвати його за допомогою методу `register` з вашого [класу предмета](./first-item#preparing-your-items-class), передавши йому `SpawnEggItem::new`.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#custom_entity_spawn_egg
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_entity_spawn_egg
 

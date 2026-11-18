@@ -12,13 +12,14 @@ authors:
   - Earthcomputer
   - florensie
   - Fusion-Flux
-  - InfinityChances
+  - infinitychances
   - Kilip1000
   - MaxURhino
+  - NotNightSky
   - SolidBlock-cn
   - SuperSoupr
-  - Virtuoel
   - UpcraftLP
+  - Virtuoel
 authors-nogithub:
   - alfiejfs
   - salvopelux
@@ -54,7 +55,11 @@ Innerhalb von `AcidFluid` werden wir zwei Unterklassen für die Flüssigkeiten `
 
 ### Flüssigkeiten registrieren {#registering-fluids}
 
-Als Nächstes erstellen wir eine Klasse, um alle Flüssigkeits-Instanzen zu registrieren. Wir nennen sie `ModFluids`.
+Als Nächstes werden wir eine Klasse erstellen, um alle Flüssigkeits-IDs zu speichern. Wir nennen diese `ModFluidIds`.
+
+<<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluidIds.java#register
+
+Wir werden diese IDs in einer neuen Klasse verwenden, um alle Flüssigkeits-Instanzen zu registrieren. Wir nennen sie `ModFluids`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/fluid/ModFluids.java#register
 
@@ -70,7 +75,11 @@ Bisher haben wir den Ausgangszustand der Flüssigkeit und ihren Strömungszustan
 
 Fügen wir nun einen Flüssigkeitsblock für unsere Flüssigkeit hinzu. Dies wird von einigen Befehlen wie `setblock` benötigt, damit deine Flüssigkeit in der Welt existieren kann. Falls du das noch nicht getan hast, solltest du dir ansehen, [wie du deinen ersten Block erstellst](../blocks/first-block).
 
-Öffne deine Klasse `ModBlocks` und registriere den folgenden `LiquidBlock`:
+Öffne deine Klasse `ModBlockIds` und füge den folgenden `ResourceKey` hinzu:
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#acid
+
+Öffne dann deine Klasse `ModBlocks` und registriere den folgenden `LiquidBlock` unter Verwendung des Schlüssels:
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#acid
 
@@ -132,7 +141,7 @@ Der Einfachheit halber verwendet diese Demo `BlockTintSources.constant`, um der 
 
 :::
 
-Füge die folgenden Zeilen zu deinem `ClientModInitializer` hinzu, um ein `FluidModel.Unbaked` zu erstellen, das zwei `Material` für die Texturen – eines für die ruhende Quelle und eines für die fließende Flüssigkeit – sowie eine Blockfärbungs-Quelle für die Farbe, mit der es eingefärbt werden soll, verwendet.
+Füge die folgenden Zeilen zu deinem `ClientModInitializer` hinzu, um ein `FluidModel.Unbaked` zu erstellen. Es nimmt drei `Material`-Objekte für die Texturen entgegen – eines für die ruhige Quelle, eines für die fließende Flüssigkeit und eines für die Flüssigkeitsüberlagerung – sowie eine Blockfarbquelle für die Farbe, mit der es eingefärbt werden soll.
 
 <<< @/reference/latest/src/client/java/com/example/docs/appearance/ExampleModAppearanceClient.java#fluid_texture
 

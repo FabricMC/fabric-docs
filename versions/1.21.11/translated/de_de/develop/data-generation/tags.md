@@ -4,10 +4,9 @@ description: Ein Leitfaden zur Einrichtung der Generierung von Tags mit dem Date
 authors:
   - CelDaemon
   - IMB11
+  - MarcusElg
   - skycatminepokie
   - Spinoscythe
-authors-nogithub:
-  - mcrafterzz
 ---
 
 <!---->

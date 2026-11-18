@@ -9,4 +9,4 @@ description: 커뮤니티에서 엄선하여 작성한 개발 설명서는 개�
 
 기억하세요: 문서에서 사용되는 모든 코드는 완전히 작동하는 예시 모드이며, [GitHub의 `/reference` 폴더](https://github.com/FabricMC/fabric-docs/tree/main/reference/1.21.4) 전체 코드를 확인할 수 있습니다.
 
-[GitHub](https://github.com/FabricMC/fabric-docs)에서 소스 코드를 찾을 수 있으며, Fabric 문서에 기여하고자 하는 경우 [기여 가이드라인](../contributing)을 준수해야 합니다.
+[GitHub](https://github.com/FabricMC/fabric-docs)에서 소스 코드를 찾을 수 있으며, Fabric 문서에 기여하고자 하는 경우 [기여 가이드라인](../../contributing)을 준수해야 합니다.

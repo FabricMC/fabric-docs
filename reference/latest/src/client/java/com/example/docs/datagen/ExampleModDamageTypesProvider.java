@@ -24,7 +24,7 @@ public class ExampleModDamageTypesProvider {
 	public static final DamageType TATER_DAMAGE_TYPE = new DamageType("tater", DamageScaling.WHEN_CAUSED_BY_LIVING_NON_PLAYER, 0.1f);
 
 	public static class TaterDamageTypeTagGenerator extends FabricTagsProvider<DamageType> {
-		TaterDamageTypeTagGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+		public TaterDamageTypeTagGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
 			super(output, Registries.DAMAGE_TYPE, registriesFuture);
 		}
 
@@ -37,7 +37,7 @@ public class ExampleModDamageTypesProvider {
 	public static class TaterDamageTypesGenerator implements DataProvider {
 		private final PackOutput.PathProvider path;
 
-		TaterDamageTypesGenerator(FabricPackOutput FabricPackOutput) {
+		public TaterDamageTypesGenerator(FabricPackOutput FabricPackOutput) {
 			this.path = FabricPackOutput.createPathProvider(PackOutput.Target.DATA_PACK, "damage_type/");
 		}
 
@@ -49,7 +49,7 @@ public class ExampleModDamageTypesProvider {
 			damageTypeObject.addProperty("message_id", TATER_DAMAGE_TYPE.msgId());
 			damageTypeObject.addProperty("scaling", TATER_DAMAGE_TYPE.scaling().getSerializedName());
 
-			return DataProvider.saveStable(writer, damageTypeObject, this.path.json(Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater")));
+			return DataProvider.saveStable(writer, damageTypeObject, this.path.json(ExampleMod.id("tater")));
 		}
 
 		@Override

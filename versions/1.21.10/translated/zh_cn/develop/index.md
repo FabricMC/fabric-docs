@@ -9,4 +9,4 @@ description: 我们的社区编写的开发者指南，涵盖一切，从设置�
 
 记住：包含本文档所有代码的完整有效模组可在 [GitHub 中的 `/reference` 文件夹](https://github.com/FabricMC/fabric-docs/tree/main/reference/1.21.10)中找到。
 
-如果想给 Fabric 文档做贡献，可以在 [GitHub](https://github.com/FabricMC/fabric-docs) 找到本项目的源代码，以及相关的[贡献指南](../contributing)。
+如果想给 Fabric 文档做贡献，可以在 [GitHub](https://github.com/FabricMC/fabric-docs) 找到本项目的源代码，以及相关的[贡献指南](../../contributing)。

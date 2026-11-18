@@ -14,11 +14,12 @@ authors:
   - NetUserGet
   - NShak
   - parzivail
+  - skippyall
   - skycatminepokie
   - SolidBlock-cn
   - Voleil
   - Wxffel
-  - YTG123-Mods
+  - YTG1234
   - zulrang
 ---
 
@@ -54,7 +55,7 @@ A payload is the data that is sent within a packet.
 
 :::
 
-This can be done by creating a Java `Record` with a `BlockPos` parameter that implements `CustomPacketPayload`.
+This can be done by creating a Java `Record` with a `BlockPos` and an `int` parameter that implements `CustomPacketPayload`.
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/ClientboundSummonLightningPayload.java#summon_lightning_payload
 
@@ -106,7 +107,7 @@ We only send packets when the action is initiated on the server, by returning ea
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#client_check
 
-We create an instance of the payload with the user's position:
+We create an instance of the payload with the user's position and the entity ID for the lightning:
 
 <<< @/reference/latest/src/main/java/com/example/docs/networking/basic/LightningTaterItem.java#payload_instance
 
@@ -142,8 +143,8 @@ lambda expression).
 
 Let's examine the code above.
 
-We can access the data from our payload by calling the Record's getter methods. In this case `payload.pos()`. Which then
-can be used to get the `x`, `y` and `z` positions.
+We can access the data from our payload by calling the Record's getter methods. In this case `payload.pos()`
+can be used to get the `x`, `y` and `z` positions, and `payload.id()` for the entity ID:
 
 <<< @/reference/latest/src/client/java/com/example/docs/network/basic/ExampleModNetworkingBasicClient.java#payload_pos
 
@@ -154,7 +155,7 @@ Finally, we create a `LightningBolt` and add it to the level.
 Now, if you add this mod to a server and when a player uses our Lightning Tater item, every player will see lightning
 striking at the user's position.
 
-<VideoPlayer src="/assets/develop/networking/summon-lightning.webm">Summon lightning using Lightning Tater</VideoPlayer>
+![Summon lightning using Lightning Tater](/assets/develop/networking/summon-lightning.webm)
 
 ### Sending a Packet to the Server {#sending-a-packet-to-the-server}
 
@@ -214,4 +215,4 @@ player to 5. If those conditions are met, we'll apply the effect:
 
 Now when any player tries to use a Poisonous Potato on a living entity, the glowing effect will be applied to it.
 
-<VideoPlayer src="/assets/develop/networking/use-poisonous-potato.webm">Glowing effect is applied when a Poisonous Potato is used on a living entity</VideoPlayer>
+![Glowing effect is applied when a Poisonous Potato is used on a living entity](/assets/develop/networking/use-poisonous-potato.webm)

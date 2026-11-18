@@ -2,10 +2,10 @@
 title: Яйца призыва
 description: Узнайте, как зарегистрировать предмет с функционалом призывания сущности.
 authors:
-  - Earthcomputer
-  - JaaiDead
   - cassiancc
+  - Earthcomputer
   - Fellteros
+  - JaaiDead
   - skycatminepokie
   - VatinMc
   - voidedaries
@@ -22,6 +22,8 @@ authors:
 :::
 
 Яйца призыва — это особые предметы, которые при использовании призывают соответствующего моба. Вы можете зарегистрировать такое яйцо с помощью метода `register` из вашего [класса предметов](./first-item#preparing-your-items-class), передав в него `SpawnEggItem::new`.
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#custom_entity_spawn_egg
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_entity_spawn_egg
 

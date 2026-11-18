@@ -2,8 +2,8 @@
 title: Пользовательские компоненты данных
 description: Узнайте, как добавлять пользовательские данные к вашим товарам, используя новую систему компонентов 1.20.5.
 authors:
-  - Romejanic
   - ekulxam
+  - Romejanic
 resources:
   https://minecraft.wiki/w/Data_component_format#List_of_components: Список ванильных компонентнов - Minecraft Wiki
 ---
@@ -128,7 +128,7 @@ java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" bec
         at net.minecraft.world.item.ItemStack.getTooltipLines(ItemStack.java:767)
 ```
 
-As expected, since the `ItemStack` doesn't currently contain an instance of our custom component, calling `stack.get()` with our component type will return `null`.
+Как и ожидалось, поскольку `ItemStack` в данный момент не содержит ваш компонент, вызов `stack.get()` с типом нашего компонента вернет `null`.
 
 Для решения этой проблемы мы можем использовать три решения.
 

@@ -37,15 +37,36 @@ Loom verwendet unterschiedliche Plugin IDs:
 
 ## Auf Unterprojekten aufbauen {#subprojects}
 
-Beim Einrichten eines Multiprojekt-Builds, das von einem anderen Loom-Projekt abhängt, solltest du die Konfiguration `namedElements` verwenden, wenn du von dem anderen Projekt abhängig bist. Standardmäßig werden die "Ausgaben" eines Projekts auf Zwischennamen umgeschrieben. Die Konfiguration `namedElements` enthält die Projektausgaben, die nicht neu geordnet wurden.
+Beim Einrichten eines Multiprojekt-Builds möchtest du möglicherweise ein anderes Unterprojekt als Abhängigkeit verwenden.
+Dies kannst du mithilfe eines `project(...)`-Aufrufs tun, wobei die Argumente von der Art der verwendeten Umgebung abhängen.
+
+### Auf nicht neu zugeordnete Teilprojekte aufbauen {#depending-on-non-remapped-subprojects}
+
+Bei Loom ohne Neuzuordnung übergeben wir den Pfad zum Unterprojekt, allerdings durch Doppelpunkte getrennt.
+
+Ein Projekt unter `/examples/hello-world` kann beispielsweise wie folgt referenziert werden:
 
 ```gradle
 dependencies {
- implementation project(path: ":name", configuration: "namedElements")
+ implementation project(":examples:hello-world")
 }
 ```
 
-Wenn du geteilte Quellensätze in einem Multiprojekt-Build verwendest, musst du auch eine Abhängigkeit für den Client-Quellensatz des anderen Projekts hinzufügen.
+### Auf neu zugeordnete Teilprojekte aufbauen {#depending-on-remapped-subprojects}
+
+Bei Loom mit Neuzuordnung wird die Projektausgabe im Standard zu Zwischennamen neu zugeordnet. Dies führt dazu, dass Zwischennamen für das abhängige Projekt sichtbar werden.
+
+Um dies zu vermeiden, geben wir die Konfiguration `namedElements` an und rufen die Projektausgabe ohne Neuzuordnung ab:
+
+```gradle
+dependencies {
+ implementation project(path: ":examples:hello-world", configuration: "namedElements")
+}
+```
+
+### Auf geteilte Quellsätze aufbauen {#depending-on-split-sources}
+
+Wenn du [geteilte Quellensätze](#split-sources) in einem Multiprojekt-Build verwendest, musst du auch eine Abhängigkeit für den Client-Quellensatz des anderen Projekts hinzufügen.
 
 ```gradle
 dependencies {
@@ -57,11 +78,13 @@ dependencies {
 
 Eine häufige Ursache für Serverabstürze waren jahrelang Mods, die bei der Installation auf einem Server versehentlich reinen Client-Code aufriefen. Neuere Loom- und Loader-Versionen bieten die Möglichkeit, den gesamten Client-Code in einen eigenen Quellsatz zu verschieben. Dadurch wird das Problem bei der Kompilierung behoben, aber der Build führt immer noch zu einer einzigen JAR-Datei, die auf beiden Seiten funktioniert.
 
-Der folgende Ausschnitt aus einer `build.gradle`-Datei zeigt, wie du dies für deinen Mod aktivieren kannst. Da dein Mod nun auf zwei Quellensätze aufgeteilt ist, musst du die neue DSL verwenden, um die Quellensätze deines Mods zu definieren. Dies ermöglicht es dem Fabric Loader, den Klassenpfad deiner Mods zusammenzufassen. Dies ist auch für einige andere komplexe Multiprojekt-Konfigurationen nützlich.
-
-Minecraft 1.18 (1.19 empfohlen), Loader 0.14 und Loom 1.0 oder später sind nötig, um den Client und den Allgemeinen Code aufzuteilen.
+Der folgende Ausschnitt aus einer `build.gradle`-Datei zeigt, wie du dies für deinen Mod aktivieren kannst:
 
 <<< @/reference/build.gradle#split_sources
+
+Da dein Mod nun auf zwei Quellensätze aufgeteilt ist, musst du die neue DSL verwenden, um die Quellensätze deines Mods zu definieren. Dies ermöglicht es dem Fabric Loader, den Klassenpfad deiner Mods zusammenzufassen. Dies ist auch für einige andere komplexe Multiprojekt-Konfigurationen nützlich.
+
+Minecraft 1.18 (1.19 empfohlen), Loader 0.14 und Loom 1.0 oder später sind nötig, um den Client und den Allgemeinen Code aufzuteilen.
 
 ## Fehler beheben {#issues}
 
@@ -83,7 +106,7 @@ Loom ist so konzipiert, dass es sofort einsatzbereit ist, indem du einfach einen
 
 ## Caches {#caches}
 
-- `${GRADLE_HOME}/caches/fabric-loom`: Der Usercache, ein Cache der für alle Loom-Projekte für einen Nutzer geteilt wird. Dient zum Zwischenspeichern von Minecraft-Assets, Jars, zusammengeführten Jars, Zwischen-Jars und gemappten Jars
+- `${GRADLE_USER_HOME}/caches/fabric-loom`: Der Usercache, ein Cache der für alle Loom-Projekte für einen Nutzer geteilt wird. Dient zum Zwischenspeichern von Minecraft-Assets, Jars, zusammengeführten Jars, Zwischen-Jars und gemappten Jars
 - `.gradle/loom-cache`: Der persistente Cache des Stammprojektes, ein Cache der durch das Projekt und dessen Unterprojekten geteilt wird. Dient zum Zwischenspeichern von neu gemappten Mods sowie von generierten, eingeschlossenen Mod-Jars
 - `**/build/loom-cache`: Der (Unter-) Projekt Build Cache
 

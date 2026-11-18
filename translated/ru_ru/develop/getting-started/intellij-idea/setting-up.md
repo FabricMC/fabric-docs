@@ -2,10 +2,10 @@
 title: Настройка IntelliJ IDEA
 description: Пошаговое руководство по настройке IntelliJ IDEA для создания модов с помощью Fabric.
 authors:
-  - 2xsaiko
   - Andrew6rant
   - asiekierka
   - Daomephsta
+  - dblsaiko
   - dicedpixels
   - falseresync
   - IMB11

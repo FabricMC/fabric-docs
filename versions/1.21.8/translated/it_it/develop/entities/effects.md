@@ -37,7 +37,7 @@ Come nella registrazione di blocchi e oggetti, usiamo `Registry.register` per re
 
 L'icona dell'effetto è un PNG 18x18 che apparirà nella schermata dell'inventario del giocatore. Posiziona la tua icona personalizzata in:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/fabric-docs-reference/textures/mob_effect/tater.png
 ```
 

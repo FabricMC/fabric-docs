@@ -3,14 +3,13 @@ title: Effetti di Stato
 description: Impara come aggiungere effetti di stato personalizzati.
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+  - TheFireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu
-
 search: false
 ---
 
@@ -42,7 +41,7 @@ Puoi assegnare un nome al tuo effetto di stato e fornire un'icona che apparirà 
 
 L'icona dell'effetto è un PNG 18x18. Posiziona la tua icona personalizzata in:
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 

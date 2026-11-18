@@ -3,9 +3,9 @@ title: 创建项目
 description: 关于如何使用 Fabric 模板模组生成器创建新的模组项目的逐步指南。
 authors:
   - Cactooz
+  - evelynmeowww
   - IMB11
-  - radstevee
-  - Thomas1034​
+  - Thomas1034
 resources:
   https://fabricmc.net/develop/template/: Fabric 模板模组生成器
   https://fabricmc.net/develop/: 使用 Fabric 网站开发
@@ -17,11 +17,11 @@ Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来�
 
 你可以使用 [Fabric 模板模组生成器](https://fabricmc.net/develop/template/)为你的模组生成一个新项目——你应该填写必要的字段，例如模组名称、包名以及你想开发的 Minecraft 版本。
 
-包名应为小写，用点分隔，并保持唯一以避免与其他程序员的包冲突。 它通常被格式化为反向互联网域名，例如 `com.example.example-mod`。
+包名应为小写，用点分隔，并保持唯一以避免与其他程序员的包冲突。它通常被格式化为反向互联网域名，例如 `com.example.example-mod`。
 
 :::warning 重要
 
-请记住你的模组 ID！ 当你在这些文档中找到 `example-mod` ，尤其是在文件路径中时，你必须用你自己的替换它。
+请记住你的模组 ID！当你在这些文档中找到 `example-mod` ，尤其是在文件路径中时，你必须用你自己的替换它。
 
 例如，如果你的模组 ID 是 **`my-cool-mod`**，则使用 **`resources/assets/my-cool-mod`** 而不是 _`resources/assets/example-mod`_。
 
@@ -33,7 +33,7 @@ Fabric 提供了一种简单的方法来使用 Fabric 模板模组生成器来�
 
 ::: info
 
-本网站提供的代码示例使用了[未混淆游戏中的名称](../porting/mappings/#whats-going-on-with-mappings) 如果你 现有的模组使用了除 Mojang 提供的映射之外的其他映射，请参阅我们的文档[移植到 26.1](../porting/index) 了解更多信息。
+本网站提供的代码示例使用了[未混淆游戏中的名称](../porting/mappings/#whats-going-on-with-mappings) 如果你 现有的模组使用了除 Mojang 提供的映射之外的其他映射，请参阅我们的文档[移植到 26.1](../porting/) 了解更多信息。
 
 :::
 
@@ -73,7 +73,7 @@ git clone https://github.com/FabricMC/fabric-example-mod.git example-mod
 
 这将把代码仓库克隆到一个名为 `example-mod` 的新文件夹中。
 
-然后你应该从克隆的代码仓库中删除 `.git` 文件夹，并·打开项目。 如果找不到 `.git` 文件夹，你需要在你的文件资源管理器中启用显示隐藏文件。
+然后你应该从克隆的代码仓库中删除 `.git` 文件夹，并·打开项目。如果找不到 `.git` 文件夹，你需要在你的文件资源管理器中启用显示隐藏文件。
 
 ### 设置你的 IDE {#setting-up}
 

@@ -2,6 +2,7 @@
 title: Deine erste Entität erstellen
 description: Lerne, wie man eine einfache Entität registriert, ihr Ziele gibt, sie rendert, modelliert und animiert.
 authors:
+  - An16og
   - cassiancc
   - CelDaemon
   - Earthcomputer
@@ -25,13 +26,21 @@ Dieses Tutorial führt dich Schritt für Schritt durch die Erstellung eines benu
 
 Der erste Schritt bei der Erstellung einer benutzerdefinierten Entität besteht darin, dessen Klasse zu definieren und sie im Spiel zu registrieren.
 
-Wir werden die Klasse `MiniGolemEntity` für unsere Entität erstellen und beginnen damit, ihr Attribute zu geben. [Attribute](attributes) bestimmen verschiedene Eigenschaften, darunter die maximale Gesundheit, die Geschwindigkeit der Bewegung und die Reichweite der Entität.
+Wir werden die Klasse `MiniGolemEntity` für unsere Entität erstellen und beginnen damit, ihr Attribute zu geben. [Attribute](./attributes) bestimmen verschiedene Eigenschaften, darunter die maximale Gesundheit, die Geschwindigkeit der Bewegung und die Reichweite der Entität.
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/MiniGolemEntity.java#registerclass
 
-Um deine Entitäten zu registrieren, empfiehlt es sich, eine eigene Klasse mit dem Namen `ModEntityTypes` zu erstellen, in der du alle Entitätstypen registrierst, deren Größe festlegst und deren Attribute registrierst.
+Unsere neue Entität benötigt eine ID; erstelle ine neue Klasse namens `ModEntityTypeIds` und füge einen Ressourcenschlüssel für die Entität hinzu:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypeIds.java#ids
+
+Um deine Entität zu registrieren, wird empfohlen, eine eigene Klasse namens `ModEntityTypes` zu erstellen, in der du alle Entitätstypen registrierst, deren Größe festlegst und deren Attribute direkt an die Registrierungsmethode übergibst:
 
 <<< @/reference/latest/src/main/java/com/example/docs/entity/ModEntityTypes.java#types
+
+Rufe `initialize` in deinem [Mod-Initialisierer](../getting-started/project-structure#entrypoints) auf, um das Laden der Klasse auszulösen und deine Entitäten zu registrieren:
+
+<<< @/reference/latest/src/main/java/com/example/docs/entity/ExampleModEntity.java#entrypoint
 
 ## Ziele hinzufügen {#adding-goals}
 
@@ -72,7 +81,7 @@ Die Klasse `MiniGolemEntityModel` definiert, wie deine Entität aussieht indem s
 
 ::: warning
 
-Blockbench unterstützt mehrere [Mappings](../migrating-mappings/#mappings) (wie beispielsweise Mojang Mappings, Yarn und andere). Achte darauf, dass du die richtigen Mappings für deine Entwicklungsumgebung auswählst - in diesem Tutorial werden Mojang-Mappings verwendet.
+Blockbench unterstützt mehrere [Mappings](../porting/mappings/#mappings) (wie beispielsweise Mojang Mappings, Yarn und andere). Achte darauf, dass du die richtigen Mappings für deine Entwicklungsumgebung auswählst - in diesem Tutorial werden Mojang-Mappings verwendet.
 
 Nicht übereinstimmende Mappings können bei der Integration von durch Blockbench generiertem Code zu Fehlern führen.
 

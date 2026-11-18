@@ -21,15 +21,15 @@ Absturzberichte befinden sich an den folgenden Orten:
 
 ::: code-group
 
-```:no-line-numbers [Windows]
+```text:no-line-numbers [Windows]
 %appdata%\.minecraft\crash-reports
 ```
 
-```:no-line-numbers [macOS]
+```text:no-line-numbers [macOS]
 ~/Library/Application Support/minecraft/crash-reports
 ```
 
-```:no-line-numbers [Linux]
+```text:no-line-numbers [Linux]
 ~/.minecraft/crash-reports
 ```
 
@@ -80,7 +80,7 @@ Wenn ein Mixin abstürzt, wird in der Regel das Mixin im Stacktrace erwähnt und
 
 Methoden-Mixins enthalten `mod-id$handlerName` in dem Stack-Trace, wobei `mod-id` die ID des Mods und `handlerName` der Name des Mixin-Handlers ist.
 
-```:no-line-numbers
+```text:no-line-numbers
 ... net.minecraft.class_2248.method_3821$$$mod-id$handlerName() ... // [!code focus]
 ```
 

@@ -3,14 +3,13 @@ title: 状态效果
 description: 学习如何添加自定义状态效果。
 authors:
   - dicedpixels
-  - YanisBft
-  - FireBlast
   - Friendly-Banana
   - SattesKrokodil
+  - TheFireBlast
+  - YanisBft
 authors-nogithub:
   - siglong
   - tao0lu
-
 search: false
 ---
 
@@ -42,7 +41,7 @@ search: false
 
 状态效果图标是 18x18 的 PNG。 将您的自定义图标放在： 将您的自定义图标放在：
 
-```:no-line-numbers
+```text:no-line-numbers
 resources/assets/example-mod/textures/mob_effect/tater.png
 ```
 

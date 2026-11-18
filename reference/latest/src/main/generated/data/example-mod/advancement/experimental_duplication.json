@@ -7,15 +7,14 @@
       ]
     }
   ],
+  "parent": "example-mod:get_dirt",
   "criteria": {
     "place_block": {
       "conditions": {
-        "location": [
-          {
-            "block": "example-mod:duplicator",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "example-mod:duplicator"
+        }
       },
       "trigger": "minecraft:placed_block"
     }

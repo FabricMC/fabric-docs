@@ -37,7 +37,9 @@ Wenn du dem Spieler Mobeffekte hinzufügen möchtest, wenn er dein Essen isst, m
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#custom_food
 
-Ähnlich wie in dem Beispiel auf der Seite [Dein erstes Item erstellen](./first-item) werde ich den obigen Component verwenden:
+Ähnlich wie in dem Beispiel auf der Seite [Dein erstes Item erstellen](./first-item) werden wir die obige Komponente verwenden:
+
+<<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#poisonous_apple
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#poisonous_apple
 

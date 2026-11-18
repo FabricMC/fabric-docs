@@ -42,7 +42,7 @@ authors:
 
 :::
 
-- [Fabric API 26.1 迁移指南](26.1/fabric-api)列举了 Fabric API 在 26.1 中为匹配 Mojang 的名称而进行的更名。
+- [Fabric API 26.1 迁移指南](./26.1/fabric-api)列举了 Fabric API 在 26.1 中为匹配 Mojang 的名称而进行的更名。
 - [Minecraft Wiki 上的《Java版26.1》](https://zh.minecraft.wiki/w/Java版26.1)是此次更新内容的非官方总结。
 - [NeoForge 的 _Minecraft 1.21.11 -> 26.1 Mod Migration Primer_](https://github.com/ChampionAsh5357/neoforged-github/blob/update/26.1/primers/26.1/index.md) 介绍了从 1.21.11 迁移到 26.1，仅聚焦于原版代码的变更。
   - 请注意，链接的文章是第三方材料，不由 Fabric 维护。 其版权属于 @ChampionAsh5357，按 [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) 的许可协议发布。

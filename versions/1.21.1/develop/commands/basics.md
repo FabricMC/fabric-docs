@@ -2,20 +2,19 @@
 title: Creating Commands
 description: Create commands with complex arguments and actions.
 authors:
+  - Atakku
   - dicedpixels
+  - haykam821
   - i509VCB
-  - pyrofab
-  - natanfudge
   - Juuxel
-  - solidblock
   - modmuss50
-  - technici4n
-  - atakku
-  - haykam
   - mschae23
-  - treeways
+  - natanfudge
+  - Pyrofab
+  - SolidBlock-cn
+  - Technici4n
+  - Treeways
   - xpple
-
 search: false
 ---
 
@@ -77,7 +76,7 @@ Commands are registered within the `CommandRegistrationCallback` provided by the
 For information on registering callbacks, please see the [Events](../events) guide.
 :::
 
-The event should be registered in your [mod's initializer](./getting-started/project-structure#entrypoints).
+The event should be registered in your [mod's initializer](../getting-started/project-structure#entrypoints).
 
 The callback has three parameters:
 

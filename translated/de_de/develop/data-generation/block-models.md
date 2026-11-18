@@ -130,13 +130,13 @@ Alle Felder und Methoden für diesen Teil des Tutorials werden in einer statisch
 ### Benutzerdefinierte Blockklasse {#custom-block-class}
 
 Erstelle einen Block `VerticalSlab` mit einer Eigenschaft `FACING` und einer boolean-Eigenschaft `SINGLE`, wie in dem Tutorial [Blockzustände](../blocks/blockstates) beschrieben. `SINGLE` zeigt an, ob beide Stufen sind.
-Dann solltest du `getOutlineShape` und `getCollisionShape` überschreiben, so dass die Umrandung korrekt gerendert wird und der Block die richtige Kollisionsform hat.
+Dann solltest du `getShape` und `getCollisionShape` überschreiben, so dass die Umrandung korrekt gerendert wird und der Block die richtige Kollisionsform hat.
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_voxels
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_collision
 
-Überschreibe auch die Methode `canReplace()`, sonst kannst du die Stufe nicht zu einem vollen Block machen.
+Überschreibe auch die Methode `canBeReplaced()`, sonst kannst du die Stufe nicht zu einem vollen Block machen.
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/VerticalSlabBlock.java#custom_replace
 

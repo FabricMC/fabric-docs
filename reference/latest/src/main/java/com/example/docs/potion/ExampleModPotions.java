@@ -3,16 +3,11 @@ package com.example.docs.potion;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.Potions;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
 
-import com.example.docs.ExampleMod;
 import com.example.docs.effect.ExampleModEffects;
 
 public class ExampleModPotions implements ModInitializer {
@@ -20,7 +15,7 @@ public class ExampleModPotions implements ModInitializer {
 	public static final Holder<Potion> TATER_POTION =
 			Registry.registerForHolder(
 					BuiltInRegistries.POTION,
-					Identifier.fromNamespaceAndPath(ExampleMod.MOD_ID, "tater"),
+					ModPotionIds.TATER_POTION,
 					new Potion("tater",
 							new MobEffectInstance(
 									ExampleModEffects.TATER,
@@ -33,17 +28,5 @@ public class ExampleModPotions implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// #region register_recipes
-		FabricPotionBrewingBuilder.BUILD.register(builder -> {
-			builder.addMix(
-					// Input potion.
-					Potions.WATER,
-					// Ingredient
-					Items.POTATO,
-					// Output potion.
-					TATER_POTION
-			);
-		});
-		// #endregion register_recipes
 	}
 }

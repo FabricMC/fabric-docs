@@ -4,9 +4,9 @@ description: 在 IntelliJ IDEA 中打开 Minecraft 模组项目的指南。
 authors:
   - Cactooz
   - dicedpixels
-  - IBM11
-  - radstevee
-  - Thomas​1034
+  - evelynmeowww
+  - IMB11
+  - Thomas1034
 prev:
   text: 设置 IntelliJ IDEA
   link: ./setting-up

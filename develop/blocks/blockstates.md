@@ -117,10 +117,12 @@ You can use the `lightLevel` method to set the light level emitted by the block,
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/custom/PrismarineLampBlock.java#get_luminance
 
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#prismarine_lamp
+
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#prismarine_lamp
 
 <!-- Note: This block can be a great starter for a redstone block interactivity page, maybe triggering the blockstate based on redstone input? -->
 
 Once you've completed everything, the final result should look something like the following:
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">Prismarine Lamp Block in-game</VideoPlayer>
+![Prismarine Lamp Block in-game](/assets/develop/blocks/blockstates_3.webm)

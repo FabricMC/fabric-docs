@@ -3,8 +3,8 @@ title: Створення проєкту
 description: Покрокова інструкція зі створення нового проєкту мода за допомогою генератора шаблонів модів Fabric.
 authors:
   - Cactooz
+  - evelynmeowww
   - IMB11
-  - radstevee
   - Thomas1034
 resources:
   https://fabricmc.net/develop/template/: Генератор шаблона мода Fabric

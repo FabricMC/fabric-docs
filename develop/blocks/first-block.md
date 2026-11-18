@@ -3,10 +3,12 @@ title: Creating Your First Block
 description: Learn how to create your first custom block in Minecraft.
 authors:
   - bluebear94
+  - cassiancc
   - CelDaemon
   - Earthcomputer
   - IMB11
   - its-miroma
+  - NotNightSky
   - xEobardThawne
 resources:
   https://docs.neoforged.net/docs/blocks/: Blocks - NeoForge Docs
@@ -14,15 +16,69 @@ resources:
 
 Blocks are the building blocks of Minecraft (no pun intended) - just like everything else in Minecraft, they're stored in registries.
 
+## Preparing Your Block ID Classes {#preparing-your-block-id-classes}
+
+If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create classes to hold the identifiers of your `Block`s. The IDs for blocks with items are stored as `BlockItemId`s, while those without store theirs as a `ResourceKey`.
+
+These references to the block are used for [data-generating block tags](../data-generation/tags).
+
+:::: tabs
+
+== Blocks With Items
+
+We'll put a method in a class called `ModBlockItemIds` (or whatever you want to name the class). This class contains any blocks that do have block items.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockItemIds.java#first_block
+
+::: tip
+
+Mojang does this with their blocks as well! Check out the `BlockItemIds` class for inspiration.
+
+:::
+
+== Blocks Without Items
+
+We'll put a method that creates a `ResourceKey` in a class called `ModBlockIds` (or whatever you want to name the class). This class contains any blocks that do not have block items.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlockIds.java#first_block
+
+::: tip
+
+Mojang does this with their blocks as well! Check out the `BlockIds` class for inspiration.
+
+:::
+
+::::
+
 ## Preparing Your Blocks Class {#preparing-your-blocks-class}
 
-If you've completed the [Creating Your First Item](../items/first-item) page, this process will feel extremely familiar - you will need to create a method that registers your block, and its block item.
+Block registration is also similar to [item registration](../items/first-item#registering-an-item): we'll now create two overloads of a `register()` method that register your blocks, one for blocks with items and one for blocks without.
 
-You should put this method in a class called `ModBlocks` (or whatever you want to name it).
+You should put these methods in a class called `ModBlocks` (or whatever you want to name it).
 
 Mojang does something extremely similar like this with vanilla blocks; you can refer to the `Blocks` class to see how they do it.
 
+::: warning
+
+Both `register()` overloads shown below are **required** in your `ModBlocks` class. The overload for blocks with items internally calls the overload for blocks without items. If either overload is missing, your code will not compile.
+
+:::
+
+::: tabs
+
+== Blocks With Items
+
+Blocks with items use a `BlockItemId` parameter which contains the ID for both the block and its item.
+
+<<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block_item
+
+== Blocks Without Items
+
+Blocks without items use a `ResourceKey` parameter which contains the ID for the block.
+
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#first_block
+
+:::
 
 Just like with items, you need to ensure that the class is loaded so that all static fields containing your block instances are initialized.
 
@@ -56,8 +112,6 @@ You can also use `BlockBehaviour.Properties.ofFullCopy(BlockBehaviour block)` to
 :::
 
 <<< @/reference/latest/src/main/java/com/example/docs/block/ModBlocks.java#condensed_dirt
-
-To automatically create the block item, we can pass `true` to the `shouldRegisterItem` parameter of the `register` method we created in the previous step.
 
 ### Adding Your Block's Item to a Creative Tab {#adding-your-block-s-item-to-a-creative-tab}
 

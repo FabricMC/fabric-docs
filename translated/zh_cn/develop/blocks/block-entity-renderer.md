@@ -7,7 +7,7 @@ resources:
   https://docs.neoforged.net/docs/blockentities/ber/: BlockEntityRenderer - NeoForge 文档
 ---
 
-有的时候，用 Minecraft 自带的模型格式并不足够。 如果需要为你的方块的视觉效果添加动态渲染，则需要使用 `BlockEntityRenderer`。
+有的时候，用 Minecraft 自带的模型格式并不足够。如果需要为你的方块的视觉效果添加动态渲染，则需要使用 `BlockEntityRenderer`。
 
 举个例子，让我们来制作一个在 [方块实体](../blocks/block-entities) 文章中出现的 Counter Block，这个方块会在方块顶部显示点击次数。
 
@@ -15,9 +15,9 @@ resources:
 
 方块实体渲染采用提交/渲染系统：首先提交将对象渲染至屏幕所需的数据，随后游戏基于该提交状态渲染对象。
 
-为 `CounterBlockEntity` 创建 `BlockEntityRenderer` 时，若项目采用客户端与服务端分离的源集结构，务必将该类置于正确的源集中（例如 `src/client/`）。 直接访问 `src/main/` 源代码集中与渲染相关的类并不安全，因为这些类可能已在服务器上加载。
+为 `CounterBlockEntity` 创建 `BlockEntityRenderer` 时，若项目采用客户端与服务端分离的源集结构，务必将该类置于正确的源集中（例如 `src/client/`）。直接访问 `src/main/` 源代码集中与渲染相关的类并不安全，因为这些类可能已在服务器上加载。
 
-首先，我们需要为 `CounterBlockEntity` 创建一个 `BlockEntityRenderState` 来保存将用于渲染的数据。 在这种情况下，我们需要 `clicks` 在渲染期间可用。
+首先，我们需要为 `CounterBlockEntity` 创建一个 `BlockEntityRenderState` 来保存将用于渲染的数据。在这种情况下，我们需要 `clicks` 在渲染期间可用。
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderState.java#render_state
 
@@ -25,8 +25,7 @@ resources:
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#renderer_structure
 
-新类有一个构造函数，以 `BlockEntityRendererProvider.Context` 作为参数。 `Context` 有几个非常有用的渲染辅助工具，比如 `ItemRenderer` 或 `Font`。
-此外，通过包含这样一个构造函数，就可以将该构造函数用作 `BlockEntityRendererProvider` 函数式接口本身：
+新类有一个构造函数，以 `BlockEntityRendererProvider.Context` 作为参数。 `Context` 有几个非常有用的渲染辅助工具，比如 `ItemRenderer` 或 `Font`。此外，通过包含这样一个构造函数，就可以将该构造函数用作 `BlockEntityRendererProvider` 函数式接口本身：
 
 <<< @/reference/latest/src/client/java/com/example/docs/ExampleModBlockEntityRenderer.java#register_block_entity_renderer
 
@@ -54,14 +53,13 @@ resources:
 
 ::: info
 
-顾名思义，`PoseStack` 是一个_堆栈_，这意味着你可以压入和弹出变换。
-一个好的经验法则是在 `submit` 方法开始时压入一个新的方块，并在结束时弹出，这样一个方块的渲染就不会影响到其他方块。
+顾名思义，`PoseStack` 是一个_堆栈_，这意味着你可以压入和弹出变换。一个好的经验法则是在 `submit` 方法开始时压入一个新的方块，并在结束时弹出，这样一个方块的渲染就不会影响到其他方块。
 
 有关 `PoseStack` 的更多信息，请参阅[基本渲染概念文章](../rendering/basic-concepts)。
 
 :::
 
-为了更容易理解所需的平移和旋转，不妨将其可视化。 在该图中，绿色方块是绘制文本的位置，默认情况下位于方块的最左下角：
+为了更容易理解所需的平移和旋转，不妨将其可视化。在该图中，绿色方块是绘制文本的位置，默认情况下位于方块的最左下角：
 
 ![默认渲染位置](/assets/develop/blocks/block_entity_renderer_1.png)
 
@@ -83,7 +81,7 @@ resources:
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#rotate
 
-那么现在的文字就在正确的位置了，但是文字现在太大了。 `BlockEntityRenderer` 映射整个方块到一个 `[-0.5, 0.5]` 的立方体，而 `Font` 使用 `[0, 9]` 的 Y 坐标。 因此，我们需要将其缩小到原来的 1/18：
+那么现在的文字就在正确的位置了，但是文字现在太大了。 `BlockEntityRenderer` 映射整个方块到一个 `[-0.5, 0.5]` 的立方体，而 `Font` 使用 `[0, 9]` 的 Y 坐标。因此，我们需要将其缩小到原来的 1/18：
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#scale
 
@@ -95,7 +93,7 @@ resources:
 
 如前所述，传递到渲染器构造函数的 `Context` 包含一个 `Font`，我们可以用它来测量文本（`width`），这对于居中很有用。
 
-为了绘制文本，我们将向渲染队列提交必要的数据。 由于我们正在绘制一些文本，因此我们可以使用通过传递到 `submit` 方法的 `SubmitNodeCollector` 实例提供的 `SubmitText` 方法。
+为了绘制文本，我们将向渲染队列提交必要的数据。由于我们正在绘制一些文本，因此我们可以使用通过传递到 `submit` 方法的 `SubmitNodeCollector` 实例提供的 `SubmitText` 方法。
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/blockentity/CounterBlockEntityRenderer.java#drawing_text
 

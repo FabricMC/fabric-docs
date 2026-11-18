@@ -79,7 +79,7 @@ API Fabric надає дев’ять убудованих умов для ви�
 
 ### Увімкнено функції {#features-enabled}
 
-Удасться, якщо всі [прапорці функцій](https://minecraft.wiki/w/Experiments#Java_Edition) у `features` увімкнено. Наприклад, наступне вдаватиметься, якщо ввімкнути `minecraft:vanilla` та `minecraft:redstone_experiments`:
+Удасться, якщо всі [прапорці функцій](https://minecraft.wiki/w/Experiments#Java_Edition) у `features` увімкнено. Наприклад, наведене нижче спрацює, якщо ввімкнено як `minecraft:vanilla`, так і `minecraft:minecart_improvements`:
 
 <<< @/reference/latest/src/main/generated/reports/example-mod/resource_condition_examples/features_enabled.json
 
@@ -93,7 +93,7 @@ API Fabric надає дев’ять убудованих умов для ви�
 
 :::info ПЕРЕДУМОВИ
 
-Ви повинні спочатку зрозуміти, [як створити кодек](./codecs), перш ніж створювати власну умову ресурсів.
+Ви повинні спочатку зрозуміти, [як створити кодек](./serialization/codecs), перш ніж створювати власну умову ресурсів.
 
 :::
 
@@ -103,7 +103,7 @@ Fabric API також забезпечує гнучкість створення
 
 ### Підготовка вашої умови {#preparing-your-condition}
 
-Для простоти ми створимо допоміжний метод, який створить екземпляр вашої умови ресурсів з назвою та [`MapCodec`](./codecs#mapcodec). Вам слід помістити цей метод у клас під назвою `ModResourceConditions` (або як ви хочете його назвати).
+Для простоти ми створимо допоміжний метод, який створить екземпляр вашої умови ресурсів з назвою та [`MapCodec`](./serialization/codecs#mapcodec). Вам слід помістити цей метод у клас під назвою `ModResourceConditions` (або як ви хочете його назвати).
 
 ::: tip
 

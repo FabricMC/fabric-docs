@@ -9,13 +9,13 @@ authors:
 
 ## 为什么我应该上传日志？ {#why-should-i-upload-logs}
 
-相比直接在聊天或论坛帖子中粘贴日志，上传日志能让他人更快速地协助您排查问题。 此外，您无需复制粘贴即可与他人分享日志。
+相比直接在聊天或论坛帖子中粘贴日志，上传日志能让他人更快速地协助您排查问题。此外，您无需复制粘贴即可与他人分享日志。
 
 部分粘贴网站还提供日志语法高亮功能，便于阅读，并可能自动屏蔽敏感信息，例如您的用户名或系统信息。
 
 ## 崩溃报告 {#crash-reports}
 
-游戏崩溃时会自动生成崩溃报告。 崩溃报告只包含崩溃信息，不包含实际的游戏日志。 崩溃报告位于游戏目录中的 `crash-reports` 文件夹中。
+游戏崩溃时会自动生成崩溃报告。崩溃报告只包含崩溃信息，不包含实际的游戏日志。崩溃报告位于游戏目录中的 `crash-reports` 文件夹中。
 
 有关崩溃报告的更多信息，请参阅[崩溃报告](./crash-reports)章节。
 
@@ -47,6 +47,7 @@ authors:
 
 日志可以上传到各种服务，例如：
 
-- [Pastebin](https://pastebin.com/)
-- [GitHub Gist](https://gist.github.com/)
 - [mclo.gs](https://mclo.gs/)
+- [pastes.dev](https://pastes.dev/)
+- [Pastebin.com](https://pastebin.com/)
+- [GitHub Gist](https://gist.github.com/)
