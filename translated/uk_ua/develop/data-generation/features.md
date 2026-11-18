@@ -55,11 +55,11 @@ authors:
 
 Перш ніж ми зможемо щось зробити, створімо клас налаштованих функцій усередині пакета `main` і оголосимо метод `configure`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configure_features_class
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_configure_features_class
 
 Тепер, додаймо спеціальну налаштовану функцію для жили діамантової руди. Спочатку зареєструйте ключ для `ConfiguredFeature` у вашому налаштованому класі функцій:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_configured_key
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_configured_key
 
 ::: tip
 
@@ -71,25 +71,25 @@ authors:
 
 Далі ми створимо `RuleTest` усередині методу `configure`, який керує тим, які блоки ваша функція може замінити. Наприклад, цей `RuleTest` дозволяє замінювати кожен блок на теґ `DEEPSLATE_ORE_REPLACEABLES`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ruletest
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_ruletest
 
 Далі, також у методі `configure`, нам потрібно створити `OreConfiguration`, який повідомляє грі, чим замінити блоки.
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_ore_feature_config
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_ore_feature_config
 
 Ви можете мати кілька випадків у списку для різних варіантів. Наприклад, установімо інший варіант для каменю та глиболанцю:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_multi_ore_feature_config
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_multi_ore_feature_config
 
 Нарешті, нам потрібно зареєструвати нашу налаштовану функцію в нашій грі в методі `configure`!
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_conf_feature_register
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_conf_feature_register
 
 ### Дерева {#trees}
 
 Щоб створити спеціальне дерево, вам потрібно спочатку створити `TreeConfiguration` усередині методу `configure`:
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_feature_config
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_tree_feature_config
 
 Ось що робить кожен аргумент:
 
@@ -107,9 +107,9 @@ authors:
 
 :::
 
-Далі нам потрібно зареєструвати наше дерево, додавши наступний рядок до методу `configure` `ExampleModWorldConfiguredFeatures`.
+Далі нам потрібно зареєструвати наше дерево, додавши наступний рядок до методу `configure` `ExampleModWorldFeatures`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldConfiguredFeatures.java#datagen_world_tree_register
+<<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_tree_register
 
 ## Функції розміщення {#placement-features}
 
@@ -180,11 +180,11 @@ authors:
 
 ## Запуск генерації даних {#running-datagen}
 
-Тепер, коли ви запускаєте генерацію, ви маєте побачити файл `.json` у `src/main/generated/data/example-mod/worldgen/configured_feature` для кожної налаштованої функції, яку ви додали, а також файл у `src/main/generated/data/example-mod/worldgen/placed_feature` для кожної розміщеної функції!
+Тепер, коли ви запускаєте генерацію, ви маєте побачити файл `.json` у `src/main/generated/data/example-mod/worldgen/feature` для кожної налаштованої функції, яку ви додали, а також файл у `src/main/generated/data/example-mod/worldgen/placed_feature` для кожної розміщеної функції!
 
 :::details Згенерований файл для налаштованої функції
 
-<<< @/reference/latest/src/main/generated/data/example-mod/worldgen/configured_feature/diamond_block_vein.json
+<<< @/reference/latest/src/main/generated/data/example-mod/worldgen/feature/diamond_block_vein.json
 
 :::
 

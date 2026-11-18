@@ -1,0 +1,46 @@
+---
+title: Настройка среды разработки
+description: Пошаговое руководство по настройке среды разработки для создания модов с помощью Fabric.
+authors:
+  - Andrew6rant
+  - asiekierka
+  - Daomephsta
+  - dblsaiko
+  - dicedpixels
+  - falseresync
+  - IMB11
+  - its-miroma
+  - liach
+  - mkpoli
+  - modmuss50
+  - natanfudge
+  - SolidBlock-cn
+  - TelepathicGrunt
+authors-nogithub:
+  - siglong
+---
+
+## Установите JDK 25 {#install-jdk-21}
+
+Для разработки модов для Minecraft 26.1 вам потребуется JDK 25.
+
+Если вам нужна помощь в установке Java, вы можете обратиться к [руководствам по установке Java](../../players/installing-java/).
+
+## Настройка IDE {#set-up-your-ide}
+
+Чтобы начать разработку модов с помощью Fabric, вам необходимо настроить среду разработки с помощью IntelliJ IDEA (рекомендуется) или альтернативного варианта Visual Studio Code.
+
+<ChoiceComponent :choices="[
+{
+ name: 'IntelliJ IDEA',
+ href: './intellij-idea/setting-up',
+ icon: 'simple-icons:intellijidea',
+ color: '#FE2857',
+},
+{
+ name: 'Visual Studio Code',
+ href: './vscode/setting-up',
+ icon: 'simple-icons:visualstudiocode',
+ color: '#007ACC',
+},
+]" />

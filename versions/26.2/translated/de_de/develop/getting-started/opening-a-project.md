@@ -1,0 +1,28 @@
+---
+title: Ein Projekt öffnen
+description: Wie man ein Minecraft Mod-Projekt in seiner Entwicklungsumgebung öffnet.
+authors:
+  - Cactooz
+  - dicedpixels
+  - evelynmeowww
+  - IMB11
+  - its-miroma
+  - Thomas1034
+---
+
+## Deine Entwicklungsumgebung wählen {#choose-your-ide}
+
+<ChoiceComponent :choices="[
+{
+ name: 'IntelliJ IDEA',
+ href: './intellij-idea/opening-a-project',
+ icon: 'simple-icons:intellijidea',
+ color: '#FE2857',
+},
+{
+ name: 'Visual Studio Code',
+ href: './vscode/opening-a-project',
+ icon: 'simple-icons:visualstudiocode',
+ color: '#007ACC',
+},
+]" />

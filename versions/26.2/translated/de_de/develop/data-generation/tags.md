@@ -1,0 +1,65 @@
+---
+title: Generierung von Tags
+description: Ein Leitfaden zur Einrichtung der Generierung von Tags mit dem Datengenerator.
+authors:
+  - cassiancc
+  - CelDaemon
+  - IMB11
+  - MarcusElg
+  - skycatminepokie
+  - Spinoscythe
+---
+
+<!---->
+
+:::info VORAUSSETZUNGEN
+
+Stelle sicher, dass du den Prozess der [Einrichtung des Datengenerators](./setup) zuerst abgeschlossen hast.
+
+:::
+
+## Einrichtung {#setup}
+
+Hier werden wir zeigen, wie man `Item` Tags erstellt, aber das gleiche Prinzip lässt sich auch auf alle anderen Dinge anwenden.
+
+Fabric bietet mehrere Hilfs-Tag-Provider, darunter einen für Items: `FabricTagsProvider.FabricTagsProvider`. Wir werden für dieses Beispiel diese Hilfsklasse verwenden.
+
+Du kannst deine eigene Klasse erstellen, die von `FabricTagsProvider<T>` erbt, wobei `T` der Typ ist, für den du ein Tag bereitstellen möchtest. Dies ist dein **Provider**.
+
+Lass deiner IDE den erforderlichen Code ausfüllen und ersetze dann den Konstruktorparameter `resourceKey` durch den `ResourceKey` für deinen Typ:
+
+<<< @/reference/26.2/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_provider
+
+::: tip
+
+Du wirst für jeden Tag-Typ einen anderen Provider benötigen (z. B. einen `FabricTagsProvider<EntityType<?>>` und einen `FabricTagsProvider<Item>`).
+
+:::
+
+Um die Einrichtung abzuschließen, füge den Provider zu deinem `DataGeneratorEntrypoint` in der `onInitializeDataGenerator` Methode hinzu.
+
+<<< @/reference/26.2/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_tags_register
+
+## Erstellen eines Tags {#creating-a-tag}
+
+Jetzt, nachdem du den Provider erstellt hast, lasst uns ein Tag zu diesem hinzufpgen. Zuerst, erstelle ein `TagKey<T>`:
+
+<<< @/reference/26.2/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_tag_key
+
+Als nächstes, rufe `builder` innerhalb der Methode `configure` deines Providers auf. Von dort aus kannst du einzelne Item IDs oder andere Tags hinzufügen oder diese Tags bereits vorhandene Tags ersetzen lassen.
+
+Wenn du ein Tag hinzufügen willst, verwende `addOptionalTag`, da der Inhalt des Tags während der Datengenerierung möglicherweise nicht geladen wird. Wenn du sicher bist, dass der Tag geladen ist, rufe `addTag` auf.
+
+Um zwangsweise ein Tag hinzuzufügen und das defekte Format zu ignorieren, verwende `forceAddTag`.
+
+<<< @/reference/26.2/src/client/java/com/example/docs/datagen/ExampleModItemTagProvider.java#datagen_tags_build
+
+## Tags übersetzen {#translating-tags}
+
+Von deinem Mod erstellte Tags sollten Übersetzungen haben, damit andere Mods, wie beispielsweise Rezeptanzeigen, den Namen des Tags korrekt anzeigen können. Wenn für eines deiner Tags keine Übersetzung vorliegt, wirst du möglicherweise in deinen Logs eine Warnung sehen, die etwa wie folgt lautet:
+
+> Dev warning - Untranslated Item Tags detected. Please translate your item tags so other mods such as recipe viewers can properly display your tag's name.
+
+Wir können dem [Leitfaden zur Erstellung von Übersetzungen](./translations) folgen, um eine Übersetzung für unser Tag hinzuzufügen. Wir können denselben Übersetzungsbauer verwenden und den `TagKey` sowie den Anzeigenamen übergeben:
+
+<<< @/reference/26.2/src/client/java/com/example/docs/datagen/ExampleModEnglishLangProvider.java#tag_name

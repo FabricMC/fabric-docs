@@ -53,7 +53,7 @@ Per creare il tuo effetto personalizzato per la pozione, per favore guarda la gu
 
 Nel nostro initializer, useremo l'evento `FabricBrewingRecipeRegistryBuilder.BUILD` per registrare la nostra pozione usando il metodo `BrewingRecipeRegistry.registerPotionRecipe`.
 
-<<< @/reference/latest/src/main/java/com/example/docs/potion/ExampleModPotions.java#register_recipes
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBrewingProvider.java#register_recipes
 
 `addMix` accetta 3 parametri:
 

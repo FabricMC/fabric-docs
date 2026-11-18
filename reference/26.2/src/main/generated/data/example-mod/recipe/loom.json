@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "multi_bench",
+  "key": {
+    "l": "#minecraft:logs",
+    "w": "#minecraft:wool"
+  },
+  "pattern": [
+    "ww",
+    "ll"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:loom"
+  }
+}
