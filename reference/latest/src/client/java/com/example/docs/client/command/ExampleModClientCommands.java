@@ -1,5 +1,7 @@
 package com.example.docs.client.command;
 
+import com.mojang.brigadier.Command;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 
@@ -17,7 +19,7 @@ public class ExampleModClientCommands implements ClientModInitializer {
 		ClientCommandRegistrationCallback.EVENT.register((dispatcher, commandBuildContext) -> {
 			dispatcher.register(ClientCommands.literal("clienttater").executes(context -> {
 				context.getSource().sendFeedback(Component.literal("Called /clienttater with no arguments."));
-				return 1;
+				return Command.SINGLE_SUCCESS;
 			}));
 		});
 		// #endregion register_command
@@ -25,7 +27,7 @@ public class ExampleModClientCommands implements ClientModInitializer {
 		ClientCommandRegistrationCallback.EVENT.register((dispatcher, _) -> dispatcher.register(ClientCommands.literal("magic_skills_screen").executes(context -> {
 			Minecraft instance = Minecraft.getInstance();
 			instance.execute(() -> instance.gui.setScreen(new ExampleModMagicSkillsScreen(instance, context.getSource().registryAccess())));
-			return 1;
+			return Command.SINGLE_SUCCESS;
 		})));
 	}
 }

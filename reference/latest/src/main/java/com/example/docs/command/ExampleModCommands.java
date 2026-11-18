@@ -1,5 +1,6 @@
 package com.example.docs.command;
 
+import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
@@ -36,33 +37,33 @@ public class ExampleModCommands implements ModInitializer {
 	// #region execute_required_command
 	private static int executeRequiredCommand(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /required_command."), false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 	// #endregion execute_required_command
 
 	// #region execute_sub_command_one
 	private static int executeSubCommandOne(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /command sub_command_one."), false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 	// #endregion execute_sub_command_one
 
 	// #region execute_command_sub_command_two
 	private static int executeCommandTwo(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_two."), false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 
 	private static int executeSubCommandTwo(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /sub_command_two."), false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 	// #endregion execute_command_sub_command_two
 
 	// #region execute_redirected_by
 	private static int executeRedirectedBy(CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /redirected_by."), false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 	// #endregion execute_redirected_by
 
@@ -70,7 +71,7 @@ public class ExampleModCommands implements ModInitializer {
 	private static int executeCommandWithArg(CommandContext<CommandSourceStack> context) {
 		int value = IntegerArgumentType.getInteger(context, "value");
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_arg with value = %s".formatted(value)), false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 	// #endregion execute_command_with_arg
 
@@ -78,7 +79,7 @@ public class ExampleModCommands implements ModInitializer {
 	private static int executeWithOneArg(CommandContext<CommandSourceStack> context) {
 		int value1 = IntegerArgumentType.getInteger(context, "value_one");
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_two_args with value one = %s".formatted(value1)), false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 
 	private static int executeWithTwoArgs(CommandContext<CommandSourceStack> context) {
@@ -86,14 +87,14 @@ public class ExampleModCommands implements ModInitializer {
 		int value2 = IntegerArgumentType.getInteger(context, "value_two");
 		context.getSource().sendSuccess(() -> Component.literal("Called /argtater2 with value one = %s and value two = %s".formatted(value1, value2)),
 				false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 	// #endregion execute_command_with_two_args
 
 	// #region execute_common
 	private static int executeCommon(int value1, int value2, CommandContext<CommandSourceStack> context) {
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_common_exec with value 1 = %s and value 2 = %s".formatted(value1, value2)), false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 	// #endregion execute_common
 
@@ -101,7 +102,7 @@ public class ExampleModCommands implements ModInitializer {
 	private static int executeCustomArgCommand(CommandContext<CommandSourceStack> context) {
 		BlockPos arg = context.getArgument("block_pos", BlockPos.class);
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_custom_arg with block pos = %s".formatted(arg)), false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 	// #endregion execute_custom_arg_command
 
@@ -109,7 +110,7 @@ public class ExampleModCommands implements ModInitializer {
 	private static int executeCommandWithSuggestions(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
 		Holder<EntityType<?>> entityType = ResourceArgument.getSummonableEntityType(context, "entity");
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_suggestions with entity = %s".formatted(entityType.value().toShortString())), false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 	// #endregion execute_command_with_suggestions
 
@@ -117,7 +118,7 @@ public class ExampleModCommands implements ModInitializer {
 	private static int executeCommandWithCustomSuggestions(CommandContext<CommandSourceStack> context) {
 		String name = StringArgumentType.getString(context, "player_name");
 		context.getSource().sendSuccess(() -> Component.literal("Called /command_with_custom_suggestions with value = %s".formatted(name)), false);
-		return 1;
+		return Command.SINGLE_SUCCESS;
 	}
 	// #endregion execute_command_with_custom_suggestions
 
