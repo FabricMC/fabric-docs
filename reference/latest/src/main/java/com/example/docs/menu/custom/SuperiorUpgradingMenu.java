@@ -71,7 +71,7 @@ public class SuperiorUpgradingMenu extends UpgradingMenu {
 			return ItemStack.EMPTY;
 		}
 
-		slot.onTake(player, stack);
+		slot.onTake(player, clicked);
 
 		if (slotIndex == RESULT_SLOT) {
 			player.drop(stack, false, Prediction.PREDICTED);
