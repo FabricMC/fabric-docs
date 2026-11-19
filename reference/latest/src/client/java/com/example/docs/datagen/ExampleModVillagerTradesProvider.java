@@ -1,7 +1,5 @@
 package com.example.docs.datagen;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.core.HolderLookup;
@@ -45,45 +43,37 @@ public class ExampleModVillagerTradesProvider extends FabricDynamicRegistryProvi
 	public static void bootstrap(BootstrapContext<VillagerTrade> context) {
 		// ...
 		// endregion bootstrap
-		context.register(ARMORER_1_EMERALD_GUIDITE_HELMET, new VillagerTrade(
+		context.register(ARMORER_1_EMERALD_GUIDITE_HELMET, VillagerTrade.builder(
 				new TradeCost(Items.EMERALD, 4),
 				new ItemStackTemplate(ModItems.GUIDITE_HELMET),
 				5,
 				2,
-				0.05f,
-				Optional.empty(),
-				List.of()
-		));
+				0.05f
+		).build());
 
-		context.register(ARMORER_1_EMERALD_GUIDITE_CHESTPLATE, new VillagerTrade(
+		context.register(ARMORER_1_EMERALD_GUIDITE_CHESTPLATE, VillagerTrade.builder(
 				new TradeCost(Items.EMERALD, 12),
 				new ItemStackTemplate(ModItems.GUIDITE_CHESTPLATE, 1),
 				5,
 				2,
-				0.05f,
-				Optional.empty(),
-				List.of()
-		));
+				0.05f
+		).build());
 
-		context.register(ARMORER_1_EMERALD_GUIDITE_LEGGINGS, new VillagerTrade(
+		context.register(ARMORER_1_EMERALD_GUIDITE_LEGGINGS, VillagerTrade.builder(
 				new TradeCost(Items.EMERALD, 6),
 				new ItemStackTemplate(ModItems.GUIDITE_LEGGINGS),
 				5,
 				2,
-				0.05f,
-				Optional.empty(),
-				List.of()
-		));
+				0.05f
+		).build());
 
-		context.register(ARMORER_1_EMERALD_GUIDITE_BOOTS, new VillagerTrade(
+		context.register(ARMORER_1_EMERALD_GUIDITE_BOOTS, VillagerTrade.builder(
 				new TradeCost(Items.EMERALD, 2),
 				new ItemStackTemplate(ModItems.GUIDITE_BOOTS),
 				5,
 				2,
-				0.05f,
-				Optional.empty(),
-				List.of()
-		));
+				0.05f
+		).build());
 		// region bootstrap
 	}
 	// endregion bootstrap

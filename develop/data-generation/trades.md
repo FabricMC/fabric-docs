@@ -5,6 +5,8 @@ authors:
   - NotNightSky
 ---
 
+<!---->
+
 ::: info PREREQUISITES
 
 Make sure you've completed the [datagen setup](./setup) and [tags setup](./tags) process first.
@@ -47,19 +49,17 @@ Now, we can register our villager trades in the provider's `bootstrap` method, u
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModVillagerTradesProvider.java#bootstrap_register
 
-Here, the `register` method takes in the resource key and a `VillagerTrade` object.
+Here, the `register` method takes in the resource key and a `VillagerTrade.Builder` object.
 
-The villager trade overload used in this example takes in the following parameters:
+The villager trade builder used in this example takes in the following parameters:
 
-| Parameter            | Description                                                                       |
-| -------------------- | --------------------------------------------------------------------------------- |
-| `wants`              | The cost of the trade, in terms of the item and quantity                          |
-| `gives`              | The item that will be given to the player                                         |
-| `maxUses`            | The maximum number of times this trade can be used                                |
-| `xp`                 | The amount of experience points the player will receive                           |
-| `reputationDiscount` | The amount of discount provided based on the player's reputation                  |
-| `merchantPredicate`  | Optional predicate used to determine if the trade should be offered to the player |
-| `givenItemModifiers` | Optional list of modifiers to apply to the item given to the player               |
+| Parameter            | Description                                                      |
+| -------------------- | ---------------------------------------------------------------- |
+| `wants`              | The cost of the trade, in terms of the item and quantity         |
+| `gives`              | The item that will be given to the player                        |
+| `maxUses`            | The maximum number of times this trade can be used               |
+| `xp`                 | The amount of experience points the player will receive          |
+| `reputationDiscount` | The amount of discount provided based on the player's reputation |
 
 ::: tip
 
