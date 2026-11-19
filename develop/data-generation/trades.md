@@ -79,11 +79,11 @@ And in your `DataGeneratorEntrypoint`, ensure your tags provider is registered w
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_villager_trades_tag_register
 
-## Creating the Trade Tags {#creating-the-trade-definition}
+## Adding Trade Tags {#adding-trade-tags}
 
 In the `addTags` method, we will be adding the villager trades to their respective tags.
 
-All the tags can be found in the `VillagerTradeTags` class.
+All the vanilla tags can be found in the `VillagerTradeTags` class.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModVillagerTradesTagProvider.java#tags
 
