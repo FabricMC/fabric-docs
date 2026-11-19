@@ -38,16 +38,16 @@ public class ExampleModEnchantmentGenerator extends FabricDynamicRegistryProvide
 
 	@Override
 	protected void configure(HolderLookup.Provider registries, Entries entries) {
-		entries.addAll(registries.lookupOrThrow(Registries.ENCHANTMENT)); // Add all bootstrapped enchantments for the current mod id
+		entries.addAll(registries.lookupOrThrow(Registries.ENCHANTMENT));
 	}
 
 	@Override
 	public String getName() {
-		return "Enchantments";
+		return "Enchantments Dynamic Registry Provider";
 	}
 	// #endregion provider
 	// #region bootstrap
-	public static void bootstrap(BootstrapContext<Enchantment> context) {
+	public static void bootstrapEnchantments(BootstrapContext<Enchantment> context) {
 		// ...
 		// #endregion bootstrap
 		// #region register_enchantment

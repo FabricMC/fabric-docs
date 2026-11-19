@@ -90,6 +90,12 @@ JSON files are used for creating registry entries. The JSON structure must match
 
 <<< @/reference/latest/src/main/generated/data/example-mod/example-mod/magic_skills_synced_registry/healing_skill.json
 
+::: tip
+
+This file has been data-generated. For more information, see the documentation on [populating a dynamic registry with datagen](../data-generation/dynamic-registry).
+
+:::
+
 Entry JSON files are stored under `src/main/resources/data/example-mod/example-mod/magic_skills_registry/`.
 
 ::: info

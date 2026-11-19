@@ -173,6 +173,7 @@ export const DEVELOP_SIDEBAR: SidebarItem = {
           items: [
             //
             "/advancements",
+            "/dynamic-registry",
             "/enchantments",
             "/loot-tables",
             "/recipes",
