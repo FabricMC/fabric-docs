@@ -10,7 +10,7 @@ authors:
 
 ::: info PREREQUISITES
 
-Make sure you've completed the [datagen setup](./setup) process first, and you understand [Dynamic Registry Population](./dynamic-registry) using datagen.
+Make sure you've completed the [datagen setup](./setup) process first, and you understand [how to populate a dynamic registry using datagen](./dynamic-registry).
 
 :::
 
@@ -24,15 +24,15 @@ Use this method to create a `ResourceKey` for your enchantment.
 
 <<< @/reference/latest/src/main/java/com/example/docs/enchantment/ModEnchantments.java#register_enchantment
 
-Adding new entries to any existing registry has the same process as [Dynamic Registry Population](./dynamic-registry),
-so create a similar class and configure it to use the `Registries.ENCHANTMENT` instead of the custom key.
+To add new enchantments, we'll follow what we did in the [Dynamic Registry Population guide](./dynamic-registry).
+Let's create a similar class, and configure it to use the `Registries.ENCHANTMENT` as the key.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#provider
 
 ::: info
 
-The datagen process is separate from minecraft runtime, and it runs on its own,
-therefore using built in registries in `Entries.addAll()` doesn't create `.json` files for existing entries.
+The datagen process is separate from Minecraft runtime, and it runs on its own,
+therefore using built-in registries in `Entries.addAll()` doesn't create `.json` files for existing entries.
 It only creates `.json` files for entries that the `bootstrap` method creates and loads into memory.
 
 :::
