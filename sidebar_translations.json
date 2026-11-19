@@ -60,6 +60,7 @@
   "/develop/data-generation/loot-tables": "Loot Table Generation",
   "/develop/data-generation/block-models": "Block Model Generation",
   "/develop/data-generation/models": "Model Generation",
+  "/develop/data-generation/painting-variant": "Painting Variant Generation",
   "/develop/data-generation/world-generation": "World Generation",
   "/develop/data-generation/features": "Feature Generation",
   "/develop/data-generation/item-models": "Item Model Generation",
