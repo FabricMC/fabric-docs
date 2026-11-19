@@ -37,7 +37,7 @@ It only creates `.json` files for entries that the `bootstrap` method creates an
 
 :::
 
-For the `bootstrap` method the `T` of `BootstrapContext<T>` should be `Enchantment`.
+For the `bootstrap` method, the type parameter in `BootstrapContext<T>` should be `Enchantment`.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModEnchantmentGenerator.java#bootstrap
 

@@ -9,7 +9,7 @@ authors:
 
 ::: info PREREQUISITES
 
-Make sure you've completed the [datagen setup](./setup) process and have followed the [dynamic registry](../registries/dynamic-registry) docs first.
+Make sure you've completed the [datagen setup](./setup) process and have followed the [introduction to dynamic registries](../registries/dynamic-registry) first.
 
 :::
 
@@ -27,8 +27,8 @@ Add the provider to the `onInitializeDataGenerator()` method in the class that i
 
 ### Configure {#configure}
 
-Override the `configure()` method of the provider class and add your registry key to the entries using the `entries.addAll()` method.
-This tells the datagen provider to take all entries from this particular registry that exists in memory and include them in the generated datapack.
+Override the `configure()` method of the provider class, and add your registry key to the entries using the `entries.addAll()` method.
+This tells the datagen provider to take all entries from the in-memory registry, and include them in the generated datapack.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDynamicRegistriesProvider.java#configure
 
@@ -45,14 +45,8 @@ and an instance of the [registry entry's class](../registries/dynamic-registry#c
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDynamicRegistriesProvider.java#entry
 
-This method is what loads the entries in the memory that the above [configure](#configure) method uses to generate the `.json` files.
+This method is what loads the entries in-memory, so that the [`configure` method](#configure) can use them to generate the `.json` files.
 If you have more entries, add them in the same way.
-
-::: info
-
-The bootstrap method doesn't have to be in the same class, but it is a good practice to keep it together.
-
-:::
 
 ## Registry Builder {#registry-builder}
 
