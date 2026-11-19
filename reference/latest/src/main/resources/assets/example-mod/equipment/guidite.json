@@ -14,6 +14,16 @@
       {
         "texture": "example-mod:guidite"
       }
+    ],
+    "horse_body": [
+      {
+        "texture": "example-mod:guidite"
+      }
+    ],
+    "nautilus_body": [
+      {
+        "texture": "example-mod:guidite"
+      }
     ]
   }
 }
