@@ -31,7 +31,7 @@ In your `DataGeneratorEntrypoint`, override the `buildRegistry` method and regis
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_villager_trades_bootstrap
 
-Finally, ensure your new generator is registered within the `onInitializeDataGenerator` method.
+Finally, ensure your new generator is registered within the entrypoint's `onInitializeDataGenerator` method.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#datagen_villager_trades_register
 

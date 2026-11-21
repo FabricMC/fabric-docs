@@ -2,6 +2,8 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
+import com.example.docs.ExampleMod;
+
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagEntry;
@@ -21,11 +23,11 @@ public class ExampleModVillagerTradesTagProvider extends FabricTagsProvider<Vill
 	@Override
 	protected void addTags(HolderLookup.Provider registries) {
 		// endregion provider
-		getOrCreateRawBuilder(VillagerTradeTags.ARMORER_LEVEL_1)
-				.add(TagEntry.element(ExampleModVillagerTradesProvider.ARMORER_1_EMERALD_GUIDITE_HELMET.identifier()))
-				.add(TagEntry.element(ExampleModVillagerTradesProvider.ARMORER_1_EMERALD_GUIDITE_CHESTPLATE.identifier()))
-				.add(TagEntry.element(ExampleModVillagerTradesProvider.ARMORER_1_EMERALD_GUIDITE_LEGGINGS.identifier()))
-				.add(TagEntry.element(ExampleModVillagerTradesProvider.ARMORER_1_EMERALD_GUIDITE_BOOTS.identifier()));
+		builder(VillagerTradeTags.ARMORER_LEVEL_1)
+				.add(ExampleModVillagerTradesProvider.ARMORER_1_EMERALD_GUIDITE_HELMET)
+				.add(ExampleModVillagerTradesProvider.ARMORER_1_EMERALD_GUIDITE_CHESTPLATE)
+				.add(ExampleModVillagerTradesProvider.ARMORER_1_EMERALD_GUIDITE_LEGGINGS)
+				.add(ExampleModVillagerTradesProvider.ARMORER_1_EMERALD_GUIDITE_BOOTS);
 		// region provider
 	}
 	//	endregion tags
