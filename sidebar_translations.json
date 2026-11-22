@@ -54,6 +54,7 @@
   "/develop/data-generation/server": "Server Resources",
   "/develop/data-generation/setup": "Data Generation Setup",
   "/develop/data-generation/tags": "Tag Generation",
+  "/develop/data-generation/trades": "Villager Trade Generation",
   "/develop/data-generation/translations": "Translation Generation",
   "/develop/data-generation/advancements": "Advancement Generation",
   "/develop/data-generation/recipes": "Recipe Generation",

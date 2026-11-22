@@ -177,6 +177,7 @@ export const DEVELOP_SIDEBAR: SidebarItem = {
             "/loot-tables",
             "/recipes",
             "/tags",
+            "/trades",
             {
               text: "/develop/data-generation/world-generation",
               items: [
