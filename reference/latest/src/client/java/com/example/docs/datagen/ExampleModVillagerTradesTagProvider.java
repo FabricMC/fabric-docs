@@ -2,11 +2,8 @@ package com.example.docs.datagen;
 
 import java.util.concurrent.CompletableFuture;
 
-import com.example.docs.ExampleMod;
-
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.tags.TagEntry;
 import net.minecraft.tags.VillagerTradeTags;
 import net.minecraft.world.item.trading.VillagerTrade;
 
