@@ -91,7 +91,7 @@ IntelliJ 中的另一个有用的工具是 `最近` 窗口， 可以使用快捷
 
 "生成"菜单可通过 <kbd>⌘/CTRL</kbd><kbd>N</kbd> 快速访问。
 在 Java 文件中，你可以生成构造器、getter、setter、重写或实现方法，等等。
-你还可以生成 accessor 和 invoker，如果有安装了 [Minecraft Development 插件](./getting-started/setting-up-a-development-environment#minecraft-development)的话。
+你还可以生成 accessor 和 invoker，如果有安装了 [Minecraft Development 插件](./getting-started/setting-up#minecraft-development)的话。
 
 此外，你还可以通过 <kbd>⌘/CTRL</kbd><kbd>O</kbd> 快速重写方法，或通过 <kbd>⌘/CTRL</kbd><kbd>I</kbd> 实现方法。
 

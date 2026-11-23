@@ -92,7 +92,7 @@ IntelliJ имеет множество различных способов пе�
 
 К меню «Создать» можно быстро получить доступ с помощью <kbd>⌘/CTRL</kbd><kbd>N</kbd>.
 В файле Java вы сможете генерировать конструкторы, геттеры, сеттеры, переопределять или реализовывать методы и многое другое.
-Вы также можете генерировать аксессоры и инвокеры, если у вас установлен [плагин Minecraft Development](./getting-started/setting-up-a-development-environment#minecraft-development).
+Вы также можете генерировать аксессоры и инвокеры, если у вас установлен [плагин Minecraft Development](./getting-started/setting-up#minecraft-development).
 
 Кроме того, вы можете быстро переопределять методы с помощью <kbd>⌘/CTRL</kbd><kbd>O</kbd> и реализовывать методы с помощью <kbd>⌘/CTRL</kbd><kbd>I</kbd>.
 

@@ -101,7 +101,7 @@ Per esempio, usando espressioni lambda, puoi scriverli velocemente usando questo
 
 Si può accedere velocemente al menu Generate con <kbd>Alt</kbd>+<kbd>Ins</kbd> (<kbd>⌘ Comando</kbd>+<kbd>N</kbd> su Mac) o andando su `Code` in cima e selezionando `Generate`.
 In un file Java, potrai generare costruttori, getter, setter, fare override o implementare metodi, e molto altro.
-Puoi anche generare accessori e invocatori se hai installato il [plugin per Sviluppo Minecraft](./getting-started/setting-up-a-development-environment#minecraft-development).
+Puoi anche generare accessori e invocatori se hai installato il [plugin per Sviluppo Minecraft](./getting-started/setting-up#minecraft-development).
 
 Inoltre puoi fare velocemente override di metodi con <kbd>⌘/CTRL</kbd>+<kbd>O</kbd> e implementare metodi con <kbd>⌘/CTRL</kbd>+<kbd>I</kbd>.
 

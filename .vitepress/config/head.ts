@@ -57,6 +57,10 @@ const _getNewHead = (context: NewHeadContext): string | HeadConfig[] => {
 
   const redirects: { from: RegExp; dest: string }[] = [
     {
+      from: /^([0-9.]+[/])?develop[/]getting-started[/]setting-up-a-development-environment(?=[/]|$)/,
+      dest: "$1develop/getting-started/setting-up",
+    },
+    {
       from: /^([0-9.]+[/])?develop[/]custom-recipe-types(?=[/]|$)/,
       dest: "$1develop/recipes/custom-recipe-types",
     },

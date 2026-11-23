@@ -101,7 +101,7 @@ Wenn du zum Beispiel Lambdas verwendest, kannst du sie mit dieser Methode schnel
 
 Das Menü Generieren kannst du schnell durch <kbd>Alt</kbd>+<kbd>Einfügen</kbd> (<kbd>⌘ Befehl</kbd>+<kbd>N</kbd> auf Mac) aufgerufen werden oder indem du oben auf `Code` gehst und `Generieren` auswählst.
 In einer Java-Datei kannst du Konstruktoren, Getter, Setter, überschreibende oder implementierende Methoden und vieles mehr generrieren.
-Du kannst auch Accessors und Invokers erzeugen, wenn du das [Minecraft Development Plugin](./getting-started/setting-up-a-development-environment#minecraft-development) installiert hast.
+Du kannst auch Accessors und Invokers erzeugen, wenn du das [Minecraft Development Plugin](./getting-started/setting-up#minecraft-development) installiert hast.
 
 Zusätzlich kannst du Methoden mit <kbd>⌘/STRG</kbd>+<kbd>O</kbd> überschreiben und mit <kbd>⌘/STRG</kbd>+<kbd>I</kbd> implementieren.
 
