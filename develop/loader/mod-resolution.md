@@ -1,5 +1,5 @@
 ---
-title: Mod Resolution
+title: Mod Discovery and Resolution
 description: An explanation of how Fabric Loader chooses which mods to load.
 authors:
   - dexman545
@@ -23,10 +23,10 @@ These are mods that you would find directly in the `mods` folder or another mod 
 
 These are mods that are found within other mods.
 
-### Builtin Mods {#builtin-mods-disc}
+### Built-in Mods {#built-in-mods-disc}
 
 These are mods that Loader's game provider provides, for instance, `minecraft` is provided by
-Loader as a builtin mod. See [Built-in Mods](#built-in-sources) for more information.
+Loader as a built-in mod. See [Built-in Mods](#built-in-sources) for more information.
 
 ## Mod Resolution {#mod-resolution}
 
@@ -43,7 +43,7 @@ load the mod set and prompt the user with a solution.
 
 As Loader prefers less nested mods over more nested mods, Loader will prefer to load a plain mod
 over a nested mod, even if it is of a lower version so long as it is compatible with the
-rest of the mod set. See the [plain mod overriding example](#preferring-plain-mods-over-nested-mods)
+rest of the mod set. See the [Plain Mod Overriding Example](#preferring-plain-mods-over-nested-mods)
 for an example.
 
 ### Nested Mods {#nested-mods-res}
@@ -54,14 +54,14 @@ provide additional features to other mods that may not be present, or allowing t
 provide different implementations depending on the environment or other loaded mods.
 
 This differs from other methods of conditional loading, such as manually checking if a mod is loaded
-or using features such as [resource conditions](../resource-conditions) for optionally loading
+or using features such as [Resource Conditions](../resource-conditions) for optionally loading
 resources or mixin config plugins for optionally applying mixins. Accidental references to
 unavailable classes can more easily be avoided when using nested mods to implement compatibility
 features. Because a nested mod has its own dependencies, Fabric Loader can handle more complex
 version requirements, and influence mod resolution.
-See the [optional nested influence example](#optional-nested-influence) for an example.
+See the [Optional Nested Influence Example](#optional-nested-influence) for an example.
 
-### Builtin Mods {#builtin-mods-res}
+### Built-in Mods {#built-in-mods-res}
 
 These mods are always loaded.
 
@@ -162,14 +162,14 @@ that dependency on `1.x`, `dd` version 2.0.0 would be loaded.
 
 ### Built-in Mods {#built-in-sources}
 
-For minecraft, Loader provides several builtin mods:
+For minecraft, Loader provides several built-in mods:
 
 - `minecraft`
 - `java`
   - The java version being used to run the game, such as `8` or `25`.
 
 Fabric Loader will also list itself in the mod list as `fabricloader`, but it is technically not a
-builtin mod.
+built-in mod.
 
 ### Mods Folder {#mods-folder}
 
