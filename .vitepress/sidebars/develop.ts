@@ -222,6 +222,7 @@ export const DEVELOP_SIDEBAR: SidebarItem = {
         //
         "/",
         "/fabric-mod-json",
+        "/mod-resolution",
       ],
     },
     {

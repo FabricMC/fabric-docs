@@ -81,6 +81,7 @@
   "/develop/rendering/particles/creating-particles": "Creating Custom Particles",
   "/develop/loader": "Loader",
   "/develop/loader/fabric-mod-json": "fabric.mod.json",
+  "/develop/loader/mod-resolution": "Mod Discovery and Resolution",
   "/develop/loom": "Loom",
   "/develop/loom/fabric-api": "Fabric API DSL",
   "/develop/loom/options": "Extension Options",
