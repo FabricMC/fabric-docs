@@ -87,7 +87,7 @@ Dies prüft, ob es sich bei der aktuellen Oberfläche um den `TitleScreen` oder 
 - Befindet man sich außerhalb einer Welt, in anderen Worten, wenn keine Spieler-Entität vorhanden ist, wird die Meldung "Key press detected in the title screen" in die Konsole geloggt.
 - Andernfalls, wenn die Taste in einer Welt gedrückt wird, wird die Meldung "Key press detected in the GUI with a world open, closing screen" an den Chat im Spiel gesendet und die Oberfläche geschlossen.
 
-<VideoPlayer src="/assets/develop/key-mappings/in_screen_key_map.webm">Tastendruck im GUI bei geöffneter Welt</VideoPlayer>
+![Tastendruck in einem GUI mit einer geöffneten Welt](/assets/develop/key-mappings/in_screen_key_map.webm)
 
 ::: info
 

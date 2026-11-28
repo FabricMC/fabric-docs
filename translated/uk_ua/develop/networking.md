@@ -138,7 +138,7 @@ API Fabric надає `PlayerLookup`, набір допоміжних функц
 
 Тепер, якщо ви додасте цей мод на сервер і коли гравець використовує наш Lightning Tater, кожен гравець побачить блискавку вражаючи позицію користувача.
 
-<VideoPlayer src="/assets/develop/networking/summon-lightning.webm">Виклик блискавки за допомогою Lightning Tater</VideoPlayer>
+![Виклик блискавки за допомогою Lightning Tater](/assets/develop/networking/summon-lightning.webm)
 
 ### Надсилання пакета до сервера {#sending-a-packet-to-the-server}
 
@@ -189,4 +189,4 @@ API Fabric надає `PlayerLookup`, набір допоміжних функц
 
 Тепер, коли будь-який гравець намагатиметься використати отруйну картоплю на живій істоті, до нього буде застосовано ефект світіння.
 
-<VideoPlayer src="/assets/develop/networking/use-poisonous-potato.webm">Ефект світіння застосовується, коли отруйна картопля використовується на живій сутності</VideoPlayer>
+![Ефект світіння коли отруйну картоплю використано на живій сутності](/assets/develop/networking/use-poisonous-potato.webm)

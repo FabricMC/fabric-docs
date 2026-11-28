@@ -41,7 +41,7 @@ Fabric API Здобичі надає кілька подій через клас
 
 Ефект наведеного вище прикладу:
 
-<VideoPlayer src="/assets/develop/events/modify_event_example.webm">Приклад події модифікації</VideoPlayer>
+![Приклад події модифікації](/assets/develop/events/modify_event_example.webm)
 
 ## Заміна таблиць здобичі {#replacing-loot-tables}
 
@@ -63,7 +63,7 @@ Fabric API Здобичі надає кілька подій через клас
 
 Ефект наведеного вище прикладу:
 
-<VideoPlayer src="/assets/develop/events/replace_event_example.webm">Приклад події заміни</VideoPlayer>
+![Приклад події заміни](/assets/develop/events/replace_event_example.webm)
 
 ## Зміна предметів, що випадають із таблиць здобичі {#modifying-loot-table-drops}
 
@@ -88,7 +88,7 @@ Fabric API Здобичі надає кілька подій через клас
 
 Ефект наведеного вище прикладу:
 
-<VideoPlayer src="/assets/develop/events/modify_drops_event_example.webm">Приклад події зміни здобичі</VideoPlayer>
+![Приклад події модифікації здобичі](/assets/develop/events/modify_drops_event_example.webm)
 
 ## Постобробка таблиць здобичі {#loot-table-post-processing}
 

@@ -125,4 +125,4 @@ Minecraft має деякі власні класи, які дозволять �
 
 Коли ви все завершите, кінцевий результат має виглядати приблизно так:
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">Призмариновий ліхтар у грі</VideoPlayer>
+![Блок призмариного ліхтаря в грі](/assets/develop/blocks/blockstates_3.webm)

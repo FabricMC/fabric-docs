@@ -192,7 +192,7 @@ resources:
 
 == 预览
 
-<VideoPlayer src="/assets/develop/data-generation/item-model/flashlight_turning_on.webm">手电筒开关</VideoPlayer>
+![手电筒开启与关闭](/assets/develop/data-generation/item-model/flashlight_turning_on.webm)
 
 ::::
 

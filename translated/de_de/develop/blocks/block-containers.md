@@ -61,7 +61,7 @@ Dazu fügen wir eine Funktion `tick` zur `DuplicatorBlockEntity` hinzu und ein F
 
 Der `DuplicatorBlock` sollte nun über eine Methode `getTicker` verfügen, die eine Referenz auf `DuplicatorBlockEntity::tick` zurückgibt.
 
-<VideoPlayer src="/assets/develop/blocks/container_2.mp4">Duplizierungsblock, der einen Eichenstamm dupliziert</VideoPlayer>
+![Duplizierer-Block, der einen Eichenstamm dupliziert](/assets/develop/blocks/container_2.mp4)
 
 ## Weltbasierte Container {#worldly-containers}
 
@@ -85,7 +85,7 @@ Außerdem sollten wir die Methode `useItemOn` von `DuplicatorBlock` ändern, um 
 
 Wenn wir nun versuchen, Items von der Seite statt von oben einzufügen, funktioniert das nicht!
 
-<VideoPlayer src="/assets/develop/blocks/container_3.webm">Der Duplizierer wird nur aktiviert, wenn man mit seiner Oberseite interagiert.</VideoPlayer>
+![Der Duplizierer wird nur aktiviert, wenn man mit seiner Oberseite interagiert](/assets/develop/blocks/container_3.webm)
 
 ## Menüs {#menus}
 

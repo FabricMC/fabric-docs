@@ -10,13 +10,13 @@ Brenstoffe sind Items, die in einem Ofen verwendet werden können, um Erze zu sc
 
 ## Das Item erstellen {#creating-the-item}
 
-Lasst uns ein Brennstoff Item namens "Quark-Gloun Plasma" (Quark-Gluon-Plasma) erstellen. Wir beginnen wie gewohnt damit, [ein Item zu erstellen](./first-item):
+Lasst uns ein Brennstoff Item namens "Quark-Gloun Plasma" (Quark-Gluon-Plasma) erstellen. Zunächst [erstellen wir wie gewohnt ein Item](./first-item) und wenden dann die Komponente `CookingFuel` darauf an, entweder direkt über `.component` oder über die Hilfsmethode `.cookingFuel`, wenn du auf einen `ResourceKey<ContextIntProvider>` verweist:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#quark_gluon_plasma_resource
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#quark_gluon_plasma
 
-Um einen Brenstoff zu erstellen, werden wir das Event `FuelValueEvents.BUILD` der Fabric Content Registries API verwenden:
+Alternativ können wir, falls wir nicht selbst das Item registrieren, das Event `DefaultItemComponentEvents.MODIFY` aus der Fabric Item-API verwenden:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#fuel_item
 
@@ -26,4 +26,4 @@ Vergiss wie üblich nicht, eine Textur, eine Übersetzung, einen Kreativtab usw.
 
 So sieht es aus, wenn man es als Brennstoff im Ofen verwendet:
 
-<VideoPlayer src="/assets/develop/items/fuel_in_furnace.webm">Verwenung des Quark-Gluon-Plasma als Brennstoff</VideoPlayer>
+![Das Quark-Gluon-Plasma als Brennstoff verwenden](/assets/develop/items/fuel_in_furnace.webm)

@@ -41,7 +41,7 @@ resources:
 
 Після впровадження нашого меню воно закриється автоматично, коли гравця відштовхнуть.
 
-<VideoPlayer src="/assets/develop/blocks/menu_still_valid.webm">Меню контейнера закривається, коли гравець виходить за межі діапазону</VideoPlayer>
+![Меню контейнера закривається коли гравець задалеко](/assets/develop/blocks/menu_still_valid.webm)
 
 ### Відкриття меню {#opening-the-screen}
 

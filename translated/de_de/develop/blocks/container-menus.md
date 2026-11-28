@@ -41,7 +41,7 @@ Wir verwenden die Standardimplementierung dieser Methode aus `ContainerHelper`, 
 
 Sobald unser Menü implementiert ist, wird es automatisch geschlossen, sobald der Spieler weggeschoben wird.
 
-<VideoPlayer src="/assets/develop/blocks/menu_still_valid.webm">Das Container-Menü wird geschlossen, sobald sich der Spieler außerhalb der Reichweite befindet</VideoPlayer>
+![Das Containermenü schließt, wenn der Spieler die Reichweite verlässt](/assets/develop/blocks/menu_still_valid.webm)
 
 ### Das Menü öffnen {#opening-the-screen}
 

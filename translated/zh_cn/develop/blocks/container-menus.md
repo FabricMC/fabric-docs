@@ -40,7 +40,7 @@ resources:
 
 菜单实现后，当玩家被推离时，菜单将自动关闭。
 
-<VideoPlayer src="/assets/develop/blocks/menu_still_valid.webm">当玩家超出范围时容器菜单关闭</VideoPlayer>
+![玩家超出范围时容器菜单关闭](/assets/develop/blocks/menu_still_valid.webm)
 
 ### 打开菜单 {#opening-the-screen}
 

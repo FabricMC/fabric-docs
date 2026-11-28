@@ -285,18 +285,18 @@ Jetbrains 有很多关于如何进一步个性化你的工作空间的讨论、�
 
 写了代码后，可以用后缀补全来快速修改。常用的一些例子有 `.not`、`.if`、`.var`、`.null`、`.nn`、`.for`、`.fori`、`.return` 和 `.new`。除了这些已有的之外，你也可以在 IntelliJ 的设置中创建你自己的。
 
-<VideoPlayer src="https://youtu.be/wvo9aXbzvy4">IntelliJ IDEA 专业技巧：YouTube 上的 Postfix 补全</VideoPlayer>
+![IntelliJ IDEA 进阶技巧：后缀补全（YouTube）](https://youtu.be/wvo9aXbzvy4)
 
 ### 实时模板 {#live-templates}
 
 使用实时模板可以更快地生成自定义样板代码。
 
-<VideoPlayer src="https://youtu.be/XhCNoN40QTU">IntelliJ IDEA 专业技巧：YouTube 上的实时模板</VideoPlayer>
+![IntelliJ IDEA 进阶技巧：动态模板（YouTube）](https://youtu.be/XhCNoN40QTU)
 
 ### 更多提示和技巧{#more-tips}
 
 Jetbrains 的 Anthon Arhipov 也有关于正则表达式匹配、代码补全、调试和其他 IntelliJ 话题的深入讨论。
 
-<VideoPlayer src="https://youtu.be/V8lss58zBPI">YouTube 上的 Anton Arhipov 的 IntelliJ talk</VideoPlayer>
+![Anton Arhipov 的 IntelliJ 讲座（YouTube）](https://youtu.be/V8lss58zBPI)
 
 如需更多信息，请查看 [Jetbrains' Tips & Tricks 网站](https://blog.jetbrains.com/idea/category/tips-tricks) 和 [IntelliJ 文档](https://www.jetbrains.com/help/idea/getting-started)。大多数这些帖子都适用于 Fabric 的生态系统中。

@@ -149,4 +149,4 @@ float yd = -Mth.sin((xRot + yOffset) * (float) (Math.PI / 180.0));
 
 І готово!
 
-<VideoPlayer src="/assets/develop/projectiles/hot-tater.mp4">Hot Tater улучає в селянина та підпалює</VideoPlayer>
+![Hot Tater запалює селянина](/assets/develop/projectiles/hot-tater.mp4)

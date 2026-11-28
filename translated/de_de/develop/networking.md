@@ -140,7 +140,7 @@ Schließlich erstellen wir eine `LightningBolt` und fügen diesen dem Level hinz
 
 Wenn du nun diesen Mod auf einem Server installierst und ein Spieler dein Item "Lightning Tater" benutzt, sehen alle Spieler Blitze, die an der Position des Users einschlagen.
 
-<VideoPlayer src="/assets/develop/networking/summon-lightning.webm">Erzeugen eines Blitzes mit dem Lightning Tater</VideoPlayer>
+![Erschaffen eines Blitz mit dem Lightning Tater](/assets/develop/networking/summon-lightning.webm)
 
 ### Senden eines Pakets an den Server {#sending-a-packet-to-the-server}
 
@@ -191,4 +191,4 @@ Außerdem muss es sich bei der Zielentität um eine lebende Entität handeln, un
 
 Wenn ein Spieler nun versucht, eine giftige Kartoffel auf einer lebenden Entität zu verwenden, wird der Leuchten-Effekt auf diese angewendet.
 
-<VideoPlayer src="/assets/develop/networking/use-poisonous-potato.webm">Der Leucht-Effekt wird angewendet, wenn die giftige Kartoffel von einer lebenden Entität genutzt wird</VideoPlayer>
+![Der Leuchteffekt wird angewendet, wenn eine giftige Kartoffel an einer lebenden Entität verwendet wird.](/assets/develop/networking/use-poisonous-potato.webm)

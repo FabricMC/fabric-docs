@@ -138,7 +138,7 @@ Infine, creiamo una `LightningBolt` e aggiungiamola al livello.
 
 Ora, aggiungendo questa mod a un server, e quando un giocatore usa il nostro oggetto Lightning Tater, ogni giocatore vedrà un fulmine colpire la posizione dell'utente.
 
-<VideoPlayer src="/assets/develop/networking/summon-lightning.webm">Evocazione di un lampo con una Lightning Tater</VideoPlayer>
+![Evocazione di un lampo con una Lightning Tater](/assets/develop/networking/summon-lightning.webm)
 
 ### Inviare un Pacchetto al Server {#sending-a-packet-to-the-server}
 
@@ -188,4 +188,4 @@ Inoltre, l'entità-bersaglio deve essere un'entità vivente, e limitiamo la dist
 
 Ora, quando un giocatore cerca di usare una Patata Velenosa su un'entità vivente, l'effetto Luminescenza verrà applicato.
 
-<VideoPlayer src="/assets/develop/networking/use-poisonous-potato.webm">Effetto Luminescenza applicato quando una Patata Velenosa viene usata su un'entità vivente</VideoPlayer>
+![Effetto Luminescenza applicato quando una Patata Velenosa viene usata su un'entità vivente](/assets/develop/networking/use-poisonous-potato.webm)

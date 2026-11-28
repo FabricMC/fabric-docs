@@ -41,7 +41,7 @@ Lasst uns zum Beispiel das Event `MODIFY` verwenden, um mithilfe des [Prädikats
 
 Effekte des obigen Beispiels:
 
-<VideoPlayer src="/assets/develop/events/modify_event_example.webm">Beispiel des Modify-Event</VideoPlayer>
+![Beispiel Event für ein bearbeiten](/assets/develop/events/modify_event_example.webm)
 
 ## Beutetabellen ersetzen {#replacing-loot-tables}
 
@@ -63,7 +63,7 @@ Gib immer `null` zurück, wenn du keine Beutetabelle ersetzt. Durch das Zurückg
 
 Effekte des obigen Beispiels:
 
-<VideoPlayer src="/assets/develop/events/replace_event_example.webm">Beispiel eines Replace-Event</VideoPlayer>
+![Beispiel Event fpr ein ersetzen](/assets/develop/events/replace_event_example.webm)
 
 ## Drops von Beutetabellen bearbeiten {#modifying-loot-table-drops}
 
@@ -88,7 +88,7 @@ Zum Beispiel lasst uns das Event `MODIFY_DROPS` verwenden, um beim Zerstören ei
 
 Effekte des obigen Beispiels:
 
-<VideoPlayer src="/assets/develop/events/modify_drops_event_example.webm">Beispiel des Modify Drops-Event</VideoPlayer>
+![Beispiel Event für die Bearbeitung von Drops](/assets/develop/events/modify_drops_event_example.webm)
 
 ## Nachbearbeitung der Beutetabelle {#loot-table-post-processing}
 

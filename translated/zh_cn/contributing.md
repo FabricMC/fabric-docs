@@ -13,7 +13,7 @@ description: Fabric 文档贡献指南
 
 所有贡献应该遵守我们的[样式指南](#style-guidelines)。
 
-## 翻译文档{#translating-documentation}
+## 翻译文档 {#translating-documentation}
 
 如果想把文档翻译成你的语言，你可以在 [Fabric 的 Crowdin 页面](https://crowdin.com/project/fabricmc)进行。
 

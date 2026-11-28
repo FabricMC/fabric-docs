@@ -47,6 +47,7 @@ Najnowszy log ma nazwę `latest.log`, a poprzednie logi nazywane są według wzo
 
 Logi można przesłać do różnych usług, takich jak:
 
-- [Pastebin](https://pastebin.com/)
-- [GitHub Gist](https://gist.github.com/)
 - [mclo.gs](https://mclo.gs/)
+- [pastes.dev](https://pastes.dev/)
+- [Pastebin.com](https://pastebin.com/)
+- [GitHub Gist](https://gist.github.com/)

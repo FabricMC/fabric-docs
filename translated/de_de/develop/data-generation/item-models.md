@@ -193,7 +193,7 @@ Um den in `ItemModelUtils.plainModel()` übergebenen `Identifier` zu erhalten, v
 
 == Vorschau
 
-<VideoPlayer src="/assets/develop/data-generation/item-model/flashlight_turning_on.webm">Taschenlampe ein- und ausschalten</VideoPlayer>
+![Taschenlampe ein- und ausschalten](/assets/develop/data-generation/item-model/flashlight_turning_on.webm)
 
 ::::
 

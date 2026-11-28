@@ -56,6 +56,12 @@ authors:
 
 现在我们将实现“绘制”阶段。在“提取”阶段，所有需要渲染的路径点都添加到 `waypointState` 后，应该调用这个阶段。
 
+::: info
+
+在 26.3 中，我们使用 mixin 来调用 `draw`，因为 Fabric API 没有提供渲染通道。请参阅 `LevelRendererMixin`。
+
+:::
+
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_drawing_phase
 
 请注意，`StagedVertexBuffer` 构造函数中使用的大小取决于你使用的渲染管线。在我们的例子中，它是 `RenderType.SMALL_BUFFER_SIZE`。
@@ -68,12 +74,14 @@ authors:
 
 <<< @/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java
 
+<<< @/reference/latest/src/client/java/com/example/docs/mixin/client/LevelRendererMixin.java
+
 ### 最终代码 {#final-code}
 
 结合以上所有步骤，我们得到了一个简单的类，渲染一个穿过墙壁的路径点，位于 `(0, 100, 0)`。
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java
 
-别忘了 `GameRendererMixin`！结果如下：
+别忘了还有 `GameRendererMixin` 和 `LevelRendererMixin`！结果如下：
 
 ![穿过墙壁的路径点渲染](/assets/develop/rendering/world-rendering-custom-render-pipeline-waypoint.png)

@@ -63,4 +63,4 @@ resources:
 
 Тепер у вас повинен бути робочий спеціальний ефект зачарування! Перевірте це, зачарувавши зброю за допомогою чар і вдаривши моба. Приклад наведено в наступному відео:
 
-<VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm">Використання зачарування грому</VideoPlayer>
+![Використання зачарування Thundering](/assets/develop/enchantment-effects/thunder.webm)

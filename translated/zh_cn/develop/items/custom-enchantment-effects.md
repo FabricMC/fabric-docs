@@ -63,4 +63,4 @@ resources:
 
 现在你应该有了一个可以正常生效的自定义附魔效果！附魔一个武器，然后攻击一个生物试试吧。下面的视频里有一个例子：
 
-<VideoPlayer src="/assets/develop/enchantment-effects/thunder.webm">使用雷电（Thundering）魔咒</VideoPlayer>
+![使用引雷附魔](/assets/develop/enchantment-effects/thunder.webm)

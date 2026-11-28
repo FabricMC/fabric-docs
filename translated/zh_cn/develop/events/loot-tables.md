@@ -41,7 +41,7 @@ Fabric Loot API 通过 `LootTableEvents` 类提供了多个事件：
 
 上述示例的效果：
 
-<VideoPlayer src="/assets/develop/events/modify_event_example.webm">修改事件示例</VideoPlayer>
+![修改事件示例](/assets/develop/events/modify_event_example.webm)
 
 ## 替换战利品表 {#replacing-loot-tables}
 
@@ -63,7 +63,7 @@ Fabric Loot API 通过 `LootTableEvents` 类提供了多个事件：
 
 上述示例的效果：
 
-<VideoPlayer src="/assets/develop/events/replace_event_example.webm">替换事件示例</VideoPlayer>
+![替换事件示例](/assets/develop/events/replace_event_example.webm)
 
 ## 修改战利品表掉落物 {#modifying-loot-table-drops}
 
@@ -88,7 +88,7 @@ Fabric Loot API 通过 `LootTableEvents` 类提供了多个事件：
 
 上述示例的效果：
 
-<VideoPlayer src="/assets/develop/events/modify_drops_event_example.webm">修改掉落物事件示例</VideoPlayer>
+![修改掉落物事件示例](/assets/develop/events/modify_drops_event_example.webm)
 
 ## 战利品表后处理 {#loot-table-post-processing}
 

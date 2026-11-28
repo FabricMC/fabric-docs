@@ -193,7 +193,7 @@ resources:
 
 == Попередній перегляд
 
-<VideoPlayer src="/assets/develop/data-generation/item-model/flashlight_turning_on.webm">Увімкнення та вимкнення ліхтарика</VideoPlayer>
+![Перемикання ліхтарика](/assets/develop/data-generation/item-model/flashlight_turning_on.webm)
 
 ::::
 

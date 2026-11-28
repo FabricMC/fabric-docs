@@ -85,7 +85,7 @@ Minecraft обробляє введення користувачами з пер
 - Коли гравець перебуває поза межами світу — тобто коли не існує сутності гравця,— у консоль виводиться повідомлення «Key press detected in the title screen».
 - В іншому разі, якщо натиснути клавішу під час перебування у світі, у внутрішньоігровий чат надсилається повідомлення «Key press detected in the GUI with a world open, closing screen», а екран закривається.
 
-<VideoPlayer src="/assets/develop/key-mappings/in_screen_key_map.webm">Натискання клавіші в інтерфейсі при відкритому світі</VideoPlayer>
+![Клавішу натиснуто в інтерфейсі, будучи у світі](/assets/develop/key-mappings/in_screen_key_map.webm)
 
 ::: info
 

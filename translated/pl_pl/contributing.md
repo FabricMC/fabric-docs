@@ -7,7 +7,7 @@ Ta strona używa [VitePress](https://vitepress.dev/) do generowania statycznego 
 
 Istnieją trzy sposoby, w jakie możesz pomóc współtworzyć tę stronę:
 
-- [Tłumaczenie dokumentacji](#translating-documentation)
+- [Tłumaczenie](#translating-documentation)
 - [Współtworzenie treści](#contributing-content)
 - [Współtworzenie frameworka](#contributing-framework)
 
