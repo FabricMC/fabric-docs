@@ -35,11 +35,7 @@ Auch hier sollten die meisten modernen DAWs (Digital Audio Workstation Software)
 
 Unser [Startsound](https://freesound.org/people/el-bee/sounds/644881/) wird von einem Motor kommen.
 
-<audio controls>
-    <source src="/assets/develop/sounds/dynamic-sounds/step_0.wav" type="audio/wav">
-    
-    Dein Browser untersützt das Audioelement nicht.
-</audio>
+![Originales Motorengeräusch](/assets/develop/sounds/dynamic-sounds/step_0.wav)
 
 Laden wir die Datei in die DAW unserer Wahl.
 
@@ -84,19 +80,11 @@ Vergleichen wir nun die Originaldatei mit der bereinigten Version.
 
 Im Originalton ist ein deutliches Brummen und Piepen zu hören, das möglicherweise von einem elektrischen Element des Motors stammt.
 
-<audio controls>
-    <source src="/assets/develop/sounds/dynamic-sounds/step_5_first.ogg" type="audio/ogg">
-    
-    Dein Browser untersützt das Audioelement nicht.
-</audio>
+![Motorgeräusch mit Brummen und Piepen](/assets/develop/sounds/dynamic-sounds/step_5_first.ogg)
 
 Mit einem EQ-Filter konnten wir ihn fast vollständig entfernen. Es ist auf jeden Fall angenehmer anzuhören.
 
-<audio controls>
-    <source src="/assets/develop/sounds/dynamic-sounds/step_5_second.ogg" type="audio/ogg">
-    
-    Dein Browser untersützt das Audioelement nicht.
-</audio>
+![Motorgeräusch nach dem EQ-Filter](/assets/develop/sounds/dynamic-sounds/step_5_second.ogg)
 
 ### Eine Audioschleife erstellen {#making-it-loop}
 
@@ -120,11 +108,7 @@ Wenn du dir nicht sicher bist, wie das geht, sieh dir die Seite [Benutzerdefinie
 
 Dies ist nun die fertige Audioschleife des Motors für das `SoundEvent` namens `ENGINE_LOOP`.
 
-<audio controls>
-    <source src="/assets/develop/sounds/dynamic-sounds/step_8.ogg" type="audio/ogg">
-    
-    Dein Browser untersützt das Audioelement nicht.
-</audio>
+![Motorgeräusch-Audioschleife fertiggestellt](/assets/develop/sounds/dynamic-sounds/step_8.ogg)
 
 ## Eine `SoundInstance` nutzen {#using-a-soundinstance}
 
@@ -359,7 +343,7 @@ Um dieses Soundsystem zu verwenden, musst du entweder die Methoden von `DynamicS
 
 Das Endprodukt kann seine Lautstärke auf der Grundlage der Soundphase anpassen, um die Übergänge zu glätten, und die Tonhöhe auf der Grundlage eines Stresswertes ändern, der von der Soundquelle stammt.
 
-<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm">Motor Block Entität mit dynamischen Sound Änderungen</VideoPlayer>
+![Motor Blockentität mit dynamischen Soundveränderungen](/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm)
 
 Du könntest einen weiteren Wert zu deiner Soundquelle hinzufügen, der einen "Überhitzungs"-Wert verfolgt und zusätzlich eine zischende `SoundInstance` langsam einblenden lässt, wenn der Wert über 0 liegt, oder ein neues Interface zu deiner benutzerdefinierten dynamischen `SoundInstance` hinzufügen, die den Soundtypen einen Prioritätswert zuweist, der bei der Auswahl des abzuspielenden Sounds hilft, wenn sie miteinander kollidieren.
 

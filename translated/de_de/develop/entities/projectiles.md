@@ -149,4 +149,4 @@ Lasst uns schließlich den Vanilla `ThrownItemRenderer` im Client-Initialisierer
 
 Und du bist fertig!
 
-<VideoPlayer src="/assets/develop/projectiles/hot-tater.mp4">Eine Hot Tater (Heiße Kartoffel), die einen Dorfbewohner in Brand setzt</VideoPlayer>
+![Eine Heiße Kartoffel, die einen Dorfbewohner in Flammen setzt](/assets/develop/projectiles/hot-tater.mp4)

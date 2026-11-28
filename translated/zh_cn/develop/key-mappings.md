@@ -85,7 +85,7 @@ Key press detected in the world”的信息。记住，按住此键会反复向�
 - 换句话说，当玩家不在游戏世界中时，它会将“ Key press detected in the title screen”记录到控制台。
 - 否则，如果在游戏世界中按下该键，它会向游戏内聊天发送“ Key press detected in the GUI with a world open, closing screen”的消息，并关闭屏幕。
 
-<VideoPlayer src="/assets/develop/key-mappings/in_screen_key_map.webm">在打开世界的情况下，在图形用户界面中按下按键</VideoPlayer>
+![世界加载时在图形界面内按键](/assets/develop/key-mappings/in_screen_key_map.webm)
 
 ::: info
 

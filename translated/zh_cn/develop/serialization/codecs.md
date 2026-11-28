@@ -82,7 +82,7 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 ### 合并用于类似 Record 类的 codec{#merging-codecs-for-record-like-classes}
 
-现在每个字段都有了单独的 codec，我们可以使用 `RecordCodecBuilder` 为我们的类将其合并为一个 codec。假定我们的类有一个包含想序列化的所有字段的构造方法，并且每个字段都有相应的 getter 方法。这使其非常适合与 record 一起使用，但也可以用于常规类。
+现在每个字段都有了单独的 codec，我们可以使用 `RecordCodecBuilder` 将其合并为一个 codec，以用于我们先前定义的类。这一方式假定了我们的类拥有这样的一个构造函数：它包含了所有我们想要序列化的字段，并且每个字段都有相应的 getter 方法。这使其非常适合与 record 一起使用，但也可以用于常规类。
 
 来看看如何为我们的 `CoolBeansClass` 创建一个 codec：
 
@@ -96,7 +96,7 @@ Codec API 自己也包含一些基础类型的 codec，例如 `Codec.INT` 和 `C
 
 :::
 
-在 group 中的每一行指定 codec、字段名称和 getter 方法。调用 `Codec#fieldOf` 是为将 codec 转换为 [map codec](#mapcodec)，调用 `forGetter` 则是指定了从类的实例中检索字段值的 getter 方法。同时，调用 `apply` 则指定了用于创建新实例的构造函数。注意 group 中的字段的顺序应与构造函数中参数的顺序相同。
+其中，每一行都指定了 codec、字段名称和 getter 方法。调用 `Codec#fieldOf` 是为将 codec 转换为 [map codec](#mapcodec)，调用 `forGetter` 则是指定了从类的实例中检索字段值的 getter 方法。同时，调用 `apply` 则指定了用于创建新实例的构造函数。注意 group 中的字段的顺序应与构造函数中参数的顺序相同。
 
 这里也可以使用 `Codec#optionalFieldOf` 使字段可选，在 [可选字段](#optional-fields) 章节会有解释。
 

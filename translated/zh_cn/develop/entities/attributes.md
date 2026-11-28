@@ -70,7 +70,7 @@ resources:
 
 <<< @/reference/latest/src/gametest/java/com/example/docs/entity/EntityAttributesGameTest.java#reading_entity_attributes
 
-`AttributeInstance` 更灵活些，例如为属性设置 `AttributeModifier`，使用[三种原版属性修饰符运算](https://zh.minecraft.wiki/w/属性#运算模式)中的一个。属性可以是持久（存储至 NBT）或临时（不存储至 NBT）的，分别可以使用 `addPermanentModifier` or `addTransitiveModifier` 添加。
+`AttributeInstance` 更灵活些，例如为属性设置 `AttributeModifier`，使用[三种原版属性修饰符运算](https://zh.minecraft.wiki/w/属性#运算模式)中的一个。修饰符可以是永久的（保存到NBT）或临时的（不保存到NBT），分别使用 `addPermanentModifier` 或 `addTransientModifier` 添加。
 
 <<< @/reference/latest/src/gametest/java/com/example/docs/entity/EntityAttributesGameTest.java#modifying_entity_attributes
 

@@ -125,4 +125,4 @@ Du kannst die Methode `lightLevel` verwenden, um die vom Block ausgestrahlte Lic
 
 Wenn du alles vervollständigt hast, sollte das Endergebnis etwa so aussehen wie das folgende:
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">Prismarin Lampe im Spiel</VideoPlayer>
+![Prismarin-Lampe im Spiel](/assets/develop/blocks/blockstates_3.webm)

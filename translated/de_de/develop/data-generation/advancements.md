@@ -44,6 +44,12 @@ Ein Fortschritt setzt sich aus mehreren Komponenten zusammen. Neben den Vorausse
 
 Hier ist ein einfacher Fortschritt, um einen Erdblock zu erhalten:
 
+::: tip
+
+Da es sich hierbei um einen Root-Fortschritt handelt, verwenden wir `rootDisplay`, um den Hintergrund des Fortschritt festzulegen. Fortschritte mit Eltern verwenden `display`.
+
+:::
+
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_simple_advancement
 
 :::details JSON Ausgabe
@@ -85,6 +91,14 @@ Wir können unseren Fortschritten Belohnungen zuweisen, die einem Spieler gewäh
 Es gibt mehrere andere Belohnungsarten:
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward_types
+
+::: warning
+
+Hier wird eine temporäre Übergangslösung verwendet, um zu verhindern, dass das Spiel abstürzt, da die Beutetabelle nicht generiert wird.
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#terrible_workaround
+
+:::
 
 ## Benutzdefinierte Kriterien {#custom-criteria}
 

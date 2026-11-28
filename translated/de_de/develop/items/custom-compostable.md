@@ -10,13 +10,13 @@ Kompostierbare Items sind solche, die sich in Knochenmehl umwandeln, wenn sie in
 
 ## Das Item erstellen {#creating-the-item}
 
-Lasst uns ein kompostierbares Item namens "Bone Marrow" (Knochenmark) erstellen. Wir beginnen wie gewohnt damit, [ein Item zu erstellen](./first-item):
+Lasst uns ein kompostierbares Item namens "Bone Marrow" (Knochenmark) erstellen. Zunächst [erstellen wir wie gewohnt ein Item](./first-item) und wenden dann die Komponente `Compostable` darauf an, entweder direkt über `.component` oder über die Hilfsmethode `.compostable`, wenn du auf einen `ResourceKey<ContextIntProvider>` verweist:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItemIds.java#bone_marrow_resource
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#bone_marrow
 
-Um es kompostierbar zu machen, werden wir es der Registry `CompostableRegistry.INSTANCE` aus der Fabric Registry API hinzufügen:
+Alternativ können wir, falls wir nicht selbst das Item registrieren, das Event `DefaultItemComponentEvents.MODIFY` aus der Fabric Item-API verwenden:
 
 <<< @/reference/latest/src/main/java/com/example/docs/item/ModItems.java#compostable_item
 
@@ -26,4 +26,4 @@ Vergiss wie üblich nicht, eine Textur, eine Übersetzung, einen Kreativtab usw.
 
 So sieht es aus, wenn man es im Komposter verwendet:
 
-<VideoPlayer src="/assets/develop/items/using_bone_marrow.webm">Verwendung des Knochenmark als kompostierbares Item</VideoPlayer>
+![Verwendung des Knochenmark als kompostierbares Item](/assets/develop/items/using_bone_marrow.webm)

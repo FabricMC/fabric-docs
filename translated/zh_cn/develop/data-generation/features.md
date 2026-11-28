@@ -21,7 +21,7 @@ Minecraft 中的地物是世界中的自然或生成图案，例如树木、花�
 
 Minecraft 世界中的地物生成可分为 3 个部分：
 
-- **已配置地物**：定义地物是什么；例如，一棵单独的树
+- **Features（地物）**：这定义了地物是什么；例如，一棵树
 - **已放置地物**：定义地物应如何分布，包括方向、相对位置等；例如，森林中树木的分布方式
 - **生物群系修改**：定义地物会被放置在世界中的什么位置；例如，整片森林所在的坐标范围
 
@@ -39,9 +39,9 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add_worldgen_provider
 
-接下来，为已配置地物和已放置地物分别创建一个类。这些类不需要继承任何内容。
+接下来，为你的地物创建一个类，并为你的已放置地物创建一个类。这些类不需要继承任何内容。
 
-已配置地物类和已放置地物类都应包含一个公共方法，用于注册并定义你的地物。该方法的参数（这里我们将其命名为 `context`）对于已配置地物应为 `BootstrapContext<ConfiguredFeature<?, ?>>`，对于已放置地物则应为 `BootstrapContext<PlacedFeature>`。
+地物类和已放置地物类都应该有一个公共方法来注册和定义你的地物。它的参数（我们称之为 `context`）对于地物来说应该是 `BootstrapContext<Feature>`，对于已放置地物来说应该是 `BootstrapContext<PlacedFeature>`。
 
 在你的 `DataGeneratorEntrypoint` 类中，将下面的代码行添加到 `buildRegistry` 方法中，并将方法名替换为你自己选择的名称：
 
@@ -49,15 +49,15 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 如果你还没有 `buildRegistry` 方法，请创建它，并使用 `@Override` 注解标注。
 
-## 已配置地物 {#configured-features}
+## 地物 {#features}
 
-若要让一个地物自然生成在世界中，我们应先在已配置地物类中定义一个已配置地物。
+为了让地物在我们的世界中自然生成，我们应该首先在地物类中定义一个地物。
 
-在开始之前，我们先在 `main` 包中创建已配置的地物类，并声明一个 `configure` 方法：
+在开始之前，让我们在 `main` 包内创建 Feature 类，并声明一个 `configure` 方法：
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_configure_features_class
 
-现在，我们为钻石矿脉添加一个自定义配置地物。首先，在你的已配置地物类中注册 `ConfiguredFeature` 的键：
+现在，让我们为钻石矿石矿脉添加一个自定义地物。首先，在你的地物类中注册 `Feature` 的键：
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_configured_key
 
@@ -73,7 +73,7 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_ruletest
 
-接下来，同样在 `configure` 方法中，我们需要创建 `OreConfiguration`，它告诉游戏要用什么来替换方块。
+接下来，同样在 `configure` 方法中，我们需要创建 `BlockReplacement`，它告诉游戏用什么来替换方块。
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_ore_feature_config
 
@@ -81,13 +81,13 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_multi_ore_feature_config
 
-最后，我们要在 `configure` 方法中将我们配置好的地物注册到游戏中！
+最后，我们需要在 `configure` 方法中将我们的地物注册到游戏中！
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_conf_feature_register
 
 ### 树木 {#trees}
 
-若要创建自定义树，首先需要在 `configure` 方法中创建一个 `TreeConfiguration`：
+要制作一棵自定义树，你需要先在 `configure` 方法中创建一个 `TreeFeature`：
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_tree_feature_config
 
@@ -107,7 +107,7 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 :::
 
-接下来，我们需要在 `ExampleModWorldFeatures` 的 `configure` 方法中添加以下代码行，以注册我们的树木：
+接下来，我们需要将以下代码行添加到 `ExampleModWorldFeatures` 的 `configure` 方法中，以注册我们的树。
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_tree_register
 
@@ -181,9 +181,9 @@ Minecraft 世界中的地物生成可分为 3 个部分：
 
 ## 运行数据生成 {#running-datagen}
 
-现在运行数据生成后，对于你添加的每个已配置地物，都应能在 `src/main/generated/data/example-mod/worldgen/feature` 下看到一个 `.json` 文件；对于每个已放置地物，也应能在 `src/main/generated/data/example-mod/worldgen/placed_feature` 下看到对应文件！
+现在，当你运行数据生成时，你应该会在 `src/main/generated/data/example-mod/worldgen/feature` 下看到你添加的每个地物对应的 `.json` 文件，并且还会在 `src/main/generated/data/example-mod/worldgen/placed_feature` 下看到每个已放置地物对应的文件！
 
-:::details 已配置地物生成文件
+:::details 为地物生成的文件
 
 <<< @/reference/latest/src/main/generated/data/example-mod/worldgen/feature/diamond_block_vein.json
 

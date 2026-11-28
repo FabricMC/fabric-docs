@@ -56,6 +56,12 @@ Beachte, dass wir im obigen Code den `WaypointRenderState` in einem Feld speiche
 
 Jetzt werden wir die "Zeichenphase" implementieren. Dies sollte aufgerufen werden, nachdem alle Wegpunkte, die du rendern möchtest, während der "Extraktionsphase" zum `waypointState` hinzugefügt wurden.
 
+::: info
+
+In 26.3 verwenden wir ein Mixin, um `draw` aufzurufen, da die Fabric API keinen Render-Pass bereitstellt. Siehe `LevelRendererMixin`.
+
+:::
+
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java#custom_pipelines_drawing_phase
 
 Beachte, dass die im `StagedVertexBuffer` Konstruktor verwendete Größe von der verwendeten Render-Pipeline abhängt. In unserem Fall ist es `RenderType.SMALL_BUFFER_SIZE`.
@@ -68,12 +74,14 @@ Schließlich müssen wir die Ressourcen bereinigen, wenn der Spielrenderer gesch
 
 <<< @/reference/latest/src/client/java/com/example/docs/mixin/client/GameRendererMixin.java
 
+<<< @/reference/latest/src/client/java/com/example/docs/mixin/client/LevelRendererMixin.java
+
 ### Finaler Code {#final-code}
 
 Durch die Kombination aller oben genannten Schritte, erhalten wir eine einfache Klasse, die einen Wegpunkt bei `(0, 100, 0)` durch Wände hindurch rendert.
 
 <<< @/reference/latest/src/client/java/com/example/docs/rendering/CustomRenderPipeline.java
 
-Vergiss auch nicht das `GameRendererMixin`! Hier ist das Ergebnis:
+Vergiss auch nicht das `GameRendererMixin` und das `LevelRendererMixin`! Hier ist das Ergebnis:
 
 ![Ein Wegpunkt, der durch Wände hindurch gerendert wird](/assets/develop/rendering/world-rendering-custom-render-pipeline-waypoint.png)

@@ -44,6 +44,12 @@ authors-nogithub:
 
 这是一个获取泥土方块的简单进度：
 
+::: tip
+
+这是一个根进度，因此我们使用 `rootDisplay` 来设置该进度的背景。带有父级进度的进度使用 `display`。
+
+:::
+
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#datagen_advancements_simple_advancement
 
 :::details JSON 输出
@@ -85,6 +91,14 @@ authors-nogithub:
 还有其他多种奖励类型可供选择：
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#reward_types
+
+::: warning
+
+此处使用了一个临时变通方法，以避免因战利品表未生成而导致游戏崩溃。
+
+<<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModAdvancementProvider.java#terrible_workaround
+
+:::
 
 ## 自定义准则 {#custom-criteria}
 

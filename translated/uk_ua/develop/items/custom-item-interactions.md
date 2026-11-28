@@ -54,10 +54,4 @@ InteractionResult.SUCCESS.heldItemTransformedTo().success(heldStack);
 
 Як бачите, блискавка повинна створитися в 10 блоках від вас — гравцем.
 
-:::warning УВАГА, МОЖЕ СПРИЧИНИТИ НАПАД!
-
-Це відео містить візуальні ефекти та тривале миготіння світла, що може вплинути на людей, схильних до фотосенситивної епілепсії або інших видів фоточутливості.
-
-:::
-
-<VideoPlayer src="/assets/develop/items/custom_items_0.webm">Використання палиці блискавки</VideoPlayer>
+![Використання палиці блискавки](/assets/develop/items/custom_items_0.webm){warn}

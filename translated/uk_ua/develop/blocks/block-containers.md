@@ -61,7 +61,7 @@ resources:
 
 `DuplicatorBlock` тепер має мати метод `getTicker`, який повертає посилання на `DuplicatorBlockEntity::tick`.
 
-<VideoPlayer src="/assets/develop/blocks/container_2.mp4">Блок дублікатора, що дублює дубову колоду</VideoPlayer>
+![Блок дублікатора дублює дубову колоду](/assets/develop/blocks/container_2.mp4)
 
 ## Світові контейнери {#worldly-containers}
 
@@ -85,7 +85,7 @@ resources:
 
 Тепер, якщо ми спробуємо вставити предмети збоку, а не зверху, це не спрацює!
 
-<VideoPlayer src="/assets/develop/blocks/container_3.webm">Дублікатор активується лише під час взаємодії з його верхньою стороною</VideoPlayer>
+![Дублікатор діє лише при взаємодії з верхньою гранню](/assets/develop/blocks/container_3.webm)
 
 ## Меню {#menus}
 

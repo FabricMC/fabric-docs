@@ -48,4 +48,4 @@ new Item.Properties().food(new FoodProperties.Builder().build())
 - Завжди їстівним, його можна їсти незалежно від рівня голоду.
 - Завжди дає ефект отруєння II протягом 6 секунд після поїдання.
 
-<VideoPlayer src="/assets/develop/items/food_0.webm">Поїдання отруйного яблука</VideoPlayer>
+![Поїдання отруйного яблука](/assets/develop/items/food_0.webm)

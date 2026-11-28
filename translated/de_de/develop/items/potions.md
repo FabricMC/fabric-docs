@@ -7,6 +7,8 @@ authors:
   - Drakonkinst
   - JaaiDead
   - PandoricaVi
+resources:
+  https://minecraft.wiki/w/Brewing: Brauen - Minecraft Wiki
 ---
 
 Tränke sind Verbrauchsmaterialien, die Entitäten Statuseffekte geben können. Spieler können Tränke mit einem Braustand brauen oder durch andere Spielmechaniken erhalten.
@@ -39,7 +41,7 @@ Lasst uns mit der Deklaration eines Feldes, welches eine Instanz von `Potion` h�
 
 Es wird eine Instanz der `MobEffectInstance` benutzt, die drei Parameter besitzt:
 
-- `Holder<MobEffect> effect` - Ein Effekt, repräsentiert als ein Halter. Hier verwenden wir unseren benutzerdefinierten Effekt. Alternativ kannst du durch die Vanilla Klasse `MobEffects` auf die Vanilla Effekte zugreifen.
+- `Holder<MobEffect> effect` - Ein Effekt, repräsentiert als ein Halter. Hier verwenden wir unseren benutzerdefinierten Effekt. Alternativ kannst du auf Vanilla-Effekte über die Klasse `MobEffects` von Vanilla zugreifen.
 - `int duration` - Länge des Effekts in Spielticks.
 - `int amplifier` - Die Stärke des Effekts. Eile II hätte zum Beispiel einen amplifier-Wert von 1.
 
@@ -49,18 +51,24 @@ Um deinen eigenen Effekt zu erstellen, schau bitte in den Leitfaden [Effekte](..
 
 :::
 
-### Den Trank registrieren {#registering-the-potion}
+### Das Rezept generieren {#registering-the-potion}
 
-In unserer Initialisierungsmethode benutzen wir das `FabricBrewingRecipeRegistryBuilder.BUILD` Event um unseren Trank mithilfe der `BrewingRecipeRegistry.registerPotionRecipe` Methode zu registrieren.
+:::info VORAUSSETZUNGEN
+
+Dieser Leitfaden verweist auf [die Datengenerierung für Rezepte](../data-generation/recipes). Dies ist auch ohne Datengenerierung möglich, doch da für Tränke eine große Anzahl von JSON-Dateien erforderlich ist, wird wie immer die Verwendung des Datengenerators empfohlen.
+
+:::
+
+In der Methode `buildRecipes` eines Rezeptprovider werden wir einen neuen `FabricBrewingProvider` erstellen und `FabricBrewingProvider#buildRecipes` aufrufen, um ein neues Trankrezept zu generieren.
+
+`FabricBrewingProvider` stellt die Methode `buildMixes` bereit, die die eigentlichen Werkrezepte verarbeitet. Du wirst `buildMix` mit 3 Parametern aufrufen:
+
+- `Holder<Potion> input` - Der Starttrank, repräsentiert durch einen Halter. Tränke, die mit Seltsamen Tränken erstellt wurden, sollten stattdessen möglicherweise `buildStartMix` verwenden, wodurch ebenfalls das erwartete Rezept Wasserflasche -> Gewöhnlicher Trank für deine Reagenz generiert wird.
+- `Item reagent` - Die Hauptzutat des Tranks.
+- `Holder<Potion> output` - Der daraus entstandene Trank, dargestellt durch einen Holder.
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModBrewingProvider.java#register_recipes
 
-Die `addMix` Methode besitzt 3 Parameter:
-
-- `Holder<Potion> from` - Der Starttrank, repräsentiert durch einen Halter. In den meisten Fällen ist das eine Wasserflasche oder ein "Seltsamer Trank".
-- `Item item` - Der Gegenstand, der die Hauptzutat bildet.
-- `Holder<Potion> to` - Der Endtrank, repräsentiert durch einen Halter.
-
-Sobald der Trank registriert wurde, kannst du den Tater-Trank mit einer Kartoffel brauen.
+Nachdem du die Datengenerierung ausgeführt hast, kannst du mit einer Kartoffel einen Kartoffeltrank brauen.
 
 ![Effekt im Inventar eines Spielers](/assets/develop/tater-potion.png)

@@ -135,7 +135,7 @@ Fabric API 提供了 `PlayerLookup`，这是一组辅助函数，用于在服务
 
 现在，如果你将此模组添加到服务器，当玩家使用我们的 Lightning Tater 物品时，每个玩家都会看到闪电击中用户的位置。
 
-<VideoPlayer src="/assets/develop/networking/summon-lightning.webm">使用 Lightning Tater 召唤闪电</VideoPlayer>
+![使用闪电土豆（Lightning Tater）召唤闪电](/assets/develop/networking/summon-lightning.webm)
 
 ### 发送数据包到服务器 {#sending-a-packet-to-the-server}
 
@@ -185,4 +185,4 @@ Fabric API 提供了 `PlayerLookup`，这是一组辅助函数，用于在服务
 
 现在，当任何玩家尝试对生物实体使用毒马铃薯时，它就会产生发光效果。
 
-<VideoPlayer src="/assets/develop/networking/use-poisonous-potato.webm">将毒马铃薯用于生物实体时应用发光效果</VideoPlayer>
+![对生物使用毒马铃薯时施加发光效果](/assets/develop/networking/use-poisonous-potato.webm)

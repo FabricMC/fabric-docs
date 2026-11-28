@@ -1,6 +1,6 @@
 ---
 title: Інструкції щодо внеску
-description: Інструкції щодо додавання до документації Fabric.
+description: Інструкції щодо внесків до документації Fabric.
 ---
 
 Цей сайт використовує [VitePress](https://vitepress.dev/) для створення статичного HTML з різних файлів Markdown. Ви повинні ознайомитися з розширеннями [Markdown, які підтримує VitePress](https://vitepress.dev/guide/markdown#features).
@@ -111,7 +111,7 @@ git push
 
 Якщо команда документації вважає, що ви можете розширити свій запит на зміну, член команди додасть мітку <Badge type="tip">stage:expansion</Badge> до вашого запиту разом із коментарем, у якому пояснюється, що, на їхню думку, ви можете розширити. Якщо ви згодні з пропозицією, ви можете розширити свій запит на зміну.
 
-Якщо ви не хочете розширювати свій запит на зміни, але ви раді, щоб хтось інший розширив його пізніше, вам слід створити проблему на [сторінці проблем](https://github.com/FabricMC/ fabric-docs/issues) і поясніть, що, на вашу думку, можна розширити. Потім команда документації додасть мітку <Badge type="tip">help-wanted</Badge> до вашого запиту.
+Якщо ви не хочете розширювати свій запит на зміни, але ви раді, щоб хтось інший розширив його пізніше, вам слід створити проблему на [сторінці проблем](https://github.com/FabricMC/fabric-docs/issues) і поясніть, що, на вашу думку, можна розширити. Потім команда документації додасть мітку <Badge type="tip">help-wanted</Badge> до вашого запиту.
 
 ### 3. <Badge type="tip">stage:verification</Badge> — перевірка вмісту {#3-content-verification}
 
@@ -129,7 +129,7 @@ git push
 
 - Виправлення будь-яких граматичних проблем за допомогою [LanguageTool](https://languagetool.org/)
 - Лінтування всіх файлів Markdown за допомогою [`markdownlint`](https://github.com/DavidAnson/markdownlint)
-- Форматування усього коду Java за допомогою [Checkstyle](https://checkstyle.sourceforge.io/)
+- Форматування всього коду Java за допомогою [Checkstyle](https://checkstyle.sourceforge.io/)
 - Інші різноманітні виправлення та покращення
 
 ## <Badge type="tip">framework</Badge> — Доповнення фреймворку {#contributing-framework}

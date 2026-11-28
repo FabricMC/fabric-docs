@@ -125,4 +125,4 @@ Minecraft 已经有些自定义的类，允许你快速创建特定类型的方�
 
 完成所有步骤后，最终结果应大致如下所示：
 
-<VideoPlayer src="/assets/develop/blocks/blockstates_3.webm">游戏中的海晶灯方块</VideoPlayer>
+![海晶灯方块游戏内展示](/assets/develop/blocks/blockstates_3.webm)

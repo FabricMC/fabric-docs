@@ -48,4 +48,4 @@ new Item.Properties().food(new FoodProperties.Builder().build())
 - 总是可食用，无论饥饿值均可以吃。
 - 吃完会总会给予 6 秒中毒 II。
 
-<VideoPlayer src="/assets/develop/items/food_0.webm">吃 Poisonous Apple</VideoPlayer>
+![食用毒苹果](/assets/develop/items/food_0.webm)

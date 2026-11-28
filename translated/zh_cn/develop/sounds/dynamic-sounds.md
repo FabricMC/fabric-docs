@@ -35,11 +35,7 @@ authors:
 
 我们的 [起始声音](https://freesound.org/people/el-bee/sounds/644881/) 将来自引擎。
 
-<audio controls>
-    <source src="/assets/develop/sounds/dynamic-sounds/step_0.wav" type="audio/wav">
-    
-    你的浏览器不支持音频元素。
-</audio>
+![原始引擎音效](/assets/develop/sounds/dynamic-sounds/step_0.wav)
 
 我们将文件加载到我们选择的 DAW 中。
 
@@ -83,19 +79,11 @@ Reaper 附带一个 EQ 滤波器，叫做“ReaEQ”。它可能位于其他地�
 
 在原始声音中，你可以听到可能是引擎电气元件发出的独特的嗡嗡声和哔哔声。
 
-<audio controls>
-    <source src="/assets/develop/sounds/dynamic-sounds/step_5_first.ogg" type="audio/ogg">
-    
-    你的浏览器不支持音频元素。
-</audio>
+![带有嗡鸣与哔声的引擎音效](/assets/develop/sounds/dynamic-sounds/step_5_first.ogg)
 
 使用 EQ 滤波器，我们几乎可以将其完全去除。听起来肯定更加愉快。
 
-<audio controls>
-    <source src="/assets/develop/sounds/dynamic-sounds/step_5_second.ogg" type="audio/ogg">
-    
-    你的浏览器不支持音频元素。
-</audio>
+![经过均衡器滤波后的引擎音效](/assets/develop/sounds/dynamic-sounds/step_5_second.ogg)
 
 ### 使其循环 {#making-it-loop}
 
@@ -117,11 +105,7 @@ Reaper 附带一个 EQ 滤波器，叫做“ReaEQ”。它可能位于其他地�
 
 这是名为 `ENGINE_LOOP` 的 `SoundEvent` 的完成的循环引擎音频。
 
-<audio controls>
-    <source src="/assets/develop/sounds/dynamic-sounds/step_8.ogg" type="audio/ogg">
-    
-    你的浏览器不支持音频元素。
-</audio>
+![完成循环的引擎音效](/assets/develop/sounds/dynamic-sounds/step_8.ogg)
 
 ## 使用 `SoundInstance` {#using-a-soundinstance}
 
@@ -340,7 +324,7 @@ public enum TransitionState {
 
 最终产品可以根据声音相位调整音量，使过渡更加平滑，并根据来自声源的压力值改变音调。
 
-<VideoPlayer src="/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm">具有动态声音变化的引擎 BlockEntity</VideoPlayer>
+![动态音效变化的引擎方块实体](/assets/develop/sounds/dynamic-sounds/engine-block-sound.webm)
 
 你可以为声源添加另一个值，用于跟踪“过热”值，此外，如果该值大于 0，则让嘶嘶作响的 `SoundInstance` 缓慢淡入，或者为自定义动态 `SoundInstance` 添加一个新接口，为声音类型分配优先级值，以便在声音相互碰撞时选择播放哪种声音。
 

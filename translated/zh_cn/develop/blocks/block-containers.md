@@ -61,7 +61,7 @@ resources:
 
 `DuplicatorBlock` 现在应该有一个 `getTicker` 方法，该方法返回对 `DuplicatorBlockEntity::tick` 的引用。
 
-<VideoPlayer src="/assets/develop/blocks/container_2.mp4">复制器方块复制橡木原木</VideoPlayer>
+![复制方块复制橡木原木](/assets/develop/blocks/container_2.mp4)
 
 ## 世界容器 {#worldly-containers}
 
@@ -85,7 +85,7 @@ resources:
 
 现在，如果我们尝试从侧面而不是顶部输入物品，那就行不通了！
 
-<VideoPlayer src="/assets/develop/blocks/container_3.webm">复制器只有在与其顶部交互时才会激活</VideoPlayer>
+![复制方块仅在顶面交互时激活](/assets/develop/blocks/container_3.webm)
 
 ## 菜单 {#menus}
 

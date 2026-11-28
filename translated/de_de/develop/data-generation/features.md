@@ -21,7 +21,7 @@ Merkmale in Minecraft sind natürliche oder generierte Muster in der Welt, wie B
 
 Die Generierung für Merkmale in Minecraft-Welten gliedert sich in drei Teile:
 
-- **Konfigurierte Merkmale**: Diese definieren was ein Merkmal ist; zum Beispiel ein einzelner Baum
+- **Merkmale**: Diese definieren was ein Merkmal ist; zum Beispiel ein einzelner Baum
 - **Platzierte Merkmale**: Diese definieren, wie die Merkmale ausgelegt werden sollen, in welche Richtung, an welcher relativen Position usw.; zum Beispiel die Platzierung von Bäumen in einem Wald
 - **Biom-Anpassungen**: Diese defineiren, wo die Merkmale in der Welt platziert werden; zum Beispiel die Koordinaten des gesamten Waldes
 
@@ -39,9 +39,9 @@ Füge dann den Provider zu deinem `DataGeneratorEntrypoint` in der `onInitialize
 
 <<< @/reference/latest/src/client/java/com/example/docs/datagen/ExampleModDataGenerator.java#add_worldgen_provider
 
-Erstelle als Nächstes eine Klasse für deine konfigurierten Merkmale und eine Klasse für deine platzierten Merkmale. Diese müssen nichts erweitern.
+Erstelle als Nächstes eine Klasse für deine Merkmale und eine Klasse für deine platzierten Merkmale. Diese müssen nichts erweitern.
 
-Sowohl die Klasse für die konfigurierten Merkmale als auch die platzierten Merkmale sollten über eine öffentliche Methode verfügen, mit der du deine Merkmale registrieren und definieren kannst. Sein Argument, das wir `context` genannt haben, sollte für das konfigurierte Merkmal ein `BootstrapContext<ConfiguredFeature<?, ?>>` sein oder für das platzierte Merkmal ein `BootstrapContext<PlacedFeature>`.
+Sowohl die Klasse für die Merkmale als auch die platzierten Merkmale sollten über eine öffentliche Methode verfügen, mit der du deine Merkmale registrieren und definieren kannst. Sein Argument, das wir `context` genannt haben, sollte für das Merkmal ein `BootstrapContext<Feature>` sein oder für das platzierte Merkmal ein `BootstrapContext<PlacedFeature>`.
 
 Füge in deiner Klasse `DataGeneratorEntrypoint` die folgenden Zeilen in deine Methode `buildRegistry` ein und ersetze dabei den Methodennamen durch den von dir gewählten:
 
@@ -49,15 +49,15 @@ Füge in deiner Klasse `DataGeneratorEntrypoint` die folgenden Zeilen in deine M
 
 Wenn du die Methode `buildRegistry` noch nicht hast, erstelle sie und versehe sie mit der Annotation `@Override`.
 
-## Konfigurierte Merkmale {#configured-features}
+## Merkmale {#features}
 
-Damit ein Merkmal in unserer Welt auf natürliche Weise erscheint, sollten wir zunächst ein konfiguriertes Merkmal in unserer Klasse für konfigurierte Merkmale definieren.
+Damit ein Merkmal in unserer Welt auf natürliche Weise erscheint, sollten wir zunächst ein Merkmal in unserer Klasse für Merkmale definieren.
 
-Bevor wir etwas machen können, lasst uns die Klasse für das konfigurierte Merkmal in dem Paket `main` erstellen und eine Methode `configure` deklarieren:
+Bevor wir etwas machen können, lasst uns die Merkmal-Klasse in dem Paket `main` erstellen und eine Methode `configure` deklarieren:
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_configure_features_class
 
-Lasst uns ein benutzerdefiniertes konfiguriertes Merkmal für eine Diamanterz-Ader hinzufügen. Registriere zunächst den Schlüssel für das `ConfiguredFeature` in deiner konfigurierten Merkmal-Klasse:
+Lasst uns ein benutzerdefiniertes Merkmal für eine Diamanterz-Ader hinzufügen. Registriere zunächst den Schlüssel für das `Feature` in deiner Merkmal-Klasse:
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_configured_key
 
@@ -73,7 +73,7 @@ Als Nächstes erstellen wir einen `RuleTest` in der Methode `configure`, der fes
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_ruletest
 
-Als Nächstes müssen wir, auch in der Methode `configure`, eine `OreConfiguration` erstellen, die dem Spiel sagt, mit was Blöcke ersetzt werden sollen.
+Als Nächstes müssen wir, auch in der Methode `configure`, ein `BlockReplacement` erstellen, das dem Spiel sagt, mit was Blöcke ersetzt werden sollen.
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_ore_feature_config
 
@@ -81,13 +81,13 @@ In der Liste können mehrere Einträge für verschiedene Varianten enthalten sei
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_multi_ore_feature_config
 
-Zuletzt müssen wir unser konfiguriertes Merkmal innerhalb der Methode `configure` in unserem Spiel registrieren!
+Zuletzt müssen wir unser Merkmal innerhalb der Methode `configure` in unserem Spiel registrieren!
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_conf_feature_register
 
 ### Bäume {#trees}
 
-Um einen benutzerdefinierten Baum zu erstellen, musst du zunächst eine `TreeConfiguration` in der Methode `configure` erstellen:
+Um einen benutzerdefinierten Baum zu erstellen, musst du zunächst ein `TreeFeature` in der Methode `configure` erstellen:
 
 <<< @/reference/latest/src/main/java/com/example/docs/worldgen/ExampleModWorldFeatures.java#datagen_world_tree_feature_config
 
@@ -181,9 +181,9 @@ Dieses würde nur in Biomen erscheinen, die mit dem Biom-Tag `minecraft:is_fores
 
 ## Den Datengenerator ausführen {#running-datagen}
 
-Wenn du jetzt den Datengenerator ausführst, solltest du für jedes konfigurierte Merkmal, das du hinzugefügt hast, eine `.json`-Datei unter `src/main/generated/data/example-mod/worldgen/feature` finden, und für jedes platzierte Merkmal eine Datei unter `src/main/generated/data/example-mod/worldgen/placed_feature`!
+Wenn du jetzt den Datengenerator ausführst, solltest du für jedes hinzugefügte Merkmal eine `.json`-Datei unter `src/main/generated/data/example-mod/worldgen/feature` und für jedes platzierte Merkmal eine Datei unter `src/main/generated/data/example-mod/worldgen/placed_feature` finden!
 
-:::details Generierte Datei für das konfigurierte Merkmal
+:::details Generierte Datei für das Merkmal
 
 <<< @/reference/latest/src/main/generated/data/example-mod/worldgen/feature/diamond_block_vein.json
 

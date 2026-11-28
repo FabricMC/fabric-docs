@@ -70,7 +70,7 @@ Ein Attribut an sich ist lediglich eine an eine Entität angehängte Information
 
 <<< @/reference/latest/src/gametest/java/com/example/docs/entity/EntityAttributesGameTest.java#reading_entity_attributes
 
-Eine `AttributeInstance` ermöglicht mehr Flexibilität, beispielsweise das Festlegen eines `AttributeModifier` für das Attribut unter Verwendung einer der [drei Standardoperationen für Attributmodifikatoren](https://minecraft.wiki/w/Attribute#Operations). Modifikatoren können permanent (in NBT gespeichert) oder transitiv (nicht in NBT gespeichert) sein und werden mit `addPermanentModifier` bzw. `addTransitiveModifier` hinzugefügt.
+Eine `AttributeInstance` ermöglicht mehr Flexibilität, beispielsweise das Festlegen eines `AttributeModifier` für das Attribut unter Verwendung einer der [drei Standardoperationen für Attributmodifikatoren](https://minecraft.wiki/w/Attribute#Operations). Modifikatoren können dauerhaft (in NBT gespeichert) oder vorübergehend (nicht in NBT gespeichert) sein und werden jeweils mit `addPermanentModifier` oder `addTransientModifier` hinzugefügt.
 
 <<< @/reference/latest/src/gametest/java/com/example/docs/entity/EntityAttributesGameTest.java#modifying_entity_attributes
 
